@@ -25,15 +25,19 @@ pnpm-debug.log*
 !.vscode/extensions.json
 *.local
 
-# Raw video recording extractions & large media cache (8+ GB)
-recordings/*.frames/
-recordings/**/*.frames/
-recordings/*.mp4
-out/motion/frames/
-
 # Credentials & secrets
 **/.env
 **/.env.*
 !**/.env.example
 agent-runtime/home/.credentials.yaml
 agent-runtime/home/sessions/
+
+# Local reverse-engineering & video2code audit artifacts (kept locally, excluded from repository)
+anyknow/
+.v2c/
+.video_agent/
+recordings/
+out/
+reference/
+hyperclone/recovered/
+hyperclone/verify_*.png

@@ -1,1 +1,0 @@
-import{u as s,a as e,r,j as o}from"./index-TjoB2Buo.js";import{P as t,a}from"./ProSuccessCelebration-BLjYKG3E.js";/* empty css                       */const n=()=>{const n=s(),[i]=e(),[c,j]=r.useState(!1);return o.jsxs(o.Fragment,{children:[o.jsx(t,{tier:i.get("tier")??"pro",onContinue:()=>j(!0)}),o.jsx(a,{isOpen:c,onClose:()=>{j(!1),n("/")}})]})};export{n as default};
