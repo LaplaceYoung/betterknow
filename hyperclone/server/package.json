@@ -1,7 +1,8 @@
 {
-  "name": "hyperclone-server",
+  "name": "@betterknow/server",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
