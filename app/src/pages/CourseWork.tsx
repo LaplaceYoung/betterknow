@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkles, Send, BookOpen, Code, Trophy, RotateCcw, CalendarPlus, BookmarkCheck, FileQuestion } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 import { apiGet, apiPost } from '@/lib/api'
 
 export interface Question {
@@ -726,7 +729,11 @@ export function Project() {
               </span>
             )}
           </div>
-          <div className="text-[13px] leading-6 text-[#374151] whitespace-pre-wrap">{feedback}</div>
+          <div className="hk-prose text-[13px] leading-6 text-[#374151]">
+            <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
+              {feedback}
+            </ReactMarkdown>
+          </div>
         </div>
       )}
 
