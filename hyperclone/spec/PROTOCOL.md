@@ -82,6 +82,28 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - `image_generation.source="reference_page"`：插图直接取课件页本身（本地渲成贴图，不调图像模型），帧带 `source:"reference_page"` + `reference_name` + `page_index`；`image_gen_pending` 同步带这些字段。
 - 课程封面内容寻址：`buildCourseCover`（无 key 时按标题渲 SVG）+ 图像 seam（有 key 时出图）→ `var/data/covers/<hash>.<ext>`，课程对象写 `coverImage{filePath,wideFilePath,hash,url,source}`，列表 `coverImageUrl` 指 `GET /api/v1/covers/<hash>.<ext>`（immutable）。
 
+## 2.6 白板教学回合与生成任务的补充帧（2026-09-16 live 实证）
+
+**白板回合的完整帧序（`r26`）**
+`resume_or_start_course_session{course_session_id}` → `connection_established` → `session_ready` → `set_tts_config` → `lecture_outline_selected` → `start_teaching` → `tts_config` → `sync_whiteboard_state`(客户端持续) → `probe_ok` → `group[board,speak]` → `tts_segment` → 客户端 `action_step_complete{step_id}` → 可选 `animation_pending` → `generated_animation{html}` → `ask` → `done` → `response_complete{is_complete,status:"completed",session:false}`。
+
+- 会话 id：白板会话 = `<course_uuid>__<course_session_id>`；`lecture_outline_id` = `<course_uuid>:<course_session_id>`。
+- `ask` 两种形态：`mode:"choice"{question,options[],correct_index,explanation}` 与 `mode:"open"{question}`。
+- `highlight{step_id,target_board_id,page_id,snippet}` 指向板面元素；`speak{spoken_text,step_id}` 为独立帧。
+- 互动动画是服务端生成的**自包含 HTML**（CSP：`default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'`），样例 `reference/evidence/live_2026-09-16/r26_animation.html`。
+- 客户端白板状态是分栏网格：`{version,revision,activePageId,pages[{id,overlayItems[],columnLayout{lp:{colCount,tileW,tileGapX,tileGapY,gridLeft,gridTop,usableW,usableH,exportPixelW…}}}]}`。
+
+**课程生成的补充帧（`r27/r29/r31`）**
+- 检索多轮：`course_generation_progress{message:"Researching the web (round n/5)",data:{round,max_rounds,keywords}}` → `"Round n fetched N page(s)"{data.research{round,keywords,results[{id,title,url,domain}]}}` → `"Round n summary ready"{data.research.summary}` → `"Selected N web source(s)"{data.reference_ids[]}`；正文用 `[refId]` 引用。
+- 客户端草稿：`course_generation_answer_draft{question,answer}`。
+- 意图路由：`course_generation_rejected{message,reason_code:"one_off_artifact",query,attachment_paths,course_uuid}`——一次性产物（出题/速查表）不该占用课程生成。
+- 冷却：同一用户在其他窗口仍有生成时，问卷的「继续」不可用并提示「生成可能仍在其他窗口进行中，HH:MM 后可继续」。
+- `generation-log` 的运行目录是服务端绝对路径：`/app/cache/database/user_data/<user_id>/coursesData/<course_uuid>`。
+
+**主聊天补充帧（`r29/r30`）**
+`conversation_created` → `credit_status{credit_info{remaining_credits,max_credits,tier,turn_cost},next_reset_time}` → `conversation_title_updated` → `tool_execution{directorAgent,data{phase:"thinking"}}` → `tool_selection{tool_name,tool_status:"started",round_index,index}` → `tool_execution{tool_name,display:"display"|"collapse",data{…}}` → `recommend_next_step` → `complete{tts_pending:false}`。
+技能链：`get_skills` → `data.skill_name` → `ask_questions` → `user_question{question_data{questions[{question,is_multiple,options[],allow_custom}]}}`。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：

@@ -87,3 +87,26 @@
 
 ## 明确不做
 - Stripe 真实付款；Google OAuth 真闭环；Canvas 真实例；生产内部（Remotion worker/KMS/DB）。
+
+## 12. 2026-09-16 轮新增功能点（抓包轮次见 `reference/evidence/live_2026-09-16/`）
+
+| 功能点 | 形状/端点 | 状态 | 证据 |
+|---|---|---|---|
+| 白板互动动画（自包含 HTML） | `animation_pending{step_id,placement_step_id,task_preview,page_id}` → `generated_animation{html}`；CSP `default-src 'none'` 只放行内联脚本/样式 | ✅ 实测（含 14.9KB 样例） | r26 + `r26_animation.html` |
+| 随堂单选（板面测验） | `ask{mode:"choice",question,options[],correct_index,explanation}`（与 `mode:"open"` 并存） | ✅ | r26 |
+| 板面高亮（指向元素） | `highlight{step_id,target_board_id,page_id,snippet}` | ✅ | r26 |
+| 回合收尾帧 | `response_complete{is_complete:true,status:"completed",session:false}` | ✅ | r26 |
+| 白板会话 id 形态 | `session_id = <course_uuid>__<course_session_id>`；`lecture_outline_id = <course_uuid>:<course_session_id>` | ✅ | r25/r26 |
+| 白板分栏状态模型 | `sync_whiteboard_state{whiteboard_state:{version,revision,activePageId,pages[{id,overlayItems[],columnLayout{lp:{colCount,tileW,tileGap…,exportPixelW…}}}]}}` | ✅（客户端→服务端） | r25 |
+| 生成意图路由 | `course_generation_rejected{message,reason_code:"one_off_artifact",query,attachment_paths,course_uuid}`；前端另有「仍然继续生成课程 / 转即时协助」对话框 | ✅ | r29 |
+| 检索多轮 | `Researching the web (round n/5)` → `Round n fetched N page(s)`（results 带 id/title/url/domain）→ `Round n summary ready` → `Selected N web source(s){reference_ids[]}`；正文用 `[refId]` 引用 | ✅ | r31 |
+| 答题草稿 | c2s `course_generation_answer_draft{question,answer}` | ✅ | r31 |
+| 生成冷却/占用 | 问卷阶段提示「生成可能仍在其他窗口进行中，HH:MM 后可继续」，此时 `继续` 不可用 | ✅（UI） | r33 |
+| 技能链 | `get_skills` → `data.skill_name`（`cheatsheetGeneration` / `documentReading`）→ `ask_questions` → `user_question{question_data{questions[{question,is_multiple,options[],allow_custom}]}}` | ✅ | r29/r30 |
+| 测验工具产物 | `generate_quiz.data.questions[]={question,answer_options[{index,content}],correct_answer,explanation,index}` | ✅ | r29 |
+| 推荐下一步 + 学习进度 | `recommend_next_step.data{has_steps,next_steps[{display_step,step_prompt}],learning_progress{title_action,current_title,topic,percentage,…}}` | ✅ | r29 |
+| 轮次计费帧 | `credit_status{credit_info{remaining_credits,max_credits,tier,turn_cost},next_reset_time}`（对话轮 turn_cost=1） | ✅ | r29 |
+| 会话标题回写 | `conversation_title_updated{data{conversation_id,title}}` | ✅ | r29 |
+| 连接器状态路径 | `/api/v1/connectors/google_calendar/status`（200）；`/google_calendar/status`、`/connectors/status` 均 404 | ✅ | r28b |
+| 套餐表 | `stripe/plans`：Free 20c/24h、pro25a $12 40c/12h、pro25b $18 80c/12h、max25a $50 300c/12h（+`country_code`） | ✅ | r28 |
+| 其他 REST 校正 | `orbie/get_orbie_recommendations{recommendations,count}`；`deep_learn/list_deep_learn_session` 为**裸数组**；`banner/get_banner_message{has_message,message}`；`/usage_limits` 404 | ✅ | r28 |

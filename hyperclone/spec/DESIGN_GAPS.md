@@ -154,3 +154,25 @@
 - 问卷作答之后的 `course_generation_answers` → `course_structure_confirm` → `course_generation_complete` 未复测（跑停在等待作答，见 `r16_generation_answers.jsonl` 记录）；此前证据在 `reference/evidence/course_generation_trace.json`。
 - Stripe 真实结账、Google/Canvas OAuth 闭环、PDF 批注通道、语音 PCM 链路本轮未触发。
 - 线上账号为 PRO（80 credits，12h 轮转），免费档的限额差异未复核。
+
+### 11. 2026-09-16 抓包轮：新增能力与已知缺口
+
+本轮把白板「互动动画 / 随堂单选 / 板面高亮 / 回合收尾」与课程生成的「检索多轮 / 意图路由 / 答题草稿」补齐，同时校正了三处 REST 形状。
+
+| 能力 | 本仓实现 | 与线上的差异 |
+|---|---|---|
+| 互动动画 | `animation_pending` → `generated_animation{html}`：有 LLM 时按 CSP 契约生成单文件 HTML，无 key 时用本地自包含动画兜底（滑杆驱动、内联 SVG/脚本） | 线上的动画由模型产出、体量更大（14.9KB 实测）；本仓兜底版是同契约的简化演示 |
+| 随堂单选 | `ask{mode:"choice",question,options[],correct_index,explanation}`：模型出题，stub 时回落到 `mode:"open"` | 线上题目由模型生成并配动画任务；本仓 stub 路径不出题 |
+| 板面高亮 | `highlight{step_id,target_board_id,page_id,snippet}`，snippet 取自板面要点 | 线上的 `target_board_id` 指向具体板面块，本仓统一为 1 |
+| 回合收尾 | `done` + `response_complete{is_complete,status:"completed",session:false}` | 一致 |
+| 检索多轮 | `round n/5` → `fetched N page(s)` → `summary ready` → `Selected N web source(s)`（带 `reference_ids`） | 线上真跑 5 轮检索（每轮 10 页，带 citation id）；本仓按 seam 返回的结果走一轮 |
+| 意图路由 | `course_generation_rejected{reason_code:"one_off_artifact"}`：有 LLM 时由模型判定，stub 时用关键词启发式 | 线上还会在客户端弹「仍然继续生成课程 / 转即时协助」对话框（本仓客户端暂未实现该对话框） |
+| 答题草稿 | 接收 c2s `course_generation_answer_draft` 并归档进 run | 一致 |
+| 会话 id 形态 | 白板会话 `<course_uuid>__<course_session_id>`、`lecture_outline_id` 用冒号 | 一致（本轮修正） |
+| REST 校正 | `orbie` 带 `count`；`deep_learn/list_*` 裸数组；连接器状态看 `/connectors/google_calendar/status` | 一致 |
+
+**仍缺（有证据但未实现）**
+1. 白板**分栏网格状态**：线上客户端把 `{version,revision,activePageId,pages[].columnLayout}` 全量同步给服务端，本仓客户端仍是简单页列表。
+2. 技能链（`get_skills` → `ask_questions` → 产物）与产物工具家族（拍认卡/速查表/教学动画/公开文件发布）在对话通道尚未落地。
+3. 生成冷却语义：线上同一用户存在在跑任务时问卷「继续」被禁用并给出解禁时间；本仓是「attach 到既有任务」，语义不同（更宽松）。
+4. 课程生成的「结构确认」后半段（`course_structure_confirm` → `complete`）本轮被站方冷却挡住，未取得新证据；既有证据仍来自上一轮的 `course_generation_structure`。
