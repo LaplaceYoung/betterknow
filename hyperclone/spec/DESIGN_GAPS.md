@@ -48,7 +48,7 @@
 - 白板通道接受 `user_message`（讲课中直接插问）。
 
 文档差距：`PROTOCOL.md` 的白板章节只有扁平 `board` 帧，缺 `group` / `speak` / `tts_segment` / `key_points` / 白板内 `user_message`（本轮已补进 `PROTOCOL.md` §2.2）。
-实现差距（2026-09-15 修正）：`ws.ts` 原本就发 `group`+`speak`+`tts_segment`，但 `tts_segment` 只有 URL、没有 `tts_cjk`/`tts_latin`/`stub` 字段，且音频是占位 webm；插图动作与帧完全缺失。本轮补齐：TTS 走 BYOK 落盘出声（计数口径对齐线上）、`image_generation` 动作与 `image_gen_pending`/`generated_image`/`image_gen_failed` 帧序、`/api/v1/whiteboard/images/:file` 路由、客户端 `<figure>` 渲染。仍差：`session_ready` 不带 `key_points`（线上有）。
+实现差距（2026-09-15 修正）：`ws.ts` 原本就发 `group`+`speak`+`tts_segment`，但 `tts_segment` 只有 URL、没有 `tts_cjk`/`tts_latin`/`stub` 字段，且音频是占位 webm；插图动作与帧完全缺失。本轮补齐：TTS 走 BYOK 落盘出声（计数口径对齐线上）、`image_generation` 动作与 `image_gen_pending`/`generated_image`/`image_gen_failed` 帧序、`/api/v1/whiteboard/images/:file` 路由、客户端 `<figure>` 渲染。已补齐（2026-09-15 第二轮）：`session_ready.key_points` 由课程 session 提供并缓存；白板会话 id 与课程 session id 对齐。
 
 ### 3.3 课程生成通道 `/api/v1/course-generation/ws`
 实测（`r15_course_generation.jsonl`）：
@@ -76,7 +76,7 @@
 
 | 端点 | 线上实测 | 本仓 | 结论 |
 |---|---|---|---|
-| `…/generation-status` ✅ 已对齐 | `{practice:"none"\|"ready", exam, project, generatingSessionIds[], generatingUnitIds[], generatingStageIds[], practiceBySession{sessionId:"locked"\|…}}` | `{practice:'ready', exam:'ready', project:'ready', generatingSessionIds[], generatingUnitIds[]}` | 缺 `generatingStageIds`、缺 `practiceBySession` 状态机（线上按 session 锁） |
+| `…/generation-status` ✅ 已对齐 | `{practice:"none"\|"ready", exam, project, generatingSessionIds[], generatingUnitIds[], generatingStageIds[], practiceBySession{sessionId:"locked"\|…}}` | 全字段齐（`generating*Ids` 由 run 事件重放、`practiceBySession` 状态机）；阶段内状态值多一个 `"generating"` | 线上仅观测到 `ready\|none`，`generating` 为本仓补充 |
 | `…/progress-status` ✅ 已对齐 | `{examScores{}, practiceStats{sessionId:{started,finished,correct,total}}, projectStages{stageId:{touched,completed,started}}, examStarted{}}` | 无 seed 时回落到 `{course_uuid,status,progress,generation_complete,current_step,error}` | **契约不一致**，需按线上四张表重做 |
 | `…/structure` ✅ 已对齐 | `{structure:{courseTitle, courseDescription, targetLearner, units[…]}}` | `{course_uuid, structure:{units}, pending_update, can_undo}` | 外层缺课程元信息，字段名需对齐 |
 | `…/canvas-updates` ✅ 已对齐 | `{hasBaseline,newFiles,changedFiles,newAssignments,changedDue,syllabusChanged,newModules,changedModules,newAnnouncements,changedAnnouncements,total,pushDisabled}` | `{updates:[], enabled:true, course_uuid}` | **契约不一致** |
@@ -85,7 +85,7 @@
 | `generation-log/{run_id}` ✅ 已对齐 | `{run_id,user_id,course_uuid,query,status,events[{t,dir,type,query,canvas,ui_language,attachment_count,attachment_paths,interactive_structure}],error_logs[],started_at,ended_at,updated_at,total_run_time,url,rating_value,rating_comments}` | `{run_id,status:'completed',events:[],log:[]}` | **空壳**，生成日志页无真实数据 |
 | `course-calendar/status` ✅ 已对齐 | `{scheduled, count}` | `{course_uuid, configured:false, status:'not_configured'}` | **契约不一致** |
 | `course-calendar/config` ✅ 已对齐 | `{enabled:true}` | `{configured:false, start_date, duration_days, preferred_weekdays}` | **契约不一致** |
-| `course-publish/availability` | 路由存在，课程页加载即调用 | 无实现、无前端调用 | 缺「发布课程」能力位 |
+| `course-publish/availability` | 路由存在，课程页加载即调用 | **线上亦 404**（r2/r11/r14/r17 四轮实测 `{"detail":"Not Found"}`），前端容错；本仓与其一致，不做实现 | 不是缺口，是上游尚未上线 |
 
 ## 6. 可观测性与增长埋点（P1）
 
@@ -117,9 +117,10 @@
 1. ~~P0 契约修正~~ **已完成**：`progress-status`（四张表）/ `generation-status`（含 `practiceBySession` 状态机）/ `canvas-updates`（12 字段）/ `course-calendar/{status,config}` / `structure`（外层课程元信息）/ `generation-log`（真事件流，写 `var/data/generation_runs/`）。
 2. ~~P0 协议文档~~ **已完成**：白板动作组 / `tts_segment` / 问卷 `category+allow_custom` / `research.summary` 已进 `PROTOCOL.md`。
 3. ~~P1 生成态持久化~~ **已完成**：每个课程生成 run 落 `{events[], error_logs[], total_run_time, status}`，`generation-log/{run_id}` 直读；socket 断开记为 `disconnected`。
-4. **P1 缺口位**：`course-publish/availability`（发布课程能力位）、`social/latest`（首页社交位）——本仓尚未实现。
-5. **P1 仍差**：`session_ready.key_points`（白板关键点回放）；`generation-status` 的 `generating*Ids` 目前恒为空（我们是一次性同步管线，没有按 session 的生成队列）。
-6. **P2**：封面内容哈希版本化、`source:"reference_page"` 课件页插图分支、练习/考试 TTS 预热的 `voice_id/speed` 透传。
+4. ~~P1 缺口位~~ **已完成**：`social/latest` 按线上形状返回 `{enabled:true,post:null}`；`course-publish/availability` 线上即 404，本仓按同形状留空。
+5. ~~P1 仍差~~ **已完成**：`session_ready.key_points`（模型产出 → 课程持久化 → 白板 session_ready 与大纲路由共用）；`generating*Ids` 改由 run 事件重放（阶段 loading 时列出目标），阶段内 `practice/exam/project` 取 `generating`。
+6. ~~P2~~ **已完成（第三轮）**：封面内容寻址（`/api/v1/covers/<hash>.<ext>`，immutable）、`source:"reference_page"` 课件页插图分支（pdf 讲解链路实证）、练习/考试朗读的 `voice_id/speed` 透传（`POST /api/v1/tts/synthesize`）。
+7. **新增（第三轮）**：生成任务与 socket 解耦（attach/回放/续跑）；TTS 服务层（内容寻址缓存、PCM 直出、语音表、下一句预取）。
 
 ## 10. 自部署决策记录（2026-09-15）
 
@@ -133,6 +134,17 @@
 | 第三方埋点/错误上报 | **不做**：无 intent pixel、无 Clarity、无 `error/add_error_log` 上报 | 需要诊断时用本地日志；若日后要做，字段形状已记录在 §6 |
 | BYOK 生效范围 | **面板配置即运行时**：`resolveByok()` 把用户 5 条 seam 合进进程配置；`config.provider` 的 stub 判定全部改为按用户解析（`eff.provider`），否则面板配了模型也不会生效 | 覆盖对话/课程生成/白板讲解/出题/代码/白板 TTS+插图；进程环境变量退化为默认值 |
 | BYOK 面板 | 5 条 seam 各自 `base_url / model / api_key / enabled` + 预设（Ollama、vLLM、LM Studio、DeepSeek、Kimi、Tavily、SearXNG、SD 网关…）+ 逐条探针测试（默认轻探针，勾选深度探针才真出图/真转写） | 面板保存只写本机 `var/data/state.json`；不写任何第三方凭据文件 |
+| 状态存储的跨进程写 | **加文件锁**：`var/data/state.lock`（`wx` 独占创建 + pid/时间戳过期接管），读-改-写整体串行；并发写不同 seam 8/8 保持 | 之前两个进程共享数据目录会互相覆盖（上一轮的 BYOK 配置就是这么丢的） |
+| run 日志写入 | **同 run 串行 + 原子替换**（临时文件 + rename）：`emit` 是 fire-and-forget，并发的读-改-写会写出半截 JSON | 修复前确实出现 2 个坏 run 文件；修复后新增 run 全部可解析 |
+| 启动守门 | 端口占用（EADDRINUSE）直接退出并打印排查命令；启动日志带 pid / 数据目录 / 静态目录 | 「改了代码行为没变」的元凶就是旧构建进程占着 8787 |
+| 生成管线取模型 | `runCourseGeneration` 的 5 处 `askModel` 全部传用户 seam（此前漏传 → 配了 BYOK 仍走进程级 stub，白板讲稿/大纲/要点全是占位） | 现由实测证实：keyPoints 与描述均来自用户配置的模型 |
+| 生成入口 | `start_course_generation` 之后服务端自行推进管线；已有课程直接回完成帧 | 此前必须客户端发 `course_generation_answers` 才会启动，问卷永远等不到 |
+| 生成任务生命周期 | **任务归服务端**：`start` 建任务，socket 只 attach（先回放再订阅），断开=detach 不中断；`resume` 回放拿到断线期间的全部帧；同一用户同一课程只有一个在跑任务 | 之前管线跑在 socket 回调里，用户一离开任务即断（run 记 disconnected），重连看不到进度 |
+| TTS 缓存 | **内容寻址**：`sha256(provider|model|baseUrl|voice|speed|format|text)` → `var/data/tts/<hash>.<ext>`，URL 带 hash 且 immutable；帧里多一个 `cached` 字段 | 之前每句都打模型、文件名只按会话+序号，重进页面重新计费 |
+| TTS PCM | `format=pcm` 直通 `response_format`；网关不支持回落 mp3；拿到 PCM 就发真实 `interject_pcm`（`stub:false`） | 之前一律发静音占位 PCM |
+| TTS 预取 | 讲解时预取下一句、级联时念当前句合成下一句 | 减少级联停顿；实测第二轮请求全部命中缓存 |
+| 图像测量 | `pngSize/jpegSize` 读到 0 尺寸即视为无效，回落 512×512 | 曾出现 `generated_image.width=0` |
+| 课程封面 | 内容寻址 + 图像 seam 可选出图；列表 `coverImageUrl` 指 `/api/v1/covers/*` | 之前固定 `coverImages/cover.png`，换内容不换 URL |
 | 课程进度消费 | 课程页读取 `generation-status` + `progress-status`：练习按钮按 `practiceBySession` 禁用、按钮显示 `答对/总题`、单元标题显示考试分数、进度条用真实完成数 | 之前只有静态图例与本地 mastery 推断 |
 
 ---

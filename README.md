@@ -151,6 +151,19 @@ cd hyperclone/server && npm ci && npm run build && PORT=8787 npm start   # http:
 # BYOK_LLM_*（或 KIMI_/OPENAI_/AIGW_）、BYOK_TTS_*、BYOK_STT_*、BYOK_SEARCH_*、BYOK_IMAGE_*
 ```
 
+### 生成任务与语音
+
+- **课程生成是服务端任务**：`start_course_generation` 之后管线在服务端跑，页面只是订阅者；离开页面不会中断，回来 `resume_course_generation` 会把断线期间的帧按序回放（含检索进度、问卷、结构确认、完成帧）。任务日志落 `var/data/generation_runs/<run_id>.json`，`GET /api/v1/course-generation/generation-log/{run_id}` 可查。
+- **语音（TTS）**：所有朗读走同一条服务层——内容寻址缓存（同文本同 URL，命中不再打模型）、`pcm` 直出（供白板 `interject_pcm` 实时播放，网关不支持时回落 mp3 + 占位 PCM）、语音表 `GET /api/v1/tts/voices`（provider 有 `/audio/voices` 就用它，否则内置 `warm|calm|bright|gentle|firm|lively`）。
+- 练习/考试页的朗读按钮优先用你配置的 TTS 模型（`POST /api/v1/tts/synthesize`，voice/speed 透传）；没配 key 时自动回落浏览器语音合成。
+- `GET /api/v1/tts/stats` 看缓存命中/占用；密钥仍走 BYOK 面板或 `BYOK_TTS_API_KEY / _BASE_URL / _MODEL`。
+
+### 运行与数据
+
+- **数据目录**：`hyperclone/server/var/data/`（`HYPERCLONE_DATA_DIR` 可改）。`state.json` 的读-改-写带跨进程文件锁（`state.lock`，进程崩溃留下的过期锁会被自动接管），所以同一份数据可以被多个进程安全打开；但媒体与 run 日志仍是本地文件，多副本部署请各自挂同一块盘并避免并发重建。
+- **端口占用**：启动时若端口已被占用会直接退出并打印 `lsof -nP -iTCP:<port> -sTCP:LISTEN` 排查命令——故意不静默带病运行，否则你会对着旧进程调代码。
+- **生成日志**：每次课程生成落一个 `var/data/generation_runs/<run_id>.json`（事件时间线、错误日志、总耗时），`GET /api/v1/course-generation/generation-log/{run_id}` 直接读它；同一 run 的写入串行且原子替换，不会出现半截文件。
+
 本地 BYOK 版的取舍：**不引入账号体系与鉴权服务**（设备免登 + 本地 JWT）、**不做积分与订阅**、**不接云存储**（媒体落 `var/data/whiteboard/**`）。接口字段仍按上游形状返回，前端无需分支。
 
 ---

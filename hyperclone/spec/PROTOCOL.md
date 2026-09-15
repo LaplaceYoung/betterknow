@@ -29,6 +29,10 @@
 voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 诊断：/api/v1/net-check（GET）、/api/v1/net-check/ws（probe_ok）
 
+**本仓实现补充（2026-09-15 第二轮）**
+- `session_ready.key_points`：字符串数组，取自课程 session（生成时由模型产出、随课程持久化）；白板会话 id 与课程 session id 对齐——首次进入课程课节时沿用该 id 并缓存 key_points 与标题，重连不再依赖课程记录。
+- `/whiteboard/course-outlines/:courseUuid/sessions` 的每条 session 同样带 `key_points`（线上 r14 实测 4 条为一组；r17 实测存在空数组样本）。
+
 **动作组与媒体（2026-09-15 live 实证，`live_2026-09-15b/r12,r15,r19`）**
 - 板书即动作组：`session_ready.messages[]` 里 assistant 消息的 `content` 是可解析的 `{"type":"group","actions":[…]}` JSON 字符串；`group.actions[]` 的动作类型实测有 `board / speak / image_generation / highlight / circle / keypoint_complete / new_page / new_column / animation / ask / done / reward_user`（`animation` 为白板动画，见 `video2frame` 之外的独立帧族）。
 - `speak` 动作在持久化消息里带 `audio_url`；服务端另发 `tts_segment`：每个 speak 一条，`tts_cjk` = CJK 字符数、`tts_latin` = 拉丁字母数（实测 96 / 0、51 / 0），音频取 `/api/v1/whiteboard/audio-stream/{user_id}/{session_id}/tts_<session前缀>_<seq>_<hash6>.webm`（图片同理公开无鉴权）。
@@ -41,11 +45,49 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 →：start_course_generation{query,ui_language,course_uuid,attachment_paths[],course_source_mode,canvas_selection?,interactive_structure?} / course_generation_answers[{question_index,selected_options[]}] / course_generation_answer_draft{question,answer} / course_structure_confirm / stop_course_generation / resume_course_generation{course_uuid,structure_confirmed?,answers?} / start_course_update / course_update_confirm / course_update_feedback / resume_or_start_course_session / stop_course_update
 ←：connection_established / course_generation_started{course_uuid,run_dir(服务端路径),run_id} / course_generation_step{step_id:boot|researching_the_web|generating_initial_syllabus|generating_course_structure|generating_session_outlines,status:loading|completed,title,placeholder} / course_generation_progress{message,data{round,max_rounds,keywords} | data{research{round,keywords,results[{id,title,url,domain}],summary}} | data{reference_ids[]} | data{stage_name,references[]}} / course_generation_questions{question_data{questions[{question,options[{title,description}],is_multiple,allow_custom,category:prerequisite|course_specific|target_level|course_scale}]},course_uuid} / course_generation_complete{course{完整课程对象}}
 （2026-09-15 live 复核：progress 的四段形态按出现顺序 round→research→reference_ids→stage_name 逐条落地；questions 每题带 `category` 与 `allow_custom`；`start_course_generation` 实测字段 `query,ui_language,course_uuid,attachment_paths[],course_source_mode:"self_study",interactive_structure`；心跳 25s。）
+**生成态字段语义（本仓实现，2026-09-15 第二轮）**
+- `generation-status` 的 `generatingSessionIds / generatingUnitIds / generatingStageIds` 不是常驻队列，而是「当前正在写的目标」：由 run 事件重放得到——`generating_session_outlines` 处于 loading 时列出该轮所有 session（与所属 unit），`generating_assessments` 处于 loading 时列出 project 的 stage_id。窗口长度 = 该阶段的模型耗时（本仓实测 0.7–2.5s，取决于 BYOK 模型延迟）。
+- 阶段进行中，`practice / exam / project` 取 `"generating"`（线上仅观测到 `ready|none`，`generating` 为推断值），完成后回到 `ready|none`。
+- 管线会自报阶段：`course_generation_step{step_id: boot|researching_the_web|generating_initial_syllabus|generating_structure|generating_session_outlines|generating_assessments|complete}`；进度事件 `course_generation_progress.data.stage_name` ∈ `researching_the_web | initial_syllabus | course_structure | session_outline:<unitId>:<sessionId> | project_stage:<unitId>:<stageId>`。
+- `start_course_generation` 之后服务端自行推进（boot → 检索 → 大纲 → 问卷）；已有课程时直接回 `course_generation_complete` + 存量课程，不重跑管线。
 
 ### 2.4 PDF 批注 `/pdf-annotation/ws?access_token=`
 实测：无 token 1008 关闭；携带 token 连接后待 WSDeep 交付。
 
+## 2.5 生成任务与 TTS 服务（本仓实现，2026-09-15 第三轮）
+
+**生成任务（与 socket 解耦）**
+- `start_course_generation` 在服务端建任务（`task_id` = `run_id`），管线跑在任务里；socket 只 attach：
+  - attach → 先按序回放该任务的全部帧，再订阅后续帧；
+  - 断开 = detach，**不中断生成**（`generation-status` 期间照常给出 `generating*Ids`）；
+  - `resume_course_generation` → 找到该用户/课程在跑的任务并回放（拿到 "刚刚发生了什么"）；
+  - `stop_course_generation` → 任务停 + run 记 `disconnected`；
+  - 课程已生成过 → 立刻回 `course_generation_complete` + 存量课程，不重跑。
+- 一个用户同一门课程只会有一个在跑的任务（重复 start 会 attach 到既有任务）。
+- 恢复方式：`GET /api/v1/course-generation/generation-log/{run_id}`（事件时间线）与 `generation-status`（目标列表）都可跨进程重启读。
+
+**TTS 服务层**
+- 所有合成经 `src/tts.ts`（seam 之上）：`synthesize / synthesizeMany / prefetch / listVoices / pcmFromWav`。
+- **内容寻址缓存**：key = `sha256(provider|model|baseUrl|voice|speed|format|text)` → `var/data/tts/<hash>.<ext>`，同文本同 URL：
+  - HTTP：`GET /api/v1/tts/audio/<hash>.<ext>`（`cache-control: immutable`）；
+  - 白板帧 `tts_segment` / `interject_audio` 多一个 `cached` 字段（线上无此字段，属本地扩展）。
+- **PCM 直出**：`format='pcm'` 请求 `response_format=pcm`（原始 PCM16 24k，免解码）；网关不支持时回落 `mp3`。`interject_pcm{interject_id, pcm_b64, sample_rate, stub}`：拿到 PCM 时 `stub:false` 且是真实采样；拿不到才发静音占位并标 `stub:true`。
+- **预取**：白板讲解（讲下一句）与级联插问（念当前句时合成下一句）都会预热缓存，第二次同句直接命中。
+- **语音表**：`GET /api/v1/tts/voices` → 先问 provider `GET /audio/voices`，404/失败回落内置六个（线上取值 `warm|calm|bright|gentle|firm|lively`，映射到 OpenAI 音色）。
+- **REST**：
+  - `POST /api/v1/tts/synthesize {text, voice_id?, speed?, format?, session_id?}` → `{audio_url, ext, mime, cached, stub, bytes, hash, tts_cjk, tts_latin, voice_id, speed}`；voice/speed 缺省取会话 `tts_config`（练习/考试朗读走这条，实现 voice_id/speed 透传）。
+  - `GET /api/v1/tts/stats` → `{hits, misses, bytes, stub, prefetches, files}`。
+
+**图像与封面**
+- `image_generation.source="reference_page"`：插图直接取课件页本身（本地渲成贴图，不调图像模型），帧带 `source:"reference_page"` + `reference_name` + `page_index`；`image_gen_pending` 同步带这些字段。
+- 课程封面内容寻址：`buildCourseCover`（无 key 时按标题渲 SVG）+ 图像 seam（有 key 时出图）→ `var/data/covers/<hash>.<ext>`，课程对象写 `coverImage{filePath,wideFilePath,hash,url,source}`，列表 `coverImageUrl` 指 `GET /api/v1/covers/<hash>.<ext>`（immutable）。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
+
+补充（2026-09-15 第二轮）：
+- `GET /api/v1/social/latest` → `{"enabled":true,"post":null}`（线上 r1/r7/r12/r13 四次抓包 `post` 均为 null，非空结构未观测，本仓恒 null）。
+- `GET /api/v1/course-publish/availability` → 线上**本身返回 404**（r2/r11/r14/r17 四轮实测），前端容错；本仓不实现该路由（404 体为 `{"detail":"Not Found"}`）。
+
 - `GET /api/v1/course-generation/learning-summary?week=this&timezone_offset_minutes=`（新增，本轮 courses chunk）
 - `GET|DELETE /api/v1/course-generation/courses/{uuid}`
 - `POST /api/v1/marketplace/courses/{marketplaceId}/enroll` 200 `{courseUuid,message}`
