@@ -1,0 +1,207 @@
+/** Leftover daily-trends hotspots (no live fetch). */
+
+export const TREND_REGION = "US";
+
+export const TREND_HOTSPOTS = [
+  {
+    zh: { summary: "欧盟将采取行动应对社交应用中的“成瘾性设计”", prompt: "我看到欧盟正在针对“无尽滚动”功能，目前正在考虑哪些具体的法规来减少应用成瘾？" },
+    en: { summary: "EU to take action against 'addictive design' in social apps", prompt: "I saw that the EU is targeting 'endless scrolling' features—what are the specific regulations being considered to reduce app addiction?" },
+  },
+  {
+    zh: { summary: "锻炼通过训练脑细胞让你变得更强壮", prompt: "我看到锻炼能训练脑细胞来增强耐力，运动结束后大脑中持续存在的那些信号到底是什么？" },
+    en: { summary: "Exercise makes you stronger by training your brain cells", prompt: "I saw that exercise trains brain cells to build endurance—what are these lingering signals that happen after a workout ends?" },
+  },
+  {
+    zh: { summary: "特殊藻类有望清除饮用水中的微塑料", prompt: "我看到研究人员创造了能清理微塑料的藻类，这种藻类究竟是如何捕捉并清除微小塑料颗粒的？" },
+    en: { summary: "Special algae could remove microplastics from drinking water", prompt: "I saw that researchers created algae to clean microplastics—how does this algae actually capture and remove tiny plastic particles?" },
+  },
+  {
+    zh: { summary: "大西洋岩浆涌动引发数千次地震", prompt: "我看到葡萄牙附近一次巨大的无声岩浆涌动引发了数千次地震，岩浆是如何在地下深处移动而不被察觉的？" },
+    en: { summary: "Magma surge triggered thousands of earthquakes in Atlantic", prompt: "I saw that a massive silent magma surge caused thousands of quakes near Portugal—how can magma move so deep underground without being noticed?" },
+  },
+  {
+    zh: { summary: "罕见抗癌植物化合物的合成机制被成功解码", prompt: "我看到科学家破解了植物制造米特拉菲林的机制，为什么这种化合物在自然界如此罕见，解码它有什么帮助？" },
+    en: { summary: "Rare cancer-fighting plant compound's recipe decoded", prompt: "I saw that scientists cracked how a plant makes mitraphylline—why is this compound so rare in nature, and how will decoding it help?" },
+  },
+  {
+    zh: { summary: "抗衰老突破：让衰老的血液干细胞重获青春", prompt: "我看到科学家让老化的血液干细胞恢复了活力，溶酶体在这个过程中起什么作用，镇静它们有何帮助？" },
+    en: { summary: "Old blood stem cells made young again in anti-aging feat", prompt: "I saw that scientists rejuvenated old blood stem cells—what is the role of lysosomes in this process and how does calming them help?" },
+  },
+  {
+    zh: { summary: "随着气候变化加剧，南大洋正变得更加“湿热”", prompt: "我看到一份关于偏远岛屿气候剧变的报告，南大洋正在“出汗”意味着什么？" },
+    en: { summary: "Southern Ocean 'sweating' more as climate change intensifies", prompt: "I saw a report about a remote island showing dramatic climate changes—what does it mean for the Southern Ocean to be 'sweating'?" },
+  },
+  {
+    zh: { summary: "詹姆斯·韦伯望远镜揭示了宇宙网的最清晰地图", prompt: "我读到韦伯望远镜绘制了宇宙隐藏结构的地图，究竟什么是“宇宙网”，它是如何连接星系的？" },
+    en: { summary: "James Webb telescope reveals clear map of the cosmic web", prompt: "I read that the James Webb telescope mapped the universe’s hidden structure—what exactly is the 'cosmic web' and how does it connect galaxies?" },
+  },
+  {
+    zh: { summary: "新型“超级钢”可在海水中制造绿色氢气", prompt: "我看到一种新型不锈钢可以在海水中抗腐蚀，它的“双重保护”机制是如何让它取代昂贵的钛金属的？" },
+    en: { summary: "New 'super steel' survives seawater for green hydrogen use", prompt: "I saw that a new stainless steel resists corrosion in seawater—how does its 'double-protection' mechanism allow it to replace expensive titanium?" },
+  },
+  {
+    zh: { summary: "苹果计划在即将发布的系统版本中增加建议Genmoji功能", prompt: "我读到苹果的“Genmoji”将根据文字和照片提供建议，AI究竟是如何为用户生成这些自定义表情符号的？" },
+    en: { summary: "Apple plans to add Suggested Genmoji to upcoming OS versions", prompt: "I read that Apple's 'Genmoji' will use type and photos for suggestions—how exactly will the AI generate these custom emojis for users?" },
+  },
+  {
+    zh: { summary: "阿耳忒弥斯2号的成功为重返月球铺平了道路", prompt: "我看到阿耳忒弥斯2号确认了NASA的系统已准备就绪，接下来的阿耳忒弥斯3号载人登月任务有哪些重大步骤？" },
+    en: { summary: "Artemis II success paves the way for Moon return", prompt: "I saw that Artemis II confirmed NASA's systems are ready—what are the next major steps for the upcoming Artemis III mission to the Moon?" },
+  },
+  {
+    zh: { summary: "脊髓灰质炎病毒和感冒病毒被发现共有弱点", prompt: "我刚看到科学家发现了病毒繁殖的共同伎俩，这项发现是否能让我们研发出应对不同疾病的单一药物？" },
+    en: { summary: "Weak spot found in polio and common cold viruses", prompt: "I just read that scientists found a shared trick used by viruses to reproduce—could this discovery lead to a single drug for different diseases?" },
+  },
+  {
+    zh: { summary: "安卓17将推出“暂停点”功能以减少干扰", prompt: "我看到安卓17将在打开干扰性应用前强制暂停10秒，用户如何选择哪些应用会受此功能影响？" },
+    en: { summary: "Android 17 to feature 'Pause Point' to reduce distractions", prompt: "I saw that Android 17 will force a 10-second pause before opening distracting apps—how do users choose which apps are affected by this?" },
+  },
+  {
+    zh: { summary: "哈勃望远镜揭示了一个巨大且混乱的“行星托儿所”", prompt: "我看到哈勃拍摄的一个奇特且不对称的行星托儿所图像，这项发现如何改变了我们对行星形成的认知？" },
+    en: { summary: "Hubble reveals a giant, chaotic 'planet nursery' disk", prompt: "I saw a Hubble image of a strange lopsided planet nursery—how does this discovery change what we know about how planets are formed?" },
+  },
+  {
+    zh: { summary: "纳米技术成功逆转小鼠的阿尔茨海默症症状", prompt: "我刚看到纳米颗粒逆转了小鼠的阿尔茨海默症，这些颗粒究竟是如何清除大脑中的毒性蛋白的？" },
+    en: { summary: "Nanotechnology reverses Alzheimer’s symptoms in mice", prompt: "I just read that nanoparticles reversed Alzheimer's in mice—how do these particles actually clear toxic proteins from the brain?" },
+  },
+  {
+    zh: { summary: "新型量子算法解决了复杂的材料学难题", prompt: "我刚看到一种针对准晶体的量子启发算法，为什么传统的超级计算机在处理此类材料时非常吃力？" },
+    en: { summary: "New quantum algorithm solves complex materials problems", prompt: "I just read about a quantum-inspired algorithm for quasicrystals—why do conventional supercomputers struggle with these types of materials?" },
+  },
+  {
+    zh: { summary: "针对衰老和癌症相关“僵尸细胞”的新药问世", prompt: "我读到研究人员找到了杀死衰老细胞的方法，这些药物是如何利用细胞自身的生存系统来消灭它们的？" },
+    en: { summary: "New drugs target 'zombie cells' linked to aging and cancer", prompt: "I read that researchers found a way to kill senescent cells—how do these drugs turn the cells' own survival system against them?" },
+  },
+  {
+    zh: { summary: "苹果在测试版中为RCS消息增加了端到端加密", prompt: "我看到iPhone上的RCS消息现在将具备加密功能，这对于在安卓和iOS之间发短信的人来说如何提高安全性？" },
+    en: { summary: "Apple adds end-to-end encryption for RCS messaging in beta", prompt: "I saw that RCS messaging on iPhone will now have encryption—how does this improve security for people texting between Android and iOS?" },
+  },
+  {
+    zh: { summary: "罗曼太空望远镜将探测数百万颗不可见的恒星", prompt: "我刚看到NASA的新望远镜可以发现不可见的中子星，它是如何探测那些不发出可见光的恒星的？" },
+    en: { summary: "Roman Space Telescope to detect millions of invisible stars", prompt: "I just read that NASA's new telescope could find invisible neutron stars—how does it detect stars that don't emit visible light?" },
+  },
+  {
+    zh: { summary: "Grafana在GitHub环境遭黑客攻击后拒绝支付赎金", prompt: "我看到Grafana的代码库成为了黑客的目标，当开发环境被入侵时，公司该如何保护其源代码？" },
+    en: { summary: "Grafana refuses to pay ransom after GitHub environment hack", prompt: "I saw that Grafana's codebase was targeted by hackers—how can a company protect its source code when a development environment is compromised?" },
+  },
+  {
+    zh: { summary: "谷歌DeepMind揭秘由Gemini驱动的智能鼠标指针", prompt: "我看到谷歌创造了一个能理解指向内容的鼠标指针，这如何帮助用户避免使用繁琐的文本提示词？" },
+    en: { summary: "Google DeepMind reveals Gemini-powered smart mouse pointer", prompt: "I saw that Google created a mouse pointer that understands what it's pointing at—how does this help users avoid using text-heavy prompts?" },
+  },
+  {
+    zh: { summary: "Anthropic升级Claude Sonnet 4.6并支持100万代币窗口", prompt: "我刚看到Claude Sonnet 4.6拥有巨大的上下文窗口，100万代币的限制对于编程和复杂任务有什么好处？" },
+    en: { summary: "Anthropic upgrades Claude Sonnet 4.6 with 1M token window", prompt: "I just read that Claude Sonnet 4.6 has a massive context window—what are the benefits of a 1 million token limit for coding and complex tasks?" },
+  },
+  {
+    zh: { summary: "失传手稿揭示了已知最早的一首英语诗歌", prompt: "我刚看到在罗马发现了一份有1200年历史的手稿，为什么这个版本的首首英语诗对历史学家如此重要？" },
+    en: { summary: "Lost manuscript reveals one of the oldest English poems", prompt: "I just read about a 1,200-year-old manuscript found in Rome—why is this version of the first English poem so significant to historians?" },
+  },
+  {
+    zh: { summary: "大王乌贼的发现揭示了隐藏的深海世界", prompt: "我读到在澳大利亚附近发现了大王乌贼的踪迹，科学家使用什么技术在深海峡谷中寻找这些生物？" },
+    en: { summary: "Giant squid discovery reveals hidden deep-sea world", prompt: "I read that signs of giant squid were found off Australia—what kind of technology do scientists use to find creatures in deep underwater canyons?" },
+  },
+  {
+    zh: { summary: "断食七天会导致身体内部发生剧烈转变", prompt: "我读到断食三天后身体会发生转变，在为期一周的断食期间，身体内部最显著的变化是什么？" },
+    en: { summary: "Seven days of fasting causes dramatic internal body changes", prompt: "I read that the body transforms after three days without food—what are the most significant changes that occur during a week-long fast?" },
+  },
+  {
+    zh: { summary: "苹果Siri将增加自动删除聊天记录的选项", prompt: "我看到Siri将增加自动删除功能，这种改变在保护用户隐私方面与现有的语音助手有什么不同？" },
+    en: { summary: "Apple's Siri to include auto-delete chat history option", prompt: "I saw that Siri is getting an auto-delete feature—how does this change protect user privacy differently from existing voice assistants?" },
+  },
+  {
+    zh: { summary: "谷歌利用人工智能识别并阻止零日网络攻击", prompt: "我刚看到AI帮助发现了一个未知的零日漏洞，这如何加快了防御黑客攻击的过程？" },
+    en: { summary: "Google uses AI to identify and stop zero-day cyberattacks", prompt: "I just read that AI helped discover an unknown zero-day bug—how does this speed up the process of defending against hackers?" },
+  },
+  {
+    zh: { summary: "格陵兰岛冰川融化速度激增六倍引发担忧", prompt: "我读到格陵兰岛的冰层融化速度远超以往，科学家所说的那些加速融化的“极端事件”具体是指什么？" },
+    en: { summary: "Greenland ice melt surges sixfold causing alarm", prompt: "I read that Greenland's ice is melting much faster than before—what are the specific 'extreme events' that scientists say are supercharging the melt?" },
+  },
+  {
+    zh: { summary: "Anthropic推出针对软件工程的Claude Opus 4.7", prompt: "我读到Opus 4.7使用了新的分词器，针对高级编程任务提到的“xhigh”努力级别是什么意思？" },
+    en: { summary: "Anthropic launches Claude Opus 4.7 for software engineering", prompt: "I read that Opus 4.7 uses a new tokenizer—what is the 'xhigh' effort level mentioned for advanced coding tasks?" },
+  },
+  {
+    zh: { summary: "科学家成功发送跨越120公里的不可破解量子密钥", prompt: "我读到加密量子信号通过120公里的光纤发送，与普通加密相比，是什么让这些量子密钥“不可破解”？" },
+    en: { summary: "Scientists send unhackable quantum keys across 120 kilometers", prompt: "I read that encrypted quantum signals were sent over 120km of fiber—what makes these quantum keys 'unhackable' compared to normal encryption?" },
+  },
+  {
+    zh: { summary: "量子突破将“时间晶体”连接到实际设备上", prompt: "我看到“时间晶体”被连接到了机械振荡器上，什么是时间晶体，这种连接会如何带来新技术？" },
+    en: { summary: "Quantum breakthrough links 'time crystal' to real device", prompt: "I saw that a 'time crystal' was connected to a mechanical oscillator—what is a time crystal, and how could this link lead to new technology?" },
+  },
+  {
+    zh: { summary: "探测难以捉摸的量子“W态”取得突破性进展", prompt: "我读到一种探测量子“W态”的新方法，这些状态是什么，为什么它们对未来的量子通信很重要？" },
+    en: { summary: "Breakthrough in detecting elusive quantum 'W states'", prompt: "I read about a new way to detect quantum 'W states'—what are these states and why are they important for future quantum communication?" },
+  },
+  {
+    zh: { summary: "人类重返不列颠的时间比此前认为的要早", prompt: "我看到有证据显示人类在冰河时代后重返不列颠的时间提早了500年，科学家发现了什么新证据？" },
+    en: { summary: "Humans returned to Britain earlier than previously thought", prompt: "I saw that evidence shows humans returned to Britain 500 years earlier after the Ice Age—what new proof did scientists find?" },
+  },
+  {
+    zh: { summary: "NASA测试让航天器独立运行的新型AI芯片", prompt: "我看到NASA正在测试让航天器“思考”的芯片，为什么现有的航天器在没有这种新硬件的情况下无法独立运行？" },
+    en: { summary: "NASA tests AI space chip for independent spacecraft operations", prompt: "I saw that NASA is testing a chip to let spacecraft 'think'—why can't current spacecraft operate independently without this new hardware?" },
+  },
+  {
+    zh: { summary: "科学家发现阻止大地震发生的隐藏“制动器”", prompt: "我刚看到海洋断层中存在天然“制动区”，这些区域是如何阻止地震演变成大规模灾难的？" },
+    en: { summary: "Hidden underwater 'brakes' found to stop massive earthquakes", prompt: "I just read about natural 'brake zones' in ocean faults—how do these zones prevent an earthquake from growing into a massive disaster?" },
+  },
+  {
+    zh: { summary: "研究发现西瓜具有意想不到的健康益处", prompt: "我看到西瓜被描述为健康之源，它能提供哪些特定的营养成分让饮食变得更健康？" },
+    en: { summary: "Studies uncover surprising health benefits of watermelon", prompt: "I saw that watermelon is being called a health powerhouse—what specific nutrients does it provide that make it better for a diet?" },
+  },
+  {
+    zh: { summary: "NASA拍摄到阿拉斯加空中的罕见北极风暴和漩涡云", prompt: "我看到NASA卫星拍摄的阿拉斯加附近的涡旋云图像，寒冷的北极空气是如何在海洋上空形成这些复杂图案的？" },
+    en: { summary: "NASA captures rare arctic storm and swirling clouds over Alaska", prompt: "I saw NASA satellite images of swirling vortex clouds near Alaska—how does cold Arctic air create these complex patterns over the ocean?" },
+  },
+  {
+    zh: { summary: "全球范围内发现神秘的有机硅污染物", prompt: "我刚看到大气中存在甲基硅氧烷污染物，这些化学物质是从哪里来的，为什么值得关注？" },
+    en: { summary: "Mysterious silicone pollutants discovered across the globe", prompt: "I just read about methylsiloxane pollutants in the atmosphere—where do these chemicals come from and why are they a concern?" },
+  },
+  {
+    zh: { summary: "OpenAI发布GPT-5.5 Instant作为ChatGPT默认模型", prompt: "我读到GPT-5.5 Instant更智能也更准确，与之前的“Instant”版本相比，它有哪些具体的改进？" },
+    en: { summary: "OpenAI launches GPT-5.5 Instant as default ChatGPT model", prompt: "I read that GPT-5.5 Instant is smarter and more accurate—what are the specific improvements over the previous 'Instant' versions?" },
+  },
+  {
+    zh: { summary: "苹果发布搭载M5 Pro和M5 Max芯片的新款MacBook Pro", prompt: "我看到新款MacBook Pro声称提示词处理速度快得多，新的M5架构具体是如何加速AI任务的？" },
+    en: { summary: "Apple refreshes MacBook Pro with M5 Pro and M5 Max chips", prompt: "I saw that the new MacBook Pros claim much faster prompt processing—how does the new M5 architecture speed up AI tasks specifically?" },
+  },
+  {
+    zh: { summary: "西班牙发现一亿五千万年前的剑龙骨骼化石", prompt: "我看到科学家在欧洲发现了一个罕见的剑龙头骨，这项发现揭示了此类恐龙进化的哪些信息？" },
+    en: { summary: "150-million-year-old stegosaur skull found in Spain", prompt: "I saw that scientists found a rare stegosaur skull in Europe—what does this discovery reveal about how these dinosaurs evolved?" },
+  },
+  {
+    zh: { summary: "OpenAI发布新型实时语音和推理模型", prompt: "我看到OpenAI在其API中推出了三种新的语音模型，推理、转录和翻译模型之间有什么区别？" },
+    en: { summary: "OpenAI releases new Realtime voice and reasoning models", prompt: "I saw that OpenAI launched three new voice models for its API—what is the difference between the reasoning, transcription, and translation models?" },
+  },
+  {
+    zh: { summary: "埃塞俄比亚的化石发现重写了人类起源史", prompt: "我看到多个近亲物种可能曾在埃塞俄比亚共同生活，这如何改变了传统的人类进化时间线？" },
+    en: { summary: "Fossil discovery in Ethiopia rewrites human origins", prompt: "I saw that multiple human relatives might have lived together in Ethiopia—how does this change the traditional timeline of human evolution?" },
+  },
+  {
+    zh: { summary: "谷歌预展用于任务自动化的Gemini Intelligence", prompt: "我看到“Gemini Intelligence”将支持跨应用的任务自动化，用户可以期待AI自动处理哪些日常任务？" },
+    en: { summary: "Google previews Gemini Intelligence for task automation", prompt: "I saw that 'Gemini Intelligence' will allow task automation across apps—what kind of daily tasks can users expect the AI to handle automatically?" },
+  },
+  {
+    zh: { summary: "OpenAI与马耳他合作开展全民AI素养提升项目", prompt: "我读到马耳他公民可以获得一年的免费ChatGPT Plus服务，他们必须完成什么样的AI素养课程才有资格？" },
+    en: { summary: "OpenAI and Malta partner for national AI literacy project", prompt: "I read that Malta citizens can get a free year of ChatGPT Plus—what kind of AI literacy course do they have to complete to qualify?" },
+  },
+  {
+    zh: { summary: "阿达尼集团将斥资1000亿美元在印度建设AI数据中心", prompt: "我读到印度的阿达尼集团正在建设可再生能源驱动的AI中心，为什么使用可再生能源对大规模数据中心如此关键？" },
+    en: { summary: "Adani Group to invest $100B in AI data centers in India", prompt: "I read that India's Adani Group is building renewable-powered AI hubs—why is using renewable energy so critical for large-scale data centers?" },
+  },
+  {
+    zh: { summary: "安卓更新将包括针对欺骗性银行电话的保护功能", prompt: "我看到谷歌正在为安卓系统增加生物识别和通话保护，系统是如何检测银行电话是否被冒充的？" },
+    en: { summary: "Android updates to include protection from spoofed banking calls", prompt: "I saw that Google is adding biometric and call protection to Android—how does the system detect if a banking call is being spoofed?" },
+  },
+  {
+    zh: { summary: "由于隐藏的热水陷阱，南极洲冰架正从下方融化", prompt: "我刚看到南极冰层下的通道正在加速融化，这些通道是如何捕捉热水并影响海平面上升的？" },
+    en: { summary: "Antarctica melting from below due to hidden warm-water traps", prompt: "I just read that channels under Antarctic ice are speeding up melting—how do these channels trap warm water and affect sea level rise?" },
+  },
+  {
+    zh: { summary: "研究发现通过为线粒体充电可逆转记忆力减退", prompt: "我读到给细胞的“引擎”充电可以逆转记忆丧失，增强线粒体如何帮助修复认知能力下降？" },
+    en: { summary: "Mitochondria recharge found to reverse memory loss", prompt: "I read that recharging the cell's 'engines' can reverse memory loss—how does boosting mitochondria help fix cognitive decline?" },
+  },
+  {
+    zh: { summary: "谷歌发布整合了安卓与ChromeOS系统的Googlebook笔记本", prompt: "我读到了关于新型Googlebook笔记本系列的消息，将安卓和ChromeOS整合进一个统一系统在实践中是如何运作的？" },
+    en: { summary: "Google announces 'Googlebook' laptops merging Android and ChromeOS", prompt: "I read about the new Googlebook laptop lineup—how does merging Android and ChromeOS into one unified system work in practice?" },
+  },
+];
+

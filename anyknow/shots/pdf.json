@@ -1,0 +1,52 @@
+{
+  "live": {
+    "title": true,
+    "formula": true,
+    "highlight": true,
+    "circle": true,
+    "annotate": true,
+    "ask": true,
+    "pause": true,
+    "mark": false,
+    "artW": 1152,
+    "h1Font": "\"ZCOOL XiaoWei\", Kalam, \"Noto Sans SC\", serif",
+    "kinds": [
+      "highlight",
+      "highlight",
+      "circle",
+      "annotate",
+      "circle"
+    ]
+  },
+  "paused": {
+    "resume": true,
+    "pausedClass": true
+  },
+  "restarted": {
+    "notice": true
+  },
+  "resumed": {
+    "notice": true
+  },
+  "stats": {
+    "title": true,
+    "clt": true,
+    "hypo": true,
+    "highlight": true,
+    "pythagInk": false,
+    "statsInk": true,
+    "mark": false
+  },
+  "statsMobile": {
+    "leftover": true,
+    "clt": true,
+    "w": 390,
+    "mark": false
+  },
+  "mobile": {
+    "w": 390,
+    "page": true
+  },
+  "errors": [],
+  "shot": "pdf.png"
+}

@@ -1,0 +1,180 @@
+{
+  "courseUuid": "e0a5b528-dcdc-4dbd-9d03-470a9e83df17",
+  "courseTitle": "Introduction to Sociology",
+  "courseDescription": "A comprehensive exploration of the fundamental concepts, theories, and research methods in sociology. This course examines how social structures, culture, and institutions shape individual lives and collective behavior, providing students with the 'sociological imagination' necessary to analyze the world around them.",
+  "outputLanguage": "English",
+  "tags": [
+    "Sociology",
+    "Social Science",
+    "Culture",
+    "Social Inequality",
+    "Critical Thinking"
+  ],
+  "subject": "socialScience",
+  "units": [
+    {
+      "unitId": "unit1",
+      "title": "The Sociological Perspective",
+      "description": "This unit introduces the discipline of sociology, focusing on the 'sociological imagination,' core theoretical paradigms, and the scientific methods used to study social phenomena.",
+      "lectures": [
+        {
+          "lectureId": "unit1Lecture1",
+          "title": "Thinking Sociologically",
+          "description": "This introductory lecture challenges common-sense assumptions by teaching you how to view individual experiences as outcomes of broader historical and social forces.",
+          "order": 1,
+          "sessions": [
+            {
+              "sessionId": "ed43f6c4-fb26-4603-8645-8e2599424343",
+              "sessionIndex": 1,
+              "session_type": "whiteboard",
+              "title": "The Sociological Imagination",
+              "description": "In this session, you will learn C. Wright Mills' concept of the 'sociological imagination,' which distinguishes between 'personal troubles' and 'public issues.' By the end, you will be able to connect your private biography with historical and social structures. This foundational concept is essential for your course project, as it provides the lens through which you will analyze your own life path",
+              "references": [
+                {
+                  "referenceId": "ref-mills",
+                  "title": "C. Wright Mills, The Sociological Imagination",
+                  "usage": "core text"
+                }
+              ],
+              "keyPoints": [
+                "Distinguish personal troubles from public issues",
+                "Connect private biography to historical structure"
+              ],
+              "boardImage": {
+                "imageUrl": "/assets/learn-illustration.jpg",
+                "caption": "biography overlapping history"
+              },
+              "practice": {
+                "tasks": [
+                  "Identify one personal challenge you face and describe it as a public issue related to the economy or history.",
+                  "Contrast a 'personal trouble' with a 'public issue' using the example of unemployment."
+                ]
+              }
+            },
+            {
+              "sessionId": "88450a9c-63da-4e12-afe4-cd0018d2aabb",
+              "sessionIndex": 2,
+              "session_type": "whiteboard",
+              "title": "Structure and Agency",
+              "description": "This session explores the tension between agency—your power to act independently—and social structure—the organized patterns of relationships that limit your choices. You will understand how society both constrains and enables human action. Mastering this balance is key to moving beyond a purely individualistic worldview toward a sophisticated sociological analysis.",
+              "practice": {
+                "tasks": [
+                  "List three choices you made today and identify the social structures that influenced those choices.",
+                  "Discuss whether a student's success is more a result of 'agency' or 'structure' based on their school environment."
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "lectureId": "unit1Lecture2",
+          "title": "Theoretical Traditions",
+          "description": "This lecture provides the 'analytical toolkit' of sociology by introducing the three dominant paradigms used to interpret how society functions and why it changes.",
+          "order": 2,
+          "sessions": [
+            {
+              "sessionId": "9683f4df-628f-45c3-b8e1-f93fe84f2f26",
+              "sessionIndex": 1,
+              "session_type": "whiteboard",
+              "title": "Functionalism",
+              "description": "You will examine the functionalist perspective, which views society as a complex system of interrelated parts working together to promote solidarity and stability. You will learn about manifest and latent functions, as well as social dysfunctions. This helps you understand the 'macro' logic of how social order is maintained across time.",
+              "practice": {
+                "tasks": [
+                  "Identify the manifest and latent functions of a college education.",
+                  "Provide an example of a social institution and describe how it contributes to social stability."
+                ]
+              }
+            },
+            {
+              "sessionId": "103170c5-6016-410b-b13e-4e59f25d9664",
+              "sessionIndex": 2,
+              "session_type": "whiteboard",
+              "title": "Conflict Theory",
+              "description": "This session covers the conflict perspective, rooted in the work of Karl Marx, which focuses on power, inequality, and social struggle. You will learn how social structures often benefit some groups at the expense of others. This is a crucial foundation for Unit 3, where we will dive deeper into racial and gender-based inequality.",
+              "practice": {
+                "tasks": [
+                  "Apply conflict theory to the workplace: who has the power and how is it maintained?",
+                  "Compare the functionalist view of poverty with the conflict theory view of poverty."
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "stage_id": "dee055da-d859-4eee-a9e8-a942f07519f3",
+          "stage_title": "Research Question and Methodology Design",
+          "stage_description": "Define a specific social group or community to study and select the appropriate research methods (ethnography, survey, or interview) to investigate a specific social phenomenon within that group."
+        }
+      ],
+      "exams": [
+        {
+          "title": "The Sociological Perspective Comprehensive Exam",
+          "goal": "Verify the learner's ability to apply the sociological imagination, distinguish between major theoretical paradigms, and evaluate the appropriateness of various research methods for specific social qu"
+        }
+      ]
+    },
+    {
+      "unitId": "unit2",
+      "title": "Culture and the Self",
+      "description": "Focusing on the micro-level of sociology, this unit explores how culture is transmitted and how individuals develop a social identity through socialization and group interaction.",
+      "lectures": [
+        {
+          "lectureId": "unit2Lecture1",
+          "title": "Culture",
+          "description": "This lecture explores the 'social glue' of society, examining how shared meanings, values, and practices shape collective life and individual behavior.",
+          "order": 1,
+          "sessions": [
+            {
+              "sessionId": "46477b56-35af-40bf-897f-1df306944711",
+              "sessionIndex": 1,
+              "session_type": "whiteboard",
+              "title": "Norms and Values",
+              "description": "This session introduces the distinction between values—the abstract ideals of a society—and norms—the specific rules of conduct that implement those values. You will learn to identify folkways, mores, and taboos, gaining the ability to analyze how social order is maintained through informal and formal sanctions. This builds the foundational vocabulary needed to understand why people conform to soc",
+              "practice": {
+                "tasks": [
+                  "Identify one folkway and one more in your own community and describe the typical sanction for violating each.",
+                  "Analyze a recent news event through the lens of conflicting cultural values."
+                ]
+              }
+            },
+            {
+              "sessionId": "ddab5d75-0e1e-4f1c-bfbd-8fb04f6558fa",
+              "sessionIndex": 2,
+              "session_type": "whiteboard",
+              "title": "Symbols and Language",
+              "description": "This session examines language as the primary vehicle of culture and the Sapir-Whorf hypothesis, which suggests language shapes our perception of reality. You will understand how symbols carry shared meanings and how linguistic shifts reflect social change. This is critical for recognizing how our very thoughts are structured by the cultural tools available to us.",
+              "practice": {
+                "tasks": [
+                  "Explain the Sapir-Whorf hypothesis using a specific example of a word that exists in one language but not another.",
+                  "Analyze how a specific emoji serves as a complex cultural symbol in digital communication."
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "stage_id": "5fa8009f-8dd8-4779-9750-a4dd335f4a64",
+          "stage_title": "Cultural and Socialization Field Notes",
+          "stage_description": "Conduct initial observations or interviews to identify the core values, norms, and agents of socialization that shape identity within your chosen community."
+        }
+      ],
+      "exams": [
+        {
+          "title": "Culture and the Self Comprehensive Exam",
+          "goal": "Evaluate the student's ability to apply micro-sociological theories to identity formation, cultural transmission, and group dynamics."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "fd3eb08b-49d6-4922-a0c2-e6aab9d02da4",
+      "project_name": "The Sociological Lens: A Local Community Case Study",
+      "project_description": "In this project, you will apply the sociological imagination to analyze a specific community or social group. You will research its cultural norms, map its internal inequalities, evaluate the role of its supporting institutions, and propose a strategy for positive social change within that group."
+    }
+  ]
+}

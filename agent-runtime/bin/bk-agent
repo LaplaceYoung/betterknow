@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# betterknow Agent 核心入口：固定项目内 DSH_HOME 后调用上游 dsh launcher。
+# 用法： bin/bk-agent "任务文本"            一次性任务（headless）
+#        bin/bk-agent --dump-config          打印组合后的插件树
+#        bin/bk-agent plugin add <pkg>       给 betterknow profile 装自研插件
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export DSH_HOME="$HERE/home"
+DSH="$HERE/node_modules/.bin/dsh"
+case "${1:-}" in
+  plugin) shift; exec "$DSH" plugin --profile betterknow "$@" ;;
+  *)      exec "$DSH" --profile betterknow "$@" ;;
+esac
