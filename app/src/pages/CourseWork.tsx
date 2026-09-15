@@ -239,19 +239,41 @@ function QuizRunner({
     setSpeaking(false)
   }
 
-  const toggleSpeech = () => {
-    if (!('speechSynthesis' in window)) return
+  // 朗读：优先走 BYOK TTS seam（voice_id/speed 透传服务端），未配置 key 时回落浏览器合成
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [ttsVoice, setTtsVoice] = useState('calm')
+  const [ttsSpeed, setTtsSpeed] = useState(1)
+  useEffect(() => {
+    apiGet<{ tts_config?: { voice_id?: string; speed?: number } }>('/tts/voices')
+      .then((r) => { setTtsVoice(r.tts_config?.voice_id ?? 'calm'); setTtsSpeed(r.tts_config?.speed ?? 1) })
+      .catch(() => {})
+  }, [])
+
+  const toggleSpeech = async () => {
     if (speaking) {
-      window.speechSynthesis.cancel()
+      window.speechSynthesis?.cancel()
+      audioRef.current?.pause()
       setSpeaking(false)
-    } else {
-      const u = new SpeechSynthesisUtterance(q.prompt)
-      u.lang = 'zh-CN'
-      u.onend = () => setSpeaking(false)
-      u.onerror = () => setSpeaking(false)
-      setSpeaking(true)
-      window.speechSynthesis.speak(u)
+      return
     }
+    setSpeaking(true)
+    try {
+      const r = await apiPost<{ audio_url?: string; stub?: boolean }>('/tts/synthesize', { text: q.prompt, voice_id: ttsVoice, speed: ttsSpeed })
+      if (r.audio_url && r.stub === false) {
+        const audio = new Audio(r.audio_url)
+        audioRef.current = audio
+        audio.onended = () => setSpeaking(false)
+        audio.onerror = () => setSpeaking(false)
+        await audio.play()
+        return
+      }
+    } catch { /* seam 不可用：回落浏览器朗读 */ }
+    if (!('speechSynthesis' in window)) { setSpeaking(false); return }
+    const u = new SpeechSynthesisUtterance(q.prompt)
+    u.lang = 'zh-CN'
+    u.onend = () => setSpeaking(false)
+    u.onerror = () => setSpeaking(false)
+    window.speechSynthesis.speak(u)
   }
 
   return (

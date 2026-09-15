@@ -17,6 +17,7 @@ export default function Whiteboard() {
   const containerRef = useRef<HTMLDivElement>(null)
   const wsRef = useRef<WebSocket | null>(null)
   const [title, setTitle] = useState('白板课堂')
+  const [keyPoints, setKeyPoints] = useState<string[]>([])
   const [pages, setPages] = useState<Page[]>([])
   const [pageIdx, setPageIdx] = useState(0)
   const [script, setScript] = useState<{ who: 'teacher' | 'you'; text: string }[]>([])
@@ -88,9 +89,10 @@ export default function Whiteboard() {
     // 协议：start_session(session_id?) → session_ready → start_teaching → new_page/board/speak/annotation/ask/done
     ws.onopen = () => ws.send(JSON.stringify({ type: 'start_session', ...(sessionId && sessionId !== 'new' ? { session_id: sessionId, course_session_id: sessionId } : {}) }))
     ws.onmessage = (ev) => {
-      const f = JSON.parse(ev.data) as Action & { session_title?: string; session_id?: string; resumed?: boolean; whiteboard_state?: { board_content?: string; actions?: Action[] } | null; reward?: { credits: number; reason: string }; actions?: Action[] }
+      const f = JSON.parse(ev.data) as Action & { session_title?: string; session_id?: string; resumed?: boolean; key_points?: string[]; whiteboard_state?: { board_content?: string; actions?: Action[] } | null; reward?: { credits: number; reason: string }; actions?: Action[] }
       if (f.type === 'session_ready') {
         setStatus('ready'); if (f.session_title) setTitle(f.session_title)
+        if (Array.isArray(f.key_points)) setKeyPoints(f.key_points.map(String).filter(Boolean))
         if (f.session_id && (sessionId === 'new' || !sessionId)) window.history.replaceState({}, '', courseId ? `/course/${courseId}/sessions/whiteboard/${f.session_id}` : `/whiteboard/${f.session_id}`)
         // 复用已有会话时回放已保存的动作；否则请求开始授课
         if (f.resumed && f.whiteboard_state?.actions?.length) { f.whiteboard_state.actions.forEach(apply); setStatus('teaching') }
@@ -242,6 +244,18 @@ export default function Whiteboard() {
             <button className="hk-icon-btn h-8 w-8" aria-label="分享"><Share2 size={14} /></button>
           </div>
         </header>
+        {keyPoints.length > 0 && (
+          <div className="mx-4 mb-3 hk-card px-3.5 py-2.5" data-testid="session-key-points">
+            <div className="text-[11px] text-[#8a8a90] mb-1.5">本节要点 · {keyPoints.length} 条</div>
+            <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
+              {keyPoints.map((point) => (
+                <li key={point} className="inline-flex items-start gap-1.5 text-[12px] text-[#3d3d3f] max-w-[420px]">
+                  <span className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-[#3b5bdb]" />{point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className="flex-1 relative overflow-auto hk-scroll p-6" style={{ backgroundImage: 'radial-gradient(#e4e4e7 1px, transparent 1px)', backgroundSize: '18px 18px' }}>
           <div className="mx-auto bg-white rounded-xl shadow-sm border p-8 origin-top transition-transform" style={{ width: 760, minHeight: 520, transform: `scale(${zoom / 100})` }}>
             {status === 'connecting' && <div className="hk-skeleton h-6 w-1/2 rounded" />}
