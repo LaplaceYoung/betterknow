@@ -1,0 +1,21 @@
+import { spawn } from 'node:child_process';
+import { setTimeout as sleep } from 'node:timers/promises';
+import WebSocket from 'ws';
+const base = 'http://127.0.0.1:8799';
+const data = `/tmp/hyperclone-smoke-${process.pid}`;
+const server = spawn('node', ['dist/index.js'], { cwd: new URL('..', import.meta.url), env: { ...process.env, PORT: '8799', HYPERCLONE_DATA_DIR: data, BYOK_PROVIDER: 'stub', KIMI_API_KEY: '', AIGW_API_KEY: '', OPENAI_API_KEY: '' }, stdio: 'inherit' });
+const fail = (message) => { throw new Error(message); };
+async function waitServer() { for (let i = 0; i < 50; i++) { try { if ((await fetch(`${base}/health`)).ok) return; } catch {} await sleep(100); } fail('server did not start'); }
+async function post(path, body) { const response = await fetch(`${base}${path}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }); return response.json(); }
+function socket(path, token) { return new Promise((resolve, reject) => { const ws = new WebSocket(`ws://127.0.0.1:8799${path}${path.includes('?') ? '&' : '?'}token=${encodeURIComponent(token)}`); const frames = []; const timer = setTimeout(() => { ws.close(); reject(new Error(`timeout ${path}`)); }, 8000); ws.on('message', (raw) => { const frame = JSON.parse(String(raw)); frames.push(frame); resolve({ ws, frames, first: frame }); }); ws.on('error', reject); ws.once('close', () => clearTimeout(timer)); }); }
+async function collect(ws, predicate, timeout = 8000) { return new Promise((resolve, reject) => { const frames = []; const timer = setTimeout(() => { ws.close(); reject(new Error('frame timeout')); }, timeout); const on = (raw) => { const frame = JSON.parse(String(raw)); frames.push(frame); if (predicate(frame)) { clearTimeout(timer); ws.off('message', on); resolve(frames); } }; ws.on('message', on); }); }
+try { await waitServer(); const suffix = Date.now(); await post('/api/v1/auth/register', { username: `smoke${suffix}`, email: `smoke${suffix}@example.com`, password: 'password123' }); const login = await post('/api/v1/auth/login', { email: `smoke${suffix}@example.com`, password: 'password123' }); const token = login.data.access_token;
+  const deep = await socket('/api/v1/deep_learn/ws', token); deep.ws.send(JSON.stringify({ type: 'user_message', message: 'Explain recursion' })); const df = await collect(deep.ws, (f) => f.type === 'complete'); console.log('deep_learn PASS', [...deep.frames, ...df].some((f) => f.type === 'thinking') && [...deep.frames, ...df].some((f) => f.type === 'content_chunk'));
+  const drive = await socket('/api/v1/drive/ws', token); drive.ws.send('{}'); const dr = await collect(drive.ws, (f) => f.type === 'drive_state_synced'); console.log('drive PASS', drive.first.type === 'connection_established' && dr.at(-1).ok); drive.ws.close();
+  const net = await socket('/api/v1/net-check/ws', token); console.log('net-check PASS', net.first.type === 'net_check_session'); net.ws.close();
+  const pdf = await socket('/api/v1/pdf-annotation/ws', token); pdf.ws.send(JSON.stringify({ type: 'start_session' })); await collect(pdf.ws, (f) => f.type === 'session_ready'); const sid = (await readState()).session_id;
+  pdf.ws.send(JSON.stringify({ type: 'sync_pdf_state', pdf_state: { revision: 1, file_id: 'smoke-file', annotations: [] } })); await sleep(50); pdf.ws.send(JSON.stringify({ type: 'start_teaching' })); const pf = await collect(pdf.ws, (f) => f.type === 'done'); console.log('pdf PASS', pf.some((f) => f.type === 'speak') && pf.some((f) => f.type === 'annotation') && pf.some((f) => f.type === 'ask')); pdf.ws.close();
+  const board = await socket('/api/v1/whiteboard/ws', token); board.ws.send(JSON.stringify({ type: 'start_session' })); await collect(board.ws, (f) => f.type === 'session_ready'); board.ws.send(JSON.stringify({ type: 'interject_question', text: 'Why?' })); const bf = await collect(board.ws, (f) => f.type === 'interject_done'); console.log('whiteboard voice PASS', bf.some((f) => f.type === 'interject_ready') && bf.some((f) => f.type === 'interject_text') && bf.some((f) => f.type === 'interject_audio')); board.ws.close();
+  console.log('smoke_ws2 PASS');
+} catch (error) { console.error('smoke_ws2 FAIL', error); process.exitCode = 1; } finally { server.kill('SIGTERM'); }
+function readState() { return Promise.resolve({ session_id: 'smoke-session' }); }

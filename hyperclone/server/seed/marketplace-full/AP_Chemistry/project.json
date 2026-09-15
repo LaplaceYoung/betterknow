@@ -1,0 +1,360 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the AP Chemistry Virtual Lab Portfolio project! Over the course of this project, you will build a professional-grade scientific portfolio that combines quantitative data analysis with molecular modeling—skills essential for both the AP exam and college-level research. We are starting with the 'Atomic and Periodic Properties' entry. This stage focuses on the building blocks of matter: isotopes, effective nuclear charge ($Z_{eff}$), and the physical laws that dictate how atoms behave. You recently explored how the core electrons shield valence electrons from the nucleus; today, you will apply that logic to calculate exactly why certain atoms 'hold on' to their electrons more tightly than others, using real mass-spec data as your starting point.",
+     "step_title": "Project Launch & Atomic Foundations",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated average atomic mass (show your work), the name of the element, and a one-sentence explanation of why the average mass is biased toward the more abundant isotope."
+     },
+     "step_body": "The first component of your portfolio section is a mass spectrometry analysis. Imagine you have run a sample of an unknown element through a spectrometer and received two peaks: Peak A at 10.01 amu (relative intensity 19.9%) and Peak B at 11.01 amu (relative intensity 80.1%). Based on our lecture on weighted averages and the 'windy gorge' analogy, calculate the average atomic mass of this element. Identify the element using your periodic table and explain why the average mass is closer to Peak B than Peak A.",
+     "step_title": "Analyze Isotopic Abundance",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the $Z_{eff}$ values for both Oxygen and Fluorine. Explain in 1-2 sentences how the increase in $Z_{eff}$ across a period leads to a decrease in atomic radius."
+     },
+     "step_body": "Now that we’ve identified our element, let's look at its electronic structure. Using the $Z_{eff} = Z - S$ formula we practiced, calculate the effective nuclear charge for a valence electron in an Oxygen atom and a Fluorine atom. Remember: $Z$ is the total protons, and $S$ is the number of core (shielding) electrons. As you move from Oxygen to Fluorine, how does this value change? This calculation is the 'engine' that explains why Fluorine has a smaller atomic radius than Oxygen despite having more electrons.",
+     "step_title": "Calculate Effective Nuclear Charge",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image of your Coulombic potential energy graph. Ensure the axes are labeled and that you have included two distinct lines comparing a low-$Z_{eff}$ atom and a high-$Z_{eff}$ atom."
+     },
+     "step_body": "To visualize the strength of these atomic 'grips,' we use Coulomb’s Law ($F ∝ q_1q_2 / r^2$). For your portfolio, you need to create a visual representation of potential energy. On a piece of paper or using a digital drawing tool, sketch a qualitative graph showing the relationship between potential energy (y-axis) and the distance between the nucleus and a valence electron (x-axis). Indicate on the graph where the electron is most 'stable' (lowest energy). Then, draw a second line on the same graph representing an atom with a higher $Z_{eff}$—should its energy curve be deeper or shallower?",
+     "step_title": "Sketch Coulombic Potential Energy",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your completed 'Atomic and Periodic Properties' Portfolio entry as a PDF. Good work will feature accurate calculations, correct identification of elements from mass-spec data, and a clear logical connection between $Z_{eff}$ and atomic radius."
+     },
+     "step_body": "It is time to finalize the first section of your Portfolio PDF. Compile your mass-spec calculations, your $Z_{eff}$ justifications for periodic trends, and your Coulombic energy model into a single, organized document. Use clear headings for each section (e.g., 'Mass Spectrometry Analysis', 'Periodic Trend Justification'). This document will serve as the first chapter of your final deliverable, proving you can bridge the gap between subatomic particles and macroscopic chemical properties.",
+     "step_title": "Assemble and Submit Portfolio Part 1",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "16c9e8d1-f4fd-416f-83cb-34e2bbbaa028",
+   "stage_title": "Atomic and Periodic Properties Portfolio Entry",
+   "parent_project_id": "6524c2fc-6faf-44c6-bbe8-ad9f0a520d52",
+   "stage_description": "Perform mass spectrometry calculations, write detailed electron configurations, and model Coulomb's law interactions. You will document the effects of atomic and ionic radii, effective nuclear charge, and ionization energy trends.",
+   "deliverable_increment": "The first section of the Portfolio (PDF) featuring worked mass-spec calculations, Coulombic potential energy graphs, and periodic trend justifications."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you established your portfolio with atomic properties. Recently, we explored the 'tug-of-war' of covalent bonding and the 'sea' of metallic systems. Now, we move from individual bonds to 3D molecular architecture. This stage bridges the gap between how atoms share electrons and how those molecules behave in the real world, particularly when they deviate from ideal gas behavior. You will be building the second major section of your Portfolio PDF and a new 'Real Gas' modeling tab in your spreadsheet.",
+     "step_title": "Recap & Orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the formal charge calculations for each atom in SF4 and the Nitrate ion. Explain how these calculations confirm your chosen Lewis structure is the most stable or dominant resonance form."
+     },
+     "step_body": "To predict molecular behavior, we must first see where the electrons live. For your portfolio, draw the Lewis structures for the following species: NH3, CO2, SF4, and the Nitrate ion (NO3-). Be sure to account for all valence electrons and check for resonance where applicable. Once drawn, calculate the formal charge for every atom in each structure to verify that you have found the most stable arrangement. Don't worry about 3D shapes yet—just focus on the connectivity and lone pairs.",
+     "step_title": "Draft Lewis Structures",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, translate your 2D drawings into 3D geometry using Valence Shell Electron Pair Repulsion (VSEPR) theory. For the same molecules (NH3, CO2, SF4, NO3-), determine the electron geometry, the molecular geometry, and the hybridization of the central atom (e.g., sp, sp2, sp3, sp3d, or sp3d2). Create a clean table in your portfolio that lists these properties alongside the predicted bond angles. Note any deviations in bond angles caused by lone pair repulsion, such as the 'squeezing' effect in ammonia.",
+     "step_title": "VSEPR & Hybridization Table",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your 'Real Gas Analysis' spreadsheet tab. It should clearly show your formulas or the calculated pressure values for NH3 and N2, highlighting the percentage difference between the Ideal and Real pressure values."
+     },
+     "step_body": "Intermolecular forces (IMFs) mean that real gases don't always follow the Ideal Gas Law (PV=nRT), especially at high pressures. Open your project spreadsheet and create a new tab titled 'Real Gas Analysis.' Use the van der Waals equation: [P + a(n/V)^2][V - nb] = nRT. Research the 'a' (attraction) and 'b' (volume) constants for Ammonia (NH3) and Nitrogen (N2). Set up a calculator that compares the pressure (P) of 1.0 mole of each gas in a 0.5L container at 300K using both the Ideal and van der Waals equations. Notice which gas deviates more.",
+     "step_title": "Model Real Gas Deviations",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit the completed 'Molecular Geometry and IMFs' section of your portfolio in PDF format. A high-quality submission will include clear diagrams, accurate hybridization assignments, and a correct chemical justification for the real gas deviations observed in your spreadsheet."
+     },
+     "step_body": "Compile your Lewis structures, formal charges, VSEPR diagrams, and hybridization tables into a single document. Add a brief paragraph explaining why the 'a' constant in the van der Waals equation is significantly higher for NH3 than for N2, linking your answer specifically to the intermolecular forces (Hydrogen bonding vs. LDFs) we discussed in the lectures. This document will become the 'Molecular Geometry and IMFs' section of your final PDF report.",
+     "step_title": "Finalize and Submit Portfolio Section",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "e26fd5f9-cb8c-488e-9e61-d1f26f6df43f",
+   "stage_title": "Molecular Geometry and Intermolecular Forces Lab",
+   "parent_project_id": "6524c2fc-6faf-44c6-bbe8-ad9f0a520d52",
+   "stage_description": "Build Lewis structures, assign formal charges, determine VSEPR molecular geometry, and predict hybridizations. You will also calculate deviations from ideal gas behavior using the van der Waals equation.",
+   "deliverable_increment": "An updated Portfolio section containing Lewis and VSEPR diagrams, hybridization tables, and a solved spreadsheet modeling real versus ideal gas behavior at varying pressures."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In previous stages, you built the foundation of your portfolio by analyzing atomic trends and gas behavior. Following our recent sessions on precipitation reactions and net ionic equations, we are moving from individual particles to the behavior of ions in solution. This stage bridges the gap between those physical models and quantitative lab data. You will develop a tool to predict the outcome of mixing solutions, specifically focusing on the mass of solids produced and the efficiency of the reaction.",
+     "step_title": "Recap and Orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your final net ionic equation for the precipitation reaction you chose. Ensure both mass and charge are balanced, and include the (aq) and (s) state symbols to clearly identify the precipitate."
+     },
+     "step_body": "Before building your calculator, you must master the chemical 'story' of the reaction. Select a gravimetric analysis scenario—for example, mixing aqueous Silver Nitrate and Sodium Chloride to find the mass of the precipitate. On paper or in a digital doc, write the balanced molecular equation, then the complete ionic equation. Finally, identify the spectator ions and cross them out to reveal the net ionic equation. This ensures your spreadsheet logic targets the active chemical species rather than 'background noise.'",
+     "step_title": "Draft Net Ionic Equations",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's plan your Excel tool. To handle any precipitation reaction, your spreadsheet needs specific input cells: the volume and molarity of both Reactant A and Reactant B. From these, you must calculate the initial moles of each ion. Think about the 'IF' statements or simple math formulas you will need to determine which ion is the limiting reactant. This logic is the 'brain' of your simulation tool.",
+     "step_title": "Outline the Calculator Logic",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your interactive Excel/Spreadsheet file. It must include labeled input cells for volume/molarity, a calculation path for limiting reactants, and a clearly marked 'Theoretical Yield' output cell that updates automatically when inputs change."
+     },
+     "step_body": "Open Excel or Google Sheets and build your calculator. It should take the inputs (molarity and volume) and output the theoretical yield of the precipitate in grams. Use your net ionic equation to ensure the mole ratios are correct. Additionally, create a section for 'Lab Results' where you can input an 'Actual Yield' to automatically calculate the Percent Yield. This helps you evaluate the success of a simulation versus real-world laboratory error.",
+     "step_title": "Build the Yield Calculator",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit a short PDF report containing: 1) The theoretical mass calculated by your tool for the lead(II) nitrate problem, and 2) A 1-2 paragraph justification of how 'incomplete drying' specifically impacts the reported yield (overestimation vs. underestimation)."
+     },
+     "step_body": "Using your tool, analyze a specific 'unknown' sample problem. Suppose you have 50.0 mL of 0.200 M lead(II) nitrate and you add excess potassium iodide. Use your calculator to determine the theoretical mass of the lead(II) iodide precipitate. Then, write a brief analysis explaining how an experimental error—such as not drying the precipitate completely before weighing—would affect your calculated percent yield.",
+     "step_title": "Perform Gravimetric Analysis",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Reflect on how this simulation tool enhances your AP Chemistry Portfolio. By automating the stoichiometry of precipitation, you can now focus on the 'why'—the thermodynamic driving forces and the physical states of the ions. In the next stage, we will expand this tool to handle acid-base titrations, so keep your spreadsheet logic organized and well-labeled.",
+     "step_title": "Final Portfolio Integration",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "ffde4014-3e6c-4f4c-9817-ab19b9d38eb0",
+   "stage_title": "Stoichiometric and Gravimetric Simulation Tool",
+   "parent_project_id": "6524c2fc-6faf-44c6-bbe8-ad9f0a520d52",
+   "stage_description": "Write net ionic equations and build an Excel-based reaction analysis tool. The tool will calculate limiting reactants, theoretical and percent yields, and determine precipitate mass in gravimetric analysis.",
+   "deliverable_increment": "An interactive Excel spreadsheet calculator for multi-step reactions and a written analysis of a gravimetric precipitation reaction."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You've already mastered the ability to track concentration changes over time and identify the factors—like surface area and temperature—that make reactions move faster. In the previous stages, you built a stoichiometric calculator and analyzed periodic trends. Now, we move to the 'heart' of kinetics: proving how a reaction actually happens. Instead of just looking at the overall balanced equation, you will now use experimental data to determine the specific sequence of collisions, known as the reaction mechanism, that leads to your products. This stage will add a critical analytical layer to your Portfolio, proving you can justify a theoretical model with mathematical evidence.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the derived rate law (e.g., Rate = k[A]^x[B]^y) and the calculated value of the rate constant (k) including units. Good work must show the logic used to find the order (e.g., 'When [A] doubled, the rate quadrupled, so the order is 2') and provide the correct units for k based on the overall reaction order."
+     },
+     "step_body": "Before you can propose a mechanism, you must know the 'law of the land' for your specific reaction. Using the experimental data provided in your project resource folder for the decomposition of nitrogen dioxide (or a similar system of your choice), determine the reaction order for each reactant. Remember the 'bottleneck' we discussed: do not use the coefficients from the balanced equation! Instead, look at how the rate changes when you double a concentration. Calculate the rate constant (k) with its correct units, as these units change depending on the overall order. Draft your mathematical derivation clearly.",
+     "step_title": "Determine rate law and orders",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your three concentration-time graphs. Clearly indicate which graph is linear and state the resulting reaction order and the calculated half-life."
+     },
+     "step_body": "Now, let's look at the data through an integrated lens. Create three plots for your primary reactant: [A] vs. time, ln[A] vs. time, and 1/[A] vs. time. One of these will be linear, and that line is the 'smoking gun' that confirms your reaction order (0, 1, or 2). Use your spreadsheet tool from the previous stage to generate these graphs. Once identified, calculate the half-life of your reaction. Does the half-life stay constant as the reaction proceeds, or does it change? This observation is key for the Kinetics section of your PDF portfolio.",
+     "step_title": "Analyze concentration-time graphs",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a written justification of your proposed mechanism. Include the identified intermediates and a clear explanation of how the rate-determining step aligns with your experimental data."
+     },
+     "step_body": "With your experimental rate law in hand, you can now evaluate the proposed multi-step mechanism. Identify the intermediates (species produced then consumed) and the Rate-Determining Step (the slowest elementary step). Write a paragraph justifying why this mechanism is plausible. To be valid, your mechanism must satisfy two rules: the elementary steps must sum to the overall balanced equation, and the rate law of the slowest step must match your experimental rate law from Step 2.",
+     "step_title": "Justify the reaction mechanism",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload the final 'Kinetics and Reaction Mechanism' section of your Portfolio as a PDF. This must include: 1) The derived rate law and k value, 2) The concentration-time graphs, 3) The labeled reaction coordinate diagram (including the catalyzed pathway), and 4) The written mechanism justification. Good work is labeled clearly and uses standard chemical notation."
+     },
+     "step_body": "The final visual for your portfolio entry is the Reaction Coordinate Diagram. This graph plots Potential Energy on the y-axis and the Progress of Reaction on the x-axis. You must draw a multi-step 'hill' representing your mechanism. Label the activation energy (Ea) for each step, the transition states (activated complexes) at the peaks, and the valley where the intermediate resides. Finally, add a dashed line showing how a catalyst would change this profile—remember, it provides a lower-energy pathway but doesn't change the energy of your reactants or products.",
+     "step_title": "Draw the energy profile",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work completing the Kinetics portion of your portfolio. You have successfully bridged the gap between macroscopic observations (how fast the beaker gets hot or changes color) and microscopic events (individual molecular collisions). As a final thought: why is it that increasing the temperature usually has a much larger effect on the reaction rate than simply increasing the concentration? Think about the Maxwell-Boltzmann distribution we studied. This conceptual link is exactly what AP graders look for in high-scoring free-response answers.",
+     "step_title": "Reflect on kinetic models",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "65df2007-0ce6-497b-b065-fc9dbfe62a46",
+   "stage_title": "Kinetics and Reaction Mechanism Proof",
+   "parent_project_id": "6524c2fc-6faf-44c6-bbe8-ad9f0a520d52",
+   "stage_description": "Using experimental kinetic data, mathematically derive rate laws, determine reaction orders, calculate half-life, and draw reaction energy profiles to justify proposed reaction mechanisms.",
+   "deliverable_increment": "The Kinetics section of the Portfolio, containing derived rate laws, concentration-time graphs, and a labeled reaction coordinate diagram with activation energies and catalyst comparison."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the Thermodynamics and Electrochemistry stage of your portfolio! In previous stages, you've mastered kinetics and stoichiometry. Now, you will connect those concepts to energy transfer. We just reviewed how redox reactions move electrons and how calorimetry measures heat flow across a system-surroundings boundary. This stage will result in a dual-part submission: a detailed electrochemical cell schematic and a thermodynamics spreadsheet that links Gibbs Free Energy, Equilibrium (K), and Cell Potential (E). This is the bridge where the math of energy meets the physical design of batteries.",
+     "step_title": "Recap and Project Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short text entry detailing: 1) Your chosen reaction, 2) The mass and temperature change used, and 3) Your calculated ΔH in kJ/mol. I will look for correct sign conventions and the inclusion of total solution mass."
+     },
+     "step_body": "Let's start with thermal energy. In your portfolio, you need to model a reaction using the calorimetry principles we discussed (q = mcΔT). Using your 'Stoichiometric Tool' from a previous stage as a reference, decide on a neutralization or dissolution reaction. Calculate the heat of the reaction (q_rxn) and convert it to molar enthalpy (ΔH) in kJ/mol. Remember the critical rule: the mass 'm' must be the total mass of the solution (solute + solvent), and the sign of q_rxn is the opposite of q_surroundings. State your reaction, your temperature change, and your final ΔH calculation.",
+     "step_title": "Analyze Calorimetry Data",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image or screenshot of your hand-drawn or digital galvanic cell schematic. It must include: labeled anode/cathode, electron flow direction, salt bridge ion flow, and the calculated E°cell. Success is defined by correct polarity and electron flow from the anode to the cathode."
+     },
+     "step_body": "Now we transition from heat to electricity. You must design a standard galvanic cell using two half-reactions from a standard reduction potential table. Identify your anode (where oxidation occurs) and your cathode (where reduction occurs). Calculate the standard cell potential (E°cell = E°cathode - E°anode). Once you have the values, sketch a schematic of this cell. Your diagram must label the electrodes, the direction of electron flow through the wire, the movement of ions through the salt bridge, and the overall balanced redox equation.",
+     "step_title": "Design a Galvanic Cell",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "A critical part of your Final Deliverable is an interactive spreadsheet that models the relationship between energy and work. In your Excel sheet, create a calculator that uses the equations ΔG° = -nFE° and ΔG° = -RTlnK. This allows you to input your cell potential (E°) from the previous step and automatically output the Gibbs Free Energy (ΔG°) and the Equilibrium Constant (K). Ensure your Faraday constant (F) and Gas constant (R) are accurately labeled with their respective units to avoid conversion errors.",
+     "step_title": "Build the Thermodynamic Link",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit a single PDF containing your electrochemical cell schematic and a screenshot of your spreadsheet calculations for ΔG and K. Include your brief reflection on non-standard conditions. I will grade this based on the mathematical accuracy of the links between E, G, and K, and the clarity of your cell labels."
+     },
+     "step_body": "To complete this stage, combine your thermodynamics calculator and your cell schematic into a single 'Thermodynamics and Electrochemistry Data Sheet' for your portfolio. Add a brief paragraph reflecting on how the cell potential (E°) changes under non-standard conditions (Nernst Equation) if the concentration of the cathode electrolyte were doubled. This section ties together the spontaneity of the reaction with its actual electrical output.",
+     "step_title": "Final Submission: The Data Sheet",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "1619737e-f0e9-4d3b-a3e2-c397e76f7285",
+   "stage_title": "Thermodynamics and Electrochemistry Data Sheet",
+   "parent_project_id": "6524c2fc-6faf-44c6-bbe8-ad9f0a520d52",
+   "stage_description": "Calculate calorimetry heat changes, apply Hess's Law, compute Gibbs Free Energy, and design a model galvanic cell with calculated cell potentials under standard and non-standard conditions.",
+   "deliverable_increment": "An electrochemical cell schematic and a thermodynamics spreadsheet modeling the mathematical relationship between Gibbs Free Energy change, equilibrium constant (K), and cell potential (E)."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the final stage of your AP Chemistry Virtual Lab Portfolio! Previously, you built a robust Thermodynamics and Electrochemistry Data Sheet, connecting Gibbs Free Energy to equilibrium constants. You have also mastered the kinetic foundations of how reactions reach balance. Now, we will combine these concepts to master Applied Equilibrium. In this stage, you will move from general equilibrium to the specific world of buffers—systems that act as 'chemical sponges.' You will design a buffer, analyze its capacity, and complete your final Titration Curve, culminating in your fully integrated Lab Portfolio.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your choice of acid/base pair and your calculated [A-]/[HA] ratio. Good work includes choosing the acid with the pKa closest to the target pH and showing the algebraic steps used to find the ratio from the Henderson-Hasselbalch equation."
+     },
+     "step_body": "To begin your portfolio entry, you must select a weak acid/conjugate base pair to design a buffer targeted at a specific pH of 4.75. Using the Henderson-Hasselbalch equation (pH = pKa + log([A-]/[HA])), determine which weak acid from a provided list (Acetic Acid, pKa 4.76; Formic Acid, pKa 3.75; or Hydrofluoric Acid, pKa 3.17) is most suitable. Calculate the required ratio of conjugate base to acid concentration to hit your target pH exactly. Remember, a buffer is most effective when the pH is within one unit of the pKa.",
+     "step_title": "Design a buffer solution",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculation for the pH at the equivalence point. Criteria for success: correct determination of the moles of conjugate base formed, adjustment for the total volume of the solution, and use of the Kw/Ka relationship to find the correct Kb value for the calculation."
+     },
+     "step_body": "A critical component of your portfolio is the Titration Curve analysis. Imagine you are titrating 25.0 mL of your 0.10 M chosen weak acid with 0.10 M NaOH. As you plot this, you must identify three key regions: the initial pH, the half-equivalence point (where pH = pKa), and the equivalence point. For this step, calculate the pH at the equivalence point. Remember that at the equivalence point, all acid has been converted to its conjugate base; you must calculate the new concentration of the base and use Kb to find the final pH.",
+     "step_title": "Analyze the titration curve",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot or image of your plotted titration curve. The image must include clear labels for the buffer region, half-equivalence point, and equivalence point, with correctly scaled axes."
+     },
+     "step_body": "Now, translate your calculations into a visual artifact. Create a graph of pH vs. Volume of NaOH added. Clearly label the 'Buffer Region' where the curve is most flat, the 'Half-Equivalence Point,' and the 'Equivalence Point.' This visualization is a staple of the AP exam and proves you can connect mathematical data to the physical behavior of a chemical system. Ensure your axes are scaled correctly and the curve shows the characteristic 'S' shape of a weak-acid/strong-base titration.",
+     "step_title": "Plot and label the curve",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your final, completed AP Chemistry Virtual Lab Portfolio as a single PDF. This should include all 6 major sections developed throughout the project. Grading will be based on the accuracy of calculations, the clarity of your molecular models and graphs, and the completeness of the analysis for each lab scenario."
+     },
+     "step_body": "It is time to compile all your hard work into the final deliverable. Gather your previous entries—Atomic Properties, Molecular Geometry, Stoichiometry, Kinetics, and Thermodynamics—and append this final Applied Equilibrium and Buffer Design Report. Ensure all sections are clearly headed, all spreadsheets are linked or screenshotted, and your final analysis is cohesive. This comprehensive document represents your mastery of the AP Chemistry laboratory curriculum.",
+     "step_title": "Finalize and submit the portfolio",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit6",
+   "stage_id": "928ef8db-d592-430f-92b1-99240f46c7b6",
+   "stage_title": "Applied Equilibrium and Buffer Design Report",
+   "parent_project_id": "6524c2fc-6faf-44c6-bbe8-ad9f0a520d52",
+   "stage_description": "Apply equilibrium models to design a buffer solution at a targeted pH. Analyze acid-base titration curves, determine indicators, and perform Ksp solubility equilibrium calculations.",
+   "deliverable_increment": "The final portfolio entry detailing a buffer design specification, a fully plotted titration curve with labeled buffer and equivalence regions, and a completed, cohesive PDF Lab Portfolio ready for review."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "6524c2fc-6faf-44c6-bbe8-ad9f0a520d52",
+   "project_name": "The AP Chemistry Virtual Lab Portfolio and Analysis Report",
+   "final_deliverable": "A comprehensive, quantitative Chemistry Lab Portfolio (PDF Report and Excel Sheet) consisting of a digital particulate-level interaction model, a completed stoichiometric/titration data calculator, a kinetic mechanism proof, an electro-thermodynamic data sheet, and a solved acid-base buffer design.",
+   "project_description": "Learners design and analyze an interactive, quantitative chemical modeling portfolio and lab notebook. By simulating laboratory scenarios, drawing molecular-level models, deriving rate laws, and calculating equilibrium constants, learners build a cohesive PDF Portfolio and Interactive Spreadsheet tool. This comprehensive project bridges physical definitions, math derivations, and chemical principles to prepare students for academic excellence and AP exam success."
+  }
+ ],
+ "courseUuid": "df235d50-8e6a-497f-bd14-bb0ceb7addb4"
+}

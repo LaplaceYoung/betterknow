@@ -1,0 +1,56 @@
+import { r as e, j as c, m as s } from "./index-TjoB2Buo.js";
+import { c as a } from "./utils-Bmk8urhx.js";
+import { A as i } from "./index-CMJxjNZ8.js";
+import { C as t } from "./check-BBSENZCf.js";
+const o = e.forwardRef(({
+  className: e,
+  checked: o = false,
+  onCheckedChange: n,
+  onClick: r,
+  ...l
+}, d) => c.jsx("button", {
+  type: "button",
+  role: "checkbox",
+  "aria-checked": o,
+  ref: d,
+  className: a("checkbox", o && "checked", e),
+  onClick: e => {
+    if (n != null) {
+      n(!o);
+    }
+    if (r != null) {
+      r(e);
+    }
+  },
+  ...l,
+  children: c.jsx(i, {
+    children: o && c.jsx(s.div, {
+      initial: {
+        scale: 0,
+        opacity: 0
+      },
+      animate: {
+        scale: 1,
+        opacity: 1
+      },
+      exit: {
+        scale: 0,
+        opacity: 0
+      },
+      transition: {
+        duration: 0.2
+      },
+      style: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      },
+      children: c.jsx(t, {
+        className: "checkbox-icon",
+        strokeWidth: 2.5
+      })
+    })
+  })
+}));
+o.displayName = "Checkbox";
+export { o as C };

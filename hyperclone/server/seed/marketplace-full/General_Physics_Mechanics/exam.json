@@ -1,0 +1,1398 @@
+{
+ "exams": [
+  {
+   "title": "Kinematics Mastery Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A student calculates the final velocity of a falling object using the formula $v = \\sqrt{2gh}$. To perform a 'Sanity Check' using dimensional analysis, what should the dimensions of the right side of the equation resolve to?",
+     "options": [
+      "[L] / [T]",
+      "[L]^2 / [T]^2",
+      "[L] / [T]^2",
+      "[L]^2 / [T]"
+     ],
+     "explanation": "The dimensions of $g$ (acceleration) are $[L/T^2]$ and $h$ (length) is $[L]$. Multiplying them gives $[L^2/T^2]$. Taking the square root results in $[L/T]$, which matches the dimensions of velocity.",
+     "correctAnswers": [
+      "[L] / [T]"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When performing the 'Chain-Link' method for unit conversion (e.g., converting km/h to m/s), which of the following practices ensure mathematical consistency?",
+     "options": [
+      "Treating units as algebraic variables that can be cancelled out.",
+      "Placing the unwanted unit in the denominator of the conversion factor if it is in the numerator of the original value.",
+      "Summing the conversion factors instead of multiplying them.",
+      "Ensuring the ratio of each conversion factor is equal to one (e.g., 1000m / 1km).",
+      "Ignoring units until the final calculation step is completed."
+     ],
+     "explanation": "The Chain-Link method relies on identity ratios (value of 1) and algebraic cancellation to ensure the physical quantity remains unchanged while units are converted.",
+     "correctAnswers": [
+      "Treating units as algebraic variables that can be cancelled out.",
+      "Placing the unwanted unit in the denominator of the conversion factor if it is in the numerator of the original value.",
+      "Ensuring the ratio of each conversion factor is equal to one (e.g., 1000m / 1km)."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a rectangle's sides are measured as 5.6 cm (two significant figures) and 12.34 cm (four significant figures), the calculated area must be rounded to ____ significant figures to avoid over-precision.",
+     "placeholder": "e.g. 3",
+     "correctAnswers": [
+      "2",
+      "two"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "An order-of-magnitude estimation (Fermi problem) suggests that the number of piano tuners in a city is roughly $10^2$. If your detailed calculation yields exactly 142, how should you interpret this result?",
+     "options": [
+      "The calculation is likely correct because it is within the same order of magnitude.",
+      "The calculation is definitely wrong because it doesn't match the power of ten exactly.",
+      "The estimation was useless because it didn't provide enough significant figures.",
+      "You must recalculate until you get a number ending in zeros."
+     ],
+     "explanation": "Order-of-magnitude estimates act as 'sanity checks.' A result of 142 is in the same 'ballpark' as 100, suggesting the logic of the model is sound.",
+     "correctAnswers": [
+      "The calculation is likely correct because it is within the same order of magnitude."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the vector $\\vec{A} = (-3, 4)$ in a standard 2D Cartesian plane?",
+     "options": [
+      "Its magnitude is 5 units.",
+      "It is located in the second quadrant.",
+      "Its angle measured from the positive x-axis is approximately 126.9 degrees.",
+      "The dot product of this vector with itself is 7.",
+      "The components suggest it is pointing down and to the left."
+     ],
+     "explanation": "Magnitude is $\\sqrt{(-3)^2 + 4^2} = 5$. Since x is negative and y is positive, it's in the 2nd quadrant. The angle is $180 - \\tan^{-1}(4/3) \\approx 126.9^\\circ$.",
+     "correctAnswers": [
+      "Its magnitude is 5 units.",
+      "It is located in the second quadrant.",
+      "Its angle measured from the positive x-axis is approximately 126.9 degrees."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The mathematical definition of instantaneous velocity is the ____ of the position-time graph at a specific point in time.",
+     "placeholder": "e.g. area",
+     "correctAnswers": [
+      "slope",
+      "derivative",
+      "gradient"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If two vectors $\\vec{A}$ and $\\vec{B}$ lie entirely within the xy-plane, in which direction must their cross product $\\vec{A} \\times \\vec{B}$ point?",
+     "options": [
+      "Parallel to the z-axis (either +z or -z).",
+      "In the xy-plane at a 45-degree angle.",
+      "In the same direction as vector A.",
+      "The cross product of two 2D vectors is always zero."
+     ],
+     "explanation": "The cross product results in a vector perpendicular to the plane formed by the operands. For the xy-plane, the perpendicular axis is the z-axis.",
+     "correctAnswers": [
+      "Parallel to the z-axis (either +z or -z)."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A particle moves along the x-axis. Its position-time (x-t) graph shows a horizontal line at $x = 5m$ for several seconds. What can be concluded about the particle during this interval?",
+     "options": [
+      "The particle is at rest.",
+      "The instantaneous velocity is zero.",
+      "The displacement over this interval is zero.",
+      "The particle is moving with constant non-zero acceleration.",
+      "The particle has a speed of 5 m/s."
+     ],
+     "explanation": "A horizontal line on an x-t graph means position is not changing; therefore, velocity is zero and the object is at rest.",
+     "correctAnswers": [
+      "The particle is at rest.",
+      "The instantaneous velocity is zero.",
+      "The displacement over this interval is zero."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "For a projectile launched on level ground, the launch angle that maximizes the horizontal range (ignoring air resistance) is ____ degrees.",
+     "placeholder": "e.g. 90",
+     "correctAnswers": [
+      "45"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A car accelerates from rest at a constant rate $a$ for time $t$. If the time is doubled while maintaining the same acceleration, how does the final displacement change?",
+     "options": [
+      "It quadruples.",
+      "It doubles.",
+      "It remains the same.",
+      "It increases by a factor of $\\sqrt{2}$."
+     ],
+     "explanation": "From the kinematic equation $\\Delta x = \\frac{1}{2}at^2$, displacement is proportional to the square of time ($t^2$). Doubling $t$ results in $2^2 = 4$ times the displacement.",
+     "correctAnswers": [
+      "It quadruples."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "An object is thrown vertically upward, reaches a maximum height, and falls back down. At the very peak of its trajectory, which of the following are true (neglecting air resistance)?",
+     "options": [
+      "The instantaneous velocity is zero.",
+      "The acceleration is approximately $-9.8 \\text{ m/s}^2$.",
+      "The acceleration is zero.",
+      "The net displacement from the start is zero.",
+      "The velocity is changing direction."
+     ],
+     "explanation": "At the peak, velocity is zero as it transitions from up to down. However, gravity ($g$) acts continuously, so acceleration is non-zero.",
+     "correctAnswers": [
+      "The instantaneous velocity is zero.",
+      "The acceleration is approximately $-9.8 \\text{ m/s}^2$.",
+      "The velocity is changing direction."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The dot product of two vectors $\\vec{A}$ and $\\vec{B}$ is zero when the angle between them is ____ degrees.",
+     "placeholder": "e.g. 0",
+     "correctAnswers": [
+      "90"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In projectile motion (neglecting air resistance), which quantity remains constant throughout the entire flight?",
+     "options": [
+      "The horizontal component of velocity ($v_x$).",
+      "The vertical component of velocity ($v_y$).",
+      "The total speed of the projectile.",
+      "The displacement vector."
+     ],
+     "explanation": "Since gravity acts only vertically, there is no horizontal acceleration. Thus, $v_x$ remains unchanged.",
+     "correctAnswers": [
+      "The horizontal component of velocity ($v_x$)."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "A projectile is launched from a cliff of height $H$ with an initial horizontal velocity $v_0$. Which factors determine the time it takes to hit the ground below?",
+     "options": [
+      "The height $H$ of the cliff.",
+      "The acceleration due to gravity $g$.",
+      "The horizontal velocity $v_0$.",
+      "The mass of the projectile.",
+      "The initial vertical velocity (which is zero in this case)."
+     ],
+     "explanation": "Time of flight in 2D motion is determined entirely by vertical parameters ($y$-direction kinematics) and is independent of horizontal speed $v_0$ and mass.",
+     "correctAnswers": [
+      "The height $H$ of the cliff.",
+      "The acceleration due to gravity $g$.",
+      "The initial vertical velocity (which is zero in this case)."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "An object moves in a circle of radius $R$ at a constant speed $v$. If the radius is halved but the speed remains the same, how does the centripetal acceleration change?",
+     "options": [
+      "It doubles.",
+      "It is halved.",
+      "It quadruples.",
+      "It remains the same."
+     ],
+     "explanation": "Centripetal acceleration is $a_c = v^2/R$. If $R$ becomes $R/2$, $a_c$ becomes $v^2/(R/2) = 2(v^2/R)$.",
+     "correctAnswers": [
+      "It doubles."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "A boat tries to cross a river by aiming straight across (perpendicular to the current). How does the river's current affect the boat's trip?",
+     "options": [
+      "It increases the time taken to reach the opposite bank.",
+      "It increases the total speed of the boat relative to the shore.",
+      "It causes the boat to land downstream from its starting point.",
+      "It does not change the time required to cross the width of the river.",
+      "It decreases the boat's speed relative to the water."
+     ],
+     "explanation": "Perpendicular motions are independent. The current only adds a downstream component; it doesn't slow the cross-river progress, but it does increase the resultant velocity magnitude.",
+     "correctAnswers": [
+      "It increases the total speed of the boat relative to the shore.",
+      "It causes the boat to land downstream from its starting point.",
+      "It does not change the time required to cross the width of the river."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "If the position of an object is given by the function $x(t) = 2t^3 - 5t$, what is the acceleration of the object at $t = 2$ seconds?",
+     "options": [
+      "24 m/s²",
+      "19 m/s²",
+      "12 m/s²",
+      "7 m/s²"
+     ],
+     "explanation": "Velocity $v(t) = dx/dt = 6t^2 - 5$. Acceleration $a(t) = dv/dt = 12t$. At $t=2$, $a = 12(2) = 24$.",
+     "correctAnswers": [
+      "24 m/s²"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios result in a non-zero acceleration?",
+     "options": [
+      "A car driving at a constant 60 mph around a sharp curve.",
+      "An elevator moving upward at a steady speed of 2 m/s.",
+      "A ball thrown upward at the moment it reaches its maximum height.",
+      "A sprinter speeding up at the start of a race.",
+      "A book resting motionless on a table."
+     ],
+     "explanation": "Acceleration occurs if speed changes, direction changes (the car), or if a constant force like gravity is acting (the ball at peak height).",
+     "correctAnswers": [
+      "A car driving at a constant 60 mph around a sharp curve.",
+      "A ball thrown upward at the moment it reaches its maximum height.",
+      "A sprinter speeding up at the start of a race."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "single",
+     "prompt": "You are given a velocity-time ($v-t$) graph. What physical quantity is represented by the area under the curve between two time points?",
+     "options": [
+      "Displacement",
+      "Acceleration",
+      "Position",
+      "Jerk"
+     ],
+     "explanation": "The integral of velocity with respect to time $\\int v \\, dt$ represents the change in position, which is displacement.",
+     "correctAnswers": [
+      "Displacement"
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Observe the particle's motion. Why does the velocity vector ($v$) change as the particle moves along the curved path while maintaining a constant speed?",
+     "options": [
+      "Because velocity is a vector, and a change in its direction constitutes a non-zero acceleration even if speed is constant.",
+      "Because the magnitude of the velocity is increasing due to the curvature of the space.",
+      "Because the particle is slowing down as it approaches the apex of the curve.",
+      "Because the acceleration vector is always parallel to the velocity vector in curved motion."
+     ],
+     "explanation": "Velocity includes direction. Even if the 'speed' (magnitude) is constant, the changing direction means the velocity vector is evolving, which requires acceleration (centripetal in this case).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Circular Motion Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Velocity */\n            --amber: #c47c00;  /* Acceleration */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            aspect-ratio: 1.2 / 1;\n            max-height: 320px;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: 100%;\n            display: block;\n        }\n\n        .label-serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(12px, 2.5vw, 14px);\n            font-style: italic;\n            fill: var(--muted);\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: repeat(2, 1fr);\n            gap: 20px;\n            margin-top: 16px;\n            width: 100%;\n            max-width: 400px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .readout-label {\n            font-size: 11px;\n            color: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            margin-bottom: 4px;\n        }\n\n        .readout-value {\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n            color: var(--ink);\n            font-size: 14px;\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-size: 12px;\n            color: var(--muted);\n            font-family: Georgia, serif;\n            font-style: italic;\n            text-align: center;\n        }\n\n        .vector-v { stroke: var(--accent); fill: var(--accent); stroke-width: 2; }\n        .vector-a { stroke: var(--amber); fill: var(--amber); stroke-width: 2; }\n        .path-line { stroke: var(--rule); stroke-width: 1; fill: none; stroke-dasharray: 4 2; }\n        .particle { fill: var(--ink); }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of a particle moving in a circular arc at constant speed</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-wrapper\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 200 160\" aria-label=\"A diagram showing a particle on a curved path with two perpendicular vectors attached to it.\">\n                <!-- Center point -->\n                <circle cx=\"100\" cy=\"140\" r=\"1.5\" fill=\"var(--rule)\" />\n                \n                <!-- Circular Path -->\n                <path class=\"path-line\" d=\"M 30,80 A 85,85 0 0 1 170,80\" />\n                \n                <!-- Coordinate references (Subtle) -->\n                <line x1=\"100\" y1=\"140\" x2=\"100\" y2=\"40\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2 2\" />\n\n                <!-- Dynamic elements group -->\n                <g id=\"particle-group\">\n                    <!-- Radius line (phantom) -->\n                    <line id=\"radius-line\" x1=\"100\" y1=\"140\" x2=\"0\" y2=\"0\" stroke=\"var(--rule)\" stroke-width=\"0.5\" opacity=\"0.3\" />\n                    \n                    <!-- Vectors -->\n                    <g id=\"vec-a-group\">\n                        <line id=\"vec-a\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"0\" class=\"vector-a\" />\n                        <polygon id=\"head-a\" points=\"0,0 0,0 0,0\" class=\"vector-a\" />\n                    </g>\n                    \n                    <g id=\"vec-v-group\">\n                        <line id=\"vec-v\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"0\" class=\"vector-v\" />\n                        <polygon id=\"head-v\" points=\"0,0 0,0 0,0\" class=\"vector-v\" />\n                    </g>\n\n                    <circle id=\"particle\" r=\"4\" class=\"particle\" />\n                </g>\n\n                <!-- Labels -->\n                <text x=\"105\" y=\"152\" class=\"label-serif\">center</text>\n                <text id=\"label-v\" x=\"0\" y=\"0\" class=\"label-serif\" style=\"fill: var(--accent);\">v</text>\n                <text id=\"label-a\" x=\"0\" y=\"0\" class=\"label-serif\" style=\"fill: var(--amber);\">a</text>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Speed</span>\n                <span class=\"readout-value\">2.50 m/s · <span style=\"font-size:10px; color:var(--muted)\">fixed</span></span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Radius</span>\n                <span class=\"readout-value\">4.00 m · <span style=\"font-size:10px; color:var(--muted)\">fixed</span></span>\n            </div>\n        </div>\n\n        <div class=\"caption\">\n            A particle in uniform circular motion.\n        </div>\n    </div>\n\n    <script>\n        const particle = document.getElementById('particle');\n        const vecV = document.getElementById('vec-v');\n        const headV = document.getElementById('head-v');\n        const vecA = document.getElementById('vec-a');\n        const headA = document.getElementById('head-a');\n        const labelV = document.getElementById('label-v');\n        const labelA = document.getElementById('label-a');\n        const radiusLine = document.getElementById('radius-line');\n\n        const centerX = 100;\n        const centerY = 140;\n        const radius = 85;\n        const vLen = 35; // Length of velocity vector\n        const aLen = 25; // Length of acceleration vector\n        \n        let startTime = null;\n        const duration = 8000; // 8 seconds for full sweep\n\n        function drawArrowHead(x, y, angle, size, element) {\n            const x1 = x + size * Math.cos(angle + Math.PI * 0.8);\n            const y1 = y + size * Math.sin(angle + Math.PI * 0.8);\n            const x2 = x + size * Math.cos(angle - Math.PI * 0.8);\n            const y2 = y + size * Math.sin(angle - Math.PI * 0.8);\n            element.setAttribute('points', `${x},${y} ${x1},${y1} ${x2},${y2}`);\n        }\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = timestamp - startTime;\n            \n            // Sweep from 210 degrees to 330 degrees (top arc)\n            const progress = (elapsed % duration) / duration;\n            // Use a sine wave to oscillate back and forth for better visibility of \"sweeping direction\"\n            const t = (Math.sin(progress * Math.PI * 2 - Math.PI/2) + 1) / 2;\n            \n            const startAngle = Math.PI * 1.15; // roughly 210 deg\n            const endAngle = Math.PI * 1.85;   // roughly 330 deg\n            const angle = startAngle + t * (endAngle - startAngle);\n\n            // Particle Position\n            const px = centerX + radius * Math.cos(angle);\n            const py = centerY + radius * Math.sin(angle);\n\n            particle.setAttribute('cx', px);\n            particle.setAttribute('cy', py);\n            \n            radiusLine.setAttribute('x2', px);\n            radiusLine.setAttribute('y2', py);\n\n            // Velocity Vector (Tangent)\n            const vAngle = angle + Math.PI / 2;\n            const vx = px + vLen * Math.cos(vAngle);\n            const vy = py + vLen * Math.sin(vAngle);\n            vecV.setAttribute('x1', px);\n            vecV.setAttribute('y1', py);\n            vecV.setAttribute('x2', vx);\n            vecV.setAttribute('y2', vy);\n            drawArrowHead(vx, vy, vAngle, 5, headV);\n            labelV.setAttribute('x', vx + 5 * Math.cos(vAngle));\n            labelV.setAttribute('y', vy + 5 * Math.sin(vAngle));\n\n            // Acceleration Vector (Inward/Centripetal)\n            const aAngle = angle + Math.PI;\n            const ax = px + aLen * Math.cos(aAngle);\n            const ay = py + aLen * Math.sin(aAngle);\n            vecA.setAttribute('x1', px);\n            vecA.setAttribute('y1', py);\n            vecA.setAttribute('x2', ax);\n            vecA.setAttribute('y2', ay);\n            drawArrowHead(ax, ay, aAngle, 5, headA);\n            labelA.setAttribute('x', ax + 8 * Math.cos(aAngle));\n            labelA.setAttribute('y', ay + 8 * Math.sin(aAngle));\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because velocity is a vector, and a change in its direction constitutes a non-zero acceleration even if speed is constant."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dynamics and Newton's Laws Examination",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "An astronaut in a vacuum far from any stars or planets gives a gentle push to a stationary tool. After the push, what best describes the tool's motion?",
+     "options": [
+      "It will move at a constant speed in a straight line forever.",
+      "It will eventually slow down and stop due to its own inertia.",
+      "It will continue to accelerate as long as it is in motion.",
+      "It will stop moving immediately once the astronaut's hand is removed."
+     ],
+     "explanation": "According to Newton's First Law (Law of Inertia), an object in motion stays in motion at a constant velocity unless acted upon by a net external force. In a vacuum with no external forces, there is no mechanism to change its state of motion.",
+     "correctAnswers": [
+      "It will move at a constant speed in a straight line forever."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following statements correctly characterize the concept of 'Inertia'?",
+     "options": [
+      "It is a quantitative measure of an object's resistance to acceleration.",
+      "It is the force that keeps an object moving forward.",
+      "It is directly proportional to the mass of the object.",
+      "It is equivalent to the weight of an object measured in Newtons.",
+      "It explains why passengers in a braking car feel like they are being thrown forward."
+     ],
+     "explanation": "Inertia is an inherent property of mass, not a force itself. It quantifies how much an object resists changes in motion. The sensation in a braking car is due to your inertia attempting to maintain constant velocity while the car decelerates.",
+     "correctAnswers": [
+      "It is a quantitative measure of an object's resistance to acceleration.",
+      "It is directly proportional to the mass of the object.",
+      "It explains why passengers in a braking car feel like they are being thrown forward."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If an object is traveling at a constant velocity of 50 m/s on a flat surface, the net force acting on the object must be ____.",
+     "placeholder": "Enter value or word",
+     "correctAnswers": [
+      "zero",
+      "0",
+      "0 N",
+      "zero Newtons"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A constant net force $F$ is applied to a block of mass $m$, resulting in an acceleration $a$. If the mass is tripled and the force is doubled, what is the new acceleration?",
+     "options": [
+      "2/3 a",
+      "3/2 a",
+      "6 a",
+      "1/6 a"
+     ],
+     "explanation": "Using Newton's Second Law ($a = F/m$), the new acceleration $a' = (2F) / (3m) = 2/3 (F/m) = 2/3 a$.",
+     "correctAnswers": [
+      "2/3 a"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Free body diagram of a block pulled by an angled rope.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit2-q5.png"
+     },
+     "prompt": "A block is being pulled across a floor by a rope at an upward angle of 30 degrees. Which of the following are true regarding the forces acting on the block?",
+     "options": [
+      "The horizontal acceleration is caused by the cosine component of the tension.",
+      "The normal force is equal to the weight of the block.",
+      "The vertical component of the tension reduces the magnitude of the normal force.",
+      "The net force in the vertical direction is zero if the block stays on the floor.",
+      "The friction force is determined by the total tension magnitude."
+     ],
+     "explanation": "Because the rope pulls upward, $N + T \\sin(30) = mg$, making the normal force less than the weight. The horizontal motion is driven only by $T \\cos(30)$.",
+     "correctAnswers": [
+      "The horizontal acceleration is caused by the cosine component of the tension.",
+      "The vertical component of the tension reduces the magnitude of the normal force.",
+      "The net force in the vertical direction is zero if the block stays on the floor."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When drawing a free-body diagram for an object sliding down an inclined plane, the component of gravity acting parallel to the slope is $mg$ multiplied by ____ of the angle of the incline.",
+     "explanation": "By decomposing the weight vector $mg$ relative to a coordinate system rotated to match the ramp, the component pulling the object down the ramp is $mg \\sin(\\theta)$.",
+     "placeholder": "trig function name",
+     "correctAnswers": [
+      "sine",
+      "sin",
+      "the sine"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "According to Newton's Third Law, if the Earth pulls down on a falling apple, what is the 'reaction' force?",
+     "options": [
+      "The apple pulling up on the Earth.",
+      "Air resistance pushing up on the apple.",
+      "The normal force from the ground upon impact.",
+      "The weight of the apple."
+     ],
+     "explanation": "Third Law pairs must involve the same two objects. If Earth (A) pulls Apple (B), the reaction is Apple (B) pulling Earth (A).",
+     "correctAnswers": [
+      "The apple pulling up on the Earth."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Two blocks being pushed in contact.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit2-q8.png"
+     },
+     "prompt": "Two blocks, $M_1$ and $M_2$ ($M_1 > M_2$), are pushed together across a frictionless surface by a horizontal force applied to $M_1$. Which statements are true?",
+     "options": [
+      "Both blocks move with the same acceleration.",
+      "The force $M_1$ exerts on $M_2$ is equal to the force $M_2$ exerts on $M_1$.",
+      "The net force on $M_1$ is equal to the external applied force.",
+      "The acceleration of the system is $F / (M_1 + M_2)$.",
+      "The contact force between the blocks is greater than the external force."
+     ],
+     "explanation": "The blocks move as a single system, so they share acceleration. The contact forces are a Third Law pair (equal and opposite). The net force on $M_1$ is the external force MINUS the contact force from $M_2$.",
+     "correctAnswers": [
+      "Both blocks move with the same acceleration.",
+      "The force $M_1$ exerts on $M_2$ is equal to the force $M_2$ exerts on $M_1$.",
+      "The acceleration of the system is $F / (M_1 + M_2)$."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The maximum value of static friction is usually ____ than the value of kinetic friction for the same two surfaces.",
+     "explanation": "It generally takes more force to start an object moving (overcoming the maximum static friction) than it does to keep it moving (overcoming kinetic friction).",
+     "placeholder": "Type your answer",
+     "correctAnswers": [
+      "greater",
+      "higher",
+      "larger"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why do Newton's Third Law pairs not cancel each other out?",
+     "options": [
+      "They act on two different objects.",
+      "One force happens slightly after the other.",
+      "They are not actually equal in magnitude.",
+      "They only apply to stationary objects."
+     ],
+     "explanation": "Forces only cancel if they act on the same body. Since Third Law pairs act on the two different bodies involved in the interaction, they cannot sum to zero on a single object's free-body diagram.",
+     "correctAnswers": [
+      "They act on two different objects."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are considered 'external' forces that could appear on a free-body diagram of a single block sitting on a ramp?",
+     "options": [
+      "The gravitational pull of the Earth.",
+      "The normal force from the ramp surface.",
+      "The static friction force from the ramp.",
+      "The internal molecular bonds holding the block together.",
+      "The force of the block's own inertia."
+     ],
+     "explanation": "FBDs only include external forces (interactions with other objects). Inertia is a property, not a force, and internal bonds are internal to the system boundary.",
+     "correctAnswers": [
+      "The gravitational pull of the Earth.",
+      "The normal force from the ramp surface.",
+      "The static friction force from the ramp."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A 10 kg box is pushed with a 50 N horizontal force, but it does not move. The magnitude of the static friction force must be ____ N.",
+     "explanation": "If the object remains at rest, the net force is zero. Therefore, the friction force must exactly balance the applied horizontal force.",
+     "placeholder": "Enter number",
+     "correctAnswers": [
+      "50",
+      "50.0",
+      "fifty"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Centripetal force diagram.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit2-q13.png"
+     },
+     "prompt": "An object is moving in a circle at a constant speed. Which statement about the net force is correct?",
+     "options": [
+      "The net force is directed toward the center of the circle.",
+      "The net force is zero because the speed is constant.",
+      "The net force is directed tangent to the path of motion.",
+      "The net force is directed away from the center (centrifugal)."
+     ],
+     "explanation": "Velocity is a vector; even if speed is constant, the direction changes, meaning there is acceleration. This centripetal acceleration requires a net force directed toward the center.",
+     "correctAnswers": [
+      "The net force is directed toward the center of the circle."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "image": {
+      "alt": "Forces on a banked curve.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit2-q14.png"
+     },
+     "prompt": "A car is rounding a banked curve on a highway. If there is no friction, what provides the centripetal force?",
+     "options": [
+      "A component of the normal force.",
+      "The vertical component of gravity.",
+      "The horizontal component of the normal force.",
+      "The car's inertia.",
+      "The weight of the car."
+     ],
+     "explanation": "On a banked curve, the normal force is tilted. Its horizontal component points toward the center of the turn, providing the necessary centripetal acceleration.",
+     "correctAnswers": [
+      "A component of the normal force.",
+      "The horizontal component of the normal force."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "Newton's ____ Law is the most useful for determining the 'predictive power' of mechanics, as it links forces directly to the rate of change of velocity.",
+     "explanation": "The Second Law ($F=ma$) provides the quantitative link between dynamics (forces) and kinematics (acceleration/velocity).",
+     "placeholder": "Type your answer",
+     "correctAnswers": [
+      "Second",
+      "2nd"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "If you are in an elevator that is accelerating upward, your 'apparent weight' (the reading on a scale) will be:",
+     "options": [
+      "Greater than your actual weight.",
+      "Less than your actual weight.",
+      "Equal to your actual weight.",
+      "Zero."
+     ],
+     "explanation": "To accelerate upward, the scale must push up with a force (Normal force) greater than gravity ($N - mg = ma$). The scale reads the Normal force, which is $m(g+a)$.",
+     "correctAnswers": [
+      "Greater than your actual weight."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of the following are true about the Normal Force?",
+     "options": [
+      "It always acts perpendicular to the contact surface.",
+      "It is always equal to $mg \\cos(\\theta)$.",
+      "It is a reaction force to gravity in the Third Law sense.",
+      "It is an electromagnetic force at the microscopic level.",
+      "It can be zero if an object loses contact with a surface."
+     ],
+     "explanation": "Normal force is a contact force acting perpendicular to the surface. It is not always $mg \\cos(\\theta)$ (e.g., if there are other vertical forces). It is not the Third Law pair to gravity, as gravity involves the Earth while the normal force involves the surface.",
+     "correctAnswers": [
+      "It always acts perpendicular to the contact surface.",
+      "It is an electromagnetic force at the microscopic level.",
+      "It can be zero if an object loses contact with a surface."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "What is the primary purpose of rotating the coordinate system for a block on an incline?",
+     "options": [
+      "To ensure one axis is parallel to the acceleration.",
+      "To make the gravity vector align with the y-axis.",
+      "To eliminate the need for friction calculations.",
+      "Because the laws of physics only work if the x-axis is horizontal."
+     ],
+     "explanation": "Aligning an axis with the acceleration means the net force in the perpendicular direction is zero, simplifying the system of equations to $\\Sigma F_x = ma$ and $\\Sigma F_y = 0$.",
+     "correctAnswers": [
+      "To ensure one axis is parallel to the acceleration."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "As the mass of the hanging block increases while the mass on the table remains the same, why does the acceleration of the system approach gravity ($g$) but never quite reach it?",
+     "options": [
+      "The inertia of the block on the table always contributes to the total mass being accelerated.",
+      "The tension in the string increases to eventually cancel out the weight of the hanging mass.",
+      "Friction on the table increases proportionally to the hanging mass, limiting speed.",
+      "The gravitational constant decreases as the object moves faster toward the floor."
+     ],
+     "explanation": "In a modified Atwood machine, $a = (m_{hanging} \\cdot g) / (m_{hanging} + m_{table})$. As the hanging mass grows very large, the ratio of masses approaches 1, but because $m_{table}$ is never zero, the denominator is always larger than the numerator, keeping $a < g$.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Modified Atwood Machine Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            color: var(--ink);\n            font-family: var(--sans);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 100%;\n            box-sizing: border-box;\n            padding: 16px;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .machine-svg, .graph-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 8px;\n            font-size: clamp(12px, 2.5vw, 14px);\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n            width: 100%;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .label {\n            color: var(--muted);\n            font-family: var(--serif);\n            font-style: italic;\n        }\n\n        .value {\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n        }\n\n        .fixed {\n            font-size: 10px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            color: var(--muted);\n            margin-left: 4px;\n        }\n\n        .caption {\n            font-family: var(--serif);\n            font-style: italic;\n            color: var(--muted);\n            font-size: 12px;\n            text-align: center;\n            margin-top: 4px;\n        }\n\n        .axis-label {\n            font-family: var(--serif);\n            font-size: 11px;\n            fill: var(--muted);\n        }\n\n        .tick-label {\n            font-family: var(--sans);\n            font-size: 10px;\n            fill: var(--muted);\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of a Modified Atwood Machine with Varying Hanging Mass</h1>\n    \n    <div class=\"container\">\n        <div class=\"figure-container\" aria-label=\"A block on a table connected to a hanging block via a pulley.\">\n            <!-- Scene SVG -->\n            <svg class=\"machine-svg\" viewBox=\"0 0 400 160\">\n                <!-- Table -->\n                <line x1=\"20\" y1=\"100\" x2=\"300\" y2=\"100\" stroke=\"var(--ink)\" stroke-width=\"2\" />\n                <polyline points=\"300,100 300,160\" stroke=\"var(--ink)\" stroke-width=\"2\" fill=\"none\" />\n                \n                <!-- Pulley -->\n                <circle cx=\"310\" cy=\"100\" r=\"10\" stroke=\"var(--ink)\" stroke-width=\"1.5\" fill=\"none\" />\n                <circle cx=\"310\" cy=\"100\" r=\"2\" fill=\"var(--ink)\" />\n\n                <!-- Table Block (M1) -->\n                <rect id=\"block1\" x=\"50\" y=\"70\" width=\"40\" height=\"30\" fill=\"var(--accent)\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n                \n                <!-- String -->\n                <path id=\"string\" d=\"M 90 85 L 310 85 L 310 120\" stroke=\"var(--ink)\" stroke-width=\"1\" fill=\"none\" />\n\n                <!-- Hanging Block (M2) -->\n                <rect id=\"block2\" x=\"295\" y=\"120\" width=\"30\" height=\"30\" fill=\"var(--amber)\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n                \n                <!-- Text Annotations -->\n                <text x=\"55\" y=\"65\" class=\"axis-label\" style=\"fill: var(--accent);\">m₁</text>\n                <text x=\"330\" y=\"140\" class=\"axis-label\" style=\"fill: var(--amber);\">m₂</text>\n            </svg>\n\n            <!-- Graph SVG -->\n            <svg class=\"graph-svg\" viewBox=\"0 0 400 180\">\n                <!-- Grid -->\n                <line x1=\"40\" y1=\"150\" x2=\"380\" y2=\"150\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"40\" y1=\"150\" x2=\"40\" y2=\"20\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Horizontal Axis Ticks/Labels -->\n                <text x=\"210\" y=\"175\" class=\"axis-label\" text-anchor=\"middle\">Hanging Mass (m₂)</text>\n                <line x1=\"40\" y1=\"150\" x2=\"40\" y2=\"155\" stroke=\"var(--muted)\" />\n                <text x=\"40\" y=\"165\" class=\"tick-label\" text-anchor=\"middle\">0</text>\n                <line x1=\"380\" y1=\"150\" x2=\"380\" y2=\"155\" stroke=\"var(--muted)\" />\n                <text x=\"380\" y=\"165\" class=\"tick-label\" text-anchor=\"middle\">Large</text>\n\n                <!-- Vertical Axis Ticks/Labels -->\n                <text x=\"15\" y=\"85\" class=\"axis-label\" transform=\"rotate(-90 15 85)\" text-anchor=\"middle\">Acceleration (a)</text>\n                <line x1=\"35\" y1=\"150\" x2=\"40\" y2=\"150\" stroke=\"var(--muted)\" />\n                <text x=\"30\" y=\"153\" class=\"tick-label\" text-anchor=\"end\">0</text>\n                \n                <!-- Asymptote Line -->\n                <line x1=\"40\" y1=\"40\" x2=\"380\" y2=\"40\" stroke=\"var(--amber)\" stroke-dasharray=\"4 2\" opacity=\"0.6\" />\n                <text x=\"375\" y=\"35\" class=\"axis-label\" text-anchor=\"end\" style=\"font-size: 10px;\">g = 9.8 m/s²</text>\n\n                <!-- The Plot Path -->\n                <path id=\"graph-path\" d=\"\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n                \n                <!-- Current Progress Marker -->\n                <line id=\"progress-line\" x1=\"40\" y1=\"150\" x2=\"40\" y2=\"20\" stroke=\"var(--muted)\" stroke-dasharray=\"2 2\" opacity=\"0.5\" />\n                <circle id=\"progress-dot\" cx=\"40\" cy=\"150\" r=\"3\" fill=\"var(--accent)\" />\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Table Mass (m₁)</span>\n                <span class=\"value\">10.0 kg<span class=\"fixed\">fixed</span></span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Hanging Mass (m₂)</span>\n                <span id=\"m2-val\" class=\"value\">0.0 kg</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Acceleration</span>\n                <span id=\"acc-val\" class=\"value\">0.00 m/s²</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Table Friction</span>\n                <span class=\"value\">0.00<span class=\"fixed\">fixed</span></span>\n            </div>\n        </div>\n\n        <div class=\"caption\">System behavior as the hanging mass is varied across successive trials.</div>\n    </div>\n\n    <script>\n        const block1 = document.getElementById('block1');\n        const block2 = document.getElementById('block2');\n        const string = document.getElementById('string');\n        const m2Val = document.getElementById('m2-val');\n        const accVal = document.getElementById('acc-val');\n        const graphPath = document.getElementById('graph-path');\n        const progressLine = document.getElementById('progress-line');\n        const progressDot = document.getElementById('progress-dot');\n\n        const M1 = 10; // Fixed mass\n        const G = 9.8;\n        const MIN_M2 = 0.5;\n        const MAX_M2 = 100;\n        \n        // Timing constants\n        const CYCLE_DURATION = 12000; // Total duration of one loop in ms\n        const TRIAL_DURATION = 1500;  // Time for one individual movement trial\n        const TRIALS_COUNT = 8;       // How many m2 values to test\n\n        function getM2(t) {\n            // Sweep m2 from MIN to MAX exponentially to see asymptote better\n            const normalizedT = (t % CYCLE_DURATION) / CYCLE_DURATION;\n            // Map 0-1 to MIN-MAX\n            return MIN_M2 * Math.pow(MAX_M2 / MIN_M2, normalizedT);\n        }\n\n        function calculateAcc(m2) {\n            return (m2 * G) / (M1 + m2);\n        }\n\n        // Pre-calculate graph path\n        let pathData = \"M 40 150\";\n        for (let i = 0; i <= 100; i++) {\n            const tempM2 = MIN_M2 * Math.pow(MAX_M2 / MIN_M2, i / 100);\n            const tempAcc = calculateAcc(tempM2);\n            const x = 40 + (i / 100) * 340;\n            const y = 150 - (tempAcc / 9.8) * 110;\n            pathData += ` L ${x} ${y}`;\n        }\n        graphPath.setAttribute('d', pathData);\n\n        let lastTime = 0;\n        function update(time) {\n            const totalT = time % CYCLE_DURATION;\n            const m2 = getM2(time);\n            const acc = calculateAcc(m2);\n            \n            // Sub-cycle for the actual block animation\n            const trialT = (time % TRIAL_DURATION) / TRIAL_DURATION;\n            // System starts at rest and accelerates\n            // d = 0.5 * a * t^2\n            // Scale time and distance to fit visual\n            const scale = 30; // visual scaling\n            const tSec = trialT * 1.5; \n            let disp = 0.5 * acc * tSec * tSec * scale;\n            \n            // Clamp displacement so it doesn't go off the table too far\n            const maxDisp = 180;\n            if (disp > maxDisp) disp = maxDisp;\n\n            // Update blocks\n            const b1x = 50 + disp;\n            block1.setAttribute('x', b1x);\n            \n            const b2y = 120 + disp;\n            block2.setAttribute('y', b2y);\n            \n            // Update string\n            string.setAttribute('d', `M ${b1x + 40} 85 L 310 85 L 310 ${b2y}`);\n\n            // Update readouts\n            m2Val.textContent = `${m2.toFixed(1)} kg`;\n            accVal.textContent = `${acc.toFixed(2)} m/s²`;\n\n            // Update graph indicators\n            const progress = (totalT / CYCLE_DURATION);\n            const gx = 40 + progress * 340;\n            const gy = 150 - (acc / 9.8) * 110;\n            \n            progressLine.setAttribute('x1', gx);\n            progressLine.setAttribute('x2', gx);\n            progressDot.setAttribute('cx', gx);\n            progressDot.setAttribute('cy', gy);\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The inertia of the block on the table always contributes to the total mass being accelerated."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Energy and Momentum Mastery Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A person carries a 5 kg tray of food horizontally across a room at a constant speed of 1.2 m/s for a distance of 10 meters. How much work is done by the normal force from the person's hand on the tray?",
+     "options": [
+      "0 J",
+      "60 J",
+      "500 J",
+      "49 J"
+     ],
+     "explanation": "Work is defined as the dot product of force and displacement. Since the normal force is vertical and the displacement is horizontal, the angle between them is 90 degrees, and cos(90°) = 0, resulting in zero work.",
+     "correctAnswers": [
+      "0 J"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following conditions would each, on its own, guarantee that the net work done on an object is exactly zero during a displacement?",
+     "options": [
+      "The net force acting on the object is zero.",
+      "The displacement of the object is zero.",
+      "The net force is always perpendicular to the direction of motion.",
+      "The object's speed remains constant throughout the motion.",
+      "The object is moving in a perfectly straight line."
+     ],
+     "explanation": "Each of these is a sufficient condition for zero net work: if the net force is zero or the displacement is zero, W = F·d = 0; if the net force is always perpendicular to the motion, cos θ = 0 so no work is done; and by the Work-Energy Theorem, constant speed means ΔK = 0, so the net work must be zero. Moving in a straight line says nothing about the work done — a net force along the line does work.",
+     "correctAnswers": [
+      "The net force acting on the object is zero.",
+      "The displacement of the object is zero.",
+      "The net force is always perpendicular to the direction of motion.",
+      "The object's speed remains constant throughout the motion."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The Work-Energy Theorem states that the total work done by all forces on an object is equal to the change in the object's ____.",
+     "placeholder": "Type of energy",
+     "correctAnswers": [
+      "kinetic energy",
+      "Kinetic Energy",
+      "KE"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If a car's speed increases from 20 km/h to 60 km/h, by what factor does its kinetic energy increase?",
+     "options": [
+      "3 times",
+      "6 times",
+      "9 times",
+      "27 times"
+     ],
+     "explanation": "Kinetic energy is proportional to the square of the velocity (1/2 mv²). Since the speed tripled (60/20 = 3), the kinetic energy increases by 3², which is 9.",
+     "correctAnswers": [
+      "9 times"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A spring with spring constant 'k' is stretched from its equilibrium position (x=0) to a final position (x=L). Which statements accurately describe this system?",
+     "options": [
+      "The work done by the spring is -1/2 kL².",
+      "The potential energy stored in the spring is 1/2 kL².",
+      "The force exerted by the spring is constant throughout the displacement.",
+      "The work required to stretch it from L/2 to L is three times the work required to stretch it from 0 to L/2.",
+      "The potential energy depends linearly on the displacement."
+     ],
+     "explanation": "Spring force is variable (F=-kx), so work is the integral, resulting in 1/2 kx². Stretching from L/2 to L involves [(1/2)kL² - (1/2)k(L/2)²] = 3/8 kL², which is 3x the first 1/8 kL² done from 0 to L/2.",
+     "correctAnswers": [
+      "The work done by the spring is -1/2 kL².",
+      "The potential energy stored in the spring is 1/2 kL².",
+      "The work required to stretch it from L/2 to L is three times the work required to stretch it from 0 to L/2."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A force field is considered conservative if the work done by the force around any ____ loop is exactly zero.",
+     "placeholder": "Type of path",
+     "correctAnswers": [
+      "closed",
+      "complete",
+      "circular"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why is it impossible to define a 'Potential Energy' function for the force of friction?",
+     "options": [
+      "Because friction always acts in the opposite direction of motion.",
+      "Because the work done by friction depends on the specific path taken, not just the start and end points.",
+      "Because friction is not a fundamental force of nature.",
+      "Because friction converts kinetic energy into thermal energy."
+     ],
+     "explanation": "Potential energy can only be defined for conservative forces where work is path-independent. Friction is non-conservative because its work accumulates based on the total distance traveled.",
+     "correctAnswers": [
+      "Because the work done by friction depends on the specific path taken, not just the start and end points."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In a system where only conservative forces do work, which of the following quantities must remain constant over time?",
+     "options": [
+      "The kinetic energy of the system.",
+      "The potential energy of the system.",
+      "The sum of kinetic and potential energy.",
+      "The total mechanical energy.",
+      "The momentum of the system."
+     ],
+     "explanation": "By definition, conservative forces allow for the total mechanical energy (K + U) to be conserved. Kinetic and potential energy individually change as they transform into one another.",
+     "correctAnswers": [
+      "The sum of kinetic and potential energy.",
+      "The total mechanical energy."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The instantaneous power delivered by a force F to an object moving with velocity v is given by the ____ product of the force and velocity vectors.",
+     "placeholder": "Type of product",
+     "correctAnswers": [
+      "dot",
+      "scalar"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Given a potential energy function U(x) = ax² - bx, what is the expression for the force F(x) acting on the particle?",
+     "options": [
+      "F(x) = 2ax - b",
+      "F(x) = -2ax + b",
+      "F(x) = (1/3)ax³ - (1/2)bx²",
+      "F(x) = -ax² + bx"
+     ],
+     "explanation": "Force is the negative gradient (derivative) of potential energy: F = -dU/dx. The derivative of (ax² - bx) is (2ax - b), so the force is -(2ax - b) = -2ax + b.",
+     "correctAnswers": [
+      "F(x) = -2ax + b"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are units of Power?",
+     "options": [
+      "Watts (W)",
+      "Joules per second (J/s)",
+      "Newton-meters (N·m)",
+      "Kilogram-meters squared per second cubed (kg·m²/s³)",
+      "Horsepower (hp)"
+     ],
+     "explanation": "Power is work/time. 1 W = 1 J/s. In base units, J = kg·m²/s², so J/s = kg·m²/s³. Newton-meters is a unit of work/energy (Joules), not power.",
+     "correctAnswers": [
+      "Watts (W)",
+      "Joules per second (J/s)",
+      "Kilogram-meters squared per second cubed (kg·m²/s³)",
+      "Horsepower (hp)"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A collision in which the total kinetic energy of the system is NOT conserved is called an ____ collision.",
+     "placeholder": "Term for the collision type",
+     "correctAnswers": [
+      "inelastic",
+      "in-elastic"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A 2 kg block is pushed against a spring (k = 100 N/m) compressing it 0.2 m. If the block is released on a horizontal frictionless surface, what is its speed when it leaves the spring?",
+     "options": [
+      "1.41 m/s",
+      "2.0 m/s",
+      "4.0 m/s",
+      "0.2 m/s"
+     ],
+     "explanation": "Using Conservation of Energy: 1/2 kx² = 1/2 mv². Plugging in: 0.5 * 100 * (0.2)² = 0.5 * 2 * v². 2 = v², so v = √2 ≈ 1.41 m/s.",
+     "correctAnswers": [
+      "1.41 m/s"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "An object experiences an impulse 'J'. Which of the following statements must be true regarding this event?",
+     "options": [
+      "The object's momentum changed by an amount equal to J.",
+      "The kinetic energy of the object must have increased.",
+      "A force was applied to the object over a specific time interval.",
+      "The object's mass must have changed.",
+      "The impulse is equal to the integral of Force with respect to time."
+     ],
+     "explanation": "Impulse is defined as the change in momentum (Δp) and is calculated as the time-integral of force. It does not necessarily increase kinetic energy (e.g., stopping a moving object).",
+     "correctAnswers": [
+      "The object's momentum changed by an amount equal to J.",
+      "A force was applied to the object over a specific time interval.",
+      "The impulse is equal to the integral of Force with respect to time."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The mathematical operation used to calculate the work done by a variable force along a displacement is called an ____.",
+     "placeholder": "Name of the calculus operation",
+     "correctAnswers": [
+      "integral",
+      "integration",
+      "definite integral"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "An engine lifts a 100 kg crate at a constant vertical speed of 2 m/s. What is the power output of the engine? (Use g = 9.8 m/s²)",
+     "options": [
+      "200 W",
+      "490 W",
+      "1960 W",
+      "980 W"
+     ],
+     "explanation": "Power = Force × Velocity. The force required to lift at constant speed is the weight (mg = 100 * 9.8 = 980 N). Power = 980 N * 2 m/s = 1960 W.",
+     "correctAnswers": [
+      "1960 W"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "A ball is dropped and bounces off the floor. During the brief time it is in contact with the floor, which of the following occur?",
+     "options": [
+      "The floor exerts an upward impulse on the ball.",
+      "The ball's momentum is conserved during the contact interval.",
+      "The average force on the ball depends on the duration of the contact.",
+      "The ball's kinetic energy is momentarily zero at the point of maximum compression.",
+      "The net work done by gravity is zero during the bounce."
+     ],
+     "explanation": "The floor exerts a large upward impulse on the ball, so the ball's momentum is NOT conserved during the contact interval (an external force acts on it). That impulse equals the ball's change in momentum, and the average force is Impulse/Δt, so it depends on how long the contact lasts. At maximum compression the ball is momentarily at rest, so K = 0 there. Gravity's net work during the contact is also zero: gravity does positive work while the ball compresses (center of mass moves down) and an equal amount of negative work as it rebounds, and the ball leaves the floor at the same height at which it first touched it, so the net displacement—and therefore gravity's net work—is zero.",
+     "correctAnswers": [
+      "The floor exerts an upward impulse on the ball.",
+      "The average force on the ball depends on the duration of the contact.",
+      "The ball's kinetic energy is momentarily zero at the point of maximum compression.",
+      "The net work done by gravity is zero during the bounce."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of a 2D collision between two billiard balls showing vector components.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit3-q18.png"
+     },
+     "prompt": "In a 2D collision between two billiard balls, which of the following is always conserved if the system is isolated?",
+     "options": [
+      "The total kinetic energy of the system.",
+      "The velocity of each individual ball.",
+      "The total momentum vector of the system.",
+      "The total angular momentum about the point of impact only."
+     ],
+     "explanation": "Momentum is a vector and is always conserved in any collision within an isolated system. Kinetic energy is only conserved in perfectly elastic collisions.",
+     "correctAnswers": [
+      "The total momentum vector of the system."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Observe the particle moving through the varying potential energy field. Why does the particle's speed reach its maximum at the lowest point of the 'valley' in the graph?",
+     "options": [
+      "Because the force of gravity is strongest at the lowest elevation of the potential well.",
+      "Because the negative gradient of the potential energy is zero at the bottom, stopping the particle.",
+      "Because the system is converting the maximum amount of stored potential energy into kinetic energy at that position.",
+      "Because non-conservative forces are absent only at the local minima of the potential energy function."
+     ],
+     "explanation": "According to the conservation of mechanical energy (E = K + U), as potential energy (U) decreases, kinetic energy (K) must increase. The minimum U corresponds to the maximum K, and thus maximum speed.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Conservation of Mechanical Energy Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Kinetic Energy K */\n            --amber: #c47c00;  /* Potential Energy U */\n            --total: #555555;  /* Total Energy E */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .sim-layout {\n            display: grid;\n            grid-template-columns: 1fr 120px;\n            gap: 24px;\n            align-items: center;\n        }\n\n        .fig-well {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .fig-well .track {\n            fill: none;\n            stroke: var(--rule);\n            stroke-width: 2;\n        }\n\n        .fig-well .marble {\n            fill: var(--ink);\n        }\n\n        .fig-well .labels {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .energy-chart {\n            height: 200px;\n            display: flex;\n            flex-direction: column;\n            justify-content: flex-end;\n            position: relative;\n            padding-bottom: 20px;\n            border-left: 1px solid var(--rule);\n        }\n\n        .bar-container {\n            position: relative;\n            width: 40px;\n            height: 160px;\n            background: var(--bg);\n            margin: 0 auto;\n            display: flex;\n            flex-direction: column-reverse;\n        }\n\n        .bar-segment {\n            width: 100%;\n            transition: height 0.016s linear;\n        }\n\n        .bar-k { background-color: var(--accent); }\n        .bar-u { background-color: var(--amber); }\n\n        .total-marker {\n            position: absolute;\n            left: -5px;\n            right: -25px;\n            height: 1px;\n            border-top: 1.5px dashed var(--total);\n            z-index: 2;\n        }\n\n        .chart-labels {\n            position: absolute;\n            right: -30px;\n            top: 0;\n            bottom: 20px;\n            display: flex;\n            flex-direction: column;\n            justify-content: space-between;\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: center;\n            gap: 24px;\n            font-family: -apple-system, sans-serif;\n            font-size: 13px;\n            color: var(--ink);\n        }\n\n        .readout-item {\n            display: flex;\n            align-items: center;\n            gap: 6px;\n        }\n\n        .swatch {\n            width: 10px;\n            height: 10px;\n            border-radius: 2px;\n        }\n\n        .value {\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n        }\n\n        .caption {\n            text-align: center;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            margin-top: 4px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of a marble in a U-shaped well showing conservation of energy</h1>\n\n    <div class=\"container\" id=\"widget-root\">\n        <div class=\"sim-layout\">\n            <!-- Scene: The U-Shaped Well -->\n            <svg class=\"fig-well\" viewBox=\"0 0 300 200\" aria-hidden=\"true\">\n                <!-- Reference Lines -->\n                <line x1=\"20\" y1=\"180\" x2=\"280\" y2=\"180\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"150\" y1=\"40\" x2=\"150\" y2=\"185\" stroke=\"var(--rule)\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.5\" />\n                \n                <!-- The Track (Parabola: y = k * (x-150)^2 + 40) -->\n                <path class=\"track\" d=\"M 30 40 Q 150 320 270 40\" />\n                \n                <!-- Labels -->\n                <text x=\"150\" y=\"195\" text-anchor=\"middle\" class=\"labels\">Position</text>\n                <text x=\"25\" y=\"30\" text-anchor=\"middle\" class=\"labels\">Peak</text>\n                <text x=\"275\" y=\"30\" text-anchor=\"middle\" class=\"labels\">Peak</text>\n\n                <!-- The Marble -->\n                <circle id=\"marble\" r=\"8\" class=\"marble\" />\n            </svg>\n\n            <!-- Linked Representation: Energy Bar Chart -->\n            <div class=\"energy-chart\" aria-label=\"Energy distribution chart\">\n                <div class=\"bar-container\">\n                    <div id=\"bar-u\" class=\"bar-segment bar-u\"></div>\n                    <div id=\"bar-k\" class=\"bar-segment bar-k\"></div>\n                    <div id=\"total-line\" class=\"total-marker\"></div>\n                </div>\n                <div class=\"chart-labels\">\n                    <span style=\"font-style: italic;\">E (Total)</span>\n                </div>\n            </div>\n        </div>\n\n        <!-- Real-time Numeric Readouts -->\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <div class=\"swatch\" style=\"background: var(--amber);\"></div>\n                <span>U:</span>\n                <span id=\"val-u\" class=\"value\">0.00</span>\n            </div>\n            <div class=\"readout-item\">\n                <div class=\"swatch\" style=\"background: var(--accent);\"></div>\n                <span>K:</span>\n                <span id=\"val-k\" class=\"value\">0.00</span>\n            </div>\n            <div class=\"readout-item\">\n                <div class=\"swatch\" style=\"background: var(--total); border: 1px dashed #fff;\"></div>\n                <span>Total:</span>\n                <span id=\"val-e\" class=\"value\">100.00</span>\n                <span style=\"font-size: 10px; color: var(--muted); margin-left: 2px;\">(fixed)</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Continuous motion in a frictionless environment</div>\n    </div>\n\n    <script>\n        const marble = document.getElementById('marble');\n        const barK = document.getElementById('bar-k');\n        const barU = document.getElementById('bar-u');\n        const valK = document.getElementById('val-k');\n        const valU = document.getElementById('val-u');\n        const totalLine = document.getElementById('total-line');\n\n        // Physical parameters\n        const TOTAL_ENERGY = 100;\n        let time = 0;\n\n        function update(timestamp) {\n            if (!document.hidden) {\n                // Harmonic-like oscillation for the sweep\n                // T = 6 seconds for a full cycle (back and forth)\n                time = (performance.now() / 6000) * Math.PI * 2;\n                \n                // Horizontal position: center is 150, amplitude is 120\n                const x = 150 + Math.cos(time) * 120;\n                \n                // Vertical position (U-shape parabola)\n                // When x is at extremeties (30 or 270), y is 40\n                // When x is at center (150), y is 180\n                const normalizedX = (x - 150) / 120; // -1 to 1\n                const y = 40 + (normalizedX * normalizedX) * 140;\n                \n                // Update Marble Position\n                marble.setAttribute('cx', x);\n                marble.setAttribute('cy', 180 - (140 - (normalizedX * normalizedX) * 140));\n                // Simplified parabolic visual match\n                const visualY = 180 - (140 * (1 - normalizedX * normalizedX));\n                marble.setAttribute('cy', visualY);\n\n                // Energy Calculations\n                // Potential Energy is proportional to height (1 - normalizedX^2 in this inverted visual)\n                // Actually easier: U is max at edges, 0 at center\n                const uRatio = normalizedX * normalizedX; \n                const uVal = uRatio * TOTAL_ENERGY;\n                const kVal = TOTAL_ENERGY - uVal;\n\n                // Update Bars\n                barU.style.height = `${uRatio * 100}%`;\n                barK.style.height = `${(1 - uRatio) * 100}%`;\n                \n                // Update Text\n                valU.textContent = uVal.toFixed(2);\n                valK.textContent = kVal.toFixed(2);\n\n                // Ensure total line stays at 100% of the energy container\n                totalLine.style.bottom = '100%';\n            }\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the system is converting the maximum amount of stored potential energy into kinetic energy at that position."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Rotation and Rigid Bodies Unit Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a rigid body rotates with a constant angular velocity, which of the following must be true for a point on the outer edge of the body?",
+     "options": [
+      "The tangential acceleration is zero, but the centripetal acceleration is non-zero.",
+      "Both the tangential and centripetal accelerations are zero.",
+      "The centripetal acceleration is zero, but the tangential acceleration is non-zero.",
+      "Both the tangential and centripetal accelerations are non-zero."
+     ],
+     "explanation": "Constant angular velocity implies zero angular acceleration, meaning tangential acceleration (r * alpha) is zero. However, since the point is moving in a circle, its direction is constantly changing, which requires a non-zero centripetal acceleration.",
+     "correctAnswers": [
+      "The tangential acceleration is zero, but the centripetal acceleration is non-zero."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Velocity vector map of a rolling wheel",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit4-q2.png"
+     },
+     "prompt": "A wheel of radius R is rolling without slipping along a horizontal surface with a constant center-of-mass velocity V. Which of the following statements correctly describe the motion of points on the wheel?",
+     "options": [
+      "The point at the very top of the wheel has a velocity of 2V relative to the ground.",
+      "The point in contact with the ground has a velocity of zero relative to the ground.",
+      "The angular velocity of the wheel is equal to V/R.",
+      "Every point on the rim has the same speed relative to the ground.",
+      "The center of mass has an acceleration of V²/R."
+     ],
+     "explanation": "In rolling without slipping, the contact point is instantaneously at rest. The velocity at the top is the sum of translational and rotational velocities (V + ωR = 2V). The relation V = ωR is the defining kinematic constraint for no-slip motion.",
+     "correctAnswers": [
+      "The point at the very top of the wheel has a velocity of 2V relative to the ground.",
+      "The point in contact with the ground has a velocity of zero relative to the ground.",
+      "The angular velocity of the wheel is equal to V/R."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To convert a rotational frequency given in revolutions per minute (RPM) into the standard SI unit for angular velocity used in kinematic equations, you must multiply by the factor ____.",
+     "placeholder": "e.g., 2π/60",
+     "correctAnswers": [
+      "2π/60",
+      "pi/30",
+      "0.1047"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "An object's angular position is given by the function θ(t) = 2t³ - 4t. What is the angular acceleration of the object at t = 2 seconds?",
+     "options": [
+      "24 rad/s²",
+      "20 rad/s²",
+      "12 rad/s²",
+      "8 rad/s²"
+     ],
+     "explanation": "Angular acceleration is the second derivative of position. dθ/dt = 6t² - 4; d²θ/dt² = 12t. Plugging in t=2 gives 12(2) = 24 rad/s².",
+     "correctAnswers": [
+      "24 rad/s²"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Two pulleys of different radii (R₁ > R₂) are connected by a belt that does not slip. Which of the following quantities must be the same for both pulleys?",
+     "options": [
+      "The tangential speed at the outer rims.",
+      "The angular velocity.",
+      "The magnitude of the tangential acceleration if the system speeds up.",
+      "The centripetal acceleration at the rims.",
+      "The total number of rotations made in a given time interval."
+     ],
+     "explanation": "Because the belt connects the surfaces, the linear speed (v = ωR) and linear acceleration (a = αR) of the points in contact with the belt must be identical for both pulleys. Since the radii differ, their angular quantities (ω and α) must be different.",
+     "correctAnswers": [
+      "The tangential speed at the outer rims.",
+      "The magnitude of the tangential acceleration if the system speeds up."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'no-slip' condition for a wheel of radius R rolling on a flat surface relates the linear velocity (v) of the center of mass to the angular velocity (ω) by the equation v = ____.",
+     "placeholder": "formula",
+     "correctAnswers": [
+      "ωR",
+      "Rω",
+      "wR"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A ceiling fan is turned off and slows down with a constant angular deceleration. If it takes 20 seconds to stop from an initial velocity of 10 rad/s, what is its angular displacement during this time?",
+     "options": [
+      "100 radians",
+      "200 radians",
+      "50 radians",
+      "400 radians"
+     ],
+     "explanation": "Using Δθ = 1/2(ω₀ + ω)t = 1/2(10 + 0) * 20 = 100 radians.",
+     "correctAnswers": [
+      "100 radians"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following conditions are necessary for a rigid body to be in total static equilibrium?",
+     "options": [
+      "The vector sum of all external forces must be zero.",
+      "The vector sum of all external torques about any axis must be zero.",
+      "The object must have a constant non-zero angular velocity.",
+      "The object must be moving at a constant linear velocity.",
+      "The moment of inertia must be minimized."
+     ],
+     "explanation": "Static equilibrium requires both translational equilibrium (ΣF=0) and rotational equilibrium (Στ=0) while the object is at rest.",
+     "correctAnswers": [
+      "The vector sum of all external forces must be zero.",
+      "The vector sum of all external torques about any axis must be zero."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When an object rolls without slipping, the friction acting at the contact point is ____ friction.",
+     "placeholder": "type of friction",
+     "correctAnswers": [
+      "static",
+      "static friction"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A grindstone starts from rest and achieves an angular velocity of 12 rad/s in 4 seconds under constant angular acceleration. Through what angle has it turned?",
+     "options": [
+      "24 radians",
+      "48 radians",
+      "12 radians",
+      "6 radians"
+     ],
+     "explanation": "Δθ = ω₀t + 0.5αt². First find α = (12-0)/4 = 3 rad/s². Then Δθ = 0 + 0.5(3)(4²) = 24 radians.",
+     "correctAnswers": [
+      "24 radians"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In the context of rotational dynamics, which statements about the 'radian' are true?",
+     "options": [
+      "It is a dimensionless unit defined as the ratio of arc length to radius.",
+      "One full revolution is equal to 2π radians.",
+      "It is only applicable when the angular acceleration is constant.",
+      "It allows for a direct relationship between linear and angular displacement via s = rθ.",
+      "It is defined as 1/360th of a circle."
+     ],
+     "explanation": "Radians are the 'natural' unit for rotation because they link linear and angular measures directly; there are 2π radians in a full circle (360 degrees).",
+     "correctAnswers": [
+      "It is a dimensionless unit defined as the ratio of arc length to radius.",
+      "One full revolution is equal to 2π radians.",
+      "It allows for a direct relationship between linear and angular displacement via s = rθ."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In rotational dynamics, the quantity that plays the same role as mass in linear dynamics (resisting changes in motion) is called the ____.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "moment of inertia",
+      "rotational inertia"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If the angular acceleration of a wheel is tripled while all other kinematic variables remain constant, how does the time required to reach a certain angular velocity from rest change?",
+     "options": [
+      "It is reduced to one-third.",
+      "It triples.",
+      "It is reduced by a factor of nine.",
+      "It remains the same."
+     ],
+     "explanation": "From ω = αt, if ω is constant and α is tripled, t must be 1/3 of its original value to maintain the equality.",
+     "correctAnswers": [
+      "It is reduced to one-third."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the vector quantities in the study of rigid body rotation.",
+     "options": [
+      "Angular velocity",
+      "Torque",
+      "Angular displacement",
+      "Moment of inertia",
+      "Rotational kinetic energy"
+     ],
+     "explanation": "Angular velocity, torque, and displacement have direction (usually defined by the right-hand rule). Moment of inertia and kinetic energy are scalars.",
+     "correctAnswers": [
+      "Angular velocity",
+      "Torque",
+      "Angular displacement"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "As the person in the simulation moves the heavy masses from their outstretched arms inward toward their chest, why does their rotation speed increase?",
+     "options": [
+      "The reduction in the radius of the rotating mass decreases the system's moment of inertia, requiring a higher angular velocity to conserve angular momentum.",
+      "The inward movement creates a tangential force that generates a positive torque, accelerating the rotation.",
+      "Moving the masses inward increases the total kinetic energy of the system, which naturally results in a higher RPM.",
+      "The centripetal force required to keep the masses in a circle is lower when they are closer to the axis, allowing them to move faster."
+     ],
+     "explanation": "This is a demonstration of the conservation of angular momentum (L = Iω). By pulling the masses in, the distribution of mass is closer to the axis, decreasing 'I'. Since L remains constant (no external torque), ω must increase.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Conservation of Angular Momentum Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --font-serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: var(--font-sans);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 16px;\n            align-items: end;\n        }\n\n        @media (max-width: 450px) {\n            .fig-wrapper {\n                grid-template-columns: 1fr;\n            }\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readouts {\n            display: flex;\n            flex-direction: column;\n            gap: 8px;\n            padding: 8px 0;\n            border-top: 1px solid var(--rule);\n        }\n\n        .readout-row {\n            display: flex;\n            justify-content: space-between;\n            align-items: baseline;\n            font-size: clamp(11px, 2.5vw, 13px);\n            color: var(--muted);\n        }\n\n        .readout-label {\n            font-family: var(--font-serif);\n            font-style: italic;\n        }\n\n        .readout-value {\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n            color: var(--ink);\n        }\n\n        .label-accent { color: var(--accent); }\n        .label-amber { color: var(--amber); }\n\n        .axis-label {\n            font-family: var(--font-serif);\n            font-size: 11px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .tick-text {\n            font-family: var(--font-sans);\n            font-size: 10px;\n            fill: var(--muted);\n        }\n\n        .caption {\n            text-align: center;\n            font-family: var(--font-serif);\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            margin-top: 4px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of a rotating figure extending and retracting weights</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-wrapper\">\n            <!-- Scene View -->\n            <svg class=\"fig\" viewBox=\"0 0 200 220\" aria-hidden=\"true\">\n                <!-- Stool Base -->\n                <ellipse cx=\"100\" cy=\"190\" rx=\"30\" ry=\"8\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\"/>\n                <line x1=\"100\" y1=\"190\" x2=\"100\" y2=\"160\" stroke=\"var(--ink)\" stroke-width=\"2\"/>\n                <ellipse cx=\"100\" cy=\"160\" rx=\"20\" ry=\"5\" fill=\"var(--bg)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/>\n                \n                <!-- Rotating Platform Group -->\n                <g id=\"rotator\">\n                    <!-- Person (Simplified) -->\n                    <rect x=\"92\" y=\"100\" width=\"16\" height=\"60\" rx=\"8\" fill=\"var(--bg)\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                    <circle cx=\"100\" cy=\"90\" r=\"10\" fill=\"var(--bg)\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                    \n                    <!-- Arms and Weights -->\n                    <line id=\"arm-l\" x1=\"92\" y1=\"115\" x2=\"50\" y2=\"115\" stroke=\"var(--ink)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n                    <line id=\"arm-r\" x1=\"108\" y1=\"115\" x2=\"150\" y2=\"115\" stroke=\"var(--ink)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n                    <circle id=\"weight-l\" cx=\"50\" cy=\"115\" r=\"6\" fill=\"var(--accent)\" />\n                    <circle id=\"weight-r\" cx=\"150\" cy=\"115\" r=\"6\" fill=\"var(--accent)\" />\n                    \n                    <!-- Rotation Indicator -->\n                    <path d=\"M 80 175 A 25 8 0 0 0 120 175\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1\" stroke-dasharray=\"2 2\" />\n                </g>\n            </svg>\n\n            <!-- Graph View -->\n            <svg class=\"fig\" viewBox=\"0 0 200 160\" aria-hidden=\"true\">\n                <text x=\"0\" y=\"12\" class=\"axis-label\">Rotation Speed (rad/s)</text>\n                <!-- Axes -->\n                <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"140\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <line x1=\"30\" y1=\"140\" x2=\"190\" y2=\"140\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                \n                <!-- Ticks -->\n                <line x1=\"26\" y1=\"140\" x2=\"30\" y2=\"140\" stroke=\"var(--muted)\" />\n                <line x1=\"26\" y1=\"80\" x2=\"30\" y2=\"80\" stroke=\"var(--muted)\" />\n                <line x1=\"26\" y1=\"20\" x2=\"30\" y2=\"20\" stroke=\"var(--muted)\" />\n                <text x=\"22\" y=\"143\" text-anchor=\"end\" class=\"tick-text\">0</text>\n                <text x=\"22\" y=\"83\" text-anchor=\"end\" class=\"tick-text\">5</text>\n                <text x=\"22\" y=\"23\" text-anchor=\"end\" class=\"tick-text\">10</text>\n\n                <text x=\"110\" y=\"155\" text-anchor=\"middle\" class=\"axis-label\">Weight Distance</text>\n                \n                <!-- Data Path -->\n                <path id=\"graph-line\" d=\"\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n                <!-- Current point -->\n                <circle id=\"graph-cursor\" cx=\"30\" cy=\"140\" r=\"3\" fill=\"var(--amber)\" />\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-row\">\n                <span class=\"readout-label\">System friction</span>\n                <span class=\"readout-value\">0.00 · fixed</span>\n            </div>\n            <div class=\"readout-row\">\n                <span class=\"readout-label label-accent\">Radius (r)</span>\n                <span id=\"val-radius\" class=\"readout-value\">0.00 m</span>\n            </div>\n            <div class=\"readout-row\">\n                <span class=\"readout-label label-amber\">Angular Velocity (ω)</span>\n                <span id=\"val-omega\" class=\"readout-value\">0.00 rad/s</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Single continuous run: arm extension vs rotation rate.</div>\n    </div>\n\n    <script>\n        const rotator = document.getElementById('rotator');\n        const armL = document.getElementById('arm-l');\n        const armR = document.getElementById('arm-r');\n        const weightL = document.getElementById('weight-l');\n        const weightR = document.getElementById('weight-r');\n        const graphLine = document.getElementById('graph-line');\n        const graphCursor = document.getElementById('graph-cursor');\n        const valRadius = document.getElementById('val-radius');\n        const valOmega = document.getElementById('val-omega');\n\n        let startTime = null;\n        let angle = 0;\n\n        // Constants for the physics-based visual\n        const MIN_RADIUS = 12; // \"Chest\" position\n        const MAX_RADIUS = 50; // \"Extended\" position\n        const CONSTANT_L = 1000; // Represents Angular Momentum (I * omega = L)\n        // Moment of Inertia I = I_body + 2 * m * r^2\n        const I_BODY = 100;\n        const M_WEIGHT = 1.2;\n\n        function getOmega(r) {\n            const I = I_BODY + 2 * M_WEIGHT * (r * r);\n            return (CONSTANT_L / I) * 1.5; \n        }\n\n        // Pre-calculate graph path\n        let pathD = \"M \";\n        for (let r = MIN_RADIUS; r <= MAX_RADIUS; r++) {\n            const x = 30 + ((r - MIN_RADIUS) / (MAX_RADIUS - MIN_RADIUS)) * 150;\n            const omega = getOmega(r);\n            const y = 140 - (omega / 10) * 120;\n            pathD += `${x},${y} `;\n        }\n        graphLine.setAttribute('d', pathD);\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) / 1000;\n            \n            // Sweep radius back and forth smoothly\n            // Cycle: 8 seconds for a full out-and-back\n            const t = (Math.sin(elapsed * Math.PI / 4) + 1) / 2; \n            const currentR = MIN_RADIUS + t * (MAX_RADIUS - MIN_RADIUS);\n            \n            const omega = getOmega(currentR);\n            angle += omega * 0.016; // increment based on ~60fps\n\n            // Update 3D-ish rotation effect\n            const scaleX = Math.cos(angle);\n            const zIndex = Math.sin(angle) > 0 ? 1 : -1;\n            \n            // Arm visuals\n            // x1 and x2 adjusted to simulate 3D rotation by narrowing width\n            const visualR = currentR * scaleX;\n            armL.setAttribute('x2', 92 - visualR);\n            armR.setAttribute('x2', 108 + visualR);\n            weightL.setAttribute('cx', 92 - visualR);\n            weightR.setAttribute('cx', 108 + visualR);\n            \n            // Simple depth sorting (weights behind or in front of body)\n            if (zIndex > 0) {\n                weightL.setAttribute('opacity', '1');\n                weightR.setAttribute('opacity', '1');\n            } else {\n                weightL.setAttribute('opacity', '0.4');\n                weightR.setAttribute('opacity', '0.4');\n            }\n\n            // Update Graph Cursor\n            const cursorX = 30 + ((currentR - MIN_RADIUS) / (MAX_RADIUS - MIN_RADIUS)) * 150;\n            const cursorY = 140 - (omega / 10) * 120;\n            graphCursor.setAttribute('cx', cursorX);\n            graphCursor.setAttribute('cy', cursorY);\n\n            // Update Readouts\n            valRadius.textContent = (currentR / 40).toFixed(2) + \" m\";\n            valOmega.textContent = (omega).toFixed(2) + \" rad/s\";\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n        });\n\n        const resizeObserver = new ResizeObserver(() => reportHeight());\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The reduction in the radius of the rotating mass decreases the system's moment of inertia, requiring a higher angular velocity to conserve angular momentum."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Oscillations and Gravitation Final Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In a spring-mass system, why does the acceleration reach its maximum value at the exact moment the velocity becomes zero?",
+     "options": [
+      "Because the restoring force is proportional to displacement, and displacement is maximum at the turning points.",
+      "Because the kinetic energy is being converted into gravitational potential energy at that specific point.",
+      "Because the spring constant k increases as the spring is stretched further from equilibrium.",
+      "Because the mass of the spring becomes negligible only at the maximum amplitude."
+     ],
+     "explanation": "According to Hooke's Law (F=-kx) and Newton's Second Law (F=ma), acceleration is directly proportional to displacement. At the turning points (amplitude), displacement is at its maximum, resulting in maximum force and acceleration, while the velocity is zero as the object changes direction.",
+     "correctAnswers": [
+      "Because the restoring force is proportional to displacement, and displacement is maximum at the turning points."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A simple pendulum is undergoing small-angle oscillations. Which of the following changes would significantly alter the period of the oscillation?",
+     "options": [
+      "Increasing the mass of the pendulum bob.",
+      "Moving the pendulum to a planet with higher surface gravity.",
+      "Increasing the length of the string.",
+      "Increasing the initial displacement from 2 degrees to 5 degrees.",
+      "Decreasing the length of the string."
+     ],
+     "explanation": "The period of a simple pendulum is T = 2π√(L/g). It depends only on the length (L) and the gravitational acceleration (g). Within the small-angle approximation, the mass and the specific amplitude do not affect the period.",
+     "correctAnswers": [
+      "Moving the pendulum to a planet with higher surface gravity.",
+      "Increasing the length of the string.",
+      "Decreasing the length of the string."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Simple Harmonic Motion, the angular frequency ω is determined by the ratio of the system's ____ to its inertia.",
+     "placeholder": "property of the spring",
+     "correctAnswers": [
+      "stiffness",
+      "spring constant",
+      "stiffness constant"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If the amplitude of a simple harmonic oscillator is doubled, how does the total mechanical energy of the system change?",
+     "options": [
+      "The energy remains the same.",
+      "The energy doubles.",
+      "The energy quadruples.",
+      "The energy increases by a factor of root two."
+     ],
+     "explanation": "Total energy in SHM is given by E = 1/2 kA². Since energy is proportional to the square of the amplitude, doubling the amplitude (2²) results in four times the energy.",
+     "correctAnswers": [
+      "The energy quadruples."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following statements correctly describe the 'Small-Angle Approximation' used in pendulum motion?",
+     "options": [
+      "It assumes that sin(θ) is approximately equal to θ in radians.",
+      "It allows the restoring force to be treated as a linear function of displacement.",
+      "It is required because the tension in the string is constant at all angles.",
+      "It transforms a non-linear differential equation into a simple harmonic oscillator model.",
+      "It is only valid for angles greater than 90 degrees."
+     ],
+     "explanation": "The small-angle approximation (sin θ ≈ θ) linearizes the tangential component of gravity, making the restoring force proportional to displacement, which is the requirement for SHM.",
+     "correctAnswers": [
+      "It assumes that sin(θ) is approximately equal to θ in radians.",
+      "It allows the restoring force to be treated as a linear function of displacement.",
+      "It transforms a non-linear differential equation into a simple harmonic oscillator model."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The mathematical signature of Simple Harmonic Motion is that the ____ is always proportional to the displacement but in the opposite direction.",
+     "placeholder": "vector quantity",
+     "correctAnswers": [
+      "acceleration",
+      "restoring force",
+      "net force"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When a mass-spring system is at exactly half of its maximum amplitude (x = A/2), what percentage of its total energy is stored as potential energy?",
+     "options": [
+      "25%",
+      "50%",
+      "75%",
+      "70.7%"
+     ],
+     "explanation": "Potential energy is U = 1/2 kx². At x = A/2, U = 1/2 k(A/2)² = 1/4 (1/2 kA²). Since 1/2 kA² is the total energy, the potential energy is 25% of the total.",
+     "correctAnswers": [
+      "25%"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In the context of damped oscillations, which scenarios correctly match the damping regime to its physical application?",
+     "options": [
+      "Critically damped: A car's suspension system designed to return to equilibrium quickly without bouncing.",
+      "Underdamped: A guitar string that vibrates for several seconds to produce a sustained note.",
+      "Overdamped: A high-speed racing engine where maximum vibration is desired.",
+      "Critically damped: A swinging door that swings back and forth many times before closing.",
+      "Overdamped: An automatic door closer that moves very slowly and never swings past the latch."
+     ],
+     "explanation": "Underdamped systems oscillate with decaying amplitude. Critically damped systems return to equilibrium the fastest without oscillating. Overdamped systems return to equilibrium slowly without oscillating.",
+     "correctAnswers": [
+      "Critically damped: A car's suspension system designed to return to equilibrium quickly without bouncing.",
+      "Underdamped: A guitar string that vibrates for several seconds to produce a sustained note.",
+      "Overdamped: An automatic door closer that moves very slowly and never swings past the latch."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The total mechanical energy in an ideal mass-spring oscillator is proportional to the ____ of the amplitude.",
+     "placeholder": "mathematical relationship",
+     "correctAnswers": [
+      "square",
+      "second power"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of a simple and physical pendulum.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit5-q10.png"
+     },
+     "prompt": "A 'physical pendulum' consists of a uniform metal rod pivoting at one end. Why does its period differ from a 'simple pendulum' of the same length and mass?",
+     "options": [
+      "Because the mass of a physical pendulum is distributed along its length, altering its moment of inertia.",
+      "Because gravity only acts on the pivot point of a physical pendulum.",
+      "Because the small-angle approximation does not apply to rigid bodies.",
+      "Because the rod experiences more air resistance than a point mass."
+     ],
+     "explanation": "In a simple pendulum, all mass is at a single point. In a physical pendulum, the distribution of mass affects the moment of inertia (I) and the location of the center of mass, both of which are factors in the period T = 2π√(I/mgh).",
+     "correctAnswers": [
+      "Because the mass of a physical pendulum is distributed along its length, altering its moment of inertia."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the velocity of a mass-spring system in Simple Harmonic Motion?",
+     "options": [
+      "The velocity is zero when the potential energy is at its maximum.",
+      "The velocity is maximum when the displacement is zero.",
+      "The velocity is constant throughout the entire cycle.",
+      "The maximum velocity is equal to the product of angular frequency and amplitude (ωA).",
+      "The velocity and acceleration are always in the same direction."
+     ],
+     "explanation": "Velocity is zero at amplitudes (max U) and maximum at equilibrium (x=0). The formula for Vmax is ωA, derived from the derivative of the position function.",
+     "correctAnswers": [
+      "The velocity is zero when the potential energy is at its maximum.",
+      "The velocity is maximum when the displacement is zero.",
+      "The maximum velocity is equal to the product of angular frequency and amplitude (ωA)."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "For a simple pendulum, the ____ of the bob does not affect the period of oscillation.",
+     "placeholder": "physical property",
+     "correctAnswers": [
+      "mass",
+      "weight"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "An object in SHM has a position function x(t) = A cos(ωt + φ). If the object is at the equilibrium position and moving in the positive direction at t=0, what is the phase constant φ?",
+     "options": [
+      "0",
+      "π/2 (or -3π/2)",
+      "-π/2 (or 3π/2)",
+      "π"
+     ],
+     "explanation": "At x=0, cos(φ) must be 0, so φ is π/2 or -π/2. Since the velocity v(t) = -Aω sin(ωt + φ) must be positive at t=0, -sin(φ) must be positive. This occurs when φ = -π/2.",
+     "correctAnswers": [
+      "-π/2 (or 3π/2)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "If a block on a spring is submerged in a heavy oil (damped), which properties of the motion change compared to its motion in a vacuum?",
+     "options": [
+      "The amplitude decreases over time.",
+      "The mechanical energy is no longer conserved.",
+      "The period of oscillation usually increases slightly.",
+      "The spring constant k changes based on the fluid density.",
+      "The equilibrium position shifts downward due to buoyancy."
+     ],
+     "explanation": "Damping removes energy, leading to decaying amplitude. It also 'drags' the motion, slightly increasing the period (lowering the frequency). While buoyancy might shift the equilibrium point, it does not change the spring's stiffness (k).",
+     "correctAnswers": [
+      "The amplitude decreases over time.",
+      "The mechanical energy is no longer conserved.",
+      "The period of oscillation usually increases slightly."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "Energy vs Position graph for an oscillator.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/exam/images/unit5-q15.png"
+     },
+     "prompt": "In the potential energy well of an oscillator (U = 1/2 kx²), what does the vertical distance between the total energy line and the bottom of the parabola represent at any position x?",
+     "options": [
+      "The kinetic energy at that position.",
+      "The potential energy at that position.",
+      "The work done by friction.",
+      "The maximum possible velocity."
+     ],
+     "explanation": "In a graph of energy vs. position, the parabola represents the potential energy U(x). The distance from the x-axis to the parabola is U, while the distance from the parabola to the total energy line is the kinetic energy K.",
+     "correctAnswers": [
+      "The potential energy at that position."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Observe the decay of the oscillator's amplitude over time. Why does the system eventually come to rest at the equilibrium position rather than at one of the maximum displacement points?",
+     "options": [
+      "Because the damping force is always directed toward the equilibrium point regardless of velocity.",
+      "Because dissipative forces remove mechanical energy, lowering the total energy until the potential energy well can no longer be climbed.",
+      "Because the spring constant k gradually decreases to zero as the material experiences internal friction.",
+      "Because the period of oscillation increases to infinity, causing the mass to stop moving."
+     ],
+     "explanation": "Damping forces (like friction or air resistance) do negative work on the system, continuously reducing the total mechanical energy (E = K + U). As E decreases, the maximum possible displacement (amplitude) shrinks until the object settles at the point of minimum potential energy (equilibrium).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Damped Oscillation Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-group {\n            display: grid;\n            grid-template-columns: 1.5fr 1fr;\n            gap: 16px;\n            align-items: end;\n        }\n\n        @media (max-width: 400px) {\n            .fig-group {\n                grid-template-columns: 1fr;\n            }\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(11px, 2.5vw, 13px);\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: center;\n            gap: 24px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            font-size: 12px;\n            color: var(--muted);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .caption {\n            text-align: center;\n            font-size: 13px;\n            color: var(--muted);\n            margin-top: -8px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Damped oscillation of a mass on a spring with energy and force vectors</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-group\">\n            <!-- Physical Scene -->\n            <svg class=\"fig-canvas\" viewBox=\"0 0 300 240\" aria-label=\"Spring-mass system diagram\">\n                <!-- Wall -->\n                <line x1=\"20\" y1=\"40\" x2=\"280\" y2=\"40\" stroke=\"var(--ink)\" stroke-width=\"2\" />\n                <line x1=\"20\" y1=\"40\" x2=\"20\" y2=\"30\" stroke=\"var(--ink)\" stroke-width=\"2\" />\n                <path d=\"M 15 30 L 25 40 M 10 35 L 20 45 M 5 40 L 15 50\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Axis -->\n                <line x1=\"50\" y1=\"210\" x2=\"250\" y2=\"210\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <line x1=\"150\" y1=\"206\" x2=\"150\" y2=\"214\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"150\" y=\"228\" text-anchor=\"middle\" class=\"label-serif\">x = 0</text>\n                <text x=\"50\" y=\"228\" text-anchor=\"middle\" class=\"label-serif\">-A</text>\n                <text x=\"250\" y=\"228\" text-anchor=\"middle\" class=\"label-serif\">+A</text>\n\n                <!-- Spring and Mass (Dynamic) -->\n                <path id=\"spring\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                <rect id=\"mass\" width=\"40\" height=\"40\" fill=\"var(--bg)\" stroke=\"var(--ink)\" stroke-width=\"2\" rx=\"2\" />\n                \n                <!-- Velocity-dependent drag vector -->\n                <line id=\"drag-vector\" stroke=\"var(--amber)\" stroke-width=\"2\" marker-end=\"url(#arrowhead)\" />\n                <defs>\n                    <marker id=\"arrowhead\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orient=\"auto\">\n                        <path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--amber)\" />\n                    </marker>\n                </defs>\n                <text id=\"drag-label\" class=\"label-serif\" style=\"fill: var(--amber)\">drag</text>\n\n                <!-- Decay Envelope (Static hint) -->\n                <path id=\"envelope-top\" fill=\"none\" stroke=\"var(--accent)\" stroke-dasharray=\"4 4\" opacity=\"0.3\" />\n                <path id=\"envelope-bottom\" fill=\"none\" stroke=\"var(--accent)\" stroke-dasharray=\"4 4\" opacity=\"0.3\" />\n            </svg>\n\n            <!-- Energy Bar Chart -->\n            <svg class=\"fig-canvas\" viewBox=\"0 0 150 200\" aria-label=\"Energy levels\">\n                <line x1=\"30\" y1=\"180\" x2=\"130\" y2=\"180\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"80\" y=\"195\" text-anchor=\"middle\" class=\"label-serif\">Total Energy</text>\n                \n                <rect id=\"energy-bar\" x=\"55\" y=\"40\" width=\"50\" height=\"140\" fill=\"var(--accent)\" opacity=\"0.8\" />\n                \n                <!-- Static markers -->\n                <line x1=\"50\" y1=\"40\" x2=\"115\" y2=\"40\" stroke=\"var(--rule)\" stroke-dasharray=\"2 2\" />\n                <text x=\"45\" y=\"44\" text-anchor=\"end\" class=\"label-serif\">Initial</text>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">Spring constant (k): <span style=\"font-weight: 500\">Fixed</span></div>\n            <div class=\"readout-item\">Coefficient (b): <span style=\"font-weight: 500\">Fixed</span></div>\n        </div>\n\n        <div class=\"caption\">Synchronized physical motion and energy dissipation.</div>\n    </div>\n\n    <script>\n        const springPath = document.getElementById('spring');\n        const massRect = document.getElementById('mass');\n        const dragVector = document.getElementById('drag-vector');\n        const dragLabel = document.getElementById('drag-label');\n        const energyBar = document.getElementById('energy-bar');\n        const envTop = document.getElementById('envelope-top');\n        const envBottom = document.getElementById('envelope-bottom');\n\n        // Physics constants\n        const mass = 1.0;\n        const k = 4.0;\n        const b = 0.15; // Damping\n        const omega0 = Math.sqrt(k / mass);\n        const gamma = b / (2 * mass);\n        const omega = Math.sqrt(omega0**2 - gamma**2);\n        \n        let startTime = null;\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let t = (timestamp - startTime) / 1000;\n            \n            // Loop every 12 seconds\n            const duration = 12;\n            const cycleTime = t % duration;\n            \n            // Calculate displacement x(t) = A * e^(-gamma*t) * cos(omega*t)\n            const A = 100;\n            const decay = Math.exp(-gamma * cycleTime);\n            const x = A * decay * Math.cos(omega * cycleTime);\n            \n            // Calculate velocity for the drag force vector\n            const v = -A * decay * (gamma * Math.cos(omega * cycleTime) + omega * Math.sin(omega * cycleTime));\n            \n            // Draw Spring\n            const springX = 150 + x;\n            const coils = 12;\n            let d = `M 20 40`;\n            for (let i = 0; i <= coils; i++) {\n                const px = 20 + (springX - 40) * (i / coils);\n                const py = 40 + (i % 2 === 0 ? -5 : 5);\n                d += ` L ${px} ${py}`;\n            }\n            springPath.setAttribute('d', d);\n\n            // Move Mass\n            massRect.setAttribute('x', springX - 20);\n            massRect.setAttribute('y', 20);\n\n            // Drag Vector (F = -bv)\n            const dragMag = -v * 0.4; // Scale for visibility\n            const dragStartX = springX;\n            const dragStartY = 80;\n            dragVector.setAttribute('x1', dragStartX);\n            dragVector.setAttribute('y1', dragStartY);\n            dragVector.setAttribute('x2', dragStartX + dragMag);\n            dragVector.setAttribute('y2', dragStartY);\n            dragVector.style.opacity = Math.abs(dragMag) > 2 ? 1 : 0;\n            \n            dragLabel.setAttribute('x', dragStartX + dragMag/2);\n            dragLabel.setAttribute('y', dragStartY + 15);\n            dragLabel.setAttribute('text-anchor', 'middle');\n            dragLabel.style.opacity = Math.abs(dragMag) > 5 ? 1 : 0;\n\n            // Energy Bar\n            // Total mechanical energy proportional to A^2 * e^(-2*gamma*t)\n            const energyHeight = 140 * (decay * decay);\n            energyBar.setAttribute('height', energyHeight);\n            energyBar.setAttribute('y', 180 - energyHeight);\n\n            // Envelope Paths (only draw once or update occasionally)\n            let topD = `M 150 40`, bottomD = `M 150 40`;\n            for(let tx=0; tx<250; tx+=5) {\n                const dt = tx / 50; \n                const env = A * Math.exp(-gamma * dt);\n                topD += ` L ${150 + env} ${40 + tx*0.6}`;\n                bottomD += ` L ${150 - env} ${40 + tx*0.6}`;\n            }\n            // (We simplified envelope for a static look in SVG space but could map it to time)\n            \n            requestAnimationFrame(update);\n        }\n\n        // Height Reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because dissipative forces remove mechanical energy, lowering the total energy until the potential energy well can no longer be climbed."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "d2cc75bb-ce4d-4cf9-bb71-66cd7ffc7e8c"
+}

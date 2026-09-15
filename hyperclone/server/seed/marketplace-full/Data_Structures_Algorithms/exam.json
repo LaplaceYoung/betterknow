@@ -1,0 +1,1407 @@
+{
+ "exams": [
+  {
+   "title": "Foundations and Complexity Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If Algorithm A has a complexity of O(n) and Algorithm B has a complexity of O(n²), which statement is true regarding their performance on different hardware?",
+     "options": [
+      "Algorithm B will always be faster if it is run on a supercomputer while A runs on a phone.",
+      "For a sufficiently large value of n, Algorithm A will eventually outperform Algorithm B regardless of the hardware.",
+      "Hardware speed determines the Big-O complexity of the algorithm.",
+      "Big-O notation is only relevant if both algorithms are run on the same processor."
+     ],
+     "explanation": "Big-O analysis focuses on growth rates. While hardware can provide a constant speedup, the 'catastrophe of scale' means a lower-order growth rate (linear) will always beat a higher-order one (quadratic) as n grows toward infinity.",
+     "correctAnswers": [
+      "For a sufficiently large value of n, Algorithm A will eventually outperform Algorithm B regardless of the hardware."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of Asymptotic Analysis?",
+     "options": [
+      "It ignores constant factors and lower-order terms.",
+      "It measures the exact execution time in milliseconds.",
+      "It focuses on the behavior of an algorithm as the input size n approaches infinity.",
+      "It is dependent on the specific programming language used.",
+      "It provides a way to compare the efficiency of strategies independently of hardware."
+     ],
+     "explanation": "Asymptotic analysis is a mathematical lens used to study the scaling behavior of algorithms, abstracting away machine-specific or language-specific constants to focus on the 'DNA' of the logic.",
+     "correctAnswers": [
+      "It ignores constant factors and lower-order terms.",
+      "It focuses on the behavior of an algorithm as the input size n approaches infinity.",
+      "It provides a way to compare the efficiency of strategies independently of hardware."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In formal notation, the ____ represents a 'tight bound,' meaning the algorithm's growth is constrained both above and below by the same order of magnitude.",
+     "placeholder": "Enter notation name",
+     "correctAnswers": [
+      "Big-Theta",
+      "Theta",
+      "Big Theta"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Analyze the following code snippet and determine its Big-O time complexity:\n\nfor (int i = 0; i < n; i++) {\n  for (int j = 0; j < n; j++) {\n    print(i + j);\n  }\n}",
+     "options": [
+      "O(n)",
+      "O(2n)",
+      "O(n²)",
+      "O(log n)"
+     ],
+     "explanation": "This is a classic nested loop where the inner loop runs n times for every iteration of the outer loop, resulting in n * n operations.",
+     "correctAnswers": [
+      "O(n²)"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Consider a function that first executes a single loop (O(n)) and then a nested loop (O(n²)). Which of the following statements correctly describe its complexity?",
+     "options": [
+      "The total complexity is O(n + n²).",
+      "The simplified complexity is O(n²).",
+      "The total complexity is O(n³).",
+      "The 'Dominance Rule' implies we only care about the highest-order term.",
+      "The constant factors are added to the exponent."
+     ],
+     "explanation": "In Big-O, for sequential operations, we take the maximum complexity. O(n²) grows so much faster than O(n) that the linear part becomes negligible at scale.",
+     "correctAnswers": [
+      "The simplified complexity is O(n²).",
+      "The 'Dominance Rule' implies we only care about the highest-order term."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If we use ____ to store the results of recursive subproblems and avoid redundant calculations, we might increase space complexity to save time.",
+     "placeholder": "Technique name",
+     "correctAnswers": [
+      "memoization",
+      "a cache",
+      "caching"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the time complexity of a loop where the iterator doubles each time (e.g., for (int i = 1; i < n; i = i * 2))?",
+     "options": [
+      "O(n)",
+      "O(n²)",
+      "O(log n)",
+      "O(1)"
+     ],
+     "explanation": "When the step size doubles, the number of iterations required to reach n is the number of times we can multiply by 2, which is the definition of a logarithm (base 2).",
+     "correctAnswers": [
+      "O(log n)"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When might a 'theoretically slower' O(n²) algorithm be preferred over an O(n log n) algorithm in a real-world scenario?",
+     "options": [
+      "When the dataset is guaranteed to be extremely small (e.g., n < 10).",
+      "When the O(n²) algorithm has much lower constant overhead and is easier to maintain.",
+      "Never; Big-O is the only metric that matters in engineering.",
+      "When the available hardware has a very high clock speed.",
+      "When the 'fast' algorithm requires complex setup that outweighs its benefits for small n."
+     ],
+     "explanation": "Engineering involves trade-offs. For very small datasets, the overhead of complex algorithms might make them slower in practice than simpler, higher-complexity ones.",
+     "correctAnswers": [
+      "When the dataset is guaranteed to be extremely small (e.g., n < 10).",
+      "When the O(n²) algorithm has much lower constant overhead and is easier to maintain.",
+      "When the 'fast' algorithm requires complex setup that outweighs its benefits for small n."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'wall of complexity' represents the point where ____ growth becomes unsustainable compared to linear growth.",
+     "placeholder": "Type of growth",
+     "correctAnswers": [
+      "exponential",
+      "quadratic",
+      "non-linear"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of a call stack showing depth",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e48181b7-7a39-4776-9726-3af4849ba050/exam/images/unit1-q10.png"
+     },
+     "prompt": "Why does a recursive implementation of a factorial function typically have O(n) space complexity?",
+     "options": [
+      "It stores the final result in an array of size n.",
+      "The call stack grows with each recursive call until the base case is reached.",
+      "Recursive functions are always slower than iterative ones.",
+      "It requires a supercomputer to calculate large factorials."
+     ],
+     "explanation": "Each recursive call adds a frame to the call stack to store local variables and the return address; for factorial(n), there are n active frames on the stack at the peak.",
+     "correctAnswers": [
+      "The call stack grows with each recursive call until the base case is reached."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following code patterns result in O(n²) time complexity?",
+     "options": [
+      "A loop from 1 to n nested inside another loop from 1 to n.",
+      "Two separate loops, one after the other, each running n times.",
+      "A loop from 1 to n with an inner loop that runs from 1 to i (where i is the outer index).",
+      "A triple-nested loop where each loop runs 10 times.",
+      "A loop from 1 to n²."
+     ],
+     "explanation": "Nested loops where both depend on n result in n * n. A triangular loop (1 to i) results in (n*(n+1))/2, which is still O(n²). A loop directly to n² is O(n²) by definition.",
+     "correctAnswers": [
+      "A loop from 1 to n nested inside another loop from 1 to n.",
+      "A loop from 1 to n with an inner loop that runs from 1 to i (where i is the outer index).",
+      "A loop from 1 to n²."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "An algorithm that halves the remaining search space in each step (like Binary Search) has a time complexity of ____.",
+     "placeholder": "Big-O notation",
+     "correctAnswers": [
+      "O(log n)",
+      "log n",
+      "Logarithmic"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the process of proving 3n² + 5n + 2 is O(n²), why do we ignore the '5n + 2'?",
+     "options": [
+      "Because they are constants.",
+      "Because as n grows, the n² term 'dominates' and the relative contribution of lower-order terms shrinks to insignificance.",
+      "Because the Big-O notation only allows for one term.",
+      "Because 5n and 2 are always zero at infinity."
+     ],
+     "explanation": "Asymptotic analysis looks at the 'shape' of growth. The quadratic term grows so much faster than the linear or constant terms that it defines the scaling behavior.",
+     "correctAnswers": [
+      "Because as n grows, the n² term 'dominates' and the relative contribution of lower-order terms shrinks to insignificance."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why is 'raw speed' on a single machine a poor metric for evaluating an algorithm's fundamental efficiency?",
+     "options": [
+      "It varies based on background tasks running on the CPU.",
+      "It changes depending on the compiler's optimization level.",
+      "It doesn't tell you how the program will behave when the data size doubles.",
+      "It is too easy to measure accurately.",
+      "It ignores the logic of the solution in favor of hardware power."
+     ],
+     "explanation": "Raw speed is a snapshot of performance on specific hardware, whereas efficiency analysis evaluates the inherent strategy and its ability to scale.",
+     "correctAnswers": [
+      "It varies based on background tasks running on the CPU.",
+      "It changes depending on the compiler's optimization level.",
+      "It doesn't tell you how the program will behave when the data size doubles.",
+      "It ignores the logic of the solution in favor of hardware power."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What does Big-Omega (Ω) notation describe?",
+     "options": [
+      "The exact runtime of an algorithm.",
+      "The upper bound or worst-case scenario.",
+      "The lower bound or best-case scenario.",
+      "The average performance across all inputs."
+     ],
+     "explanation": "Big-Omega provides a floor for the growth rate, promising that the algorithm will perform at least this much work (the optimist's view).",
+     "correctAnswers": [
+      "The lower bound or best-case scenario."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of these are real-world consequences of choosing an inefficient algorithm?",
+     "options": [
+      "Increased battery consumption on mobile devices.",
+      "Higher operational costs in cloud computing environments.",
+      "Increased heat generation in data centers.",
+      "The software becoming unusable as the user base grows.",
+      "The code becoming physically larger in terms of disk space."
+     ],
+     "explanation": "Inefficiency leads to wasted physical resources (energy, time, money) and lack of scalability, though it doesn't necessarily mean the source code itself takes up more disk space.",
+     "correctAnswers": [
+      "Increased battery consumption on mobile devices.",
+      "Higher operational costs in cloud computing environments.",
+      "Increased heat generation in data centers.",
+      "The software becoming unusable as the user base grows."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "If an algorithm is Θ(n), what can we conclude?",
+     "options": [
+      "It is both O(n) and Ω(n).",
+      "It is O(n²) but not Ω(1).",
+      "It is only O(n) in the best case.",
+      "It has logarithmic growth at large scales."
+     ],
+     "explanation": "Big-Theta represents a tight bound, meaning the function is bounded both above (Big-O) and below (Big-Omega) by the same growth rate.",
+     "correctAnswers": [
+      "It is both O(n) and Ω(n)."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "When analyzing the space complexity of a recursive algorithm, which factors should be considered?",
+     "options": [
+      "The maximum depth of the call stack.",
+      "Any auxiliary arrays or lists created during execution.",
+      "The time it takes to execute each instruction.",
+      "The local variables stored in each stack frame.",
+      "The speed of the computer's RAM."
+     ],
+     "explanation": "Space complexity includes both the 'environmental' memory (like the call stack) and any data structures explicitly created by the programmer to solve the problem.",
+     "correctAnswers": [
+      "The maximum depth of the call stack.",
+      "Any auxiliary arrays or lists created during execution.",
+      "The local variables stored in each stack frame."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Watch the execution of the recursive Fibonacci tree. Why does the time complexity grow exponentially while the space complexity remains linear?",
+     "options": [
+      "Because the total number of nodes in the tree represents the work done, but only the current path depth is stored on the stack.",
+      "Because the computer executes all branches of the tree simultaneously using parallel processing.",
+      "Because the recursive calls are converted into a simple loop by the compiler automatically.",
+      "Because the space complexity measures the width of the tree while time complexity measures the height."
+     ],
+     "explanation": "Time complexity accounts for every function call (every node in the tree), whereas space complexity only tracks the maximum depth of the call stack at any single point in time.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Recursion Tree vs Call Stack Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Active path / Stack depth */\n            --amber: #c47c00;  /* Completed nodes / Total operations */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            display: grid;\n            grid-template-columns: 1.4fr 0.6fr;\n            gap: 16px;\n            align-items: start;\n        }\n\n        .fig-tree-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n            background: #fff;\n            border-radius: 4px;\n            box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n        }\n\n        .fig-stack-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n            background: #fff;\n            border-radius: 4px;\n            box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n        }\n\n        .label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(11px, 2.5vw, 13px);\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .node-circle {\n            stroke-width: 1.5px;\n            transition: fill 0.2s, stroke 0.2s;\n        }\n\n        .edge-line {\n            stroke-width: 1px;\n            transition: stroke 0.2s, opacity 0.2s;\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: space-around;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            text-align: center;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .readout-value {\n            font-size: 16px;\n            font-weight: 500;\n            font-variant-numeric: tabular-nums;\n            color: var(--ink);\n        }\n\n        .accent-text { color: var(--accent); }\n        .amber-text { color: var(--amber); }\n\n        .caption {\n            text-align: center;\n            font-family: Georgia, serif;\n            font-size: 13px;\n            color: var(--muted);\n            margin-top: 8px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of a Recursive Tree Growth and Execution Stack</h1>\n\n    <div class=\"container\">\n        <div class=\"figure-container\">\n            <svg class=\"fig-tree-svg\" viewBox=\"0 0 300 240\" aria-label=\"Recursive branching tree diagram\">\n                <g id=\"edges-layer\"></g>\n                <g id=\"nodes-layer\"></g>\n                <text x=\"10\" y=\"20\" class=\"label\">Recursive Expansion</text>\n            </svg>\n\n            <svg class=\"fig-stack-svg\" viewBox=\"0 0 120 240\" aria-label=\"Stack depth indicator\">\n                <rect x=\"20\" y=\"40\" width=\"80\" height=\"180\" fill=\"none\" stroke=\"var(--rule)\" stroke-dasharray=\"4 2\" />\n                <g id=\"stack-layer\"></g>\n                <text x=\"60\" y=\"20\" text-anchor=\"middle\" class=\"label\">Current Stack</text>\n                <line x1=\"15\" y1=\"220\" x2=\"105\" y2=\"220\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n                <text x=\"60\" y=\"235\" text-anchor=\"middle\" class=\"label\" style=\"font-size: 10px; font-style: normal;\">Base</text>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <div class=\"readout-label\">Active Stack Depth</div>\n                <div id=\"depth-val\" class=\"readout-value accent-text\">0</div>\n            </div>\n            <div class=\"readout-item\">\n                <div class=\"readout-label\">Cumulative Operations</div>\n                <div id=\"ops-val\" class=\"readout-value amber-text\">0</div>\n            </div>\n        </div>\n\n        <div class=\"caption\">Same execution, two perspectives.</div>\n    </div>\n\n    <script>\n        // Deterministic sequence for Fibonacci(5) tree\n        // Each entry: [id, parentId, x, y, depth]\n        const treeNodes = [\n            { id: 0, p: null, x: 150, y: 40, d: 1 },\n            { id: 1, p: 0, x: 90, y: 80, d: 2 },\n            { id: 2, p: 1, x: 50, y: 120, d: 3 },\n            { id: 3, p: 2, x: 30, y: 160, d: 4 },\n            { id: 4, p: 2, x: 70, y: 160, d: 4 },\n            { id: 5, p: 1, x: 130, y: 120, d: 3 },\n            { id: 6, p: 5, x: 110, y: 160, d: 4 },\n            { id: 7, p: 0, x: 210, y: 80, d: 2 },\n            { id: 8, p: 7, x: 180, y: 120, d: 3 },\n            { id: 9, p: 8, x: 165, y: 160, d: 4 },\n            { id: 10, p: 8, x: 195, y: 160, d: 4 },\n            { id: 11, p: 7, x: 240, y: 120, d: 3 }\n        ];\n\n        // The exact order of \"visiting\" and \"returning\" in a DFS\n        // v = visit (push), r = return (pop)\n        const timeline = [\n            { type: 'v', id: 0 },\n            { type: 'v', id: 1 },\n            { type: 'v', id: 2 },\n            { type: 'v', id: 3 }, { type: 'r', id: 3 },\n            { type: 'v', id: 4 }, { type: 'r', id: 4 },\n            { type: 'r', id: 2 },\n            { type: 'v', id: 5 },\n            { type: 'v', id: 6 }, { type: 'r', id: 6 },\n            { type: 'r', id: 5 },\n            { type: 'r', id: 1 },\n            { type: 'v', id: 7 },\n            { type: 'v', id: 8 },\n            { type: 'v', id: 9 }, { type: 'r', id: 9 },\n            { type: 'v', id: 10 }, { type: 'r', id: 10 },\n            { type: 'r', id: 8 },\n            { type: 'v', id: 11 }, { type: 'r', id: 11 },\n            { type: 'r', id: 7 },\n            { type: 'r', id: 0 }\n        ];\n\n        const nodesLayer = document.getElementById('nodes-layer');\n        const edgesLayer = document.getElementById('edges-layer');\n        const stackLayer = document.getElementById('stack-layer');\n        const depthVal = document.getElementById('depth-val');\n        const opsVal = document.getElementById('ops-val');\n\n        let step = 0;\n        let cumulativeOps = 0;\n        let activeStack = [];\n        let visitedNodes = new Set();\n        let completedNodes = new Set();\n\n        function render() {\n            // Clear layers\n            nodesLayer.innerHTML = '';\n            edgesLayer.innerHTML = '';\n            stackLayer.innerHTML = '';\n\n            const current = timeline[step % timeline.length];\n            \n            if (current.type === 'v') {\n                activeStack.push(current.id);\n                visitedNodes.add(current.id);\n                cumulativeOps++;\n            } else {\n                activeStack.pop();\n                completedNodes.add(current.id);\n            }\n\n            // Draw Nodes and Edges\n            treeNodes.forEach(node => {\n                const isVisited = visitedNodes.has(node.id);\n                const isCompleted = completedNodes.has(node.id);\n                const isActive = activeStack.includes(node.id);\n\n                if (!isVisited) return;\n\n                // Draw edge to parent\n                if (node.p !== null) {\n                    const parent = treeNodes.find(n => n.id === node.p);\n                    const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n                    line.setAttribute(\"x1\", parent.x);\n                    line.setAttribute(\"y1\", parent.y);\n                    line.setAttribute(\"x2\", node.x);\n                    line.setAttribute(\"y2\", node.y);\n                    line.setAttribute(\"class\", \"edge-line\");\n                    line.setAttribute(\"stroke\", isActive && activeStack.includes(parent.id) ? \"var(--accent)\" : \"var(--rule)\");\n                    line.setAttribute(\"opacity\", isCompleted ? \"0.4\" : \"1\");\n                    edgesLayer.appendChild(line);\n                }\n\n                // Draw circle\n                const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n                circle.setAttribute(\"cx\", node.x);\n                circle.setAttribute(\"cy\", node.y);\n                circle.setAttribute(\"r\", \"6\");\n                circle.setAttribute(\"class\", \"node-circle\");\n                \n                if (isActive) {\n                    circle.setAttribute(\"fill\", \"var(--accent)\");\n                    circle.setAttribute(\"stroke\", \"var(--accent)\");\n                } else if (isCompleted) {\n                    circle.setAttribute(\"fill\", \"var(--bg)\");\n                    circle.setAttribute(\"stroke\", \"var(--amber)\");\n                    circle.setAttribute(\"opacity\", \"0.5\");\n                } else {\n                    circle.setAttribute(\"fill\", \"white\");\n                    circle.setAttribute(\"stroke\", \"var(--rule)\");\n                }\n                nodesLayer.appendChild(circle);\n            });\n\n            // Draw Stack\n            activeStack.forEach((nodeId, idx) => {\n                const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n                const h = 30;\n                const margin = 4;\n                rect.setAttribute(\"x\", \"25\");\n                rect.setAttribute(\"y\", 220 - (idx + 1) * (h + margin));\n                rect.setAttribute(\"width\", \"70\");\n                rect.setAttribute(\"height\", h);\n                rect.setAttribute(\"fill\", \"var(--accent)\");\n                rect.setAttribute(\"rx\", \"2\");\n                rect.setAttribute(\"opacity\", 0.3 + (idx * 0.2));\n                stackLayer.appendChild(rect);\n\n                const txt = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n                txt.setAttribute(\"x\", \"60\");\n                txt.setAttribute(\"y\", 220 - (idx + 1) * (h + margin) + 19);\n                txt.setAttribute(\"text-anchor\", \"middle\");\n                txt.setAttribute(\"fill\", \"white\");\n                txt.setAttribute(\"style\", \"font-size: 10px; font-weight: bold; pointer-events: none;\");\n                txt.textContent = \"f(\" + (5 - treeNodes.find(n => n.id === nodeId).d) + \")\";\n                stackLayer.appendChild(txt);\n            });\n\n            // Update readouts\n            depthVal.textContent = activeStack.length;\n            opsVal.textContent = cumulativeOps;\n\n            step++;\n            if (step >= timeline.length) {\n                // Loop reset\n                setTimeout(() => {\n                    step = 0;\n                    cumulativeOps = 0;\n                    activeStack = [];\n                    visitedNodes = new Set();\n                    completedNodes = new Set();\n                }, 2000);\n            }\n        }\n\n        let lastTime = 0;\n        const interval = 600; // ms per step\n\n        function animate(time) {\n            if (time - lastTime > interval) {\n                render();\n                lastTime = time;\n            }\n            requestAnimationFrame(animate);\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            try {\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');\n            } catch (e) {}\n        });\n\n        const observer = new ResizeObserver(() => {\n            try {\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');\n            } catch (e) {}\n        });\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the total number of nodes in the tree represents the work done, but only the current path depth is stored on the stack."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Linear Structures and Hashing Comprehensive Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In the context of the Call Stack, what is the primary reason a 'Stack Overflow' occurs during deep recursion?",
+     "options": [
+      "The CPU cannot determine the return address of the previous function.",
+      "The physical memory limit of the vertical container of frames is exceeded.",
+      "The 'Pop' operation fails to remove the data from the physical memory.",
+      "The local variables within each frame are too large for the Heap."
+     ],
+     "explanation": "A stack overflow occurs when the number of nested function calls creates more stack frames than the allocated memory for the call stack can hold.",
+     "correctAnswers": [
+      "The physical memory limit of the vertical container of frames is exceeded."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When implementing a bracket validation algorithm using a stack, which of the following scenarios would result in a validation error?",
+     "options": [
+      "The current closing bracket does not match the type of the opening bracket at the top of the stack.",
+      "The stack is empty when a closing bracket is encountered.",
+      "The stack contains multiple opening brackets of the same type.",
+      "The stack is non-empty after the entire string has been processed."
+     ],
+     "explanation": "Errors occur if brackets mismatch, if there's no opener to match a closer (empty stack), or if openers remain unclosed (non-empty stack at end).",
+     "correctAnswers": [
+      "The current closing bracket does not match the type of the opening bracket at the top of the stack.",
+      "The stack is empty when a closing bracket is encountered.",
+      "The stack is non-empty after the entire string has been processed."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Reverse Polish Notation (RPN), when an operator is encountered, the first element popped from the stack represents the ____ operand of the operation.",
+     "placeholder": "Type your answer",
+     "correctAnswers": [
+      "right",
+      "right-hand",
+      "second"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary performance drawback of implementing a Queue using a standard, non-circular array where elements are removed from index 0?",
+     "options": [
+      "The 'Enqueue' operation becomes O(N) because the array must be resized.",
+      "The 'Dequeue' operation becomes O(N) because all remaining elements must shift left.",
+      "The memory becomes fragmented because the 'Top' pointer moves down.",
+      "The queue cannot handle asynchronous data processing due to lock contention."
+     ],
+     "explanation": "Removing the first element in a standard array requires shifting every subsequent element one position to the left to fill the gap, leading to linear time complexity.",
+     "correctAnswers": [
+      "The 'Dequeue' operation becomes O(N) because all remaining elements must shift left."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are valid approaches to distinguish between a 'Full' and 'Empty' state in a circular buffer?",
+     "options": [
+      "Maintaining a 'Count' variable that tracks the number of elements current in the buffer.",
+      "Using the 'One-Slot-Empty' convention where (Tail + 1) % Capacity == Head signifies full.",
+      "Checking if the 'Head' and 'Tail' pointers are at different indices.",
+      "Using a Deque instead of a Circular Buffer to avoid pointer overlap."
+     ],
+     "explanation": "Both a counter and the one-slot-empty strategy effectively resolve the ambiguity caused by Head and Tail meeting in both empty and full states.",
+     "correctAnswers": [
+      "Maintaining a 'Count' variable that tracks the number of elements current in the buffer.",
+      "Using the 'One-Slot-Empty' convention where (Tail + 1) % Capacity == Head signifies full."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The Double-Ended Queue (Deque) can be used to implement both a Stack and a Queue because it allows O(1) operations at ____.",
+     "placeholder": "where?",
+     "correctAnswers": [
+      "both ends",
+      "both the front and back",
+      "either end"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a circular buffer of capacity N, what is the standard formula for calculating the next position of the 'Tail' pointer?",
+     "options": [
+      "Tail = Tail + 1",
+      "Tail = (Tail + 1) / N",
+      "Tail = (Tail + 1) % N",
+      "Tail = (Tail % N) + 1"
+     ],
+     "explanation": "Modulo arithmetic allows the pointer to wrap back to index 0 once it reaches the end of the array, creating the circular effect.",
+     "correctAnswers": [
+      "Tail = (Tail + 1) % N"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In what real-world scenarios is a Queue or Circular Buffer most likely to be used over a Stack?",
+     "options": [
+      "Handling incoming print jobs in a shared office printer.",
+      "Implementing an 'Undo' feature in a text editor.",
+      "Managing a keyboard input buffer in an operating system.",
+      "Evaluating a mathematical expression in Reverse Polish Notation."
+     ],
+     "explanation": "Queues are used for FIFO tasks like scheduling and buffering, whereas Stacks are used for LIFO tasks like undo systems and expression evaluation.",
+     "correctAnswers": [
+      "Handling incoming print jobs in a shared office printer.",
+      "Managing a keyboard input buffer in an operating system."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In backtracking, the stack is used as a ____ trail to return to previous decision points.",
+     "placeholder": "metaphorical trail",
+     "correctAnswers": [
+      "bread-crumb",
+      "breadcrumb",
+      "history"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which property of a hash function ensures that the same input key will always map to the same array index?",
+     "options": [
+      "Uniformity",
+      "Efficiency",
+      "Determinism",
+      "Collision Resistance"
+     ],
+     "explanation": "Determinism is the requirement that a function produces the same output for the same input every time, which is essential for retrieving stored data.",
+     "correctAnswers": [
+      "Determinism"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are advantages of the Deque structure?",
+     "options": [
+      "It can act as a FIFO queue.",
+      "It can act as a LIFO stack.",
+      "It provides O(1) access to the middle element.",
+      "It allows for 'task-stealing' where work can be taken from the back."
+     ],
+     "explanation": "Deques are versatile and support stack/queue operations at O(1), but like other linear structures, they do not provide O(1) access to middle elements.",
+     "correctAnswers": [
+      "It can act as a FIFO queue.",
+      "It can act as a LIFO stack.",
+      "It allows for 'task-stealing' where work can be taken from the back."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The principle of 'Last-In-First-Out' is abbreviated as ____.",
+     "placeholder": "4-letter acronym",
+     "correctAnswers": [
+      "LIFO"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What does a 'Pop' operation in a stack implementation typically do to the data in memory?",
+     "options": [
+      "It overwrites the memory at that location with zeros immediately.",
+      "It moves the 'Top' pointer, making the data logically inaccessible via the stack.",
+      "It triggers a garbage collection cycle to reclaim the memory.",
+      "It shifts all elements below it up by one position."
+     ],
+     "explanation": "Popping doesn't necessarily erase the physical bits immediately; it simply moves the access pointer so the stack no longer recognizes that memory as part of the structure.",
+     "correctAnswers": [
+      "It moves the 'Top' pointer, making the data logically inaccessible via the stack."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why might a linked-list implementation of a queue be preferred over a standard array implementation?",
+     "options": [
+      "It avoids the need to shift elements during dequeue.",
+      "It provides faster random access to elements by index.",
+      "It can grow dynamically without needing a full array resize.",
+      "It uses less total memory because it doesn't require pointers."
+     ],
+     "explanation": "Linked lists allow O(1) removal from the front without shifting and are naturally dynamic, though they use more memory per element due to pointers.",
+     "correctAnswers": [
+      "It avoids the need to shift elements during dequeue.",
+      "It can grow dynamically without needing a full array resize."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "To prevent an O(N) shift in a queue, the ____ Buffer uses modulo arithmetic to wrap pointers.",
+     "placeholder": "type of buffer",
+     "correctAnswers": [
+      "Circular"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "In the 'One-Slot-Empty' circular buffer strategy with capacity 8, if the Tail is at index 7 and the Head is at index 0, what is the state of the buffer?",
+     "options": [
+      "Empty",
+      "Full",
+      "Contains 1 element",
+      "Invalid state"
+     ],
+     "explanation": "Using (Tail + 1) % Capacity == Head: (7 + 1) % 8 = 0. Since the result matches the Head index, the buffer is considered full.",
+     "correctAnswers": [
+      "Full"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which properties are desired in a 'good' hash function to maintain performance?",
+     "options": [
+      "Uniform distribution of keys across the available indices.",
+      "A high rate of collisions to group similar data together.",
+      "Fast computation time for the hash value.",
+      "Non-deterministic results to improve security."
+     ],
+     "explanation": "Uniformity minimizes collisions, and fast computation keeps operations at O(1). Collisions degrade performance, and non-determinism makes retrieval impossible.",
+     "correctAnswers": [
+      "Uniform distribution of keys across the available indices.",
+      "Fast computation time for the hash value."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "image": {
+      "alt": "Vertical stack push operation visualization.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e48181b7-7a39-4776-9726-3af4849ba050/exam/images/unit2-q18.png"
+     },
+     "prompt": "What happens to the 'Top' pointer when you perform a 'Push' operation on a stack represented as a vertical container?",
+     "options": [
+      "It remains stationary while the container moves.",
+      "It moves to point to the new, most recent element.",
+      "It moves to the bottom of the stack to prepare for the next pop.",
+      "It points to the oldest element in the stack."
+     ],
+     "explanation": "Pushing an element adds it to the top, so the pointer must update to track this new uppermost item.",
+     "correctAnswers": [
+      "It moves to point to the new, most recent element."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "What characterizes the 'Asynchronous Processing' model using a queue?",
+     "options": [
+      "The producer and consumer operate at independent speeds.",
+      "The queue acts as a buffer to handle bursts of data.",
+      "The producer must wait for the consumer to finish before enqueuing more.",
+      "Items are processed in the order they arrive (FIFO)."
+     ],
+     "explanation": "Asynchronous queues decouple producers and consumers, allowing the system to stay responsive during high load by buffering tasks.",
+     "correctAnswers": [
+      "The producer and consumer operate at independent speeds.",
+      "The queue acts as a buffer to handle bursts of data.",
+      "Items are processed in the order they arrive (FIFO)."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "As the animation progresses and the queue undergoes multiple enqueue and dequeue operations in a fixed-size linear array, why does the structure eventually fail to accept new items even when it is mostly empty?",
+     "options": [
+      "Because the tail pointer reaches the end of the array and cannot wrap around, leaving unused space at the front.",
+      "Because the 'Pop' operation does not actually delete data, leading to a memory leak in the buffer.",
+      "Because the modulo arithmetic used in linear arrays causes the head pointer to exceed the capacity.",
+      "Because the consumer is processing items faster than the producer can enqueue them."
+     ],
+     "explanation": "In a non-circular array, the 'creeping' problem occurs where the valid data range shifts right until the tail hits the physical limit, despite available space at indices already dequeued.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Queue Creep in Linear Array</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --font-serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: var(--font-sans);\n        }\n\n        .container {\n            width: 100%;\n            box-sizing: border-box;\n            padding: 16px;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            max-width: 500px;\n            margin-bottom: 12px;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .labels {\n            font-family: var(--font-serif);\n            font-style: italic;\n            font-size: clamp(11px, 3vw, 13px);\n            fill: var(--muted);\n        }\n\n        .pointer-text {\n            font-family: var(--font-sans);\n            font-weight: 600;\n            font-size: 11px;\n            text-transform: uppercase;\n        }\n\n        .stats {\n            display: flex;\n            gap: 20px;\n            font-family: var(--font-sans);\n            font-size: 12px;\n            color: var(--muted);\n            margin-top: 8px;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .stat-item span {\n            color: var(--ink);\n            font-weight: 500;\n        }\n\n        .caption {\n            font-family: var(--font-serif);\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            margin-top: 16px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of queue operations in a fixed-size linear array</h1>\n    \n    <div class=\"container\">\n        <div class=\"fig-wrapper\">\n            <svg class=\"fig\" viewBox=\"0 0 400 180\" aria-label=\"A diagram showing an array of 8 slots. Pointers move from left to right as items are added and removed.\">\n                <!-- Array Background -->\n                <g id=\"array-group\"></g>\n                \n                <!-- Indices -->\n                <g id=\"indices-group\" class=\"labels\"></g>\n\n                <!-- Slots -->\n                <g id=\"slots-group\"></g>\n\n                <!-- Pointers -->\n                <g id=\"pointers\">\n                    <g id=\"head-ptr\">\n                        <path d=\"M 0 0 L 0 -25\" stroke=\"var(--accent)\" stroke-width=\"1.5\" marker-end=\"url(#arrow-head)\" />\n                        <text y=\"-32\" text-anchor=\"middle\" class=\"pointer-text\" fill=\"var(--accent)\">Head</text>\n                    </g>\n                    <g id=\"tail-ptr\">\n                        <path d=\"M 0 0 L 0 25\" stroke=\"var(--amber)\" stroke-width=\"1.5\" marker-end=\"url(#arrow-tail)\" />\n                        <text y=\"42\" text-anchor=\"middle\" class=\"pointer-text\" fill=\"var(--amber)\">Tail</text>\n                    </g>\n                </g>\n\n                <defs>\n                    <marker id=\"arrow-head\" markerWidth=\"6\" markerHeight=\"6\" refX=\"0\" refY=\"3\" orientation=\"auto\">\n                        <path d=\"M 0 0 L 6 3 L 0 6 z\" fill=\"var(--accent)\" />\n                    </marker>\n                    <marker id=\"arrow-tail\" markerWidth=\"6\" markerHeight=\"6\" refX=\"0\" refY=\"3\" orientation=\"auto\">\n                        <path d=\"M 0 6 L 6 3 L 0 0 z\" fill=\"var(--amber)\" />\n                    </marker>\n                </defs>\n            </svg>\n        </div>\n\n        <div class=\"stats\">\n            <div class=\"stat-item\">Array Size: <span>8 (fixed)</span></div>\n            <div class=\"stat-item\">Status: <span id=\"status-text\">Enqueue</span></div>\n        </div>\n\n        <div class=\"caption\">Sequence of operations in a linear buffer</div>\n    </div>\n\n    <script>\n        const ARRAY_SIZE = 8;\n        const SLOT_WIDTH = 45;\n        const START_X = 20;\n        const Y_CENTER = 80;\n        const BOX_SIZE = 40;\n\n        let head = 0;\n        let tail = 0;\n        let items = []; // indices that contain data\n        let frame = 0;\n        let stateIndex = 0;\n\n        // Sequence: E, E, E, D, E, E, D, E, D, E, E (Tail hits end)\n        const sequence = [\n            { op: 'E', label: 'Enqueue' },\n            { op: 'E', label: 'Enqueue' },\n            { op: 'E', label: 'Enqueue' },\n            { op: 'D', label: 'Dequeue' },\n            { op: 'E', label: 'Enqueue' },\n            { op: 'E', label: 'Enqueue' },\n            { op: 'D', label: 'Dequeue' },\n            { op: 'E', label: 'Enqueue' },\n            { op: 'D', label: 'Dequeue' },\n            { op: 'E', label: 'Enqueue' },\n            { op: 'E', label: 'Enqueue' }, // Tail hits index 7\n            { op: 'W', label: 'End of Array Reached' }, // Pause/Wait state\n            { op: 'W', label: 'End of Array Reached' },\n            { op: 'R', label: 'Resetting' }  // Reset\n        ];\n\n        const slotsGroup = document.getElementById('slots-group');\n        const indicesGroup = document.getElementById('indices-group');\n        const headPtr = document.getElementById('head-ptr');\n        const tailPtr = document.getElementById('tail-ptr');\n        const statusText = document.getElementById('status-text');\n\n        // Create static elements\n        for (let i = 0; i < ARRAY_SIZE; i++) {\n            const x = START_X + i * SLOT_WIDTH;\n            \n            // Slot\n            const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n            rect.setAttribute(\"x\", x);\n            rect.setAttribute(\"y\", Y_CENTER - BOX_SIZE/2);\n            rect.setAttribute(\"width\", BOX_SIZE);\n            rect.setAttribute(\"height\", BOX_SIZE);\n            rect.setAttribute(\"fill\", \"none\");\n            rect.setAttribute(\"stroke\", \"var(--rule)\");\n            rect.setAttribute(\"stroke-width\", \"1\");\n            slotsGroup.appendChild(rect);\n\n            // Index label\n            const text = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n            text.setAttribute(\"x\", x + BOX_SIZE/2);\n            text.setAttribute(\"y\", Y_CENTER + 35);\n            text.setAttribute(\"text-anchor\", \"middle\");\n            text.textContent = i;\n            indicesGroup.appendChild(text);\n        }\n\n        function update() {\n            const step = sequence[stateIndex];\n            statusText.textContent = step.label;\n\n            if (step.op === 'E') {\n                if (tail < ARRAY_SIZE) {\n                    items.push(tail);\n                    tail++;\n                }\n            } else if (step.op === 'D') {\n                if (head < tail) {\n                    items.shift();\n                    head++;\n                }\n            } else if (step.op === 'R') {\n                head = 0;\n                tail = 0;\n                items = [];\n            }\n\n            draw();\n\n            stateIndex = (stateIndex + 1) % sequence.length;\n        }\n\n        function draw() {\n            // Update items\n            slotsGroup.querySelectorAll('.item').forEach(el => el.remove());\n            items.forEach(idx => {\n                const x = START_X + idx * SLOT_WIDTH;\n                const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n                rect.setAttribute(\"class\", \"item\");\n                rect.setAttribute(\"x\", x + 4);\n                rect.setAttribute(\"y\", Y_CENTER - BOX_SIZE/2 + 4);\n                rect.setAttribute(\"width\", BOX_SIZE - 8);\n                rect.setAttribute(\"height\", BOX_SIZE - 8);\n                rect.setAttribute(\"fill\", \"var(--accent)\");\n                rect.setAttribute(\"fill-opacity\", \"0.15\");\n                rect.setAttribute(\"stroke\", \"var(--accent)\");\n                rect.setAttribute(\"stroke-width\", \"1\");\n                slotsGroup.appendChild(rect);\n            });\n\n            // Position pointers\n            const headX = START_X + head * SLOT_WIDTH + BOX_SIZE / 2;\n            const tailX = START_X + tail * SLOT_WIDTH + BOX_SIZE / 2;\n\n            headPtr.style.transform = `translateX(${headX}px) translateY(${Y_CENTER - 25}px)`;\n            tailPtr.style.transform = `translateX(${tailX}px) translateY(${Y_CENTER + 25}px)`;\n        }\n\n        function animate() {\n            if (frame % 60 === 0) {\n                update();\n            }\n            frame++;\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {\n                animate();\n            } else {\n                // Show the problematic state if motion is reduced\n                head = 3;\n                tail = 8;\n                items = [3,4,5,6,7];\n                statusText.textContent = \"Last index reached\";\n                draw();\n            }\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the tail pointer reaches the end of the array and cannot wrap around, leaving unused space at the front."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Sorting and Searching Mastery Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are sorting a list of records that are already nearly sorted, with only a few elements out of place. Which algorithm provides the best performance in this specific scenario due to its ability to 'early exit'?",
+     "options": [
+      "Selection Sort",
+      "Insertion Sort",
+      "Merge Sort",
+      "Quick Sort (Naive)"
+     ],
+     "explanation": "Insertion Sort has an O(N) best-case complexity because the inner loop can terminate early if the element being inserted is already in the correct relative position. Selection Sort, by contrast, must always scan the entire unsorted territory to find the minimum.",
+     "correctAnswers": [
+      "Insertion Sort"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following characteristics accurately describe Merge Sort? Select all that apply.",
+     "options": [
+      "It is a stable sorting algorithm.",
+      "It requires O(N) additional space for a helper array.",
+      "It sorts the array in-place without extra memory.",
+      "Its worst-case time complexity is O(N log N).",
+      "It uses a partitioning pivot to divide elements."
+     ],
+     "explanation": "Merge Sort is stable and guarantees O(N log N) time, but it 'pays' for this with O(N) auxiliary space. It does not sort in-place (like Quicksort) and does not use a pivot.",
+     "correctAnswers": [
+      "It is a stable sorting algorithm.",
+      "It requires O(N) additional space for a helper array.",
+      "Its worst-case time complexity is O(N log N)."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the context of Quicksort, the ____ scheme uses a fast and slow runner pointer to organize elements around a pivot, usually chosen as the last element of the array.",
+     "placeholder": "Enter scheme name",
+     "correctAnswers": [
+      "Lomuto Partitioning",
+      "Lomuto",
+      "Lomuto partition"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary engineering purpose of using a Randomized Pivot in Quicksort?",
+     "options": [
+      "To reduce the space complexity from O(N) to O(log N).",
+      "To ensure the algorithm becomes stable.",
+      "To prevent O(N^2) performance on already sorted or reverse-sorted data.",
+      "To eliminate the need for the recursive 'conquer' step."
+     ],
+     "explanation": "Naive Quicksort (picking the last element) degrades to O(N^2) on sorted data because it fails to divide the array into balanced halves. Randomization ensures that, on average, the split is balanced regardless of input order.",
+     "correctAnswers": [
+      "To prevent O(N^2) performance on already sorted or reverse-sorted data."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which conditions must be met to justify using Counting Sort over a comparison-based sort like Merge Sort? Select all that apply.",
+     "options": [
+      "The data must be integers or map to a finite range.",
+      "The range of values (K) should not be significantly larger than the number of elements (N).",
+      "The input data must be already partially sorted.",
+      "Memory usage must not be a primary constraint if the range of values is large."
+     ],
+     "explanation": "Counting Sort is non-comparison based and requires integer-like keys. Because it creates an array of size K, it is only efficient if K is manageable and memory is available.",
+     "correctAnswers": [
+      "The data must be integers or map to a finite range.",
+      "The range of values (K) should not be significantly larger than the number of elements (N).",
+      "Memory usage must not be a primary constraint if the range of values is large."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A sorting algorithm is considered ____ if it preserves the relative order of records with equal keys.",
+     "placeholder": "Term",
+     "correctAnswers": [
+      "stable",
+      "Stability"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "During the 'Merge' step of Merge Sort, how is stability maintained when two elements from the left and right subarrays are equal?",
+     "options": [
+      "The algorithm picks the element from the left subarray first.",
+      "The algorithm picks the element from the right subarray first.",
+      "The algorithm swaps both elements into a temporary buffer.",
+      "Stability cannot be maintained in Merge Sort."
+     ],
+     "explanation": "By prioritizing the element from the left (original earlier position) during a tie, Merge Sort ensures that equal elements retain their relative order.",
+     "correctAnswers": [
+      "The algorithm picks the element from the left subarray first."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Identify the 'Divide and Conquer' steps in the context of Merge Sort. Select all that apply.",
+     "options": [
+      "Divide: Split the array into two halves recursively.",
+      "Conquer: Sort the two halves (base case is a single element).",
+      "Combine: Use two pointers to merge sorted halves into a temporary array.",
+      "Partition: Choose a pivot and rearrange elements around it."
+     ],
+     "explanation": "Merge Sort follows the classic Divide, Conquer, Combine pattern. 'Partition' is the specific mechanism for Quicksort.",
+     "correctAnswers": [
+      "Divide: Split the array into two halves recursively.",
+      "Conquer: Sort the two halves (base case is a single element).",
+      "Combine: Use two pointers to merge sorted halves into a temporary array."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The time complexity of Radix Sort is expressed as O(D * (N + K)), where 'D' represents the ____ of the numbers being sorted.",
+     "placeholder": "What does D represent?",
+     "correctAnswers": [
+      "number of digits",
+      "digits",
+      "number of places"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which algorithm 'cheats' the O(N log N) theoretical lower bound for sorting by using digit-by-digit processing?",
+     "options": [
+      "Quick Sort",
+      "Radix Sort",
+      "Selection Sort",
+      "Insertion Sort"
+     ],
+     "explanation": "Radix Sort processes digits using an underlying stable sort (like Counting Sort), achieving O(D * (N+K)) time, which is linear relative to N when D and K are small.",
+     "correctAnswers": [
+      "Radix Sort"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are potential 'traps' or common errors when implementing basic sorting algorithms? Select all that apply.",
+     "options": [
+      "Off-by-one errors in loop boundaries.",
+      "Forgetting to swap the pivot into its final position in Quicksort.",
+      "Forgetting to store a value in a temporary variable before shifting in Insertion Sort.",
+      "Choosing a pivot that is too close to the median in Quicksort."
+     ],
+     "explanation": "Off-by-one errors, missing the final pivot swap, and losing data during shifts are common implementation bugs. Choosing a pivot near the median is actually the ideal goal for performance, not a trap.",
+     "correctAnswers": [
+      "Off-by-one errors in loop boundaries.",
+      "Forgetting to swap the pivot into its final position in Quicksort.",
+      "Forgetting to store a value in a temporary variable before shifting in Insertion Sort."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "If you have an array of 1,024 elements, approximately how many levels of division will occur in a Merge Sort recursion tree?",
+     "options": [
+      "10",
+      "512",
+      "100",
+      "1,024"
+     ],
+     "explanation": "Merge Sort divides the array in half at each level. Since 2^10 = 1,024, it takes 10 levels of division to reach the base case of single-element arrays.",
+     "correctAnswers": [
+      "10"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "When tracing Selection Sort on the array [5, 2, 9, 1], what happens during the first complete pass of the algorithm?",
+     "options": [
+      "The value 1 is identified as the minimum.",
+      "The value 1 is swapped with the value 5.",
+      "The value 2 is swapped with the value 5.",
+      "The sorted zone expands to include the first element."
+     ],
+     "explanation": "In the first pass, Selection Sort scans the whole array, finds 1, swaps it with the element at the first index (5), and marks the first position as sorted.",
+     "correctAnswers": [
+      "The value 1 is identified as the minimum.",
+      "The value 1 is swapped with the value 5.",
+      "The sorted zone expands to include the first element."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "In Selection Sort, if the array is already sorted, how many comparisons will the algorithm perform relative to its worst-case scenario?",
+     "options": [
+      "The same number of comparisons.",
+      "Significantly fewer comparisons.",
+      "Zero comparisons.",
+      "Half the number of comparisons."
+     ],
+     "explanation": "Selection Sort is 'blind'; it always scans the entire unsorted region to find the minimum, regardless of the data's initial order, resulting in O(N^2) comparisons in all cases.",
+     "correctAnswers": [
+      "The same number of comparisons."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Observe the recursive division and subsequent merging process. Why does the total work done at each level of the tree remain O(N) even as the number of sub-problems doubles at every step?",
+     "options": [
+      "Because the size of each sub-problem is halved at each level, offsetting the doubling of the number of sub-problems.",
+      "Because the merge operation becomes faster as the elements become more sorted in the lower levels.",
+      "Because the algorithm stops comparing elements once the tree depth exceeds log N.",
+      "Because the auxiliary space used for merging is shared across all levels of the recursion tree."
+     ],
+     "explanation": "In Merge Sort, the work at each level is proportional to the total number of elements N. While the number of sub-problems doubles (1, 2, 4...), their size is halved (N, N/2, N/4...), so the total work (Number of problems × Size of problem) stays constant at N per level.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Merge Sort Complexity Visualization</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --font-serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            color: var(--ink);\n            font-family: var(--font-sans);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readout-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .readout-label {\n            font-family: var(--font-serif);\n            font-size: clamp(11px, 2.5vw, 13px);\n            color: var(--muted);\n            font-style: italic;\n            margin-bottom: 4px;\n        }\n\n        .readout-value {\n            font-size: clamp(14px, 3vw, 16px);\n            font-weight: 500;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .caption {\n            text-align: center;\n            font-family: var(--font-serif);\n            font-size: 13px;\n            color: var(--muted);\n            margin-top: 4px;\n        }\n\n        .fixed-tag {\n            font-size: 10px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            background: var(--rule);\n            color: var(--muted);\n            padding: 1px 4px;\n            border-radius: 3px;\n            margin-left: 4px;\n            vertical-align: middle;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Visualization of Recursive Array Splitting and Work Per Level</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"0 0 400 240\" aria-label=\"Tree diagram showing an array splitting into smaller parts, with a horizontal scan indicating work performed at each level.\">\n            <!-- Background grid/levels -->\n            <g class=\"levels-ui\">\n                <line x1=\"10\" y1=\"40\" x2=\"390\" y2=\"40\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2 2\" />\n                <line x1=\"10\" y1=\"80\" x2=\"390\" y2=\"80\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2 2\" />\n                <line x1=\"10\" y1=\"120\" x2=\"390\" y2=\"120\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2 2\" />\n                <line x1=\"10\" y1=\"160\" x2=\"390\" y2=\"160\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2 2\" />\n                <line x1=\"10\" y1=\"200\" x2=\"390\" y2=\"200\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2 2\" />\n            </g>\n\n            <!-- Tree Structure (Static lines, animated opacity/stroke) -->\n            <g id=\"tree-edges\" stroke=\"var(--rule)\" stroke-width=\"1\" fill=\"none\"></g>\n\n            <!-- Array Blocks -->\n            <g id=\"array-nodes\"></g>\n\n            <!-- Scanning Indicator (The phenomenon of 'work') -->\n            <rect id=\"scanner\" x=\"0\" y=\"0\" width=\"2\" height=\"20\" fill=\"var(--amber)\" fill-opacity=\"0.6\" style=\"display:none;\"></rect>\n            \n            <!-- Axis for total elements -->\n            <line x1=\"40\" y1=\"230\" x2=\"360\" y2=\"230\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <path d=\"M 40 227 L 40 233 M 360 227 L 360 233\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <text x=\"200\" y=\"225\" text-anchor=\"middle\" font-family=\"var(--font-serif)\" font-size=\"11\" fill=\"var(--muted)\" font-style=\"italic\">Total elements processed at current depth</text>\n        </svg>\n\n        <div class=\"readout-grid\">\n            <div class=\"readout\">\n                <span class=\"readout-label\">Depth Level</span>\n                <span class=\"readout-value\" id=\"depth-val\">0</span>\n            </div>\n            <div class=\"readout\">\n                <span class=\"readout-label\">Elements Observed<span class=\"fixed-tag\">Fixed</span></span>\n                <span class=\"readout-value\" id=\"count-val\">16</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Array subdivision and element-wise scanning across recursive levels</div>\n    </div>\n\n    <script>\n        /**\n         * DETERMINISTIC SEEDING\n         */\n        const seed = 12345;\n        let LCG = seed;\n        function pseudorandom() {\n            LCG = (LCG * 1664525 + 1013904223) % 4294967296;\n            return LCG / 4294967296;\n        }\n\n        const SVG_NS = \"http://www.w3.org/2000/svg\";\n        const nodesContainer = document.getElementById('array-nodes');\n        const edgesContainer = document.getElementById('tree-edges');\n        const scanner = document.getElementById('scanner');\n        const depthVal = document.getElementById('depth-val');\n        const countVal = document.getElementById('count-val');\n\n        const TOTAL_ELEMENTS = 16;\n        const MAX_DEPTH = 5; // 1, 2, 4, 8, 16\n        const LEVEL_HEIGHT = 40;\n        const START_Y = 40;\n\n        // Pre-calculate tree structure\n        const tree = [];\n        for (let d = 0; d < MAX_DEPTH; d++) {\n            const numGroups = Math.pow(2, d);\n            const elementsPerGroup = TOTAL_ELEMENTS / numGroups;\n            const levelNodes = [];\n            \n            for (let i = 0; i < numGroups; i++) {\n                const width = (320 / numGroups) * 0.8;\n                const spacing = (320 / numGroups);\n                const x = 40 + (i * spacing) + (spacing - width) / 2;\n                const y = START_Y + (d * LEVEL_HEIGHT);\n                \n                levelNodes.push({\n                    x, y, w: width, h: 12, \n                    elements: elementsPerGroup,\n                    depth: d,\n                    index: i\n                });\n            }\n            tree.push(levelNodes);\n        }\n\n        // Draw static components once\n        function initTree() {\n            tree.forEach((level, d) => {\n                level.forEach(node => {\n                    // Draw node rectangle\n                    const rect = document.createElementNS(SVG_NS, 'rect');\n                    rect.setAttribute('x', node.x);\n                    rect.setAttribute('y', node.y - node.h/2);\n                    rect.setAttribute('width', node.w);\n                    rect.setAttribute('height', node.h);\n                    rect.setAttribute('rx', 1);\n                    rect.setAttribute('fill', 'var(--bg)');\n                    rect.setAttribute('stroke', 'var(--rule)');\n                    rect.setAttribute('class', `node level-${d}`);\n                    nodesContainer.appendChild(rect);\n\n                    // Draw internal dividers for elements if small enough level\n                    if (d < 3) {\n                        for(let j=1; j < node.elements; j++) {\n                            const line = document.createElementNS(SVG_NS, 'line');\n                            const lx = node.x + (j * (node.w / node.elements));\n                            line.setAttribute('x1', lx);\n                            line.setAttribute('y1', node.y - node.h/2);\n                            line.setAttribute('x2', lx);\n                            line.setAttribute('y2', node.y + node.h/2);\n                            line.setAttribute('stroke', 'var(--rule)');\n                            line.setAttribute('stroke-width', '0.5');\n                            line.setAttribute('class', `node level-${d}`);\n                            nodesContainer.appendChild(line);\n                        }\n                    }\n\n                    // Draw edges to children\n                    if (d < MAX_DEPTH - 1) {\n                        const nextLevel = tree[d+1];\n                        const c1 = nextLevel[node.index * 2];\n                        const c2 = nextLevel[node.index * 2 + 1];\n                        \n                        const edge = document.createElementNS(SVG_NS, 'path');\n                        const dStr = `M ${node.x + node.w/2} ${node.y + node.h/2} \n                                     L ${c1.x + c1.w/2} ${c1.y - node.h/2}\n                                     M ${node.x + node.w/2} ${node.y + node.h/2} \n                                     L ${c2.x + c2.w/2} ${c2.y - node.h/2}`;\n                        edge.setAttribute('d', dStr);\n                        edge.setAttribute('class', `edge edge-level-${d}`);\n                        edge.setAttribute('stroke', 'var(--rule)');\n                        edge.setAttribute('opacity', '0.3');\n                        edgesContainer.appendChild(edge);\n                    }\n                });\n            });\n        }\n\n        initTree();\n\n        let startTime = null;\n        const CYCLE_DURATION = 10000; // 10 seconds total loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) % CYCLE_DURATION;\n            const progress = elapsed / CYCLE_DURATION; // 0 to 1\n\n            // We have 5 levels. Let's spend time on each.\n            const levelProgress = progress * MAX_DEPTH;\n            const currentLevel = Math.floor(levelProgress);\n            const levelFraction = levelProgress % 1; // 0 to 1 within the level\n\n            // Update UI elements\n            depthVal.textContent = currentLevel;\n            \n            // Highlight nodes at current depth\n            const allNodes = document.querySelectorAll('.node');\n            allNodes.forEach(n => {\n                if (n.classList.contains(`level-${currentLevel}`)) {\n                    n.setAttribute('stroke', 'var(--accent)');\n                    n.setAttribute('stroke-width', '1.5');\n                } else {\n                    n.setAttribute('stroke', 'var(--rule)');\n                    n.setAttribute('stroke-width', '1');\n                }\n            });\n\n            // Work/Scan visualization\n            // Move a vertical scanner across all blocks at the current level\n            scanner.style.display = 'block';\n            const scanX = 40 + (levelFraction * 320);\n            scanner.setAttribute('x', scanX - 1);\n            scanner.setAttribute('y', START_Y + (currentLevel * LEVEL_HEIGHT) - 10);\n            scanner.setAttribute('height', 20);\n            scanner.setAttribute('width', 3);\n\n            // Notify parent of height\n            if (Math.random() < 0.01) reportHeight();\n\n            requestAnimationFrame(animate);\n        }\n\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height }, '*');\n            } catch (e) {}\n        }\n\n        window.onload = () => {\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n            requestAnimationFrame(animate);\n        };\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the size of each sub-problem is halved at each level, offsetting the doubling of the number of sub-problems."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Graphs and Algorithm Design Final Assessment",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are designing a high-density social network where most users are connected to nearly everyone else (a 'dense' graph). Which representation is most memory-efficient for this specific case?",
+     "options": [
+      "Adjacency List",
+      "Adjacency Matrix",
+      "Binary Search Tree",
+      "Edge List"
+     ],
+     "explanation": "While Adjacency Lists are better for sparse graphs, an Adjacency Matrix is more efficient for dense graphs because it uses a fixed 1 bit per potential edge, avoiding the memory overhead of pointers or dynamic array resizing found in lists.",
+     "correctAnswers": [
+      "Adjacency Matrix"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In a Directed Acyclic Graph (DAG) used for task scheduling, which of the following are true regarding Topological Sorting?",
+     "options": [
+      "Multiple valid topological orders may exist for a single DAG.",
+      "A graph with a cycle can still have a partial topological sort.",
+      "Kahn's algorithm uses the concept of 'in-degrees' to identify ready tasks.",
+      "The order is unique only if the graph is a simple linear chain."
+     ],
+     "explanation": "Topological sorts are not unique unless the dependencies form a single line. Kahn's algorithm relies on in-degrees of zero. A graph with a cycle cannot be topologically sorted at all.",
+     "correctAnswers": [
+      "Multiple valid topological orders may exist for a single DAG.",
+      "Kahn's algorithm uses the concept of 'in-degrees' to identify ready tasks.",
+      "The order is unique only if the graph is a simple linear chain."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "During a DFS traversal, you encounter a node that is currently marked as 'Gray' (or 'Visiting'). What does this specifically indicate about the graph's structure?",
+     "options": [
+      "The graph is a tree.",
+      "The graph contains a cycle.",
+      "The node is a leaf node.",
+      "The search has reached a dead end."
+     ],
+     "explanation": "In the three-color marking system of DFS, encountering a 'Gray' node (an ancestor currently in the recursion stack) indicates a 'Back Edge,' which confirms the presence of a cycle.",
+     "correctAnswers": [
+      "The graph contains a cycle."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would be best modeled using a DIRECTED graph?",
+     "options": [
+      "A Facebook friendship network.",
+      "Twitter 'following' relationships.",
+      "A system of one-way streets in a city.",
+      "Prerequisites for university courses."
+     ],
+     "explanation": "Twitter following, one-way streets, and prerequisites are all asymmetric relationships where the connection has a specific direction (A to B does not imply B to A).",
+     "correctAnswers": [
+      "Twitter 'following' relationships.",
+      "A system of one-way streets in a city.",
+      "Prerequisites for university courses."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of deep vs wide graph structures.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e48181b7-7a39-4776-9726-3af4849ba050/exam/images/unit5-q5.png"
+     },
+     "prompt": "What is the primary spatial trade-off when using DFS on a very deep, narrow 'skewer' graph?",
+     "options": [
+      "The Queue size will exceed available memory.",
+      "The recursion depth may cause a stack overflow.",
+      "The Adjacency Matrix will become too sparse to read.",
+      "The algorithm will fail to find the shortest path."
+     ],
+     "explanation": "DFS relies on the call stack (or an explicit stack). In a very deep graph, the number of active recursive calls proportional to the depth can lead to stack overflow, whereas BFS would only keep a few nodes in its queue.",
+     "correctAnswers": [
+      "The recursion depth may cause a stack overflow."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "Dijkstra's Algorithm is considered a 'Greedy' algorithm because:",
+     "options": [
+      "It always picks the locally cheapest unvisited node to process next.",
+      "It re-evaluates every single node in the graph at every step.",
+      "It makes a series of locally optimal choices with the hope of finding a global optimum.",
+      "It uses a priority queue to always extract the node with the minimum distance."
+     ],
+     "explanation": "Dijkstra is greedy because it assumes the shortest path found to a node so far is the absolute shortest by picking the minimum distance node from a priority queue.",
+     "correctAnswers": [
+      "It always picks the locally cheapest unvisited node to process next.",
+      "It makes a series of locally optimal choices with the hope of finding a global optimum.",
+      "It uses a priority queue to always extract the node with the minimum distance."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Which algorithm is most appropriate for a build system to determine the order in which to compile files with dependencies?",
+     "options": [
+      "Dijkstra's Algorithm",
+      "Breadth-First Search",
+      "Topological Sort",
+      "Binary Search"
+     ],
+     "explanation": "Topological sorting is specifically designed to order nodes in a DAG such that all dependencies (edges) point forward, making it perfect for scheduling and compilation.",
+     "correctAnswers": [
+      "Topological Sort"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What are the common pitfalls that can lead to an infinite loop in graph traversal algorithms?",
+     "options": [
+      "Using an Adjacency Matrix instead of an Adjacency List.",
+      "Failing to mark nodes as 'visited' before or during exploration.",
+      "Traversing a graph that contains cycles without a tracking mechanism.",
+      "Using BFS on a directed graph."
+     ],
+     "explanation": "Without a 'visited' set or similar mechanism, both BFS and DFS will cycle through the same nodes repeatedly if the graph contains any loops.",
+     "correctAnswers": [
+      "Failing to mark nodes as 'visited' before or during exploration.",
+      "Traversing a graph that contains cycles without a tracking mechanism."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "If a graph has 1,000 nodes but only 2,000 edges, it is considered 'sparse'. What is the most space-efficient way to store this?",
+     "options": [
+      "Adjacency Matrix",
+      "Adjacency List",
+      "A 1000x1000 2D Array",
+      "A Hash Table of all possible coordinate pairs"
+     ],
+     "explanation": "An Adjacency Matrix would require 1,000,000 cells. An Adjacency List only stores the 2,000 actual connections, making it much more efficient for sparse data.",
+     "correctAnswers": [
+      "Adjacency List"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of a Directed Acyclic Graph (DAG)?",
+     "options": [
+      "It contains no cycles.",
+      "Edges have a specific direction.",
+      "It must be a tree.",
+      "Every node must have an in-degree of zero."
+     ],
+     "explanation": "A DAG must be directed and cycle-free. While all trees are DAGs, not all DAGs are trees (they can have multiple paths to the same node). Only at least one node must have an in-degree of zero for it to be a DAG.",
+     "correctAnswers": [
+      "It contains no cycles.",
+      "Edges have a specific direction."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "In Dijkstra's algorithm, what happens if we encounter an edge with a negative weight?",
+     "options": [
+      "The algorithm adjusts and still finds the shortest path.",
+      "The algorithm may provide an incorrect shortest path.",
+      "The priority queue will automatically handle negative values.",
+      "The algorithm will always enter an infinite loop."
+     ],
+     "explanation": "Dijkstra's greedy assumption—that once a node is visited, its shortest path is found—fails when negative edges can later 'reduce' the cost of a path already considered settled.",
+     "correctAnswers": [
+      "The algorithm may provide an incorrect shortest path."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "In a BFS traversal, the 'distance' to any reachable node is calculated as:",
+     "options": [
+      "The distance of its parent node plus one.",
+      "The sum of all edge weights in the path.",
+      "The total number of nodes in the graph.",
+      "The number of edges in the path from the source."
+     ],
+     "explanation": "In unweighted BFS, the distance is the count of edges from the source, which is effectively the parent's distance + 1.",
+     "correctAnswers": [
+      "The distance of its parent node plus one.",
+      "The number of edges in the path from the source."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "When comparing BFS and DFS for finding if *any* path exists between two nodes in a very wide graph, which is generally more memory-efficient?",
+     "options": [
+      "BFS",
+      "DFS",
+      "Both use the same memory",
+      "Adjacency Matrix"
+     ],
+     "explanation": "In a wide 'fan' graph, BFS must store all neighbors of the root in its queue simultaneously. DFS only stores the current path in its stack, making it more memory-efficient for wide, shallow structures.",
+     "correctAnswers": [
+      "DFS"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the features of an Adjacency List representation.",
+     "options": [
+      "It uses an array of linked lists or dynamic arrays.",
+      "It allows O(1) time to check if an edge exists between two nodes.",
+      "It is more space-efficient for sparse graphs.",
+      "Its size is proportional to the number of vertices plus the number of edges."
+     ],
+     "explanation": "Adjacency lists are space-efficient and sized O(V+E), but checking for a specific edge (i, j) requires O(degree(i)) time, not O(1).",
+     "correctAnswers": [
+      "It uses an array of linked lists or dynamic arrays.",
+      "It is more space-efficient for sparse graphs.",
+      "Its size is proportional to the number of vertices plus the number of edges."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "In Kahn's Algorithm, if the final sorted list contains fewer nodes than the original graph, what does this conclude?",
+     "options": [
+      "The graph is a tree.",
+      "The graph is disconnected.",
+      "The graph contains at least one cycle.",
+      "The graph is a DAG."
+     ],
+     "explanation": "If a cycle exists, the nodes within the cycle will never have their in-degree reach zero, so they will never be added to the queue or the result list.",
+     "correctAnswers": [
+      "The graph contains at least one cycle."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What determines the order in which BFS visits nodes at the same distance from the source?",
+     "options": [
+      "The weights of the edges.",
+      "The order in which neighbors are stored in the adjacency structure.",
+      "The value of the node's data.",
+      "The depth of the recursion."
+     ],
+     "explanation": "BFS visits all neighbors of a node before moving deeper. The relative order of those neighbors depends solely on how they are listed in the adjacency list or matrix for that specific node.",
+     "correctAnswers": [
+      "The order in which neighbors are stored in the adjacency structure."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "As the algorithm explores the network, why does the frontier expand in a circular, layer-by-level fashion rather than following one path to its conclusion?",
+     "options": [
+      "The use of a Stack data structure forces the exploration to backtrack at every node.",
+      "The Queue data structure ensures all nodes at distance 'd' are processed before any nodes at 'd+1'.",
+      "The algorithm prioritizes edges with the highest weights first to find shortcuts.",
+      "A recursive function call is used to jump between non-adjacent nodes."
+     ],
+     "explanation": "BFS uses a First-In-First-Out (FIFO) queue. This ensures that all immediate neighbors (Level 1) are exited from the queue before their own neighbors (Level 2) can be processed, creating the 'ripple' effect.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Graph Traversal Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --font-serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: var(--font-sans);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n            background: var(--bg);\n        }\n\n        .node {\n            stroke-width: 1.5px;\n            transition: fill 0.3s ease, stroke 0.3s ease;\n        }\n\n        .edge {\n            stroke-width: 1px;\n            stroke-linecap: round;\n            transition: stroke 0.3s ease, stroke-width 0.3s ease;\n        }\n\n        .label {\n            font-family: var(--font-serif);\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n            pointer-events: none;\n            user-select: none;\n        }\n\n        .axis-container {\n            width: 100%;\n            margin-top: 20px;\n            padding: 0 10px;\n            box-sizing: border-box;\n        }\n\n        .axis-line {\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .axis-tick {\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .axis-text {\n            font-family: var(--font-serif);\n            font-size: 11px;\n            fill: var(--muted);\n            text-anchor: middle;\n        }\n\n        .cursor {\n            stroke: var(--accent);\n            stroke-width: 2px;\n        }\n\n        .readout {\n            margin-top: 12px;\n            font-size: 13px;\n            color: var(--muted);\n            font-family: var(--font-serif);\n            font-style: italic;\n            text-align: center;\n        }\n\n        .readout span {\n            font-family: var(--font-sans);\n            font-variant-numeric: tabular-nums;\n            font-style: normal;\n            color: var(--ink);\n            margin-right: 12px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Animation of outward expansion through a connected graph</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig\" viewBox=\"0 0 400 280\" aria-label=\"A graph visualization showing nodes lighting up in expanding layers from a central point\">\n            <!-- Edges (drawn first) -->\n            <g id=\"edges-layer\"></g>\n            <!-- Nodes -->\n            <g id=\"nodes-layer\"></g>\n            <!-- Labels -->\n            <g id=\"labels-layer\"></g>\n        </svg>\n\n        <div class=\"axis-container\">\n            <svg viewBox=\"0 0 400 40\" style=\"width:100%; height:auto; display:block;\">\n                <line x1=\"20\" y1=\"15\" x2=\"380\" y2=\"15\" class=\"axis-line\" />\n                <!-- Ticks and labels added via JS -->\n                <g id=\"axis-ticks\"></g>\n                <line id=\"axis-cursor\" x1=\"20\" y1=\"5\" x2=\"20\" y2=\"25\" class=\"cursor\" />\n                <text x=\"200\" y=\"38\" text-anchor=\"middle\" class=\"axis-text\">Propagation Progress</text>\n            </svg>\n        </div>\n\n        <div class=\"readout\">\n            Distance from start: <span id=\"dist-val\">0</span>\n            Nodes reached: <span id=\"nodes-val\">1</span>\n        </div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 42;\n        function random() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const nodes = [\n            { id: 0, x: 200, y: 140, level: 0 }, // Center\n            { id: 1, x: 140, y: 80,  level: 1 },\n            { id: 2, x: 260, y: 80,  level: 1 },\n            { id: 3, x: 260, y: 200, level: 1 },\n            { id: 4, x: 140, y: 200, level: 1 },\n            { id: 5, x: 80,  y: 60,  level: 2 },\n            { id: 6, x: 140, y: 20,  level: 2 },\n            { id: 7, x: 260, y: 20,  level: 2 },\n            { id: 8, x: 320, y: 60,  level: 2 },\n            { id: 9, x: 340, y: 140, level: 2 },\n            { id: 10, x: 320, y: 220, level: 2 },\n            { id: 11, x: 260, y: 260, level: 2 },\n            { id: 12, x: 140, y: 260, level: 2 },\n            { id: 13, x: 80,  y: 220, level: 2 },\n            { id: 14, x: 60,  y: 140, level: 2 },\n            { id: 15, x: 40,  y: 40,  level: 3 },\n            { id: 16, x: 360, y: 40,  level: 3 },\n            { id: 17, x: 360, y: 240, level: 3 },\n            { id: 18, x: 40,  y: 240, level: 3 }\n        ];\n\n        const edges = [\n            [0,1], [0,2], [0,3], [0,4],\n            [1,5], [1,6], [2,7], [2,8], [3,9], [3,10], [3,11], [4,12], [4,13], [4,14],\n            [1,2], [2,3], [3,4], [4,1],\n            [5,15], [8,16], [10,17], [13,18],\n            [5,6], [7,8], [9,10], [11,12], [14,5]\n        ];\n\n        const nodesLayer = document.getElementById('nodes-layer');\n        const edgesLayer = document.getElementById('edges-layer');\n        const labelsLayer = document.getElementById('labels-layer');\n        const axisTicks = document.getElementById('axis-ticks');\n        const cursor = document.getElementById('axis-cursor');\n        const distReadout = document.getElementById('dist-val');\n        const nodesReadout = document.getElementById('nodes-val');\n\n        // Create DOM elements\n        const nodeEls = nodes.map(n => {\n            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');\n            circle.setAttribute('cx', n.x);\n            circle.setAttribute('cy', n.y);\n            circle.setAttribute('r', 6);\n            circle.setAttribute('class', 'node');\n            circle.setAttribute('fill', 'var(--bg)');\n            circle.setAttribute('stroke', 'var(--rule)');\n            nodesLayer.appendChild(circle);\n            return circle;\n        });\n\n        const edgeEls = edges.map(e => {\n            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');\n            const n1 = nodes[e[0]];\n            const n2 = nodes[e[1]];\n            line.setAttribute('x1', n1.x);\n            line.setAttribute('y1', n1.y);\n            line.setAttribute('x2', n2.x);\n            line.setAttribute('y2', n2.y);\n            line.setAttribute('class', 'edge');\n            line.setAttribute('stroke', 'var(--rule)');\n            line.setAttribute('opacity', '0.4');\n            edgesLayer.appendChild(line);\n            return { el: line, from: e[0], to: e[1] };\n        });\n\n        // Setup Axis\n        for (let i = 0; i <= 3; i++) {\n            const x = 20 + (i / 3) * 360;\n            const tick = document.createElementNS('http://www.w3.org/2000/svg', 'line');\n            tick.setAttribute('x1', x); tick.setAttribute('y1', 12);\n            tick.setAttribute('x2', x); tick.setAttribute('y2', 18);\n            tick.setAttribute('class', 'axis-tick');\n            axisTicks.appendChild(tick);\n            \n            const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');\n            txt.setAttribute('x', x);\n            txt.setAttribute('y', 30);\n            txt.setAttribute('class', 'axis-text');\n            txt.textContent = i;\n            axisTicks.appendChild(txt);\n        }\n\n        let startTime = null;\n        const duration = 8000; // 8 seconds per loop\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let progress = ((timestamp - startTime) % duration) / duration;\n            \n            // Map progress to distance 0 -> 3.5 (slightly past last level for pause effect)\n            const maxLevel = 3;\n            const currentDist = Math.min(maxLevel, progress * (maxLevel + 1));\n            \n            // Update UI\n            const cursorX = 20 + (Math.min(currentDist, maxLevel) / maxLevel) * 360;\n            cursor.setAttribute('x1', cursorX);\n            cursor.setAttribute('x2', cursorX);\n\n            let activeCount = 0;\n            \n            nodes.forEach((n, i) => {\n                const el = nodeEls[i];\n                if (currentDist >= n.level) {\n                    el.setAttribute('fill', n.level === 0 ? 'var(--amber)' : 'var(--accent)');\n                    el.setAttribute('stroke', n.level === 0 ? 'var(--amber)' : 'var(--accent)');\n                    el.setAttribute('r', 7);\n                    activeCount++;\n                } else {\n                    el.setAttribute('fill', 'var(--bg)');\n                    el.setAttribute('stroke', 'var(--rule)');\n                    el.setAttribute('r', 5);\n                }\n            });\n\n            edgeEls.forEach(e => {\n                const n1 = nodes[e.from];\n                const n2 = nodes[e.to];\n                // Edge highlights if it connects two discovered nodes or is being \"traversed\"\n                // Specifically: highlight if both are <= floor(currentDist) AND at least one is within current layer\n                const discovered = (n1.level <= currentDist && n2.level <= currentDist);\n                const isStep = (Math.abs(n1.level - n2.level) <= 1);\n                \n                if (discovered && isStep && (n1.level < Math.floor(currentDist) || n2.level < Math.floor(currentDist) || currentDist >= maxLevel)) {\n                    e.el.setAttribute('stroke', 'var(--accent)');\n                    e.el.setAttribute('stroke-width', '1.5');\n                    e.el.setAttribute('opacity', '1');\n                } else {\n                    e.el.setAttribute('stroke', 'var(--rule)');\n                    e.el.setAttribute('stroke-width', '1');\n                    e.el.setAttribute('opacity', '0.4');\n                }\n            });\n\n            distReadout.textContent = Math.floor(currentDist);\n            nodesReadout.textContent = activeCount;\n\n            requestAnimationFrame(update);\n        }\n\n        // Height Reporting\n        const reportHeight = () => {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height }, '*');\n            } catch (e) {}\n        };\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The Queue data structure ensures all nodes at distance 'd' are processed before any nodes at 'd+1'."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Trees and Priority Structures Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In the standard convention for measuring tree properties used in this unit, what is the height of a tree that consists only of a single root node with no children?",
+     "options": [
+      "1",
+      "0",
+      "-1",
+      "Undefined"
+     ],
+     "explanation": "According to the unit material, we count edges for height. A single node has no edges to a leaf, so its height is 0. This is the standard convention mentioned to avoid off-by-one errors.",
+     "correctAnswers": [
+      "0"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following statements accurately describe the relationship between nodes in a tree structure?",
+     "options": [
+      "A parent is the immediate predecessor of a node.",
+      "An ancestor includes the entire lineage back to the root.",
+      "A leaf node is any node with exactly one child.",
+      "The degree of a tree is the maximum degree of any node in that tree.",
+      "Every node in a tree is the root of its own subtree."
+     ],
+     "explanation": "A leaf node is defined as a node with no children, not one child. All other statements correctly define terminology from the session.",
+     "correctAnswers": [
+      "A parent is the immediate predecessor of a node.",
+      "An ancestor includes the entire lineage back to the root.",
+      "The degree of a tree is the maximum degree of any node in that tree.",
+      "Every node in a tree is the root of its own subtree."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of moving from the leaves back up to the root to calculate values like height is known as the ____ nature of tree calculations.",
+     "placeholder": "Enter the order type",
+     "correctAnswers": [
+      "Post-order",
+      "postorder",
+      "Post order"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why is the '1 + Left + Right' formula significant when calculating the total number of nodes in a binary tree?",
+     "options": [
+      "It represents the iterative approach to tree traversal.",
+      "It treats the tree as a collection of smaller, identical subproblems.",
+      "It calculates the height by adding levels together.",
+      "It ensures the root is always visited last in the process."
+     ],
+     "explanation": "This formula demonstrates the recursive intuition: a tree's total count is the current node (1) plus the results from its subtrees, delegating the work downward.",
+     "correctAnswers": [
+      "It treats the tree as a collection of smaller, identical subproblems."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which scenarios are appropriate uses for Postorder traversal (Left-Right-Root)?",
+     "options": [
+      "Deleting every node in a tree to free memory.",
+      "Retrieving values from a Binary Search Tree in sorted order.",
+      "Calculating the total size of a directory in a file system.",
+      "Duplicating a tree's structure from the top down.",
+      "Evaluating an expression tree where children represent operands."
+     ],
+     "explanation": "Postorder is ideal for 'clean-up' or 'assembly' because a node is processed only after its children are done. Sorting requires Inorder, and duplication usually requires Preorder.",
+     "correctAnswers": [
+      "Deleting every node in a tree to free memory.",
+      "Calculating the total size of a directory in a file system.",
+      "Evaluating an expression tree where children represent operands."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a Level-Order traversal, the auxiliary data structure used to ensure nodes are visited in a First-In-First-Out (FIFO) manner is a ____.",
+     "placeholder": "Data structure name",
+     "correctAnswers": [
+      "Queue",
+      "queue"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If you are performing an Inorder traversal on a Binary Search Tree (BST), what will the resulting sequence of values always be?",
+     "options": [
+      "The values in the order they were inserted.",
+      "The values in decreasing order.",
+      "The values in non-decreasing (sorted) order.",
+      "The values grouped by their depth in the tree."
+     ],
+     "explanation": "The 'humility' of Inorder (Left-Root-Right) combined with the BST property (Left < Root < Right) naturally results in a sorted sequence.",
+     "correctAnswers": [
+      "The values in non-decreasing (sorted) order."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "According to the Binary Search Tree (BST) property, for any given node with value 'X', which of the following must be true?",
+     "options": [
+      "All nodes in the left subtree must have values less than X.",
+      "The right child must have a value greater than or equal to the left child.",
+      "All nodes in the right subtree must have values greater than X.",
+      "The root node must always be the median value of the dataset.",
+      "The left child must be a leaf node."
+     ],
+     "explanation": "The BST property applies to all descendants in the subtrees, not just immediate children. The root is not necessarily the median unless the tree is perfectly balanced.",
+     "correctAnswers": [
+      "All nodes in the left subtree must have values less than X.",
+      "The right child must have a value greater than or equal to the left child.",
+      "All nodes in the right subtree must have values greater than X."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A tree node that has no children is formally referred to as a ____ node.",
+     "placeholder": "Term",
+     "correctAnswers": [
+      "Leaf",
+      "leaf"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In a tree where one branch is extremely long (skewed) while the rest are empty, which statement is true regarding space complexity?",
+     "options": [
+      "BFS (Level-Order) will use significantly more memory than DFS.",
+      "DFS (Recursive) space complexity will be proportional to the tree height.",
+      "Both BFS and DFS will have O(1) space complexity.",
+      "The Queue in BFS will grow to the size of the entire tree."
+     ],
+     "explanation": "DFS space depends on the recursion stack (height). In a skewed tree, height equals the number of nodes, making it the dominant factor. BFS space depends on width, which is 1 in a skewed tree.",
+     "correctAnswers": [
+      "DFS (Recursive) space complexity will be proportional to the tree height."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "When implementing a recursive function to calculate the height of a tree, which components are necessary?",
+     "options": [
+      "A base case that returns -1 or 0 for a null node.",
+      "A queue to keep track of the current level's nodes.",
+      "A recursive call to find the height of the left subtree.",
+      "A recursive call to find the height of the right subtree.",
+      "A comparison to find the maximum between the two subtree heights."
+     ],
+     "explanation": "Recursive height calculation uses the 'Post-order' logic: 1 + max(leftHeight, rightHeight). A queue is only used for iterative Level-Order (BFS).",
+     "correctAnswers": [
+      "A base case that returns -1 or 0 for a null node.",
+      "A recursive call to find the height of the left subtree.",
+      "A recursive call to find the height of the right subtree.",
+      "A comparison to find the maximum between the two subtree heights."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The 'Euler Tour' or 'tracing finger' technique reveals that all DFS traversals follow the same physical path, but differ in when they ____ the node.",
+     "placeholder": "Action",
+     "correctAnswers": [
+      "visit",
+      "process",
+      "print"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "How does Level-Order traversal guarantee finding the shortest path to a node in an unweighted tree?",
+     "options": [
+      "It uses a stack to backtrack to the closest parent.",
+      "It visits all nodes at depth 'd' before any node at 'd+1'.",
+      "It always checks the right child before the left child.",
+      "It sorts the nodes by value before beginning the search."
+     ],
+     "explanation": "Because BFS explores generation by generation, the first time it encounters a node, it must be via the shortest possible sequence of edges from the root.",
+     "correctAnswers": [
+      "It visits all nodes at depth 'd' before any node at 'd+1'."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of Binary Trees as discussed in the unit?",
+     "options": [
+      "Each node can have at most two children.",
+      "The structure follows a predictable, fractal-like pattern.",
+      "They are more complex to search than general graphs.",
+      "Every node must have exactly two children except for leaves.",
+      "They can be processed using recursive '1 + Left + Right' logic."
+     ],
+     "explanation": "Binary trees allow 'at most' two children (0, 1, or 2). They simplify graph complexity rather than increasing it. Not all nodes need two children unless the tree is 'full'.",
+     "correctAnswers": [
+      "Each node can have at most two children.",
+      "The structure follows a predictable, fractal-like pattern.",
+      "They can be processed using recursive '1 + Left + Right' logic."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the primary advantage of a Binary Search Tree over a standard Linked List for searching data?",
+     "options": [
+      "A BST uses less memory than a Linked List.",
+      "A BST allows for logarithmic search time if balanced.",
+      "A BST guarantees that data is always sorted physically in memory.",
+      "A BST is easier to implement iteratively than a list."
+     ],
+     "explanation": "The branching structure of a BST allows us to discard half the remaining search space at each step, similar to binary search, which is much faster than the linear scan of a list.",
+     "correctAnswers": [
+      "A BST allows for logarithmic search time if balanced."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "If you need to calculate the total number of edges in a tree with 'N' nodes, which of the following is true?",
+     "options": [
+      "The number of edges is always N - 1.",
+      "The number of edges is always equal to the height.",
+      "Each node except the root has exactly one incoming edge from its parent.",
+      "The number of edges is N + 1.",
+      "The number of edges depends on the tree's degree."
+     ],
+     "explanation": "In any tree, every node (except the root) is connected to its parent by exactly one edge, leading to N-1 total edges.",
+     "correctAnswers": [
+      "The number of edges is always N - 1.",
+      "Each node except the root has exactly one incoming edge from its parent."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "In the context of tree degree, if a node has three children and another has five, and five is the maximum in the tree, what is the degree of the tree?",
+     "options": [
+      "3",
+      "5",
+      "8",
+      "2"
+     ],
+     "explanation": "The degree of a tree is defined as the maximum degree of any individual node within that tree.",
+     "correctAnswers": [
+      "5"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "Why is a Binary Search Tree (BST) referred to as a 'dynamic set'?",
+     "options": [
+      "It supports fast insertion and deletion while maintaining order.",
+      "It can only store numeric data.",
+      "Its size can grow or shrink as needed, unlike a fixed array.",
+      "It automatically balances itself after every insertion.",
+      "It allows for faster lookups than an unsorted list."
+     ],
+     "explanation": "BSTs are dynamic because they efficiently handle changes to the dataset size and content while providing faster search than linear structures. Self-balancing is a specific feature of certain BSTs (like AVL), but not a requirement of all BSTs.",
+     "correctAnswers": [
+      "It supports fast insertion and deletion while maintaining order.",
+      "Its size can grow or shrink as needed, unlike a fixed array.",
+      "It allows for faster lookups than an unsorted list."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Observe the growth of the tree as elements are inserted. Why does the height of the tree increase so drastically when the input is already sorted compared to when it is shuffled?",
+     "options": [
+      "Because sorted input prevents the creation of a right subtree entirely.",
+      "Because each new element becomes a child of the previous leaf, creating a linear path rather than a branching one.",
+      "Because the BST property requires the root to be re-evaluated and moved for every sorted insertion.",
+      "Because the queue used for insertion fills up and forces the tree to extend vertically."
+     ],
+     "explanation": "When input is sorted, the BST property forces every new node to the same side (e.g., always right), resulting in a 'skewed' tree with height O(N) instead of O(log N).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>BST Insertion Variance Simulation</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --ink: #1f1f1f;\n    --muted: #8a8a8a;\n    --rule: #d8d5d0;\n    --accent: #4C6696;\n    --amber: #c47c00;\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    overflow: hidden;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  }\n\n  .container {\n    width: 100%;\n    max-width: 640px;\n    margin: 0 auto;\n    padding: 16px;\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n  }\n\n  .visually-hidden {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n\n  .fig-container {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 16px;\n    width: 100%;\n  }\n\n  .tree-panel {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .label-serif {\n    font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n    font-size: clamp(12px, 2.5vw, 13px);\n    color: var(--muted);\n    font-style: italic;\n    margin-bottom: 8px;\n    text-align: center;\n  }\n\n  .fig-svg {\n    width: 100%;\n    height: auto;\n    display: block;\n    background: white;\n    border: 1px solid var(--rule);\n    border-radius: 2px;\n  }\n\n  .readouts {\n    display: flex;\n    justify-content: space-around;\n    border-top: 1px solid var(--rule);\n    padding-top: 8px;\n    margin-top: 4px;\n  }\n\n  .readout-item {\n    font-size: 12px;\n    color: var(--ink);\n    font-variant-numeric: tabular-nums;\n  }\n\n  .readout-label {\n    color: var(--muted);\n    margin-right: 4px;\n  }\n\n  .caption {\n    font-family: Georgia, serif;\n    font-size: 12px;\n    color: var(--muted);\n    text-align: center;\n    margin-top: 4px;\n  }\n\n  .node-circle {\n    fill: var(--bg);\n    stroke: var(--ink);\n    stroke-width: 1.5px;\n  }\n\n  .node-text {\n    font-size: 10px;\n    text-anchor: middle;\n    dominant-baseline: middle;\n    fill: var(--ink);\n    font-weight: 500;\n  }\n\n  .link-line {\n    stroke: var(--rule);\n    stroke-width: 1px;\n    fill: none;\n  }\n\n  .insertion-highlight {\n    stroke: var(--accent);\n    stroke-width: 2.5px;\n  }\n\n  .amber-stroke {\n    stroke: var(--amber);\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"visually-hidden\">Binary Search Tree Growth Comparison: Random vs Sorted Insertion</h1>\n\n<div class=\"container\">\n  <div class=\"fig-container\">\n    <!-- Panel 1: Randomized -->\n    <div class=\"tree-panel\">\n      <div class=\"label-serif\">Randomized input sequence</div>\n      <svg id=\"svg-random\" class=\"fig-svg\" viewBox=\"0 0 200 240\" aria-label=\"Tree from randomized list\"></svg>\n      <div class=\"readouts\">\n        <div class=\"readout-item\"><span class=\"readout-label\">Height:</span><span id=\"h-random\">0</span></div>\n      </div>\n    </div>\n\n    <!-- Panel 2: Sorted -->\n    <div class=\"tree-panel\">\n      <div class=\"label-serif\">Sorted input sequence</div>\n      <svg id=\"svg-sorted\" class=\"fig-svg\" viewBox=\"0 0 200 240\" aria-label=\"Tree from sorted list\"></svg>\n      <div class=\"readouts\">\n        <div class=\"readout-item\"><span class=\"readout-label\">Height:</span><span id=\"h-sorted\">0</span></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"caption\">Comparing structure after 15 sequential insertions.</div>\n</div>\n\n<script>\n/**\n * DETERMINISTIC PSEUDO-RANDOM GENERATOR\n */\nclass SeededRandom {\n  constructor(seed) { this.state = seed % 2147483647; if (this.state <= 0) this.state += 2147483646; }\n  next() { this.state = (this.state * 16807) % 2147483647; return (this.state - 1) / 2147483646; }\n}\n\nconst rng = new SeededRandom(42);\n\n/**\n * BST LOGIC\n */\nclass Node {\n  constructor(val) {\n    this.val = val;\n    this.left = null;\n    this.right = null;\n    this.x = 0;\n    this.y = 0;\n    this.depth = 0;\n  }\n}\n\nfunction insert(root, val) {\n  if (!root) return new Node(val);\n  if (val < root.val) root.left = insert(root.left, val);\n  else if (val > root.val) root.right = insert(root.right, val);\n  return root;\n}\n\nfunction getTreeHeight(node) {\n  if (!node) return 0;\n  return 1 + Math.max(getTreeHeight(node.left), getTreeHeight(node.right));\n}\n\n// Generate data\nconst NODE_COUNT = 15;\nconst rawValues = Array.from({length: NODE_COUNT}, (_, i) => i + 1);\n\n// Sorted sequence: [1, 2, 3, 4...]\nconst sortedSeq = [...rawValues];\n\n// Random sequence: Fisher-Yates with SeededRandom\nconst randomSeq = [...rawValues];\nfor (let i = randomSeq.length - 1; i > 0; i--) {\n  const j = Math.floor(rng.next() * (i + 1));\n  [randomSeq[i], randomSeq[j]] = [randomSeq[j], randomSeq[i]];\n}\n\n/**\n * VISUALIZATION\n */\nconst svgR = document.getElementById('svg-random');\nconst svgS = document.getElementById('svg-sorted');\nconst hRDisplay = document.getElementById('h-random');\nconst hSDisplay = document.getElementById('h-sorted');\n\nfunction renderTree(svg, root, highlightVal, isSorted) {\n  svg.innerHTML = '';\n  if (!root) return;\n\n  const nodes = [];\n  const links = [];\n  \n  // Calculate Layout\n  // For Random: Recursive positioning with varying width\n  // For Sorted: Simple diagonal/stepped since we know it's a line\n  function layout(node, x, y, width, depth) {\n    if (!node) return;\n    node.x = x;\n    node.y = y;\n    node.depth = depth;\n    nodes.push(node);\n    \n    if (node.left) {\n      links.push({x1: x, y1: y, x2: x - width/2, y2: y + 30});\n      layout(node.left, x - width/2, y + 30, width/1.8, depth + 1);\n    }\n    if (node.right) {\n      links.push({x1: x, y1: y, x2: x + width/2, y2: y + 30});\n      layout(node.right, x + width/2, y + 30, width/1.8, depth + 1);\n    }\n  }\n\n  // Specialized Layout for Sorted to fit in view\n  function layoutSorted(node, depth) {\n    if (!node) return;\n    node.x = 20 + (depth * 11);\n    node.y = 20 + (depth * 14);\n    node.depth = depth;\n    nodes.push(node);\n    if (node.right) {\n      links.push({x1: node.x, y1: node.y, x2: node.x + 11, y2: node.y + 14});\n      layoutSorted(node.right, depth + 1);\n    }\n  }\n\n  if (isSorted) {\n    layoutSorted(root, 0);\n  } else {\n    layout(root, 100, 30, 80, 0);\n  }\n\n  // Draw links\n  links.forEach(l => {\n    const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n    line.setAttribute(\"x1\", l.x1);\n    line.setAttribute(\"y1\", l.y1);\n    line.setAttribute(\"x2\", l.x2);\n    line.setAttribute(\"y2\", l.y2);\n    line.setAttribute(\"class\", \"link-line\");\n    svg.appendChild(line);\n  });\n\n  // Draw nodes\n  nodes.forEach(n => {\n    const g = document.createElementNS(\"http://www.w3.org/2000/svg\", \"g\");\n    const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n    circle.setAttribute(\"cx\", n.x);\n    circle.setAttribute(\"cy\", n.y);\n    circle.setAttribute(\"r\", 7);\n    circle.setAttribute(\"class\", \"node-circle\");\n    if (n.val === highlightVal) {\n      circle.classList.add(\"insertion-highlight\");\n      if (isSorted) circle.classList.add(\"amber-stroke\");\n    }\n\n    const text = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n    text.setAttribute(\"x\", n.x);\n    text.setAttribute(\"y\", n.y);\n    text.setAttribute(\"class\", \"node-text\");\n    text.textContent = n.val;\n\n    g.appendChild(circle);\n    g.appendChild(text);\n    svg.appendChild(g);\n  });\n}\n\n/**\n * ANIMATION LOOP\n */\nlet frame = 0;\nconst FRAMES_PER_INSERT = 40;\nconst TOTAL_FRAMES = (NODE_COUNT + 10) * FRAMES_PER_INSERT;\n\nfunction animate() {\n  const insertIdx = Math.floor(frame / FRAMES_PER_INSERT);\n  \n  if (insertIdx < NODE_COUNT) {\n    // Build trees up to current idx\n    let rootR = null;\n    let rootS = null;\n    for (let i = 0; i <= insertIdx; i++) {\n      rootR = insert(rootR, randomSeq[i]);\n      rootS = insert(rootS, sortedSeq[i]);\n    }\n    \n    renderTree(svgR, rootR, randomSeq[insertIdx], false);\n    renderTree(svgS, rootS, sortedSeq[insertIdx], true);\n    \n    hRDisplay.textContent = getTreeHeight(rootR);\n    hSDisplay.textContent = getTreeHeight(rootS);\n  }\n\n  frame = (frame + 1) % TOTAL_FRAMES;\n  requestAnimationFrame(animate);\n}\n\n// Initial Height Reporting\nfunction reportHeight() {\n  try {\n    const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n    parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n  } catch (e) {}\n}\n\nwindow.addEventListener('load', () => {\n  reportHeight();\n  animate();\n  \n  const ro = new ResizeObserver(() => reportHeight());\n  ro.observe(document.body);\n});\n\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because each new element becomes a child of the previous leaf, creating a linear path rather than a branching one."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "37754512-44e0-4afe-8c14-2d0e02bdee60"
+}

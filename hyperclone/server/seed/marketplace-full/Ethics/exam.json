@@ -1,0 +1,1383 @@
+{
+ "exams": [
+  {
+   "title": "Foundations of Ethics Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which branch of ethics would be most concerned with the question: 'Is morality a human invention or an objective feature of the universe?'",
+     "options": [
+      "Applied Ethics",
+      "Metaethics",
+      "Normative Ethics",
+      "Descriptive Ethics"
+     ],
+     "explanation": "Metaethics deals with the nature of morality and the status of moral claims, rather than specific rules (Normative) or cases (Applied).",
+     "correctAnswers": [
+      "Metaethics"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In the 'mountain' metaphor used to describe ethical inquiry, which of the following are examples of the middle layer (Normative Ethics)?",
+     "options": [
+      "Constructing a system to determine the 'Golden Rule'",
+      "Debating the moral status of AI in healthcare",
+      "Defining whether moral truths are universal like math",
+      "Compiling a list of virtues that make an action right"
+     ],
+     "explanation": "Normative ethics focuses on general systems, frameworks, and principles to guide behavior. AI healthcare is Applied Ethics, and the nature of moral truth is Metaethics.",
+     "correctAnswers": [
+      "Constructing a system to determine the 'Golden Rule'",
+      "Compiling a list of virtues that make an action right"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The logical error of deriving a 'should' (moral claim) directly from an 'is' (factual claim) without a bridging principle is known as the ____.",
+     "explanation": "The Is-Ought gap describes the failure to provide a normative premise to bridge a factual observation to a moral conclusion.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "Is-Ought gap",
+      "naturalistic fallacy",
+      "Is-Ought problem"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If a moral argument is compared to a 'three-legged stool,' what does the leg representing the 'Factual Premise' provide?",
+     "options": [
+      "The general moral rule used for guidance",
+      "The specific case details or empirical data",
+      "The logical connection between the principle and the conclusion",
+      "The final judgment on what someone should do"
+     ],
+     "explanation": "The factual premise provides the specific circumstances (the 'is') to which the moral principle (the 'ought') is applied.",
+     "correctAnswers": [
+      "The specific case details or empirical data"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are valid ways to critique a moral argument according to the course materials?",
+     "options": [
+      "Attacking the truth of the factual premises",
+      "Dismissing the conclusion because it feels unpleasant",
+      "Constructing a counterexample to the moral principle",
+      "Pointing out a missing bridge between 'is' and 'ought'"
+     ],
+     "explanation": "Rigorous critique involves checking empirical facts, testing principle consistency via counterexamples, and ensuring logical validity (avoiding leaps from facts to values).",
+     "correctAnswers": [
+      "Attacking the truth of the factual premises",
+      "Constructing a counterexample to the moral principle",
+      "Pointing out a missing bridge between 'is' and 'ought'"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The process of adjusting our moral principles and our specific judgments until they are consistent with one another is known as ____.",
+     "explanation": "Reflective equilibrium is the state of balance achieved by moving back and forth between principles and intuitions.",
+     "placeholder": "Two words",
+     "correctAnswers": [
+      "Reflective Equilibrium"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A student argues: 'Many people in our city speed on the highway, so it is right to speed.' This is a failure to distinguish between:",
+     "options": [
+      "Applied and Metaethics",
+      "Law and Etiquette",
+      "Descriptive and Normative claims",
+      "Arguments and Opinions"
+     ],
+     "explanation": "Sociological data (how many people speed) is descriptive; it does not automatically generate a normative truth (it is right to speed).",
+     "correctAnswers": [
+      "Descriptive and Normative claims"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Structure of a moral syllogism.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fe857a56-1326-4dc8-898b-519bb633cda4/exam/images/unit1-q8.png"
+     },
+     "prompt": "Identify the components of the following argument: 'It is wrong to inflict unnecessary pain. Factory farming inflicts unnecessary pain. Therefore, factory farming is wrong.'",
+     "options": [
+      "'It is wrong to inflict unnecessary pain' is the Moral Principle.",
+      "'Factory farming inflicts unnecessary pain' is the Factual Premise.",
+      "'Therefore, factory farming is wrong' is the Metaethical framework.",
+      "This is a valid moral syllogism."
+     ],
+     "explanation": "The argument follows the standard structure: a general rule, a specific case fact, and a moral conclusion.",
+     "correctAnswers": [
+      "'It is wrong to inflict unnecessary pain' is the Moral Principle.",
+      "'Factory farming inflicts unnecessary pain' is the Factual Premise.",
+      "This is a valid moral syllogism."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When two people argue about meat-eating but one relies on 'animal rights' and the other on 'social constructs,' they are failing to argue at the same ____ of the ethical mountain.",
+     "explanation": "Ethical progress requires the parties to engage at the same level (Metaethical, Normative, or Applied) to resolve the stalemate.",
+     "placeholder": "Type your answer",
+     "correctAnswers": [
+      "layer",
+      "level"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If two people agree that 'Murder is wrong' but disagree on whether 'Withdrawal of life support' is murder, what kind of dispute are they having?",
+     "options": [
+      "A metaethical dispute about the nature of truth",
+      "A factual/definitional dispute",
+      "A dispute over core moral principles",
+      "A purely aesthetic disagreement"
+     ],
+     "explanation": "They share the same principle but disagree on how a specific act is categorized or defined in the real world.",
+     "correctAnswers": [
+      "A factual/definitional dispute"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why is it important to distinguish Ethics from Law?",
+     "options": [
+      "Because an action can be legal but profoundly immoral.",
+      "Because laws are justified by authority, while ethics is justified by reason.",
+      "Because ethics and law never overlap in their subject matter.",
+      "Because the legal system can change, but moral truth is always legislative."
+     ],
+     "explanation": "Law and Ethics are different normative systems; historical examples like slavery prove that law does not define morality.",
+     "correctAnswers": [
+      "Because an action can be legal but profoundly immoral.",
+      "Because laws are justified by authority, while ethics is justified by reason."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "What is the primary goal of ethics as a 'public lecture for the mind'?",
+     "options": [
+      "To win arguments through emotional appeal",
+      "To provide reasons that others could theoretically accept",
+      "To prove that one's own culture is superior",
+      "To simplify complex issues into simple laws"
+     ],
+     "explanation": "Ethical reasoning requires justifying claims with logic and principles that are accessible and debatable by others.",
+     "correctAnswers": [
+      "To provide reasons that others could theoretically accept"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Which statements are 'Descriptive' rather than 'Normative'?",
+     "options": [
+      "In some cultures, it is traditional to cremate the dead.",
+      "We ought to respect the burial customs of all people.",
+      "Stealing is prohibited by the penal code of this country.",
+      "It is wrong to steal even if you are hungry."
+     ],
+     "explanation": "Descriptive claims state what is the case (tradition, laws), while normative claims state what should be the case (wrongness, obligations).",
+     "correctAnswers": [
+      "In some cultures, it is traditional to cremate the dead.",
+      "Stealing is prohibited by the penal code of this country."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "In an 'enthymematic' argument, which part of the moral syllogism is usually hidden?",
+     "options": [
+      "The Factual Premise",
+      "The Moral Conclusion",
+      "The Moral Principle",
+      "The Empirical Data"
+     ],
+     "explanation": "People often state a fact and a conclusion (e.g., 'He lied, so he's bad') while leaving the general principle ('Lying is bad') unstated.",
+     "correctAnswers": [
+      "The Moral Principle"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Why does the introduction of a 'counterexample' (like the axe-murderer at the door) often force a change in the moral principle being tested?",
+     "options": [
+      "Because moral principles are only valid if they are popular in every culture.",
+      "Because a principle that leads to an absurd result is inconsistent and must be refined.",
+      "Because factual premises are always more important than moral principles.",
+      "Because the 'is-ought' gap dictates that no principle can ever be universally true."
+     ],
+     "explanation": "In 'Reductio ad Absurdum,' we show that a broad principle (like 'never lie') is logically unstable if it forces us to accept an outcome we intuitively know is wrong.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Moral Logic Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --crit: #b03a2e;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 13px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .label {\n            font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n            font-size: 11px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .scenario-text {\n            font-family: Georgia, serif;\n            font-size: 14px;\n            fill: var(--ink);\n        }\n\n        .status-text {\n            font-family: -apple-system, sans-serif;\n            font-weight: 600;\n            font-size: 12px;\n        }\n\n        .rule-card-text {\n            font-family: Georgia, serif;\n            font-size: 15px;\n            font-weight: bold;\n            fill: var(--ink);\n        }\n\n        .caption {\n            margin-top: 12px;\n            font-family: Georgia, serif;\n            font-size: 13px;\n            color: var(--muted);\n            font-style: italic;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of Moral Principle Refinement</h1>\n    \n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"0 0 400 300\" aria-hidden=\"true\">\n            <!-- Machine Housing -->\n            <rect x=\"100\" y=\"80\" width=\"200\" height=\"140\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" rx=\"4\" />\n            <line x1=\"80\" y1=\"150\" x2=\"100\" y2=\"150\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            <line x1=\"300\" y1=\"150\" x2=\"320\" y2=\"150\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            \n            <text x=\"200\" y=\"70\" text-anchor=\"middle\" class=\"label\">Logic Machine</text>\n            \n            <!-- Principle Slot -->\n            <g id=\"rule-container\">\n                <!-- Rule Tile -->\n                <rect id=\"rule-bg\" x=\"120\" y=\"100\" width=\"160\" height=\"40\" fill=\"#fff\" stroke=\"var(--ink)\" stroke-width=\"1.5\" rx=\"2\" />\n                <text id=\"rule-label\" x=\"200\" y=\"125\" text-anchor=\"middle\" class=\"rule-card-text\">Never Lie</text>\n                \n                <!-- Cracks (initially hidden) -->\n                <g id=\"cracks\" style=\"display:none; stroke: var(--crit); stroke-width: 1.5; fill: none;\">\n                    <path d=\"M140 100 L145 115 L140 125\" />\n                    <path d=\"M260 140 L255 120 L265 110\" />\n                    <path d=\"M200 100 L195 110 L205 115\" />\n                </g>\n            </g>\n\n            <!-- Scenarios -->\n            <g id=\"scenario-node\" style=\"opacity: 0;\">\n                <rect x=\"10\" y=\"135\" width=\"80\" height=\"30\" fill=\"#fff\" stroke=\"var(--rule)\" rx=\"2\" />\n                <text id=\"scenario-label\" x=\"50\" y=\"154\" text-anchor=\"middle\" class=\"scenario-text\" style=\"font-size: 10px;\">Surprise Party</text>\n            </g>\n\n            <!-- Output Display -->\n            <g id=\"output-node\" style=\"opacity: 0;\">\n                <circle cx=\"350\" cy=\"150\" r=\"18\" fill=\"none\" stroke=\"var(--rule)\" />\n                <text id=\"output-val\" x=\"350\" y=\"155\" text-anchor=\"middle\" class=\"status-text\">—</text>\n                <text x=\"350\" y=\"180\" text-anchor=\"middle\" class=\"label\">Verdict</text>\n            </g>\n\n            <!-- Annotations -->\n            <text x=\"50\" y=\"125\" text-anchor=\"middle\" class=\"serif\">Scenario</text>\n            <path d=\"M50 130 L50 135\" stroke=\"var(--muted)\" stroke-width=\"0.5\" fill=\"none\" />\n            \n            <text x=\"200\" y=\"240\" text-anchor=\"middle\" class=\"serif\" id=\"logic-status\">Processing rule consistency...</text>\n        </svg>\n        \n        <div class=\"caption\">Continuous evaluation of moral maxims against outcomes.</div>\n    </div>\n\n    <script>\n        const ruleBg = document.getElementById('rule-bg');\n        const ruleLabel = document.getElementById('rule-label');\n        const cracks = document.getElementById('cracks');\n        const scenarioNode = document.getElementById('scenario-node');\n        const scenarioLabel = document.getElementById('scenario-label');\n        const outputNode = document.getElementById('output-node');\n        const outputVal = document.getElementById('output-val');\n        const logicStatus = document.getElementById('logic-status');\n\n        const scenarios = [\n            { text: \"Surprise Party\", moral: \"Acceptable\", logicResult: \"Wrong\" },\n            { text: \"White Lie\", moral: \"Acceptable\", logicResult: \"Wrong\" },\n            { text: \"Save a Life\", moral: \"Acceptable\", logicResult: \"Wrong\" }\n        ];\n\n        let frame = 0;\n        const cycleLength = 600; // Total frames for a full loop\n\n        function update() {\n            const phase = frame % cycleLength;\n            \n            // 0-100: Initial Rule \"Never Lie\"\n            // 100-450: Scenarios pass through\n            // 450-500: Rule cracks/refines\n            // 500-600: New Rule \"Never lie, unless to save a life\"\n            \n            if (phase < 100) {\n                // Reset\n                ruleLabel.textContent = \"Never Lie\";\n                ruleLabel.style.fill = \"var(--ink)\";\n                ruleBg.style.stroke = \"var(--ink)\";\n                ruleBg.style.fill = \"#fff\";\n                cracks.style.display = \"none\";\n                scenarioNode.style.opacity = 0;\n                outputNode.style.opacity = 0;\n                logicStatus.textContent = \"Current Maxim: Universal\";\n            } \n            else if (phase < 450) {\n                const subPhase = (phase - 100) % 116;\n                const scenarioIdx = Math.min(Math.floor((phase - 100) / 116), scenarios.length - 1);\n                const currentScenario = scenarios[scenarioIdx];\n                \n                // Scenario moves across\n                scenarioLabel.textContent = currentScenario.text;\n                let xPos = -20 + (subPhase * 2.5);\n                scenarioNode.setAttribute('transform', `translate(${xPos}, 0)`);\n                scenarioNode.style.opacity = subPhase < 10 ? subPhase/10 : (subPhase > 100 ? (116-subPhase)/16 : 1);\n                \n                // Result output\n                if (subPhase > 60) {\n                    outputNode.style.opacity = 1;\n                    outputVal.textContent = \"WRONG\";\n                    outputVal.style.fill = \"var(--crit)\";\n                } else {\n                    outputNode.style.opacity = 0;\n                }\n\n                // Cumulative Stress\n                const totalStress = (phase - 100) / 350;\n                if (totalStress > 0.3) {\n                    cracks.style.display = \"block\";\n                    cracks.style.opacity = (totalStress - 0.3) * 1.5;\n                    ruleBg.style.stroke = `rgb(${255 * totalStress}, ${31 * (1-totalStress)}, ${31 * (1-totalStress)})`;\n                    logicStatus.textContent = \"Logical contradiction detected...\";\n                }\n            } \n            else if (phase < 520) {\n                // Transitioning\n                ruleBg.style.fill = \"rgba(176, 58, 46, 0.1)\";\n                ruleLabel.style.opacity = (520 - phase) / 20;\n                cracks.style.opacity = (520 - phase) / 20;\n                logicStatus.textContent = \"Revising principle...\";\n            }\n            else {\n                // New Rule\n                ruleLabel.style.opacity = 1;\n                ruleLabel.textContent = \"Do Not Deceive*\";\n                ruleLabel.style.fontSize = \"12px\";\n                ruleBg.style.stroke = \"var(--accent)\";\n                ruleBg.style.fill = \"#fff\";\n                cracks.style.display = \"none\";\n                logicStatus.textContent = \"*Except to prevent greater harm\";\n                outputNode.style.opacity = 0;\n            }\n\n            frame++;\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function sendHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            update();\n            sendHeight();\n            new ResizeObserver(sendHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because a principle that leads to an absurd result is inconsistent and must be refined."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Consequences Unit Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "What is the primary difference between Jeremy Bentham's and John Stuart Mill's approach to pleasure?",
+     "options": [
+      "Bentham believed pleasure was irrelevant, while Mill believed it was the only good.",
+      "Bentham focused on the quantity of pleasure, while Mill introduced qualitative distinctions between 'higher' and 'lower' pleasures.",
+      "Mill argued that pleasure should be ignored in favor of duty, whereas Bentham focused on happiness.",
+      "Bentham believed in Rule Utilitarianism, while Mill was the first to propose Act Utilitarianism."
+     ],
+     "explanation": "Bentham's 'hedonic calculus' treated all pleasures as equal in kind (quantity), while Mill argued that intellectual and moral pleasures are 'higher' in quality than physical ones.",
+     "correctAnswers": [
+      "Bentham focused on the quantity of pleasure, while Mill introduced qualitative distinctions between 'higher' and 'lower' pleasures."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the framework of the 'Greatest Happiness Principle' (GHP), which three pillars must be present for a moral calculation to be considered utilitarian?",
+     "options": [
+      "Consequentialism",
+      "Hedonism",
+      "Impartiality",
+      "Deontology",
+      "Virtue"
+     ],
+     "explanation": "Utilitarianism is defined by its focus on outcomes (consequentialism), the definition of the 'good' as pleasure/happiness (hedonism), and the requirement that everyone's happiness is weighted equally (impartiality).",
+     "correctAnswers": [
+      "Consequentialism",
+      "Hedonism",
+      "Impartiality"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "Mill's 'Competent Judges' test suggests that a higher pleasure is one that is preferred by people who have ____.",
+     "placeholder": "the nature of their experience",
+     "correctAnswers": [
+      "experienced both",
+      "experienced both pleasures",
+      "knowledge of both"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In the 'Sheriff and the Mob' thought experiment, why might a pure Act Utilitarian be forced to execute an innocent man?",
+     "options": [
+      "Because the law requires the sheriff to follow the rules of the community.",
+      "Because the immediate net happiness of preventing a deadly riot outweighs the suffering of one innocent individual.",
+      "Because Act Utilitarianism prioritizes the rights of the individual over the group.",
+      "Because the sheriff has a moral duty to tell the truth regardless of the consequences."
+     ],
+     "explanation": "Act Utilitarianism evaluates each case individually; if one death prevents fifty deaths, the 'calculus' favors the sacrifice despite the injustice.",
+     "correctAnswers": [
+      "Because the immediate net happiness of preventing a deadly riot outweighs the suffering of one innocent individual."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Why does Rule Utilitarianism argue against a doctor killing one healthy patient to save five others through organ harvesting?",
+     "options": [
+      "It violates the inherent sanctity of life which is a non-consequentialist value.",
+      "A society where doctors harvest organs would create a state of constant fear and social instability.",
+      "The long-term loss of utility from the collapse of the medical system outweighs the immediate gain of five lives.",
+      "It is never acceptable to do math when human lives are involved."
+     ],
+     "explanation": "Rule Utilitarians look at the long-term utility of the rule itself. Authorizing such an act would destroy public trust, leading to a massive net loss of happiness globally.",
+     "correctAnswers": [
+      "A society where doctors harvest organs would create a state of constant fear and social instability.",
+      "The long-term loss of utility from the collapse of the medical system outweighs the immediate gain of five lives."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'Calculation Problem' suggests that utilitarianism is too ____ for everyday decision-making.",
+     "placeholder": "difficulty level",
+     "correctAnswers": [
+      "demanding",
+      "complex",
+      "time-consuming"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "A visual representation of Nozick's Experience Machine.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fe857a56-1326-4dc8-898b-519bb633cda4/exam/images/unit2-q7.png"
+     },
+     "prompt": "What does the 'Experience Machine' thought experiment primarily challenge?",
+     "options": [
+      "The principle of Impartiality",
+      "The validity of Act Utilitarianism",
+      "Hedonism as the sole theory of the good",
+      "The efficiency of the Hedonic Calculus"
+     ],
+     "explanation": "If people refuse to plug into a machine that provides perfect pleasure, it suggests we value things other than just felt sensation (like reality or agency), challenging hedonism.",
+     "correctAnswers": [
+      "Hedonism as the sole theory of the good"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are variables in Bentham's 'Hedonic Calculus'?",
+     "options": [
+      "Intensity",
+      "Duration",
+      "Purity",
+      "Intellectual Merit",
+      "Propinquity"
+     ],
+     "explanation": "Bentham used intensity, duration, certainty, propinquity, fecundity, purity, and extent. Intellectual merit was Mill's qualitative addition.",
+     "correctAnswers": [
+      "Intensity",
+      "Duration",
+      "Purity",
+      "Propinquity"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "For a utilitarian, the internal ____ of the person performing an action is irrelevant to the action's moral worth.",
+     "placeholder": "mental state",
+     "correctAnswers": [
+      "intent",
+      "intention",
+      "motive"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which statement best reflects the 'Impartiality' pillar of Utilitarianism?",
+     "options": [
+      "We should favor our family because they contribute most to our own happiness.",
+      "A billionaire's happiness is more important because they can help more people.",
+      "The happiness of a stranger is worth exactly the same as my own in a moral calculation.",
+      "Impartiality is only necessary when dealing with legal matters, not personal ethics."
+     ],
+     "explanation": "Utilitarianism requires 'equal consideration of interests,' meaning no individual's happiness counts for more than anyone else's.",
+     "correctAnswers": [
+      "The happiness of a stranger is worth exactly the same as my own in a moral calculation."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are considered 'Higher Pleasures' according to Mill's framework?",
+     "options": [
+      "Enjoying a fine meal after a long day",
+      "Solving a complex mathematical proof",
+      "Engaging in a deep philosophical debate",
+      "The physical sensation of a warm bath",
+      "Appreciating a masterful symphony"
+     ],
+     "explanation": "Mill distinguished higher pleasures as those engaging the 'higher faculties'—intellect, imagination, and moral sentiment—as opposed to mere bodily sensations.",
+     "correctAnswers": [
+      "Solving a complex mathematical proof",
+      "Engaging in a deep philosophical debate",
+      "Appreciating a masterful symphony"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The utilitarian demand for impartiality is often criticized as being too ____, as it requires us to treat our family as strangers.",
+     "placeholder": "intensity of the requirement",
+     "correctAnswers": [
+      "demanding",
+      "impersonal",
+      "stringent"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is 'Rule Worship'?",
+     "options": [
+      "The religious practice of following Bentham's original writings.",
+      "A criticism of Rule Utilitarianism where one follows a rule even when it clearly causes more harm than good.",
+      "The belief that only Mill's higher pleasures should be pursued.",
+      "A method of calculating the intensity of a pleasure."
+     ],
+     "explanation": "Critics argue that if a Rule Utilitarian refuses to break a rule (like 'don't lie') to save a life, they have abandoned the GHP in favor of 'rule worship.'",
+     "correctAnswers": [
+      "A criticism of Rule Utilitarianism where one follows a rule even when it clearly causes more harm than good."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "In the context of the Greatest Happiness Principle, what does 'Consequentialism' imply?",
+     "options": [
+      "The rightness of an act depends only on its results.",
+      "Lying is always wrong, regardless of what happens.",
+      "The past is irrelevant except insofar as it affects the future.",
+      "Motives are the most important part of morality."
+     ],
+     "explanation": "Consequentialism is strictly forward-looking and result-oriented; it denies that acts are 'inherently' right or wrong without looking at their effects.",
+     "correctAnswers": [
+      "The rightness of an act depends only on its results.",
+      "The past is irrelevant except insofar as it affects the future."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "How does Rule Utilitarianism handle the 'White Lie' problem differently than Act Utilitarianism?",
+     "options": [
+      "It ignores the lie and focuses on the speaker's virtue.",
+      "It allows the lie if it makes the person smile in that specific moment.",
+      "It considers whether a general rule of 'lying to be nice' would undermine social trust and the value of truth.",
+      "It argues that lies are inherently evil regardless of the consequences."
+     ],
+     "explanation": "Rule Utilitarianism evaluates the utility of the *rule* of truth-telling versus a rule of frequent lying, usually finding that social trust is more valuable.",
+     "correctAnswers": [
+      "It considers whether a general rule of 'lying to be nice' would undermine social trust and the value of truth."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios demonstrate 'Extensional Flexibility' in Act Utilitarianism?",
+     "options": [
+      "A doctor choosing to save a scientist over a criminal because the scientist will likely create more utility.",
+      "Breaking a 'no trespassing' law to rescue a child from a fire.",
+      "Always following the speed limit because it is the law.",
+      "Lying to a kidnapper about the location of a hostage."
+     ],
+     "explanation": "Extensional flexibility allows the Act Utilitarian to deviate from standard rules whenever the specific situation's math yields better results.",
+     "correctAnswers": [
+      "A doctor choosing to save a scientist over a criminal because the scientist will likely create more utility.",
+      "Breaking a 'no trespassing' law to rescue a child from a fire.",
+      "Lying to a kidnapper about the location of a hostage."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "J.J.C. Smart suggested using 'rules of thumb' in Act Utilitarianism to solve which problem?",
+     "options": [
+      "The problem of Higher Pleasures",
+      "The Calculation Problem",
+      "The problem of Individual Rights",
+      "The problem of Impartiality"
+     ],
+     "explanation": "Since we cannot calculate every single consequence for every minor action, 'rules of thumb' act as efficient mental shortcuts for the Act Utilitarian.",
+     "correctAnswers": [
+      "The Calculation Problem"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "In the simulated resource allocation, why does the net utility curve eventually dip even as more resources are given to a single individual?",
+     "options": [
+      "Because the individual eventually reaches a state of 'lower pleasure' that Mill would find valueless.",
+      "Because of the law of diminishing marginal utility, where additional units of a good produce less additional happiness over time.",
+      "Because the simulation assumes the individual begins to feel guilty for having more than others.",
+      "Because utilitarianism requires that everyone has the exact same amount of resources at all times."
+     ],
+     "explanation": "As seen in the simulation, giving a 10th unit of medicine to one person adds almost no utility compared to giving the 1st unit to a new person, illustrating why distribution matters in utilitarianism.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Resource Allocation Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 100%;\n            box-sizing: border-box;\n            padding: 16px;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .fig-svg text {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n        }\n\n        .fig-svg .axis-label {\n            font-size: 13px;\n            fill: var(--ink);\n        }\n\n        .fig-svg .line {\n            fill: none;\n            stroke-width: 2px;\n            stroke-linecap: round;\n            stroke-linejoin: round;\n        }\n\n        .fig-svg .total-line { stroke: var(--accent); }\n        .fig-svg .new-line { stroke: var(--amber); }\n        .fig-svg .grid-line { stroke: var(--rule); stroke-width: 1px; }\n        .fig-svg .cursor-line { stroke: var(--muted); stroke-width: 1px; stroke-dasharray: 4 2; opacity: 0.6; }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .label {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n        }\n\n        .value {\n            font-size: 16px;\n            font-weight: 500;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .accent-text { color: var(--accent); }\n        .amber-text { color: var(--amber); }\n\n        .footer-note {\n            text-align: center;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 11px;\n            color: var(--muted);\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Graph of Total Happiness versus Resource Allocation</h1>\n\n    <div class=\"container\">\n        <div class=\"figure-container\" aria-label=\"Animated graph showing two curves of happiness over resource distribution\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 240\">\n                <!-- Axes -->\n                <line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" class=\"grid-line\" />\n                <line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"20\" class=\"grid-line\" />\n                \n                <!-- Axis Labels -->\n                <text x=\"210\" y=\"235\" text-anchor=\"middle\" class=\"axis-label\">Resources Given</text>\n                <text x=\"15\" y=\"110\" transform=\"rotate(-90 15,110)\" text-anchor=\"middle\" class=\"axis-label\">Happiness</text>\n                \n                <!-- Ticks -->\n                <line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"205\" class=\"grid-line\" />\n                <line x1=\"350\" y1=\"200\" x2=\"350\" y2=\"205\" class=\"grid-line\" />\n                <text x=\"50\" y=\"218\" text-anchor=\"middle\">0</text>\n                <text x=\"350\" y=\"218\" text-anchor=\"middle\">10</text>\n\n                <!-- Data Curves -->\n                <path id=\"totalCurve\" class=\"line total-line\" d=\"\" />\n                <path id=\"newCurve\" class=\"line new-line\" d=\"\" />\n\n                <!-- Scanning Crosshair -->\n                <line id=\"crosshair\" x1=\"50\" y1=\"20\" x2=\"50\" y2=\"200\" class=\"cursor-line\" />\n                \n                <!-- Legend-like markers (Static) -->\n                <g transform=\"translate(260, 40)\">\n                    <line x1=\"0\" y1=\"0\" x2=\"15\" y2=\"0\" class=\"line total-line\" />\n                    <text x=\"20\" y=\"4\" style=\"font-size: 10px;\">Total happiness of Person A</text>\n                    <line x1=\"0\" y1=\"15\" x2=\"15\" y2=\"15\" class=\"line new-line\" />\n                    <text x=\"20\" y=\"19\" style=\"font-size: 10px;\">Happiness of a new person</text>\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Person A (receiving total)</span>\n                <span id=\"readout-total\" class=\"value accent-text\">0.0</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">New Person (receiving first unit)</span>\n                <span id=\"readout-new\" class=\"value amber-text\">0.0</span>\n            </div>\n        </div>\n\n        <div class=\"footer-note\">Same resource, two different recipients</div>\n    </div>\n\n    <script>\n        const totalPath = document.getElementById('totalCurve');\n        const newPath = document.getElementById('newCurve');\n        const crosshair = document.getElementById('crosshair');\n        const readoutTotal = document.getElementById('readout-total');\n        const readoutNew = document.getElementById('readout-new');\n\n        const PADDING_LEFT = 50;\n        const PADDING_TOP = 20;\n        const WIDTH = 300;\n        const HEIGHT = 180;\n        const BASE_Y = 200;\n\n        // Function for Person A (Diminishing)\n        // Log-ish curve: y = log(x+1)\n        function getTotalHappiness(x) {\n            return Math.log(x + 1) * 65; \n        }\n\n        // Function for a new person receiving the same unit \n        // This is essentially the marginal utility of the first unit, which remains constant \n        // because it's always the *first* unit for that specific new person.\n        function getNewPersonHappiness() {\n            return getTotalHappiness(1.5); // Fixed high value representing the 'first' thrill\n        }\n\n        function drawCurves() {\n            let totalD = \"\";\n            let newD = \"\";\n            \n            for (let i = 0; i <= 100; i++) {\n                const xVal = i / 10;\n                const px = PADDING_LEFT + (i / 100) * WIDTH;\n                \n                // Total Happiness line\n                const ty = BASE_Y - getTotalHappiness(xVal);\n                totalD += (i === 0 ? \"M\" : \"L\") + px + \",\" + ty;\n\n                // Value for a new person remains a flat high line for comparison\n                const ny = BASE_Y - getNewPersonHappiness();\n                newD += (i === 0 ? \"M\" : \"L\") + px + \",\" + ny;\n            }\n            totalPath.setAttribute('d', totalD);\n            newPath.setAttribute('d', newD);\n        }\n\n        let startTime = null;\n        const duration = 8000; // 8 seconds per loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let progress = ((timestamp - startTime) % duration) / duration;\n            \n            // Ping-pong or smooth wrap? Let's do a smooth wrap with a slight pause at end\n            let t = progress * 1.2; \n            if (t > 1) t = 1; // pause at the end of the graph before restart\n\n            const xUnits = t * 10;\n            const screenX = PADDING_LEFT + (t * WIDTH);\n\n            crosshair.setAttribute('x1', screenX);\n            crosshair.setAttribute('x2', screenX);\n\n            // Update readouts\n            readoutTotal.textContent = getTotalHappiness(xUnits).toFixed(1);\n            readoutNew.textContent = getNewPersonHappiness().toFixed(1);\n\n            requestAnimationFrame(animate);\n        }\n\n        // Initialize\n        drawCurves();\n        requestAnimationFrame(animate);\n\n        // Height Reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', reportHeight);\n        window.addEventListener('resize', reportHeight);\n        new ResizeObserver(reportHeight).observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because of the law of diminishing marginal utility, where additional units of a good produce less additional happiness over time."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Duties and Rights Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to Kant, why is a person's intelligence not considered 'good without qualification'?",
+     "options": [
+      "Because intelligence is a natural talent rather than a result of the will.",
+      "Because it can be used by a clever criminal to further evil ends.",
+      "Because it does not produce as much happiness as simple kindness.",
+      "Because human reason is often fallible and prone to error."
+     ],
+     "explanation": "Kant argues that qualities like intelligence or courage are only good if they are guided by a good will; otherwise, they can make a bad person even more dangerous.",
+     "correctAnswers": [
+      "Because it can be used by a clever criminal to further evil ends."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios demonstrate an agent acting 'from duty' (possessing moral worth) rather than merely 'in conformity with duty'?",
+     "options": [
+      "A shopkeeper charges a fair price to an inexperienced child to maintain his professional reputation.",
+      "A person who naturally dislikes people helps a neighbor solely because they recognize it as a moral requirement.",
+      "A wealthy donor gives to charity specifically to receive a tax deduction.",
+      "An empathetic person helps a stranger because the act of helping brings them personal joy.",
+      "A person tells the truth even when it is socially inconvenient because they believe truth-telling is a universal requirement."
+     ],
+     "explanation": "Moral worth is found only when the motive is the moral law itself, not when the action is driven by inclination, reputation, or personal gain.",
+     "correctAnswers": [
+      "A person who naturally dislikes people helps a neighbor solely because they recognize it as a moral requirement.",
+      "A person tells the truth even when it is socially inconvenient because they believe truth-telling is a universal requirement."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Kantian ethics, a ____ is a personal rule of action that describes what you will do, in what circumstances, and for what purpose.",
+     "placeholder": "Enter the term...",
+     "correctAnswers": [
+      "maxim"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary difference between a Hypothetical Imperative and a Categorical Imperative?",
+     "options": [
+      "Hypothetical imperatives apply to everyone, while categorical imperatives apply only to individuals.",
+      "Hypothetical imperatives are based on logic, while categorical imperatives are based on emotions.",
+      "Hypothetical imperatives are conditional on a desired outcome, while categorical imperatives apply universally to all rational agents.",
+      "Hypothetical imperatives are moral laws, while categorical imperatives are merely rules of thumb."
+     ],
+     "explanation": "Hypothetical imperatives follow an 'if-then' structure (if you want X, do Y), whereas Categorical imperatives are absolute commands of reason regardless of desires.",
+     "correctAnswers": [
+      "Hypothetical imperatives are conditional on a desired outcome, while categorical imperatives apply universally to all rational agents."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "In the 'Kingdom of Ends' thought experiment, what two roles does every rational individual hold simultaneously?",
+     "options": [
+      "The Sovereign (law-maker)",
+      "The Judge (enforcer)",
+      "The Subject (law-follower)",
+      "The Beneficiary (receiver of goods)",
+      "The Consumer (user of resources)"
+     ],
+     "explanation": "In the Kingdom of Ends, individuals are autonomous self-legislators who create universal laws through reason and then obey those same laws.",
+     "correctAnswers": [
+      "The Sovereign (law-maker)",
+      "The Subject (law-follower)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If a workplace replaces employees with AI by deceiving them about their job security to prevent them from quitting, the employer is treating the workers ____ as a means.",
+     "placeholder": "Enter the adverb...",
+     "correctAnswers": [
+      "merely"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "According to the Formula of Humanity, what is the specific moral error in 'thing-ification' or treating someone 'merely as a means'?",
+     "options": [
+      "It fails to maximize the total happiness of the social group.",
+      "It treats a being with intrinsic dignity as if they only had a relative price.",
+      "It violates the divine commands set forth by religious authorities.",
+      "It causes physical or emotional suffering to the victim."
+     ],
+     "explanation": "Kant distinguishes between objects (which have price/use-value) and persons (who have dignity/intrinsic value). Treating a person merely as a tool ignores their status as a rational end.",
+     "correctAnswers": [
+      "It treats a being with intrinsic dignity as if they only had a relative price."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'Heteronomy' according to Kantian philosophy?",
+     "options": [
+      "Acting out of fear of divine punishment.",
+      "Acting because you have logically determined it is a universal requirement of reason.",
+      "Acting to satisfy a strong biological hunger.",
+      "Acting to conform to popular social trends to avoid embarrassment.",
+      "Refusing to lie because you cannot universalize the maxim of lying."
+     ],
+     "explanation": "Heteronomy occurs when the will is determined by something external to reason, such as desires, social pressure, or outside commands.",
+     "correctAnswers": [
+      "Acting out of fear of divine punishment.",
+      "Acting to satisfy a strong biological hunger.",
+      "Acting to conform to popular social trends to avoid embarrassment."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A command that tells you to 'Eat vegetables if you want to be healthy' is an example of a ____ imperative.",
+     "placeholder": "Type the word...",
+     "correctAnswers": [
+      "hypothetical"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Kant defines 'Autonomy' as which of the following?",
+     "options": [
+      "The freedom to pursue any desire one chooses without government interference.",
+      "The ability to give a law to oneself through the use of reason.",
+      "The state of being independent from the help or influence of other people.",
+      "The biological capacity to survive in a competitive environment."
+     ],
+     "explanation": "Autonomy is 'self-legislation.' It is not just doing what you want, but following a law that you have authored through your own rational capacity.",
+     "correctAnswers": [
+      "The ability to give a law to oneself through the use of reason."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which characteristics apply to the concept of 'Dignity' in the Kantian framework?",
+     "options": [
+      "It is replaceable by things of equal market value.",
+      "It is an intrinsic, incomparable value.",
+      "It belongs only to those who contribute to the economy.",
+      "It is possessed by all rational beings capable of self-legislation.",
+      "It can be traded off to achieve a better social outcome."
+     ],
+     "explanation": "Dignity is the quality of having value 'beyond all price': it is intrinsic and incomparable, and on Kant's view it belongs to every rational being capable of self-legislation — not to those who are economically productive. Because it is not a price, it can neither be traded off nor replaced.",
+     "correctAnswers": [
+      "It is an intrinsic, incomparable value.",
+      "It is possessed by all rational beings capable of self-legislation."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When we act based on biological instincts or social pressure, our will is ____, meaning it is determined by something outside of our own reason.",
+     "placeholder": "Enter the term...",
+     "correctAnswers": [
+      "heteronomous"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Diagram illustrating Kantian side-constraints against sacrificing individuals for a collective goal.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fe857a56-1326-4dc8-898b-519bb633cda4/exam/images/unit3-q13.png"
+     },
+     "prompt": "How would a Kantian respond to the 'Transplant Case' (killing one healthy person to save five patients)?",
+     "options": [
+      "They would support it if it maximizes the utility for the greatest number.",
+      "They would support it if the one person agreed to be sacrificed.",
+      "They would oppose it because the one person is being used merely as a means to save others.",
+      "They would oppose it only if the five patients were not useful members of society."
+     ],
+     "explanation": "Kantian ethics prohibits using a person's life as a tool for the 'greater good' because persons have intrinsic dignity and cannot be 'spent' like objects.",
+     "correctAnswers": [
+      "They would oppose it because the one person is being used merely as a means to save others."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why does Kant compare the 'Good Will' to a piece of jewelry that 'shines by its own light'?",
+     "options": [
+      "Because its value is independent of the results it achieves.",
+      "Because only the wealthy and educated can possess it.",
+      "Because even if it accomplishes nothing due to bad luck, its moral worth remains undiminished.",
+      "Because it is the most expensive virtue to maintain in a society.",
+      "Because it is intrinsically good, regardless of its usefulness."
+     ],
+     "explanation": "Kant emphasizes that the goodness of the will is internal to the principle of the action, not the external success of the action.",
+     "correctAnswers": [
+      "Because its value is independent of the results it achieves.",
+      "Because even if it accomplishes nothing due to bad luck, its moral worth remains undiminished.",
+      "Because it is intrinsically good, regardless of its usefulness."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "In the example of the 'Sympathetic Helper,' why does their action lack full moral worth compared to the 'Grumpy Helper'?",
+     "options": [
+      "Because sympathy is a negative emotion that clouds judgment.",
+      "Because they are acting from a fickle inclination rather than a stable commitment to duty.",
+      "Because their help is likely less effective than that of a professional.",
+      "Because Kant believes we should never feel pleasure when doing good deeds."
+     ],
+     "explanation": "While sympathy is not 'bad,' it is an unreliable motive. Only the motive of duty ensures that an agent will do the right thing even when they don't feel like it.",
+     "correctAnswers": [
+      "Because they are acting from a fickle inclination rather than a stable commitment to duty."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "According to the lesson, how does the Formula of Humanity serve as a 'bridge' in ethics?",
+     "options": [
+      "It connects abstract logical tests to the practical treatment of individuals.",
+      "It provides a way to calculate how many rights can be traded for safety.",
+      "It offers a philosophical foundation for modern human rights.",
+      "It links the intentions of the agent to the happiness of the collective.",
+      "It creates 'side-constraints' that prevent individuals from being used as mere tools."
+     ],
+     "explanation": "The Formula of Humanity moves from the logic of universal laws to the protection of individual dignity, providing a non-consequentialist basis for rights.",
+     "correctAnswers": [
+      "It connects abstract logical tests to the practical treatment of individuals.",
+      "It offers a philosophical foundation for modern human rights.",
+      "It creates 'side-constraints' that prevent individuals from being used as mere tools."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "What is the result of the 'Contradiction in the Will' step in the universalizability test?",
+     "options": [
+      "The maxim is logically impossible to even imagine as a law.",
+      "The agent would not rationally want to live in a world where that maxim is a law.",
+      "The action results in a decrease in total global happiness.",
+      "The agent finds that they cannot physically perform the action."
+     ],
+     "explanation": "A contradiction in the will occurs when a maxim is logically possible but would conflict with other things a rational agent must necessarily will (e.g., refusing to help anyone).",
+     "correctAnswers": [
+      "The agent would not rationally want to live in a world where that maxim is a law."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "Which of the following are candidates for 'unconditional good' that Kant explicitly debunks because they can be used for evil?",
+     "options": [
+      "Courage",
+      "Intelligence",
+      "Happiness",
+      "The Good Will",
+      "Wealth"
+     ],
+     "explanation": "Kant argues that intelligence, courage, and wealth can all be tools for a 'villain' and that happiness can lead to arrogance if not guided by a good will.",
+     "correctAnswers": [
+      "Courage",
+      "Intelligence",
+      "Happiness",
+      "Wealth"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "When testing a maxim through the Formula of Universal Law, why does a 'Lying Promise' fail the first stage of the test (Contradiction in Conception)?",
+     "options": [
+      "Because a world where everyone lies would be extremely unpleasant and chaotic for the majority of people.",
+      "Because if everyone made false promises, the very concept of a 'promise' would become meaningless and cease to exist.",
+      "Because the person being lied to has not given their informed consent to the transaction.",
+      "Because the negative consequences of the lie outweigh the temporary financial gain of the promisor."
+     ],
+     "explanation": "The 'Contradiction in Conception' is a logical test: if a maxim cannot even be thought of as a universal law without destroying the institution it relies on, it is immoral.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Social Interaction and Language Stability Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        h1 {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .simulation-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 16px;\n        }\n\n        .fig-box {\n            display: flex;\n            flex-direction: column;\n            gap: 8px;\n        }\n\n        .fig-title {\n            font-family: Georgia, serif;\n            font-size: 13px;\n            font-style: italic;\n            color: var(--muted);\n            text-align: center;\n        }\n\n        .visual-container {\n            aspect-ratio: 1 / 1;\n            background: #fff;\n            border: 1px solid var(--rule);\n            border-radius: 2px;\n            position: relative;\n        }\n\n        .stats {\n            display: flex;\n            justify-content: space-around;\n            padding: 8px;\n            background: rgba(255,255,255,0.5);\n            border: 1px solid var(--rule);\n            border-radius: 4px;\n        }\n\n        .stat-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .stat-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n        }\n\n        .stat-value {\n            font-size: 16px;\n            font-weight: 600;\n            font-variant-numeric: tabular-nums;\n            color: var(--ink);\n        }\n\n        .axis-container {\n            margin-top: 8px;\n            padding: 0 10px;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            margin-bottom: 4px;\n            display: block;\n            text-align: center;\n        }\n\n        svg.axis-svg {\n            overflow: visible;\n        }\n\n        .crosshair {\n            stroke: var(--accent);\n            stroke-width: 1.5;\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border-width: 0;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n    </style>\n</head>\n<body>\n\n    <h1>Simulation of Community Trust and Linguistic Meaning</h1>\n\n    <div class=\"container\">\n        <div class=\"simulation-grid\">\n            <div class=\"fig-box\">\n                <div class=\"fig-title\">Community Interaction</div>\n                <div class=\"visual-container\">\n                    <canvas id=\"agentCanvas\" style=\"width:100%; height:100%; display:block;\"></canvas>\n                </div>\n            </div>\n            \n            <div class=\"fig-box\">\n                <div class=\"fig-title\">System Metrics</div>\n                <div class=\"visual-container\">\n                    <svg id=\"graphSvg\" viewBox=\"0 0 100 100\" style=\"width:100%; height:auto; display:block;\">\n                        <!-- Grid lines -->\n                        <line x1=\"0\" y1=\"10\" x2=\"100\" y2=\"10\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                        <line x1=\"0\" y1=\"50\" x2=\"100\" y2=\"50\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                        <line x1=\"0\" y1=\"90\" x2=\"100\" y2=\"90\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                        \n                        <!-- Paths -->\n                        <path id=\"trustPath\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n                        <path id=\"meaningPath\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" stroke-dasharray=\"3,1\" />\n                        \n                        <!-- Labels -->\n                        <text x=\"5\" y=\"15\" font-family=\"Georgia, serif\" font-size=\"6\" fill=\"var(--accent)\">Trust Index</text>\n                        <text x=\"5\" y=\"24\" font-family=\"Georgia, serif\" font-size=\"6\" fill=\"var(--amber)\">Utility of \"Promise\"</text>\n                    </svg>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"stats\">\n            <div class=\"stat-item\">\n                <span class=\"stat-label\">Violation Rate</span>\n                <span id=\"violationReadout\" class=\"stat-value\">0%</span>\n            </div>\n            <div class=\"stat-item\">\n                <span class=\"stat-label\">Trust Index</span>\n                <span id=\"trustReadout\" class=\"stat-value\">1.00</span>\n            </div>\n            <div class=\"stat-item\">\n                <span class=\"stat-label\">Meaning Stability</span>\n                <span id=\"meaningReadout\" class=\"stat-value\">1.00</span>\n            </div>\n        </div>\n\n        <div class=\"axis-container\">\n            <span class=\"axis-label\">Universal frequency of promise-breaking</span>\n            <svg class=\"axis-svg\" width=\"100%\" height=\"30\" viewBox=\"0 0 400 30\">\n                <line x1=\"20\" y1=\"15\" x2=\"380\" y2=\"15\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <!-- Ticks -->\n                <line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"20\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"20\" y=\"28\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"middle\">0%</text>\n                \n                <line x1=\"110\" y1=\"12\" x2=\"110\" y2=\"18\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"110\" y=\"28\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"middle\">25%</text>\n                \n                <line x1=\"200\" y1=\"10\" x2=\"200\" y2=\"20\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"200\" y=\"28\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"middle\">50%</text>\n                \n                <line x1=\"290\" y1=\"12\" x2=\"290\" y2=\"18\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"290\" y=\"28\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"middle\">75%</text>\n                \n                <line x1=\"380\" y1=\"10\" x2=\"380\" y2=\"20\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"380\" y=\"28\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"middle\">100%</text>\n                \n                <!-- Current position marker -->\n                <line id=\"axisMarker\" x1=\"20\" y1=\"5\" x2=\"20\" y2=\"25\" class=\"crosshair\" />\n            </svg>\n        </div>\n\n        <div class=\"caption\">Combined metrics of a linguistic community over one full cycle</div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 12345;\n        function random() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const canvas = document.getElementById('agentCanvas');\n        const ctx = canvas.getContext('2d');\n        const trustPath = document.getElementById('trustPath');\n        const meaningPath = document.getElementById('meaningPath');\n        const axisMarker = document.getElementById('axisMarker');\n        \n        const violationReadout = document.getElementById('violationReadout');\n        const trustReadout = document.getElementById('trustReadout');\n        const meaningReadout = document.getElementById('meaningReadout');\n\n        let width, height;\n        function resize() {\n            width = canvas.offsetWidth * window.devicePixelRatio;\n            height = canvas.offsetHeight * window.devicePixelRatio;\n            canvas.width = width;\n            canvas.height = height;\n        }\n        window.addEventListener('resize', resize);\n        resize();\n\n        const AGENT_COUNT = 30;\n        const agents = [];\n        for (let i = 0; i < AGENT_COUNT; i++) {\n            agents.push({\n                x: random() * 100,\n                y: random() * 100,\n                vx: (random() - 0.5) * 0.5,\n                vy: (random() - 0.5) * 0.5,\n                size: 3 + random() * 2\n            });\n        }\n\n        let time = 0;\n        const cycleDuration = 12000; // 12 seconds for full sweep\n\n        function update(timestamp) {\n            const progress = (timestamp % cycleDuration) / cycleDuration;\n            // Sweep frequency from 0 to 1 and back\n            const freq = Math.sin(progress * Math.PI * 2 - Math.PI / 2) * 0.5 + 0.5;\n            \n            // Logic: As freq (violation rate) increases, trust and meaning drop.\n            // Meaning drops faster/more catastrophically as it relies on the concept existing.\n            const trust = Math.max(0, 1 - freq * 1.1);\n            const meaning = Math.max(0, Math.pow(1 - freq, 1.8));\n\n            // Update Readouts\n            violationReadout.textContent = Math.round(freq * 100) + \"%\";\n            trustReadout.textContent = trust.toFixed(2);\n            meaningReadout.textContent = meaning.toFixed(2);\n\n            // Update Axis Marker\n            const markerX = 20 + freq * 360;\n            axisMarker.setAttribute('x1', markerX);\n            axisMarker.setAttribute('x2', markerX);\n\n            // Draw Agents\n            ctx.clearRect(0, 0, width, height);\n            \n            // Interaction lines (faded as trust drops)\n            ctx.beginPath();\n            ctx.strokeStyle = `rgba(76, 102, 150, ${trust * 0.2})`;\n            ctx.lineWidth = 1;\n            for (let i = 0; i < agents.length; i++) {\n                for (let j = i + 1; j < agents.length; j++) {\n                    const dx = agents[i].x - agents[j].x;\n                    const dy = agents[i].y - agents[j].y;\n                    const distSq = dx * dx + dy * dy;\n                    if (distSq < 400) {\n                        ctx.moveTo(agents[i].x * width / 100, agents[i].y * height / 100);\n                        ctx.lineTo(agents[j].x * width / 100, agents[j].y * height / 100);\n                    }\n                }\n            }\n            ctx.stroke();\n\n            // Draw Agents\n            agents.forEach(a => {\n                a.x += a.vx;\n                a.y += a.vy;\n                if (a.x < 0 || a.x > 100) a.vx *= -1;\n                if (a.y < 0 || a.y > 100) a.vy *= -1;\n\n                ctx.beginPath();\n                // Color shifts from blue to muted grey as meaning drops\n                const r = 76 + (138 - 76) * (1 - meaning);\n                const g = 102 + (138 - 102) * (1 - meaning);\n                const b = 150 + (138 - 150) * (1 - meaning);\n                ctx.fillStyle = `rgb(${r},${g},${b})`;\n                ctx.arc(a.x * width / 100, a.y * height / 100, a.size * width / 300, 0, Math.PI * 2);\n                ctx.fill();\n\n                // Faded ring for meaning scope\n                ctx.beginPath();\n                ctx.strokeStyle = `rgba(196, 124, 0, ${meaning * 0.4})`;\n                ctx.arc(a.x * width / 100, a.y * height / 100, (a.size + 4) * width / 300, 0, Math.PI * 2);\n                ctx.stroke();\n            });\n\n            // Update Graphs\n            updateGraphs();\n\n            requestAnimationFrame(update);\n        }\n\n        const graphHistory = [];\n        const MAX_HISTORY = 100;\n\n        function updateGraphs() {\n            const progress = (performance.now() % cycleDuration) / cycleDuration;\n            const freq = Math.sin(progress * Math.PI * 2 - Math.PI / 2) * 0.5 + 0.5;\n            const trust = Math.max(0, 1 - freq * 1.1);\n            const meaning = Math.max(0, Math.pow(1 - freq, 1.8));\n\n            graphHistory.push({ freq, trust, meaning });\n            if (graphHistory.length > MAX_HISTORY) graphHistory.shift();\n\n            // Simple plot: x is frequency (0 to 1), y is value (0 to 1)\n            // But we want to show it as a line over the full range\n            let trustD = \"\";\n            let meaningD = \"\";\n            \n            for (let i = 0; i <= 100; i++) {\n                const x = i;\n                const f = i / 100;\n                const t = Math.max(0, 1 - f * 1.1);\n                const m = Math.max(0, Math.pow(1 - f, 1.8));\n                \n                const ty = 90 - (t * 80);\n                const my = 90 - (m * 80);\n                \n                if (i === 0) {\n                    trustD += `M ${x} ${ty}`;\n                    meaningD += `M ${x} ${my}`;\n                } else {\n                    trustD += ` L ${x} ${ty}`;\n                    meaningD += ` L ${x} ${my}`;\n                }\n            }\n            trustPath.setAttribute('d', trustD);\n            meaningPath.setAttribute('d', meaningD);\n            \n            // Current point indicator on the path\n            const cx = freq * 100;\n            const cyT = 90 - (trust * 80);\n            const cyM = 90 - (meaning * 80);\n            \n            // Optional: add dots at current head (not done to keep it clean)\n        }\n\n        requestAnimationFrame(update);\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.onload = reportHeight;\n        new ResizeObserver(reportHeight).observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because if everyone made false promises, the very concept of a 'promise' would become meaningless and cease to exist."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Character and Care Unit Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the Aristotelian 'Function Argument,' why is the life of a plant or an animal insufficient for human 'Eudaimonia'?",
+     "options": [
+      "Plants and animals lack the capacity for any form of flourishing or well-being.",
+      "Human flourishing must involve the unique function of reason, which transcends purely nutritive or sensitive lives.",
+      "Eudaimonia is a passive state of pleasure that only humans can consciously experience.",
+      "Aristotle believed that human biology is entirely disconnected from the nutritive and sensitive soul."
+     ],
+     "explanation": "Aristotle argues that while we share nutritive (growth) and sensitive (sensation) functions with other life forms, our unique function is reason; therefore, our specific excellence lies in the active life of the rational element.",
+     "correctAnswers": [
+      "Human flourishing must involve the unique function of reason, which transcends purely nutritive or sensitive lives."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following characteristics accurately describe 'Eudaimonia' as presented in the unit?",
+     "options": [
+      "It is a fleeting emotional state of happiness.",
+      "It is an active state of excellence and flourishing.",
+      "It is the final 'telos' or end toward which human life is directed.",
+      "It is achieved primarily through the passive reception of pleasure.",
+      "It involves the realization of one's highest potential through rational activity."
+     ],
+     "explanation": "Eudaimonia is not a passive emotion but an active state of being that fulfills our human purpose (telos) through the exercise of reason.",
+     "correctAnswers": [
+      "It is an active state of excellence and flourishing.",
+      "It is the final 'telos' or end toward which human life is directed.",
+      "It involves the realization of one's highest potential through rational activity."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the Doctrine of the Mean, a virtue like Courage is described as a 'Golden Mean' because it avoids the deficiency of cowardice and the excess of ____.",
+     "placeholder": "Enter the vice of excess",
+     "correctAnswers": [
+      "Rashness",
+      "Recklessness"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "How does the 'relative' nature of the Mean apply to the virtue of Temperance for different individuals?",
+     "options": [
+      "The Mean is the exact mathematical midpoint for everyone regardless of circumstances.",
+      "There is no objective Mean; everyone decides their own version of virtue.",
+      "The 'right amount' of a behavior depends on the person's specific needs, much like a world-class athlete requires more food than an office worker.",
+      "The Mean is only relative to one's culture, not to one's individual physical or social state."
+     ],
+     "explanation": "Aristotle emphasizes that the mean is relative to 'us,' meaning the appropriate action depends on the individual's role, capacity, and the specific context.",
+     "correctAnswers": [
+      "The 'right amount' of a behavior depends on the person's specific needs, much like a world-class athlete requires more food than an office worker."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the core differences between 'Natural Virtue' and 'Full Virtue'?",
+     "options": [
+      "Natural virtue is an innate inclination, while full virtue requires the development of Phronesis.",
+      "Natural virtue is accidental or impulsive; full virtue is the result of deliberate choice.",
+      "Only people with natural virtue can eventually reach full virtue.",
+      "Full virtue involves a deep understanding of 'the why' behind a virtuous action, not just doing the right thing.",
+      "Full virtue is a gift from birth that cannot be taught or practiced."
+     ],
+     "explanation": "Natural virtue is a tendency we might be born with, but full virtue is a stable disposition accompanied by the intellectual skill of practical wisdom and deliberation.",
+     "correctAnswers": [
+      "Natural virtue is an innate inclination, while full virtue requires the development of Phronesis.",
+      "Natural virtue is accidental or impulsive; full virtue is the result of deliberate choice.",
+      "Full virtue involves a deep understanding of 'the why' behind a virtuous action, not just doing the right thing."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Aristotle argues that we become virtuous through ____, the process of repeated practice until an action becomes a stable disposition.",
+     "placeholder": "Process of building habits",
+     "correctAnswers": [
+      "habituation",
+      "ethismos"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Which concept describes the idea that moral truths cannot be simplified into a universal instruction manual?",
+     "options": [
+      "The Categorical Imperative",
+      "The Uncodifiability Thesis",
+      "The Paradox of Habituation",
+      "Ethical Egoism"
+     ],
+     "explanation": "The Uncodifiability Thesis holds that the right course of action is too complex to be captured by a set of rigid rules, which is why we need the judgment of the Phronimos.",
+     "correctAnswers": [
+      "The Uncodifiability Thesis"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "How does Ethics of Care challenge the 'Voice of Justice' framework typical of Enlightenment ethics?",
+     "options": [
+      "It rejects the idea that individuals are entirely atomistic and independent.",
+      "It argues that emotions have no place in moral decision-making.",
+      "It emphasizes our fundamental interconnectedness over abstract rights.",
+      "It prioritizes impartial universal rules above all personal relationships.",
+      "It suggests that responsiveness to the needs of specific others is a central moral duty."
+     ],
+     "explanation": "Care Ethics shifts focus from the independent individual and abstract rules to the reality of human relationships and our duties toward specific others.",
+     "correctAnswers": [
+      "It rejects the idea that individuals are entirely atomistic and independent.",
+      "It emphasizes our fundamental interconnectedness over abstract rights.",
+      "It suggests that responsiveness to the needs of specific others is a central moral duty."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "According to the unit, Eudaimonia is best translated as ____ rather than simply 'happiness' to avoid the suggestion of a fleeting emotional state.",
+     "placeholder": "Correct translation",
+     "correctAnswers": [
+      "flourishing",
+      "well-being",
+      "human flourishing"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In the context of the Paradox of Habituation, how is a student learning a language similar to a person learning to be virtuous?",
+     "options": [
+      "Both are born with the full knowledge of the system and just need to recall it.",
+      "Both start by mechanically imitating patterns without full understanding, eventually internalizing the structure.",
+      "Both can only learn through reading textbooks, not through actual practice.",
+      "Neither process requires a social environment or role models."
+     ],
+     "explanation": "Aristotle uses the 'fake it till you make it' approach: by performing 'virtuous-looking' acts, we eventually develop the internal state that makes those acts truly virtuous.",
+     "correctAnswers": [
+      "Both start by mechanically imitating patterns without full understanding, eventually internalizing the structure."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What role do 'Moral Exemplars' (the Phronimos) play in moral development?",
+     "options": [
+      "They provide a live example of how to apply practical wisdom in real situations.",
+      "They offer a list of rigid rules that must be followed without question.",
+      "They serve as a benchmark for what it means to flourish in a community.",
+      "They allow us to observe their judgment so we can eventually develop our own discernment.",
+      "They prove that ethics is a purely intellectual pursuit with no need for action."
+     ],
+     "explanation": "Exemplars are vital because they demonstrate the 'moral eye' in action, providing a model for habituation and the eventual development of our own practical wisdom.",
+     "correctAnswers": [
+      "They provide a live example of how to apply practical wisdom in real situations.",
+      "They serve as a benchmark for what it means to flourish in a community.",
+      "They allow us to observe their judgment so we can eventually develop our own discernment."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The intellectual virtue that acts as the 'engine' of virtue ethics, allowing one to discern the right course of action, is called ____.",
+     "placeholder": "Name of the intellectual virtue",
+     "correctAnswers": [
+      "Phronesis",
+      "practical wisdom"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why does Aristotle consider 'Character' to be like a muscle that has been trained?",
+     "options": [
+      "Because it is purely biological and cannot be influenced by reason.",
+      "Because it requires one-off good deeds rather than long-term consistency.",
+      "Because repeated actions create a 'path of least resistance' or stable disposition in how we react to the world.",
+      "Because it will eventually atrophy and disappear as we get older."
+     ],
+     "explanation": "Habituation creates a stable disposition (hexis); once a character is formed, it becomes the default way we act, making it difficult to act against one's established nature.",
+     "correctAnswers": [
+      "Because repeated actions create a 'path of least resistance' or stable disposition in how we react to the world."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "image": {
+      "alt": "Target showing the difficulty of hitting the mean of virtue.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fe857a56-1326-4dc8-898b-519bb633cda4/exam/images/unit4-q14.png"
+     },
+     "prompt": "In the session on Practical Wisdom, what is required to 'hit the bullseye' of virtue?",
+     "options": [
+      "Feeling the right emotion.",
+      "Acting at the right time.",
+      "Following a universal rule regardless of the context.",
+      "Acting for the right reason.",
+      "Always choosing the most moderate, middle-of-the-road option."
+     ],
+     "explanation": "Excellence in virtue means getting the internal (emotion/reason) and external (timing/action) components right simultaneously, which requires Phronesis.",
+     "correctAnswers": [
+      "Feeling the right emotion.",
+      "Acting at the right time.",
+      "Acting for the right reason."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "How does the 'viscosity' of habits relate to Aristotle's view on character change?",
+     "options": [
+      "Character is fluid and can be changed instantly by deciding to act differently.",
+      "Once a character is formed through habituation, it becomes extremely difficult to act against it.",
+      "Habits are irrelevant to character; only intellectual beliefs matter.",
+      "Viscosity means that habits only form if we are forced by law to perform certain actions."
+     ],
+     "explanation": "Aristotle argues that while character is built through choice, once it is 'set' through repetition, it creates a stable disposition that is hard to alter.",
+     "correctAnswers": [
+      "Once a character is formed through habituation, it becomes extremely difficult to act against it."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Why does Aristotle believe that ethics cannot be a 'science' with exact formulas?",
+     "options": [
+      "Human behavior is too predictable for science.",
+      "Situations are unique and 'messy,' requiring perception rather than just calculation.",
+      "Virtue depends on the individual's specific context and capacities.",
+      "The 'Mean' is not a fixed mathematical point for all people.",
+      "Aristotle did not believe in the power of human reason."
+     ],
+     "explanation": "Because the Mean is relative and situations are uncodifiable, ethics requires practical wisdom (judgment) rather than rigid scientific laws.",
+     "correctAnswers": [
+      "Situations are unique and 'messy,' requiring perception rather than just calculation.",
+      "Virtue depends on the individual's specific context and capacities.",
+      "The 'Mean' is not a fixed mathematical point for all people."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of action-based ethics versus character-based ethics.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fe857a56-1326-4dc8-898b-519bb633cda4/exam/images/unit4-q17.png"
+     },
+     "prompt": "What is the primary focus of Virtue Ethics compared to Deontology?",
+     "options": [
+      "What is the most useful outcome for the most people?",
+      "What is the universal rule that I must follow as a duty?",
+      "What kind of person should I be?",
+      "How can I minimize my own personal suffering?"
+     ],
+     "explanation": "Virtue ethics is character-based, focusing on the agent's internal state and traits rather than external rules (Deontology) or consequences (Utilitarianism).",
+     "correctAnswers": [
+      "What kind of person should I be?"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "image": {
+      "alt": "Spectrum diagram of the Doctrine of the Mean.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fe857a56-1326-4dc8-898b-519bb633cda4/exam/images/unit4-q18.png"
+     },
+     "prompt": "According to the Doctrine of the Mean, which pairs represent a virtue and its corresponding vice of deficiency?",
+     "options": [
+      "Courage : Cowardice",
+      "Truthfulness : Boastfulness",
+      "Temperance : Insensibility",
+      "Generosity : Stinginess",
+      "Modesty : Shamelessness"
+     ],
+     "explanation": "Deficiency is the 'too little' extreme. Boastfulness is the excess of truthfulness (understatement would be the deficiency).",
+     "correctAnswers": [
+      "Courage : Cowardice",
+      "Temperance : Insensibility",
+      "Generosity : Stinginess",
+      "Modesty : Shamelessness"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "single",
+     "prompt": "Which of these scenarios best illustrates 'Natural Virtue' as defined by Aristotle?",
+     "options": [
+      "A soldier who carefully deliberates and chooses to stay at his post despite fear.",
+      "A small child who is instinctively generous with their toys but doesn't understand why.",
+      "A judge who follows the law perfectly because she fears being fired.",
+      "An athlete who trains every day to win a gold medal."
+     ],
+     "explanation": "Natural virtue is an innate impulse or inclination toward good behavior that lacks the rational deliberation and stability of full virtue.",
+     "correctAnswers": [
+      "A small child who is instinctively generous with their toys but doesn't understand why."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Observe the character navigating the social conflict. Why does the 'Phronimos' (person of practical wisdom) adjust their response as the situational variables change?",
+     "options": [
+      "Because Phronesis is the ability to perceive which competing virtue takes precedence in a unique, messy context.",
+      "Because the Phronimos is simply following a more complex list of 'if-then' rules than the average person.",
+      "Because the goal is to find a mathematical midpoint between the two most extreme reactions available.",
+      "Because practical wisdom is an innate gift that allows one to ignore the consequences of their actions."
+     ],
+     "explanation": "Phronesis is described as a 'moral eye' or expert sensitivity. It isn't about following rules but about discerning the 'right' way to act when virtues like honesty and kindness overlap or conflict.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Phronesis and Situational Perception Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .fig-header {\n            font-family: Georgia, serif;\n            font-size: clamp(14px, 4vw, 16px);\n            font-style: italic;\n            color: var(--muted);\n            text-align: center;\n            margin-bottom: 4px;\n        }\n\n        .simulation-stage {\n            width: 100%;\n            background: var(--bg);\n            border-bottom: 1px solid var(--rule);\n        }\n\n        .ui-overlay {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 20px;\n            margin-top: 8px;\n        }\n\n        .data-panel {\n            border-left: 1px solid var(--rule);\n            padding-left: 12px;\n        }\n\n        .label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .value-box {\n            font-variant-numeric: tabular-nums;\n            font-size: 13px;\n            height: 48px;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n        }\n\n        .dialogue-text {\n            font-family: Georgia, serif;\n            font-style: italic;\n            line-height: 1.3;\n            color: var(--ink);\n        }\n\n        .meter-axis {\n            position: relative;\n            height: 30px;\n            width: 100%;\n            margin-top: 10px;\n        }\n\n        .axis-line {\n            position: absolute;\n            top: 15px;\n            left: 0;\n            right: 0;\n            height: 1px;\n            background: var(--rule);\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: 12px;\n            width: 1px;\n            height: 7px;\n            background: var(--muted);\n        }\n\n        .axis-label {\n            position: absolute;\n            top: 22px;\n            font-size: 9px;\n            color: var(--muted);\n            transform: translateX(-50%);\n            white-space: nowrap;\n        }\n\n        .indicator {\n            position: absolute;\n            top: 5px;\n            width: 2px;\n            height: 20px;\n            background: var(--accent);\n            transition: left 0.1s linear;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of interpersonal interactions and shifting social perception</h1>\n    \n    <div class=\"container\">\n        <div class=\"fig-header\">Figure 1.0: Real-time contextual perception and response calibration</div>\n\n        <svg class=\"simulation-stage\" viewBox=\"0 0 400 160\" aria-hidden=\"true\">\n            <!-- Background Elements -->\n            <line x1=\"0\" y1=\"140\" x2=\"400\" y2=\"140\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            \n            <!-- Character: Protagonist -->\n            <g id=\"protagonist\">\n                <circle cx=\"0\" cy=\"120\" r=\"8\" fill=\"var(--accent)\" />\n                <path d=\"M-4 128 L4 128 L6 140 L-6 140 Z\" fill=\"var(--accent)\" />\n            </g>\n\n            <!-- NPCs -->\n            <g id=\"npc-1\" transform=\"translate(100, 0)\">\n                <circle cx=\"0\" cy=\"120\" r=\"8\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n                <path d=\"M-4 128 L4 128 L6 140 L-6 140 Z\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n                <text x=\"0\" y=\"105\" text-anchor=\"middle\" font-family=\"Georgia\" font-size=\"10\" fill=\"var(--muted)\" font-style=\"italic\">Grieving Friend</text>\n            </g>\n\n            <g id=\"npc-2\" transform=\"translate(200, 0)\">\n                <circle cx=\"0\" cy=\"120\" r=\"8\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n                <path d=\"M-4 128 L4 128 L6 140 L-6 140 Z\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n                <text x=\"0\" y=\"105\" text-anchor=\"middle\" font-family=\"Georgia\" font-size=\"10\" fill=\"var(--muted)\" font-style=\"italic\">Dishonest Merchant</text>\n            </g>\n\n            <g id=\"npc-3\" transform=\"translate(300, 0)\">\n                <circle cx=\"0\" cy=\"120\" r=\"8\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n                <path d=\"M-4 128 L4 128 L6 140 L-6 140 Z\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n                <text x=\"0\" y=\"105\" text-anchor=\"middle\" font-family=\"Georgia\" font-size=\"10\" fill=\"var(--muted)\" font-style=\"italic\">Struggling Student</text>\n            </g>\n\n            <!-- Proximity Rings (Visualizing Perception range) -->\n            <circle id=\"perception-ring\" cx=\"0\" cy=\"120\" r=\"30\" fill=\"var(--accent)\" fill-opacity=\"0.05\" stroke=\"var(--accent)\" stroke-opacity=\"0.2\" stroke-dasharray=\"2,2\" />\n        </svg>\n\n        <div class=\"ui-overlay\">\n            <div class=\"data-panel\">\n                <div class=\"label\">Contextual Perception</div>\n                <div class=\"meter-axis\">\n                    <div class=\"axis-line\"></div>\n                    <div class=\"axis-tick\" style=\"left: 0%\"></div>\n                    <div class=\"axis-label\" style=\"left: 0%\">Logic</div>\n                    <div class=\"axis-tick\" style=\"left: 50%\"></div>\n                    <div class=\"axis-label\" style=\"left: 50%\">Neutral</div>\n                    <div class=\"axis-tick\" style=\"left: 100%\"></div>\n                    <div class=\"axis-label\" style=\"left: 100%\">Empathy</div>\n                    <div id=\"perception-marker\" class=\"indicator\" style=\"left: 50%\"></div>\n                </div>\n                <div class=\"label\" style=\"margin-top:20px;\">Calibration</div>\n                <div class=\"value-box\" id=\"calibration-readout\">--</div>\n            </div>\n            <div class=\"data-panel\">\n                <div class=\"label\">Active Dialogue Priority</div>\n                <div class=\"value-box dialogue-text\" id=\"dialogue-box\">\n                    Walking...\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 42;\n        function seededRandom() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const protagonist = document.getElementById('protagonist');\n        const perceptionRing = document.getElementById('perception-ring');\n        const dialogueBox = document.getElementById('dialogue-box');\n        const perceptionMarker = document.getElementById('perception-marker');\n        const calibrationReadout = document.getElementById('calibration-readout');\n\n        const npcs = [\n            { x: 100, type: 'Grieving Friend', dialogue: '\"I am here for you. We can sit in silence.\"', perception: 0.9, calibration: \"Kindness > Honesty\" },\n            { x: 200, type: 'Dishonest Merchant', dialogue: '\"I see exactly what you are doing. I will not pay this price.\"', perception: 0.1, calibration: \"Honesty > Kindness\" },\n            { x: 300, type: 'Struggling Student', dialogue: '\"Your work is improving, but this logic is still flawed. Let\\'s fix it.\"', perception: 0.5, calibration: \"Honesty ≈ Kindness\" }\n        ];\n\n        let t = 0;\n        const duration = 900; // frames for full loop\n\n        function update() {\n            t = (t + 1) % duration;\n            const progress = t / duration;\n            \n            // Move protagonist back and forth\n            // 0 -> 1 -> 0 cycle\n            const xBase = Math.sin(progress * Math.PI * 2 - Math.PI/2) * 0.5 + 0.5;\n            const posX = 40 + xBase * 320;\n\n            protagonist.setAttribute('transform', `translate(${posX}, 0)`);\n            perceptionRing.setAttribute('cx', posX);\n\n            // Find closest NPC\n            let closest = null;\n            let minDist = 50;\n\n            npcs.forEach(npc => {\n                const dist = Math.abs(posX - npc.x);\n                if (dist < minDist) {\n                    minDist = dist;\n                    closest = npc;\n                }\n            });\n\n            if (closest) {\n                // Smoothly transition perception and dialogue\n                const weight = 1 - (minDist / 50);\n                const currentPerception = 50 + (closest.perception - 0.5) * 100 * weight;\n                perceptionMarker.style.left = `${currentPerception}%`;\n                dialogueBox.textContent = closest.dialogue;\n                calibrationReadout.textContent = closest.calibration;\n                calibrationReadout.style.color = 'var(--accent)';\n                perceptionRing.setAttribute('r', 30 + weight * 10);\n                perceptionRing.style.strokeOpacity = 0.2 + weight * 0.4;\n            } else {\n                perceptionMarker.style.left = `50%`;\n                dialogueBox.textContent = \"Observing surroundings...\";\n                calibrationReadout.textContent = \"Standard Protocol (Fixed)\";\n                calibrationReadout.style.color = 'var(--muted)';\n                perceptionRing.setAttribute('r', 30);\n                perceptionRing.style.strokeOpacity = 0.2;\n            }\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            update();\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because Phronesis is the ability to perceive which competing virtue takes precedence in a unique, messy context."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Applied Ethics Synthesis Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the modern Autonomy-Based Model of medical ethics, what is the primary moral justification for requiring informed consent?",
+     "options": [
+      "To ensure the doctor is protected from legal liability through a signed document.",
+      "To maximize the overall medical utility and health outcomes for the general population.",
+      "To uphold a deontological commitment to treat patients as ends in themselves.",
+      "To allow the paternalistic 'parental' figure of the doctor to make safer choices."
+     ],
+     "explanation": "The session on autonomy emphasizes that the Principle of Respect for Persons is a deontological commitment to treat patients as ends (agents with their own goals) rather than passive objects or 'means' for medical expertise.",
+     "correctAnswers": [
+      "To uphold a deontological commitment to treat patients as ends in themselves."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are considered the essential 'pillars' or 'gates' that must be satisfied for a patient's medical consent to be ethically valid?",
+     "options": [
+      "Competence",
+      "Economic Affordability",
+      "Disclosure",
+      "Voluntariness",
+      "Clinical Efficacy"
+     ],
+     "explanation": "Valid informed consent requires the patient to be competent to make the decision, to have received adequate disclosure of information, and to act voluntarily without coercion.",
+     "correctAnswers": [
+      "Competence",
+      "Disclosure",
+      "Voluntariness"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "James Rachels' 'Smith and Jones' thought experiment is primarily designed to challenge which common ethical intuition?",
+     "options": [
+      "That the Doctrine of Double Effect is a reliable way to judge intent.",
+      "That there is a significant moral difference between killing and letting die.",
+      "That patients with dementia lose their right to autonomy.",
+      "That doctors have a duty to preserve life at all costs regardless of quality."
+     ],
+     "explanation": "By showing that Smith (who kills) and Jones (who lets die) are equally reprehensible, Rachels argues that the 'bare difference' between action and omission does not carry moral weight when motives and outcomes are identical.",
+     "correctAnswers": [
+      "That there is a significant moral difference between killing and letting die."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Critics of the 'Killing vs. Letting Die' distinction argue that 'letting die' is not a neutral event because of which factors?",
+     "options": [
+      "The doctor's decision to withdraw treatment is an intentional choice.",
+      "The doctor has no physical contact with the patient during the process.",
+      "The doctor is the cause of death if they stop a ventilator knowing the patient will die.",
+      "Natural causes are legally distinct from human intervention.",
+      "The motive (e.g., the patient's death) can be the same in both cases."
+     ],
+     "explanation": "Philosophically, 'letting die' is seen as an intentional act where the doctor is a moral cause of death, especially if the intent is to end suffering through that death.",
+     "correctAnswers": [
+      "The doctor's decision to withdraw treatment is an intentional choice.",
+      "The doctor is the cause of death if they stop a ventilator knowing the patient will die.",
+      "The motive (e.g., the patient's death) can be the same in both cases."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "Under the Doctrine of Double Effect (DDE), why is providing high-dose morphine to a terminal patient typically considered permissible even if it hastens death?",
+     "options": [
+      "The patient's death is the primary means of ending their physical pain.",
+      "The bad effect (death) is a foreseen side effect, but the intended end is pain relief.",
+      "The doctor is not responsible for consequences they did not physically cause.",
+      "The 'Sanctity of Life' principle is suspended in cases of extreme terminal suffering."
+     ],
+     "explanation": "DDE distinguishes between 'Intended Ends' and 'Foreseen Side Effects.' If the intent is relief and the relief doesn't depend on the patient dying (Means-End condition), it is permissible.",
+     "correctAnswers": [
+      "The bad effect (death) is a foreseen side effect, but the intended end is pain relief."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "According to the four criteria of the Doctrine of Double Effect, which conditions must be met for an act with a bad side effect to be permissible?",
+     "options": [
+      "The action itself must be good or at least indifferent.",
+      "The bad effect must be the primary means of achieving the good effect.",
+      "The agent must intend only the good effect.",
+      "There must be a proportional, grave reason to permit the bad effect.",
+      "The bad effect must be impossible to foresee."
+     ],
+     "explanation": "The DDE requires the act to be neutral/good, the intention to be good, the bad effect to NOT be the means (failing the second option), and proportionality.",
+     "correctAnswers": [
+      "The action itself must be good or at least indifferent.",
+      "The agent must intend only the good effect.",
+      "There must be a proportional, grave reason to permit the bad effect."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Diagram comparing salpingectomy (tube removal) vs. direct fetal intervention.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fe857a56-1326-4dc8-898b-519bb633cda4/exam/images/unit5-q7.png"
+     },
+     "prompt": "In the debate over ectopic pregnancy, how does the Doctrine of Double Effect differentiate between permissible and impermissible interventions?",
+     "options": [
+      "It permits any surgery that results in the mother's survival regardless of the fetus.",
+      "It permits removing a diseased fallopian tube but forbids a direct attack on the fetus.",
+      "It permits direct fetal intervention as long as the doctor's heart is filled with compassion.",
+      "It forbids all interventions because the 'Nature-of-the-Act' condition requires zero harm."
+     ],
+     "explanation": "DDE permits removing the diseased tube (the act is removing pathology) even if the fetus dies as a side effect, but it forbids direct fetal intervention because the bad effect would be the 'means' of the procedure.",
+     "correctAnswers": [
+      "It permits removing a diseased fallopian tube but forbids a direct attack on the fetus."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When evaluating the legalization of Physician-Assisted Dying (PAD), which of the following are significant policy concerns mentioned in the unit?",
+     "options": [
+      "The potential for a 'duty to die' among the elderly or disabled to avoid being a burden.",
+      "The risk of eroding the trust in the doctor-patient relationship.",
+      "The difficulty of assessing competence in patients with terminal depression.",
+      "The requirement to use the most expensive medications to ensure efficacy.",
+      "The conflict between the 'Sanctity of Life' and 'Quality of Life' values."
+     ],
+     "explanation": "These options cover the social, psychological, and philosophical tensions involved in EOL policy debates discussed throughout the unit.",
+     "correctAnswers": [
+      "The potential for a 'duty to die' among the elderly or disabled to avoid being a burden.",
+      "The risk of eroding the trust in the doctor-patient relationship.",
+      "The difficulty of assessing competence in patients with terminal depression.",
+      "The conflict between the 'Sanctity of Life' and 'Quality of Life' values."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "What ethical dilemma is highlighted by the use of Advance Directives for patients with advanced dementia?",
+     "options": [
+      "The conflict between the doctor's competence and the patient's disclosure.",
+      "The conflict between the 'Current Self' who is content and the 'Past Self' who signed the directive.",
+      "The violation of the 'Means-End' condition of the Doctrine of Double Effect.",
+      "The transition from the Autonomy-Based Model back to the Paternalistic Model."
+     ],
+     "explanation": "Advance directives raise the question of whether a person's past autonomous choices should bind their future self, especially if that future self (in a state of dementia) seems to have different interests or a different level of contentment.",
+     "correctAnswers": [
+      "The conflict between the 'Current Self' who is content and the 'Past Self' who signed the directive."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "According to the lesson on Autonomy, which of the following statements about 'Competence' are true?",
+     "options": [
+      "It is an all-or-nothing state; a patient is either fully competent or not at all.",
+      "It is task-specific; a patient may be competent for minor decisions but not complex ones.",
+      "It can be compromised by a 'coercive atmosphere' even without direct threats.",
+      "A signed consent form is absolute proof that the patient was competent.",
+      "Early-stage dementia requires a nuanced assessment rather than an automatic disqualification."
+     ],
+     "explanation": "Competence is task-specific and nuanced. The 'coercive atmosphere' refers to 'Voluntariness,' and a signature is merely evidence of a process, not proof of competence.",
+     "correctAnswers": [
+      "It is task-specific; a patient may be competent for minor decisions but not complex ones.",
+      "Early-stage dementia requires a nuanced assessment rather than an automatic disqualification."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "If a doctor withholds a life-saving treatment from a patient who has clearly refused it, which gate of Informed Consent is being primarily honored?",
+     "options": [
+      "Disclosure",
+      "Competence",
+      "Voluntariness",
+      "Paternalism"
+     ],
+     "explanation": "By respecting the patient's refusal, the doctor honors the patient's agency and their right to make a choice free from the coercive pressure to undergo treatment they do not want.",
+     "correctAnswers": [
+      "Voluntariness"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Which theoretical frameworks are synthesized when addressing End-of-Life (EOL) policy in the final session?",
+     "options": [
+      "Respect for individual autonomy",
+      "The 'Sanctity of Life' vs. 'Quality of Life' spectrum",
+      "The logical and empirical slippery slope arguments",
+      "The Paternalistic Model of doctor-knows-best",
+      "The 'Killing vs. Letting Die' distinction"
+     ],
+     "explanation": "The final session synthesizes autonomy, the killing/letting die distinction, slippery slope concerns, and value conflicts, but moves away from the Paternalistic Model.",
+     "correctAnswers": [
+      "Respect for individual autonomy",
+      "The 'Sanctity of Life' vs. 'Quality of Life' spectrum",
+      "The logical and empirical slippery slope arguments",
+      "The 'Killing vs. Letting Die' distinction"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Which of these is a 'Consequentialist' critique of the Doctrine of Double Effect?",
+     "options": [
+      "The doctrine is too rigid in its focus on the 'Nature-of-the-Act'.",
+      "If the outcome is the same (e.g., a dead patient), the doctor's internal intent shouldn't change the moral evaluation.",
+      "The doctrine fails to account for the 'Slippery Slope' of institutionalizing death.",
+      "The doctrine places too much emphasis on the autonomy of the patient."
+     ],
+     "explanation": "Consequentialists argue that since the result is identical, the 'sophistry' or 'word games' regarding what the doctor was thinking are irrelevant to the moral weight of the act.",
+     "correctAnswers": [
+      "If the outcome is the same (e.g., a dead patient), the doctor's internal intent shouldn't change the moral evaluation."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "In the DDE analysis of Palliative Sedation, why does the 'Means-End' condition pass?",
+     "options": [
+      "Because the patient dying is the only way to ensure they feel no more pain.",
+      "Because the pain relief results from the sedation, not from the patient's subsequent death.",
+      "Because the doctor uses a drug that is naturally occurring rather than synthetic.",
+      "Because the patient has signed an advance directive requesting death."
+     ],
+     "explanation": "If the relief is caused by the patient's death, the act fails DDE. In palliative sedation, the sedative effect provides relief while the patient is still alive, making death a non-essential side effect.",
+     "correctAnswers": [
+      "Because the pain relief results from the sedation, not from the patient's subsequent death."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Based on the simulation of the four criteria of the Doctrine of Double Effect (DDE), why does Scenario B (Direct Fetal Intervention) fail while Scenario A (Salpingectomy) passes?",
+     "options": [
+      "Because in Scenario B, the harmful outcome is the direct mechanism used to save the mother, violating the independence of the good effect.",
+      "Because Scenario A involves a higher dosage of medication, which changes the nature of the act to a neutral state.",
+      "Because the intention in Scenario B is fundamentally malicious, whereas in Scenario A the doctor intends both outcomes equally.",
+      "Because the proportionality of Scenario A is higher due to the use of more advanced surgical equipment."
+     ],
+     "explanation": "The DDE prohibits acts where the bad effect is the 'means' to the good effect. In direct intervention, the fetal death is the means of resolving the pregnancy, whereas in salpingectomy, it is a side effect of removing diseased tissue.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>DDE Logic Flow Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .fig-svg text {\n            fill: var(--ink);\n            font-size: 12px;\n            user-select: none;\n        }\n\n        .fig-svg text.serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-style: italic;\n            fill: var(--muted);\n        }\n\n        .fig-svg text.node-label {\n            font-weight: 500;\n            font-size: 11px;\n        }\n\n        .gate-box {\n            fill: none;\n            stroke: var(--rule);\n            stroke-width: 1;\n        }\n\n        .gate-title {\n            font-size: 10px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .node-circle {\n            fill: var(--bg);\n            stroke: var(--ink);\n            stroke-width: 1.5;\n        }\n\n        .path-line {\n            fill: none;\n            stroke: var(--rule);\n            stroke-width: 1.5;\n            stroke-dasharray: 4 2;\n        }\n\n        .active-path {\n            fill: none;\n            stroke-width: 2.5;\n            stroke-linecap: round;\n            stroke-linejoin: round;\n            transition: stroke-dashoffset 0.1s linear;\n        }\n\n        .status-marker {\n            font-size: 14px;\n            font-weight: bold;\n        }\n\n        .scenario-indicator {\n            padding: 4px 12px;\n            border: 1px solid var(--rule);\n            border-radius: 2px;\n            font-size: 13px;\n            display: inline-block;\n            background: white;\n            color: var(--ink);\n        }\n\n        .readout {\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            border-top: 1px solid var(--rule);\n            padding-top: 8px;\n            margin-top: 4px;\n        }\n\n        .readout-item {\n            font-size: 12px;\n            color: var(--muted);\n        }\n\n        .readout-val {\n            color: var(--ink);\n            font-weight: 600;\n            font-variant-numeric: tabular-nums;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Logic Flow Comparison of Two Medical Procedures</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig-svg\" viewBox=\"0 0 400 320\" aria-hidden=\"true\">\n            <!-- Gates (Columns) -->\n            <g class=\"gate-group\" transform=\"translate(10, 40)\">\n                <rect class=\"gate-box\" x=\"0\" y=\"0\" width=\"85\" height=\"240\" rx=\"4\" />\n                <text x=\"42\" y=\"-10\" text-anchor=\"middle\" class=\"gate-title\">1. Nature of Act</text>\n                \n                <rect class=\"gate-box\" x=\"95\" y=\"0\" width=\"85\" height=\"240\" rx=\"4\" />\n                <text x=\"137\" y=\"-10\" text-anchor=\"middle\" class=\"gate-title\">2. Means-End</text>\n                \n                <rect class=\"gate-box\" x=\"190\" y=\"0\" width=\"85\" height=\"240\" rx=\"4\" />\n                <text x=\"232\" y=\"-10\" text-anchor=\"middle\" class=\"gate-title\">3. Right Intention</text>\n                \n                <rect class=\"gate-box\" x=\"285\" y=\"0\" width=\"85\" height=\"240\" rx=\"4\" />\n                <text x=\"327\" y=\"-10\" text-anchor=\"middle\" class=\"gate-title\">4. Proportionality</text>\n            </g>\n\n            <!-- Nodes -->\n            <g transform=\"translate(10, 40)\">\n                <!-- Column 0: Start -->\n                <circle class=\"node-circle\" cx=\"42\" cy=\"120\" r=\"4\" />\n                <text x=\"42\" y=\"140\" text-anchor=\"middle\" class=\"node-label\">Procedure</text>\n\n                <!-- Column 1: Middle Nodes -->\n                <!-- Good path -->\n                <circle class=\"node-circle\" cx=\"137\" cy=\"60\" r=\"4\" />\n                <text x=\"137\" y=\"50\" text-anchor=\"middle\" class=\"node-label\">Save Mother</text>\n                \n                <!-- Bad path -->\n                <circle class=\"node-circle\" cx=\"137\" cy=\"180\" r=\"4\" />\n                <text x=\"137\" y=\"200\" text-anchor=\"middle\" class=\"node-label\">Fetal Death</text>\n\n                <!-- Column 2: Result Nodes -->\n                <circle class=\"node-circle\" cx=\"327\" cy=\"120\" r=\"4\" />\n                <text x=\"327\" y=\"140\" text-anchor=\"middle\" class=\"node-label\">Outcome</text>\n            </g>\n\n            <!-- Static Path Traces (Faint) -->\n            <g transform=\"translate(10, 40)\" opacity=\"0.2\">\n                <!-- Indirect Path (Salpingectomy style) -->\n                <path d=\"M 42 120 L 137 60 L 327 120\" fill=\"none\" stroke=\"black\" stroke-width=\"1\" />\n                <path d=\"M 42 120 L 137 180\" fill=\"none\" stroke=\"black\" stroke-width=\"1\" />\n                \n                <!-- Direct Path (Craniotomy style) -->\n                <path d=\"M 42 120 L 137 180 L 327 120\" fill=\"none\" stroke=\"black\" stroke-width=\"1\" />\n            </g>\n\n            <!-- Active Animation Paths -->\n            <g transform=\"translate(10, 40)\">\n                <!-- Path A: Salpingectomy -->\n                <path id=\"pathA-1\" class=\"active-path\" d=\"M 42 120 L 137 60\" stroke=\"var(--accent)\" stroke-dasharray=\"120\" stroke-dashoffset=\"120\" />\n                <path id=\"pathA-2\" class=\"active-path\" d=\"M 137 60 L 327 120\" stroke=\"var(--accent)\" stroke-dasharray=\"210\" stroke-dashoffset=\"210\" />\n                <path id=\"pathA-side\" class=\"active-path\" d=\"M 42 120 L 137 180\" stroke=\"var(--accent)\" opacity=\"0.6\" stroke-dasharray=\"120\" stroke-dashoffset=\"120\" />\n\n                <!-- Path B: Direct Intervention -->\n                <path id=\"pathB-1\" class=\"active-path\" d=\"M 42 120 L 137 180\" stroke=\"var(--amber)\" stroke-dasharray=\"120\" stroke-dashoffset=\"120\" />\n                <path id=\"pathB-2\" class=\"active-path\" d=\"M 137 180 L 327 120\" stroke=\"var(--amber)\" stroke-dasharray=\"210\" stroke-dashoffset=\"210\" />\n            </g>\n\n            <!-- Indicators -->\n            <g transform=\"translate(10, 40)\">\n                <text id=\"indicatorA\" x=\"327\" y=\"100\" text-anchor=\"middle\" class=\"status-marker\" fill=\"var(--accent)\" visibility=\"hidden\">PASS</text>\n                <text id=\"indicatorB\" x=\"137\" y=\"160\" text-anchor=\"middle\" class=\"status-marker\" fill=\"var(--amber)\" visibility=\"hidden\">BLOCK</text>\n            </g>\n        </svg>\n\n        <div class=\"readout\">\n            <div class=\"readout-item\">Scenario: <span id=\"scenario-name\" class=\"readout-val\">...</span></div>\n            <div class=\"readout-item\">Logic State: <span id=\"logic-state\" class=\"readout-val\">Processing</span></div>\n        </div>\n        <div style=\"text-align: center;\">\n            <span class=\"serif\">Path analysis across DDE structural gates</span>\n        </div>\n    </div>\n\n    <script>\n        const pathA1 = document.getElementById('pathA-1');\n        const pathA2 = document.getElementById('pathA-2');\n        const pathAside = document.getElementById('pathA-side');\n        const pathB1 = document.getElementById('pathB-1');\n        const pathB2 = document.getElementById('pathB-2');\n        const indicatorA = document.getElementById('indicatorA');\n        const indicatorB = document.getElementById('indicatorB');\n        const scenarioName = document.getElementById('scenario-name');\n        const logicState = document.getElementById('logic-state');\n\n        let startTime = null;\n        const duration = 10000; // 10 seconds total loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) % duration;\n            const phase = progress / duration;\n\n            // Reset all\n            [pathA1, pathA2, pathAside, pathB1, pathB2].forEach(p => p.style.strokeDashoffset = '300');\n            indicatorA.setAttribute('visibility', 'hidden');\n            indicatorB.setAttribute('visibility', 'hidden');\n\n            if (phase < 0.5) {\n                // Scenario 1: Salpingectomy (Accents)\n                scenarioName.textContent = \"Salpingectomy\";\n                const p1 = Math.min(1, (phase * 2) * 3); // 0 to 0.33 of first half\n                const p2 = Math.max(0, Math.min(1, ((phase * 2) - 0.33) * 3)); // 0.33 to 0.66\n                const pSide = Math.min(1, (phase * 2) * 3);\n\n                pathA1.style.strokeDashoffset = 120 - (p1 * 120);\n                pathAside.style.strokeDashoffset = 120 - (pSide * 120);\n                pathA2.style.strokeDashoffset = 210 - (p2 * 210);\n\n                if (p2 > 0.9) {\n                    indicatorA.setAttribute('visibility', 'visible');\n                    logicState.textContent = \"Path Clear\";\n                } else {\n                    logicState.textContent = \"Evaluating...\";\n                }\n            } else {\n                // Scenario 2: Direct Intervention (Amber)\n                scenarioName.textContent = \"Direct Intervention\";\n                const pPhase = (phase - 0.5) * 2;\n                const p1 = Math.min(1, pPhase * 3);\n                const p2 = Math.max(0, Math.min(1, (pPhase - 0.33) * 3));\n\n                pathB1.style.strokeDashoffset = 120 - (p1 * 120);\n                \n                if (p1 > 0.95) {\n                    indicatorB.setAttribute('visibility', 'visible');\n                    logicState.textContent = \"Blocked at Gate 2\";\n                    // Only show a tiny bit of p2 to show it tries but fails\n                    pathB2.style.strokeDashoffset = 210 - (Math.min(0.1, p2) * 210);\n                } else {\n                    logicState.textContent = \"Evaluating...\";\n                }\n            }\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because in Scenario B, the harmful outcome is the direct mechanism used to save the mother, violating the independence of the good effect."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "50d50e7f-8aa5-420e-86da-ed8750c667b4"
+}

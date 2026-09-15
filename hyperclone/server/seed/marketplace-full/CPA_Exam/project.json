@@ -1,0 +1,260 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your CPA Comprehensive Simulated Case Study! Over the course of this project, you will build a complete professional portfolio that mirrors the high-stakes Task-Based Simulations of the CPA Exam. By the end, you will have produced a full suite of client deliverables: an Audit Plan and Report (AUD), a Financial Consolidation Model (FAR), a Tax Planning Memo (REG), and an Integrated Business Analytics Dashboard (BAR/ISC/TCP). This portfolio will demonstrate your ability to synthesize complex data into professional, exam-ready outputs.\n\nWe begin with the Audit (AUD) phase. Building on our recent sessions regarding audit evidence, professional ethics, and independence, your first task is to set the foundation for a hypothetical engagement. You are the lead auditor for 'Apex Manufacturing.' Before you can perform any procedures, you must ensure your team is ethically cleared and understands the client's risk profile. Review the principles of objectivity and independence we covered: consider how 'covered members' and financial interests might impact your team before we draft the first document.",
+     "step_title": "Project Launch & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated Planning Materiality dollar amount and a brief list of three identified risks with a one-sentence justification for each. Good work will show a calculation that aligns with professional benchmarks and risks that tie directly to the assertions of existence or completeness."
+     },
+     "step_body": "In the previous lecture, we discussed how auditors are like forensic detectives. The first step in any investigation is determining 'materiality'—the threshold at which a misstatement would change the mind of a reasonable investor. \n\nFor Apex Manufacturing, you are provided with preliminary financial data: Total Assets of $50,000,000 and Pre-tax Income of $4,000,000. Using standard industry benchmarks (e.g., 5% of pre-tax income or 1% of total assets), calculate your Planning Materiality. Then, identify three potential 'Audit Risks' based on the retail/manufacturing context (like inventory existence or revenue recognition) and justify why these are areas of high risk.",
+     "step_title": "Calculate Materiality & Risk",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now that you have your materiality and risk assessment, it is time to formalize these into a Planning Memorandum. This internal document guides the entire audit team's strategy. You need to outline the 'Nature, Timing, and Extent' of the procedures you will perform. \n\nReferencing our session on 'Tracing' and 'Vouching,' describe one specific procedure you will use to test the 'Existence' of inventory and one procedure to test the 'Completeness' of accounts payable. Ensure you mention how your calculated materiality level will influence your sample size—higher risk and lower materiality usually mean more testing!",
+     "step_title": "Draft the Planning Memorandum",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "With the planning set, we move to the final output of the AUD stage: the Independent Auditor's Report. This is a formal document addressed to the shareholders. \n\nYou must draft a 'Standard Unmodified Opinion' report for Apex Manufacturing. This includes specific sections: the Opinion section, the Basis for Opinion, and a section for 'Key Audit Matters' (KAMs) where you will describe one of the risks you identified earlier (such as complex revenue recognition). Remember the AICPA standards we studied—your tone must be professional, objective, and clearly state that the audit was conducted in accordance with GAAS.",
+     "step_title": "Draft the Independent Auditor's Report",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a single PDF containing: 1) The Audit Planning Memo (with materiality and risk assessment) and 2) The Drafted Independent Auditor's Report. Criteria for success: Professional formatting, correct use of the Unmodified Opinion template, and a logical link between identified risks and planned procedures."
+     },
+     "step_body": "It is time to compile your work for this stage. You have performed the initial risk assessment, calculated materiality, and drafted both the internal planning strategy and the external auditor's report. \n\nReview your documents for consistency. Does the Auditor's Report reflect the risks you identified in the Planning Memo? Is your language consistent with the AICPA Code of Professional Conduct? This submission represents the first major piece of your Comprehensive Portfolio. Combine your Planning Memo (including the risk matrix) and your drafted Auditor's Report into a single professional PDF.",
+     "step_title": "Finalize and Submit AUD Deliverables",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a short reflection (3-5 sentences) on how a breach of independence (like a family member owning stock) would impact the credibility of your Auditor's Report. A strong answer will reference the difference between 'independence in fact' and 'appearance.'"
+     },
+     "step_body": "Great work completing the first stage of your portfolio! You have successfully simulated the front-end planning and back-end reporting of an audit engagement. \n\nThink back to our session on Independence and Ethics. If you discovered halfway through this process that your audit manager's spouse owned $10,000 of Apex Manufacturing stock, how would that change the validity of the report you just drafted? Briefly reflect on how these ethical safeguards protect the 'Public Trust' you've represented in your deliverable today.",
+     "step_title": "Stage Reflection",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "415a5cdd-e37c-48e4-8576-82f971d6d377",
+   "stage_title": "Drafting the Audit Planning Memo and Independent Auditor's Report",
+   "parent_project_id": "19d49ec7-de9a-46c1-982c-62149cbda4b6",
+   "stage_description": "Analyze a hypothetical client's internal controls and preliminary balances to assess risks of material misstatement, and draft a tailored Audit Plan and a completed Auditor's Report addressing key audit matters.",
+   "deliverable_increment": "An Audit planning memo including materiality calculations, risk assessment matrix, and a drafted Independent Auditor's Report in PDF format."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you established the audit foundation for our simulated engagement by drafting the Audit Planning Memo and the Auditor's Report. Now, we transition from the external auditor's perspective to the financial controller's desk. This stage focuses on the consolidation of 'ParentCo' and its newly acquired subsidiary, 'SubCorp'. You will apply the principles of US GAAP and the Conceptual Framework you recently studied—balancing relevance and faithful representation—to merge two distinct sets of books into one unified economic picture. This work will form the quantitative core of your Final Portfolio.",
+     "step_title": "Recap & orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief list of at least three specific types of adjusting journal entries you will need to prepare (e.g., 'Eliminating intercompany sales to remove unrealized profit'). Good work clearly identifies the relationship between the two entities and the specific account types impacted."
+     },
+     "step_body": "Before opening your workbook, review the transaction list for the fiscal year-end. You need to identify three specific types of intercompany activity: 1) Intercompany sales where inventory remains on hand (generating unrealized profit), 2) Intercompany service fees, and 3) Intercompany loans. Reflecting on our session on Revenue Recognition (ASC 606), remember that from a consolidated perspective, revenue cannot be recognized until it is earned with an external party. List the types of eliminations you anticipate needing based on these three categories to ensure your consolidated reports don't 'double-count' activity.",
+     "step_title": "Analyze intercompany data",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, open your Excel project file and navigate to the 'Adjusting Entries' tab. You must record the formal journal entries to account for the acquisition-date fair value adjustments, the elimination of the Parent's 'Investment in Subsidiary' account, and the elimination of the Subsidiary's equity. Don't forget the 'uninstalled materials' logic from our Revenue Recognition lecture—ensure that any intercompany markups in ending inventory are fully reversed. This ensures the 'Faithful Representation' characteristic of your financial data.",
+     "step_title": "Draft adjusting journal entries",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Using the trial balances provided in the source material for ParentCo and SubCorp, populate your consolidation workpaper. Link your adjusting journal entries from the previous step into the 'Adjustments & Eliminations' columns. Ensure your workpaper balances across the horizontal rows (Parent + Sub + Adjustments = Consolidated) and the vertical columns (Debits = Credits). This sheet acts as the 'bridge' between raw data and the professional statements you'll draft next.",
+     "step_title": "Construct the consolidation workpaper",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Now, create the Consolidated Balance Sheet and the Multi-Step Income Statement. Apply the spatial architecture we discussed: use the 'Operating Boundary' to separate Operating Income from non-operating items like interest. Ensure your Balance Sheet is correctly classified into Current and Non-current sections. Pay close attention to 'Non-controlling Interest' (NCI) in both the equity section of the Balance Sheet and the bottom of the Income Statement, as this represents the portion of the subsidiary not owned by ParentCo.",
+     "step_title": "Format the primary statements",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your Excel workbook containing: 1) The Adjusting Journal Entries tab, 2) The Consolidation Workpaper/Trial Balance tab, and 3) The formal Consolidated Balance Sheet and Multi-Step Income Statement. Criteria for success: Accurately eliminated intercompany transactions, correct classification of current/non-current items, and a balanced consolidated equation."
+     },
+     "step_body": "Review your Excel workbook one last time. Check that the Net Income from the Income Statement flows correctly into Retained Earnings on the Balance Sheet, and that the Balance Sheet is in perfect equilibrium (A = L + E). Ensure all schedules are professionally formatted, as this workbook is a primary component of your Final Portfolio deliverable. Once verified, save your file as a single workbook for submission.",
+     "step_title": "Finalize and submit workbook",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "d387ddd1-25db-4655-aa3c-716c334ddb36",
+   "stage_title": "Constructing the Consolidated Financial Statements and Adjusting Entries",
+   "parent_project_id": "19d49ec7-de9a-46c1-982c-62149cbda4b6",
+   "stage_description": "Prepare consolidation workpapers for a parent company and its newly acquired subsidiary, including adjusting journal entries for intercompany transactions, inventory markups, and lease liabilities under GAAP.",
+   "deliverable_increment": "An Excel workbook containing adjusting journal entries, a trial balance consolidation tab, and the three primary consolidated financial statements."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Great progress so far. You have already completed the Audit Planning Memo and the Consolidated Financial Statements for our simulation. Now, we shift focus from auditing and financial reporting to the strategic tax planning stage. In this phase, you will act as a tax consultant for the shareholder of the C Corporation you just consolidated. You'll apply the principles of Section 351, book-to-tax reconciliations, and professional ethics to provide high-level compliance and advisory services.",
+     "step_title": "Recap and Project Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief list of the book-to-tax adjustments you identified (e.g., 'Add back $5,000 in fines') and your final calculated taxable income figure. Good work will correctly categorize items as permanent or temporary and apply the DRD rules accurately."
+     },
+     "step_body": "Before advising the client, you must determine the corporation's actual taxable income. Using the consolidated financial statements from the previous stage, identify common Schedule M-1 adjustments. Look for temporary differences like MACRS depreciation and permanent differences such as non-deductible fines or tax-exempt interest. Calculate the tentative Dividends Received Deduction (DRD) based on the ownership percentages discussed in our lecture (50%, 65%, or 100%). What is the final corporate taxable income after these adjustments?",
+     "step_title": "Perform Book-to-Tax Reconciliation",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculation for the shareholder's recognized gain (if any) and their resulting stock basis. Accuracy in handling liabilities in excess of basis is the primary criteria here."
+     },
+     "step_body": "Now consider the shareholder's perspective. Review the Section 351 'Control Club' requirements (80% rule) and the impact of boot or liability assumption. If the shareholder contributed property with a basis of $50,000 and a mortgage of $60,000 assumed by the corporation, calculate their recognized gain and new stock basis. This is a critical step in assessing the overall tax efficiency of the current entity structure compared to a potential pass-through alternative.",
+     "step_title": "Analyze Individual Tax Impact",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type a short paragraph (3-5 sentences) explaining the standard you would apply to this aggressive position and whether you would require disclosure to protect yourself from practitioner penalties. Success is measured by correctly applying the 'Reasonable Basis with Disclosure' versus 'Substantial Authority' concepts."
+     },
+     "step_body": "As you prepare the advisory memo, you must adhere to Circular 230 and SSTS. Imagine the client suggests an aggressive deduction that lacks 'Substantial Authority' but has a 'Reasonable Basis.' Referencing the hierarchy of legal standards we mapped out, explain your professional obligation regarding disclosure. Would you require Form 8275 to sign the return? Consider the potential penalties under IRC Section 6694 for 'unreasonable positions.'",
+     "step_title": "Evaluate Ethical Tax Positions",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your comprehensive Tax Compliance and Advisory Memo as a PDF. Your work will be evaluated on the accuracy of the tax calculations, the clarity of the entity structure comparison, and the inclusion of appropriate ethical safeguards regarding tax positions."
+     },
+     "step_body": "It is time to assemble your findings into the final Stage Deliverable. Draft the Dual Tax Compliance and Planning Memorandum. This memo should summarize: 1) The corporate tax liability and M-1 adjustments, 2) The shareholder's basis and gain recognition under Section 351, and 3) Strategic advice on whether the C Corp structure remains optimal or if a different entity type should be considered. Ensure the tone is professional and complies with the ethical standards of a CPA-client relationship.",
+     "step_title": "Submit Final Tax Memo",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Congratulations on completing the tax portion of this case study! You've successfully navigated the complexities of corporate-individual tax intersections and the high stakes of professional ethics. In the next stage, we will integrate these financial and tax findings into a final business analytics dashboard to provide the client with a holistic view of their enterprise performance.",
+     "step_title": "Wrap-up and Reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "c13b3356-9ff9-4bfd-9470-2417d64ce8b5",
+   "stage_title": "Formulating the Dual Tax Compliance and Planning Memorandum",
+   "parent_project_id": "19d49ec7-de9a-46c1-982c-62149cbda4b6",
+   "stage_description": "Calculate individual taxable income and corporate taxable income for a shareholder and their C Corporation, identifying opportunities for legal tax avoidance under current IRS tax code regulations.",
+   "deliverable_increment": "A comprehensive Tax Compliance and Advisory Memo comparing tax liability under different entity structures and proposing strategic planning options."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already completed the Audit Plan, the Consolidated Financial Statements, and the Tax Memorandum. Now, we shift our focus to the final strategic layer of this simulation: Business Valuation. In this stage, you will act as a consultant evaluating a target acquisition. You will move beyond static numbers to assess the 'why' behind the financial performance and calculate the company's intrinsic value. This work will be added as a new module to your existing Excel project file.",
+     "step_title": "Recap and Project Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short paragraph identifying the line item you analyzed, its percentage change, and your professional interpretation of what this trend means for the company's profitability."
+     },
+     "step_body": "Before valuing a business, you must understand its trajectory. Open your 'Consolidated Financial Statements' workbook and create a new tab named 'Valuation & Analysis'. Perform a vertical analysis (common-size) for the current year's Income Statement using Net Sales as the 100% anchor. Then, perform a horizontal analysis (trend analysis) across the last two years. Look closely: did your operating expenses grow faster than your revenue? Identify one specific line item that shows a significant percentage change and explain what that might indicate about the company's operational efficiency.",
+     "step_title": "Perform Vertical & Horizontal Analysis",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type out your calculated Current Ratio, Quick Ratio, and Inventory Turnover. Include a one-sentence comment on whether the company appears to have a liquidity risk based on the difference between the Current and Quick ratios."
+     },
+     "step_body": "A company is only as valuable as its ability to generate cash and manage assets. On your 'Valuation & Analysis' tab, calculate the following key ratios for the current period: Current Ratio, Quick Ratio, and Inventory Turnover. Remember the lesson on variable mismatches: use the *Average Inventory* from the balance sheet when calculating turnover to ensure statistical integrity. Compare your Quick Ratio to your Current Ratio; if there is a significant gap, it suggests high levels of potentially illiquid inventory.",
+     "step_title": "Calculate Liquidity & Efficiency Ratios",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, let's determine the target's value using a Discounted Cash Flow (DCF) model. In your Excel sheet, project the Free Cash Flows (FCF) for the next five years based on a 5% growth rate. Use a Weighted Average Cost of Capital (WACC) of 10% as your discount rate and calculate the Terminal Value using the perpetuity growth method. Finally, discount these values back to their Present Value (PV) to find the total Enterprise Value. This model is the heart of your valuation deliverable.",
+     "step_title": "Build the DCF Valuation Model",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your updated Excel workbook (or a PDF export of the Valuation tab). The submission should include vertical/horizontal analysis, at least three financial ratios, and a functioning DCF model with a clearly stated final Enterprise Value."
+     },
+     "step_body": "To finalize this stage, ensure your 'Valuation & Analysis' tab is professional, clearly labeled, and includes a summary section of your findings. You should have your common-size analysis, your ratio calculations, and your completed DCF model all in one place. This document serves as the 'Business Analytics' component of your final portfolio, bridging the gap between accounting data and strategic decision-making.",
+     "step_title": "Submit the Valuation & Analysis Report",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify which chart type you would use and provide a one-sentence justification based on the analytical objective of showing trends over time."
+     },
+     "step_body": "Great work. Looking back at your valuation model, imagine you had to present the 5-year revenue trend and the liquidity ratios to a Board of Directors. Based on what we discussed regarding data structures, would a Histogram or a Line Chart be more appropriate for showing the revenue trend over time? Briefly justify your choice to ensure your insights are communicated effectively to stakeholders.",
+     "step_title": "Reflect on Data Visualization",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "c9f30a13-5f52-4987-852a-1728c6354ba8",
+   "stage_title": "Conducting Advanced Business Valuation and Performance Analysis",
+   "parent_project_id": "19d49ec7-de9a-46c1-982c-62149cbda4b6",
+   "stage_description": "Use advanced financial ratios, variance analysis, and forecasting tools to value a target acquisition and evaluate its working capital management strategy.",
+   "deliverable_increment": "A valuation model sheet added to the main workbook, complete with variance analysis reports and a discounted cash flow (DCF) model."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "19d49ec7-de9a-46c1-982c-62149cbda4b6",
+   "project_name": "CPA Comprehensive Simulated Case Study File",
+   "final_deliverable": "A comprehensive Excel and PDF Portfolio comprising an Audit Plan and Report (AUD), a multi-statement Financial Consolidation Model with adjustments (FAR), an individual and corporate Tax Planning Memorandum (REG), and an integrated business analytics dashboard (BAR/ISC/TCP).",
+   "project_description": "Create a unified professional portfolio that simulates realistic client deliverables across Core (AUD, FAR, REG) and selected Discipline domains, modeling the exact task-based simulation formats of the actual CPA Exam."
+  }
+ ],
+ "courseUuid": "a7f0ad5b-ea6f-4f6d-9244-0e92cf29af29"
+}

@@ -1,0 +1,388 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project stage! Over the course of this project, you will build a complete, modular machine learning library from the ground up, including custom implementations of core algorithms like Random Forests and Neural Networks, culminating in a production-ready monitoring pipeline. We start today with the engine that makes it all possible: the optimizer. Before we dive in, remember our recent sessions on loss functions and gradient descent. We learned that to 'learn', a model needs a way to measure error (the Loss Function) and a way to minimize it by following the slope downwards (Gradient Descent). In this stage, you are going to turn that 'foggy mountain' intuition into code by building a Stochastic Gradient Descent (SGD) optimizer from scratch.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief 1-2 sentence explanation of how the learning rate affects the path toward the minimum loss. Good responses will mention the tradeoff between convergence speed and the risk of overshooting."
+     },
+     "step_body": "Every good library needs structure. Start by creating a file named `optimizer.py`. Inside, define a class called `SGDOptimizer`. Your class should be initialized with a 'learning rate'—the parameter that controls how large our steps are down the gradient. Why do we need this? Think back to our mountain analogy: if your steps are too large, you might jump right over the valley; too small, and you'll never reach the bottom. Set a default learning rate (like 0.01) and store it as an instance variable. How would you describe the role of the learning rate in your own words relative to the 'speed' of learning?",
+     "step_title": "Initialize the Optimizer Class",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the snippet of code for your 'step' method and specify which data structure (e.g., lists, arrays) you plan to use for the weights. Criteria: The code must correctly implement the subtraction of the scaled gradient."
+     },
+     "step_body": "Now for the core mechanic. Add a method named `step` to your class. This method should take two inputs: the current weights (w) and the calculated gradient (g). Based on the Gradient Descent formula we discussed—where we update weights by moving in the opposite direction of the gradient—implement the logic: w_new = w - (learning_rate * g). In this 'Stochastic' version, we assume this update happens frequently using small batches of data. Once you have drafted the code, think about the data types: what Python or NumPy structure should 'w' and 'g' be to ensure we can perform these calculations efficiently?",
+     "step_title": "Draft the Weight Update Logic",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Before we visualize, we need a target. Create a simple synthetic scenario: try to find the minimum of a basic quadratic loss function, like f(x) = x². We know the minimum is at 0, and the gradient (slope) of x² is 2x. Write a small script that starts at x = 10 and uses your `SGDOptimizer` to iteratively update x over 50 iterations. Keep track of the value of x at every step in a list; this list is what we will use to prove our engine actually 'learns'.",
+     "step_title": "Build a Simple Test Loop",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your convergence plot (Iteration vs. Parameter Value). Criteria: The plot should clearly show the value decreasing over time, demonstrating that the optimizer is successfully finding the minimum."
+     },
+     "step_body": "Numbers in a list are hard to read; a plot tells the story. Using a library like Matplotlib, create a line chart showing the value of your parameter (x) over the 50 iterations. You should see the value start high and curve downwards toward zero. This curve is the visual proof of 'Convergence'. Does your plot look like a smooth slide, or does it jitter? If you change your learning rate to be much higher (like 1.1), what happens to the plot?",
+     "step_title": "Visualize Convergence",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your final 'optimizer.py' file. Criteria: The file must contain a functional SGDOptimizer class with a constructor for learning rate and a step method that correctly implements the weight update logic."
+     },
+     "step_body": "You have successfully implemented the mathematical heart of a machine learning system. You've moved from the theory of loss functions to a working Python class that can optimize them. Ensure your `optimizer.py` file is clean, commented, and includes the `SGDOptimizer` class. This file will be the foundation we use in the next stage when we start building actual classifiers.",
+     "step_title": "Submit the Optimizer Module",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "07ff77dc-bd5e-46a0-b9ab-0e3195c7222b",
+   "stage_title": "Implementing the Optimization Engine",
+   "parent_project_id": "14a2f667-b790-4595-a0e1-4e22cd03bfa8",
+   "stage_description": "Write a modular Python script to implement Stochastic Gradient Descent from scratch. You will apply it to a simple synthetic dataset to visualize the convergence of a linear loss function.",
+   "deliverable_increment": "optimizer.py module containing the SGD class and a convergence visualization plot."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you built your core `SGD` optimizer and visualized its convergence. Now, we shift from predicting continuous house prices to binary classification. In this stage, you will implement Logistic Regression by 'wrapping' your linear logic in a Sigmoid function and applying a Cross-Entropy loss. By the end, you'll have a `linear_models.py` module capable of handling both L1 (Lasso) and L2 (Ridge) regularization to control model complexity.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Explain the importance of the Sigmoid function's differentiability and how its 'S-curve' shape helps the Gradient Descent process compared to a non-smooth step function."
+     },
+     "step_body": "Before we can train, we need to map our linear outputs (wTx + b) to probabilities. Start your `linear_models.py` file by implementing a `sigmoid` helper function and a `cross_entropy_loss` function. Remember that the Cross-Entropy loss should penalize 'confident mistakes' heavily. Why do we prefer the Sigmoid function over a simple linear step function for optimization using the Gradient Descent engine you built earlier?",
+     "step_title": "Implement the Sigmoid and Loss",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, create a `LogisticRegression` class that utilizes your `SGD` optimizer from the previous stage. The class should have a `fit` method to update weights and a `predict_proba` method. Ensure your gradient calculation correctly incorporates the difference between your Sigmoid prediction and the actual label. This is where the 'nudge' happens—if the error is large, the weight update will be more significant.",
+     "step_title": "Build the Logistic Regression class",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify whether L1 or L2 is better for feature selection and explain the geometric intuition (diamond vs. circle) behind why one of them can drive coefficients exactly to zero."
+     },
+     "step_body": "Update your model to support regularization. Implement a 'tax' on the weights by adding L1 (absolute values) and L2 (squared values) terms to your loss gradient. This forces the model to keep weights small. In your code, create a parameter called `penalty` that can switch between 'l1' and 'l2'. Briefly describe: if you have a dataset with 100 features but suspect only 5 are actually useful, which penalty would you choose and why?",
+     "step_title": "Add L1 and L2 penalties",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'linear_models.py' script. Good work will show a clean class structure, proper integration with your SGD optimizer, and correct implementations of both Ridge and Lasso gradients."
+     },
+     "step_body": "It is time to finalize your module. Ensure your script is well-documented and includes your `LogisticRegression` implementation with both L1 and L2 support. This file will serve as a foundational piece of your final repository, allowing you to train robust classifiers that generalize well to unseen data.",
+     "step_title": "Submit linear_models.py",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit a PDF containing a comparative table of L1 vs L2 weights and a 1-2 sentence observation on which method produced more zeros and how the L2 weights were distributed."
+     },
+     "step_body": "For the final part of this stage, run your model on a sample dataset using a high regularization strength (lambda/alpha) for both L1 and L2. Extract the resulting feature weights and organize them into a table. Observe how the coefficients differ between the two methods, specifically looking for 'sparse' weights where the value is zero.",
+     "step_title": "Compare feature weights",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "4dd35d05-af1d-4b21-86d0-257933b9e7d6",
+   "stage_title": "Linear and Regularized Classifiers",
+   "parent_project_id": "14a2f667-b790-4595-a0e1-4e22cd03bfa8",
+   "stage_description": "Build and compare Logistic Regression models with L1 and L2 regularization using the optimization engine created in the previous stage. You will analyze how coefficients change with penalty strength.",
+   "deliverable_increment": "linear_models.py script and a comparative table of L1 vs L2 feature weights."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built the foundation of our project: the manual SGD optimizer and linear classifiers. While linear models are powerful, they struggle with non-linear relationships and high-dimensional noise. This stage takes a massive leap forward by introducing Ensembles. You will build a Random Forest classifier from scratch and implement a rigorous evaluation framework. By the end of this stage, you will have a tool capable of handling the 'messy' data often found in production environments.",
+     "step_title": "Recap and stage orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "Before we can build a forest, we need a single tree. Create a class in a new file named `ensembles.py` that implements a Decision Tree. Focus on the splitting logic: for each node, find the feature and threshold that maximize Information Gain or minimize Gini Impurity. Remember the 'Aha!' moment from the lectures—we are recursively partitioning the data into axis-aligned rectangles. Ensure you include a `max_depth` parameter to prevent the tree from memorizing noise and overfitting your training data.",
+     "step_title": "Implement the Decision Tree logic",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Explain how your RandomForest class combines the outputs of individual trees (e.g., majority voting) and why this helps make the model more stable than a single tree."
+     },
+     "step_body": "Now, implement the `RandomForest` class in `ensembles.py`. A Random Forest is an ensemble of trees where each tree is trained on a bootstrap sample of the data (Bagging) and a random subset of features. This 'wisdom of the crowd' approach reduces variance. Your implementation should allow the user to specify the number of trees (`n_estimators`) and the feature sampling rate. How do you plan to aggregate the predictions from all the individual trees to get the final class label? Briefy explain your aggregation strategy.",
+     "step_title": "Construct the Random Forest",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "To evaluate your model honestly, you must move beyond a simple train-test split. Implement a 5-fold Stratified Cross-Validation loop. This ensures that each fold maintains the same class distribution as the original dataset—crucial for the imbalanced datasets we are targeting. For each fold, you will train your Random Forest and collect performance metrics. This approach provides a distribution of scores, showing you the stability (or volatility) of your model across different data subsets.",
+     "step_title": "Set up Stratified Cross-Validation",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Compare ROC-AUC and PR-AUC. A good response identifies that PR-AUC is generally more sensitive to the performance of the minority class in highly imbalanced scenarios."
+     },
+     "step_body": "Standard accuracy can be misleading if one class is much rarer than the other. In your evaluation suite, calculate the Area Under the Receiver Operating Characteristic curve (ROC-AUC) and the Precision-Recall AUC (PR-AUC). These metrics tell you how well your model distinguishes between classes across different thresholds. Based on your current run, which metric—ROC-AUC or PR-AUC—do you think provides a more 'honest' view of performance on an imbalanced dataset, and why?",
+     "step_title": "Calculate advanced metrics",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit a ZIP file or folder containing ensembles.py and your evaluation_report.pdf. The report must include at least one visualization (ROC or PR curve) and the numerical results of your 5-fold cross-validation."
+     },
+     "step_body": "It is time to finalize the deliverables for this stage. Ensure your `ensembles.py` module is clean and documented. Then, create an `evaluation_report.pdf` that includes your ROC and PR curves, the mean and standard deviation of your 5-fold cross-validation scores, and a brief analysis of your model's hyperparameters (like tree depth). This report serves as evidence that your model is statistically sound and ready for the next stage of our predictive pipeline.",
+     "step_title": "Submit the ensemble and report",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "6d96b09e-f45e-4196-90df-07eb7eb5e026",
+   "stage_title": "Ensemble Building and Model Validation",
+   "parent_project_id": "14a2f667-b790-4595-a0e1-4e22cd03bfa8",
+   "stage_description": "Implement a Random Forest classifier and create a robust evaluation suite using 5-fold cross-validation, PR-AUC, and ROC curves to handle a class-imbalanced dataset.",
+   "deliverable_increment": "ensembles.py and an evaluation_report.pdf summarizing model performance metrics."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you focused on supervised learning—building optimizers, linear models, and ensembles to predict known labels. However, real-world data often lacks labels. This stage introduces Unsupervised Learning, where the goal is discovery. You will build tools to simplify complex datasets using Principal Component Analysis (PCA) and group data into meaningful patterns using k-Means clustering. These tools will ultimately improve your final deliverable by reducing noise and providing high-level features for your production pipeline.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code for your PCA class implementation. I will look for proper data normalization, covariance matrix calculation, and the sorting of eigenvectors by their corresponding eigenvalues to ensure the most significant variance is captured first."
+     },
+     "step_body": "Start by creating a `PCA` class within a new file named `unsupervised_tools.py`. Based on our lecture on dimensionality reduction, your implementation must first normalize the data (mean centering and unit variance scaling). Then, calculate the covariance matrix and use its eigendecomposition to find the principal components. Ensure your class allows the user to specify 'n_components' and provides an attribute for the 'explained_variance_ratio_'.",
+     "step_title": "Implement the PCA class",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code for your KMeans class. Good work will demonstrate a clear 'fit' method containing the expectation-maximization loop and a check for convergence to prevent infinite loops."
+     },
+     "step_body": "Now, add a `KMeans` class to `unsupervised_tools.py`. Implement the iterative logic we discussed: Initialization (choosing 'k' random centroids), Assignment (assigning points to the nearest centroid using Euclidean distance), and Update (recalculating centroids based on the mean of assigned points). The process should repeat until 'convergence'—the point where centroids no longer shift significantly.",
+     "step_title": "Build the k-Means algorithm",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Briefly describe the 'elbow' or 'silhouette' result you found for your dataset. Which value of 'k' did you choose, and what mathematical evidence from your WCSS or Silhouette calculations led you to that choice?"
+     },
+     "step_body": "Before finalizing your clusters, you need to decide how many groups actually exist in your data. Implement the 'Elbow Method' by running your k-Means algorithm for a range of k values (e.g., 1 to 10) and calculating the Within-Cluster Sum of Squares (WCSS) for each. Alternatively, implement a Silhouette Score calculation to measure how well-separated your clusters are.",
+     "step_title": "Determine optimal k",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your 2D cluster visualization plot. A high-quality submission will show clearly separated color groups with centroids positioned at the center of each density of points."
+     },
+     "step_body": "The final part of this stage is to visualize your results. Use your PCA class to reduce a high-dimensional dataset (like the Iris or Wine dataset) down to 2 principal components. Then, run your k-Means algorithm on this 2D data and generate a scatter plot where the points are colored by their cluster assignment and the centroids are clearly marked (e.g., with a large 'X').",
+     "step_title": "Visualize the clusters",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your final 'unsupervised_tools.py' script. It should contain both the PCA and KMeans classes, follow PEP 8 style guidelines, and include a main block or example usage that demonstrates the tool on a sample dataset."
+     },
+     "step_body": "Clean up your code and ensure `unsupervised_tools.py` is well-documented and modular. This script is a core part of your final repository, allowing any user to pass in a raw dataset and receive reduced features and cluster labels in return. Reflect on how these unsupervised features might help the Random Forest or Neural Network models you've built or will build in the future.",
+     "step_title": "Final script submission",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "12d29fce-f530-45d1-9e73-4e563de3257d",
+   "stage_title": "Unsupervised Feature Engineering",
+   "parent_project_id": "14a2f667-b790-4595-a0e1-4e22cd03bfa8",
+   "stage_description": "Apply PCA and k-Means clustering to a high-dimensional dataset to identify hidden patterns and reduce dimensionality before feeding data into your supervised models.",
+   "deliverable_increment": "unsupervised_tools.py script and a 2D cluster visualization plot."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built the core foundations of machine learning: a custom optimization engine, linear classifiers, and ensemble methods. While those models are powerful, they often reach a performance ceiling on complex, non-linear data. Now, we bridge the gap into deep learning by evolving your Unit 2 linear logic into a Multi-Layer Perceptron (MLP). In this stage, you will implement a modular neural network from scratch to complete your project's technical library.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief plan for your MLP architecture. Mention the number of hidden layers, the number of neurons in those layers, and justify your choice based on the complexity of the datasets we've used so far."
+     },
+     "step_body": "Start by outlining the structure of your `neural_net.py` module. You'll need a class-based structure that can handle an input layer, hidden layers with non-linear activations, and an output layer. Based on our sessions, we know that for a 3-class classification problem (which we will test on), your output layer needs three nodes. Briefly describe how you will handle the 'feature transformation' space in your hidden layers—specifically, how many hidden neurons do you plan to use and why?",
+     "step_title": "Define the network architecture",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, write the code for the forward pass. You must implement the 'Standard Recipe' discussed in class: use ReLU for your hidden layers to ensure healthy gradient flow and prevent the vanishing gradient problem, and use Softmax for your final layer to generate class probabilities. In your code, ensure you include a bias term for each neuron to act as the 'inherent threshold' for firing.",
+     "step_title": "Implement forward pass and activations",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "This is the 'blame game' of your model. Implement the backpropagation algorithm using the chain rule. You must calculate the partial derivatives of the loss with respect to each weight and bias, moving from the output layer back to the input. Remember, backpropagation only calculates these gradients—you will use your `optimizer.py` from Stage 1 to actually perform the weight updates.",
+     "step_title": "Code the backpropagation engine",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "To make your model 'production-ready', you must implement regularization. Add a Dropout layer that randomly deactivates neurons during training to prevent over-reliance on specific features. Additionally, implement Early Stopping logic: monitor the validation loss and halt training when it stops improving. This ensures your final deliverable doesn't overfit.",
+     "step_title": "Integrate Dropout and Early Stopping",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'neural_net.py' file and a text file containing your training logs. Good work will demonstrate a functional MLP class with ReLU/Softmax, a working backpropagation loop, and evidence that Dropout or Early Stopping was utilized during the training run."
+     },
+     "step_body": "It's time to finalize this deliverable. Train your MLP on the same dataset used for your Random Forest in Stage 3. Capture the training logs showing the loss decreasing over epochs and note where Early Stopping triggered. Compare the final accuracy of this neural network against your previous ensemble models.",
+     "step_title": "Submit neural_net.py and logs",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a short reflection (3-4 sentences) explaining the impact of non-linearity on your model's performance and decision boundaries."
+     },
+     "step_body": "Now that you've seen the MLP in action, think back to the 'aha' moment from our session. How did the addition of non-linear activation functions (ReLU) change the model's ability to classify data compared to the simple linear models you built in Stage 2?",
+     "step_title": "Reflect on non-linearity",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "e97e03da-02db-49ff-a804-5f72b7f50dcc",
+   "stage_title": "Deep Learning Integration",
+   "parent_project_id": "14a2f667-b790-4595-a0e1-4e22cd03bfa8",
+   "stage_description": "Develop a Multi-Layer Perceptron using backpropagation and compare its performance against the ensemble models from Unit 3. You will implement Dropout and Early Stopping.",
+   "deliverable_increment": "neural_net.py module containing the MLP architecture and training logs."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have successfully built the core algorithmic components of your ML library, from the foundational SGD optimizer to a multi-layer perceptron. However, in a production environment, a model is not just a standalone file; it is part of a living system. This final stage focuses on MLOps—turning your deep learning model into a deployment-ready pipeline. We will move beyond static training and implement a 'conveyor belt' that handles live data and monitors for 'Training-Serving Skew,' ensuring your system remains reliable long after the initial training is done.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "Start by creating a file named `deploy_pipeline.py`. This script should serve as the entry point for your system. It needs to load your trained `neural_net.py` model and provide a clean `predict(input_data)` function. Think back to the 'Machine Learning as a System' lecture: your pipeline must handle the transformation of raw inputs into the specific numerical format your MLP expects. This ensures that the 'contract' between your data and your model remains intact during inference.",
+     "step_title": "Draft the deployment wrapper",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (2-4 sentences) of how your drift detection logic identifies 'Training-Serving Skew' and why this is safer than simply checking if the model returns an error."
+     },
+     "step_body": "Real-world data changes over time, a phenomenon known as data drift. Within `deploy_pipeline.py`, implement a class or function that compares the distribution of incoming live features against the training set statistics you saved earlier. For example, if a feature’s mean shifts by more than two standard deviations, your system should flag a 'Drift Alert.' Why is this important for the structural integrity of your pipeline? Briefly explain how detecting a change in input units (e.g., kilograms to pounds) prevents a silent failure of your MLP.",
+     "step_title": "Implement drift detection",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, let's visualize the health of your system. Create a mock-up file named `monitoring_dashboard.html`. This doesn't need a live backend, but it should represent the UI an engineer would use to monitor the pipeline. Include placeholders for: 1) Real-time prediction latency, 2) Model accuracy (if labels are available), and 3) A visualization of feature distribution shifts. Think of this as the 'heartbeat' monitor for your model-as-a-service.",
+     "step_title": "Design the monitoring dashboard",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a ZIP file containing 'deploy_pipeline.py' and 'monitoring_dashboard.html'. The pipeline code should demonstrate a clear path from raw input to prediction with a drift-check step included. The dashboard should clearly label the key MLOps metrics discussed (latency, drift, and throughput)."
+     },
+     "step_body": "It is time to assemble the final pieces. Ensure your `deploy_pipeline.py` correctly integrates the neural network and the drift detection logic, and that your `monitoring_dashboard.html` accurately reflects the metrics needed to maintain a production system. Your repository is now a complete end-to-end ecosystem, moving from raw optimization to robust real-world deployment.",
+     "step_title": "Final pipeline submission",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "243d3f0d-d2f5-43c1-812e-f2fad94d3ee9",
+   "stage_title": "Production Pipeline and Drift Detection",
+   "parent_project_id": "14a2f667-b790-4595-a0e1-4e22cd03bfa8",
+   "stage_description": "Wrap the final model into a deployment-ready pipeline that includes a data drift detection script to monitor changes in input feature distributions.",
+   "deliverable_increment": "deploy_pipeline.py and a monitoring_dashboard.html mock-up."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "14a2f667-b790-4595-a0e1-4e22cd03bfa8",
+   "project_name": "End-to-End Predictive Pipeline: From Foundations to Deep Learning",
+   "final_deliverable": "A comprehensive Python repository containing a modular ML library (including manual Gradient Descent, Random Forest, and Neural Network implementations), an evaluation report across three diverse datasets, and a deployment script with data-drift monitoring features.",
+   "project_description": "In this project, you will build a complete machine learning system from the ground up. You will start by implementing foundational optimization logic, then move through building supervised classifiers and unsupervised discovery tools, finally capping it off with a neural network architecture and a production-ready monitoring pipeline."
+  }
+ ],
+ "courseUuid": "85cfcf43-a163-4ee3-a561-2a3c12a8b1ad"
+}

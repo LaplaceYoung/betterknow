@@ -1,0 +1,1368 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Assessment: Core AI Foundations",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the primary characteristics distinguishes a 'Cognitive Mimicry' system from 'Deterministic Automation'?",
+     "options": [
+      "The ability to perform calculations faster than a human could",
+      "The use of high-speed hardware to execute pre-written scripts",
+      "The capacity to adapt to unstructured data and interpret context",
+      "The requirement of a human to manually encode every possible 'if-then' rule"
+     ],
+     "explanation": "Deterministic automation relies on rigid, pre-defined rules, whereas cognitive mimicry focuses on performing tasks like humans do—by interpreting context and handling unexpected scenarios.",
+     "correctAnswers": [
+      "The capacity to adapt to unstructured data and interpret context"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Comparison diagram between static rules and pattern-based learning.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit1-q2.png"
+     },
+     "prompt": "In the context of the course, which of the following scenarios are examples of 'Machine Learning' rather than simple 'Rule-Based' automation?",
+     "options": [
+      "A tax calculator using a lookup table for government-defined brackets",
+      "A credit card fraud detector that identifies spending deviations based on historical data",
+      "An email filter that routes messages based on a fixed list of 50 keywords",
+      "A system that adjusts its internal parameters to better predict spam over time",
+      "A program that calculates the exact area of a circle using the formula πr²"
+     ],
+     "explanation": "Machine Learning involves finding statistical patterns and adjusting parameters based on data. The tax calculator, keyword list, and geometry formula are all examples of rigid, human-defined rules.",
+     "correctAnswers": [
+      "A credit card fraud detector that identifies spending deviations based on historical data",
+      "A system that adjusts its internal parameters to better predict spam over time"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "What is the 'AI Effect' mentioned in the course material?",
+     "options": [
+      "The tendency to view AI as magical and beyond human comprehension",
+      "The observation that AI systems eventually replace all human labor",
+      "The tendency to redefine AI as 'dull automation' once its mechanism is understood",
+      "The phenomenon where AI models become smarter as they receive more data"
+     ],
+     "explanation": "The 'AI Effect' occurs when we strip away the 'intelligence' label from a system simply because we have demystified how the underlying math or code works.",
+     "correctAnswers": [
+      "The tendency to redefine AI as 'dull automation' once its mechanism is understood"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram of AI filling in pixel data for a clearer photograph.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit1-q4.png"
+     },
+     "prompt": "When a smartphone camera performs 'predictive reconstruction' on a low-light photo, which actions is it taking?",
+     "options": [
+      "Taking a single exposure through high-quality glass lenses",
+      "Filling in missing pixels based on learned color gradients",
+      "Denoising dark areas by matching sensor data with known patterns",
+      "Manually adjusting the physical aperture based on a rule-book",
+      "Using a deep learning model to predict what a steady scene should look like"
+     ],
+     "explanation": "Modern smartphones act as 'painting engines,' using AI to reconstruct images from multiple exposures rather than just acting as passive light collectors.",
+     "correctAnswers": [
+      "Filling in missing pixels based on learned color gradients",
+      "Denoising dark areas by matching sensor data with known patterns",
+      "Using a deep learning model to predict what a steady scene should look like"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "In an AI model, what is a 'Feature'?",
+     "options": [
+      "A specific line of code that executes an if-then command",
+      "A numerical representation of a real-world trait, like height or color",
+      "The final output or prediction made by the algorithm",
+      "The graphical user interface that the student interacts with"
+     ],
+     "explanation": "Features are the 'mathematical translations' of physical reality that allow a model to process data as numbers (vectors).",
+     "correctAnswers": [
+      "A numerical representation of a real-world trait, like height or color"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "Which of these are characteristics of 'Rule-Based' systems?",
+     "options": [
+      "They rely on statistical correlation engines",
+      "They use human-written 'if-then' statements",
+      "They are best for tasks where the rules are rigid and well-defined",
+      "They can easily handle unexpected scenarios without manual updates",
+      "They fail when faced with the messy complexity of real-world language nuances"
+     ],
+     "explanation": "Rule-based systems are deterministic and require humans to encode every rule, making them brittle in complex, changing environments.",
+     "correctAnswers": [
+      "They use human-written 'if-then' statements",
+      "They are best for tasks where the rules are rigid and well-defined",
+      "They fail when faced with the messy complexity of real-world language nuances"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "How does a recommendation engine (like Netflix) determine what a user might like?",
+     "options": [
+      "By using a critic to watch every movie and assign a quality score",
+      "By asking the user to write a detailed essay on their preferences",
+      "By finding mathematical overlaps in behaviors between different users",
+      "By selecting the most popular movie globally regardless of user history"
+     ],
+     "explanation": "Recommendation engines use 'vector overlaps' of user behaviors rather than a human-like understanding of content quality.",
+     "correctAnswers": [
+      "By finding mathematical overlaps in behaviors between different users"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "According to the course, what are the primary 'knobs' in an AI model's predictive equation called?",
+     "options": [
+      "Static Rules",
+      "Weights",
+      "Multipliers",
+      "Inputs",
+      "Parameters"
+     ],
+     "explanation": "The course describes the 'predictive equation' as having mystery multipliers or 'weights' that are tuned during the learning process.",
+     "correctAnswers": [
+      "Weights",
+      "Multipliers"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "Which of these tasks would be considered 'Cognitive Mimicry'?",
+     "options": [
+      "Alphabetizing a list of names",
+      "Summing a column of numbers in a spreadsheet",
+      "Detecting if a customer's email is sarcastic",
+      "Storing a file in a specific folder based on its extension"
+     ],
+     "explanation": "Sarcasm detection requires interpretation of tone and context, which are human-like cognitive tasks, unlike the other purely mechanical sorting or calculation tasks.",
+     "correctAnswers": [
+      "Detecting if a customer's email is sarcastic"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "What happens during the 'Learning' process of an AI model?",
+     "options": [
+      "A human programmer writes new 'if-then' code for every error",
+      "The algorithm adjusts its internal parameters to minimize error",
+      "The system discovers the 'recipe' or relationship between inputs and outputs",
+      "The computer begins to feel and see the objects it is processing",
+      "The model finds the perfect numerical values for its 'weights'"
+     ],
+     "explanation": "Learning is the automated process of parameter adjustment to match historical data, effectively 'discovering' the recipe that relates features to results.",
+     "correctAnswers": [
+      "The algorithm adjusts its internal parameters to minimize error",
+      "The system discovers the 'recipe' or relationship between inputs and outputs",
+      "The model finds the perfect numerical values for its 'weights'"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "Why do traditional 'Rule-Based' spam filters fail when spammers change 'free' to 'fr33'?",
+     "options": [
+      "The computer's processor is too slow to read symbols",
+      "The rules rely on exact matches and lack the adaptability to recognize patterns",
+      "The internet connection is usually interrupted by spammers",
+      "Rule-based systems are only designed to read numbers, not letters"
+     ],
+     "explanation": "Rule-based systems are rigid; if a specific string isn't in the rules, the system cannot 'guess' its meaning based on similarity.",
+     "correctAnswers": [
+      "The rules rely on exact matches and lack the adaptability to recognize patterns"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "image": {
+      "alt": "Illustration of common everyday AI applications.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit1-q12.png"
+     },
+     "prompt": "Which daily digital experiences are driven by 'Predictive Mechanisms' rather than just static software?",
+     "options": [
+      "A mapping app routing around sudden traffic",
+      "A search bar autocomplete suggesting the next word",
+      "An e-commerce site dynamically pricing items",
+      "A calculator adding 5 + 5",
+      "A clock app displaying the current time"
+     ],
+     "explanation": "Traffic routing, autocomplete, and dynamic pricing all require predicting outcomes or sequences based on changing data patterns.",
+     "correctAnswers": [
+      "A mapping app routing around sudden traffic",
+      "A search bar autocomplete suggesting the next word",
+      "An e-commerce site dynamically pricing items"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "How does the course describe the difference between Machine Learning and Generative AI?",
+     "options": [
+      "Machine Learning creates data, while Generative AI only analyzes it",
+      "Machine Learning is for images, while Generative AI is for text only",
+      "Machine Learning is analytical (answering questions), while Generative AI is productive (creating content)",
+      "There is no difference; they are two names for the same thing"
+     ],
+     "explanation": "Machine Learning typically analyzes and classifies data (Is this a dog?), whereas Generative AI uses those patterns to create new data (Draw a dog).",
+     "correctAnswers": [
+      "Machine Learning is analytical (answering questions), while Generative AI is productive (creating content)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which elements are required to transform a physical 'Apple' into an AI-ready 'Model'?",
+     "options": [
+      "Selection of 'Features' (e.g., weight, firmness)",
+      "Translation of traits into numerical 'Vectors'",
+      "Physical placement of the apple inside the computer",
+      "Defining a predictive equation with adjustable 'Weights'",
+      "A human-written recipe for every specific apple variety"
+     ],
+     "explanation": "To model an object, we must extract features, digitize them into vectors, and use a weighted equation to make predictions.",
+     "correctAnswers": [
+      "Selection of 'Features' (e.g., weight, firmness)",
+      "Translation of traits into numerical 'Vectors'",
+      "Defining a predictive equation with adjustable 'Weights'"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the core goal of Artificial Intelligence according to the course?",
+     "options": [
+      "Building robots that look exactly like humans",
+      "Creating systems that mimic human-like cognitive tasks",
+      "Replacing all human programmers with automated code",
+      "Making computers faster at basic arithmetic"
+     ],
+     "explanation": "AI is defined by its objective: to replicate cognitive tasks such as reasoning, perception, and intuition.",
+     "correctAnswers": [
+      "Creating systems that mimic human-like cognitive tasks"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Adjust the model to correctly identify a fruit based on its features. If 'Weight' is the input, how should the model reach the 'Sweetness' output?",
+     "options": [
+      "Apply a Weight of 0.1",
+      "Apply a Weight of 0.5",
+      "Apply a Weight of 0.9",
+      "Apply a Weight of 1.5"
+     ],
+     "explanation": "In an AI model, 'learning' is the process of finding the numerical value (weight) that balances the equation to match the data. Here, a higher weight correctly correlates the input feature to the output.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Balancing Scale Model</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 500px;\n      margin: 0 auto;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 12px;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      width: 100%;\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 8px;\n      border: 1px solid var(--border);\n      position: relative;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n    }\n\n    /* Scale parts transitions */\n    .scale-beam, .scale-pan-left, .scale-pan-right, .scale-string-left, .scale-string-right {\n      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);\n      transform-origin: 200px 100px;\n    }\n\n    /* Keeping the pans horizontal while beam tilts */\n    .scale-pan-left {\n      transform-origin: 80px 100px;\n    }\n    .scale-pan-right {\n      transform-origin: 320px 100px;\n    }\n\n    /* Control Panel */\n    .controls {\n      width: 100%;\n      background: var(--surface);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 10px;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n    }\n\n    .dial-label {\n      font-size: 13px;\n      font-weight: 600;\n      color: var(--fg);\n      display: flex;\n      align-items: center;\n      gap: 6px;\n    }\n\n    .dial-container {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      width: 100%;\n      max-width: 320px;\n      position: relative;\n      padding: 0 10px;\n    }\n\n    .dial-track {\n      position: absolute;\n      top: 50%;\n      left: 10px;\n      right: 10px;\n      height: 6px;\n      background: var(--stage);\n      border-radius: 3px;\n      transform: translateY(-50%);\n      z-index: 1;\n    }\n\n    .dial-progress {\n      position: absolute;\n      top: 50%;\n      left: 10px;\n      height: 6px;\n      background: var(--accent);\n      border-radius: 3px;\n      transform: translateY(-50%);\n      z-index: 1;\n      width: 0%;\n      transition: width 0.25s ease;\n    }\n\n    .dial-stop {\n      width: 32px;\n      height: 32px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 2px solid var(--border);\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 11px;\n      font-weight: 700;\n      color: var(--muted-fg);\n      cursor: pointer;\n      position: relative;\n      z-index: 2;\n      transition: all 0.2s ease;\n    }\n\n    .dial-stop:hover {\n      border-color: var(--accent);\n      color: var(--fg);\n      transform: scale(1.05);\n    }\n\n    .dial-stop.active {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n      color: var(--accent-strong);\n      box-shadow: 0 0 0 4px rgba(76, 102, 150, 0.15);\n      transform: scale(1.1);\n    }\n\n    .hint-text {\n      font-size: 11px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: -2px;\n    }\n\n    /* Focus ring for accessibility */\n    .dial-stop:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Balancing Scale Multiplier Adjuster</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 180\" aria-hidden=\"true\">\n        <!-- Stand Base -->\n        <path d=\"M 170 160 L 230 160 L 210 100 L 190 100 Z\" fill=\"#cfcbc4\" />\n        <rect x=\"195\" y=\"60\" width=\"10\" height=\"50\" fill=\"#a8a299\" />\n        <circle cx=\"200\" cy=\"100\" r=\"6\" fill=\"#7a746b\" />\n\n        <!-- Balanced Pivot Point -->\n        <g class=\"scale-beam\" id=\"scaleBeam\">\n          <!-- Main Beam -->\n          <line x1=\"80\" y1=\"100\" x2=\"320\" y2=\"100\" stroke=\"#7a746b\" stroke-width=\"4\" stroke-linecap=\"round\" />\n          <circle cx=\"200\" cy=\"100\" r=\"8\" fill=\"#4c473e\" />\n          \n          <!-- Hooks -->\n          <circle cx=\"80\" cy=\"100\" r=\"3\" fill=\"#4c473e\" />\n          <circle cx=\"320\" cy=\"100\" r=\"3\" fill=\"#4c473e\" />\n        </g>\n\n        <!-- Left Pan (Weight / Color Features) -->\n        <g class=\"scale-string-left\" id=\"scaleStringLeft\">\n          <line x1=\"80\" y1=\"100\" x2=\"60\" y2=\"135\" stroke=\"#a8a299\" stroke-width=\"1.5\" />\n          <line x1=\"80\" y1=\"100\" x2=\"100\" y2=\"135\" stroke=\"#a8a299\" stroke-width=\"1.5\" />\n        </g>\n        <g class=\"scale-pan-left\" id=\"scalePanLeft\">\n          <path d=\"M 50 135 L 110 135 A 30 30 0 0 0 50 135\" fill=\"#e8e5df\" stroke=\"#7a746b\" stroke-width=\"2\" />\n          <!-- Features Cargo (Blocks representing inputs) -->\n          <rect x=\"65\" y=\"118\" width=\"14\" height=\"14\" rx=\"2\" fill=\"#4C6696\" opacity=\"0.8\" />\n          <rect x=\"81\" y=\"118\" width=\"14\" height=\"14\" rx=\"2\" fill=\"#718BB8\" opacity=\"0.8\" />\n          <rect x=\"73\" y=\"104\" width=\"14\" height=\"14\" rx=\"2\" fill=\"#99AED3\" opacity=\"0.8\" />\n          <text x=\"80\" y=\"152\" font-size=\"9\" font-weight=\"bold\" fill=\"#555\" text-anchor=\"middle\">Features</text>\n        </g>\n\n        <!-- Right Pan (Sweetness Prediction) -->\n        <g class=\"scale-string-right\" id=\"scaleStringRight\">\n          <line x1=\"320\" y1=\"100\" x2=\"300\" y2=\"135\" stroke=\"#a8a299\" stroke-width=\"1.5\" />\n          <line x1=\"320\" y1=\"100\" x2=\"340\" y2=\"135\" stroke=\"#a8a299\" stroke-width=\"1.5\" />\n        </g>\n        <g class=\"scale-pan-right\" id=\"scalePanRight\">\n          <path d=\"M 290 135 L 350 135 A 30 30 0 0 0 290 135\" fill=\"#e8e5df\" stroke=\"#7a746b\" stroke-width=\"2\" />\n          <!-- Sweetness Cargo (Donut / Candy shapes representing output prediction) -->\n          <circle cx=\"320\" cy=\"120\" r=\"11\" fill=\"#E49E9E\" />\n          <circle cx=\"320\" cy=\"120\" r=\"4\" fill=\"#faf9f7\" />\n          <text x=\"320\" y=\"152\" font-size=\"9\" font-weight=\"bold\" fill=\"#555\" text-anchor=\"middle\">Sweetness</text>\n        </g>\n      </svg>\n    </div>\n\n    <div class=\"controls\">\n      <div class=\"dial-label\">\n        <span>Multiplier A (Weight):</span>\n        <span id=\"multiplierValue\" style=\"color: var(--accent); font-weight: bold; font-variant-numeric: tabular-nums;\">0.1</span>\n      </div>\n\n      <div class=\"dial-container\" id=\"dialContainer\" role=\"radiogroup\" aria-label=\"Select Multiplier Weight\">\n        <div class=\"dial-track\"></div>\n        <div class=\"dial-progress\" id=\"dialProgress\"></div>\n        \n        <button class=\"dial-stop\" data-val=\"0.1\" data-index=\"0\" role=\"radio\" aria-checked=\"false\" aria-label=\"Apply a Weight of 0.1\">0.1</button>\n        <button class=\"dial-stop\" data-val=\"0.5\" data-index=\"1\" role=\"radio\" aria-checked=\"false\" aria-label=\"Apply a Weight of 0.5\">0.5</button>\n        <button class=\"dial-stop\" data-val=\"0.9\" data-index=\"2\" role=\"radio\" aria-checked=\"false\" aria-label=\"Apply a Weight of 0.9\">0.9</button>\n        <button class=\"dial-stop\" data-val=\"1.5\" data-index=\"3\" role=\"radio\" aria-checked=\"false\" aria-label=\"Apply a Weight of 1.5\">1.5</button>\n      </div>\n    </div>\n\n    <div class=\"hint-text\">Adjust Multiplier A to scale the features and balance the prediction</div>\n  </div>\n\n  <script>\n    // State\n    const options = [\n      \"Apply a Weight of 0.1\",\n      \"Apply a Weight of 0.5\",\n      \"Apply a Weight of 0.9\",\n      \"Apply a Weight of 1.5\"\n    ];\n    let selectedIndex = -1;\n    let isLocked = false;\n\n    // DOM Elements\n    const beam = document.getElementById('scaleBeam');\n    const panLeft = document.getElementById('scalePanLeft');\n    const panRight = document.getElementById('scalePanRight');\n    const stringLeft = document.getElementById('scaleStringLeft');\n    const stringRight = document.getElementById('scaleStringRight');\n    \n    const dialStops = document.querySelectorAll('.dial-stop');\n    const dialProgress = document.getElementById('dialProgress');\n    const multiplierValue = document.getElementById('multiplierValue');\n\n    // Mappings of values to tilts (angles in degrees)\n    // 0.1: Left is extremely light, tilts far right (Sweetness prediction sinks)\n    // 0.5: Left is light, tilts slightly right\n    // 0.9: Perfectly balanced (0 degrees)\n    // 1.5: Left is heavy, tilts left\n    const tilts = {\n      \"0.1\": 15,\n      \"0.5\": 7,\n      \"0.9\": 0,\n      \"1.5\": -12\n    };\n\n    const progressWidths = [\"0%\", \"33.33%\", \"66.66%\", \"100%\"];\n\n    // Update Scale Angle & Positions\n    function updateVisuals(val, index) {\n      const angle = tilts[val];\n      \n      // Rotate beam\n      beam.style.transform = `rotate(${angle}deg)`;\n      \n      // Calculate pan offsets so they hang straight down\n      // Standard geometry offset to cancel rotation\n      const rad = (angle * Math.PI) / 180;\n      const dx = 120 * (1 - Math.cos(rad));\n      const dy = 120 * Math.sin(rad);\n\n      // Left pan hang position\n      panLeft.style.transform = `translate(${-dx}px, ${dy}px) rotate(${-angle}deg)`;\n      stringLeft.style.transform = `rotate(${angle}deg)`;\n\n      // Right pan hang position\n      panRight.style.transform = `translate(${dx}px, ${-dy}px) rotate(${-angle}deg)`;\n      stringRight.style.transform = `rotate(${angle}deg)`;\n\n      // Update Slider UI\n      dialProgress.style.width = progressWidths[index];\n      multiplierValue.textContent = val;\n\n      dialStops.forEach((stop, i) => {\n        if (i === index) {\n          stop.classList.add('active');\n          stop.setAttribute('aria-checked', 'true');\n        } else {\n          stop.classList.remove('active');\n          stop.setAttribute('aria-checked', 'false');\n        }\n      });\n    }\n\n    // Handle Selection\n    function selectIndex(index) {\n      if (isLocked || index < 0 || index >= options.length) return;\n      selectedIndex = index;\n      const stop = dialStops[index];\n      const val = stop.getAttribute('data-val');\n      \n      updateVisuals(val, index);\n\n      // Report answer to parent\n      try {\n        parent.postMessage({\n          type: 'hk-practice-answer',\n          value: options[selectedIndex]\n        }, '*');\n      } catch(e) {}\n    }\n\n    // Event Listeners\n    dialStops.forEach((stop, index) => {\n      stop.addEventListener('click', () => selectIndex(index));\n      \n      // Keyboard support\n      stop.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n          e.preventDefault();\n          selectIndex((index + 1) % options.length);\n          dialStops[(index + 1) % options.length].focus();\n        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n          e.preventDefault();\n          selectIndex((index - 1 + options.length) % options.length);\n          dialStops[(index - 1 + options.length) % options.length].focus();\n        }\n      });\n    });\n\n    // Handle Incoming Messages\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.querySelector('.controls').classList.add('disabled');\n        dialStops.forEach(stop => stop.setAttribute('tabindex', '-1'));\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        parent.postMessage({\n          type: 'hk-anim-height',\n          height: Math.ceil(document.documentElement.getBoundingClientRect().height)\n        }, '*');\n      } catch(e) {}\n    }\n\n    window.addEventListener('load', () => {\n      reportHeight();\n      // Start slightly off-balance (0.1) as default visual but report nothing yet until user interacts\n      updateVisuals(\"0.1\", 0);\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Apply a Weight of 0.9"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Assessment: Language Mechanics and Generation",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Why is sub-word tokenization preferred over word-level tokenization in modern AI models?",
+     "options": [
+      "It treats 'Incredibly,' and 'Incredibly' as the exact same mathematical unit.",
+      "It allows the model to handle rare or complex words by breaking them into familiar roots and affixes.",
+      "It speeds up processing by assigning a single number to every unique letter.",
+      "It reduces the need for vector embeddings by providing semantic meaning directly."
+     ],
+     "explanation": "Sub-word tokenization strikes a balance: it prevents the vocabulary from blowing up (unlike word-level) and preserves semantic units better than character-level tokenization.",
+     "correctAnswers": [
+      "It allows the model to handle rare or complex words by breaking them into familiar roots and affixes."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the conversion of tokens to numerical IDs?",
+     "options": [
+      "The initial ID assignment is usually arbitrary based on the tokenizer's dictionary order.",
+      "Similar sounding words are automatically assigned sequential ID numbers.",
+      "Numerical IDs allow computers to perform the mathematical calculations required for AI.",
+      "A token's ID number directly represents its semantic meaning in 3D space.",
+      "The ID for 'cat' plus the ID for 'mat' will likely equal the ID for 'dog'."
+     ],
+     "explanation": "IDs are just lookup keys in a table; semantic relationships are established later in the vector embedding stage, not during the initial ID assignment.",
+     "correctAnswers": [
+      "The initial ID assignment is usually arbitrary based on the tokenizer's dictionary order.",
+      "Numerical IDs allow computers to perform the mathematical calculations required for AI."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In standard English text processing, a common rule of thumb is that 100 words typically translate to approximately ____ tokens.",
+     "explanation": "Because tokenizers break complex words into sub-units and treat punctuation as distinct tokens, the token count is usually about 30% higher than the word count.",
+     "placeholder": "Enter a number",
+     "correctAnswers": [
+      "130"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "A 2D vector space diagram showing parallel semantic relationships between gender and royalty.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit2-q4.png"
+     },
+     "prompt": "In a 2D semantic embedding space where one axis is 'Gender' and the other is 'Royalty', what geometric relationship would you expect to see?",
+     "options": [
+      "The points for 'Apple' and 'Orange' would be far apart.",
+      "The vector from 'Man' to 'King' would be similar in direction and length to the vector from 'Woman' to 'Queen'.",
+      "The distance between 'King' and 'Queen' would be the maximum possible value.",
+      "All words related to 'Royalty' would have the exact same coordinates on the 'Gender' axis."
+     ],
+     "explanation": "Embeddings capture analogies through consistent directional shifts (vectors); the 'royalty' shift applies similarly to both genders.",
+     "correctAnswers": [
+      "The vector from 'Man' to 'King' would be similar in direction and length to the vector from 'Woman' to 'Queen'."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When a conversation exceeds the 'Context Window' limit of an LLM, what happens to the oldest tokens?",
+     "options": [
+      "They become slightly 'hazy' or less accurate but remain influential.",
+      "They are completely erased from the current computational pass.",
+      "They are mathematically zeroed out of the attention mechanism.",
+      "They are automatically summarized into a single 'memory' token.",
+      "The model ignores them to prioritize the most recent input."
+     ],
+     "explanation": "The context window cutoff is binary and abrupt. Once a token is outside the window, the model has 'absolute amnesia' regarding that specific data.",
+     "correctAnswers": [
+      "They are completely erased from the current computational pass.",
+      "They are mathematically zeroed out of the attention mechanism.",
+      "The model ignores them to prioritize the most recent input."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If a user sets a persona in the first message but then pastes 5,000 tokens of data into a model with a 4,000-token limit, the model will likely drop the persona because of ____.",
+     "explanation": "When the context window slides to accommodate new text, the oldest tokens (the persona instructions) are pushed out and forgotten.",
+     "placeholder": "Reason for forgetting",
+     "correctAnswers": [
+      "context overflow",
+      "absolute amnesia",
+      "window sliding",
+      "token limits"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary function of a Large Language Model during the generation phase?",
+     "options": [
+      "To think about the user's intent and formulate a logical plan.",
+      "To search a database for the best pre-written response.",
+      "To calculate the probability of and predict the single next token in a sequence.",
+      "To translate human emotions into mathematical coordinates."
+     ],
+     "explanation": "LLMs are statistical correlation calculators that predict tokens one by one based on the preceding context.",
+     "correctAnswers": [
+      "To calculate the probability of and predict the single next token in a sequence."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which statements accurately describe 'semantic space' in an AI model?",
+     "options": [
+      "It uses hundreds or thousands of dimensions to represent meaning.",
+      "Dimensions are usually labeled with human names like 'Color' or 'Size'.",
+      "Physical distance between points represents semantic similarity.",
+      "Words that are unrelated are placed close together to create contrast."
+     ],
+     "explanation": "While we use 2D/3D examples to learn, real models use high-dimensional spaces where distance always maps to meaning.",
+     "correctAnswers": [
+      "It uses hundreds or thousands of dimensions to represent meaning.",
+      "Physical distance between points represents semantic similarity."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The process of turning raw text into standardized blocks or fragments is known as ____.",
+     "explanation": "Tokenization is the critical first step that breaks text into units the computer can eventually turn into numbers.",
+     "placeholder": "Process name",
+     "correctAnswers": [
+      "tokenization"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In the sentence 'Incredibly, it's working!', how would a sub-word tokenizer likely treat the punctuation?",
+     "options": [
+      "It would ignore it to save space.",
+      "It would merge it with the word 'Incredibly' into one token.",
+      "It would treat it as a distinct, atomic semantic piece.",
+      "It would convert it into a space."
+     ],
+     "explanation": "Sub-word tokenizers preserve punctuation as separate tokens to maintain the grammatical structure of the sentence.",
+     "correctAnswers": [
+      "It would treat it as a distinct, atomic semantic piece."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Identify the sub-word fragments likely to be generated from the word 'outstandingly'.",
+     "options": [
+      "out",
+      "stand",
+      "ing",
+      "ly",
+      "outs"
+     ],
+     "explanation": "Sub-word tokenizers break complex words into their constituent roots and suffixes to maximize the use of a finite vocabulary.",
+     "correctAnswers": [
+      "out",
+      "stand",
+      "ing",
+      "ly"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In an embedding space, if 'banana', 'apple', and 'orange' are grouped together, they are said to have high ____ similarity.",
+     "explanation": "Semantic similarity is the measure of how close two words are in terms of their meaning, represented by distance in vector space.",
+     "placeholder": "Type of similarity",
+     "correctAnswers": [
+      "semantic",
+      "cosine",
+      "vector"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why can't a computer do meaningful math on raw Token IDs (like 101 + 102)?",
+     "options": [
+      "The IDs are too large for standard processors.",
+      "The IDs are arbitrary categorical labels, not semantic measurements.",
+      "The IDs change every time the model is turned on.",
+      "Addition is not a valid operation in NLP."
+     ],
+     "explanation": "IDs are just index markers. You need vector embeddings to turn these markers into coordinates where math actually reflects meaning.",
+     "correctAnswers": [
+      "The IDs are arbitrary categorical labels, not semantic measurements."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of these are practical strategies for managing context limits in a long chat?",
+     "options": [
+      "System prompt pinning",
+      "Using character-level tokenization",
+      "Conversation summarization",
+      "Increasing the model's temperature",
+      "Discarding middle-turn details"
+     ],
+     "explanation": "Since context is a finite resource, developers use strategies to keep the most relevant info (like instructions or summaries) in the window.",
+     "correctAnswers": [
+      "System prompt pinning",
+      "Conversation summarization",
+      "Discarding middle-turn details"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The 'Vocabulary Lookup Table' contains tokens on one side and ____ on the other.",
+     "explanation": "The dictionary maps each unique string token to a unique integer ID so the computer can process it.",
+     "placeholder": "Data type",
+     "correctAnswers": [
+      "integers",
+      "numerical IDs",
+      "IDs",
+      "numbers"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the 'Attention Spotlight' relative to the Context Window?",
+     "options": [
+      "A feature that highlights the most important words in a response.",
+      "The range of tokens the model can mathematically 'see' at one time.",
+      "A search tool that looks through the model's training data.",
+      "The speed at which the model generates new tokens."
+     ],
+     "explanation": "The Context Window defines the physical limits of the attention mechanism's active memory during a calculation.",
+     "correctAnswers": [
+      "The range of tokens the model can mathematically 'see' at one time."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the context window to prioritize the system instructions while handling a long conversation.",
+     "options": [
+      "Instructions pushed out of window",
+      "Middle dialogue pushed out of window",
+      "Window size increased beyond limit",
+      "All tokens kept in window"
+     ],
+     "explanation": "Intelligent architectures 'pin' system instructions and discard middle-turn details to stay within the mathematical limit while maintaining the persona.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Context Window Interactive Practice</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --warning: #d97706;\n      --warning-soft: #fef3c7;\n      --danger: #dc2626;\n      --danger-soft: #fee2e2;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      -webkit-font-smoothing: antialiased;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      width: 100%;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      padding: 20px 12px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 16px;\n      position: relative;\n      min-height: 140px;\n    }\n\n    /* Filmstrip Layout */\n    .filmstrip {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      width: 100%;\n      position: relative;\n      height: 70px;\n    }\n\n    .token-block {\n      flex: 1;\n      max-width: 68px;\n      height: 52px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      font-size: 11px;\n      font-weight: 600;\n      text-align: center;\n      color: var(--fg);\n      position: relative;\n      transition: all 0.25s cubic-bezier(.4,0,.2,1);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n    }\n\n    .token-block .type-label {\n      font-size: 8px;\n      text-transform: uppercase;\n      color: var(--muted-fg);\n      margin-top: 2px;\n    }\n\n    /* Block States */\n    .token-block.system {\n      border-color: #cbd5e1;\n      background: #f8fafc;\n    }\n\n    .token-block.active {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      color: var(--accent-strong);\n    }\n\n    .token-block.active .type-label {\n      color: var(--accent);\n    }\n\n    .token-block.warning {\n      border-color: var(--warning);\n      background: var(--warning-soft);\n      color: var(--warning);\n    }\n\n    .token-block.warning .type-label {\n      color: var(--warning);\n    }\n\n    .token-block.muted {\n      opacity: 0.4;\n      background: #f1f1f1;\n      border-style: dashed;\n    }\n\n    /* Pinned Icon */\n    .pin-icon {\n      position: absolute;\n      top: -6px;\n      right: -4px;\n      background: #eab308;\n      color: white;\n      border-radius: 50%;\n      width: 14px;\n      height: 14px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 8px;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.2);\n      transform: scale(0);\n      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .token-block.pinned .pin-icon {\n      transform: scale(1);\n    }\n\n    /* Context Bracket Overlays */\n    .bracket-overlay {\n      position: absolute;\n      border: 2px solid var(--accent);\n      border-radius: 10px;\n      pointer-events: none;\n      transition: all 0.25s cubic-bezier(.4,0,.2,1);\n      box-sizing: border-box;\n      display: flex;\n      align-items: flex-end;\n      justify-content: center;\n      padding-bottom: 2px;\n    }\n\n    .bracket-label {\n      background: var(--accent);\n      color: white;\n      font-size: 9px;\n      padding: 1px 6px;\n      border-radius: 4px;\n      font-weight: bold;\n      transform: translateY(8px);\n      box-shadow: 0 2px 4px rgba(0,0,0,0.15);\n      white-space: nowrap;\n    }\n\n    /* Custom Track Slider */\n    .slider-container {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .slider-track-wrapper {\n      position: relative;\n      height: 48px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 4px;\n      box-sizing: border-box;\n      display: flex;\n      align-items: center;\n      cursor: pointer;\n    }\n\n    .slider-segments {\n      display: flex;\n      width: 100%;\n      height: 100%;\n      z-index: 1;\n    }\n\n    .slider-segment {\n      flex: 1;\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      font-size: 11px;\n      font-weight: 500;\n      color: var(--muted-fg);\n      padding: 0 6px;\n      transition: color 0.2s;\n      user-select: none;\n    }\n\n    .slider-segment.active {\n      color: var(--accent-strong);\n      font-weight: 600;\n    }\n\n    .slider-thumb {\n      position: absolute;\n      top: 4px;\n      bottom: 4px;\n      left: 4px;\n      width: calc(25% - 4px);\n      background: var(--accent-soft);\n      border: 2px solid var(--accent);\n      border-radius: 8px;\n      box-sizing: border-box;\n      z-index: 0;\n      transition: transform 0.2s cubic-bezier(.4,0,.2,1);\n      box-shadow: 0 2px 6px rgba(76,102,150,0.15);\n    }\n\n    .slider-thumb::after {\n      content: '';\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      transform: translate(-50%, -50%);\n      width: 4px;\n      height: 16px;\n      background: var(--accent);\n      border-radius: 2px;\n    }\n\n    /* Action Hint */\n    .hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      display: flex;\n      align-items: center;\n      gap: 6px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Context Window Practice - Drag to prioritize instructions</h1>\n\n  <div id=\"widget-container\">\n    \n    <!-- Visual Stage representing the Token Filmstrip and Context Window -->\n    <div class=\"stage\" id=\"stage\">\n      <!-- Dynamic filmstrip populated by JS -->\n      <div class=\"filmstrip\" id=\"filmstrip\"></div>\n      \n      <!-- Overlays representing Context Window bracket(s) -->\n      <div id=\"bracket-1\" class=\"bracket-overlay\">\n        <span class=\"bracket-label\" id=\"bracket-label-1\">CONTEXT WINDOW</span>\n      </div>\n      <div id=\"bracket-2\" class=\"bracket-overlay\" style=\"display: none;\">\n        <span class=\"bracket-label\">CONTEXT WINDOW</span>\n      </div>\n    </div>\n\n    <!-- Live Readout / Hint -->\n    <div class=\"hint\">\n      <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/></svg>\n      <span>Drag or tap the selector to configure the Context Window</span>\n    </div>\n\n    <!-- TUNE-IT Slider Selector for the 4 Options -->\n    <div class=\"slider-container\">\n      <div class=\"slider-track-wrapper\" id=\"track\" aria-label=\"Select context window state\" role=\"slider\" aria-valuemin=\"1\" aria-valuemax=\"4\" aria-valuenow=\"1\" tabindex=\"0\">\n        <div class=\"slider-thumb\" id=\"thumb\"></div>\n        <div class=\"slider-segments\">\n          <div class=\"slider-segment active\" data-index=\"0\">Instructions Pushed</div>\n          <div class=\"slider-segment\" data-index=\"1\">Middle Pushed</div>\n          <div class=\"slider-segment\" data-index=\"2\">Exceeded Limit</div>\n          <div class=\"slider-segment\" data-index=\"3\">All Kept</div>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <script>\n    // Config and Options Map\n    const OPTIONS = [\n      \"Instructions pushed out of window\",\n      \"Middle dialogue pushed out of window\",\n      \"Window size increased beyond limit\",\n      \"All tokens kept in window\"\n    ];\n\n    let currentIndex = 0;\n    let isLocked = false;\n\n    // DOM Elements\n    const track = document.getElementById('track');\n    const thumb = document.getElementById('thumb');\n    const segments = document.querySelectorAll('.slider-segment');\n    const filmstrip = document.getElementById('filmstrip');\n    const bracket1 = document.getElementById('bracket-1');\n    const bracket2 = document.getElementById('bracket-2');\n    const bracketLabel1 = document.getElementById('bracket-label-1');\n\n    // Render the token states based on the active selection\n    function updateVisuals(index) {\n      currentIndex = index;\n      \n      // Update Slider UI\n      thumb.style.transform = `translateX(${index * 100}%)`;\n      segments.forEach((seg, idx) => {\n        if (idx === index) {\n          seg.classList.add('active');\n        } else {\n          seg.classList.remove('active');\n        }\n      });\n\n      track.setAttribute('aria-valuenow', index + 1);\n      track.setAttribute('aria-valuetext', OPTIONS[index]);\n\n      // Clear filmstrip\n      filmstrip.innerHTML = '';\n      bracket1.style.display = 'block';\n      bracket2.style.display = 'none';\n      \n      // Reset bracket stylings\n      bracket1.style.borderColor = 'var(--accent)';\n      bracketLabel1.style.background = 'var(--accent)';\n      bracketLabel1.textContent = 'CONTEXT WINDOW';\n\n      let blocksData = [];\n\n      if (index === 0) {\n        // \"Instructions pushed out of window\"\n        blocksData = [\n          { name: \"System\", type: \"Prompt\", state: \"muted\" },\n          { name: \"Msg 1\", type: \"User\", state: \"muted\" },\n          { name: \"Msg 2\", type: \"AI\", state: \"muted\" },\n          { name: \"Msg 3\", type: \"User\", state: \"active\" },\n          { name: \"Msg 4\", type: \"AI\", state: \"active\" },\n          { name: \"Msg 5\", type: \"User\", state: \"active\" },\n          { name: \"Msg 6\", type: \"AI\", state: \"active\" }\n        ];\n      } else if (index === 1) {\n        // \"Middle dialogue pushed out of window\"\n        blocksData = [\n          { name: \"System\", type: \"Prompt\", state: \"active pinned\" },\n          { name: \"Msg 1\", type: \"User\", state: \"muted\" },\n          { name: \"Msg 2\", type: \"AI\", state: \"muted\" },\n          { name: \"Msg 3\", type: \"User\", state: \"muted\" },\n          { name: \"Msg 4\", type: \"AI\", state: \"muted\" },\n          { name: \"Msg 5\", type: \"User\", state: \"active\" },\n          { name: \"Msg 6\", type: \"AI\", state: \"active\" }\n        ];\n      } else if (index === 2) {\n        // \"Window size increased beyond limit\"\n        blocksData = [\n          { name: \"System\", type: \"Prompt\", state: \"warning\" },\n          { name: \"Msg 1\", type: \"User\", state: \"warning\" },\n          { name: \"Msg 2\", type: \"AI\", state: \"warning\" },\n          { name: \"Msg 3\", type: \"User\", state: \"warning\" },\n          { name: \"Msg 4\", type: \"AI\", state: \"warning\" },\n          { name: \"Msg 5\", type: \"User\", state: \"warning\" },\n          { name: \"Msg 6\", type: \"AI\", state: \"warning\" }\n        ];\n        bracket1.style.borderColor = 'var(--warning)';\n        bracketLabel1.style.background = 'var(--warning)';\n        bracketLabel1.textContent = 'LIMIT EXCEEDED';\n      } else if (index === 3) {\n        // \"All tokens kept in window\" (Short context where all fit comfortably)\n        blocksData = [\n          { name: \"System\", type: \"Prompt\", state: \"active\" },\n          { name: \"Msg 1\", type: \"User\", state: \"active\" },\n          { name: \"Msg 2\", type: \"AI\", state: \"active\" }\n        ];\n      }\n\n      // Render blocks\n      blocksData.forEach((b, i) => {\n        const div = document.createElement('div');\n        div.className = `token-block ${b.state}`;\n        div.id = `block-${i}`;\n        div.innerHTML = `\n          <span>${b.name}</span>\n          <span class=\"type-label\">${b.type}</span>\n          <div class=\"pin-icon\">📌</div>\n        `;\n        filmstrip.appendChild(div);\n      });\n\n      // Position Context Window bracket overlays over active blocks after render\n      setTimeout(() => {\n        const activeBlocks = Array.from(filmstrip.children).filter(el => \n          el.classList.contains('active') || el.classList.contains('warning')\n        );\n\n        if (activeBlocks.length > 0) {\n          if (index === 1) {\n            // Pinned split-state has two separate highlights\n            const systemBlock = document.getElementById('block-0');\n            const systemRect = systemBlock.getBoundingClientRect();\n            const stripRect = filmstrip.getBoundingClientRect();\n\n            bracket1.style.left = `${systemRect.left - stripRect.left - 4}px`;\n            bracket1.style.width = `${systemRect.width + 8}px`;\n            bracket1.style.height = `${systemRect.height + 12}px`;\n            bracket1.style.top = `${systemRect.top - stripRect.top - 6}px`;\n\n            // Second bracket covers the last 2 messages\n            const m5 = document.getElementById('block-5');\n            const m6 = document.getElementById('block-6');\n            if (m5 && m6) {\n              const r5 = m5.getBoundingClientRect();\n              const r6 = m6.getBoundingClientRect();\n              bracket2.style.display = 'block';\n              bracket2.style.left = `${r5.left - stripRect.left - 4}px`;\n              bracket2.style.width = `${r6.right - r5.left + 8}px`;\n              bracket2.style.height = `${r5.height + 12}px`;\n              bracket2.style.top = `${r5.top - stripRect.top - 6}px`;\n              bracket2.style.borderColor = 'var(--accent)';\n            }\n          } else {\n            // Standard single connected bracket\n            const firstActive = activeBlocks[0];\n            const lastActive = activeBlocks[activeBlocks.length - 1];\n            const rFirst = firstActive.getBoundingClientRect();\n            const rLast = lastActive.getBoundingClientRect();\n            const stripRect = filmstrip.getBoundingClientRect();\n\n            bracket1.style.left = `${rFirst.left - stripRect.left - 4}px`;\n            bracket1.style.width = `${rLast.right - rFirst.left + 8}px`;\n            bracket1.style.height = `${rFirst.height + 12}px`;\n            bracket1.style.top = `${rFirst.top - stripRect.top - 6}px`;\n          }\n        }\n      }, 50);\n\n      // Report selection to host\n      parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');\n    }\n\n    // Interactive Dragging & Tapping\n    let isDragging = false;\n\n    function handlePointer(e) {\n      if (isLocked) return;\n      const rect = track.getBoundingClientRect();\n      const clickX = e.clientX - rect.left;\n      let percentage = clickX / rect.width;\n      percentage = Math.max(0, Math.min(1, percentage));\n      const targetIndex = Math.floor(percentage * 4);\n      if (targetIndex !== currentIndex && targetIndex >= 0 && targetIndex < 4) {\n        updateVisuals(targetIndex);\n      }\n    }\n\n    track.addEventListener('pointerdown', (e) => {\n      isDragging = true;\n      track.setPointerCapture(e.pointerId);\n      handlePointer(e);\n    });\n\n    track.addEventListener('pointermove', (e) => {\n      if (isDragging) handlePointer(e);\n    });\n\n    track.addEventListener('pointerup', () => {\n      isDragging = false;\n    });\n\n    // Keyboard support\n    track.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        if (currentIndex < 3) updateVisuals(currentIndex + 1);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        if (currentIndex > 0) updateVisuals(currentIndex - 1);\n      }\n    });\n\n    // Initial setup\n    window.addEventListener('load', () => {\n      updateVisuals(0);\n      reportHeight();\n    });\n\n    // Height and Lock Listeners\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    const resizeObserver = new ResizeObserver(() => reportHeight());\n    resizeObserver.observe(document.body);\n\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        track.style.pointerEvents = 'none';\n        track.style.cursor = 'default';\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Middle dialogue pushed out of window"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Assessment: Training and Optimization",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During the 'Data Cleaning Pipeline', which process is specifically designed to ensure the model doesn't over-index on repetitive advertisements or spam paragraphs found across the web?",
+     "options": [
+      "Heuristic Filtering",
+      "Deduplication",
+      "Toxicity Filtering",
+      "Backpropagation"
+     ],
+     "explanation": "Deduplication removes repeating instances of the same text, preventing the model from falsely learning that a common spam paragraph is a core pillar of human language. Heuristic rules and toxicity filters focus on quality and safety rather than frequency.",
+     "correctAnswers": [
+      "Deduplication"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the differences between the Pretraining and Fine-Tuning phases?",
+     "options": [
+      "Pretraining requires significantly more computational power than fine-tuning.",
+      "Fine-tuning involves the model playing a 'guess the next word' game on the entire internet.",
+      "Fine-tuning nudges existing weights to excel at specific tasks like medical diagnosis or legal drafting.",
+      "A base model resulting from pretraining is always a helpful conversational assistant by default.",
+      "Pretraining builds the foundational 'generalist' understanding of language."
+     ],
+     "explanation": "Pretraining is the massive, resource-heavy phase that builds general knowledge. Fine-tuning is the specialized 'apprenticeship' that adapts those weights for specific workflows. Base models are often 'wild' and may not act as assistants without further alignment.",
+     "correctAnswers": [
+      "Pretraining requires significantly more computational power than fine-tuning.",
+      "Fine-tuning nudges existing weights to excel at specific tasks like medical diagnosis or legal drafting.",
+      "Pretraining builds the foundational 'generalist' understanding of language."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "If a student has only read books about sailing and describes a mountain as a 'stone wave', what does this illustrate about AI training?",
+     "options": [
+      "The model has a high loss function.",
+      "The model is undergoing catastrophic forgetting.",
+      "The training set defines the absolute boundary of the AI's conceptual universe.",
+      "The model is using RLHF to make analogies."
+     ],
+     "explanation": "This analogy demonstrates that an AI cannot generate concepts or information outside of the patterns found in its training data; it is limited by its exposure.",
+     "correctAnswers": [
+      "The training set defines the absolute boundary of the AI's conceptual universe."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Why is 'Raw Crawled Web' data unsuitable for direct training without a cleaning pipeline?",
+     "options": [
+      "It contains HTML tags and formatting code like <div>.",
+      "It often contains toxic or hateful content.",
+      "The internet does not have enough text for pretraining.",
+      "Duplicate content can cause the model to over-index on certain patterns.",
+      "Raw data is already perfectly labeled by human experts."
+     ],
+     "explanation": "Raw internet data is a 'digital landfill' full of noise (HTML), bias (toxicity), and repetition (duplicates). It requires extensive filtering to become a high-quality training set.",
+     "correctAnswers": [
+      "It contains HTML tags and formatting code like <div>.",
+      "It often contains toxic or hateful content.",
+      "Duplicate content can cause the model to over-index on certain patterns."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "What is 'Catastrophic Forgetting' in the context of model optimization?",
+     "options": [
+      "When a model deletes its own weights during a power outage.",
+      "When fine-tuning on a narrow task causes the model to lose its general-purpose reasoning.",
+      "When a model fails to learn the difference between nouns and verbs.",
+      "When the loss function reaches a value of zero too quickly."
+     ],
+     "explanation": "Aggressive specialization (fine-tuning) can overwrite the broad patterns learned during pretraining, causing the model to forget how to perform general tasks it once knew.",
+     "correctAnswers": [
+      "When fine-tuning on a narrow task causes the model to lose its general-purpose reasoning."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "A company wants an AI to write emails in their specific brand voice using a small set of internal documents. Which approaches are viable and cost-effective?",
+     "options": [
+      "Pretraining a new base model from scratch on the company's documents.",
+      "Fine-tuning an existing pretrained model on the internal documents.",
+      "Using a general model with specific system prompts.",
+      "Manually rewriting every internet article to match the brand voice.",
+      "Deduplicating the entire Common Crawl dataset manually."
+     ],
+     "explanation": "Pretraining from scratch is a massive waste of resources for a small task. Fine-tuning or prompting existing models are the standard, efficient paths for domain-specific tasks.",
+     "correctAnswers": [
+      "Fine-tuning an existing pretrained model on the internal documents.",
+      "Using a general model with specific system prompts."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "3D visualization of a loss landscape showing the path to the global minimum.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit3-q7.png"
+     },
+     "prompt": "How should we visualize the 'Loss Function' to understand Gradient Descent?",
+     "options": [
+      "As a straight line that never changes.",
+      "As a physical landscape of peaks and valleys where we seek the lowest point.",
+      "As a library where books are organized by topic.",
+      "As a series of HTML tags in a web-scraping pipeline."
+     ],
+     "explanation": "The loss function creates a mathematical 'landscape' where optimization is like a ball rolling down to the lowest valley (the point of minimum error).",
+     "correctAnswers": [
+      "As a physical landscape of peaks and valleys where we seek the lowest point."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which statements accurately describe neural network 'Parameters'?",
+     "options": [
+      "They are like adjustable volume knobs on pipes connecting processing nodes.",
+      "Each parameter represents a specific human concept like 'The word run'.",
+      "They are the numeric weights that determine the strength of a signal.",
+      "Knowledge is distributed across billions of parameters rather than stored as facts.",
+      "Parameters are fixed at the start and never change during training."
+     ],
+     "explanation": "Parameters are distributed numeric weights that act as signal amplifiers or silencers. They do not hold isolated human-readable concepts and are constantly adjusted during training.",
+     "correctAnswers": [
+      "They are like adjustable volume knobs on pipes connecting processing nodes.",
+      "They are the numeric weights that determine the strength of a signal.",
+      "Knowledge is distributed across billions of parameters rather than stored as facts."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "Why might a 'Base Model' respond to 'What is the capital of France?' with a list of other capital cities instead of the answer?",
+     "options": [
+      "It hasn't learned any geography yet.",
+      "It is hallucinating because of poor data cleaning.",
+      "It is predicting the next word based on patterns (like a quiz) rather than being an assistant.",
+      "The weights for 'Paris' were deleted during deduplication."
+     ],
+     "explanation": "Base models are general pattern-matchers. If they've seen many geography quizzes, they might assume the user is starting a list of questions rather than asking for a single answer. This is why fine-tuning/alignment is necessary.",
+     "correctAnswers": [
+      "It is predicting the next word based on patterns (like a quiz) rather than being an assistant."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "During the optimization interactive exercise, if you are acting as the 'optimizer', what information do you need to adjust a weight?",
+     "options": [
+      "The current predicted output.",
+      "The target ground truth output.",
+      "The original HTML tags from the raw crawl.",
+      "The direction and magnitude of the error.",
+      "The name of the person who wrote the training data."
+     ],
+     "explanation": "An optimizer needs to know the gap between prediction and reality (error) and how much a specific weight influenced that gap to make a correction.",
+     "correctAnswers": [
+      "The current predicted output.",
+      "The target ground truth output.",
+      "The direction and magnitude of the error."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "What is the primary role of 'Heuristic Filtering' in a data pipeline?",
+     "options": [
+      "To teach the model how to code in Python.",
+      "To remove pages that are too short, gibberish, or unnatural keyword-stuffed text.",
+      "To adjust the weights of the neural network.",
+      "To provide human feedback on the model's safety."
+     ],
+     "explanation": "Heuristics are rule-based filters used to quickly discard low-quality or 'junk' data based on simple criteria like character-to-word ratios or page length.",
+     "correctAnswers": [
+      "To remove pages that are too short, gibberish, or unnatural keyword-stuffed text."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Which of these are steps in the journey from raw internet text to an aligned conversational assistant?",
+     "options": [
+      "Filtering HTML and spam from crawled data.",
+      "Pretraining on massive datasets to learn general language patterns.",
+      "Converting every parameter into a human-readable dictionary.",
+      "Fine-tuning on specific instruction-following datasets.",
+      "Using human feedback to align outputs with safety and helpfulness."
+     ],
+     "explanation": "The journey starts with cleaning, moves to general pretraining, then specific fine-tuning, and finally human alignment (RLHF). Parameters remain abstract numbers throughout.",
+     "correctAnswers": [
+      "Filtering HTML and spam from crawled data.",
+      "Pretraining on massive datasets to learn general language patterns.",
+      "Fine-tuning on specific instruction-following datasets.",
+      "Using human feedback to align outputs with safety and helpfulness."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the 'Chef' metaphor for AI training, what does 'Culinary School' represent?",
+     "options": [
+      "Fine-Tuning",
+      "Reinforcement Learning from Human Feedback",
+      "Pretraining",
+      "Data Deduplication"
+     ],
+     "explanation": "Pretraining is the general foundation where the model learns the 'basics of everything' (like ingredients and heat), before specializing in a specific 'restaurant' via fine-tuning.",
+     "correctAnswers": [
+      "Pretraining"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "If a model predicts 0.5 for a target of 0.5, what can we conclude about the Loss and the Parameters?",
+     "options": [
+      "The Loss is currently zero.",
+      "The model needs a larger correction via backpropagation.",
+      "The weights involved are currently perfectly calibrated for this specific input.",
+      "The model will immediately suffer from catastrophic forgetting.",
+      "No adjustment is needed for these weights in this specific instance."
+     ],
+     "explanation": "When the prediction matches the target, the loss is zero. Since there is no error, the optimization process (backpropagation) will not result in any changes to the weights for that example.",
+     "correctAnswers": [
+      "The Loss is currently zero.",
+      "The weights involved are currently perfectly calibrated for this specific input.",
+      "No adjustment is needed for these weights in this specific instance."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Which component is used to filter out hate speech and explicit material before training begins?",
+     "options": [
+      "Deduplication",
+      "Quality & Toxicity Filtering",
+      "Gradient Descent",
+      "Backpropagation"
+     ],
+     "explanation": "Specialized classifier models are often used to identify and discard harmful or low-quality content, ensuring the training set remains safe and useful.",
+     "correctAnswers": [
+      "Quality & Toxicity Filtering"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "image": {
+      "alt": "Diagram showing forward and backward passes in a neural network.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit3-q16.png"
+     },
+     "prompt": "When visualizing backpropagation using a node diagram, why do we call it 'Back'-propagation?",
+     "options": [
+      "Because it happens after the model has finished training.",
+      "Because the error signal travels from the output back through the weights to the input.",
+      "Because it restores the model to its previous state.",
+      "Because it only uses data from the back-end of the internet."
+     ],
+     "explanation": "Backpropagation is named such because once the error is calculated at the end (output), we move backward through the layers to see which weights were responsible and adjust them.",
+     "correctAnswers": [
+      "Because the error signal travels from the output back through the weights to the input."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the parameters of this simple 3-node network to reduce the Error to zero. The current Predicted Output is 0.8, but the Target Output is 0.2.",
+     "options": [
+      "Increase the weights on the connecting pipes",
+      "Decrease the weights on the connecting pipes",
+      "Change the input node to 0.2",
+      "Keep the weights exactly as they are"
+     ],
+     "explanation": "Since the prediction (0.8) is higher than the target (0.2), the signal is too strong. Reducing the weight values acts like turning down a volume knob, lowering the output to bridge the gap and minimize loss.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Neural Network Weights Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --target-color: #e67e22;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 12px;\n      max-height: 400px;\n    }\n\n    .stage {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 16px;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n      box-sizing: border-box;\n      position: relative;\n    }\n\n    .network-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Interactive controls */\n    .control-panel {\n      width: 100%;\n      max-width: 480px;\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 12px;\n      box-sizing: border-box;\n    }\n\n    .control-group {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 8px 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n    }\n\n    .control-label {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      display: flex;\n      justify-content: space-between;\n    }\n\n    .control-value {\n      font-variant-numeric: tabular-nums;\n      color: var(--accent-strong);\n    }\n\n    .slider-input {\n      -webkit-appearance: none;\n      width: 100%;\n      height: 6px;\n      background: var(--stage);\n      border-radius: 3px;\n      outline: none;\n      margin: 6px 0;\n    }\n\n    .slider-input::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      appearance: none;\n      width: 16px;\n      height: 16px;\n      border-radius: 50%;\n      background: var(--accent);\n      cursor: grab;\n      border: 2px solid var(--surface);\n      box-shadow: 0 1px 4px rgba(0,0,0,0.2);\n      transition: background 0.15s, transform 0.1s;\n    }\n\n    .slider-input::-webkit-slider-thumb:active {\n      background: var(--accent-strong);\n      transform: scale(1.1);\n      cursor: grabbing;\n    }\n\n    .slider-input:focus-visible::-webkit-slider-thumb {\n      outline: 2px solid var(--accent-strong);\n      outline-offset: 2px;\n    }\n\n    .hint-text {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: 2px;\n    }\n\n    /* Node & pipe styling */\n    .node-bg {\n      fill: var(--stage);\n      stroke: var(--border);\n      stroke-width: 2;\n      transition: fill 0.2s;\n    }\n    .node-bg.active {\n      fill: var(--accent-soft);\n      stroke: var(--accent);\n    }\n    .node-text {\n      font-size: 11px;\n      font-weight: bold;\n      fill: var(--fg);\n      text-anchor: middle;\n      pointer-events: none;\n    }\n    .node-val {\n      font-size: 14px;\n      font-weight: bold;\n      fill: var(--accent-strong);\n      text-anchor: middle;\n      pointer-events: none;\n      font-variant-numeric: tabular-nums;\n    }\n    .pipe {\n      stroke: var(--accent);\n      stroke-linecap: round;\n      opacity: 0.75;\n      transition: stroke-width 0.1s ease-out;\n    }\n\n    /* Readout lock style */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.7;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive 3-Node Neural Network Adjustment Widget</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\" id=\"interactive-stage\">\n      <!-- SVG Neural Network Diagram -->\n      <svg class=\"network-svg\" viewBox=\"0 0 400 160\">\n        <!-- Connecting Pipes (Input -> Processing -> Output) -->\n        <path id=\"pipe1\" class=\"pipe\" d=\"M 60 80 L 190 80\" stroke-width=\"8\" />\n        <path id=\"pipe2\" class=\"pipe\" d=\"M 210 80 L 325 80\" stroke-width=\"8\" />\n\n        <!-- Input Node -->\n        <g transform=\"translate(60, 80)\">\n          <circle r=\"30\" class=\"node-bg\" id=\"node-input\" />\n          <text y=\"-5\" class=\"node-text\">INPUT</text>\n          <text y=\"15\" class=\"node-val\" id=\"text-input-val\">1.0</text>\n        </g>\n\n        <!-- Processing Node -->\n        <g transform=\"translate(200, 80)\">\n          <circle r=\"26\" class=\"node-bg\" />\n          <text y=\"4\" class=\"node-text\">PROCESS</text>\n        </g>\n\n        <!-- Output Node (Meter Container) -->\n        <g transform=\"translate(340, 80)\">\n          <!-- Circular target/current gauge helper -->\n          <circle r=\"32\" class=\"node-bg active\" />\n          <text y=\"-18\" class=\"node-text\" style=\"font-size: 9px;\">OUTPUT</text>\n          \n          <!-- Gauge bar -->\n          <rect x=\"-6\" y=\"-8\" width=\"12\" height=\"30\" rx=\"3\" fill=\"#e2e2e2\" />\n          <!-- Live filling bar -->\n          <rect id=\"output-bar\" x=\"-6\" y=\"12\" width=\"12\" height=\"10\" rx=\"3\" fill=\"var(--accent)\" transform=\"scale(1, -1)\" />\n          \n          <!-- Target indicator line -->\n          <line x1=\"-12\" y1=\"-2\" x2=\"12\" y2=\"-2\" stroke=\"var(--target-color)\" stroke-width=\"2.5\" stroke-dasharray=\"2 1\" />\n          <text x=\"18\" y=\"1\" class=\"node-text\" style=\"fill: var(--target-color); text-anchor: start; font-size: 9px; font-weight: 800;\">Target: 0.2</text>\n          \n          <!-- Current output value text -->\n          <text y=\"30\" class=\"node-val\" style=\"font-size: 11px;\" id=\"text-output-val\">0.80</text>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Live Controls -->\n    <div class=\"control-panel\" id=\"controls\">\n      <div class=\"control-group\">\n        <label class=\"control-label\" for=\"input-slider\">\n          Input Node <span class=\"control-value\" id=\"label-input-val\">1.0</span>\n        </label>\n        <input type=\"range\" id=\"input-slider\" class=\"slider-input\" min=\"0.1\" max=\"1.0\" step=\"0.05\" value=\"1.0\" aria-label=\"Adjust input node value\">\n      </div>\n\n      <div class=\"control-group\">\n        <label class=\"control-label\" for=\"weight-slider\">\n          Pipe Weights <span class=\"control-value\" id=\"label-weight-val\">0.8</span>\n        </label>\n        <input type=\"range\" id=\"weight-slider\" class=\"slider-input\" min=\"0.1\" max=\"1.5\" step=\"0.05\" value=\"0.8\" aria-label=\"Adjust pipe weights\">\n      </div>\n    </div>\n\n    <div class=\"hint-text\">Drag the sliders to reduce the Output to the target line (0.2).</div>\n  </div>\n\n  <script>\n    // State management\n    const state = {\n      input: 1.0,\n      weight: 0.8,\n      output: 0.8,\n      lastCommittedOption: null\n    };\n\n    // DOM Elements\n    const inputSlider = document.getElementById('input-slider');\n    const weightSlider = document.getElementById('weight-slider');\n    const textInputVal = document.getElementById('text-input-val');\n    const textOutputVal = document.getElementById('text-output-val');\n    const labelInputVal = document.getElementById('label-input-val');\n    const labelWeightVal = document.getElementById('label-weight-val');\n    const pipe1 = document.getElementById('pipe1');\n    const pipe2 = document.getElementById('pipe2');\n    const outputBar = document.getElementById('output-bar');\n    const nodeInput = document.getElementById('node-input');\n    const controls = document.getElementById('controls');\n\n    // Options mapping strings\n    const OPTIONS = {\n      INCREASE: \"Increase the weights on the connecting pipes\",\n      DECREASE: \"Decrease the weights on the connecting pipes\",\n      CHANGE_INPUT: \"Change the input node to 0.2\",\n      KEEP: \"Keep the weights exactly as they are\"\n    };\n\n    function updateSimulation() {\n      // Calculate output based on simple formula: output = input * weight\n      state.output = Math.min(1.2, state.input * state.weight);\n\n      // Update text values\n      textInputVal.textContent = state.input.toFixed(1);\n      labelInputVal.textContent = state.input.toFixed(1);\n      \n      labelWeightVal.textContent = state.weight.toFixed(1);\n      textOutputVal.textContent = state.output.toFixed(2);\n\n      // Update pipe thicknesses (visualize weights)\n      const strokeWidth = Math.max(2, state.weight * 10);\n      pipe1.setAttribute('stroke-width', strokeWidth);\n      pipe2.setAttribute('stroke-width', strokeWidth);\n\n      // Update Input node highlight status if adjusted to target\n      if (Math.abs(state.input - 0.2) < 0.05) {\n        nodeInput.classList.add('active');\n      } else {\n        nodeInput.classList.remove('active');\n      }\n\n      // Update Output bar height (max is ~30px inside the gauge container)\n      const barHeight = Math.max(0, Math.min(30, state.output * 25));\n      outputBar.setAttribute('height', barHeight);\n      // Position base of scale(1, -1) bar: y offset aligns it inside bounding box\n      outputBar.setAttribute('y', -22);\n\n      // Determine matching option state based on user's current configuration\n      let currentOption = OPTIONS.KEEP;\n\n      if (state.weight < 0.5) {\n        currentOption = OPTIONS.DECREASE;\n      } else if (state.weight > 1.1) {\n        currentOption = OPTIONS.INCREASE;\n      } else if (Math.abs(state.input - 0.2) <= 0.05) {\n        currentOption = OPTIONS.CHANGE_INPUT;\n      } else if (state.weight === 0.8 && state.input === 1.0) {\n        currentOption = OPTIONS.KEEP;\n      } else {\n        // Fallback to closest physical option\n        if (state.weight < 0.8) {\n          currentOption = OPTIONS.DECREASE;\n        } else if (state.weight > 0.8) {\n          currentOption = OPTIONS.INCREASE;\n        }\n      }\n\n      // Report answer selection if changed\n      if (currentOption !== state.lastCommittedOption) {\n        state.lastCommittedOption = currentOption;\n        parent.postMessage({ type: 'hk-practice-answer', value: currentOption }, '*');\n      }\n    }\n\n    // Input event listeners\n    inputSlider.addEventListener('input', (e) => {\n      state.input = parseFloat(e.target.value);\n      updateSimulation();\n    });\n\n    weightSlider.addEventListener('input', (e) => {\n      state.weight = parseFloat(e.target.value);\n      updateSimulation();\n    });\n\n    // Handle iframe lock message\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        inputSlider.disabled = true;\n        weightSlider.disabled = true;\n        controls.classList.add('locked');\n        document.getElementById('interactive-stage').classList.add('locked');\n      }\n    });\n\n    // Report height on load and changes\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    // Initialize\n    window.addEventListener('load', () => {\n      updateSimulation();\n      reportHeight();\n      \n      // Setup resize observer\n      if (window.ResizeObserver) {\n        const ro = new ResizeObserver(() => {\n          reportHeight();\n        });\n        ro.observe(document.body);\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Decrease the weights on the connecting pipes"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Assessment: Strengths, Limitations, and Ethics",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "When a student uses an LLM to turn a formal medical report into a compassionate summary for a patient, which process are they primarily utilizing?",
+     "options": [
+      "Style-Shifting",
+      "Semantic Classification",
+      "Tool Orchestration",
+      "Parametric Memory Retrieval"
+     ],
+     "explanation": "Style-shifting involves shifting between 'dialects of intent,' such as changing technical jargon into a tone suitable for a specific audience like a patient.",
+     "correctAnswers": [
+      "Style-Shifting"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "To avoid 'lazy prompting' and ensure a transformation task produces reliable results, which of the following elements should be explicitly included in a prompt template?",
+     "options": [
+      "Context",
+      "Tone",
+      "Formatting Rules",
+      "The model's internal temperature setting",
+      "Explicit placeholders for input"
+     ],
+     "explanation": "Reliable transformation requires limiting the model's choices through clear context, tone, formatting constraints, and structured input placeholders.",
+     "correctAnswers": [
+      "Context",
+      "Tone",
+      "Formatting Rules",
+      "Explicit placeholders for input"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the context of pattern recognition, an LLM performs a ____ scan to understand underlying concepts and intent rather than just matching literal keywords.",
+     "placeholder": "type of scan",
+     "correctAnswers": [
+      "semantic"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of semantic splitting",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit4-q4.png"
+     },
+     "prompt": "A customer writes: 'The food was great, but the app crashed twice during checkout.' How would a well-prompted LLM classify this compared to a keyword-based system?",
+     "options": [
+      "It would mark it as purely positive because of the word 'great'.",
+      "It would fail to categorize it due to conflicting sentiments.",
+      "It would recognize it as a multi-dimensional signal (Product Quality and App UX).",
+      "It would ignore the 'app crashed' part as it is a technical stop-word."
+     ],
+     "explanation": "LLMs can perform semantic scans that split inputs into multi-dimensional vectors, identifying multiple distinct signals within a single piece of feedback.",
+     "correctAnswers": [
+      "It would recognize it as a multi-dimensional signal (Product Quality and App UX)."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are components of a 'Classification Guardrail' prompt designed to prevent downstream parsing failures?",
+     "options": [
+      "A clear persona",
+      "A strict taxonomy of allowed categories",
+      "Instruction to provide a detailed explanation for the choice",
+      "Instruction to output zero conversational filler",
+      "A list of 1000 labeled training examples"
+     ],
+     "explanation": "Guardrails require a persona, a fixed taxonomy, and the exclusion of filler text to ensure the output can be reliably parsed by automated systems.",
+     "correctAnswers": [
+      "A clear persona",
+      "A strict taxonomy of allowed categories",
+      "Instruction to output zero conversational filler"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Retrieval-Augmented Generation (RAG) works by having a hosting system intercept a model's command, execute a search, and feed the results back into the model's ____.",
+     "placeholder": "where is it fed?",
+     "correctAnswers": [
+      "prompt window",
+      "context window",
+      "context"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary difference between a model's 'Parametric Memory' and its 'Active Tools'?",
+     "options": [
+      "Parametric memory is live; active tools are frozen.",
+      "Parametric memory is the model's internal frozen knowledge; active tools provide external, real-time data.",
+      "Parametric memory is used for math; active tools are used for language.",
+      "There is no difference; they are two names for the same process."
+     ],
+     "explanation": "Parametric memory consists of the weights the model was trained on, while active tools (like search or APIs) allow the model to access current, external information.",
+     "correctAnswers": [
+      "Parametric memory is the model's internal frozen knowledge; active tools provide external, real-time data."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Tool use pipeline failure points",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit4-q8.png"
+     },
+     "prompt": "Why might an AI tool-use pipeline fail even if the model is capable of reasoning?",
+     "options": [
+      "The model formulated a bad search term.",
+      "The external tool returned irrelevant clutter.",
+      "The model's internal weights were updated during the search.",
+      "The model failed to synthesize the answer from the retrieved context."
+     ],
+     "explanation": "Failures can occur at the query stage, the retrieval stage, or the synthesis stage of the pipeline.",
+     "correctAnswers": [
+      "The model formulated a bad search term.",
+      "The external tool returned irrelevant clutter."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When a model generates a highly convincing but fake biography, it is prioritizing ____ over factual grounding.",
+     "placeholder": "priority",
+     "correctAnswers": [
+      "semantic coherence",
+      "linguistic probability",
+      "fluency"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Technically speaking, what is an AI hallucination?",
+     "options": [
+      "A deliberate attempt by the AI to deceive the user.",
+      "A mathematical consequence of next-token prediction based on probability.",
+      "A temporary hardware glitch in the GPU cluster.",
+      "A virus in the model's truth database."
+     ],
+     "explanation": "Hallucinations occur because models optimize for linguistic probability and logical flow, not for factual verification against a database.",
+     "correctAnswers": [
+      "A mathematical consequence of next-token prediction based on probability."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are 'layers' of the generation process that LLMs typically master, even when they are hallucinating facts?",
+     "options": [
+      "Syntax and Grammar",
+      "Semantic Coherence",
+      "Factual Verification",
+      "Logical Connectors",
+      "Real-time Truth Checking"
+     ],
+     "explanation": "Models are excellent at maintaining professional tone, grammar, and logical structure ('therefore', 'as a result'), which often masks the lack of factual grounding.",
+     "correctAnswers": [
+      "Syntax and Grammar",
+      "Semantic Coherence",
+      "Logical Connectors"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "To prevent a model from inventing new names for categories in a classification task, you should define a strict ____ in the prompt.",
+     "placeholder": "classification system",
+     "correctAnswers": [
+      "taxonomy",
+      "set of categories",
+      "list"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If you ask an AI to write about 'The Martian Soil Treaty of 1998' (which does not exist), why will it likely provide a detailed response?",
+     "options": [
+      "It is accessing a hidden database of fictional treaties.",
+      "The tokens associated with 'treaty' and 'Martian' have a high probability of flowing into a professional-sounding structure.",
+      "It is programmed to never say 'I don't know'.",
+      "It uses its search tool to find sci-fi novels and presents them as fact."
+     ],
+     "explanation": "The model generates the most linguistically plausible next words based on patterns in its training data, regardless of the prompt's factual reality.",
+     "correctAnswers": [
+      "The tokens associated with 'treaty' and 'Martian' have a high probability of flowing into a professional-sounding structure."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "In a 'Thought Chaining' process (like ReAct), what are the intermediate steps the model performs?",
+     "options": [
+      "Internal thoughts about what to do next",
+      "Physical button clicks in a browser",
+      "Specific actions like 'Search'",
+      "Observations from tool outputs",
+      "Directly editing its own source code"
+     ],
+     "explanation": "Reasoning is a sequential process of thought, action (like generating a search query), and observation (reading the results).",
+     "correctAnswers": [
+      "Internal thoughts about what to do next",
+      "Specific actions like 'Search'",
+      "Observations from tool outputs"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The process where a model explains its step-by-step logic to reach a conclusion is known as ____ prompting.",
+     "placeholder": "method name",
+     "correctAnswers": [
+      "Chain-of-Thought",
+      "CoT"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Why is the confidence of an AI's tone not a reliable indicator of its accuracy?",
+     "options": [
+      "The model is trained to be humble, so confidence is a sign of a bug.",
+      "A model does not 'feel' doubt; it only calculates the highest probability tokens.",
+      "Confidence is only high when the model is connected to the internet.",
+      "Confident tones are only used for mathematical calculations."
+     ],
+     "explanation": "Models mimic the authoritative style of their training data but do not have a subjective sense of certainty or a 'fact-check' switch.",
+     "correctAnswers": [
+      "A model does not 'feel' doubt; it only calculates the highest probability tokens."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "What are the benefits of using an LLM for classification over traditional keyword-matching systems?",
+     "options": [
+      "Understanding synonyms and context",
+      "Handling ambiguous or multi-issue feedback",
+      "Lower computational cost",
+      "Near-human semantic understanding",
+      "Ability to process data without a computer"
+     ],
+     "explanation": "LLMs can interpret meaning and intent, whereas keyword systems often fail when specific words are missing or sentiments are mixed.",
+     "correctAnswers": [
+      "Understanding synonyms and context",
+      "Handling ambiguous or multi-issue feedback",
+      "Near-human semantic understanding"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Investigate the breakdown in an AI tool-use pipeline. Drag the 'Observation' data packet to the correct stage of the Tool Use Loop to resolve the model's 'Thought' process and generate a final answer.",
+     "options": [
+      "Core Engine (Parametric)",
+      "Tool Execution System",
+      "Prompt Window (Context)",
+      "Internal Weights"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Tool Use Loop Interactive Diagram</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    /* Visually Hidden Title for A11y */\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 640px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 10px;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n      touch-action: none;\n    }\n\n    /* Drop Zone styling */\n    .zone-bg {\n      fill: var(--stage);\n      stroke: var(--border);\n      stroke-width: 2;\n      stroke-dasharray: 4 4;\n      transition: fill 0.2s, stroke 0.2s, stroke-width 0.2s;\n    }\n\n    .drop-zone.hovered .zone-bg,\n    .drop-zone.active-choice .zone-bg {\n      fill: var(--accent-soft);\n      stroke: var(--accent);\n      stroke-width: 2.5;\n      stroke-dasharray: none;\n    }\n\n    .zone-title {\n      font-size: 13px;\n      font-weight: 600;\n      fill: var(--fg);\n      pointer-events: none;\n    }\n\n    .zone-desc {\n      font-size: 11px;\n      fill: var(--muted-fg);\n      pointer-events: none;\n    }\n\n    /* Token styling */\n    .token-bg {\n      fill: var(--accent);\n      stroke: var(--accent-strong);\n      stroke-width: 1.5;\n      filter: drop-shadow(0 2px 5px rgba(76,102,150,0.25));\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1), filter 0.15s, fill 0.15s;\n    }\n\n    .draggable:hover .token-bg {\n      fill: var(--accent-strong);\n      filter: drop-shadow(0 4px 8px rgba(76,102,150,0.35));\n    }\n\n    .draggable.dragging .token-bg {\n      filter: drop-shadow(0 8px 16px rgba(76,102,150,0.45));\n    }\n\n    .token-text {\n      font-size: 12px;\n      font-weight: bold;\n      fill: #ffffff;\n      pointer-events: none;\n    }\n\n    .token-subtext {\n      font-size: 9px;\n      fill: rgba(255,255,255,0.85);\n      pointer-events: none;\n    }\n\n    /* Arrow styling */\n    .loop-arrow {\n      fill: none;\n      stroke: #d0ceca;\n      stroke-width: 2;\n      stroke-dasharray: 4 4;\n    }\n\n    /* Action Hint styling */\n    .action-hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: 4px;\n    }\n\n    /* Lock Mode style */\n    .locked {\n      pointer-events: none;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Tool Use Loop Practice</h1>\n\n  <div id=\"widget-container\">\n    <svg class=\"stage-svg\" viewBox=\"0 0 600 290\" id=\"stage\">\n      <defs>\n        <!-- Defs for arrowheads -->\n        <marker id=\"arrow-head\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n          <path d=\"M 0 1 L 10 5 L 0 9 z\" fill=\"#b0aeaa\" />\n        </marker>\n      </defs>\n\n      <!-- Loop Process Connecting Lines / Arrows -->\n      <path d=\"M 175 145 L 175 175\" class=\"loop-arrow\" marker-end=\"url(#arrow-head)\" />\n      <path d=\"M 255 210 L 345 210\" class=\"loop-arrow\" marker-end=\"url(#arrow-head)\" />\n      <path d=\"M 425 175 L 425 80\" class=\"loop-arrow\" marker-end=\"url(#arrow-head)\" />\n      <path d=\"M 345 45 L 255 45\" class=\"loop-arrow\" marker-end=\"url(#arrow-head)\" />\n\n      <!-- Left Column: Context / Core Engine components -->\n      <!-- 1. Prompt Window (Context) -->\n      <g class=\"drop-zone\" id=\"zone-prompt\" data-option=\"Prompt Window (Context)\" aria-label=\"Drop zone: Prompt Window (Context)\">\n        <rect x=\"20\" y=\"20\" width=\"235\" height=\"55\" rx=\"8\" class=\"zone-bg\" />\n        <text x=\"35\" y=\"42\" class=\"zone-title\">Prompt Window (Context)</text>\n        <text x=\"35\" y=\"58\" class=\"zone-desc\">Inputs the loop's context and observations</text>\n      </g>\n\n      <!-- 2. Internal Weights -->\n      <g class=\"drop-zone\" id=\"zone-weights\" data-option=\"Internal Weights\" aria-label=\"Drop zone: Internal Weights\">\n        <rect x=\"20\" y=\"90\" width=\"235\" height=\"55\" rx=\"8\" class=\"zone-bg\" />\n        <text x=\"35\" y=\"112\" class=\"zone-title\">Internal Weights</text>\n        <text x=\"35\" y=\"128\" class=\"zone-desc\">Frozen pre-trained model knowledge</text>\n      </g>\n\n      <!-- 3. Core Engine (Parametric) -->\n      <g class=\"drop-zone\" id=\"zone-core\" data-option=\"Core Engine (Parametric)\" aria-label=\"Drop zone: Core Engine (Parametric)\">\n        <rect x=\"20\" y=\"180\" width=\"235\" height=\"60\" rx=\"8\" class=\"zone-bg\" />\n        <text x=\"35\" y=\"202\" class=\"zone-title\">Core Engine (Parametric)</text>\n        <text x=\"35\" y=\"220\" class=\"zone-desc\">Coordinates generation based on Prompt</text>\n      </g>\n\n      <!-- Right Column: Tool / Execution -->\n      <!-- 4. Tool Execution System -->\n      <g class=\"drop-zone\" id=\"zone-tool\" data-option=\"Tool Execution System\" aria-label=\"Drop zone: Tool Execution System\">\n        <rect x=\"345\" y=\"180\" width=\"235\" height=\"60\" rx=\"8\" class=\"zone-bg\" />\n        <text x=\"360\" y=\"202\" class=\"zone-title\">Tool Execution System</text>\n        <text x=\"360\" y=\"220\" class=\"zone-desc\">Executes action (e.g. Google Search)</text>\n      </g>\n\n      <!-- Idle Start Zone (Visual Anchor for observation) -->\n      <g id=\"start-anchor\">\n        <rect x=\"345\" y=\"20\" width=\"235\" height=\"55\" rx=\"8\" fill=\"#fcfbf7\" stroke=\"#e0deda\" stroke-width=\"1.5\" stroke-dasharray=\"2 2\" />\n        <text x=\"360\" y=\"42\" class=\"zone-title\" style=\"fill: var(--muted-fg);\">Observation Generator</text>\n        <text x=\"360\" y=\"58\" class=\"zone-desc\" style=\"fill: #aaa;\">Observation packet originates here</text>\n      </g>\n\n      <!-- Draggable Data Packet (Initial Position matches start-anchor) -->\n      <g id=\"draggable-token\" class=\"draggable\" transform=\"translate(462, 47)\" aria-label=\"Draggable Observation Data Packet\" tabindex=\"0\">\n        <rect x=\"-65\" y=\"-22\" width=\"130\" height=\"44\" rx=\"6\" class=\"token-bg\" />\n        <text x=\"0\" y=\"-3\" text-anchor=\"middle\" class=\"token-text\">📂 Observation</text>\n        <text x=\"0\" y=\"12\" text-anchor=\"middle\" class=\"token-subtext\">Drag to the loop stage</text>\n      </g>\n    </svg>\n\n    <div class=\"action-hint\">👆 Drag the \"Observation\" packet into the correct stage of the loop.</div>\n  </div>\n\n  <script>\n    const stage = document.getElementById('stage');\n    const token = document.getElementById('draggable-token');\n    const zones = document.querySelectorAll('.drop-zone');\n    const container = document.getElementById('widget-container');\n\n    // State Variables\n    let isDragging = false;\n    let isLocked = false;\n    let startX = 0;\n    let startY = 0;\n    let currentX = 462;\n    let currentY = 47;\n    let dragOffsetX = 0;\n    let dragOffsetY = 0;\n    let currentAnswer = null;\n\n    // Pulse first visual element once to prompt interaction\n    token.animate([\n      { transform: 'translate(462px, 47px) scale(1)' },\n      { transform: 'translate(462px, 47px) scale(1.05)' },\n      { transform: 'translate(462px, 47px) scale(1)' }\n    ], {\n      duration: 1200,\n      iterations: 2,\n      easing: 'ease-in-out'\n    });\n\n    // SVG Point Conversion for accurate drag coordinates\n    function getSVGPoint(e) {\n      const p = stage.createSVGPoint();\n      if (e.touches && e.touches.length > 0) {\n        p.x = e.touches[0].clientX;\n        p.y = e.touches[0].clientY;\n      } else {\n        p.x = e.clientX;\n        p.y = e.clientY;\n      }\n      return p.matrixTransform(stage.getScreenCTM().inverse());\n    }\n\n    // Pointer Down\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      token.classList.add('dragging');\n      token.setPointerCapture(e.pointerId);\n\n      const pt = getSVGPoint(e);\n      dragOffsetX = pt.x - currentX;\n      dragOffsetY = pt.y - currentY;\n      e.preventDefault();\n    }\n\n    // Pointer Move\n    function onPointerMove(e) {\n      if (!isDragging) return;\n      const pt = getSVGPoint(e);\n      currentX = pt.x - dragOffsetX;\n      currentY = pt.y - dragOffsetY;\n\n      // Keep token within safe stage bounds\n      currentX = Math.max(30, Math.min(570, currentX));\n      currentY = Math.max(20, Math.min(270, currentY));\n\n      token.setAttribute('transform', `translate(${currentX}, ${currentY})`);\n\n      // Highlight closest zone\n      let closestZone = null;\n      let minDistance = 65; // threshold\n\n      zones.forEach(zone => {\n        const rect = zone.querySelector('.zone-bg');\n        const zX = parseFloat(rect.getAttribute('x')) + parseFloat(rect.getAttribute('width')) / 2;\n        const zY = parseFloat(rect.getAttribute('y')) + parseFloat(rect.getAttribute('height')) / 2;\n        \n        const dist = Math.hypot(currentX - zX, currentY - zY);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestZone = zone;\n        }\n        zone.classList.remove('hovered');\n      });\n\n      if (closestZone) {\n        closestZone.classList.add('hovered');\n      }\n    }\n\n    // Pointer Up\n    function onPointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      token.classList.remove('dragging');\n      try { token.releasePointerCapture(e.pointerId); } catch(err) {}\n\n      // Find final resting zone\n      let closestZone = null;\n      let minDistance = 75; // snap distance\n\n      zones.forEach(zone => {\n        const rect = zone.querySelector('.zone-bg');\n        const zX = parseFloat(rect.getAttribute('x')) + parseFloat(rect.getAttribute('width')) / 2;\n        const zY = parseFloat(rect.getAttribute('y')) + parseFloat(rect.getAttribute('height')) / 2;\n        \n        const dist = Math.hypot(currentX - zX, currentY - zY);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestZone = zone;\n        }\n        zone.classList.remove('hovered');\n        zone.classList.remove('active-choice');\n      });\n\n      if (closestZone) {\n        // Snap to center of the drop zone\n        const rect = closestZone.querySelector('.zone-bg');\n        currentX = parseFloat(rect.getAttribute('x')) + parseFloat(rect.getAttribute('width')) / 2;\n        currentY = parseFloat(rect.getAttribute('y')) + parseFloat(rect.getAttribute('height')) / 2;\n        \n        closestZone.classList.add('active-choice');\n        const selectedOption = closestZone.getAttribute('data-option');\n        \n        if (currentAnswer !== selectedOption) {\n          currentAnswer = selectedOption;\n          // Report answer to host\n          parent.postMessage({ type: 'hk-practice-answer', value: currentAnswer }, '*');\n        }\n      } else {\n        // Return to start anchor if not dropped in any zone\n        currentX = 462;\n        currentY = 47;\n        currentAnswer = null;\n      }\n\n      // Smooth transition to snapped position\n      token.style.transition = 'transform 0.25s cubic-bezier(.34,1.56,.64,1)';\n      token.setAttribute('transform', `translate(${currentX}, ${currentY})`);\n      setTimeout(() => {\n        token.style.transition = '';\n      }, 250);\n    }\n\n    // Pointer event listeners\n    token.addEventListener('pointerdown', onPointerDown);\n    token.addEventListener('pointermove', onPointerMove);\n    token.addEventListener('pointerup', onPointerUp);\n\n    // Keyboard Accessibility (Tabs and Cycle Selection)\n    let focusIndex = -1;\n    const optionList = Array.from(zones);\n    \n    token.addEventListener('keydown', function(e) {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {\n        e.preventDefault();\n        focusIndex = (focusIndex + 1) % optionList.length;\n        snapToZone(optionList[focusIndex]);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        e.preventDefault();\n        focusIndex = (focusIndex - 1 + optionList.length) % optionList.length;\n        snapToZone(optionList[focusIndex]);\n      }\n    });\n\n    function snapToZone(zone) {\n      zones.forEach(z => z.classList.remove('active-choice'));\n      const rect = zone.querySelector('.zone-bg');\n      currentX = parseFloat(rect.getAttribute('x')) + parseFloat(rect.getAttribute('width')) / 2;\n      currentY = parseFloat(rect.getAttribute('y')) + parseFloat(rect.getAttribute('height')) / 2;\n      \n      zone.classList.add('active-choice');\n      token.style.transition = 'transform 0.25s cubic-bezier(.34,1.56,.64,1)';\n      token.setAttribute('transform', `translate(${currentX}, ${currentY})`);\n      setTimeout(() => { token.style.transition = ''; }, 250);\n\n      currentAnswer = zone.getAttribute('data-option');\n      parent.postMessage({ type: 'hk-practice-answer', value: currentAnswer }, '*');\n    }\n\n    // Host Locking API\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        container.classList.add('locked');\n        token.removeAttribute('tabindex');\n      }\n    });\n\n    // Height Reporting API\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Prompt Window (Context)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Assessment: Advanced Prompting and Testing",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "When a beginner provides a vague prompt like 'Write a blog post about productivity,' what is the mathematical consequence for the AI model's output?",
+     "options": [
+      "It triggers a system error due to high entropy",
+      "It forces the model to search a massive, unconstrained probability space, leading to generic results",
+      "It activates the model's ego to interpret the user's hidden intent",
+      "It increases the model's processing speed by reducing the number of tokens"
+     ],
+     "explanation": "Lack of specificity means the model isn't constrained to a specific domain, causing it to fall back on the most statistically 'average' and cliché tokens in its training data.",
+     "correctAnswers": [
+      "It forces the model to search a massive, unconstrained probability space, leading to generic results"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Visual representation of a structured prompt using delimiters and tags.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit5-q2.png"
+     },
+     "prompt": "To prevent 'instruction drift' and help a model distinguish between instructions and data, which of the following techniques should be used?",
+     "options": [
+      "Using triple backticks (```) as delimiters",
+      "Using XML-style tags like <context> or <constraints>",
+      "Asking the model to guess which parts are data",
+      "Repeating the instructions every three sentences",
+      "Applying structural scaffolding through clear layouts"
+     ],
+     "explanation": "Delimiters and tags provide clear boundaries that help the model understand the hierarchy of the prompt, preventing it from confusing user data with new commands.",
+     "correctAnswers": [
+      "Using triple backticks (```) as delimiters",
+      "Using XML-style tags like <context> or <constraints>",
+      "Applying structural scaffolding through clear layouts"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The practice of providing explicit input-output pairs to the model to serve as a template for pattern replication is known as ____ learning.",
+     "explanation": "Few-shot learning allows the model to align its neural weight dynamics to a specific pattern demonstrated in the provided examples.",
+     "placeholder": "type the term here",
+     "correctAnswers": [
+      "few-shot",
+      "few shot"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "According to the unit material, what is the primary benefit of including 'edge cases' (like a sarcastic review) in your few-shot examples?",
+     "options": [
+      "It makes the prompt shorter and easier for the model to read",
+      "It teaches the model the precise boundary lines of a task",
+      "It increases the model's creativity for fictional writing",
+      "It prevents the model from using professional vocabulary"
+     ],
+     "explanation": "Including tricky or non-obvious examples helps the model understand nuance and where one category ends and another begins.",
+     "correctAnswers": [
+      "It teaches the model the precise boundary lines of a task"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the risks of using a large volume of low-quality or inconsistent examples in a prompt?",
+     "options": [
+      "The model will faithfully replicate errors and biases",
+      "The model will automatically correct the user's mistakes",
+      "It confuses the model's pattern matching",
+      "It causes 'hallucinations' to decrease significantly",
+      "It leads to unpredictable and messy outputs"
+     ],
+     "explanation": "Models are pattern-replication engines; if the patterns provided are inconsistent or biased, the output will mirror those flaws regardless of the quantity of examples.",
+     "correctAnswers": [
+      "The model will faithfully replicate errors and biases",
+      "It confuses the model's pattern matching",
+      "It leads to unpredictable and messy outputs"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When correcting an underwhelming first draft, you should continue the current conversation because the ____ acts as a shared memory for the model.",
+     "explanation": "The context window stores previous parts of the conversation, allowing the model to reference its own work and your specific critiques.",
+     "placeholder": "two-word term",
+     "correctAnswers": [
+      "context window",
+      "context"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What mental shift is required to move from a 'Search Engine' mentality to a 'Dialogue' model of AI use?",
+     "options": [
+      "Assuming the first answer is always the most accurate",
+      "Opening a brand-new chat window for every minor correction",
+      "Accepting that the process is an iterative editorial cycle rather than a one-shot query",
+      "Using only one-sentence prompts to save token costs"
+     ],
+     "explanation": "The Dialogue model views AI as an assistant that requires feedback and refinement to move from a generic first draft to a high-quality result.",
+     "correctAnswers": [
+      "Accepting that the process is an iterative editorial cycle rather than a one-shot query"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are 'structural critiques'—an advanced iterative tactic mentioned in the course?",
+     "options": [
+      "Telling the model 'make it better'",
+      "Asking the model to point out potential customer objections to its own draft",
+      "Directing the model to analyze its own work for flaws",
+      "Using the word 'Please' to improve model performance",
+      "Requesting the model to rewrite based on its own self-analysis"
+     ],
+     "explanation": "Structural critiques involve leveraging the model's pattern recognition to evaluate and improve its own output before finalized.",
+     "correctAnswers": [
+      "Asking the model to point out potential customer objections to its own draft",
+      "Directing the model to analyze its own work for flaws",
+      "Requesting the model to rewrite based on its own self-analysis"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To avoid instruction drift, a teacher should use ____ like triple backticks to separate the task from the data.",
+     "explanation": "Delimiters provide structural boundaries that help the model identify which part of the text is a command and which is the raw content to be processed.",
+     "placeholder": "plural noun",
+     "correctAnswers": [
+      "delimiters"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is the 'vibe check' method an insufficient way to evaluate different AI models?",
+     "options": [
+      "Because AI models do not have feelings",
+      "Because it relies on casual impressionism rather than multi-dimensional benchmarking",
+      "Because most AI models provide the exact same answers",
+      "Because 'vibes' are mathematically calculated by the model's safety layer"
+     ],
+     "explanation": "A 'vibe check' is subjective; a professional evaluation requires scoring models against specific dimensions like clarity, detail, and safety.",
+     "correctAnswers": [
+      "Because it relies on casual impressionism rather than multi-dimensional benchmarking"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "image": {
+      "alt": "A model benchmarking matrix comparing two models across three criteria.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e76d14d2-dc70-47e7-a976-490b0f31497a/exam/images/unit5-q11.png"
+     },
+     "prompt": "When benchmarking models, which three primary evaluation dimensions were highlighted in the unit?",
+     "options": [
+      "Clarity",
+      "Speed of generation",
+      "Detail",
+      "Safety/Factuality",
+      "Model popularity"
+     ],
+     "explanation": "These three dimensions allow users to objectively score how well a model meets the specific requirements of a task.",
+     "correctAnswers": [
+      "Clarity",
+      "Detail",
+      "Safety/Factuality"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Comparing an AI model to a ____ (such as a contractor) helps beginners understand that performance must be evaluated across speed, accuracy, and safety separately.",
+     "explanation": "The contractor analogy helps shift the user's perspective from 'search engine' (right/wrong) to 'agent' (fit-for-purpose).",
+     "placeholder": "analogy name",
+     "correctAnswers": [
+      "hired professional",
+      "contractor",
+      "professional"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the scenario where two models explain neural networks to a 'non-technical manager,' why might the less detailed model be the winner?",
+     "options": [
+      "The most detailed answer is always the best",
+      "It is faster to read for a busy executive",
+      "The context of the audience determines the rubric's weighting",
+      "Because 'Clarity' is more important than 'Safety' in all business cases"
+     ],
+     "explanation": "A manager needs high-level clarity over technical detail; therefore, the model that prioritizes clarity for that specific audience is 'better' for the task.",
+     "correctAnswers": [
+      "The context of the audience determines the rubric's weighting"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which elements are essential for converting a vague conversational prompt into a structured directive?",
+     "options": [
+      "Defining a specific role for the model",
+      "Setting negative constraints (what NOT to do)",
+      "Asking the model how it feels about the task",
+      "Specifying strict formatting rules",
+      "Providing three different deadlines"
+     ],
+     "explanation": "Structured directives rely on persona, constraints, and formatting to produce predictable, high-quality results.",
+     "correctAnswers": [
+      "Defining a specific role for the model",
+      "Setting negative constraints (what NOT to do)",
+      "Specifying strict formatting rules"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What happens to the 'probability space' when you define a specific expert persona in a prompt?",
+     "options": [
+      "It expands to include all professional vocabulary",
+      "It narrows it down to a targeted domain of patterns and vocabulary",
+      "It causes the model to ignore user constraints",
+      "It remains unchanged because the model has no ego"
+     ],
+     "explanation": "Persona-setting acts as a mathematical constraint, forcing the model to simulate patterns from a specific subset of its training data.",
+     "correctAnswers": [
+      "It narrows it down to a targeted domain of patterns and vocabulary"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "You are refining an AI-generated draft. Drag the corrective filter to the position that will most effectively narrow the model's 'average' probability distribution to reach a high-quality, specific output.",
+     "options": [
+      "The Single-Query Search Line",
+      "The wide top of the Funnel",
+      "The narrowing neck of the Funnel",
+      "The brand-new chat window"
+     ],
+     "explanation": "As described in the 'Improving an Answer' session, successive constraints act like a funnel, filtering out generic responses to produce specific, high-quality text.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Prompt Refinement Funnel</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #6e6e6e;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n      \n      --search-color: #d97706;\n      --funnel-top-color: #4b5563;\n      --funnel-neck-color: #10b981;\n      --chat-color: #8b5cf6;\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 12px;\n    }\n\n    .stage {\n      width: 100%;\n      max-width: 540px;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      position: relative;\n      overflow: hidden;\n      height: 250px;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Interactive Zones styling */\n    .zone {\n      cursor: pointer;\n      transition: opacity 0.2s ease;\n    }\n    .zone-bg {\n      fill: var(--surface);\n      stroke: var(--border);\n      stroke-width: 1.5;\n      stroke-dasharray: 4 4;\n      transition: all 0.2s ease;\n    }\n    .zone.active .zone-bg {\n      stroke: var(--accent);\n      stroke-width: 2;\n      stroke-dasharray: none;\n      fill: var(--accent-soft);\n    }\n\n    .zone-title {\n      font-size: 11px;\n      font-weight: 600;\n      fill: var(--muted-fg);\n      transition: fill 0.2s ease;\n    }\n    .zone.active .zone-title {\n      fill: var(--accent-strong);\n    }\n\n    /* Funnel shape outline */\n    .funnel-guide {\n      fill: none;\n      stroke: #d1d5db;\n      stroke-width: 2;\n      stroke-dasharray: 4 4;\n    }\n\n    /* Draggable corrective filter token */\n    .filter-token {\n      cursor: grab;\n      touch-action: none;\n    }\n    .filter-token:active {\n      cursor: grabbing;\n    }\n    .filter-token-circle {\n      fill: var(--accent);\n      stroke: var(--surface);\n      stroke-width: 3;\n      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));\n      transition: fill 0.2s ease, transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n    .filter-token:hover .filter-token-circle {\n      fill: var(--accent-strong);\n      transform: scale(1.05);\n    }\n    .filter-token.dragging .filter-token-circle {\n      fill: var(--accent-strong);\n      transform: scale(1.1);\n      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25));\n    }\n\n    /* Output Display Box */\n    .output-box {\n      width: 100%;\n      max-width: 540px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 10px 14px;\n      display: flex;\n      align-items: center;\n      gap: 10px;\n      min-height: 48px;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.02);\n    }\n    .output-label {\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.05em;\n      color: var(--muted-fg);\n      font-weight: 700;\n      white-space: nowrap;\n    }\n    .output-text {\n      font-size: 13px;\n      font-weight: 500;\n      color: var(--fg);\n      flex-grow: 1;\n      transition: color 0.2s;\n    }\n    .output-badge {\n      font-size: 10px;\n      font-weight: 700;\n      padding: 3px 8px;\n      border-radius: 12px;\n      background: #f3f4f6;\n      color: #374151;\n      transition: all 0.2s;\n    }\n\n    /* Action Instruction */\n    .instruction {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n    }\n\n    /* Keyboard access */\n    .filter-token:focus-visible {\n      outline: none;\n    }\n    .filter-token:focus-visible .filter-token-circle {\n      stroke: #3b82f6;\n      stroke-width: 4;\n    }\n\n    .locked {\n      pointer-events: none !important;\n    }\n    .locked .filter-token {\n      cursor: default;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Prompt Refinement Funnel Practice</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 500 240\">\n        <!-- SVG Definitions for gradients / icons -->\n        <defs>\n          <linearGradient id=\"funnelGrad\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n            <stop offset=\"0%\" stop-color=\"#e5e7eb\" stop-opacity=\"0.8\"/>\n            <stop offset=\"100%\" stop-color=\"#d1d5db\" stop-opacity=\"0.3\"/>\n          </linearGradient>\n        </defs>\n\n        <!-- Funnel visual background shape -->\n        <path d=\"M 175 60 L 325 60 L 280 155 L 280 195 L 220 195 L 220 155 Z\" fill=\"url(#funnelGrad)\" stroke=\"#e5e7eb\" stroke-width=\"2\"/>\n        \n        <!-- Interactive Zone: The Single-Query Search Line -->\n        <g class=\"zone\" id=\"zone-search\" data-option=\"The Single-Query Search Line\" tabindex=\"0\" role=\"button\" aria-label=\"The Single-Query Search Line Zone\">\n          <rect class=\"zone-bg\" x=\"15\" y=\"25\" width=\"135\" height=\"55\" rx=\"8\" />\n          <text class=\"zone-title\" x=\"82\" y=\"45\" text-anchor=\"middle\">Single-Query Search</text>\n          <line x1=\"30\" y1=\"58\" x2=\"135\" y2=\"58\" stroke=\"#d1d5db\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n          <circle cx=\"125\" cy=\"58\" r=\"4\" fill=\"#9ca3af\" />\n        </g>\n\n        <!-- Interactive Zone: The wide top of the Funnel -->\n        <g class=\"zone\" id=\"zone-top\" data-option=\"The wide top of the Funnel\" tabindex=\"0\" role=\"button\" aria-label=\"The wide top of the Funnel Zone\">\n          <rect class=\"zone-bg\" x=\"170\" y=\"15\" width=\"160\" height=\"40\" rx=\"8\" />\n          <text class=\"zone-title\" x=\"250\" y=\"32\" text-anchor=\"middle\">Wide Top (Generic)</text>\n          <text x=\"250\" y=\"44\" font-size=\"9\" fill=\"#9ca3af\" text-anchor=\"middle\">Raw Draft / High Volume</text>\n        </g>\n\n        <!-- Interactive Zone: The narrowing neck of the Funnel -->\n        <g class=\"zone\" id=\"zone-neck\" data-option=\"The narrowing neck of the Funnel\" tabindex=\"0\" role=\"button\" aria-label=\"The narrowing neck of the Funnel Zone\">\n          <rect class=\"zone-bg\" x=\"190\" y=\"150\" width=\"120\" height=\"50\" rx=\"8\" />\n          <text class=\"zone-title\" x=\"250\" y=\"170\" text-anchor=\"middle\">Narrowing Neck</text>\n          <text x=\"250\" y=\"184\" font-size=\"9\" fill=\"#9ca3af\" text-anchor=\"middle\">Corrective Filters Applied</text>\n        </g>\n\n        <!-- Interactive Zone: The brand-new chat window -->\n        <g class=\"zone\" id=\"zone-chat\" data-option=\"The brand-new chat window\" tabindex=\"0\" role=\"button\" aria-label=\"The brand-new chat window Zone\">\n          <rect class=\"zone-bg\" x=\"350\" y=\"25\" width=\"135\" height=\"55\" rx=\"8\" />\n          <text class=\"zone-title\" x=\"417\" y=\"45\" text-anchor=\"middle\">Brand-New Chat</text>\n          <!-- Chat decorative icon -->\n          <rect x=\"390\" y=\"52\" width=\"22\" height=\"14\" rx=\"3\" fill=\"#e5e7eb\"/>\n          <polygon points=\"395,66 395,71 401,66\" fill=\"#e5e7eb\"/>\n          <line x1=\"418\" y1=\"58\" x2=\"435\" y2=\"58\" stroke=\"#d1d5db\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n          <line x1=\"418\" y1=\"64\" x2=\"428\" y2=\"64\" stroke=\"#d1d5db\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n        </g>\n\n        <!-- Connecting/Instructional lines or paths -->\n        <path d=\"M 250 55 L 250 150\" stroke=\"#cbd5e1\" stroke-width=\"2\" stroke-dasharray=\"2 2\" />\n\n        <!-- Draggable Filter Token (initially positioned in a starting float spot) -->\n        <g class=\"filter-token\" id=\"draggable-filter\" transform=\"translate(250, 105)\" tabindex=\"0\" role=\"slider\" aria-valuenow=\"0\" aria-valuemin=\"1\" aria-valuemax=\"4\" aria-label=\"Corrective Filter Token\">\n          <circle class=\"filter-token-circle\" r=\"22\" />\n          <!-- Inner Lens Filter icon -->\n          <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" />\n          <line x1=\"6\" y1=\"6\" x2=\"13\" y2=\"13\" stroke=\"white\" stroke-width=\"2.5\" stroke-linecap=\"round\" />\n          <text x=\"0\" y=\"-28\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--accent-strong)\" text-anchor=\"middle\" pointer-events=\"none\">Corrective Filter</text>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Output feedback card -->\n    <div class=\"output-box\">\n      <span class=\"output-label\">Model Output:</span>\n      <span class=\"output-text\" id=\"output-desc\">Drag the filter onto a target zone to see output...</span>\n      <span class=\"output-badge\" id=\"output-quality\">No State</span>\n    </div>\n\n    <p class=\"instruction\">Drag the corrective filter into a target zone to configure refinement.</p>\n  </div>\n\n  <script>\n    // State management\n    const zones = [\n      { id: 'zone-search', option: 'The Single-Query Search Line', x: 82, y: 52, desc: 'Bare factual search hits. Zero contextual reasoning.', badge: 'Raw Facts' },\n      { id: 'zone-top', option: 'The wide top of the Funnel', x: 250, y: 35, desc: 'Average, generic response lacking specific structure.', badge: 'Average Draft' },\n      { id: 'zone-neck', option: 'The narrowing neck of the Funnel', x: 250, y: 175, desc: 'Highly professional, targeted, and aligned with instructions!', badge: 'Targeted & Professional' },\n      { id: 'zone-chat', option: 'The brand-new chat window', x: 417, y: 52, desc: 'Resets session. All prior context and constraints are lost.', badge: 'Fresh Start' }\n    ];\n\n    let currentOption = null;\n    let isLocked = false;\n    let selectedIndex = -1; // For keyboard navigation\n\n    const filterToken = document.getElementById('draggable-filter');\n    const stageArea = document.getElementById('stage-area');\n    const outputDesc = document.getElementById('output-desc');\n    const outputQuality = document.getElementById('output-quality');\n\n    // Starting visual position (floating center)\n    let tokenPos = { x: 250, y: 105 };\n    updateTokenTransform();\n\n    // Dragging physics\n    let isDragging = false;\n    let dragStart = { x: 0, y: 0 };\n    let tokenStart = { x: 0, y: 0 };\n\n    // Set up Pointer Events\n    filterToken.addEventListener('pointerdown', onPointerDown);\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      filterToken.classList.add('dragging');\n      filterToken.setPointerCapture(e.pointerId);\n\n      // Get coordinate ratio mapping of SVG to actual client size\n      const rect = stageArea.getBoundingClientRect();\n      const svgWidth = 500;\n      const svgHeight = 240;\n      const scaleX = svgWidth / rect.width;\n      const scaleY = svgHeight / rect.height;\n\n      dragStart = { x: e.clientX * scaleX, y: e.clientY * scaleY };\n      tokenStart = { ...tokenPos };\n\n      window.addEventListener('pointermove', onPointerMove);\n      window.addEventListener('pointerup', onPointerUp);\n      e.preventDefault();\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging) return;\n      const rect = stageArea.getBoundingClientRect();\n      const svgWidth = 500;\n      const svgHeight = 240;\n      const scaleX = svgWidth / rect.width;\n      const scaleY = svgHeight / rect.height;\n\n      const currentPointer = { x: e.clientX * scaleX, y: e.clientY * scaleY };\n      \n      // Calculate new position using preserved grab offset\n      let newX = tokenStart.x + (currentPointer.x - dragStart.x);\n      let newY = tokenStart.y + (currentPointer.y - dragStart.y);\n\n      // Clamp positions within the SVG bounds safely\n      tokenPos.x = Math.max(25, Math.min(475, newX));\n      tokenPos.y = Math.max(25, Math.min(215, newY));\n\n      updateTokenTransform();\n      checkHoverZones(tokenPos.x, tokenPos.y);\n    }\n\n    function onPointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      filterToken.classList.remove('dragging');\n      window.removeEventListener('pointermove', onPointerMove);\n      window.removeEventListener('pointerup', onPointerUp);\n\n      // Snap to nearest zone\n      snapToNearest();\n    }\n\n    function checkHoverZones(x, y) {\n      let activeZoneId = null;\n      let minDistance = 55; // hover threshold in SVG px\n\n      zones.forEach(zone => {\n        const dx = zone.x - x;\n        const dy = zone.y - y;\n        const dist = Math.sqrt(dx*dx + dy*dy);\n        \n        const zoneEl = document.getElementById(zone.id);\n        if (dist < minDistance) {\n          zoneEl.classList.add('active');\n          activeZoneId = zone.id;\n        } else {\n          zoneEl.classList.remove('active');\n        }\n      });\n    }\n\n    function snapToNearest() {\n      let nearestZone = null;\n      let minDistance = 9999;\n\n      zones.forEach(zone => {\n        const dx = zone.x - tokenPos.x;\n        const dy = zone.y - tokenPos.y;\n        const dist = Math.sqrt(dx*dx + dy*dy);\n        if (dist < minDistance) {\n          minDistance = dist;\n          nearestZone = zone;\n        }\n      });\n\n      // Snap the token\n      if (nearestZone) {\n        tokenPos.x = nearestZone.x;\n        tokenPos.y = nearestZone.y;\n        \n        // Add a smooth transition temporary class\n        filterToken.style.transition = 'transform 0.25s cubic-bezier(.34,1.56,.64,1)';\n        updateTokenTransform();\n        setTimeout(() => {\n          filterToken.style.transition = '';\n        }, 250);\n\n        // Set active state styling\n        zones.forEach(z => {\n          document.getElementById(z.id).classList.toggle('active', z.id === nearestZone.id);\n        });\n\n        selectZone(nearestZone);\n      }\n    }\n\n    function selectZone(zone) {\n      if (currentOption !== zone.option) {\n        currentOption = zone.option;\n        outputDesc.textContent = zone.desc;\n        outputQuality.textContent = zone.badge;\n        \n        // Dynamic badge color shifts\n        if (zone.id === 'zone-neck') {\n          outputQuality.style.background = 'rgba(16, 185, 129, 0.15)';\n          outputQuality.style.color = 'var(--funnel-neck-color)';\n        } else if (zone.id === 'zone-top') {\n          outputQuality.style.background = 'rgba(75, 85, 99, 0.1)';\n          outputQuality.style.color = 'var(--funnel-top-color)';\n        } else if (zone.id === 'zone-search') {\n          outputQuality.style.background = 'rgba(217, 119, 6, 0.1)';\n          outputQuality.style.color = 'var(--search-color)';\n        } else {\n          outputQuality.style.background = 'rgba(139, 92, 246, 0.1)';\n          outputQuality.style.color = 'var(--chat-color)';\n        }\n\n        // Report option to parent\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: currentOption }, '*');\n        } catch(e) {}\n      }\n    }\n\n    function updateTokenTransform() {\n      filterToken.setAttribute('transform', `translate(${tokenPos.x}, ${tokenPos.y})`);\n    }\n\n    // Direct clicks on zones\n    zones.forEach(zone => {\n      const el = document.getElementById(zone.id);\n      el.addEventListener('click', () => {\n        if (isLocked) return;\n        tokenPos.x = zone.x;\n        tokenPos.y = zone.y;\n        filterToken.style.transition = 'transform 0.25s cubic-bezier(.34,1.56,.64,1)';\n        updateTokenTransform();\n        setTimeout(() => { filterToken.style.transition = ''; }, 250);\n\n        zones.forEach(z => {\n          document.getElementById(z.id).classList.toggle('active', z.id === zone.id);\n        });\n        selectZone(zone);\n      });\n    });\n\n    // Keyboard support\n    filterToken.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {\n        e.preventDefault();\n        selectedIndex = (selectedIndex + 1) % zones.length;\n        snapToZoneByIndex(selectedIndex);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        e.preventDefault();\n        selectedIndex = (selectedIndex - 1 + zones.length) % zones.length;\n        snapToZoneByIndex(selectedIndex);\n      }\n    });\n\n    function snapToZoneByIndex(index) {\n      const zone = zones[index];\n      tokenPos.x = zone.x;\n      tokenPos.y = zone.y;\n      filterToken.style.transition = 'transform 0.2s ease-out';\n      updateTokenTransform();\n      setTimeout(() => { filterToken.style.transition = ''; }, 200);\n\n      zones.forEach(z => {\n        document.getElementById(z.id).classList.toggle('active', z.id === zone.id);\n      });\n      selectZone(zone);\n    }\n\n    // Listen for locking message\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('widget-container').classList.add('locked');\n        filterToken.removeAttribute('tabindex');\n        zones.forEach(z => document.getElementById(z.id).removeAttribute('tabindex'));\n      }\n    });\n\n    // Height calculation and reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The narrowing neck of the Funnel"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "07857874-2e83-4b64-b4f8-46d93d655b62"
+}

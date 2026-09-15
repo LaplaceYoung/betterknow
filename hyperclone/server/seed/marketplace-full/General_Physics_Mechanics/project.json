@@ -1,0 +1,327 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the Computational Orbital Mechanic project! Over the course of this project, you are going to build a sophisticated physics simulation of a spacecraft journeying from Earth to a lunar orbit. You'll develop a numerical engine that doesn't just draw lines, but actually calculates trajectories using real-world physics like energy principles, angular momentum, and multi-body gravity. We start today with the 'Kinematic Trajectory Engine.' Following our look at 2D vectors and components, your first task is to set up the coordinate system and the time-stepping logic. We need a way to 'march' forward in time to see where our craft goes.",
+     "step_title": "Project Launch & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State your chosen time step (dt) and your calculated initial velocity components (vx and vy). Briefly explain how your choice of dt balances calculation speed with simulation precision."
+     },
+     "step_body": "Before we can simulate motion, we must define our starting parameters. In a script or spreadsheet, define your time step (dt), total simulation time, and initial vectors. To keep things grounded in our recent 'Units and Dimensions' session, use SI units (meters and seconds). Let's start with an initial position at the origin (0,0) and an initial velocity vector of 100 m/s at a 45-degree angle. Use what you learned about vector decomposition to calculate the initial vx and vy components. Why did you choose the specific time step (dt) you are using? Does a larger or smaller dt provide more precision?",
+     "step_title": "Define Constants & Initial State",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's implement the 'Euler Method'—the heartbeat of our engine. For every time step, the engine must update the velocity based on acceleration, and then update the position based on that velocity. For this stage, assume a constant acceleration vector (perhaps representing a steady engine burn) of 2 m/s² in the x-direction and 0 m/s² in the y-direction. Your loop should look like this: 1. Update velocity (v = v + a*dt), 2. Update position (r = r + v*dt), 3. Record the new coordinates in a list or array. This is the 'numerical engine' that will eventually carry us to the Moon!",
+     "step_title": "Draft the Integration Loop",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief 'dimensional proof' showing that your position update equation is dimensionally consistent."
+     },
+     "step_body": "Before we run the full simulation, let's perform a 'Sanity Check' like we practiced in class. Look at your update logic: Position = Position + (Velocity * dt). Break this down into dimensions. Position is [L], Velocity is [L/T], and dt is [T]. Does [L/T] * [T] result in [L]? If your units don't match, your simulation will produce nonsense results. Confirm that your code's update logic is dimensionally sound.",
+     "step_title": "Verify Dimensional Consistency",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot or image of your generated trajectory plot. The plot should clearly show the path of the spacecraft with labeled X and Y axes in meters."
+     },
+     "step_body": "It's time to visualize the results! Run your loop for 100 seconds and plot the resulting (x, y) coordinates. Since we have a constant velocity in y and a constant acceleration in x, you should see a specific curved path. This plot is the first visible piece of your final deliverable—the foundational trajectory that we will later pull toward the Moon using gravity. Ensure your plot has labeled axes with the correct units (meters).",
+     "step_title": "Generate and Submit the Trajectory",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your core simulation script (Python .py, .ipynb, or spreadsheet). Good work will include clearly defined variables, a clean integration loop, and comments explaining the vector calculations."
+     },
+     "step_body": "Great work on completing the Kinematic Engine! You have successfully translated vector math into a functional time-series simulation. This script serves as the backbone for the rest of the project. As a final step for this stage, please submit your full code (or spreadsheet file). In the next stage, we will move beyond constant acceleration and begin calculating the changing gravitational forces between the Earth and the spacecraft.",
+     "step_title": "Submit the Simulation Script",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "893ec373-21a9-46f0-abb4-8b09cb631d29",
+   "stage_title": "Kinematic Trajectory Engine",
+   "parent_project_id": "6cf67138-0827-4686-9560-308418daf9ad",
+   "stage_description": "Implement a numerical integration loop (Euler method) to calculate the 2D position and velocity of a spacecraft under constant acceleration and initial velocity vectors. This establishes the coordinate system and time-stepping logic for the simulation.",
+   "deliverable_increment": "A core simulation loop script that outputs time-series data for x and y coordinates and generates a basic trajectory plot."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you built a Kinematic Trajectory Engine—a script that calculates a spacecraft's path based solely on its velocity and position over time. While this successfully visualizes motion, it doesn't explain *why* that motion changes. To simulate a moon mission, we must move from kinematics (describing motion) to dynamics (calculating motion from forces). In this stage, you will implement Newton’s Second Law ($F=ma$) to allow your simulation to respond to rocket thrust, changing the craft's velocity based on its mass and the engine's power.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (1-2 sentences) on why mass must be a variable in a realistic rocket simulation. Good work will mention the relationship between mass, force, and acceleration ($a = F/m$)."
+     },
+     "step_body": "To transition your code to a dynamic model, you need to track more than just position. Currently, your simulation likely updates position based on a fixed velocity. Now, we must treat acceleration as the primary driver. Review your current simulation loop and identify where you define your 'state' (position and velocity). Prepare to add a variable for 'Mass' (m), as this will determine how much your spacecraft resists changes in motion. Why is it essential to keep track of mass separately in a rocket simulation rather than assuming it is a constant 1.0?",
+     "step_title": "Define the state vector",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the calculated acceleration magnitude for the example given, along with a small snippet of your Python or logic pseudocode that performs the $a = F/m$ calculation for both X and Y components."
+     },
+     "step_body": "A rocket engine provides a force vector. You need to create a function or logic block that returns a 'Thrust' vector $(F_x, F_y)$ based on the engine's status. For now, assume a constant thrust magnitude and a direction aligned with the spacecraft's heading. If you apply a force of 10,000 Newtons to a 5,000 kg spacecraft, calculate the resulting acceleration magnitude. Use this logic to draft a function in your script that takes 'Thrust' and 'Mass' as inputs and returns the 'Acceleration' vector.",
+     "step_title": "Draft the thrust function",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, integrate this into your main loop. In each time step (dt), your code should now: 1) Calculate the Net Force (starting with just Thrust). 2) Calculate Acceleration ($a = F/m$). 3) Update Velocity ($v_{new} = v_{old} + a * dt$). 4) Update Position ($p_{new} = p_{old} + v * dt$). This 'Euler Integration' chain ensures that your force vectors are actually driving the trajectory. Run a test where you apply a constant thrust for 10 seconds and then turn it off—your craft should maintain its new velocity according to Newton's First Law.",
+     "step_title": "Update the numerical engine",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your updated simulation script (Python or spreadsheet). It must show the implementation of $F=ma$ within the simulation loop and a successful calculation of velocity changes based on a force input. High-quality work will include comments labeling the force-to-acceleration step."
+     },
+     "step_body": "It is time to verify your Dynamics and Thrust Integration. Your script should now demonstrate a clear change in trajectory when thrust is applied versus when the craft is 'coasting' in equilibrium ($F_{net} = 0$). This updated module is the foundation for all future maneuvers, including the upcoming gravity calculations and orbital insertion.",
+     "step_title": "Submit your updated module",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a short reflection on how your simulation demonstrates Newton's First Law. A good response correctly identifies that velocity remains constant when the net force is zero."
+     },
+     "step_body": "Before we move to the next unit, consider the 'Inertia' you observed in your simulation. When you set the thrust to zero, did the spacecraft stop immediately, or did it maintain its velocity? Based on your understanding of Newton’s First Law from the unit material, explain how your simulation successfully modeled the 'laziness' of the spacecraft's mass.",
+     "step_title": "Reflect on inertia",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "a0d83cf5-3508-46a8-862a-597c1f04afbf",
+   "stage_title": "Dynamics and Thrust Integration",
+   "parent_project_id": "6cf67138-0827-4686-9560-308418daf9ad",
+   "stage_description": "Incorporate Newton's Second Law by adding force vectors to the simulation. You will model the spacecraft's mass and the variable force of rocket engines (thrust) to transition from kinematic motion to force-driven dynamics.",
+   "deliverable_increment": "An updated simulation module that accepts force vectors (thrust) as inputs and calculates resulting acceleration and velocity changes."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you successfully built a trajectory engine that calculates your spacecraft's position and velocity vectors over time, including the ability to apply thrust. However, a simulation is only as good as its underlying physics verification. Now that we are dealing with complex orbital paths, we need to ensure our 'physics budget' balances. In this stage, you will implement an energy-monitoring system to track Kinetic Energy (K), Gravitational Potential Energy (U), and the Work (W) done by your engines to verify that energy is conserved during coasting and changes correctly during burns.",
+     "step_title": "Recap and Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a short explanation (1-2 sentences) of why the 'mgh' formula for potential energy is insufficient for a moon mission simulation compared to the universal gravitation energy formula."
+     },
+     "step_body": "Before we can track energy, we must define how to calculate it at every time step. Based on the lecture, gravitational potential energy is defined by the configuration of the system. In our 2D simulation, you'll need to use the formula U = -G * M * m / r, where r is the distance between the Earth's center and the spacecraft. Note that this value is negative because the zero-point is at infinity. Start by creating a function or method in your script that takes your current position vector and returns the potential energy. Why is it important to use this distance-based formula rather than the simple 'mgh' we used in earlier physics classes?",
+     "step_title": "Define Potential Energy Functions",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, implement the calculation for Kinetic Energy (K = 1/2 * m * v²). Your simulation already tracks the velocity vector; use its magnitude (speed) to calculate the scalar kinetic energy at every time step. Create a list or array to store the 'Total Mechanical Energy' (E = K + U) at every point in your simulation. During segments where the engines are OFF (no thrust), this value E should remain constant. Modify your simulation loop to store these values so we can inspect them later.",
+     "step_title": "Implement Kinetic Energy Tracking",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "When your engines are firing, they are doing Work (W) on the spacecraft, which increases or decreases the Total Mechanical Energy. To track this, calculate the work done during a single time step as W = F_thrust ⋅ Δs, where Δs is the displacement vector (velocity * dt). Because our thrust and displacement are vectors, you should use the dot product. Keep a running tally of the 'Cumulative Work' done by the engines throughout the flight. This will allow us to verify the Work-Energy Theorem: the change in Total Mechanical Energy (ΔE) must equal the Total Work done by the engines.",
+     "step_title": "Calculate Work Done by Engines",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Submit a screenshot of your Energy vs. Time plot. The plot must clearly show Kinetic, Potential, and Total Mechanical energy. A 'good' plot shows a flat Total Energy line during non-thrust periods, indicating that energy is being conserved in your numerical simulation."
+     },
+     "step_body": "The final step of this stage is to visualize the physics. Create a plot with Time on the x-axis and Energy on the y-axis. You should plot three lines: Kinetic Energy, Potential Energy, and Total Mechanical Energy. If your simulation is accurate, the Total Mechanical Energy line should be perfectly horizontal during coasting phases and should shift only when the engine 'Work' is being applied. This is your primary tool for debugging the 'drift' in your numerical integrator.",
+     "step_title": "Generate Energy Diagnostic Plots",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your updated Python script or simulation file. I will look for the inclusion of potential/kinetic energy calculations within the main loop and the cumulative work tally."
+     },
+     "step_body": "Now that you have verified your energy calculations and generated your plots, integrate this energy-monitoring submodule into your main simulation script. This ensures that every time you run a mission, you have an immediate readout of whether the physics is behaving correctly. This will be vital when we add Lunar gravity in the next stage, as the energy balance will become even more complex.",
+     "step_title": "Submit Your Updated Script",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "d4bd0e56-90aa-482a-b9a8-a79339fd238b",
+   "stage_title": "Energy and Work Verification",
+   "parent_project_id": "6cf67138-0827-4686-9560-308418daf9ad",
+   "stage_description": "Calculate the kinetic energy, gravitational potential energy, and work done by the engines at each time step. Create diagnostic plots to ensure mechanical energy is conserved during coasting phases and changes correctly during burns.",
+   "deliverable_increment": "An energy-monitoring submodule and a graphical plot showing the Energy vs. Time relationship throughout the flight."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built a powerful 2D point-mass simulation that tracks position, velocity, and energy throughout a lunar flight. However, a spacecraft isn't just a point in space; it's a rigid body that must rotate to point its engines in the right direction. To prepare for the 'lunar arrival' maneuvers, we must now transition from particle mechanics to rotational dynamics. In this stage, you will implement a rotational engine that tracks the spacecraft's orientation (theta), angular velocity, and the torque required to spin it.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the calculated value for the Moment of Inertia (I) in kg·m² and a brief explanation of how the distribution of mass (the radius) affects the effort required to change the ship's rotation."
+     },
+     "step_body": "Before we can rotate, we need to know the 'rotational mass' of your craft, known as the Moment of Inertia (I). For this project, assume your spacecraft is a uniform cylinder with a mass (m) of 5000 kg and a radius (r) of 2 meters. Using the formula I = 0.5 * m * r², calculate the moment of inertia. This value will determine how much torque is required to achieve a specific angular acceleration. Why do you think a wider spacecraft would be harder to reorient than a thin one of the same mass?",
+     "step_title": "Define the moment of inertia",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, open your simulation script. You need to expand your state vector to include rotational tracking. Define three new variables in your setup: 'theta' (angular position in radians), 'omega' (angular velocity in rad/s), and 'alpha' (angular acceleration in rad/s²). It is critical to use radians rather than degrees for the physics calculations to work correctly. Set your initial theta to 0 and omega to 0. Update your main simulation loop so that these values update over time using the same time-step (dt) as your linear motion.",
+     "step_title": "Initialize angular state variables",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "To rotate the ship, your RCS (Reaction Control System) thrusters apply a force at a distance from the center of mass. Recall that Torque (τ) = Force * Lever Arm. In your code, create a function that takes a 'thruster force' as an input, calculates the resulting torque (assuming a 2-meter lever arm), and then calculates the angular acceleration using Newton’s Second Law for rotation: α = τ / I. This bridge allows your simulation to turn linear 'thrust' into rotational 'spin'.",
+     "step_title": "Implement the torque-to-alpha bridge",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the segment of your Python code or spreadsheet logic that handles the update of theta and omega. Include a brief comment on whether your craft successfully stopped at the target orientation."
+     },
+     "step_body": "It’s time to test the rotation. Set your simulation to apply a torque for exactly 2 seconds to start a spin, then zero torque for 5 seconds (coasting), then an equal opposite torque for 2 seconds to stop the rotation. Your goal is to reorient the craft by approximately 180 degrees (π radians) to face 'backward' for a retro-burn. Calculate the necessary thrust force to achieve this timing, and update your loop to calculate theta = theta + omega * dt.",
+     "step_title": "Simulate a reorientation maneuver",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your plot showing the change in theta and omega over time. A successful submission will show theta increasing and then leveling off at the target orientation, with omega rising and returning to zero."
+     },
+     "step_body": "For the final part of this stage, generate a plot showing Angular Position (theta) vs. Time and Angular Velocity (omega) vs. Time for your 180-degree turn. This confirms that your spacecraft can reorient itself predictably. This component is vital for the next stage, where we will combine this rotation with linear thrust to perform a complex orbital insertion.",
+     "step_title": "Submit rotation component",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "ec649ad6-40b1-4614-98c9-028e9f81dae6",
+   "stage_title": "Rotational Maneuvering and Inertia",
+   "parent_project_id": "6cf67138-0827-4686-9560-308418daf9ad",
+   "stage_description": "Model the spacecraft as a rigid body and implement torque-based rotations. You will calculate the moment of inertia and simulate the angular acceleration needed to reorient the craft for a 'retro-burn' to prepare for lunar arrival.",
+   "deliverable_increment": "A rotation simulation component that tracks the angular orientation (theta) and angular velocity of the spacecraft."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have successfully built a simulation that handles spacecraft orientation, energy monitoring, and thrust dynamics. So far, we have treated gravity as a constant downward force (g). However, as our spacecraft leaves Earth's vicinity and approaches the Moon, gravity becomes a dynamic, 'universal' interaction. In this stage, you will replace the constant 'g' with the Universal Law of Gravitation, modeling the pull from both the Earth and the Moon simultaneously. This is the final layer of physics needed to achieve our mission goal: a stable lunar orbit.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Explain the formula you will use to calculate the distance 'r' from the spacecraft's (x, y) coordinates and justify why the gravitational force must be recalculated every frame in a simulation."
+     },
+     "step_body": "Open your simulation script and locate your gravity calculation logic. Replace the constant acceleration with Newton’s Universal Law: F = G * (m1 * m2 / r^2). You must calculate two separate force vectors for every time step: one directed toward the center of the Earth and one toward the center of the Moon. Remember that 'r' is the distance between the spacecraft center and the celestial body center. How are you planning to calculate the distance 'r' using your x and y coordinate variables, and why is it important to update this at every single time step?",
+     "step_title": "Implement dual-body gravity",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe the behavior of your potential energy plot compared to the previous constant-gravity version. Mention how the energy value changes as the spacecraft moves further from Earth."
+     },
+     "step_body": "Now, integrate these formulas into your Python script. Ensure you are using the correct value for the Universal Gravitational Constant (G ≈ 6.674e-11) and the masses of the Earth and Moon. Your code should calculate the unit vector for direction and then multiply by the magnitude of the force. Once implemented, run a test where the spacecraft is stationary between the two bodies. Describe what your energy-monitoring plot looks like now that the gravitational potential energy is changing based on distance rather than height.",
+     "step_title": "Code the gravity vectors",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "To transition from a 'flyby' to a 'capture,' you must achieve the correct orbital velocity. The formula for circular orbital velocity is v = sqrt(G * M_moon / r). As your spacecraft reaches its closest point to the Moon (perilune), your simulation needs to execute a 'burn' to match this velocity. Use your Dynamics and Thrust module from the previous stage to adjust your velocity vector. Calculate your required velocity for a 100km altitude orbit above the Moon and check if your current simulation speed is too high or too low at that point.",
+     "step_title": "Calculate orbital insertion",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit a ZIP file or PDF containing your Python script/spreadsheet and the resulting trajectory and energy plots. Good work shows a clear path from Earth, a visible deflection by Moon gravity, and at least two full, closed orbits around the Moon."
+     },
+     "step_body": "It is time to finalize the mission. Run your simulation from Earth launch to Lunar capture. You need to provide the finalized code that includes the dual-body gravity logic and a visual report. This report must show the trajectory plot—displaying a closed, elliptical or circular loop around the Moon—and a data log or plot confirming that the spacecraft's total mechanical energy remains relatively constant (within numerical error) once the engines are off. This confirms your physics engine is accurate.",
+     "step_title": "Submit simulation and report",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief reflection (3-5 sentences) comparing the energy conservation in your lunar orbit to the energy transformations studied in the mass-spring system."
+     },
+     "step_body": "Congratulations on completing the mission! Before we move on, consider the orbital motion you just simulated. In our previous lesson on Springs and Hooke's Law, we discussed 'restoring forces' that pull an object back to equilibrium. In what ways is a stable orbit similar to a mass on a spring, and how does the energy exchange between potential and kinetic in an orbit compare to the 'sloshing' of energy in Simple Harmonic Motion?",
+     "step_title": "Reflect on the 'Restoring Force'",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "6c5b2a1f-91b8-4438-8427-23075c425752",
+   "stage_title": "Universal Gravitation and Orbital Capture",
+   "parent_project_id": "6cf67138-0827-4686-9560-308418daf9ad",
+   "stage_description": "Replace constant gravity with Newton's Law of Universal Gravitation, accounting for both Earth and Moon's gravity. Tune the final approach velocity to achieve a stable elliptical orbit around the Moon using the orbital velocity formula.",
+   "deliverable_increment": "The finalized simulation code featuring dual-body gravity logic and a data report confirming a stable, closed orbit around the Moon."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "6cf67138-0827-4686-9560-308418daf9ad",
+   "project_name": "Computational Orbital Mechanic: Simulating a Moon Mission",
+   "final_deliverable": "A comprehensive Python script (or spreadsheet model) containing a multi-stage numerical integrator that predicts the spacecraft's 2D position and velocity vectors over time, including energy and momentum verification plots and a successful lunar orbit insertion.",
+   "project_description": "In this project, you will build a physics-based simulation of a spacecraft traveling from Earth to the Moon. You will progressively develop a numerical engine that calculates trajectories, handles engine burns using energy principles, manages angular momentum during maneuvers, and finally accounts for lunar gravity to achieve orbit."
+  }
+ ],
+ "courseUuid": "d2cc75bb-ce4d-4cf9-bb71-66cd7ffc7e8c"
+}

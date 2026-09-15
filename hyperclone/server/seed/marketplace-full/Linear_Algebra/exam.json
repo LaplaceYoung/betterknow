@@ -1,0 +1,1377 @@
+{
+ "exams": [
+  {
+   "title": "Vectors and Linear Systems Comprehensive Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a vector in 3D space is multiplied by a scalar of -0.5, what happens to its geometric representation?",
+     "options": [
+      "It doubles in length and maintains its original direction.",
+      "It is cut in half and its direction is reversed by 180 degrees.",
+      "It is cut in half and rotated 90 degrees.",
+      "It maintains its length but points in the opposite direction."
+     ],
+     "explanation": "Scaling by a negative number flips the direction 180 degrees, while the absolute value of the scalar (0.5) determines the new magnitude relative to the original.",
+     "correctAnswers": [
+      "It is cut in half and its direction is reversed by 180 degrees."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following conditions must be met for a set of vectors to be considered a 'basis' for a specific subspace?",
+     "options": [
+      "The vectors must be mutually orthogonal (at 90 degrees to each other).",
+      "The vectors must be linearly independent.",
+      "The vectors must span the subspace.",
+      "The number of vectors must equal the dimension of the ambient space.",
+      "The vectors must all be unit vectors (length of 1)."
+     ],
+     "explanation": "A basis is defined by the 'Goldilocks' zone: it must have enough vectors to span the space but no redundant vectors (linear independence). Orthogonality and unit length are properties of 'orthonormal' bases, but not required for a general basis.",
+     "correctAnswers": [
+      "The vectors must be linearly independent.",
+      "The vectors must span the subspace."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the context of image compression, the total number of vectors in a basis is called the ____ of the subspace, which represents the 'true size' of the information.",
+     "explanation": "Dimension is defined as the number of vectors in any basis for a subspace, indicating its complexity.",
+     "placeholder": "e.g., span",
+     "correctAnswers": [
+      "dimension"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Tip-to-tail vector addition diagram",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit1-q4.png"
+     },
+     "prompt": "If you are using the 'Tip-to-Tail' method to add vector A and vector B, what does the resultant vector represent?",
+     "options": [
+      "The area of the parallelogram formed by A and B.",
+      "The difference in magnitude between the two vectors.",
+      "The cumulative effect or net displacement of both movements.",
+      "The average direction of the two vectors."
+     ],
+     "explanation": "Vector addition represents the combined influence of multiple vectors, effectively tracing a path from the start of the first to the end of the last.",
+     "correctAnswers": [
+      "The cumulative effect or net displacement of both movements."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of these scenarios would result in a set of three vectors in R^3 being linearly dependent?",
+     "options": [
+      "One vector is the zero vector.",
+      "Two of the vectors are scalar multiples of each other.",
+      "The third vector is the sum of the first two.",
+      "All three vectors point in different, non-coplanar directions.",
+      "The vectors are all unit vectors."
+     ],
+     "explanation": "Dependence occurs if any vector can be formed by the others. A zero vector makes any set dependent ($0v = 0$). Scalar multiples or sums are direct examples of linear combinations.",
+     "correctAnswers": [
+      "One vector is the zero vector.",
+      "Two of the vectors are scalar multiples of each other.",
+      "The third vector is the sum of the first two."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The set of all possible linear combinations of a group of vectors is known as their ____.",
+     "explanation": "The span is the entire 'territory' reachable by scaling and adding the vectors in a set.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "span"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why is the standard basis (unit vectors i, j, k) often preferred over other bases for R^3?",
+     "options": [
+      "It is the only set of vectors that can span R^3.",
+      "It is the most 'polite' or computationally simple version, though infinitely many bases exist.",
+      "It is the only basis that allows for negative scalars.",
+      "It is required by the definition of a vector space to have length 1."
+     ],
+     "explanation": "Any set of 3 independent vectors in R^3 is a basis, but the standard basis is easiest for humans and computers to work with due to its alignment with axes.",
+     "correctAnswers": [
+      "It is the most 'polite' or computationally simple version, though infinitely many bases exist."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In the context of the unit's discussion on image compression, how does linear algebra help reduce file size?",
+     "options": [
+      "By discarding redundant vectors that lie in (or near) the span of others.",
+      "By using scalar multiplication to decrease the brightness values of all pixels.",
+      "By finding a more efficient basis to represent the image data.",
+      "By converting 3D images into 2D images to save space.",
+      "By representing an image as a vector of pixel values."
+     ],
+     "explanation": "Compression relies on treating the image as a vector and using the concepts of basis and independence to find the most efficient (least redundant) way to span the data.",
+     "correctAnswers": [
+      "By discarding redundant vectors that lie in (or near) the span of others.",
+      "By finding a more efficient basis to represent the image data.",
+      "By representing an image as a vector of pixel values."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When a set of vectors is linearly dependent, at least one vector can be written as a ____ of the others.",
+     "explanation": "This is the fundamental definition of dependence: redundancy through the combination of other elements in the set.",
+     "placeholder": "two words",
+     "correctAnswers": [
+      "linear combination"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If a system of equations is represented by an augmented matrix, what does a row of all zeros except for the last entry (e.g., [0 0 0 | 5]) indicate?",
+     "options": [
+      "The system has a unique solution.",
+      "The system has infinitely many solutions.",
+      "The system is inconsistent and has no solution.",
+      "One of the variables is equal to 5."
+     ],
+     "explanation": "This row translates to the equation 0 = 5, which is a mathematical impossibility, indicating that the planes/lines do not intersect at a common point.",
+     "correctAnswers": [
+      "The system is inconsistent and has no solution."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are valid vector operations discussed in this unit?",
+     "options": [
+      "Adding two vectors of the same dimension.",
+      "Multiplying a vector by a scalar.",
+      "Dividing one vector by another vector.",
+      "Scaling a vector by zero.",
+      "Multiplying two vectors to get a new vector (Cross Product)."
+     ],
+     "explanation": "Vector addition and scalar multiplication are the 'atoms' of linear algebra. Dividing vectors is not a defined operation, and while the cross product exists, it was not part of the 'atomic' operations in this unit.",
+     "correctAnswers": [
+      "Adding two vectors of the same dimension.",
+      "Multiplying a vector by a scalar.",
+      "Scaling a vector by zero."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ Law of vector addition shows that the order in which you add vectors (a+b or b+a) does not change the result.",
+     "explanation": "The Commutative Law of vector addition states that a+b = b+a. The Parallelogram Law visualizes this geometrically: adding in either order traces the same diagonal of the parallelogram spanned by a and b, so both names are accepted.",
+     "placeholder": "Name of Law",
+     "correctAnswers": [
+      "Parallelogram",
+      "Commutative",
+      "Parallelogram Law",
+      "Commutative Law"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "2D subspace in 3D space",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit1-q13.png"
+     },
+     "prompt": "A 2D plane floating in 3D space has a dimension of 2. What does this imply about its basis?",
+     "options": [
+      "The basis vectors must have only 2 components each.",
+      "The basis consists of exactly 2 linearly independent vectors, each with 3 components.",
+      "Any 3 vectors in the plane can form its basis.",
+      "The plane cannot have a basis because it is not the full 3D space."
+     ],
+     "explanation": "The dimension tells you how many vectors are in the basis. Since it's in R^3, the vectors themselves have 3 coordinates, but you only need 2 to span the plane.",
+     "correctAnswers": [
+      "The basis consists of exactly 2 linearly independent vectors, each with 3 components."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "What happens when you scale a vector by a factor of 0?",
+     "options": [
+      "The vector's direction is maintained but its length becomes 1.",
+      "The vector collapses to the origin.",
+      "The result is the zero vector.",
+      "It effectively 'removes' that dimension from a linear combination.",
+      "The vector becomes infinite."
+     ],
+     "explanation": "Multiplying any vector by 0 results in the zero vector (the origin), which carries no directional information and nullifies that vector's contribution to a sum.",
+     "correctAnswers": [
+      "The vector collapses to the origin.",
+      "The result is the zero vector.",
+      "It effectively 'removes' that dimension from a linear combination."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "If a set of vectors spans a space and is also linearly independent, it is called a ____.",
+     "explanation": "A basis is the 'perfect toolkit' that meets both criteria of efficiency and reach.",
+     "correctAnswers": [
+      "basis"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the 'trivial solution' to the equation c1v1 + c2v2 + ... + cnvn = 0?",
+     "options": [
+      "A solution where all vectors are equal to zero.",
+      "A solution where at least one scalar (c) is non-zero.",
+      "A solution where all scalars (c) are equal to zero.",
+      "A solution where the vectors are orthogonal."
+     ],
+     "explanation": "The trivial solution is 'doing nothing.' If this is the *only* way to reach the zero vector, the vectors are linearly independent.",
+     "correctAnswers": [
+      "A solution where all scalars (c) are equal to zero."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "In the simulation, as the third vector (V3) is moved closer to the plane created by V1 and V2, the volume of the parallelopiped they form shrinks. Why does the set eventually lose its 'linear independence'?",
+     "options": [
+      "Because the vectors become at right angles to each other, making the calculation zero.",
+      "Because the third vector can eventually be expressed as a linear combination of the first two once it lies in their span.",
+      "Because the magnitude of V3 decreases to zero as it approaches the flat surface.",
+      "Because the span of any three vectors in 3D space is always restricted to a single line."
+     ],
+     "explanation": "Linear dependence occurs when one vector adds no new 'information' or direction; if V3 lies in the plane of V1 and V2, it is redundant because it's already in their span.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>3D Vector Space Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            aspect-ratio: 1.2 / 1;\n            display: block;\n            touch-action: none;\n        }\n\n        .readouts {\n            display: flex;\n            gap: 24px;\n            margin-top: 12px;\n            font-size: 13px;\n            color: var(--muted);\n            font-family: Georgia, serif;\n            font-style: italic;\n        }\n\n        .readout-item {\n            display: flex;\n            align-items: center;\n            gap: 6px;\n        }\n\n        .dot {\n            width: 6px;\n            height: 6px;\n            border-radius: 50%;\n        }\n\n        .axis-container {\n            width: 100%;\n            max-width: 300px;\n            margin-top: 20px;\n        }\n\n        .axis-label {\n            display: flex;\n            justify-content: space-between;\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .axis-track {\n            position: relative;\n            height: 20px;\n            border-bottom: 1px solid var(--rule);\n        }\n\n        .axis-tick {\n            position: absolute;\n            bottom: 0;\n            width: 1px;\n            height: 4px;\n            background: var(--rule);\n        }\n\n        .axis-marker {\n            position: absolute;\n            bottom: -1px;\n            width: 1px;\n            height: 12px;\n            background: var(--ink);\n            transition: left 16ms linear;\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Animation of a third vector approaching the plane formed by two other vectors</h1>\n    \n    <div class=\"container\">\n        <canvas id=\"simCanvas\" class=\"fig-canvas\" aria-label=\"3D coordinate system showing three vectors. One vector moves vertically until it lies in the plane of the other two.\"></canvas>\n        \n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"dot\" style=\"background: var(--ink)\"></span>\n                <span>Vector A, B · fixed</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"dot\" style=\"background: var(--accent)\"></span>\n                <span>Vector C · active</span>\n            </div>\n        </div>\n\n        <div class=\"axis-container\">\n            <div class=\"axis-label\">\n                <span>Elevation of Vector C</span>\n                <span id=\"elevationValue\" style=\"font-variant-numeric: tabular-nums;\">1.00</span>\n            </div>\n            <div class=\"axis-track\" id=\"axisTrack\">\n                <!-- Ticks generated by JS -->\n                <div id=\"marker\" class=\"axis-marker\" style=\"left: 100%;\"></div>\n            </div>\n        </div>\n\n        <div class=\"caption\">Position of the third vector relative to the plane of the first two.</div>\n    </div>\n\n    <script>\n        const canvas = document.getElementById('simCanvas');\n        const ctx = canvas.getContext('2d');\n        const marker = document.getElementById('marker');\n        const elevationValue = document.getElementById('elevationValue');\n        const axisTrack = document.getElementById('axisTrack');\n\n        // Setup Axis Ticks\n        for (let i = 0; i <= 10; i++) {\n            const tick = document.createElement('div');\n            tick.className = 'axis-tick';\n            tick.style.left = (i * 10) + '%';\n            axisTrack.appendChild(tick);\n        }\n\n        // Projection settings\n        let width, height;\n        const scale = 80;\n        const center = { x: 0, y: 0 };\n        const angleX = -Math.PI / 8;\n        const angleY = Math.PI / 4;\n\n        function project(x, y, z) {\n            // Simple isometric-style projection\n            const x1 = x * Math.cos(angleY) + z * Math.sin(angleY);\n            const z1 = z * Math.cos(angleY) - x * Math.sin(angleY);\n            const y1 = y * Math.cos(angleX) - z1 * Math.sin(angleX);\n            return {\n                x: center.x + x1 * scale,\n                y: center.y - y1 * scale\n            };\n        }\n\n        // Vector Data\n        const vA = { x: 1.2, y: 0, z: -0.4 };\n        const vB = { x: 0.4, y: 0, z: 1.4 };\n        // Vector C's base x,z are fixed on the plane, y varies\n        const vC_base = { x: 0.8, y: 0, z: 0.5 }; \n\n        let startTime = null;\n        const duration = 8000; // 8 seconds cycle\n\n        function draw(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) % duration;\n            const t = progress / duration;\n            \n            // Ping-pong or smooth sweep? Sweep from high to flat then snap/fade?\n            // Let's do a smooth sinus-like sweep from 1.5 down to 0 and back up.\n            const rawT = Math.sin((t * Math.PI * 2) - Math.PI / 2) * 0.5 + 0.5;\n            const elevation = rawT * 1.5;\n\n            // Update UI\n            marker.style.left = (rawT * 100) + '%';\n            elevationValue.textContent = elevation.toFixed(2);\n\n            // Resize canvas if needed\n            const dpr = window.devicePixelRatio || 1;\n            const rect = canvas.getBoundingClientRect();\n            if (canvas.width !== rect.width * dpr || canvas.height !== rect.height * dpr) {\n                canvas.width = rect.width * dpr;\n                canvas.height = rect.height * dpr;\n                width = canvas.width;\n                height = canvas.height;\n                center.x = width / 2;\n                center.y = height / 1.8;\n            }\n            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);\n            ctx.clearRect(0, 0, rect.width, rect.height);\n\n            // Draw Grid/Plane\n            ctx.beginPath();\n            ctx.strokeStyle = 'rgba(216, 213, 208, 0.5)';\n            ctx.lineWidth = 1;\n            for (let i = -2; i <= 2; i++) {\n                let p1 = project(i, 0, -2);\n                let p2 = project(i, 0, 2);\n                ctx.moveTo(p1.x, p1.y);\n                ctx.lineTo(p2.x, p2.y);\n                p1 = project(-2, 0, i);\n                p2 = project(2, 0, i);\n                ctx.moveTo(p1.x, p1.y);\n                ctx.lineTo(p2.x, p2.y);\n            }\n            ctx.stroke();\n\n            // Draw Plane highlight (the space formed by A and B)\n            ctx.beginPath();\n            const pOrigin = project(0,0,0);\n            const pA = project(vA.x, vA.y, vA.z);\n            const pB = project(vB.x, vB.y, vB.z);\n            const pAB = project(vA.x + vB.x, 0, vA.z + vB.z);\n            ctx.moveTo(pOrigin.x, pOrigin.y);\n            ctx.lineTo(pA.x, pA.y);\n            ctx.lineTo(pAB.x, pAB.y);\n            ctx.lineTo(pB.x, pB.y);\n            ctx.closePath();\n            ctx.fillStyle = 'rgba(31, 31, 31, 0.03)';\n            ctx.fill();\n\n            // Draw Vectors A and B\n            drawVector(0, 0, 0, vA.x, vA.y, vA.z, 'var(--ink)', 'A');\n            drawVector(0, 0, 0, vB.x, vB.y, vB.z, 'var(--ink)', 'B');\n\n            // Draw projection line for C\n            const pC_top = project(vC_base.x, elevation, vC_base.z);\n            const pC_btm = project(vC_base.x, 0, vC_base.z);\n            ctx.setLineDash([4, 4]);\n            ctx.beginPath();\n            ctx.moveTo(pC_top.x, pC_top.y);\n            ctx.lineTo(pC_btm.x, pC_btm.y);\n            ctx.strokeStyle = 'var(--muted)';\n            ctx.stroke();\n            ctx.setLineDash([]);\n\n            // Draw Vector C\n            drawVector(0, 0, 0, vC_base.x, elevation, vC_base.z, 'var(--accent)', 'C');\n\n            requestAnimationFrame(draw);\n        }\n\n        function drawVector(ox, oy, oz, tx, ty, tz, color, label) {\n            const start = project(ox, oy, oz);\n            const end = project(tx, ty, tz);\n\n            ctx.beginPath();\n            ctx.moveTo(start.x, start.y);\n            ctx.lineTo(end.x, end.y);\n            ctx.strokeStyle = color;\n            ctx.lineWidth = 2;\n            ctx.stroke();\n\n            // Arrowhead\n            const headlen = 10;\n            const dx = end.x - start.x;\n            const dy = end.y - start.y;\n            const angle = Math.atan2(dy, dx);\n            ctx.beginPath();\n            ctx.moveTo(end.x, end.y);\n            ctx.lineTo(end.x - headlen * Math.cos(angle - Math.PI / 6), end.y - headlen * Math.sin(angle - Math.PI / 6));\n            ctx.moveTo(end.x, end.y);\n            ctx.lineTo(end.x - headlen * Math.cos(angle + Math.PI / 6), end.y - headlen * Math.sin(angle + Math.PI / 6));\n            ctx.stroke();\n\n            // Label\n            ctx.fillStyle = color;\n            ctx.font = 'italic 13px Georgia, serif';\n            ctx.fillText(label, end.x + 5, end.y - 5);\n        }\n\n        // Height Reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(draw);\n            reportHeight();\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the third vector can eventually be expressed as a linear combination of the first two once it lies in their span."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Determinants and Vector Spaces Certification Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Geometrically, what does a negative determinant indicate about the transformation of a 2D space?",
+     "options": [
+      "The transformation has collapsed the area to a negative value.",
+      "The transformation has flipped the orientation of the space.",
+      "The transformation is non-invertible due to a sign change.",
+      "The transformation has scaled the area by a factor less than zero."
+     ],
+     "explanation": "In linear algebra, the 'signed' part of the determinant refers to orientation. A negative determinant means the relative positions of the basis vectors (like i and j) have been mirrored or swapped.",
+     "correctAnswers": [
+      "The transformation has flipped the orientation of the space."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following operations on a square matrix A will NOT change the absolute value of its determinant?",
+     "options": [
+      "Swapping any two rows of A.",
+      "Multiplying an entire row of A by -1.",
+      "Adding 3 times the first row to the second row.",
+      "Multiplying the entire matrix A by -1.",
+      "Replacing a row with the sum of itself and another row."
+     ],
+     "explanation": "Swapping rows and multiplying a row by -1 only change the sign (not the absolute value). Adding a multiple of one row to another (shear) leaves the determinant unchanged. Multiplying the entire matrix by -1 scales every row, which changes the determinant by (-1)^n. Since |(-1)^n| = 1, the absolute value of the determinant is unchanged as well.",
+     "correctAnswers": [
+      "Swapping any two rows of A.",
+      "Multiplying an entire row of A by -1.",
+      "Adding 3 times the first row to the second row.",
+      "Multiplying the entire matrix A by -1.",
+      "Replacing a row with the sum of itself and another row."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a 3x3 matrix represents a transformation that squashes a 3D volume into a 2D plane, its determinant must be ____.",
+     "explanation": "A determinant of zero indicates a dimensional collapse, where the transformation loses information by reducing the dimension of the input space.",
+     "placeholder": "Enter a number or word",
+     "correctAnswers": [
+      "0",
+      "zero"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If det(A) = 4 and det(B) = -0.5, what is the determinant of the product matrix AB?",
+     "options": [
+      "3.5",
+      "4.5",
+      "-2",
+      "-8"
+     ],
+     "explanation": "The multiplicativity property states that det(AB) = det(A) * det(B). Therefore, 4 * -0.5 = -2.",
+     "correctAnswers": [
+      "-2"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A 3x3 matrix A has a determinant of 5. Which of the following statements must be true?",
+     "options": [
+      "The columns of A are linearly independent.",
+      "The matrix A is invertible.",
+      "The determinant of the inverse matrix A⁻¹ is 0.2.",
+      "The determinant of 2A is 10.",
+      "The system Ax = 0 has only the trivial solution."
+     ],
+     "explanation": "A non-zero determinant implies invertibility, linear independence, and a unique (trivial) solution for Ax=0. However, for a 3x3 matrix, det(2A) = 2^3 * det(A) = 8 * 5 = 40, not 10.",
+     "correctAnswers": [
+      "The columns of A are linearly independent.",
+      "The matrix A is invertible.",
+      "The determinant of the inverse matrix A⁻¹ is 0.2.",
+      "The system Ax = 0 has only the trivial solution."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a 4x4 matrix, if you multiply every entry in the matrix by a scalar k, the determinant of the resulting matrix is multiplied by ____.",
+     "explanation": "Scaling a single row of an n x n matrix scales the determinant by k. Since there are 4 rows being scaled, the total effect is k * k * k * k = k^4.",
+     "placeholder": "Use power notation like k^n",
+     "correctAnswers": [
+      "k^4",
+      "k to the power of 4"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When calculating a determinant via cofactor expansion, what is the primary advantage of choosing a row with many zeros?",
+     "options": [
+      "It changes the signs of the cofactors to be all positive.",
+      "It eliminates the need to calculate the minors for those positions.",
+      "It reduces the matrix to an upper triangular form automatically.",
+      "It ensures the determinant will be zero."
+     ],
+     "explanation": "In cofactor expansion, each term is the product of an element and its cofactor. If the element is zero, the entire term becomes zero, saving the effort of calculating the associated minor.",
+     "correctAnswers": [
+      "It eliminates the need to calculate the minors for those positions."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Illustration of an upper triangular matrix.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit3-q8.png"
+     },
+     "prompt": "If a matrix is in upper triangular form, which of the following statements about its determinant are true?",
+     "options": [
+      "The determinant is the sum of the diagonal entries.",
+      "The determinant is the product of the diagonal entries.",
+      "The determinant is zero if any diagonal entry is zero.",
+      "The determinant is always 1.",
+      "It can be found much faster than using full cofactor expansion."
+     ],
+     "explanation": "For triangular matrices, the determinant is the product of the diagonals. If any diagonal is zero, the product (and determinant) is zero, indicating non-invertibility.",
+     "correctAnswers": [
+      "The determinant is the product of the diagonal entries.",
+      "The determinant is zero if any diagonal entry is zero.",
+      "It can be found much faster than using full cofactor expansion."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The determinant of the identity matrix I (of any size) is always ____.",
+     "explanation": "The identity matrix does not scale space or change orientation; its scaling factor is exactly 1.",
+     "placeholder": "Value",
+     "correctAnswers": [
+      "1",
+      "one"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which property is required for a set to be considered a vector space under defined addition and scalar multiplication?",
+     "options": [
+      "The set must contain only finite-dimensional vectors.",
+      "All elements in the set must be representable as column matrices.",
+      "The set must be closed under addition and scalar multiplication.",
+      "The determinant of any two elements in the set must be non-zero."
+     ],
+     "explanation": "Closure is a fundamental axiom; performing addition or scalar multiplication on elements of the set must always result in an element that is also in the set.",
+     "correctAnswers": [
+      "The set must be closed under addition and scalar multiplication."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In the context of the 'Axioms of a Vector Space', which of the following objects can potentially be treated as 'vectors'?",
+     "options": [
+      "Polynomials of degree 2 or less.",
+      "Continuous real-valued functions.",
+      "The set of all 2x2 invertible matrices.",
+      "Solutions to a linear homogeneous differential equation.",
+      "Points in 3D space."
+     ],
+     "explanation": "Any set following the 10 axioms is a vector space. Invertible matrices fail because they are not closed under addition (the sum of two invertible matrices can be the zero matrix, which is not invertible).",
+     "correctAnswers": [
+      "Polynomials of degree 2 or less.",
+      "Continuous real-valued functions.",
+      "Solutions to a linear homogeneous differential equation.",
+      "Points in 3D space."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "To find the determinant of a 3x3 matrix using the first row, you multiply each element a_1j by (-1)^(1+j) and the determinant of the 2x2 matrix remaining after removing row 1 and column j. This 2x2 determinant is called the ____.",
+     "explanation": "A minor is the determinant of the sub-matrix remaining after a row and column are deleted.",
+     "placeholder": "Term",
+     "correctAnswers": [
+      "minor",
+      "matrix minor"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If you perform two row swaps on a matrix A to get matrix B, how does det(B) relate to det(A)?",
+     "options": [
+      "det(B) = -det(A)",
+      "det(B) = det(A)",
+      "det(B) = -2 * det(A)",
+      "det(B) = 1/det(A)"
+     ],
+     "explanation": "One row swap multiplies the determinant by -1. Two row swaps multiply it by (-1) * (-1) = 1, returning it to the original value.",
+     "correctAnswers": [
+      "det(B) = det(A)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which conditions are sufficient to prove that a matrix A is NOT invertible?",
+     "options": [
+      "The determinant of A is 0.",
+      "One row of A is a multiple of another row.",
+      "The columns of A are linearly dependent.",
+      "The determinant of A is negative.",
+      "The transformation defined by A collapses 3D space into a line."
+     ],
+     "explanation": "A negative determinant simply means an orientation flip; it does not prevent invertibility. All other listed conditions imply a zero determinant and thus no inverse.",
+     "correctAnswers": [
+      "The determinant of A is 0.",
+      "One row of A is a multiple of another row.",
+      "The columns of A are linearly dependent.",
+      "The transformation defined by A collapses 3D space into a line."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Watch the unit square as it is transformed by the matrix. Why does the area of the resulting parallelogram remain constant even as the shape becomes increasingly slanted?",
+     "options": [
+      "Because the horizontal base and the vertical height of the shape are unaffected by the row-addition operation.",
+      "Because the scaling factor of the principal diagonal increases to compensate for the slant.",
+      "Because the transformation is a rotation, which naturally preserves the area of any geometric figure.",
+      "Because the determinant of a matrix is only affected by the length of the vectors, not their relative angles."
+     ],
+     "explanation": "The animation depicts a 'shear' (adding a multiple of one row to another). Geometrically, this is like sliding the top of a rectangle; since the base and perpendicular height remain the same, the area (determinant) does not change.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Shear Transformation and Area</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --ink: #1f1f1f;\n      --muted: #8a8a8a;\n      --rule: #d8d5d0;\n      --accent: #4C6696;\n      --amber: #c47c00;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n      overflow: hidden;\n    }\n\n    .container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      padding: 16px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n    }\n\n    .fig-wrapper {\n      width: 100%;\n      position: relative;\n    }\n\n    .fig {\n      width: 100%;\n      height: auto;\n      display: block;\n    }\n\n    .label-serif {\n      font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n      font-size: 12px;\n      fill: var(--muted);\n      font-style: italic;\n    }\n\n    .matrix-text {\n      font-family: \"Courier New\", Courier, monospace;\n      font-size: 14px;\n      fill: var(--ink);\n    }\n\n    .readouts {\n      display: flex;\n      gap: 24px;\n      margin-top: 12px;\n      font-size: 13px;\n      color: var(--ink);\n    }\n\n    .readout-item {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n    }\n\n    .readout-label {\n      font-family: Georgia, serif;\n      font-style: italic;\n      color: var(--muted);\n      font-size: 11px;\n      margin-bottom: 2px;\n    }\n\n    .readout-value {\n      font-variant-numeric: tabular-nums;\n      font-weight: 500;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"sr-only\">Visualisation of a unit square undergoing a horizontal shear transformation</h1>\n\n  <div class=\"container\">\n    <div class=\"fig-wrapper\">\n      <svg class=\"fig\" viewBox=\"0 0 400 240\" aria-hidden=\"true\">\n        <!-- Grid and Axes -->\n        <g class=\"grid\">\n          <line x1=\"50\" y1=\"180\" x2=\"350\" y2=\"180\" stroke=\"var(--muted)\" stroke-width=\"1\" /> <!-- x axis -->\n          <line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"210\" stroke=\"var(--muted)\" stroke-width=\"1\" /> <!-- y axis -->\n          \n          <!-- Y-axis ticks -->\n          <line x1=\"97\" y1=\"80\" x2=\"103\" y2=\"80\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n          <text x=\"85\" y=\"84\" class=\"label-serif\">1</text>\n          \n          <!-- X-axis ticks -->\n          <line x1=\"200\" y1=\"177\" x2=\"200\" y2=\"183\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n          <text x=\"195\" y=\"195\" class=\"label-serif\">1</text>\n          <line x1=\"300\" y1=\"177\" x2=\"300\" y2=\"183\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n          <text x=\"295\" y=\"195\" class=\"label-serif\">2</text>\n        </g>\n\n        <!-- Reference Guide Lines -->\n        <line id=\"height-guide\" x1=\"50\" y1=\"80\" x2=\"350\" y2=\"80\" stroke=\"var(--rule)\" stroke-width=\"1\" stroke-dasharray=\"4,4\" />\n        <text x=\"320\" y=\"75\" class=\"label-serif\" style=\"font-size: 10px;\">height = 1 (fixed)</text>\n\n        <!-- The Transformed Shape -->\n        <polygon id=\"shape\" points=\"100,180 200,180 200,80 100,80\" fill=\"var(--accent)\" fill-opacity=\"0.15\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n        \n        <!-- Matrix Visualisation -->\n        <g transform=\"translate(250, 120)\">\n          <path d=\"M -5 -25 L -10 -25 L -10 25 L -5 25\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n          <path d=\"M 65 -25 L 70 -25 L 70 25 L 65 25\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" />\n          <text x=\"5\" y=\"-5\" class=\"matrix-text\">1</text>\n          <text id=\"matrix-shear\" x=\"40\" y=\"-5\" class=\"matrix-text\" style=\"fill: var(--amber); font-weight: bold;\">0.00</text>\n          <text x=\"5\" y=\"18\" class=\"matrix-text\">0</text>\n          <text x=\"40\" y=\"18\" class=\"matrix-text\">1</text>\n          <text x=\"30\" y=\"40\" text-anchor=\"middle\" class=\"label-serif\">Transformation Matrix</text>\n        </g>\n      </svg>\n    </div>\n\n    <div class=\"readouts\">\n      <div class=\"readout-item\">\n        <span class=\"readout-label\">Base Width</span>\n        <span class=\"readout-value\">1.00 &middot; fixed</span>\n      </div>\n      <div class=\"readout-item\">\n        <span class=\"readout-label\">Vertical Height</span>\n        <span class=\"readout-value\">1.00 &middot; fixed</span>\n      </div>\n      <div class=\"readout-item\">\n        <span class=\"readout-label\">Shear Factor</span>\n        <span id=\"shear-readout\" class=\"readout-value\" style=\"color: var(--amber)\">0.00</span>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    const shape = document.getElementById('shape');\n    const matrixShearText = document.getElementById('matrix-shear');\n    const shearReadout = document.getElementById('shear-readout');\n\n    let startTime = null;\n    const duration = 8000; // 8 seconds for a full loop (out and back)\n\n    function animate(timestamp) {\n      if (!startTime) startTime = timestamp;\n      const progress = (timestamp - startTime) % duration;\n      \n      // Calculate shear value k from 0 to 2 and back to 0\n      let t = progress / duration;\n      let k;\n      if (t < 0.5) {\n        // 0 to 2\n        k = (t * 2) * 2;\n      } else {\n        // 2 to 0\n        k = (1 - (t - 0.5) * 2) * 2;\n      }\n\n      // Coordinates for unit square [0,0], [1,0], [1,1], [0,1]\n      // Transformed by [1 k; 0 1]\n      // P1: [0,0] -> [0,0]\n      // P2: [1,0] -> [1,0]\n      // P3: [1,1] -> [1+k, 1]\n      // P4: [0,1] -> [k, 1]\n      \n      // Map to SVG space: Origin is at 100, 180. Unit is 100px.\n      const x1 = 100;\n      const y1 = 180;\n      const x2 = 200;\n      const y2 = 180;\n      const x3 = 200 + (k * 100);\n      const y3 = 80;\n      const x4 = 100 + (k * 100);\n      const y4 = 80;\n\n      shape.setAttribute('points', `${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4}`);\n      \n      const kStr = k.toFixed(2);\n      matrixShearText.textContent = kStr;\n      shearReadout.textContent = kStr;\n\n      requestAnimationFrame(animate);\n    }\n\n    // Initialize animation\n    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {\n      requestAnimationFrame(animate);\n    } else {\n      // If user prefers reduced motion, show one informative state\n      const k = 1.0;\n      const x1 = 100, y1 = 180, x2 = 200, y2 = 180, x3 = 300, y3 = 80, x4 = 200, y4 = 80;\n      shape.setAttribute('points', `${x1},${y1} ${x2},${y2} ${x3},${y3} ${x4},${y4}`);\n      matrixShearText.textContent = \"1.00\";\n      shearReadout.textContent = \"1.00\";\n    }\n\n    // Height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the horizontal base and the vertical height of the shape are unaffected by the row-addition operation."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Eigenvalues and Diagonalization Comprehensive Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "For an n x n matrix A, what is the geometric significance of the equation Av = λv?",
+     "options": [
+      "It defines the null space of the matrix A for any vector v.",
+      "It identifies vectors v that maintain their span under the transformation A.",
+      "It represents the process of orthogonalizing the rows of A.",
+      "It ensures that the determinant of A is equal to the sum of its eigenvalues."
+     ],
+     "explanation": "The equation Av = λv indicates that the result of the transformation is a scalar multiple of the original vector. Geometrically, this means the vector 'v' remains on the same line (span) through the origin, only its length or direction along that line changes.",
+     "correctAnswers": [
+      "It identifies vectors v that maintain their span under the transformation A."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following conditions are necessary for an n x n matrix A to be diagonalizable?",
+     "options": [
+      "The matrix must have n linearly independent eigenvectors.",
+      "The matrix must be invertible (non-singular).",
+      "The geometric multiplicity of each eigenvalue must equal its algebraic multiplicity.",
+      "The matrix must be symmetric."
+     ],
+     "explanation": "A matrix is diagonalizable if and only if it has enough eigenvectors to form a basis for R^n. This occurs when the sum of the geometric multiplicities equals n, which happens when GM = AM for all eigenvalues. Invertibility and symmetry are not requirements for diagonalization.",
+     "correctAnswers": [
+      "The matrix must have n linearly independent eigenvectors.",
+      "The geometric multiplicity of each eigenvalue must equal its algebraic multiplicity."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a matrix is symmetric, the Spectral Theorem guarantees that its eigenvectors can be chosen to be ____.",
+     "explanation": "Symmetric matrices always have real eigenvalues and their eigenvectors corresponding to distinct eigenvalues are orthogonal; they can be normalized to form an orthonormal basis.",
+     "placeholder": "geometric property",
+     "correctAnswers": [
+      "orthonormal",
+      "orthogonal",
+      "perpendicular"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If a 3x3 matrix has an eigenvalue λ = 4 with an algebraic multiplicity of 3, but the null space of (A - 4I) is only 2-dimensional, which statement is true?",
+     "options": [
+      "The matrix is diagonalizable.",
+      "The matrix is 'defective' and cannot be diagonalized.",
+      "The matrix has no real eigenvalues.",
+      "The matrix must be the identity matrix multiplied by 4."
+     ],
+     "explanation": "Because the geometric multiplicity (2) is less than the algebraic multiplicity (3), the matrix does not provide enough linearly independent eigenvectors to form a basis for R^3, making it defective.",
+     "correctAnswers": [
+      "The matrix is 'defective' and cannot be diagonalized."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Given a diagonalizable matrix A = PDP⁻¹, which of the following statements are correct?",
+     "options": [
+      "The diagonal entries of D are the eigenvalues of A.",
+      "The columns of P are the eigenvectors of A.",
+      "P must be an orthogonal matrix for any diagonalizable A.",
+      "Aᵏ = PDᵏP⁻¹ for any integer k ≥ 1."
+     ],
+     "explanation": "The columns of P are the eigenvectors that correspond to the eigenvalues in D. One of the primary benefits of diagonalization is the ease of computing matrix powers via Aᵏ = PDᵏP⁻¹.",
+     "correctAnswers": [
+      "The diagonal entries of D are the eigenvalues of A.",
+      "The columns of P are the eigenvectors of A.",
+      "Aᵏ = PDᵏP⁻¹ for any integer k ≥ 1."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ multiplicity of an eigenvalue is the number of times it appears as a root of the characteristic polynomial.",
+     "explanation": "Algebraic multiplicity refers to the repetition of the root in the polynomial, while geometric multiplicity refers to the dimension of the eigenspace.",
+     "placeholder": "type of multiplicity",
+     "correctAnswers": [
+      "algebraic"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Surface plot of a quadratic form.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit4-q7.png"
+     },
+     "prompt": "What is the relationship between the eigenvalues of a symmetric matrix and its quadratic form Q(x) = xᵀAx?",
+     "options": [
+      "The eigenvalues are the maximum and minimum values of Q(x) on the unit sphere.",
+      "The eigenvalues must all be zero for the quadratic form to be positive definite.",
+      "The eigenvalues are always complex if the quadratic form represents a hyperbola.",
+      "The sum of the eigenvalues is always equal to the discriminant of the form."
+     ],
+     "explanation": "For a symmetric matrix, the spectral theorem applies. The maximum and minimum values of the quadratic form subject to ||x||=1 are exactly the largest and smallest eigenvalues.",
+     "correctAnswers": [
+      "The eigenvalues are the maximum and minimum values of Q(x) on the unit sphere."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A 2x2 matrix A has eigenvalues λ₁ = 2 and λ₂ = 5. Which of the following must be true?",
+     "options": [
+      "The determinant of A is 10.",
+      "The trace of A is 7.",
+      "The matrix A is invertible.",
+      "The matrix A is symmetric."
+     ],
+     "explanation": "The determinant is the product of eigenvalues (2*5=10) and the trace is the sum (2+5=7). Since no eigenvalue is 0, the determinant is non-zero, making the matrix invertible. Symmetry cannot be determined from eigenvalues alone.",
+     "correctAnswers": [
+      "The determinant of A is 10.",
+      "The trace of A is 7.",
+      "The matrix A is invertible."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To find the basis for an eigenspace, we solve the homogeneous system of equations (A - λI)v = ____.",
+     "explanation": "The eigenvectors for λ are the non-zero solutions to (A - λI)v = 0, which defines the null space of the shifted matrix.",
+     "placeholder": "value",
+     "correctAnswers": [
+      "0",
+      "zero",
+      "vector 0"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is the characteristic equation defined as det(A - λI) = 0?",
+     "options": [
+      "To find the values of λ where the matrix (A - λI) is invertible.",
+      "To find the values of λ where the matrix (A - λI) has a non-trivial null space.",
+      "To ensure that the transformation A is a rigid rotation.",
+      "To calculate the trace of the matrix A."
+     ],
+     "explanation": "For a non-zero eigenvector v to exist such that (A - λI)v = 0, the matrix (A - λI) must be non-invertible (singular). This occurs exactly when its determinant is zero.",
+     "correctAnswers": [
+      "To find the values of λ where the matrix (A - λI) has a non-trivial null space."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these matrices are guaranteed to be diagonalizable?",
+     "options": [
+      "An n x n matrix with n distinct eigenvalues.",
+      "Any upper triangular matrix.",
+      "Any symmetric matrix.",
+      "A matrix where all eigenvalues are 0."
+     ],
+     "explanation": "Distinct eigenvalues guarantee n independent eigenvectors. Symmetric matrices are always diagonalizable (Spectral Theorem). Triangular matrices are only diagonalizable if they have enough eigenvectors (e.g., the identity is, but a shear matrix is not).",
+     "correctAnswers": [
+      "An n x n matrix with n distinct eigenvalues.",
+      "Any symmetric matrix."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process of factoring a matrix into A = PDP⁻¹ is known as ____.",
+     "explanation": "Diagonalization is the specific term for expressing a matrix in terms of its eigenvalues and eigenvectors in this product form.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "diagonalization",
+      "eigen-decomposition",
+      "spectral decomposition"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the context of a discrete dynamical system xₖ₊₁ = Axₖ, what happens if all eigenvalues of A have an absolute value less than 1?",
+     "options": [
+      "The system will diverge to infinity.",
+      "The system will stay constant at its initial state.",
+      "The system will converge to the origin (zero vector).",
+      "The system will oscillate in a stable limit cycle."
+     ],
+     "explanation": "If |λ| < 1 for all eigenvalues, the scaling factor applied at each step reduces the magnitude of the vector components along the eigenvectors, leading to convergence to zero.",
+     "correctAnswers": [
+      "The system will converge to the origin (zero vector)."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When classifying a quadratic form xᵀAx as 'Positive Definite', which of the following must be true?",
+     "options": [
+      "All eigenvalues of A are positive.",
+      "The determinant of A must be positive.",
+      "All diagonal entries of A must be positive.",
+      "xᵀAx > 0 for all non-zero x."
+     ],
+     "explanation": "Positive definiteness requires all eigenvalues to be > 0. Since the determinant is the product of eigenvalues, it must also be positive. Diagonal entries being positive is a necessary but not sufficient condition. Because a_ii = e_iᵀAe_i > 0 for a positive definite A, positive diagonal entries are indeed required (necessary), even though they do not by themselves guarantee positive definiteness.",
+     "correctAnswers": [
+      "All eigenvalues of A are positive.",
+      "The determinant of A must be positive.",
+      "All diagonal entries of A must be positive.",
+      "xᵀAx > 0 for all non-zero x."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "Geometric visualization of eigenvectors as ellipse axes.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit4-q15.png"
+     },
+     "prompt": "If you apply a matrix transformation to a circle and it becomes an ellipse, where are the eigenvectors located?",
+     "options": [
+      "They are the vectors that are rotated by 90 degrees.",
+      "They lie along the directions of the major and minor axes of the ellipse.",
+      "They are the vectors that were mapped to the center of the ellipse.",
+      "They are only found if the ellipse is actually a circle."
+     ],
+     "explanation": "The axes of the ellipse represent the directions of maximum and minimum stretching (the principal axes), which correspond to the eigenvectors of the transformation.",
+     "correctAnswers": [
+      "They lie along the directions of the major and minor axes of the ellipse."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Why is Principal Component Analysis (PCA) related to eigenvalues?",
+     "options": [
+      "The eigenvectors point in the directions of maximum variance.",
+      "The eigenvalues indicate the amount of variance captured by each principal component.",
+      "It allows for the inversion of non-square data matrices.",
+      "It uses the spectral decomposition of the covariance matrix."
+     ],
+     "explanation": "PCA identifies the principal axes of data by finding the eigenvectors of the covariance matrix; the eigenvalues quantify the 'spread' or importance of each axis.",
+     "correctAnswers": [
+      "The eigenvectors point in the directions of maximum variance.",
+      "The eigenvalues indicate the amount of variance captured by each principal component.",
+      "It uses the spectral decomposition of the covariance matrix."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "What does a negative eigenvalue indicate about the transformation of its corresponding eigenvector?",
+     "options": [
+      "The vector is rotated by 90 degrees.",
+      "The vector is flipped to point in the opposite direction along the same line.",
+      "The vector is reduced to the zero vector.",
+      "The vector's direction remains exactly the same, but its length increases."
+     ],
+     "explanation": "A negative eigenvalue scales the vector by a negative factor, which reverses its direction while keeping it on the same 1D span.",
+     "correctAnswers": [
+      "The vector is flipped to point in the opposite direction along the same line."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "Which of the following are true for a 'defective' matrix?",
+     "options": [
+      "It has at least one eigenvalue where GM < AM.",
+      "It cannot be diagonalized.",
+      "It must have at least one repeated eigenvalue.",
+      "It has no eigenvalues at all."
+     ],
+     "explanation": "A matrix is defective if it lacks a full set of eigenvectors. This only happens if an eigenvalue is repeated (AM > 1) and its eigenspace dimension (GM) fails to match that repetition.",
+     "correctAnswers": [
+      "It has at least one eigenvalue where GM < AM.",
+      "It cannot be diagonalized.",
+      "It must have at least one repeated eigenvalue."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "As we vary the parameter of the transformation shown, why does the vector eventually align with the horizontal axis?",
+     "options": [
+      "Because the horizontal eigenvalue grows to dominate the total transformation, pulling all non-zero vectors toward its span.",
+      "Because the matrix becomes singular, causing all vectors in the plane to collapse into the null space.",
+      "Because the rotation component of the matrix exceeds the scaling component, forcing a circular orbit.",
+      "Because the vertical eigenvector has an eigenvalue of zero, which annihilates the vertical component of any vector."
+     ],
+     "explanation": "In dynamical systems or repeated transformations, the direction associated with the largest eigenvalue (the dominant eigenvalue) dictates the long-term behavior of the system as other components are scaled relatively smaller.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Dominant Eigenvalues Visualization</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 16px;\n        }\n\n        .fig-container {\n            position: relative;\n            width: 100%;\n            aspect-ratio: 1.2 / 1;\n        }\n\n        .main-fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .axis-label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .vector-label {\n            font-family: Georgia, serif;\n            font-size: 13px;\n            font-style: italic;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n            font-style: italic;\n        }\n\n        .readout-value {\n            font-size: 14px;\n            font-variant-numeric: tabular-nums;\n            color: var(--ink);\n            font-weight: 500;\n        }\n\n        .param-axis {\n            width: 100%;\n            height: 40px;\n            margin-top: 8px;\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"sr-only\">Simulation of vector transformation under changing matrix eigenvalues</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\">\n            <svg class=\"main-fig\" viewBox=\"-110 -110 220 220\" aria-hidden=\"true\">\n                <!-- Grid -->\n                <g class=\"grid\">\n                    <line x1=\"-100\" y1=\"0\" x2=\"100\" y2=\"0\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    <line x1=\"0\" y1=\"-100\" x2=\"0\" y2=\"100\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    <circle cx=\"0\" cy=\"0\" r=\"50\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                    <circle cx=\"0\" cy=\"0\" r=\"100\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                </g>\n\n                <!-- Eigenvector Directions (Fixed) -->\n                <line x1=\"-150\" y1=\"0\" x2=\"150\" y2=\"0\" stroke=\"var(--muted)\" stroke-width=\"1\" stroke-dasharray=\"4,4\" opacity=\"0.3\" />\n                <line x1=\"0\" y1=\"-150\" x2=\"0\" y2=\"150\" stroke=\"var(--muted)\" stroke-width=\"1\" stroke-dasharray=\"4,4\" opacity=\"0.3\" />\n\n                <!-- Trace of vector movement -->\n                <polyline id=\"trace\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"1\" stroke-dasharray=\"2,1\" opacity=\"0.4\" />\n\n                <!-- Iterated Vectors -->\n                <g id=\"iterations\"></g>\n\n                <!-- Current Vector -->\n                <line id=\"vec-line\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"0\" stroke=\"var(--accent)\" stroke-width=\"2.5\" marker-end=\"url(#arrowhead)\" />\n                \n                <defs>\n                    <marker id=\"arrowhead\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orientation=\"auto\">\n                        <path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--accent)\" />\n                    </marker>\n                    <marker id=\"arrowhead-small\" markerWidth=\"4\" markerHeight=\"4\" refX=\"3\" refY=\"2\" orientation=\"auto\">\n                        <path d=\"M0,0 L4,2 L0,4 Z\" fill=\"var(--accent)\" opacity=\"0.5\" />\n                    </marker>\n                </defs>\n\n                <text x=\"105\" y=\"5\" class=\"axis-label\">v₁ direction</text>\n                <text x=\"5\" y=\"-105\" class=\"axis-label\">v₂ direction</text>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Eigenvalue λ₁ (horizontal)</span>\n                <span class=\"readout-value\" id=\"val-lambda1\">1.00</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Eigenvalue λ₂ (vertical) · fixed</span>\n                <span class=\"readout-value\">0.50</span>\n            </div>\n        </div>\n\n        <svg class=\"param-axis\" viewBox=\"0 0 400 40\" preserveAspectRatio=\"xMidYMid meet\">\n            <line x1=\"40\" y1=\"20\" x2=\"360\" y2=\"20\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <!-- Ticks -->\n            <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"28\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <text x=\"40\" y=\"38\" text-anchor=\"middle\" class=\"axis-label\" style=\"font-style: normal;\">1</text>\n            <line x1=\"120\" y1=\"20\" x2=\"120\" y2=\"25\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <text x=\"120\" y=\"38\" text-anchor=\"middle\" class=\"axis-label\" style=\"font-style: normal;\">2</text>\n            <line x1=\"200\" y1=\"20\" x2=\"200\" y2=\"25\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <text x=\"200\" y=\"38\" text-anchor=\"middle\" class=\"axis-label\" style=\"font-style: normal;\">3</text>\n            <line x1=\"280\" y1=\"20\" x2=\"280\" y2=\"25\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <text x=\"280\" y=\"38\" text-anchor=\"middle\" class=\"axis-label\" style=\"font-style: normal;\">4</text>\n            <line x1=\"360\" y1=\"20\" x2=\"360\" y2=\"28\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <text x=\"360\" y=\"38\" text-anchor=\"middle\" class=\"axis-label\" style=\"font-style: normal;\">5</text>\n            \n            <!-- Current Indicator -->\n            <line id=\"param-indicator\" x1=\"40\" y1=\"10\" x2=\"40\" y2=\"30\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n        </svg>\n    </div>\n\n    <script>\n        const vecLine = document.getElementById('vec-line');\n        const iterGroup = document.getElementById('iterations');\n        const traceLine = document.getElementById('trace');\n        const valLambda1 = document.getElementById('val-lambda1');\n        const paramIndicator = document.getElementById('param-indicator');\n\n        // Matrix parameters\n        const lambda2 = 0.5;\n        let lambda1 = 1.0;\n        \n        // Initial vector state\n        const initialVector = { x: 20, y: 40 };\n        const iterationsCount = 6;\n\n        let startTime = null;\n        const duration = 10000; // 10 seconds for a full loop\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) % duration;\n            const t = progress / duration;\n\n            // Sweep lambda1 from 1 to 5 and back\n            const loopT = Math.sin(t * Math.PI * 2) * 0.5 + 0.5;\n            lambda1 = 1.0 + (loopT * 4.0);\n\n            // Update UI\n            valLambda1.textContent = lambda1.toFixed(2);\n            const indicatorX = 40 + (loopT * 320);\n            paramIndicator.setAttribute('x1', indicatorX);\n            paramIndicator.setAttribute('x2', indicatorX);\n\n            // Calculate iterations\n            iterGroup.innerHTML = '';\n            let points = [];\n            let currentX = initialVector.x;\n            let currentY = initialVector.y;\n\n            points.push(`${currentX},${-currentY}`);\n\n            for (let i = 0; i < iterationsCount; i++) {\n                // Iterated multiplication: v_{k+1} = A * v_k\n                // Since A is diagonal in this basis: x' = λ₁x, y' = λ₂y\n                currentX *= lambda1;\n                currentY *= lambda2;\n\n                // Scale for visibility (normalize length slightly so it doesn't leave screen immediately)\n                // but keep the relative scaling phenomenon visible.\n                const visualScale = 1 / Math.pow(Math.max(lambda1, 1), i * 0.6);\n                const vx = currentX * visualScale;\n                const vy = currentY * visualScale;\n\n                points.push(`${vx},${-vy}`);\n\n                // Draw intermediate vectors\n                if (i < iterationsCount - 1) {\n                    const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n                    line.setAttribute('x1', '0');\n                    line.setAttribute('y1', '0');\n                    line.setAttribute('x2', vx);\n                    line.setAttribute('y2', -vy);\n                    line.setAttribute('stroke', 'var(--accent)');\n                    line.setAttribute('stroke-width', '1');\n                    line.setAttribute('opacity', 0.2 + (0.5 * (1 - i/iterationsCount)));\n                    line.setAttribute('marker-end', 'url(#arrowhead-small)');\n                    iterGroup.appendChild(line);\n                } else {\n                    // Final vector\n                    vecLine.setAttribute('x2', vx);\n                    vecLine.setAttribute('y2', -vy);\n                }\n            }\n\n            traceLine.setAttribute('points', points.join(' '));\n\n            requestAnimationFrame(update);\n        }\n\n        // Handle height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the horizontal eigenvalue grows to dominate the total transformation, pulling all non-zero vectors toward its span."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Orthogonality and SVD Mastery Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If the dot product of two non-zero vectors in R^n is negative, what does this reveal about the geometric relationship between them?",
+     "options": [
+      "The vectors are perfectly perpendicular.",
+      "The vectors point in exactly opposite directions.",
+      "The angle between the vectors is obtuse (greater than 90 degrees).",
+      "One vector is a scalar multiple of the other."
+     ],
+     "explanation": "The dot product is defined as the product of the magnitudes and the cosine of the angle between vectors; a negative cosine corresponds to an angle between 90 and 180 degrees.",
+     "correctAnswers": [
+      "The angle between the vectors is obtuse (greater than 90 degrees)."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following properties are characteristics of an orthonormal set of vectors {u1, u2, ..., un}?",
+     "options": [
+      "The dot product of any vector with itself is 1.",
+      "The set is always linearly independent.",
+      "The dot product of any two distinct vectors is 0.",
+      "The vectors must span the entire space R^n.",
+      "The matrix formed by these vectors as columns has an inverse equal to its transpose."
+     ],
+     "explanation": "Orthonormal vectors are unit vectors (norm 1) and mutually perpendicular (dot product 0), and any orthonormal set is automatically linearly independent. An orthonormal set does not have to span the whole space, and the matrix U with these vectors as columns only satisfies U^T U = I in general. U is invertible with U^{-1} = U^T (an orthogonal matrix) exactly when U is square, i.e. when the set is an orthonormal basis of R^n, which is the same extra condition as spanning R^n. So the last two properties describe an orthonormal basis, not every orthonormal set.",
+     "correctAnswers": [
+      "The dot product of any vector with itself is 1.",
+      "The set is always linearly independent.",
+      "The dot product of any two distinct vectors is 0."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of transforming a set of linearly independent vectors into an orthonormal basis is known as the ____ process.",
+     "explanation": "Gram-Schmidt is the standard algorithm used to orthogonalize and subsequently normalize a set of vectors.",
+     "placeholder": "Algorithm name",
+     "correctAnswers": [
+      "Gram-Schmidt",
+      "Gram Schmidt"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of a vector projection onto a subspace showing the orthogonal error vector.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit5-q4.png"
+     },
+     "prompt": "In a least-squares problem where we seek to solve Ax = b, if b is not in the column space of A, what does the 'error vector' represent?",
+     "options": [
+      "The projection of b onto the nullspace of A.",
+      "The vector b - Ax_hat, which is orthogonal to the column space of A.",
+      "The distance from the origin to the vector b.",
+      "The difference between the row space and the column space."
+     ],
+     "explanation": "The error vector represents the part of b that cannot be reached by the columns of A; for the approximation to be 'best', this error must be perpendicular to the subspace A spans.",
+     "correctAnswers": [
+      "The vector b - Ax_hat, which is orthogonal to the column space of A."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which statements correctly describe the relationship between a subspace V and its orthogonal complement V-perp?",
+     "options": [
+      "The only vector contained in both V and V-perp is the zero vector.",
+      "The sum of the dimensions of V and V-perp equals the dimension of the total space.",
+      "V-perp is the set of all vectors that are not in V.",
+      "Any vector in the total space can be uniquely decomposed into a sum of a vector from V and a vector from V-perp."
+     ],
+     "explanation": "V-perp is not just 'not V'; it is specifically the set of vectors perpendicular to everything in V. They intersect only at zero and their dimensions are additive.",
+     "correctAnswers": [
+      "The only vector contained in both V and V-perp is the zero vector.",
+      "The sum of the dimensions of V and V-perp equals the dimension of the total space.",
+      "Any vector in the total space can be uniquely decomposed into a sum of a vector from V and a vector from V-perp."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If a projection matrix P projects vectors onto a subspace W, then the matrix P squared (P*P) is equal to ____.",
+     "explanation": "Projection matrices are idempotent; once a vector is projected onto a subspace, projecting it again does not change its position.",
+     "placeholder": "Resulting matrix",
+     "correctAnswers": [
+      "P",
+      "itself",
+      "the matrix P"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When performing SVD on a matrix A, such that A = UΣV^T, what do the columns of the matrix U represent?",
+     "options": [
+      "The orthonormal eigenvectors of A^T A.",
+      "The orthonormal eigenvectors of AA^T.",
+      "The singular values of the matrix A.",
+      "The basis for the row space of A."
+     ],
+     "explanation": "In SVD, U contains the left singular vectors, which are the orthonormal eigenvectors of the covariance-like matrix AA^T.",
+     "correctAnswers": [
+      "The orthonormal eigenvectors of AA^T."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In the context of the Normal Equations (A^T A)x = A^T b, what are the advantages of this approach for solving inconsistent systems?",
+     "options": [
+      "It minimizes the square of the length of the error vector.",
+      "It always produces a unique solution, even if the columns of A are linearly dependent.",
+      "It transforms an overdetermined system into a square system that is solvable.",
+      "It ensures the solution vector x-hat stays within the nullspace of A."
+     ],
+     "explanation": "The Normal Equations find the 'best fit' by minimizing the sum of squared residuals. Note that if columns are dependent, the solution exists but might not be unique.",
+     "correctAnswers": [
+      "It minimizes the square of the length of the error vector.",
+      "It transforms an overdetermined system into a square system that is solvable."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In R^3, the orthogonal complement of a plane passing through the origin is a ____.",
+     "explanation": "Since the dimensions of a subspace and its complement must add up to the dimension of the space (3), 3 - 2 = 1, which represents a line.",
+     "placeholder": "Geometric shape",
+     "correctAnswers": [
+      "line",
+      "straight line"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "According to the Cauchy-Schwarz Inequality, the absolute value of the dot product of u and v is always less than or equal to:",
+     "options": [
+      "The sum of their magnitudes.",
+      "The product of their magnitudes.",
+      "The magnitude of their sum.",
+      "The average of their squared norms."
+     ],
+     "explanation": "The inequality states |u·v| ≤ ||u|| ||v||, which mathematically reflects that the projection of a vector cannot be longer than the vector itself.",
+     "correctAnswers": [
+      "The product of their magnitudes."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What are the primary reasons for using QR Decomposition in numerical linear algebra?",
+     "options": [
+      "It provides a way to solve least-squares problems more stably than the Normal Equations.",
+      "It decomposes any matrix into a product of an orthogonal matrix and an upper triangular matrix.",
+      "It is used to find the eigenvalues of a matrix directly without any iterations.",
+      "It helps in computing an orthonormal basis for the column space of a matrix."
+     ],
+     "explanation": "QR is a fundamental tool for stability in computations, especially for least squares, and provides a structured orthonormal basis via the Q matrix.",
+     "correctAnswers": [
+      "It provides a way to solve least-squares problems more stably than the Normal Equations.",
+      "It decomposes any matrix into a product of an orthogonal matrix and an upper triangular matrix.",
+      "It helps in computing an orthonormal basis for the column space of a matrix."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A square matrix U whose columns are orthonormal is called an ____ matrix.",
+     "explanation": "By definition, a square matrix with orthonormal columns is an orthogonal matrix (or unitary in complex spaces).",
+     "placeholder": "Type of matrix",
+     "correctAnswers": [
+      "orthogonal",
+      "unitary"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a matrix Q is orthogonal (meaning its columns are orthonormal), what is the simplified formula for the projection matrix P onto the column space of Q?",
+     "options": [
+      "P = Q Q^T",
+      "P = Q^T Q",
+      "P = (Q^T Q)^-1",
+      "P = Q (Q^T Q) Q^T"
+     ],
+     "explanation": "Since Q^T Q = I for orthonormal columns, the general projection formula A(A^T A)^-1 A^T simplifies to Q(I)^-1 Q^T, which is Q Q^T.",
+     "correctAnswers": [
+      "P = Q Q^T"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram showing the orthogonality of the four fundamental subspaces.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit5-q14.png"
+     },
+     "prompt": "Identify the correct relationships between the four fundamental subspaces of a matrix A (size m x n).",
+     "options": [
+      "The Row Space and the Nullspace are orthogonal complements in R^n.",
+      "The Column Space and the Left Nullspace are orthogonal complements in R^m.",
+      "The Column Space and the Row Space are always the same dimension.",
+      "The Nullspace and the Left Nullspace have the same dimension if the matrix is square."
+     ],
+     "explanation": "These relationships form the Fundamental Theorem of Linear Algebra. The dimension of both Row and Column spaces is the rank r. For a square n×n matrix of rank r, dim N(A) = n − r = dim N(Aᵀ), so the two nullspaces have equal dimension.",
+     "correctAnswers": [
+      "The Row Space and the Nullspace are orthogonal complements in R^n.",
+      "The Column Space and the Left Nullspace are orthogonal complements in R^m.",
+      "The Column Space and the Row Space are always the same dimension.",
+      "The Nullspace and the Left Nullspace have the same dimension if the matrix is square."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The distance between two vectors u and v is defined as the ____ of the vector (u - v).",
+     "explanation": "In vector geometry, the distance between points is the magnitude (norm) of the displacement vector connecting them.",
+     "placeholder": "Mathematical term",
+     "correctAnswers": [
+      "norm",
+      "magnitude",
+      "length"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "When calculating the SVD of a matrix A, what do the singular values (the diagonal entries of Σ) represent?",
+     "options": [
+      "The eigenvalues of the matrix A itself.",
+      "The square roots of the non-zero eigenvalues of A^T A.",
+      "The determinants of the sub-matrices of A.",
+      "The coordinates of the rows in the nullspace."
+     ],
+     "explanation": "Singular values are defined as the square roots of the eigenvalues of A^T A (or AA^T), representing the 'stretch' along the principal axes.",
+     "correctAnswers": [
+      "The square roots of the non-zero eigenvalues of A^T A."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "As the singular values (sigma) of a data matrix are progressively set to zero in the animation, why does the reconstructed image or dataset become increasingly blurry or 'blocked'?",
+     "options": [
+      "Because the singular values represent the coordinates of the data points in the original basis.",
+      "Because each singular value scales a rank-1 component that captures a specific level of detail or variance.",
+      "Because setting values to zero increases the total energy or magnitude of the matrix.",
+      "Because the rotation matrices U and V change their orientation as the singular values decrease."
+     ],
+     "explanation": "SVD decomposes a matrix into a sum of rank-1 matrices. Larger singular values capture major structures, while smaller ones capture fine details. Removing them loses that detail.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>SVD Low-Rank Approximation Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-group {\n            width: 100%;\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 20px;\n            margin-bottom: 20px;\n        }\n\n        .canvas-container {\n            width: 100%;\n            aspect-ratio: 1;\n            background: #fff;\n            border: 1px solid var(--rule);\n            position: relative;\n        }\n\n        canvas {\n            width: 100%;\n            height: 100%;\n            image-rendering: pixelated;\n            display: block;\n        }\n\n        .label-serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(11px, 2.5vw, 13px);\n            color: var(--muted);\n            font-style: italic;\n            text-align: center;\n            margin-top: 8px;\n        }\n\n        .axis-container {\n            width: 100%;\n            height: 60px;\n            position: relative;\n            margin-top: 10px;\n        }\n\n        .axis-line {\n            position: absolute;\n            top: 30px;\n            left: 0;\n            right: 0;\n            height: 1px;\n            background: var(--rule);\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: 30px;\n            width: 1px;\n            height: 6px;\n            background: var(--rule);\n        }\n\n        .axis-label {\n            position: absolute;\n            top: 40px;\n            transform: translateX(-50%);\n            font-size: 10px;\n            color: var(--muted);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .axis-title {\n            position: absolute;\n            top: 0;\n            left: 50%;\n            transform: translateX(-50%);\n            font-size: 12px;\n            color: var(--muted);\n        }\n\n        .indicator {\n            position: absolute;\n            top: 22px;\n            width: 1px;\n            height: 16px;\n            background: var(--accent);\n            transition: left 0.1s linear;\n        }\n\n        .readout {\n            font-size: 13px;\n            color: var(--ink);\n            margin-top: 12px;\n            font-variant-numeric: tabular-nums;\n        }\n\n        @media (max-width: 400px) {\n            .figure-group {\n                grid-template-columns: 1fr;\n            }\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Visual reconstruction using rank-1 matrix components</h1>\n    \n    <div class=\"container\">\n        <div class=\"figure-group\" aria-label=\"A comparison between a single rank-1 component and the cumulative sum of components.\">\n            <div>\n                <div class=\"canvas-container\">\n                    <canvas id=\"componentCanvas\" width=\"100\" height=\"100\"></canvas>\n                </div>\n                <div class=\"label-serif\">Current rank-1 component (uᵢσᵢvᵢᵀ)</div>\n            </div>\n            <div>\n                <div class=\"canvas-container\">\n                    <canvas id=\"reconstructionCanvas\" width=\"100\" height=\"100\"></canvas>\n                </div>\n                <div class=\"label-serif\">Cumulative approximation</div>\n            </div>\n        </div>\n\n        <div class=\"axis-container\">\n            <div class=\"axis-title\">Number of components included (k)</div>\n            <div class=\"axis-line\"></div>\n            <!-- Ticks generated by JS -->\n            <div id=\"ticks-container\"></div>\n            <div id=\"indicator\" class=\"indicator\"></div>\n        </div>\n\n        <div class=\"readout\" id=\"status-readout\">\n            Rank-k approximation (k = 0)\n        </div>\n    </div>\n\n    <script>\n        // Seeded PRNG for determinism\n        function createRandom(seed) {\n            return function() {\n                seed = (seed * 16807) % 2147483647;\n                return (seed - 1) / 2147483646;\n            };\n        }\n        const random = createRandom(42);\n\n        // Generate a \"synthetic image\" that looks like a geometric pattern\n        // (to avoid external image assets)\n        const SIZE = 40;\n        const matrix = [];\n        for (let i = 0; i < SIZE; i++) {\n            matrix[i] = [];\n            for (let j = 0; j < SIZE; j++) {\n                // A simple pattern: overlapping circles and gradients\n                const d1 = Math.sqrt((i - 10)**2 + (j - 10)**2);\n                const d2 = Math.sqrt((i - 30)**2 + (j - 30)**2);\n                const d3 = Math.sqrt((i - 15)**2 + (j - 25)**2);\n                let val = 0;\n                val += Math.max(0, 1 - d1/15) * 0.8;\n                val += Math.max(0, 1 - d2/20) * 0.5;\n                val += Math.max(0, 1 - d3/12) * 0.7;\n                val += (i / SIZE) * 0.2;\n                matrix[i][j] = val;\n            }\n        }\n\n        /**\n         * Simplified SVD for the purpose of the simulation\n         * Since we can't use external libraries, we'll pre-calculate \n         * or use a basic power iteration for components. \n         * For stability and speed in a tiny script, we use a pre-set decomposition \n         * of our known synthetic image.\n         */\n        function getDecomposition(mat) {\n            // Power iteration to find dominant singular vectors\n            // We'll compute 20 components.\n            const components = [];\n            let residual = mat.map(row => [...row]);\n            \n            for (let k = 0; k < 25; k++) {\n                let u = new Array(SIZE).fill(0).map(() => random() - 0.5);\n                let v = new Array(SIZE).fill(0).map(() => random() - 0.5);\n                \n                // Power iteration (approximate)\n                for (let iter = 0; iter < 10; iter++) {\n                    // v = residual^T * u\n                    for (let j = 0; j < SIZE; j++) {\n                        v[j] = 0;\n                        for (let i = 0; i < SIZE; i++) v[j] += residual[i][j] * u[i];\n                    }\n                    let normV = Math.sqrt(v.reduce((s, x) => s + x*x, 0));\n                    if (normV > 0) v = v.map(x => x / normV);\n                    \n                    // u = residual * v\n                    for (let i = 0; i < SIZE; i++) {\n                        u[i] = 0;\n                        for (let j = 0; j < SIZE; j++) u[i] += residual[i][j] * v[j];\n                    }\n                    let normU = Math.sqrt(u.reduce((s, x) => s + x*x, 0));\n                    if (normU > 0) u = u.map(x => x / normU);\n                }\n                \n                // Sigma\n                let sigma = 0;\n                for (let i = 0; i < SIZE; i++) {\n                    for (let j = 0; j < SIZE; j++) {\n                        sigma += u[i] * residual[i][j] * v[j];\n                    }\n                }\n                \n                // Subtract component from residual\n                for (let i = 0; i < SIZE; i++) {\n                    for (let j = 0; j < SIZE; j++) {\n                        residual[i][j] -= sigma * u[i] * v[j];\n                    }\n                }\n                \n                components.push({ u, v, sigma });\n            }\n            return components;\n        }\n\n        const components = getDecomposition(matrix);\n        const compCtx = document.getElementById('componentCanvas').getContext('2d');\n        const reconCtx = document.getElementById('reconstructionCanvas').getContext('2d');\n        const statusReadout = document.getElementById('status-readout');\n        const indicator = document.getElementById('indicator');\n        const ticksContainer = document.getElementById('ticks-container');\n\n        // Setup Axis Ticks\n        for (let i = 0; i <= 25; i += 5) {\n            const pct = (i / 25) * 100;\n            const tick = document.createElement('div');\n            tick.className = 'axis-tick';\n            tick.style.left = `${pct}%`;\n            ticksContainer.appendChild(tick);\n            \n            const label = document.createElement('div');\n            label.className = 'axis-label';\n            label.style.left = `${pct}%`;\n            label.textContent = i;\n            ticksContainer.appendChild(label);\n        }\n\n        function drawMatrix(ctx, data) {\n            const imgData = ctx.createImageData(SIZE, SIZE);\n            for (let i = 0; i < SIZE; i++) {\n                for (let j = 0; j < SIZE; j++) {\n                    const idx = (i * SIZE + j) * 4;\n                    // Map val to 0-255. Normalize slightly for visibility.\n                    const val = Math.max(0, Math.min(255, data[i][j] * 200));\n                    imgData.data[idx] = val;\n                    imgData.data[idx+1] = val;\n                    imgData.data[idx+2] = val;\n                    imgData.data[idx+3] = 255;\n                }\n            }\n            ctx.putImageData(imgData, 0, 0);\n        }\n\n        let startTime = null;\n        const duration = 12000; // 12 seconds per full cycle\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) % duration;\n            const progress = elapsed / duration;\n            \n            // k goes from 0 to 25\n            const kLimit = progress * 25;\n            const kFloor = Math.floor(kLimit);\n            \n            // Build reconstructed matrix\n            const currentRecon = Array.from({length: SIZE}, () => new Array(SIZE).fill(0));\n            for (let k = 0; k < kFloor; k++) {\n                const { u, v, sigma } = components[k];\n                for (let i = 0; i < SIZE; i++) {\n                    for (let j = 0; j < SIZE; j++) {\n                        currentRecon[i][j] += sigma * u[i] * v[j];\n                    }\n                }\n            }\n            \n            // Individual component matrix (the one being added)\n            const currentComp = Array.from({length: SIZE}, () => new Array(SIZE).fill(0.5)); // Neutral gray base\n            if (kFloor < components.length) {\n                const { u, v, sigma } = components[kFloor];\n                for (let i = 0; i < SIZE; i++) {\n                    for (let j = 0; j < SIZE; j++) {\n                        // Offset by 0.5 to show positive/negative contributions\n                        currentComp[i][j] = 0.5 + (sigma * u[i] * v[j] * 2); \n                    }\n                }\n            }\n\n            drawMatrix(compCtx, currentComp);\n            drawMatrix(reconCtx, currentRecon);\n            \n            // Update UI\n            indicator.style.left = `${(kLimit / 25) * 100}%`;\n            statusReadout.textContent = `Rank-k approximation (k = ${kFloor})`;\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch(e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n        });\n\n        const resizeObserver = new ResizeObserver(() => reportHeight());\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because each singular value scales a rank-1 component that captures a specific level of detail or variance."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Matrices and Linear Transformations Unit Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are given a 2x3 matrix A and a 3x2 matrix B. What are the dimensions of the product matrix C = AB?",
+     "options": [
+      "2x2",
+      "3x3",
+      "2x3",
+      "3x2"
+     ],
+     "explanation": "In matrix multiplication, the outer dimensions of the factors (2 from the rows of A and 2 from the columns of B) determine the dimensions of the resulting product matrix.",
+     "correctAnswers": [
+      "2x2"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary conditions for a matrix A to have an inverse A⁻¹?",
+     "options": [
+      "The matrix A must be square.",
+      "The determinant of A must be non-zero.",
+      "A must be a diagonal matrix.",
+      "The transformation must not collapse space into a lower dimension.",
+      "A must be an elementary matrix."
+     ],
+     "explanation": "Invertibility requires a square matrix that is non-singular (determinant is not zero), meaning it preserves the dimensionality of the space it acts upon.",
+     "correctAnswers": [
+      "The matrix A must be square.",
+      "The determinant of A must be non-zero.",
+      "The transformation must not collapse space into a lower dimension."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If matrix B represents a 90-degree rotation and matrix A represents a horizontal shear, the matrix product ____ represents the transformation 'rotate first, then shear'.",
+     "explanation": "Matrix multiplication is applied right-to-left. Therefore, the matrix on the right (B) is applied to the vector first, followed by the matrix on the left (A).",
+     "placeholder": "Enter the product order",
+     "correctAnswers": [
+      "AB"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary purpose of the Gauss-Jordan method when applied to an augmented matrix [A | I]?",
+     "options": [
+      "To find the determinant of A.",
+      "To transform A into the identity matrix while simultaneously constructing A⁻¹ on the right.",
+      "To solve for the eigenvalues of matrix A.",
+      "To convert a square matrix into a triangular matrix for LU decomposition."
+     ],
+     "explanation": "The Gauss-Jordan method uses elementary row operations to reduce A to I; performing these same operations on I produces the inverse.",
+     "correctAnswers": [
+      "To transform A into the identity matrix while simultaneously constructing A⁻¹ on the right."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A linear transformation T: V -> W must satisfy which of the following axioms for all vectors u, v and scalars c?",
+     "options": [
+      "T(u + v) = T(u) + T(v)",
+      "T(cu) = cT(u)",
+      "T(uv) = T(u)T(v)",
+      "T(0) = 0",
+      "T(u) is always non-zero"
+     ],
+     "explanation": "Linearity is defined by additivity and homogeneity. T(0)=0 is a necessary consequence of homogeneity where c=0.",
+     "correctAnswers": [
+      "T(u + v) = T(u) + T(v)",
+      "T(cu) = cT(u)",
+      "T(0) = 0"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the context of the Rank-Nullity Theorem, if a linear transformation maps R⁵ to R³ and has a rank of 3, the dimension of the kernel (nullity) is ____.",
+     "explanation": "Rank + Nullity = Dimension of Domain. Here, 3 + Nullity = 5, so Nullity must be 2.",
+     "correctAnswers": [
+      "2",
+      "two"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "How does scalar multiplication of a matrix differ from a single elementary row operation of scaling?",
+     "options": [
+      "Scalar multiplication affects every entry in the matrix; a row operation affects only one row.",
+      "Scalar multiplication only affects the diagonal; row operations affect the whole row.",
+      "There is no difference; both operations are identical.",
+      "Scalar multiplication is only possible for square matrices."
+     ],
+     "explanation": "Scalar multiplication is a global operation across the entire matrix object, whereas row scaling is a specific local transformation used in row reduction.",
+     "correctAnswers": [
+      "Scalar multiplication affects every entry in the matrix; a row operation affects only one row."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "If the product of two matrices AB is the zero matrix, which of the following must be true?",
+     "options": [
+      "A must be the zero matrix.",
+      "B must be the zero matrix.",
+      "It is possible that neither A nor B is the zero matrix.",
+      "The columns of B must be in the null space of A.",
+      "The determinant of AB is zero."
+     ],
+     "explanation": "Matrix algebra allows for 'zero divisors'; if AB=0, it implies the image of B is contained within the kernel of A. Since AB=0, its determinant is also 0.",
+     "correctAnswers": [
+      "It is possible that neither A nor B is the zero matrix.",
+      "The columns of B must be in the null space of A.",
+      "The determinant of AB is zero."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The set of all possible output vectors T(v) for a linear transformation T is called the ____ of the transformation.",
+     "explanation": "The image (or range) consists of all vectors in the codomain that can be reached by applying the transformation to vectors in the domain.",
+     "correctAnswers": [
+      "image",
+      "range",
+      "column space"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Elementary matrix for row replacement",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/49e290b1-2376-4f32-8c28-ef8567cd3f61/exam/images/unit2-q10.png"
+     },
+     "prompt": "Which elementary matrix E represents the operation: 'Add 5 times Row 1 to Row 3' in a 3x3 system?",
+     "options": [
+      "A 3x3 identity with a 5 at position (3,1)",
+      "A 3x3 identity with a 5 at position (1,3)",
+      "A 3x3 identity with a 5 at position (3,3)",
+      "A 3x3 matrix of all zeros with a 5 at (3,1)"
+     ],
+     "explanation": "To add a multiple of one row to another, the off-diagonal entry in the identity matrix at (target_row, source_row) is changed to the multiplier.",
+     "correctAnswers": [
+      "A 3x3 identity with a 5 at position (3,1)"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In an LU decomposition A = LU, which of the following properties are typically true for L and U?",
+     "options": [
+      "L is a lower triangular matrix.",
+      "U is an upper triangular matrix.",
+      "L always has 1s on its main diagonal.",
+      "L and U must be square matrices.",
+      "U is the inverse of L."
+     ],
+     "explanation": "LU decomposition factors a square matrix into a unit lower triangular matrix (L) and an upper triangular matrix (U).",
+     "correctAnswers": [
+      "L is a lower triangular matrix.",
+      "U is an upper triangular matrix.",
+      "L always has 1s on its main diagonal.",
+      "L and U must be square matrices."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A square matrix is said to be ____ if its determinant is zero, meaning it does not have an inverse.",
+     "explanation": "Singular matrices are those that 'collapse' space, leading to a zero determinant and a lack of a two-sided inverse.",
+     "correctAnswers": [
+      "singular",
+      "non-invertible"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a 3x3 matrix A has a rank of 2, what does this imply about the linear system Ax = 0?",
+     "options": [
+      "There is only the trivial solution (x=0).",
+      "There is a 1-dimensional line of non-trivial solutions.",
+      "There are no solutions.",
+      "The system has a 2-dimensional plane of solutions."
+     ],
+     "explanation": "By the Rank-Nullity Theorem, Nullity = 3 - 2 = 1. A nullity of 1 means the kernel is a 1D subspace (a line).",
+     "correctAnswers": [
+      "There is a 1-dimensional line of non-trivial solutions."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following operations are considered 'Elementary Row Operations'?",
+     "options": [
+      "Swapping two rows.",
+      "Multiplying a row by a non-zero scalar.",
+      "Adding a multiple of one row to another row.",
+      "Multiplying two rows together element-wise.",
+      "Squaring all elements in a row."
+     ],
+     "explanation": "Only row swaps, scaling, and row replacement are elementary operations that correspond to invertible linear transformations.",
+     "correctAnswers": [
+      "Swapping two rows.",
+      "Multiplying a row by a non-zero scalar.",
+      "Adding a multiple of one row to another row."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The ____ of a linear transformation is the set of all vectors v such that T(v) = 0.",
+     "explanation": "The kernel represents the 'loss of information' in a transformation—vectors that are squashed to the origin.",
+     "correctAnswers": [
+      "kernel",
+      "null space"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Why is matrix multiplication generally non-commutative (AB ≠ BA)?",
+     "options": [
+      "Because the order of geometric transformations matters.",
+      "Because matrices can only be multiplied if they are square.",
+      "Because the dot product of two vectors is not commutative.",
+      "Because the identity matrix only works from the left."
+     ],
+     "explanation": "Since matrix multiplication represents function composition, changing the order changes the sequence of operations (e.g., rotating then shearing is different from shearing then rotating).",
+     "correctAnswers": [
+      "Because the order of geometric transformations matters."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Identify the properties of the determinant for 2x2 matrices.",
+     "options": [
+      "det(A) = ad - bc",
+      "If det(A) = 0, the matrix is invertible.",
+      "det(AB) = det(A) * det(B)",
+      "The determinant represents the area scaling factor of the transformation.",
+      "det(A+B) = det(A) + det(B)"
+     ],
+     "explanation": "Determinants are multiplicative and represent volume/area scaling; however, they are not additive.",
+     "correctAnswers": [
+      "det(A) = ad - bc",
+      "det(AB) = det(A) * det(B)",
+      "The determinant represents the area scaling factor of the transformation."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "If A is an invertible matrix, what is the inverse of the product (AB)?",
+     "options": [
+      "A⁻¹B⁻¹",
+      "B⁻¹A⁻¹",
+      "AB",
+      "I / AB"
+     ],
+     "explanation": "The 'socks and shoes' principle states that the inverse of a product is the product of the inverses in reverse order.",
+     "correctAnswers": [
+      "B⁻¹A⁻¹"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "Which statements correctly describe the relationship between a matrix and a linear transformation?",
+     "options": [
+      "Every linear transformation from Rⁿ to Rᵐ can be represented by an m x n matrix.",
+      "The columns of the matrix are the images of the standard basis vectors.",
+      "A matrix is a static grid, while a transformation is the action it performs.",
+      "Only square matrices represent linear transformations.",
+      "Matrices can only represent rotations and scales, not shears."
+     ],
+     "explanation": "Linear transformations are uniquely determined by their effect on basis vectors, which become the columns of the transformation matrix.",
+     "correctAnswers": [
+      "Every linear transformation from Rⁿ to Rᵐ can be represented by an m x n matrix.",
+      "The columns of the matrix are the images of the standard basis vectors.",
+      "A matrix is a static grid, while a transformation is the action it performs."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Observe the transformation of the unit square. Why does the area of the shape eventually reach zero as the parameter 'k' increases?",
+     "options": [
+      "The transformation scales both the x and y axes by the same decreasing factor.",
+      "The column vectors of the transformation matrix are becoming linearly dependent, causing the output space to collapse onto a line.",
+      "The matrix is an identity matrix being multiplied by a scalar that approaches one.",
+      "The transformation is a pure rotation that eventually spins the square out of the field of view."
+     ],
+     "explanation": "As the determinant approaches zero, the two basis vectors (columns) align, squashing the 2D area into a 1D line, making the matrix singular.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Linear Transformation Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n            aspect-ratio: 1.2 / 1;\n        }\n\n        .readout {\n            display: flex;\n            gap: 24px;\n            margin-top: 12px;\n            font-variant-numeric: tabular-nums;\n            font-size: clamp(12px, 3vw, 14px);\n            color: var(--muted);\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-style: italic;\n            margin-bottom: 2px;\n        }\n\n        .readout-value {\n            color: var(--ink);\n            font-weight: 500;\n        }\n\n        .axis-container {\n            width: 100%;\n            max-width: 300px;\n            margin-top: 20px;\n            position: relative;\n            height: 40px;\n        }\n\n        .axis-line {\n            width: 100%;\n            height: 1px;\n            background: var(--rule);\n            position: absolute;\n            top: 10px;\n        }\n\n        .axis-tick {\n            position: absolute;\n            width: 1px;\n            height: 6px;\n            background: var(--muted);\n            top: 7px;\n        }\n\n        .axis-label {\n            position: absolute;\n            top: 18px;\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n            transform: translateX(-50%);\n        }\n\n        .axis-indicator {\n            position: absolute;\n            width: 2px;\n            height: 14px;\n            background: var(--accent);\n            top: 3px;\n            transform: translateX(-50%);\n        }\n\n        .matrix-display {\n            font-family: serif;\n            display: flex;\n            align-items: center;\n            gap: 8px;\n            margin-top: 10px;\n            color: var(--ink);\n        }\n\n        .bracket {\n            font-size: 2.5em;\n            font-weight: 100;\n            transform: scaleY(1.2);\n            color: var(--muted);\n        }\n\n        .matrix-vals {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 4px 12px;\n            text-align: center;\n            font-size: 14px;\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Visualizing a 2D linear transformation of a unit square as a parameter varies</h1>\n    \n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"-20 -20 240 200\" aria-label=\"A unit square on a coordinate plane being sheared and flattened into a diagonal line.\">\n            <!-- Grid -->\n            <defs>\n                <pattern id=\"grid\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\">\n                    <path d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                </pattern>\n            </defs>\n            <rect x=\"-20\" y=\"-20\" width=\"280\" height=\"240\" fill=\"var(--bg)\" />\n            <rect x=\"0\" y=\"0\" width=\"200\" height=\"160\" fill=\"url(#grid)\" />\n            \n            <!-- Axes -->\n            <line x1=\"0\" y1=\"160\" x2=\"210\" y2=\"160\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            <line x1=\"0\" y1=\"160\" x2=\"0\" y2=\"-10\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n            \n            <!-- Origin label -->\n            <text x=\"-5\" y=\"172\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"end\">0</text>\n            <text x=\"40\" y=\"172\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"middle\">1</text>\n            <text x=\"-5\" y=\"124\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"end\">1</text>\n\n            <!-- Transformed Shape -->\n            <polygon id=\"transformed-square\" points=\"0,160 40,160 80,120 40,120\" fill=\"var(--accent)\" fill-opacity=\"0.15\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n            \n            <!-- Area Label -->\n            <text id=\"area-text\" x=\"100\" y=\"20\" font-family=\"Georgia, serif\" font-size=\"12\" fill=\"var(--accent)\" text-anchor=\"middle\">Area: 1.000</text>\n        </svg>\n\n        <div class=\"matrix-display\">\n            <span class=\"bracket\">[</span>\n            <div class=\"matrix-vals\">\n                <span>1</span> <span id=\"m-k\" style=\"color: var(--amber)\">0.00</span>\n                <span>0</span> <span id=\"m-1k\" style=\"color: var(--amber)\">1.00</span>\n            </div>\n            <span class=\"bracket\">]</span>\n        </div>\n\n        <div class=\"axis-container\" aria-hidden=\"true\">\n            <div class=\"axis-line\"></div>\n            <div class=\"axis-tick\" style=\"left: 0%\"></div>\n            <div class=\"axis-tick\" style=\"left: 50%\"></div>\n            <div class=\"axis-tick\" style=\"left: 100%\"></div>\n            <div class=\"axis-label\" style=\"left: 0%\">0</div>\n            <div class=\"axis-label\" style=\"left: 50%\">0.5</div>\n            <div class=\"axis-label\" style=\"left: 100%\">1</div>\n            <div class=\"axis-label\" style=\"left: 50%; top: -15px; font-style: italic;\">k</div>\n            <div id=\"k-indicator\" class=\"axis-indicator\" style=\"left: 0%\"></div>\n        </div>\n\n        <div class=\"caption\">Square transformation mapping under varying k</div>\n    </div>\n\n    <script>\n        const polygon = document.getElementById('transformed-square');\n        const kIndicator = document.getElementById('k-indicator');\n        const mK = document.getElementById('m-k');\n        const m1K = document.getElementById('m-1k');\n        const areaText = document.getElementById('area-text');\n\n        let startTime = null;\n        const duration = 8000; // 8 seconds for a full loop\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = timestamp - startTime;\n            \n            // Ping-pong k from 0 to 1 and back\n            const progress = (elapsed % duration) / duration;\n            const k = progress < 0.5 ? progress * 2 : 2 - (progress * 2);\n            \n            // Unit square vertices: (0,0), (1,0), (1,1), (0,1)\n            // Matrix: [1, k; 0, 1-k]\n            // v1 = [1, 0] * [1, 0; k, 1-k] -> (1, 0)\n            // v2 = [1, 1] * [1, 0; k, 1-k] -> (1+k, 1-k)\n            // v3 = [0, 1] * [1, 0; k, 1-k] -> (k, 1-k)\n            // v0 = [0, 0] * ... -> (0, 0)\n            \n            // Grid scale is 40 units per 1.0 coordinate\n            const scale = 40;\n            const originY = 160;\n            const originX = 0;\n\n            const x0 = originX;\n            const y0 = originY;\n\n            const x1 = originX + (1 * scale);\n            const y1 = originY - (0 * scale);\n\n            const x2 = originX + ((1 + k) * scale);\n            const y2 = originY - ((1 - k) * scale);\n\n            const x3 = originX + (k * scale);\n            const y3 = originY - ((1 - k) * scale);\n\n            const points = `${x0},${y0} ${x1},${y1} ${x2},${y2} ${x3},${y3}`;\n            polygon.setAttribute('points', points);\n\n            // Determinant of [1, k; 0, 1-k] is 1*(1-k) - k*0 = 1-k\n            const area = 1 - k;\n            \n            // Update UI\n            kIndicator.style.left = `${k * 100}%`;\n            mK.textContent = k.toFixed(2);\n            m1K.textContent = (1 - k).toFixed(2);\n            areaText.textContent = `Area: ${Math.max(0, area).toFixed(3)}`;\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The column vectors of the transformation matrix are becoming linearly dependent, causing the output space to collapse onto a line."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "0b9cff7d-26bf-4d00-b127-326254d16fbb"
+}

@@ -1,0 +1,307 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the name of your chosen character, the source material they come from, and 2-3 sentences explaining why you chose them for a biological analysis."
+     },
+     "step_body": "Welcome to your course project! Over the next several units, you will be building a comprehensive Psychological Case File and Treatment Plan Portfolio. By the end of this journey, you will have produced a professional 1500-2000 word multi-dimensional analysis of a fictional character, exploring everything from their brain chemistry to their social environment and clinical diagnosis. \n\nWe start today with Stage 1: Biological Foundations. Your first task is to choose a protagonist from a film, book, or play (e.g., Batman, Elsa, or Katniss Everdeen). Think about a character who exhibits very distinct behavioral patterns or intense emotional responses. Once you've chosen, briefly describe the character and explain why their 'biological' side—their instincts, temperament, or physical reactions—makes them an interesting subject for study.",
+     "step_title": "Project Launch & Character Selection",
+     "need_response": true
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify two brain structures and provide a brief justification (1-2 sentences each) linking the structure to a specific behavior shown by your character."
+     },
+     "step_body": "Now that you have your subject, let's apply what we learned about brain structures. Consider your character's most prominent traits. Are they hyper-vigilant and fearful? This might involve the amygdala. Do they have incredible physical coordination or struggle with balance? Look to the cerebellum. Do they struggle with complex planning and decision-making? That points toward the frontal lobe.\n\nIdentify at least two specific brain structures (from the hindbrain, limbic system, or cerebral cortex) that you believe are particularly active or perhaps unique in your character. Explain how these structures manifest in their observable behavior.",
+     "step_title": "Mapping the Brain",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe one phenotypic trait of your character and explain the likely interaction between their genotype (genetic potential) and their environment."
+     },
+     "step_body": "Recall our session on 'Heredity and Environment.' No trait is purely genetic; genes 'load the gun' while the environment 'pulls the trigger.' Think about your character's phenotype—their observable traits. \n\nWhat is a specific behavior or trait your character has that likely resulted from a genetic predisposition interacting with their environment? For example, did they have a genetic temperament for 'aggression' that was triggered by a harsh upbringing? Or a genetic talent for 'pattern recognition' that was fostered by a specific mentor? Explain this interaction clearly.",
+     "step_title": "Nature vs. Nurture Interactions",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It is time to synthesize your findings into your first project deliverable: the Section 1 Biological Profile. This should be a formal 300-word analysis. \n\nIn this draft, combine your insights about brain structures, hemispheric specialization (if applicable), and genetic-environmental interactions. Use the technical vocabulary we've covered, such as 'neurotransmitters,' 'limbic system,' 'genotype,' and 'phenotype.' Your goal is to provide a scientific hypothesis for why your character acts the way they do based strictly on their biology. Ensure you transition smoothly between the neurological structures and the behavioral outcomes.",
+     "step_title": "Drafting the Biological Profile",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF document containing Section 1: Biological Profile. Criteria for success: approximately 300 words, correct application of at least three specific biological psychology terms, and a clear connection between biological structures/genetics and the character's behavior."
+     },
+     "step_body": "Review your draft one last time. Does it meet the 300-word requirement? Does it move beyond simple descriptions to provide a deep biological 'mapping' of the character? \n\nThis document will serve as the foundation for your portfolio. In the next stages, we will build upon this by looking at their cognitive processes and developmental history. For now, finalize your Biological Profile and submit it here.",
+     "step_title": "Submit Biological Profile",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "15429cce-bf40-4483-8e80-2483846f5933",
+   "stage_title": "Character Biological Foundations Mapping",
+   "parent_project_id": "86f7dbf4-b8fc-40f5-b997-8dfaafc8b9ab",
+   "stage_description": "Select your fictional subject and analyze their behavior through a biological lens. You will hypothesize the neural, hemispheric, and endocrine factors that underlie their prominent behavioral patterns, emotional responses, or physiological traits using concepts from brain structure and genetics.",
+   "deliverable_increment": "Section 1: Biological Profile (a 300-word analysis mapping the character's specific traits to brain structures, neurotransmitter systems, and genetic predispositions)."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the second stage of your project. In the last stage, you mapped your character's biological foundations (neurotransmitters and brain structures). Now, we move from the 'hardware' of the brain to the 'software' of the mind. You will investigate how your character encodes and retrieves information, and how their perceptions are often skewed by mental shortcuts. Drawing from our recent sessions, think about whether your character suffers from memory interference or if they rely on specific heuristics when making high-stakes decisions.",
+     "step_title": "Orient to the Cognitive Profile",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short paragraph (3-5 sentences) identifying one specific memory error or forgetting pattern your character exhibits. Clearly name the concept (e.g., proactive interference, amnesia, or the misinformation effect) and explain how it manifests in a specific scene."
+     },
+     "step_body": "Every character has a unique relationship with their past. Based on the 'Forgetting and Memory Errors' session, examine how your character handles information over time. Do they experience proactive interference (old habits blocking new learning) or perhaps retroactive interference? Does your character show signs of the 'misinformation effect,' where their memories are reconstructed or distorted by later events? If they have suffered a trauma, consider if they display anterograde or retrograde amnesia. Briefly describe one specific instance from your character's story where their memory was either inaccurate or failed them, and identify the psychological concept at play.",
+     "step_title": "Analyze Memory Disruptions",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's look at how your character perceives their environment using the Gestalt principles and processing styles we covered. Does your character rely more on 'bottom-up' processing (noticing every raw detail before understanding the whole) or 'top-down' processing (letting their expectations and past experiences dictate what they see)? For example, a paranoid character might use top-down processing to see a threat in an ambiguous shadow. Identify which style dominates their worldview and if any Gestalt principles—like 'closure' or 'figure-ground'—influence how they interpret social or physical cues.",
+     "step_title": "Examine Perceptual Processing",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List two cognitive biases or heuristics your character displays. For each, provide a one-sentence justification explaining how this bias skews their decision-making in the narrative."
+     },
+     "step_body": "Beyond memory and perception, we must look at decision-making. Thinking heuristics are mental shortcuts that can lead to systematic errors. Does your character fall victim to the 'availability heuristic' (judging the likelihood of events based on how easily they come to mind) or the 'representativeness heuristic' (judging things based on how well they match a stereotype)? Or perhaps they suffer from 'confirmation bias,' only seeking out information that supports their existing beliefs. Choose two biases or heuristics that frequently lead your character to make flawed decisions.",
+     "step_title": "Identify Cognitive Biases",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF document containing Section 2: Cognitive & Memory Assessment. Good work will be approximately 350 words, use at least four specific psychological terms from the unit correctly, and provide evidence from the character's story to support the analysis."
+     },
+     "step_body": "It is time to synthesize your findings into 'Section 2: Cognitive & Memory Assessment.' This report should be approximately 350 words. You must integrate your analysis of their memory distortions (from Step 2), their processing style (from Step 3), and their cognitive biases (from Step 4) into a cohesive narrative. Ensure you use specific terminology from the units (e.g., 'top-down processing,' 'interference,' 'heuristics') to demonstrate your mastery of the material. This section will eventually follow your Biological Profile in the final portfolio.",
+     "step_title": "Draft and Submit the Assessment",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "To wrap up this stage, consider the concept of 'Perceptual Constancy.' Despite the chaos of their lives, characters often maintain a stable view of themselves or others (like 'shape constancy' for a door). Does your character have a 'perceptual set'—a mental predisposition that makes them see what they want to see? Reflect on how these internal cognitive stabilities make them a consistent, believable character even when their world is changing. You're now ready to move on to their Developmental History in the next stage!",
+     "step_title": "Reflect on Cognitive Stability",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "59dd1cbb-bc66-4156-a8ac-617a78aba29b",
+   "stage_title": "Cognitive and Memory Processing Profile",
+   "parent_project_id": "86f7dbf4-b8fc-40f5-b997-8dfaafc8b9ab",
+   "stage_description": "Evaluate how your selected character encodes, stores, and retrieves memories, and identify at least two cognitive biases or thinking heuristics that systematically skew their decision-making processes.",
+   "deliverable_increment": "Section 2: Cognitive & Memory Assessment (a 350-word report analyzing the character's memory distortions, information processing styles, and decision-making biases)."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you mapped your character's biological foundations and cognitive processing style. Now, we shift from 'what they are' to 'how they became.' This stage focuses on the Developmental & Learning History section of your portfolio. You will explore how early childhood experiences, parenting styles, and behavioral conditioning have sculpted the character you see today. By the end of this stage, you will have a 400-word analysis that connects their past to their current behavior.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify one developmental stage (Erikson or Piaget) relevant to your character and provide a 2-3 sentence explanation of how it shaped their current personality. A good response will correctly apply the theoretical stage to a specific event in the character's history."
+     },
+     "step_body": "Every character has a history that shaped their personality. Reflect on your chosen character's life journey through the lens of Erikson’s stages of psychosocial development (e.g., Trust vs. Mistrust or Identity vs. Role Confusion) or Piaget’s stages of cognitive development. Identify one specific developmental stage where your character faced a significant crisis or milestone. Was it resolved successfully, or did it leave a lasting impact? Briefly explain which stage you've identified and why it fits their backstory.",
+     "step_title": "Identify developmental crises",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe one specific habit of your character and identify the operant conditioning principle (e.g., Positive Reinforcement, Negative Punishment) that maintains it. Good work accurately distinguishes between 'positive/negative' and 'reinforcement/punishment' based on behavioral outcomes."
+     },
+     "step_body": "Now, let's look at how your character's environment continues to reinforce their habits using the operant conditioning principles we studied. Think about a signature behavior or 'quirk' your character has. Is this behavior maintained by Positive Reinforcement (adding a reward), Negative Reinforcement (removing an aversion), or perhaps shaped by a specific Reinforcement Schedule (like the unpredictable nature of Variable Ratio)? Describe one habit and identify the conditioning mechanism behind it.",
+     "step_title": "Analyze behavioral conditioning",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your Section 3: Developmental & Learning History report as a PDF. The document should be approximately 400 words and must include: a discussion of parenting styles, at least one psychosocial or cognitive developmental stage, and a behavioral conditioning analysis. Success is measured by the correct application of psychological terms to the character's narrative."
+     },
+     "step_body": "It is time to synthesize these insights into Section 3 of your portfolio. Write a 400-word report titled 'Developmental & Learning History.' Your report should cover three specific areas: 1) Early childhood milestones and the impact of the parenting style they were raised with (e.g., Authoritative, Authoritarian, or Permissive), 2) A discussion of the developmental crises you identified in Step 2, and 3) A behavioral audit explaining how operant conditioning reinforces their current habits. Ensure you use technical terminology correctly to show your mastery of the unit material.",
+     "step_title": "Draft the Developmental History",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Take a moment to look at your growing portfolio. You now have a Biological Profile, a Cognitive Assessment, and a Developmental History. Notice how these layers overlap—for instance, how a character's biological predisposition toward anxiety might have been exacerbated by an inconsistent reinforcement schedule in childhood. You have completed the third major pillar of your Case Study Portfolio!",
+     "step_title": "Review and reflect",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "95eeaf99-c5a0-45e1-a729-097bb2ef8de8",
+   "stage_title": "Developmental Timeline and Behavioral Conditioning Audit",
+   "parent_project_id": "86f7dbf4-b8fc-40f5-b997-8dfaafc8b9ab",
+   "stage_description": "Trace your character's life journey by identifying key Eriksonian or Piagetian stages of developmental crisis, attachment styles formed during childhood, and how classical or operant conditioning principles have reinforced their signature habits.",
+   "deliverable_increment": "Section 3: Developmental & Learning History (a 400-word report outlining childhood developmental milestones, parenting style impacts, and a behavioral conditioning analysis of their current habits)."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already built a robust foundation for your character, covering their biological predispositions, cognitive biases, and developmental history. Now, we move into the social sphere. This stage focuses on how your character's internal personality structures (Psychodynamics) interact with external social pressures (Social Cognition). You will be crafting Section 4 of your Portfolio: the Personality and Social Psychology Profile.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief paragraph (3-5 sentences) identifying the dominant personality structure and one specific defense mechanism your character uses. Explain how these help or hinder their daily life."
+     },
+     "step_body": "Using the psychodynamic framework from our lecture, identify which part of your character's personality is currently dominant: the Id (impulsive), the Ego (rational), or the Superego (moralistic). Look back at the behaviors you documented in your Developmental History. How does your character resolve internal conflict? Identify at least one specific defense mechanism (like projection, displacement, or reaction formation) they frequently use to protect their ego from anxiety.",
+     "step_title": "Analyze personality structures",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's look at how your character perceives others. Consider a significant conflict your character has faced. Do they tend to fall victim to the Fundamental Attribution Error, blaming others' personalities rather than their situations? Or do they use the Self-Serving Bias to protect their own ego when they fail? Think about a specific social interaction from your character's story and label the attribution style they exhibited.",
+     "step_title": "Evaluate social attributions",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify a moment of inconsistency in your character's life. Explain in 2-3 sentences how they resolved the cognitive dissonance and what this reveals about their social values."
+     },
+     "step_body": "Examine a moment where your character's actions contradicted their core values. For example, a 'good' character doing something selfish. How did they handle the resulting cognitive dissonance? Did they change their behavior, or did they change their belief to justify the action (like the $1 group in the Festinger experiment)? Understanding this will help you explain their growth—or their stagnation—within the social profile.",
+     "step_title": "Assess cognitive dissonance",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the 400-word Section 4 as a text response. A successful profile must: 1) Correctibly apply at least two psychodynamic concepts (Id/Ego/Superego or Defense Mechanisms), 2) Analyze one social cognitive bias (Attribution errors), and 3) Describe a moment of cognitive dissonance or persuasion impact."
+     },
+     "step_body": "It is time to compile your findings into Section 4: Personality and Social Psychology Profile. This should be a 400-word diagnostic. Integrate your analysis of their psychodynamic defenses with your observations of their social attributions and responses to cognitive dissonance. Ensure you use specific terminology from the units (e.g., 'Reality Principle', 'Fundamental Attribution Error', 'Heuristic Processing') to support your analysis. This section should clearly explain *why* the character behaves the way they do in a group setting.",
+     "step_title": "Submit the Social & Personality Profile",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work. You have now completed four of the five sections of your final portfolio! Reflect on how the character's social persona either hides or reveals the biological and developmental roots you established earlier. In the final stage, we will bring all these threads together to create their Clinical DSM-5 Treatment Recommendation Plan.",
+     "step_title": "Final reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "5aff4077-72b8-47e8-a8f0-0f7adefd1535",
+   "stage_title": "Social Dynamics and Personality Theory Diagnostics",
+   "parent_project_id": "86f7dbf4-b8fc-40f5-b997-8dfaafc8b9ab",
+   "stage_description": "Examine your character's personality using established frameworks (such as the Big Five Traits or Psychodynamic defenses) and analyze how social psychology forces (like cognitive dissonance, attribution errors, or conformity) govern their interpersonal relationships.",
+   "deliverable_increment": "Section 4: Personality and Social Psychology Profile (a 400-word diagnostic evaluating the character's personality scores and their behavior within social groups)."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have done incredible work building a multi-dimensional profile of your character, covering their biological foundations, cognitive biases, developmental history, and social personality. Now, it is time for the final piece of the puzzle: the Clinical Diagnosis and Treatment Plan. In this stage, you will shift from an observer to a clinician, synthesizing everything you've learned about stress, coping, and therapeutic history to propose a path toward recovery for your protagonist.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short paragraph (100-150 words) identifying your character's current GAS phase and their dominant coping style. Good work correctly identifies the biological stage of stress and explains how their locus of control influences their behavior."
+     },
+     "step_body": "Before diagnosing, we must look at the character's physiological and psychological state through the lens of stress. Based on the session on Stress and Its Effects, identify a major stressor your character faces. Does their reaction mirror Selye's General Adaptation Syndrome (GAS)? Describe if they are currently in the Alarm, Resistance, or Exhaustion phase. Then, evaluate their coping style: do they lean toward problem-focused or emotion-focused coping, and is their locus of control internal or external?",
+     "step_title": "Identify clinical stressors",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, use the patterns of behavior, cognitive distortions, and social struggles identified in previous stages to formulate a hypothetical DSM-5 diagnosis. You aren't just naming a disorder; you are justifying it. Reflect on the historical context of treatment we discussed—how might your character's symptoms have been viewed in the era of institutionalization versus today? Ensure your diagnosis aligns with the biological and cognitive evidence you've already documented.",
+     "step_title": "Draft the DSM-5 diagnosis",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "A modern treatment plan must be multimodal. First, propose a biological intervention (like the pharmacological revolution of Thorazine we studied) that targets the character's neurotransmitters or stress response. Second, propose a psychological intervention. You might choose a Psychodynamic approach to uncover subconscious 'expert detective' insights, or a Humanistic approach focused on Carl Rogers' active listening and unconditional positive regard to foster growth.",
+     "step_title": "Design a multimodal treatment",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify one pillar of the PERMA model and explain in 2-3 sentences how it could be integrated into your character's recovery plan to improve their long-term flourishing."
+     },
+     "step_body": "Clinical work isn't just about fixing what is 'broken'; it's about moving toward flourishing. Using Seligman’s PERMA model (Positive Emotion, Engagement, Relationships, Meaning, Accomplishment), select one pillar that is currently missing from your character's life. How would your treatment plan help them move from a 'neutral zero' to a state of subjective well-being?",
+     "step_title": "Integrate positive psychology",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your final 5-part Case Study Portfolio as a single PDF. It must include: 1) Biological Profile, 2) Cognitive Assessment, 3) Developmental History, 4) Social/Personality Diagnostic, and 5) DSM-5 Diagnosis & Treatment Plan. Success is defined by the integration of course concepts (GAS, HPA axis, coping styles, and PERMA) and a logical flow from character analysis to clinical recommendation."
+     },
+     "step_body": "It's time to finalize the 'Clinical Diagnosis and Treatment Formulation' section and combine it with your previous four sections to complete the 'Psychological Case File and Treatment Plan Portfolio'. Ensure this final section is approximately 500 words and clearly details the diagnostic justification, dual-modality treatment (biological and psychological), and the positive psychology goal. Your final document should be a cohesive narrative of 1500-2000 words.",
+     "step_title": "Submit Section 5 and Portfolio",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "e4744e8e-1165-44fe-b2c0-0f97cf2a41b6",
+   "stage_title": "Clinical Diagnosis and Treatment Formulation",
+   "parent_project_id": "86f7dbf4-b8fc-40f5-b997-8dfaafc8b9ab",
+   "stage_description": "Consolidate previous insights to formulate a hypothetical clinical diagnosis based on DSM-5 criteria for your character, followed by an actionable, dual-modality treatment plan combining cognitive-behavioral and biological/biomedical interventions.",
+   "deliverable_increment": "Section 5: DSM-5 Diagnosis and Multimodal Treatment Plan (a 500-word clinical formulation detailing diagnostic justifications, therapeutic goals, and recommended treatment modalities, completing the full Portfolio)."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "86f7dbf4-b8fc-40f5-b997-8dfaafc8b9ab",
+   "project_name": "The Psychological Case File and Treatment Plan Portfolio",
+   "final_deliverable": "A comprehensive 5-part Case Study Portfolio (PDF document, 1500-2000 words) containing a Biological Profile, Cognitive & Memory Assessment, Developmental History Report, Social & Personality Diagnostic, and a Clinical DSM-5 Treatment Recommendation Plan.",
+   "project_description": "Throughout this course, you will synthesize biological, cognitive, developmental, social, and clinical psychology concepts to create a comprehensive, multi-dimensional psychological analysis profile of a fictional protagonist from literature or film. In each stage, you will apply the exact theoretical frameworks learned in the units to dissect the character's biological foundations, cognitive processing quirks, developmental history, social interactions, and clinical presentation, culminating in an evidence-based clinical diagnostic and treatment plan."
+  }
+ ],
+ "courseUuid": "08038e4f-2073-4254-806a-7542c8d38c1a"
+}

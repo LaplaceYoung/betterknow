@@ -1,0 +1,1552 @@
+{
+ "exams": [
+  {
+   "title": "Atomic Structure and Periodic Properties Unit Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "An unknown element's mass spectrum shows two peaks: one at 63 m/z and one at 65 m/z. The peak at 63 m/z is approximately 2.5 times taller than the peak at 65 m/z. Which of the following is the most likely average atomic mass of the element?",
+     "options": [
+      "63.00 amu",
+      "63.55 amu",
+      "64.00 amu",
+      "64.45 amu"
+     ],
+     "explanation": "Since the isotope at 63 m/z is more abundant (2.5 times taller), the weighted average must be closer to 63 than 65. Specifically, an abundance ratio of roughly 70:30 favors 63, leading to a value like 63.55, which corresponds to Copper.",
+     "correctAnswers": [
+      "63.55 amu"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the principles of Coulomb's Law, which of the following changes would result in a stronger attractive force between a nucleus and its valence electrons?",
+     "options": [
+      "Increasing the number of protons in the nucleus (Atomic Number).",
+      "Increasing the distance between the nucleus and the valence shell.",
+      "Decreasing the number of core electrons (Shielding).",
+      "Decreasing the effective nuclear charge (Zeff).",
+      "Increasing the principle quantum number (n) of the valence shell."
+     ],
+     "explanation": "Coulombic force is proportional to the product of the charges and inversely proportional to the square of the distance. More protons increase the positive charge (q1), and fewer core electrons decrease shielding, increasing the effective charge felt by valence electrons.",
+     "correctAnswers": [
+      "Increasing the number of protons in the nucleus (Atomic Number).",
+      "Decreasing the number of core electrons (Shielding)."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To calculate the number of individual atoms in a 10.0 gram sample of a pure substance, one must first divide the mass by the ____ to find the number of moles.",
+     "explanation": "The molar mass serves as the conversion factor between macroscopic mass (grams) and the chemical amount (moles).",
+     "placeholder": "Enter term...",
+     "correctAnswers": [
+      "molar mass",
+      "atomic mass",
+      "gram formula mass"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "PES spectrum with three peaks of varying heights and binding energies.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit1-q4.png"
+     },
+     "prompt": "In a photoelectron spectroscopy (PES) spectrum, what does the relative height of a peak represent?",
+     "options": [
+      "The ionization energy of the electrons.",
+      "The distance of the electrons from the nucleus.",
+      "The relative number of electrons in that specific subshell.",
+      "The velocity of the ejected photoelectrons."
+     ],
+     "explanation": "In PES, the x-axis represents binding energy (related to shell position), while the y-axis (peak height/intensity) is proportional to the number of electrons in that energy level.",
+     "correctAnswers": [
+      "The relative number of electrons in that specific subshell."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary to calculate the empirical formula of a compound from combustion analysis data?",
+     "options": [
+      "The mass of CO2 produced.",
+      "The mass of H2O produced.",
+      "The initial mass of the sample.",
+      "The exact molar mass of the final molecular compound.",
+      "The color of the flame during combustion."
+     ],
+     "explanation": "The mass of CO2 and H2O allows you to find the moles of C and H. The initial mass is required to determine the mass of Oxygen by subtraction (Total mass - C mass - H mass). Molar mass is only needed for the molecular formula, not the empirical formula.",
+     "correctAnswers": [
+      "The mass of CO2 produced.",
+      "The mass of H2O produced.",
+      "The initial mass of the sample."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The total number of electrons that can be held in the '3d' subshell is ____.",
+     "explanation": "The 'd' subshell contains 5 orbitals, each holding a maximum of 2 electrons.",
+     "placeholder": "Enter a number...",
+     "correctAnswers": [
+      "10"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why is the first ionization energy of Oxygen slightly lower than that of Nitrogen, despite Oxygen having more protons?",
+     "options": [
+      "Oxygen has a smaller atomic radius.",
+      "Nitrogen has a completely filled 2p subshell.",
+      "Electron-electron repulsion in Oxygen's doubled-occupied 2p orbital.",
+      "Oxygen's valence electrons are in a higher principle energy level (n)."
+     ],
+     "explanation": "Nitrogen has three unpaired electrons in the 2p subshell (half-filled). Oxygen has one orbital with two electrons; the repulsion between these paired electrons makes it slightly easier to remove one.",
+     "correctAnswers": [
+      "Electron-electron repulsion in Oxygen's doubled-occupied 2p orbital."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following statements about Atomic Radius are correct?",
+     "options": [
+      "Radius increases down a group due to additional electron shells.",
+      "Radius increases across a period (left to right) due to more protons.",
+      "Radius decreases across a period (left to right) as Zeff increases.",
+      "Cations are generally larger than their parent neutral atoms.",
+      "Anions are generally larger than their parent neutral atoms."
+     ],
+     "explanation": "Across a period, Zeff increases, pulling electrons closer. Down a group, new shells (higher n) are added. Anions are larger because added electrons increase repulsion without increasing nuclear charge.",
+     "correctAnswers": [
+      "Radius increases down a group due to additional electron shells.",
+      "Radius decreases across a period (left to right) as Zeff increases.",
+      "Anions are generally larger than their parent neutral atoms."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The principle that electrons fill the lowest energy orbitals first is known as the ____ principle.",
+     "explanation": "Aufbau is German for 'building up', referring to the order of orbital filling based on energy levels.",
+     "placeholder": "Enter name...",
+     "correctAnswers": [
+      "Aufbau",
+      "aufbau"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A sample of a pure hydrate is heated to dryness. If the mass of the hydrate was 5.00g and the mass of the anhydrous salt is 3.20g, what is the mass percent of water in the original hydrate?",
+     "options": [
+      "64%",
+      "36%",
+      "56%",
+      "18%"
+     ],
+     "explanation": "Mass of water lost = 5.00g - 3.20g = 1.80g. Mass percent = (1.80 / 5.00) * 100 = 36%.",
+     "correctAnswers": [
+      "36%"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "image": {
+      "alt": "PES plot comparing core and valence electron peaks.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit1-q11.png"
+     },
+     "prompt": "A PES spectrum shows a very high energy peak at 100 MJ/mol and a much lower energy peak at 1 MJ/mol. Which of the following can be inferred?",
+     "options": [
+      "The 100 MJ/mol peak represents core electrons.",
+      "The 1 MJ/mol peak represents valence electrons.",
+      "The 100 MJ/mol peak represents electrons further from the nucleus.",
+      "The 1 MJ/mol electrons feel a stronger Zeff than the 100 MJ/mol electrons.",
+      "The peak at 100 MJ/mol would be the first to be removed in ionization."
+     ],
+     "explanation": "High binding energy (left side of PES) indicates electrons close to the nucleus (core), while low binding energy indicates electrons further away and more easily removed (valence).",
+     "correctAnswers": [
+      "The 100 MJ/mol peak represents core electrons.",
+      "The 1 MJ/mol peak represents valence electrons."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When an atom forms a ____, it loses electrons and its radius decreases.",
+     "explanation": "Cations are formed by electron loss. This reduces electron-electron repulsion and often removes an entire outer shell, leading to a smaller radius.",
+     "placeholder": "Ion type...",
+     "correctAnswers": [
+      "cation",
+      "positive ion"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the correct electron configuration for a neutral Ground State Atom of Iron (Fe, atomic number 26)?",
+     "options": [
+      "[Ar] 4s2 3d6",
+      "[Ar] 4s2 4d6",
+      "[Ar] 3d8",
+      "1s2 2s2 2p6 3s2 3p6 3d8"
+     ],
+     "explanation": "Iron follows the Aufbau principle: after Argon (18), 4s fills with 2 electrons, then 3d receives the remaining 6.",
+     "correctAnswers": [
+      "[Ar] 4s2 3d6"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following atoms have at least one unpaired electron in their ground state?",
+     "options": [
+      "Carbon (C)",
+      "Neon (Ne)",
+      "Sodium (Na)",
+      "Magnesium (Mg)",
+      "Aluminum (Al)"
+     ],
+     "explanation": "Carbon has 2 unpaired p-electrons. Sodium has 1 unpaired s-electron. Aluminum has 1 unpaired p-electron. Neon and Magnesium have completely filled subshells.",
+     "correctAnswers": [
+      "Carbon (C)",
+      "Sodium (Na)",
+      "Aluminum (Al)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The distance between the nucleus and the valence electrons is primarily determined by the ____ quantum number.",
+     "explanation": "The principal quantum number (n) corresponds to the electron shell level; as n increases, the orbital size and distance from the nucleus increase.",
+     "placeholder": "n or name...",
+     "correctAnswers": [
+      "principal",
+      "n"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Compare the first ionization energy of Calcium (Ca) and Magnesium (Mg). Which is higher and why?",
+     "options": [
+      "Ca is higher because it has more protons than Mg.",
+      "Mg is higher because its valence electrons are closer to the nucleus.",
+      "They are the same because they are in the same group.",
+      "Ca is higher because it has more electron shells."
+     ],
+     "explanation": "Mg is above Ca in Group 2. Mg's valence electrons are in the 3s shell, whereas Ca's are in 4s. Greater distance in Ca reduces the Coulombic attraction, making it easier to remove an electron.",
+     "correctAnswers": [
+      "Mg is higher because its valence electrons are closer to the nucleus."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "When transitioning from a neutral atom of Sulfur (S) to a Sulfide ion (S2-), which of the following occur?",
+     "options": [
+      "The number of protons increases.",
+      "The atomic radius increases.",
+      "Electron-electron repulsion increases.",
+      "The nuclear charge remains constant.",
+      "The ion becomes smaller than the atom."
+     ],
+     "explanation": "Adding electrons to the same shell increases repulsion, which pushes the cloud outward (larger radius), while the number of protons (nuclear charge) stays the same.",
+     "correctAnswers": [
+      "The atomic radius increases.",
+      "Electron-electron repulsion increases.",
+      "The nuclear charge remains constant."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Adjust the position of the movable sensor to detect the path of a specific isotope in a mass spectrometer. Based on the concept of inertia and deflection, where would the heaviest isotope (e.g., Pb-208) land compared to lighter isotopes if the magnetic field strength is held constant?",
+     "options": [
+      "The furthest deflection point (tightest curve).",
+      "The least deflection point (widest curve).",
+      "The center of the detector regardless of mass.",
+      "The ionization chamber entrance."
+     ],
+     "explanation": "Heavier ions have more inertia and are harder to move; therefore, they are deflected less by the magnetic field, resulting in a 'wider' path that lands at the top of the detector range.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Mass Spectrometer Deflection</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #888888;\n    --accent: #4C6696;\n    --accent-soft: #f5f8fc;\n    --accent-strong: #3a4f78;\n    --path-color: #4C6696;\n  }\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n    color: var(--fg);\n    overflow: hidden;\n    user-select: none;\n    -webkit-user-select: none;\n  }\n  .wrapper {\n    width: 100%;\n    max-width: 480px;\n    margin: 0 auto;\n    padding: 12px;\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  .stage {\n    width: 100%;\n    background: var(--stage);\n    border-radius: 12px;\n    border: 1px solid var(--border);\n    position: relative;\n    overflow: hidden;\n    box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);\n  }\n  .stage-svg {\n    width: 100%;\n    height: auto;\n    display: block;\n  }\n  .hint {\n    font-size: 13px;\n    color: var(--muted-fg);\n    margin-top: 10px;\n    text-align: center;\n    font-weight: 500;\n  }\n  .visually-hidden {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n  \n  /* Draggable handle & interactive elements */\n  .sensor-handle {\n    cursor: grab;\n    touch-action: none;\n  }\n  .sensor-handle:active {\n    cursor: grabbing;\n  }\n  .target-anchor {\n    fill: transparent;\n    stroke: var(--border);\n    stroke-width: 1.5;\n    stroke-dasharray: 3,3;\n    transition: all 0.2s ease;\n  }\n  .target-anchor.active {\n    stroke: var(--accent);\n    fill: var(--accent-soft);\n    stroke-dasharray: none;\n    stroke-width: 2;\n  }\n  \n  .trajectory-bg {\n    fill: none;\n    stroke: #e0ded9;\n    stroke-width: 2;\n  }\n  .trajectory-flow {\n    fill: none;\n    stroke: var(--accent);\n    stroke-width: 3;\n    stroke-linecap: round;\n    opacity: 0.15;\n    transition: opacity 0.25s ease, stroke-width 0.25s ease;\n  }\n  .trajectory-flow.active {\n    opacity: 0.95;\n    stroke-width: 4;\n    animation: flow-anim 1.2s linear infinite;\n  }\n  \n  @keyframes flow-anim {\n    to {\n      stroke-dashoffset: -24;\n    }\n  }\n\n  .locked {\n    pointer-events: none !important;\n    cursor: default !important;\n  }\n</style>\n</head>\n<body>\n<h1 class=\"visually-hidden\">Mass Spectrometer Interactive Practice</h1>\n<div class=\"wrapper\">\n  <div class=\"stage\">\n    <svg class=\"stage-svg\" viewBox=\"0 0 400 240\">\n      <!-- Ambient Shading & Grid details -->\n      <defs>\n        <linearGradient id=\"magnetGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n          <stop offset=\"0%\" stop-color=\"#e8edf5\" />\n          <stop offset=\"100%\" stop-color=\"#d5dfed\" />\n        </linearGradient>\n      </defs>\n\n      <!-- Flight Tube Chamber Wall -->\n      <path d=\"M 15,5 L 180,5 A 135 135 0 0 1 315,140 L 315,210 L 215,210 L 215,140 A 55 55 0 0 0 180,85 L 15,85 Z\" fill=\"#e8e6e0\" stroke=\"#d0cdc4\" stroke-width=\"2\"/>\n      <path d=\"M 15,15 L 180,15 A 125 125 0 0 1 305,140 L 305,210 M 225,210 L 225,140 A 65 65 0 0 0 180,75 L 15,75\" fill=\"none\" stroke=\"#f3f1ec\" stroke-width=\"1\" opacity=\"0.6\" />\n\n      <!-- Magnetic Field Region (Circular representation) -->\n      <circle cx=\"180\" cy=\"140\" r=\"85\" fill=\"url(#magnetGrad)\" stroke=\"#b8c6dc\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\" />\n      <text x=\"180\" y=\"130\" font-size=\"11\" font-weight=\"bold\" fill=\"#5c7196\" text-anchor=\"middle\" letter-spacing=\"1\">MAGNETIC</text>\n      <text x=\"180\" y=\"145\" font-size=\"10\" font-weight=\"bold\" fill=\"#5c7196\" text-anchor=\"middle\" opacity=\"0.8\">FIELD (B)</text>\n\n      <!-- Target/Detector Bins along the device -->\n      <!-- Target 1: Ionization Chamber -->\n      <circle id=\"anchor-0\" class=\"target-anchor\" cx=\"40\" cy=\"45\" r=\"14\" />\n      <text x=\"40\" y=\"24\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--fg)\" text-anchor=\"middle\">Source</text>\n\n      <!-- Targets at the exit -->\n      <circle id=\"anchor-1\" class=\"target-anchor\" cx=\"230\" cy=\"200\" r=\"14\" />\n      <text x=\"210\" y=\"180\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--fg)\" text-anchor=\"end\">Zone A</text>\n\n      <circle id=\"anchor-2\" class=\"target-anchor\" cx=\"265\" cy=\"200\" r=\"14\" />\n      <text x=\"265\" y=\"180\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--fg)\" text-anchor=\"middle\">Zone B</text>\n\n      <circle id=\"anchor-3\" class=\"target-anchor\" cx=\"300\" cy=\"200\" r=\"14\" />\n      <text x=\"320\" y=\"180\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--fg)\" text-anchor=\"start\">Zone C</text>\n\n      <!-- Trajectories -->\n      <!-- Trajectory 0: Stationary flow at source -->\n      <path id=\"traj-0\" class=\"trajectory-flow\" d=\"M 15,45 L 45,45\" stroke-dasharray=\"6,6\" />\n      \n      <!-- Trajectory 1: Sharp curve (A) -->\n      <path id=\"traj-1\" class=\"trajectory-bg\" d=\"M 30,45 L 180,45 A 50 50 0 0 1 230,95 L 230,200\" />\n      <path id=\"flow-1\" class=\"trajectory-flow\" d=\"M 30,45 L 180,45 A 50 50 0 0 1 230,95 L 230,200\" stroke-dasharray=\"8,8\" />\n\n      <!-- Trajectory 2: Moderate curve (B) -->\n      <path id=\"traj-2\" class=\"trajectory-bg\" d=\"M 30,45 L 180,45 A 85 85 0 0 1 265,130 L 265,200\" />\n      <path id=\"flow-2\" class=\"trajectory-flow\" d=\"M 30,45 L 180,45 A 85 85 0 0 1 265,130 L 265,200\" stroke-dasharray=\"8,8\" />\n\n      <!-- Trajectory 3: Wide curve (C) -->\n      <path id=\"traj-3\" class=\"trajectory-bg\" d=\"M 30,45 L 180,45 A 120 120 0 0 1 300,165 L 300,200\" />\n      <path id=\"flow-3\" class=\"trajectory-flow\" d=\"M 30,45 L 180,45 A 120 120 0 0 1 300,165 L 300,200\" stroke-dasharray=\"8,8\" />\n\n      <!-- Draggable Detector Probe -->\n      <g id=\"probe\" class=\"sensor-handle\" transform=\"translate(265, 200)\">\n        <circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"transparent\" /> <!-- Larger invisible hit area -->\n        <circle cx=\"0\" cy=\"0\" r=\"14\" fill=\"var(--accent)\" fill-opacity=\"0.1\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n        <circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"var(--accent)\" />\n        <line x1=\"-12\" y1=\"0\" x2=\"12\" y2=\"0\" stroke=\"var(--accent)\" stroke-width=\"1.5\" />\n        <line x1=\"0\" y1=\"-12\" x2=\"0\" y2=\"12\" stroke=\"var(--accent)\" stroke-width=\"1.5\" />\n      </g>\n    </svg>\n  </div>\n  <div class=\"hint\" id=\"status-hint\">Drag the sensor probe to target a landing zone</div>\n</div>\n\n<script>\n  // Options Mapping\n  const options = [\n    \"The ionization chamber entrance.\",\n    \"The furthest deflection point (tightest curve).\",\n    \"The center of the detector regardless of mass.\",\n    \"The least deflection point (widest curve).\"\n  ];\n\n  // Target coordinates\n  const targets = [\n    { x: 40, y: 45, option: options[0] },\n    { x: 230, y: 200, option: options[1] },\n    { x: 265, y: 200, option: options[2] },\n    { x: 300, y: 200, option: options[3] }\n  ];\n\n  let activeIndex = 2; // Default starting at the center\n  let isDragging = false;\n  let dragOffset = { x: 0, y: 0 };\n  let isLocked = false;\n\n  const probe = document.getElementById('probe');\n  const svg = document.querySelector('.stage-svg');\n  const statusHint = document.getElementById('status-hint');\n\n  // Set initial position\n  updateProbePosition(targets[activeIndex].x, targets[activeIndex].y);\n  updateActiveState(activeIndex);\n\n  // Drag logic\n  probe.addEventListener('pointerdown', function(e) {\n    if (isLocked) return;\n    isDragging = true;\n    probe.setPointerCapture(e.pointerId);\n    \n    const pt = getSVGCoords(e.clientX, e.clientY);\n    dragOffset.x = pt.x - targets[activeIndex].x;\n    dragOffset.y = pt.y - targets[activeIndex].y;\n    e.preventDefault();\n  });\n\n  window.addEventListener('pointermove', function(e) {\n    if (!isDragging || isLocked) return;\n    const pt = getSVGCoords(e.clientX, e.clientY);\n    let newX = pt.x - dragOffset.x;\n    let newY = pt.y - dragOffset.y;\n\n    // Constrain to general canvas bounds\n    newX = Math.max(15, Math.min(385, newX));\n    newY = Math.max(15, Math.min(225, newY));\n\n    updateProbePosition(newX, newY);\n\n    // Dynamic snapping preview\n    let nearestIdx = getNearestTarget(newX, newY);\n    highlightAnchor(nearestIdx);\n  });\n\n  window.addEventListener('pointerup', function(e) {\n    if (!isDragging) return;\n    isDragging = false;\n    \n    const pt = getSVGCoords(e.clientX, e.clientY);\n    let finalX = pt.x - dragOffset.x;\n    let finalY = pt.y - dragOffset.y;\n\n    let nearestIdx = getNearestTarget(finalX, finalY);\n    snapToTarget(nearestIdx);\n  });\n\n  // Snapping & interactive state update\n  function snapToTarget(index) {\n    activeIndex = index;\n    const target = targets[index];\n    \n    // Smooth transition simulation\n    probe.style.transition = \"transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)\";\n    updateProbePosition(target.x, target.y);\n    \n    setTimeout(() => {\n      probe.style.transition = \"\";\n    }, 200);\n\n    updateActiveState(index);\n    reportAnswer(target.option);\n  }\n\n  function updateProbePosition(x, y) {\n    probe.setAttribute('transform', `translate(${x}, ${y})`);\n  }\n\n  function highlightAnchor(index) {\n    for (let i = 0; i < targets.length; i++) {\n      const anchor = document.getElementById(`anchor-${i}`);\n      if (i === index) {\n        anchor.classList.add('active');\n      } else {\n        anchor.classList.remove('active');\n      }\n    }\n  }\n\n  function updateActiveState(index) {\n    highlightAnchor(index);\n    // Trajectory updates\n    for (let i = 0; i < targets.length; i++) {\n      const flow = document.getElementById(`flow-${i}`);\n      if (flow) {\n        if (i === index) {\n          flow.classList.add('active');\n        } else {\n          flow.classList.remove('active');\n        }\n      }\n    }\n    statusHint.textContent = `Target Selected: ${targets[index].option}`;\n  }\n\n  function getNearestTarget(x, y) {\n    let minD = Infinity;\n    let nearestIdx = 0;\n    for (let i = 0; i < targets.length; i++) {\n      let dx = x - targets[i].x;\n      let dy = y - targets[i].y;\n      let d = dx*dx + dy*dy;\n      if (d < minD) {\n        minD = d;\n        nearestIdx = i;\n      }\n    }\n    return nearestIdx;\n  }\n\n  function getSVGCoords(clientX, clientY) {\n    const rect = svg.getBoundingClientRect();\n    const x = (clientX - rect.left) * (400 / rect.width);\n    const y = (clientY - rect.top) * (240 / rect.height);\n    return { x: x, y: y };\n  }\n\n  // Fallback direct click selection on anchors\n  for (let i = 0; i < targets.length; i++) {\n    const anchor = document.getElementById(`anchor-${i}`);\n    anchor.addEventListener('click', function() {\n      if (isLocked) return;\n      snapToTarget(i);\n    });\n  }\n\n  // Answer reporting & lock integrations\n  function reportAnswer(value) {\n    try {\n      parent.postMessage({ type: 'hk-practice-answer', value: value }, '*');\n    } catch(e) {}\n  }\n\n  window.addEventListener('message', function(e) {\n    if (e.data && e.data.type === 'hk-practice-lock') {\n      isLocked = true;\n      probe.classList.add('locked');\n      document.querySelectorAll('.target-anchor').forEach(el => el.classList.add('locked'));\n    }\n  });\n\n  // Report height on load & resize\n  function sendHeight() {\n    try {\n      parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');\n    } catch(e) {}\n  }\n  window.addEventListener('load', sendHeight);\n  new ResizeObserver(sendHeight).observe(document.body);\n\n  // Initial report\n  reportAnswer(targets[activeIndex].option);\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The least deflection point (widest curve)."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Bonding, Molecular Structure, and Properties Unit Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following substances has the highest melting point, and which factor primarily justifies this conclusion according to Coulomb's Law?",
+     "options": [
+      "MgO, because it has the largest charge magnitude (q1*q2 = 4).",
+      "NaF, because fluoride is smaller than chloride (smaller r).",
+      "NaCl, because it has the largest internuclear distance (r).",
+      "MgO, because magnesium and oxygen have the smallest atomic radii."
+     ],
+     "explanation": "According to Coulomb's Law, charge magnitude (q1*q2) is the dominant factor over ionic size (r). MgO (+2/-2) results in a force product of 4, whereas NaF and NaCl (+1/-1) only result in 1.",
+     "correctAnswers": [
+      "MgO, because it has the largest charge magnitude (q1*q2 = 4)."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Comparison of pure metal, interstitial alloy, and substitutional alloy structures.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit2-q2.png"
+     },
+     "prompt": "An unknown metal alloy is analyzed and found to be significantly harder and less malleable than its pure host metal. Which of the following structural features could explain this macroscopic change?",
+     "options": [
+      "Smaller carbon atoms have filled the spaces between larger metal atoms.",
+      "The guest atoms have a significantly different atomic radius than the host atoms.",
+      "The mobile 'sea of electrons' has been removed from the lattice.",
+      "The regular, smooth columns of the host lattice have been disrupted.",
+      "The bonding has transitioned from metallic to purely ionic."
+     ],
+     "explanation": "Hardness in alloys is caused by lattice distortion (either by different sized substitutional atoms or small interstitial atoms) which prevents atomic planes from sliding past each other.",
+     "correctAnswers": [
+      "Smaller carbon atoms have filled the spaces between larger metal atoms.",
+      "The guest atoms have a significantly different atomic radius than the host atoms.",
+      "The regular, smooth columns of the host lattice have been disrupted."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a potential energy curve for a diatomic molecule, the bond length is determined by the internuclear distance at the point where ____ is at its minimum.",
+     "placeholder": "Type the energy state...",
+     "correctAnswers": [
+      "potential energy",
+      "potential energy (PE)",
+      "system energy"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Illustration of brittleness in ionic solids vs malleability in metals.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit2-q4.png"
+     },
+     "prompt": "Why do ionic solids shatter when struck with a hammer, while pure metals simply deform (malleability)?",
+     "options": [
+      "Metallic bonds are stronger than ionic bonds, preventing breakage.",
+      "Impact shifts ionic layers so like-charges align and repel; metal cations are shielded by the 'sea' of electrons.",
+      "Metals have localized electron pairs that act as cushions during impact.",
+      "Ionic crystals contain gas pockets that expand rapidly under pressure."
+     ],
+     "explanation": "In ionic solids, shifting a layer by one atomic diameter aligns cations with cations, causing repulsion and cleavage. In metals, the delocalized electron sea adjusts to shield cations as they slide.",
+     "correctAnswers": [
+      "Impact shifts ionic layers so like-charges align and repel; metal cations are shielded by the 'sea' of electrons."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following bonds are correctly classified based on the 'bonding continuum' and electronegativity differences?",
+     "options": [
+      "C-H: Practically nonpolar because the difference is approximately 0.4.",
+      "O-H: Polar covalent with the dipole vector pointing toward Oxygen.",
+      "Li-F: Ionic, characterized by a full transfer of electron density.",
+      "H-Cl: Nonpolar covalent because both are nonmetals.",
+      "N-N: Pure nonpolar covalent due to equal electronegativity."
+     ],
+     "explanation": "Bonding is a continuum. C-H is nonpolar (0.4); O-H is polar with O being more electronegative; Li-F is ionic (large difference); N-N is purely nonpolar because the atoms are identical.",
+     "correctAnswers": [
+      "C-H: Practically nonpolar because the difference is approximately 0.4.",
+      "O-H: Polar covalent with the dipole vector pointing toward Oxygen.",
+      "Li-F: Ionic, characterized by a full transfer of electron density.",
+      "N-N: Pure nonpolar covalent due to equal electronegativity."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A ____ alloy occurs when the guest atoms have a similar atomic radius to the host atoms and replace them in the lattice.",
+     "placeholder": "Type alloy name...",
+     "correctAnswers": [
+      "substitutional",
+      "substitutional alloy"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When two atoms are forced closer together than their stable bond length, why does the potential energy increase so dramatically?",
+     "options": [
+      "The attractive forces between the nuclei increase too quickly.",
+      "The kinetic energy of the electrons drops to zero.",
+      "Violent electrostatic repulsion occurs between the positively charged nuclei.",
+      "The atoms begin to share more than eight valence electrons."
+     ],
+     "explanation": "At very short distances, the repulsion between the two positive nuclei and between core electron clouds becomes the dominant force, destabilizing the system.",
+     "correctAnswers": [
+      "Violent electrostatic repulsion occurs between the positively charged nuclei."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What properties distinguish metallic solids from ionic solids in their solid state?",
+     "options": [
+      "Metals conduct electricity; ionic solids are insulators.",
+      "Ionic solids are brittle; metals are malleable.",
+      "Metals have localized electrons; ionic solids have delocalized electrons.",
+      "Metallic bonds are isotropic; ionic bonds are highly directional covalent shares.",
+      "Metals can be drawn into wires (ductile); ionic solids fracture under stress."
+     ],
+     "explanation": "Solid ionic compounds cannot conduct because ions are fixed in a lattice. Metals conduct due to the mobile 'sea of electrons'. The nature of the bonding makes metals malleable and ionic solids brittle.",
+     "correctAnswers": [
+      "Metals conduct electricity; ionic solids are insulators.",
+      "Ionic solids are brittle; metals are malleable.",
+      "Metals can be drawn into wires (ductile); ionic solids fracture under stress."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The point of minimum potential energy in a PE curve corresponds to the ____ of a stable molecule.",
+     "placeholder": "Enter property...",
+     "correctAnswers": [
+      "bond energy",
+      "bond energy and bond length",
+      "well depth"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "3D representation of a Sodium Chloride crystal lattice.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit2-q10.png"
+     },
+     "prompt": "What is the best description of an 'ionic bond' based on the 3D lattice model?",
+     "options": [
+      "The permanent transfer of one electron from a metal to a nonmetal.",
+      "A discrete molecule formed by a single cation-anion pair.",
+      "An infinite 3D grid of alternating charges stabilized by net electrostatic attractions.",
+      "A localized sharing of electrons between two oppositely charged ions."
+     ],
+     "explanation": "Ionic bonding is not a discrete molecular event but a macroscopic stabilization where every ion is surrounded by multiple ions of opposite charge in a lattice.",
+     "correctAnswers": [
+      "An infinite 3D grid of alternating charges stabilized by net electrostatic attractions."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "According to the course material, which notations are used to map the unequal distribution of charge in a polar covalent bond like H-Cl?",
+     "options": [
+      "Partial charge symbols delta-plus (δ+) and delta-minus (δ-).",
+      "A dipole moment vector arrow pointing toward the more electronegative atom.",
+      "Full integer charges (+1, -1) placed above the atoms.",
+      "A cross at the tail of a vector arrow representing the positive end.",
+      "A dotted line indicating electron transfer."
+     ],
+     "explanation": "Partial charges and dipole vectors (with the crossed tail for the positive end) are the standard notations. Full integer charges are used for ionic bonds, not polar covalent.",
+     "correctAnswers": [
+      "Partial charge symbols delta-plus (δ+) and delta-minus (δ-).",
+      "A dipole moment vector arrow pointing toward the more electronegative atom.",
+      "A cross at the tail of a vector arrow representing the positive end."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "If comparing the lattice energies of NaF and NaCl, which has a higher melting point and why?",
+     "options": [
+      "NaCl, because the chloride ion is larger than the fluoride ion.",
+      "NaF, because the fluoride ion is smaller, allowing for a smaller internuclear distance (r).",
+      "NaCl, because chlorine is more electronegative than fluorine.",
+      "NaF, because it has a higher charge product than NaCl."
+     ],
+     "explanation": "Since both have the same charge (+1/-1), the size of the ions determines the strength. Smaller ions (F-) allow for a smaller 'r', increasing the electrostatic force.",
+     "correctAnswers": [
+      "NaF, because the fluoride ion is smaller, allowing for a smaller internuclear distance (r)."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Which of the following macroscopic properties are explained by the 'sea of electrons' model in metals?",
+     "options": [
+      "High electrical conductivity.",
+      "Malleability and ductility.",
+      "Brittleness when struck.",
+      "Thermal conductivity.",
+      "Transparency to visible light."
+     ],
+     "explanation": "Mobile electrons allow for charge and heat flow. The non-directional nature of the sea allows atoms to slide without repulsion, explaining malleability.",
+     "correctAnswers": [
+      "High electrical conductivity.",
+      "Malleability and ductility.",
+      "Thermal conductivity."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "In the context of bonding, how should 'electronegativity' be conceptually visualized according to the course?",
+     "options": [
+      "As a static physical size of the atom.",
+      "As an atomic tug-of-war for shared valence electrons.",
+      "As the energy required to remove an electron from a gaseous atom.",
+      "As the total number of valence electrons an atom possesses."
+     ],
+     "explanation": "Electronegativity is an atom's ability to attract a shared pair of electrons toward its own nucleus within a bond.",
+     "correctAnswers": [
+      "As an atomic tug-of-war for shared valence electrons."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Adjust the internuclear distance between two approaching hydrogen atoms to find the most stable configuration for a chemical bond.",
+     "options": [
+      "Infinite Distance (Potential Energy = 0)",
+      "Large Distance (Gentle slope downward)",
+      "The Energy Well Minimum (Balanced forces)",
+      "Overlapping Nuclei (Potential Energy skyrockets)"
+     ],
+     "explanation": "Stability is achieved at the minimum potential energy point where the attractive forces between the nucleus and electrons of opposite atoms are perfectly balanced by nuclear-nuclear and electron-electron repulsions.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Potential Energy vs. Internuclear Distance</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --repulsion: #d9534f;\n      --attraction: #4caf50;\n      --stable: #3b5998;\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 12px;\n      width: 100%;\n      overflow: hidden;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 16px;\n      box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .stage-area {\n      position: relative;\n      background: var(--stage);\n      border-radius: 8px;\n      padding: 8px;\n      width: 100%;\n      height: 240px;\n      overflow: hidden;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n      touch-action: none;\n    }\n\n    /* Interactive Draggable Handle */\n    .draggable-atom {\n      cursor: grab;\n    }\n    .draggable-atom:active {\n      cursor: grabbing;\n    }\n\n    /* State indicator pill */\n    .state-indicator {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 32px;\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 20px;\n      padding: 6px 14px;\n      font-size: 13px;\n      font-weight: 600;\n      color: var(--fg);\n      text-align: center;\n      transition: all 0.2s ease;\n    }\n\n    .state-indicator.active {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n      color: var(--accent-strong);\n    }\n\n    .hint-text {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -4px;\n    }\n\n    /* Keyboard navigation focus style */\n    .draggable-atom:focus-visible {\n      outline: none;\n    }\n    .draggable-atom:focus-visible .atom-core {\n      stroke: var(--accent);\n      stroke-width: 3px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Hydrogen Bonding and Potential Energy Curve Practice</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 360 220\" aria-hidden=\"true\">\n        <!-- Grid / Axes for Graph -->\n        <!-- Y-axis -->\n        <line x1=\"45\" y1=\"55\" x2=\"45\" y2=\"195\" stroke=\"#ccc\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" />\n        <!-- X-axis (Asymptote line at PE = 0, represented by visual baseline) -->\n        <line x1=\"45\" y1=\"110\" x2=\"340\" y2=\"110\" stroke=\"#bbb\" stroke-width=\"1.5\" />\n        \n        <!-- Axis Labels -->\n        <text x=\"35\" y=\"65\" font-size=\"9\" fill=\"#888\" text-anchor=\"end\" font-weight=\"bold\">PE</text>\n        <text x=\"35\" y=\"113\" font-size=\"9\" fill=\"#888\" text-anchor=\"end\">0</text>\n        <text x=\"335\" y=\"122\" font-size=\"9\" fill=\"#888\" text-anchor=\"end\">Distance (r)</text>\n\n        <!-- Static Potential Energy Curve -->\n        <path id=\"pe-curve\" d=\"\" fill=\"none\" stroke=\"#ddd\" stroke-width=\"3\" stroke-linecap=\"round\" />\n        <path id=\"pe-curve-active\" d=\"\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-dasharray=\"1000\" stroke-dashoffset=\"0\" style=\"opacity: 0.85;\" />\n\n        <!-- Bond visual representation -->\n        <!-- Spring/glowing bond line between atoms -->\n        <line id=\"bond-line\" x1=\"60\" y1=\"30\" x2=\"200\" y2=\"30\" stroke=\"#4C6696\" stroke-width=\"4\" stroke-linecap=\"round\" />\n        <g id=\"repulsion-waves\" opacity=\"0\">\n          <path d=\"M 52,20 Q 56,30 52,40\" fill=\"none\" stroke=\"var(--repulsion)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n          <path d=\"M 48,15 Q 54,30 48,45\" fill=\"none\" stroke=\"var(--repulsion)\" stroke-width=\"1.5\" stroke-linecap=\"round\" />\n        </g>\n\n        <!-- Atoms stage -->\n        <!-- Fixed Atom (Left) -->\n        <g transform=\"translate(60, 30)\">\n          <circle cx=\"0\" cy=\"0\" r=\"16\" fill=\"rgba(76, 102, 150, 0.15)\" stroke=\"#4C6696\" stroke-width=\"1.5\" />\n          <circle cx=\"0\" cy=\"0\" r=\"5\" fill=\"#4C6696\" />\n          <text x=\"0\" y=\"3\" font-size=\"9\" font-weight=\"bold\" fill=\"#fff\" text-anchor=\"middle\">H</text>\n        </g>\n\n        <!-- Draggable Atom (Right) -->\n        <g id=\"drag-atom-group\" class=\"draggable-atom\" tabindex=\"0\" aria-label=\"Draggable Hydrogen Atom. Use Left and Right arrow keys to change internuclear distance.\">\n          <!-- Outer Electron Cloud (Glow) -->\n          <circle id=\"atom-glow\" cx=\"0\" cy=\"0\" r=\"18\" fill=\"rgba(76, 102, 150, 0.25)\" />\n          <!-- Core -->\n          <circle class=\"atom-core\" cx=\"0\" cy=\"0\" r=\"7\" fill=\"#4C6696\" stroke=\"#fff\" stroke-width=\"1\" />\n          <text x=\"0\" y=\"3\" font-size=\"9\" font-weight=\"bold\" fill=\"#fff\" text-anchor=\"middle\">H</text>\n          \n          <!-- Visual handle bar under atom for clarity -->\n          <rect x=\"-10\" y=\"12\" width=\"20\" height=\"4\" rx=\"2\" fill=\"#bbb\" opacity=\"0.6\" />\n        </g>\n\n        <!-- Dynamic Indicator Dot on PE Curve -->\n        <circle id=\"curve-dot\" cx=\"200\" cy=\"110\" r=\"5.5\" fill=\"#3a4f78\" stroke=\"#fff\" stroke-width=\"1.5\" />\n      </svg>\n    </div>\n\n    <!-- Active State Text Area -->\n    <div id=\"state-box\" class=\"state-indicator\">\n      Drag the right hydrogen atom to start\n    </div>\n\n    <div class=\"hint-text\">\n      Drag H atom horizontally to adjust bond distance\n    </div>\n  </div>\n\n  <script>\n    // State / Selection Mapping\n    const OPTIONS = [\n      'Infinite Distance (Potential Energy = 0)',\n      'Large Distance (Gentle slope downward)',\n      'The Energy Well Minimum (Balanced forces)',\n      'Overlapping Nuclei (Potential Energy skyrockets)'\n    ];\n\n    // Node references\n    const dragGroup = document.getElementById('drag-atom-group');\n    const atomGlow = document.getElementById('atom-glow');\n    const bondLine = document.getElementById('bond-line');\n    const curveDot = document.getElementById('curve-dot');\n    const stateBox = document.getElementById('state-box');\n    const repulsionWaves = document.getElementById('repulsion-waves');\n    const peCurve = document.getElementById('pe-curve');\n    const peCurveActive = document.getElementById('pe-curve-active');\n\n    // Interactive state limits\n    const MIN_X = 72;  // Overlap limit\n    const MAX_X = 320; // Infinite limit\n    let currentX = 260; // Start at relatively far distance\n    let isLocked = false;\n\n    // Morse curve parameters\n    const wellX = 125; // minimum well point\n    function getCurveY(x) {\n      // Curve formula: y = 110 + 100 * e^(-0.02 * (x - 125)) - 50 * e^(-0.04 * (x - 125))\n      // Normalized curve to fit visually\n      const dx = x - wellX;\n      const term1 = 100 * Math.exp(-0.022 * dx);\n      const term2 = 50 * Math.exp(-0.044 * dx);\n      let y = 110 + term1 - term2;\n      return Math.max(30, Math.min(200, y));\n    }\n\n    // Generate static path data\n    let pathD = '';\n    for (let x = 65; x <= 335; x += 2) {\n      const y = getCurveY(x);\n      if (x === 65) pathD += `M ${x} ${y}`;\n      else pathD += ` L ${x} ${y}`;\n    }\n    peCurve.setAttribute('d', pathD);\n    peCurveActive.setAttribute('d', pathD);\n\n    // Update the visual scene based on currentX\n    function updateScene() {\n      // Translate draggable atom\n      dragGroup.setAttribute('transform', `translate(${currentX}, 30)`);\n\n      // Update bond line\n      bondLine.setAttribute('x2', currentX);\n      \n      // Compute PE curve point\n      const curveY = getCurveY(currentX);\n      curveDot.setAttribute('cx', currentX);\n      curveDot.setAttribute('cy', curveY);\n\n      // Determine state and colors based on position\n      let selectedOption = '';\n      let bondColor = '#4C6696';\n      let bondDash = 'none';\n      let bondOpacity = 1;\n      let glowColor = 'rgba(76, 102, 150, 0.25)';\n      let glowSize = 18;\n\n      if (currentX < 98) {\n        selectedOption = OPTIONS[3]; // Overlapping\n        bondColor = 'var(--repulsion)';\n        glowColor = 'rgba(217, 83, 79, 0.4)';\n        glowSize = 22;\n        repulsionWaves.setAttribute('opacity', '1');\n      } else if (currentX >= 98 && currentX < 155) {\n        selectedOption = OPTIONS[2]; // Well minimum\n        bondColor = 'var(--stable)';\n        glowColor = 'rgba(59, 89, 152, 0.3)';\n        glowSize = 20;\n        repulsionWaves.setAttribute('opacity', '0');\n      } else if (currentX >= 155 && currentX < 245) {\n        selectedOption = OPTIONS[1]; // Large distance\n        bondColor = 'var(--accent)';\n        bondDash = '4,4';\n        glowSize = 15;\n        repulsionWaves.setAttribute('opacity', '0');\n      } else {\n        selectedOption = OPTIONS[0]; // Infinite\n        bondOpacity = 0;\n        glowSize = 12;\n        repulsionWaves.setAttribute('opacity', '0');\n      }\n\n      // Apply styles\n      bondLine.setAttribute('stroke', bondColor);\n      bondLine.setAttribute('stroke-dasharray', bondDash);\n      bondLine.setAttribute('opacity', bondOpacity);\n      atomGlow.setAttribute('fill', glowColor);\n      atomGlow.setAttribute('r', glowSize);\n\n      // Update text card\n      stateBox.textContent = selectedOption;\n      stateBox.classList.add('active');\n\n      // Dispatch answer\n      if (!isLocked) {\n        parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n      }\n    }\n\n    // Drag Interaction Logic\n    let startX = 0;\n    let startElX = 0;\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      dragGroup.setPointerCapture(e.pointerId);\n      startX = e.clientX;\n      startElX = currentX;\n      e.preventDefault();\n    }\n\n    function onPointerMove(e) {\n      if (!isLocked && dragGroup.hasPointerCapture(e.pointerId)) {\n        const dx = e.clientX - startX;\n        let nextX = startElX + dx;\n        currentX = Math.max(MIN_X, Math.min(MAX_X, nextX));\n        updateScene();\n      }\n    }\n\n    function onPointerUp(e) {\n      if (dragGroup.hasPointerCapture(e.pointerId)) {\n        dragGroup.releasePointerCapture(e.pointerId);\n      }\n    }\n\n    dragGroup.addEventListener('pointerdown', onPointerDown);\n    dragGroup.addEventListener('pointermove', onPointerMove);\n    dragGroup.addEventListener('pointerup', onPointerUp);\n\n    // Keyboard support\n    dragGroup.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        currentX = Math.min(MAX_X, currentX + 8);\n        updateScene();\n        e.preventDefault();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        currentX = Math.max(MIN_X, currentX - 8);\n        updateScene();\n        e.preventDefault();\n      }\n    });\n\n    // Initialize\n    updateScene();\n\n    // Height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    window.addEventListener('resize', reportHeight);\n    if (window.ResizeObserver) {\n      new ResizeObserver(reportHeight).observe(document.body);\n    }\n\n    // Lock support\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        dragGroup.style.pointerEvents = 'none';\n        dragGroup.style.cursor = 'default';\n        dragGroup.removeAttribute('tabindex');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The Energy Well Minimum (Balanced forces)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Chemical Reactions and Stoichiometry Unit Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "When aqueous solutions of lead(II) nitrate and potassium iodide are mixed, a bright yellow precipitate forms. Which of the following is the correct net ionic equation for this process?",
+     "options": [
+      "Pb2+(aq) + 2I-(aq) -> PbI2(s)",
+      "Pb(NO3)2(aq) + 2KI(aq) -> PbI2(s) + 2KNO3(aq)",
+      "K+(aq) + NO3-(aq) -> KNO3(s)",
+      "Pb2+(aq) + I-(aq) -> PbI(s)"
+     ],
+     "explanation": "The net ionic equation only includes the species participating in the formation of the precipitate. Lead(II) ions and iodide ions combine to form insoluble lead(II) iodide, while potassium and nitrate remain as spectator ions.",
+     "correctAnswers": [
+      "Pb2+(aq) + 2I-(aq) -> PbI2(s)"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Hydrated sodium and chloride ions showing ion-dipole orientation.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit3-q2.png"
+     },
+     "prompt": "Which of the following occur when solid sodium chloride (NaCl) dissolves in water? Select all that apply.",
+     "options": [
+      "Ionic bonds within the crystal lattice are broken.",
+      "Covalent bonds between sodium and chlorine are severed.",
+      "Ion-dipole interactions form between the ions and water molecules.",
+      "The sodium and chlorine atoms undergo a change in oxidation state.",
+      "The ions become hydrated and move freely through the solution."
+     ],
+     "explanation": "Dissolution involves breaking the ionic lattice (not covalent bonds) and forming new attractions with the polar water solvent. No electron transfer (redox) occurs, so oxidation states remain the same.",
+     "correctAnswers": [
+      "Ionic bonds within the crystal lattice are broken.",
+      "Ion-dipole interactions form between the ions and water molecules.",
+      "The ions become hydrated and move freely through the solution."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a net ionic equation, the ions that appear on both the reactant and product sides in identical forms and are subsequently removed are called ____ ions.",
+     "explanation": "Spectator ions do not participate in the actual chemical change; they are present in the reaction vessel but do not change their state or charge.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "spectator",
+      "spectators"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A student observes a sample of liquid water being heated until it turns into steam. Which statement best describes this change at the molecular level?",
+     "options": [
+      "It is a physical change because only intermolecular hydrogen bonds are overcome.",
+      "It is a chemical change because the O-H covalent bonds are broken.",
+      "It is a physical change because the molecules are destroyed and reformed.",
+      "It is a chemical change because a new gas phase is produced."
+     ],
+     "explanation": "Phase changes are typically physical because the identity of the molecule (H2O) remains intact; only the attractions between separate molecules are disrupted.",
+     "correctAnswers": [
+      "It is a physical change because only intermolecular hydrogen bonds are overcome."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Identify the species that would be written in their dissociated ionic forms in a Complete Ionic Equation. Select all that apply.",
+     "options": [
+      "NaCl(aq)",
+      "AgCl(s)",
+      "H2O(l)",
+      "HNO3(aq)",
+      "CO2(g)"
+     ],
+     "explanation": "Only strong electrolytes in the aqueous state (aq) are dissociated. Solids (s), liquids (l), and gases (g) remain as intact molecular or formula units.",
+     "correctAnswers": [
+      "NaCl(aq)",
+      "HNO3(aq)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "According to the Law of Conservation of Mass, the total ____ of each element must be the same in both the 'Before' and 'After' particulate diagrams of a closed system.",
+     "explanation": "While molecules rearrange, the individual atoms are neither created nor destroyed, maintaining a constant count for each element.",
+     "placeholder": "e.g., mass or number of atoms",
+     "correctAnswers": [
+      "number of atoms",
+      "count of atoms",
+      "mass"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A reaction container initially holds 4 moles of H2 and 2 moles of O2. According to the equation 2H2 + O2 -> 2H2O, which substance is the limiting reactant?",
+     "options": [
+      "H2",
+      "O2",
+      "Neither, they are in stoichiometric proportions",
+      "H2O"
+     ],
+     "explanation": "The stoichiometric ratio is 2:1. Since 4:2 simplifies to 2:1, both reactants are consumed completely at the same time.",
+     "correctAnswers": [
+      "Neither, they are in stoichiometric proportions"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Particulate representation of a limiting reactant problem.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit3-q8.png"
+     },
+     "prompt": "A particulate diagram shows 6 atoms of 'A' and 3 molecules of 'B2' initially. After the reaction, there are 2 molecules of 'AB3' and some leftover 'A'. Which statements are true?",
+     "options": [
+      "B2 is the limiting reactant.",
+      "A is the limiting reactant.",
+      "4 atoms of A remain unreacted.",
+      "The balanced equation is 2A + 3B2 -> 2AB3.",
+      "The law of conservation of mass is violated."
+     ],
+     "explanation": "Each AB3 requires 3 'B' atoms. Two AB3 molecules use 6 'B' atoms (which is all 3 B2 molecules). These two molecules only use 2 'A' atoms, leaving 4 of the original 6 'A' atoms behind.",
+     "correctAnswers": [
+      "B2 is the limiting reactant.",
+      "4 atoms of A remain unreacted."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When writing a complete ionic equation for the reaction of K2CO3(aq), the potassium carbonate should be represented as ____.",
+     "explanation": "Soluble ionic compounds dissociate into their constituent ions. The subscript '2' in the formula becomes a coefficient for the potassium ion.",
+     "placeholder": "Enter the dissociated ions",
+     "correctAnswers": [
+      "2K+(aq) + CO3 2-(aq)",
+      "2K+ + CO3 2-"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is the melting of quartz (SiO2) sometimes considered more similar to a chemical change than the melting of ice (H2O)?",
+     "options": [
+      "Quartz melting involves breaking strong covalent bonds in a network solid.",
+      "Quartz melting produces a new substance with a different formula.",
+      "Ice melting requires more energy per mole than quartz.",
+      "Quartz is an ionic solid while ice is a molecular solid."
+     ],
+     "explanation": "Quartz is a network covalent solid. Unlike ice, which only requires breaking weak intermolecular forces to melt, quartz requires the breaking of actual covalent bonds, blurring the line between physical and chemical change.",
+     "correctAnswers": [
+      "Quartz melting involves breaking strong covalent bonds in a network solid."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What must be balanced in a correctly written net ionic equation? Select all that apply.",
+     "options": [
+      "Net charge",
+      "Number of atoms of each element",
+      "Total volume of the solvent",
+      "The number of spectator ions on each side",
+      "Molar masses of the reactants"
+     ],
+     "explanation": "A valid equation must satisfy both conservation of mass (atoms) and conservation of charge. Spectator ions are removed, so they are not balanced in a net ionic equation.",
+     "correctAnswers": [
+      "Net charge",
+      "Number of atoms of each element"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Polyatomic ions like SO4^2- do not break into individual S and O atoms during dissolution because they are held together by strong ____ bonds.",
+     "explanation": "Polyatomic ions are discrete units where atoms are covalently bonded; these bonds are much stronger than the forces acting during a physical dissolution process.",
+     "placeholder": "Type of bond",
+     "correctAnswers": [
+      "covalent"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the reaction 2Al + 3Cl2 -> 2AlCl3, if you start with 5.0 moles of Al and 6.0 moles of Cl2, what is the theoretical yield of AlCl3?",
+     "options": [
+      "4.0 moles",
+      "5.0 moles",
+      "6.0 moles",
+      "2.0 moles"
+     ],
+     "explanation": "5 moles Al needs 7.5 moles Cl2. We only have 6 moles Cl2, so Cl2 is limiting. 6.0 mol Cl2 * (2 mol AlCl3 / 3 mol Cl2) = 4.0 mol AlCl3.",
+     "correctAnswers": [
+      "4.0 moles"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'strong electrolytes' that would dissociate completely in an aqueous equation? Select all that apply.",
+     "options": [
+      "Strong acids like HCl",
+      "Soluble ionic salts like LiBr",
+      "Weak acids like HF",
+      "Pure liquids like H2O",
+      "Insoluble salts like AgI"
+     ],
+     "explanation": "Strong electrolytes include strong acids, strong bases, and soluble ionic salts. Weak acids and insoluble substances do not dissociate significantly in solution.",
+     "correctAnswers": [
+      "Strong acids like HCl",
+      "Soluble ionic salts like LiBr"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The process of using a balanced chemical equation to calculate the relative masses of reactants and products involved in a reaction is known as ____.",
+     "explanation": "Stoichiometry is the quantitative study of reactants and products in chemical reactions.",
+     "placeholder": "Enter the science term",
+     "correctAnswers": [
+      "stoichiometry"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Which of the following observations is the MOST reliable evidence that a chemical change has occurred during a lab experiment?",
+     "options": [
+      "The formation of a precipitate upon mixing two clear solutions.",
+      "A change in state from liquid to gas upon heating.",
+      "The dissolving of a white sugar cube in hot tea.",
+      "A decrease in the temperature of a metal rod as it cools."
+     ],
+     "explanation": "Formation of a precipitate indicates the creation of a new substance with different solubility properties, signaling a reorganization of bonds (chemical change).",
+     "correctAnswers": [
+      "The formation of a precipitate upon mixing two clear solutions."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Why do we use net ionic equations instead of molecular equations in many chemistry applications? Select all that apply.",
+     "options": [
+      "They show only the species that actually undergo a chemical change.",
+      "They are more efficient for identifying the driving force of a reaction.",
+      "They eliminate the 'noise' of spectator ions.",
+      "They include the solvent water molecules in the chemical formulas.",
+      "They are easier to balance using mass alone."
+     ],
+     "explanation": "Net ionic equations clarify the actual chemistry by focusing on the active participants and ignoring ions that don't change.",
+     "correctAnswers": [
+      "They show only the species that actually undergo a chemical change.",
+      "They are more efficient for identifying the driving force of a reaction.",
+      "They eliminate the 'noise' of spectator ions."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "A student calculates the theoretical yield of a product to be 12.5 grams. After performing the experiment, the student recovers 10.0 grams. What is the percent yield?",
+     "options": [
+      "80.0%",
+      "125%",
+      "25.0%",
+      "2.50%"
+     ],
+     "explanation": "Percent yield is (Actual Yield / Theoretical Yield) * 100. (10.0 / 12.5) * 100 = 80%.",
+     "correctAnswers": [
+      "80.0%"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary steps when determining a limiting reactant from mass data? Select all that apply.",
+     "options": [
+      "Convert reactant masses to moles.",
+      "Compare the available mole ratio to the stoichiometric ratio.",
+      "Divide the mass of the product by the mass of the reactant.",
+      "Identify which reactant produces the smaller amount of product.",
+      "Check if the temperature of the reaction is at STP."
+     ],
+     "explanation": "Limiting reactant calculations always require a mole-based comparison based on the balanced equation. Calculating the yield from each reactant is a standard method to find the limit.",
+     "correctAnswers": [
+      "Convert reactant masses to moles.",
+      "Compare the available mole ratio to the stoichiometric ratio.",
+      "Identify which reactant produces the smaller amount of product."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Determine the limiting reactant by simulating the reaction between nitrogen gas and hydrogen gas to form ammonia (NH3). Adjust the quantities of the starting materials to observe which one runs out first when trying to produce the maximum amount of ammonia.",
+     "options": [
+      "Hydrogen is limiting because it is consumed first",
+      "Nitrogen is limiting because it is consumed first",
+      "Neither is limiting (stoichiometric proportions)",
+      "The reaction cannot proceed due to excess ammonia"
+     ],
+     "explanation": "In the reaction N2 + 3H2 -> 2NH3, the 1:3 ratio means hydrogen is consumed three times faster than nitrogen. Even if you have more hydrogen by mass or volume, the molar requirement often makes it the limiting reagent.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Limiting Reactant Simulation</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #707070;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      --nitrogen-blue: #3b82f6;\n      --hydrogen-white: #f3f4f6;\n      --hydrogen-border: #9ca3af;\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 12px;\n      overflow: hidden;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: flex-start;\n      width: 100%;\n      height: auto;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #app {\n      width: 100%;\n      max-width: 580px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Layout: Simulation Split */\n    .sim-container {\n      display: grid;\n      grid-template-columns: 1.1fr 1.2fr;\n      gap: 12px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n    }\n\n    .controls-panel {\n      display: flex;\n      flex-direction: column;\n      justify-content: center;\n      gap: 10px;\n    }\n\n    .slider-group {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n    }\n\n    .slider-label {\n      font-size: 12px;\n      font-weight: 600;\n      color: var(--fg);\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n\n    .slider-label span.val {\n      font-variant-numeric: tabular-nums;\n      background: var(--stage);\n      padding: 1px 6px;\n      border-radius: 4px;\n      font-size: 11px;\n    }\n\n    input[type=\"range\"] {\n      -webkit-appearance: none;\n      width: 100%;\n      height: 6px;\n      background: var(--stage);\n      border-radius: 3px;\n      outline: none;\n      margin: 4px 0;\n    }\n\n    input[type=\"range\"]::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      width: 16px;\n      height: 16px;\n      border-radius: 50%;\n      background: var(--accent);\n      cursor: pointer;\n      transition: background 0.15s;\n    }\n\n    input[type=\"range\"]::-webkit-slider-thumb:hover {\n      background: var(--accent-strong);\n    }\n\n    /* SVG chamber styling */\n    .chamber-box {\n      background: var(--stage);\n      border-radius: 8px;\n      position: relative;\n      overflow: hidden;\n      border: 1px solid var(--border);\n      aspect-ratio: 4 / 3;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Decision Area */\n    .decision-section {\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n    }\n\n    .instruction-bar {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      font-weight: 500;\n    }\n\n    .workspace {\n      display: grid;\n      grid-template-columns: 100px 1fr;\n      gap: 12px;\n      align-items: center;\n    }\n\n    /* Draggable Source Well */\n    .source-well {\n      height: 90px;\n      background: var(--stage);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n    }\n\n    .drag-token {\n      width: 54px;\n      height: 54px;\n      background: var(--accent);\n      color: #fff;\n      border-radius: 50%;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      cursor: grab;\n      box-shadow: 0 4px 10px rgba(76, 102, 150, 0.3);\n      font-weight: bold;\n      font-size: 11px;\n      position: absolute;\n      touch-action: none;\n      z-index: 10;\n      transition: transform 0.1s cubic-bezier(.4,0,.2,1), box-shadow 0.1s;\n    }\n\n    .drag-token:active {\n      cursor: grabbing;\n      transform: scale(1.05);\n      box-shadow: 0 6px 14px rgba(76, 102, 150, 0.4);\n    }\n\n    .drag-token svg {\n      width: 18px;\n      height: 18px;\n      fill: none;\n      stroke: currentColor;\n      stroke-width: 2.5;\n      margin-bottom: 2px;\n    }\n\n    /* Drop Zones Grid */\n    .drop-grid {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n    }\n\n    .drop-zone {\n      background: var(--surface);\n      border: 1.5px dashed var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      min-height: 48px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      font-size: 11px;\n      font-weight: 500;\n      line-height: 1.3;\n      color: var(--fg);\n      transition: all 0.2s ease;\n      position: relative;\n    }\n\n    .drop-zone.hovered {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n    }\n\n    .drop-zone.selected {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      border-style: solid;\n      box-shadow: inset 0 0 0 1px var(--accent);\n    }\n\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Limiting Reactant Interactive Simulation</h1>\n\n  <div id=\"app\">\n    <!-- Simulation Interface -->\n    <div class=\"sim-container\">\n      <div class=\"controls-panel\">\n        <div class=\"slider-group\">\n          <label class=\"slider-label\" for=\"n2-range\">\n            <span>Nitrogen (N₂)</span>\n            <span class=\"val\" id=\"n2-val\">2</span>\n          </label>\n          <input type=\"range\" id=\"n2-range\" min=\"1\" max=\"3\" value=\"2\" step=\"1\">\n        </div>\n\n        <div class=\"slider-group\">\n          <label class=\"slider-label\" for=\"h2-range\">\n            <span>Hydrogen (H₂)</span>\n            <span class=\"val\" id=\"h2-val\">4</span>\n          </label>\n          <input type=\"range\" id=\"h2-range\" min=\"2\" max=\"9\" value=\"4\" step=\"1\">\n        </div>\n\n        <div class=\"slider-group\">\n          <label class=\"slider-label\" for=\"progress-range\">\n            <span>Reaction Progress</span>\n            <span class=\"val\" id=\"progress-val\">0%</span>\n          </label>\n          <input type=\"range\" id=\"progress-range\" min=\"0\" max=\"100\" value=\"0\" step=\"1\">\n        </div>\n      </div>\n\n      <div class=\"chamber-box\">\n        <svg class=\"stage-svg\" viewBox=\"0 0 200 150\" id=\"chem-stage\">\n          <!-- Live molecules will be injected here -->\n        </svg>\n      </div>\n    </div>\n\n    <!-- Interactive Workspace -->\n    <div class=\"decision-section\">\n      <div class=\"instruction-bar\">\n        Drag the analysis token to declare your conclusion:\n      </div>\n\n      <div class=\"workspace\">\n        <div class=\"source-well\" id=\"source-well\">\n          <div class=\"drag-token\" id=\"drag-token\" aria-label=\"Analysis Token\">\n            <svg viewBox=\"0 0 24 24\">\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\" />\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z\" />\n            </svg>\n            Analyze\n          </div>\n        </div>\n\n        <div class=\"drop-grid\">\n          <div class=\"drop-zone\" data-option=\"Hydrogen is limiting because it is consumed first\">\n            Hydrogen is limiting (consumed first)\n          </div>\n          <div class=\"drop-zone\" data-option=\"Nitrogen is limiting because it is consumed first\">\n            Nitrogen is limiting (consumed first)\n          </div>\n          <div class=\"drop-zone\" data-option=\"Neither is limiting (stoichiometric proportions)\">\n            Neither is limiting (stoichiometric)\n          </div>\n          <div class=\"drop-zone\" data-option=\"The reaction cannot proceed due to excess ammonia\">\n            Reaction blocked by excess ammonia\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // State management\n    const state = {\n      n2: 2,\n      h2: 4,\n      progress: 0,\n      selectedOption: null,\n      locked: false\n    };\n\n    // DOM Elements\n    const n2Range = document.getElementById('n2-range');\n    const h2Range = document.getElementById('h2-range');\n    const progressRange = document.getElementById('progress-range');\n    const n2Val = document.getElementById('n2-val');\n    const h2Val = document.getElementById('h2-val');\n    const progressVal = document.getElementById('progress-val');\n    const chemStage = document.getElementById('chem-stage');\n    const token = document.getElementById('drag-token');\n    const sourceWell = document.getElementById('source-well');\n    const dropZones = document.querySelectorAll('.drop-zone');\n\n    // Setup input listeners\n    n2Range.addEventListener('input', (e) => {\n      state.n2 = parseInt(e.target.value);\n      n2Val.textContent = state.n2;\n      updateSimulation();\n    });\n\n    h2Range.addEventListener('input', (e) => {\n      state.h2 = parseInt(e.target.value);\n      h2Val.textContent = state.h2;\n      updateSimulation();\n    });\n\n    progressRange.addEventListener('input', (e) => {\n      state.progress = parseInt(e.target.value) / 100;\n      progressVal.textContent = `${Math.round(state.progress * 100)}%`;\n      updateSimulation();\n    });\n\n    // Molecular layout and simulation logic\n    // We pre-calculate coordinates so that transition is smooth.\n    function updateSimulation() {\n      const N = state.n2;\n      const H = state.h2;\n      const p = state.progress;\n\n      // Reaction: 1 N2 + 3 H2 -> 2 NH3\n      const maxReactions = Math.min(N, Math.floor(H / 3));\n      \n      const reactedN2 = maxReactions;\n      const reactedH2 = maxReactions * 3;\n      const producedNH3 = maxReactions * 2;\n\n      const leftOverN2 = N - reactedN2;\n      const leftOverH2 = H - reactedH2;\n\n      let html = '';\n\n      // Generate reacting groups\n      for (let r = 0; r < maxReactions; r++) {\n        // Each reaction takes 1 N2 (2 blue) and 3 H2 (3 pairs of white)\n        // Mid-stage: they meet at center, break apart, assemble to 2 NH3\n        \n        // Start positions\n        const n2Start = { x: 35, y: 30 + r * 45 };\n        const h2Start = [\n          { x: 165, y: 25 + r * 40 },\n          { x: 165, y: 40 + r * 40 },\n          { x: 165, y: 55 + r * 40 }\n        ];\n\n        // End positions (2 NH3)\n        const nh3End = [\n          { x: 90, y: 35 + r * 45 },\n          { x: 115, y: 45 + r * 45 }\n        ];\n\n        if (p < 0.4) {\n          // Stage 1: Molecules moving to center\n          const t = p / 0.4;\n          const currentN2 = interpolate(n2Start, { x: 80, y: n2Start.y }, t);\n          html += drawN2(currentN2.x, currentN2.y, 1 - t * 0.5);\n\n          h2Start.forEach((startPos, i) => {\n            const currentH2 = interpolate(startPos, { x: 120, y: n2Start.y - 10 + i * 10 }, t);\n            html += drawH2(currentH2.x, currentH2.y, 1 - t * 0.5);\n          });\n        } else if (p < 0.7) {\n          // Stage 2: Breaking and reforming (soup/transition)\n          const t = (p - 0.4) / 0.3;\n          // Render a morphing cloud of atoms or simple faded assemblies\n          // For simplicity and clarity, we fade in the finished NH3 and fade out reactants\n          nh3End.forEach(endPos => {\n            html += drawNH3(endPos.x, endPos.y, t);\n          });\n        } else {\n          // Stage 3: Fully formed NH3 drift/settle to end positions\n          nh3End.forEach(endPos => {\n            html += drawNH3(endPos.x, endPos.y, 1);\n          });\n        }\n      }\n\n      // Generate leftover N2 (never react, stay on left)\n      for (let i = 0; i < leftOverN2; i++) {\n        const yPos = 135 - i * 25;\n        html += drawN2(30 + Math.sin(p * Math.PI) * 2, yPos, 1);\n      }\n\n      // Generate leftover H2 (never react, stay on right)\n      for (let i = 0; i < leftOverH2; i++) {\n        const yPos = 135 - i * 20;\n        html += drawH2(170 + Math.cos(p * Math.PI) * 2, yPos, 1);\n      }\n\n      chemStage.innerHTML = html;\n    }\n\n    function interpolate(start, end, t) {\n      return {\n        x: start.x + (end.x - start.x) * t,\n        y: start.y + (end.y - start.y) * t\n      };\n    }\n\n    function drawN2(cx, cy, opacity) {\n      return `\n        <g style=\"opacity: ${opacity}\">\n          <line x1=\"${cx - 4}\" y1=\"${cy}\" x2=\"${cx + 4}\" y2=\"${cy}\" stroke=\"#ffffff\" stroke-width=\"2\"/>\n          <circle cx=\"${cx - 5}\" cy=\"${cy}\" r=\"6\" fill=\"var(--nitrogen-blue)\"/>\n          <circle cx=\"${cx + 5}\" cy=\"${cy}\" r=\"6\" fill=\"var(--nitrogen-blue)\"/>\n        </g>\n      `;\n    }\n\n    function drawH2(cx, cy, opacity) {\n      return `\n        <g style=\"opacity: ${opacity}\">\n          <line x1=\"${cx - 3}\" y1=\"${cy}\" x2=\"${cx + 3}\" y2=\"${cy}\" stroke=\"#9ca3af\" stroke-width=\"1.5\"/>\n          <circle cx=\"${cx - 3}\" cy=\"${cy}\" r=\"4\" fill=\"var(--hydrogen-white)\" stroke=\"var(--hydrogen-border)\" stroke-width=\"1\"/>\n          <circle cx=\"${cx + 3}\" cy=\"${cy}\" r=\"4\" fill=\"var(--hydrogen-white)\" stroke=\"var(--hydrogen-border)\" stroke-width=\"1\"/>\n        </g>\n      `;\n    }\n\n    function drawNH3(cx, cy, opacity) {\n      return `\n        <g style=\"opacity: ${opacity}\">\n          <!-- Nitrogens -->\n          <circle cx=\"${cx}\" cy=\"${cy}\" r=\"6\" fill=\"var(--nitrogen-blue)\"/>\n          <!-- 3 Hydrogens bonded -->\n          <circle cx=\"${cx - 6}\" cy=\"${cy - 4}\" r=\"3.5\" fill=\"var(--hydrogen-white)\" stroke=\"var(--hydrogen-border)\" stroke-width=\"0.8\"/>\n          <circle cx=\"${cx + 6}\" cy=\"${cy - 4}\" r=\"3.5\" fill=\"var(--hydrogen-white)\" stroke=\"var(--hydrogen-border)\" stroke-width=\"0.8\"/>\n          <circle cx=\"${cx}\" cy=\"${cy + 7}\" r=\"3.5\" fill=\"var(--hydrogen-white)\" stroke=\"var(--hydrogen-border)\" stroke-width=\"0.8\"/>\n        </g>\n      `;\n    }\n\n    // Interactive dragging logic (with grab offset preservation)\n    let isDragging = false;\n    let startX = 0;\n    let startY = 0;\n    let tokenX = 0; // relative to container\n    let tokenY = 0;\n\n    // Center token in its home (source well) initially\n    function resetToken() {\n      token.style.left = '50%';\n      token.style.top = '50%';\n      token.style.transform = 'translate(-50%, -50%)';\n      tokenX = 0;\n      tokenY = 0;\n    }\n\n    resetToken();\n\n    token.addEventListener('pointerdown', (e) => {\n      if (state.locked) return;\n      isDragging = true;\n      token.setPointerCapture(e.pointerId);\n      \n      const rect = token.getBoundingClientRect();\n      startX = e.clientX - rect.left - rect.width / 2;\n      startY = e.clientY - rect.top - rect.height / 2;\n      \n      token.style.transition = 'none';\n    });\n\n    token.addEventListener('pointermove', (e) => {\n      if (!isDragging) return;\n      \n      const wellRect = sourceWell.getBoundingClientRect();\n      const x = e.clientX - wellRect.left - wellRect.width / 2 - startX;\n      const y = e.clientY - wellRect.top - wellRect.height / 2 - startY;\n      \n      token.style.left = `calc(50% + ${x}px)`;\n      token.style.top = `calc(50% + ${y}px)`;\n      token.style.transform = 'translate(-50%, -50%)';\n\n      // Live overlap highlights\n      const tokenRect = token.getBoundingClientRect();\n      dropZones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        if (isOverlapping(tokenRect, zoneRect)) {\n          zone.classList.add('hovered');\n        } else {\n          zone.classList.remove('hovered');\n        }\n      });\n    });\n\n    token.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      token.releasePointerCapture(e.pointerId);\n\n      const tokenRect = token.getBoundingClientRect();\n      let matchedZone = null;\n\n      dropZones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        if (isOverlapping(tokenRect, zoneRect)) {\n          matchedZone = zone;\n        }\n        zone.classList.remove('hovered');\n      });\n\n      if (matchedZone) {\n        // Snap token inside the matched zone\n        dropZones.forEach(z => z.classList.remove('selected'));\n        matchedZone.classList.add('selected');\n        \n        // Return token to home so the screen is clean, or visually leave it inside?\n        // Let's return it to home but highlight the selection beautifully.\n        token.style.transition = 'all 0.2s cubic-bezier(.34,1.56,.64,1)';\n        resetToken();\n\n        // Report answer\n        const value = matchedZone.getAttribute('data-option');\n        state.selectedOption = value;\n        parent.postMessage({ type: 'hk-practice-answer', value: value }, '*');\n      } else {\n        // Snap back home\n        token.style.transition = 'all 0.25s cubic-bezier(.34,1.56,.64,1)';\n        resetToken();\n      }\n    });\n\n    function isOverlapping(rect1, rect2) {\n      return !(rect1.right < rect2.left || \n               rect1.left > rect2.right || \n               rect1.bottom < rect2.top || \n               rect1.top > rect2.bottom);\n    }\n\n    // Keyboard support\n    dropZones.forEach(zone => {\n      zone.setAttribute('tabindex', '0');\n      zone.addEventListener('keydown', (e) => {\n        if (state.locked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          dropZones.forEach(z => z.classList.remove('selected'));\n          zone.classList.add('selected');\n          const value = zone.getAttribute('data-option');\n          state.selectedOption = value;\n          parent.postMessage({ type: 'hk-practice-answer', value: value }, '*');\n        }\n      });\n    });\n\n    // Parent host locks & messaging\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        state.locked = true;\n        token.classList.add('locked');\n        n2Range.disabled = true;\n        h2Range.disabled = true;\n        progressRange.disabled = true;\n        dropZones.forEach(z => z.classList.add('locked'));\n      }\n    });\n\n    // Notify height\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', () => {\n      updateSimulation();\n      sendHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      sendHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Hydrogen is limiting because it is consumed first"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Chemical Kinetics Unit Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "For the reaction $2\\text{A} + 3\\text{B} \\rightarrow \\text{C}$, if the rate of disappearance of B is $0.60\\text{ M}\\text{s}^{-1}$, what is the rate of appearance of C?",
+     "options": [
+      "0.20 M/s",
+      "0.40 M/s",
+      "0.60 M/s",
+      "0.90 M/s"
+     ],
+     "explanation": "According to the stoichiometry, the relative rate expression is $-\\frac{1}{3}\\frac{\\text{d}[\\text{B}]}{\\text{d}t} = +\\frac{1}{1}\\frac{\\text{d}[\\text{C}]}{\\text{d}t}$. Thus, the rate of C is $1/3$ the rate of B, which is $0.60 / 3 = 0.20\\text{ M}\\text{s}^{-1}$.",
+     "correctAnswers": [
+      "0.20 M/s"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to collision theory, which of the following conditions must be met for a collision between reactant molecules to result in a successful reaction?",
+     "options": [
+      "The molecules must collide with a specific minimum kinetic energy.",
+      "The molecules must be in the gaseous state.",
+      "The molecules must collide with the correct spatial orientation.",
+      "The collision must involve at least three molecules simultaneously.",
+      "The temperature must be above 273 Kelvin."
+     ],
+     "explanation": "Collision theory requires two things: sufficient energy (to overcome activation energy) and proper orientation. State of matter and specific temperature thresholds are not universal requirements for the theory itself.",
+     "correctAnswers": [
+      "The molecules must collide with a specific minimum kinetic energy.",
+      "The molecules must collide with the correct spatial orientation."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A reaction that shows a linear plot of $1/[\\text{A}]$ versus time is identified as being ____ order with respect to reactant A.",
+     "placeholder": "Enter order",
+     "correctAnswers": [
+      "second",
+      "2nd",
+      "2"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Which of the following changes will increase the value of the rate constant $k$ for a specific reaction?",
+     "options": [
+      "Increasing the concentration of the reactants.",
+      "Increasing the surface area of a solid reactant.",
+      "Increasing the temperature of the system.",
+      "Increasing the volume of the reaction vessel."
+     ],
+     "explanation": "The rate constant $k$ is dependent on temperature (as shown by the Arrhenius equation) and the presence of a catalyst; changing concentrations or surface area changes the rate, but not the constant $k$ itself.",
+     "correctAnswers": [
+      "Increasing the temperature of the system."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A proposed reaction mechanism consists of two steps: (1) $\\text{A} + \\text{B} \\rightarrow \\text{X}$ (slow) and (2) $\\text{X} + \\text{B} \\rightarrow \\text{C}$ (fast). Which of the following statements are true regarding this system?",
+     "options": [
+      "The overall reaction is A + 2B → C.",
+      "The rate law is Rate = k[A][B].",
+      "The rate law is Rate = k[A][B]².",
+      "X is a catalyst in this reaction.",
+      "X is a reaction intermediate."
+     ],
+     "explanation": "The overall reaction is the sum of steps. The rate law is determined by the slow (rate-determining) step. X is produced and then consumed, making it an intermediate, not a catalyst.",
+     "correctAnswers": [
+      "The overall reaction is A + 2B → C.",
+      "The rate law is Rate = k[A][B].",
+      "X is a reaction intermediate."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The units for the rate constant $k$ in a zero-order reaction are ____.",
+     "placeholder": "e.g., M/s",
+     "correctAnswers": [
+      "M/s",
+      "M s-1",
+      "mol/L*s",
+      "M/sec"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If a reaction is first-order and the half-life is 20 minutes, what percentage of the initial reactant remains after 60 minutes?",
+     "options": [
+      "50%",
+      "25%",
+      "12.5%",
+      "6.25%"
+     ],
+     "explanation": "60 minutes represents 3 half-lives (60/20 = 3). After one half-life, 50% remains; after two, 25%; after three, 12.5%.",
+     "correctAnswers": [
+      "12.5%"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following would result in a faster reaction rate between a solid and a liquid?",
+     "options": [
+      "Grinding the solid into a fine powder.",
+      "Increasing the concentration of the liquid reactant.",
+      "Decreasing the temperature of the system.",
+      "Adding an inert gas to increase total pressure.",
+      "Adding a suitable catalyst."
+     ],
+     "explanation": "Grinding increases surface area (more collisions), higher concentration increases collision frequency, and catalysts lower the activation energy. Decreasing temperature slows particles down, and inert gases do not participate in the reaction.",
+     "correctAnswers": [
+      "Grinding the solid into a fine powder.",
+      "Increasing the concentration of the liquid reactant.",
+      "Adding a suitable catalyst."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The slowest step in a multi-step reaction mechanism is known as the ____ step.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "rate-determining",
+      "rate determining",
+      "RDS"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Table showing initial rates for different concentrations of A and B.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit4-q10.png"
+     },
+     "prompt": "Consider the following initial rates data: [A] doubles, [B] stays same -> Rate quadruples. [A] stays same, [B] doubles -> Rate doubles. What is the rate law?",
+     "options": [
+      "Rate = k[A][B]",
+      "Rate = k[A]²[B]",
+      "Rate = k[A][B]²",
+      "Rate = k[A]²[B]²"
+     ],
+     "explanation": "Doubling [A] quadrupling the rate implies second-order in A ($2^2=4$). Doubling [B] doubling the rate implies first-order in B ($2^1=2$).",
+     "correctAnswers": [
+      "Rate = k[A]²[B]"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "image": {
+      "alt": "Maxwell-Boltzmann distribution showing energy shift at higher temperatures.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit4-q11.png"
+     },
+     "prompt": "Why does an increase in temperature significantly increase the rate of a reaction?",
+     "options": [
+      "It increases the collision frequency between molecules.",
+      "It increases the fraction of molecules with energy greater than Ea.",
+      "It lowers the activation energy of the reaction.",
+      "It changes the stoichiometric coefficients of the reaction.",
+      "It increases the average kinetic energy of the particles."
+     ],
+     "explanation": "Higher temperature increases speed (energy/collisions) and helps more molecules cross the Ea barrier. It does NOT lower the barrier itself; only a catalyst does that.",
+     "correctAnswers": [
+      "It increases the collision frequency between molecules.",
+      "It increases the fraction of molecules with energy greater than Ea.",
+      "It increases the average kinetic energy of the particles."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The minimum energy required for a collision to result in a reaction is the ____ energy.",
+     "placeholder": "Enter energy type",
+     "correctAnswers": [
+      "activation",
+      "threshold"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In a first-order integrated rate law, a plot of what variables yields a straight line with slope $-k$?",
+     "options": [
+      "[A] vs time",
+      "ln[A] vs time",
+      "1/[A] vs time",
+      "ln[A] vs 1/time"
+     ],
+     "explanation": "The first-order integrated rate law is $\\text{ln}[\\text{A}]_t = -kt + \\text{ln}[\\text{A}]_0$, which follows the linear form $y = mx + b$.",
+     "correctAnswers": [
+      "ln[A] vs time"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following statements about catalysts are correct?",
+     "options": [
+      "They are consumed in the first step and regenerated later.",
+      "They appear in the overall balanced chemical equation.",
+      "They provide an alternative mechanism with a lower Ea.",
+      "They increase the equilibrium constant of the reaction.",
+      "They increase the rate of both forward and reverse reactions."
+     ],
+     "explanation": "Catalysts are regenerated (not in the net equation) and lower Ea for both directions. They do not change the equilibrium constant (thermodynamics).",
+     "correctAnswers": [
+      "They are consumed in the first step and regenerated later.",
+      "They provide an alternative mechanism with a lower Ea.",
+      "They increase the rate of both forward and reverse reactions."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Interact with the potential energy diagram to determine the effect of a catalyst on the reaction kinetics.",
+     "options": [
+      "Lower activation energy, same enthalpy change",
+      "Higher activation energy, lower enthalpy change",
+      "Lower activation energy, lower enthalpy change",
+      "Same activation energy, lower enthalpy change"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Reaction Energy Pathways</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --curve-default: #888888;\n      --curve-active: #4C6696;\n      --ea-color: #d97706;\n      --dh-color: #059669;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Interactive Graph Stage */\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px;\n      position: relative;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n    }\n\n    /* Slider Container */\n    .control-panel {\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px;\n    }\n\n    .action-hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n      font-weight: 500;\n    }\n\n    /* Custom Slider CSS */\n    .slider-container {\n      position: relative;\n      height: 40px;\n      display: flex;\n      align-items: center;\n      cursor: pointer;\n      touch-action: none;\n    }\n\n    .slider-track {\n      position: absolute;\n      left: 10px;\n      right: 10px;\n      height: 6px;\n      background: var(--stage);\n      border-radius: 3px;\n      border: 1px solid var(--border);\n    }\n\n    .slider-ticks {\n      position: absolute;\n      left: 10px;\n      right: 10px;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .tick {\n      width: 6px;\n      height: 6px;\n      border-radius: 50%;\n      background: var(--border);\n      transform: translateY(-1px);\n    }\n\n    .tick.active {\n      background: var(--accent);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background: var(--accent);\n      border: 2px solid var(--surface);\n      box-shadow: 0 2px 6px rgba(0,0,0,0.2);\n      cursor: grab;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1), background-color 0.15s;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      z-index: 2;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: scale(1.15);\n      background: var(--accent-strong);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    /* Active State Readout Label */\n    .state-label {\n      text-align: center;\n      font-size: 13px;\n      font-weight: 600;\n      color: var(--accent);\n      min-height: 18px;\n    }\n\n    /* Disabled State for Lock */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n    .locked .slider-handle {\n      background: var(--muted-fg) !important;\n      cursor: default;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Reaction Energy Profile Interactive Explorer</h1>\n\n  <div id=\"widget-container\">\n    <!-- Visual Stage -->\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 200\" aria-hidden=\"true\">\n        <!-- Grid / Axes -->\n        <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"180\" stroke=\"#e2e2e2\" stroke-width=\"1.5\" stroke-dasharray=\"2 2\" />\n        <line x1=\"40\" y1=\"180\" x2=\"380\" y2=\"180\" stroke=\"#e2e2e2\" stroke-width=\"1.5\" />\n        <text x=\"35\" y=\"25\" fill=\"#888888\" font-size=\"10\" text-anchor=\"end\">Energy</text>\n        <text x=\"380\" y=\"195\" fill=\"#888888\" font-size=\"10\" text-anchor=\"end\">Reaction Progress</text>\n\n        <!-- Uncatalyzed / Reference Curve (Dotted) -->\n        <path id=\"ref-path\" d=\"M 40,140 C 110,140 130,50 180,50 C 230,50 250,150 320,150 L 380,150\" \n              fill=\"none\" stroke=\"#b0b0b0\" stroke-width=\"2\" stroke-dasharray=\"4 4\" />\n        <text x=\"70\" y=\"130\" fill=\"#888888\" font-size=\"10\">Uncatalyzed Reference</text>\n\n        <!-- Dynamic Reaction Pathway Curve -->\n        <path id=\"dynamic-path\" d=\"M 40,140 C 110,140 130,50 180,50 C 230,50 250,150 320,150 L 380,150\" \n              fill=\"none\" stroke=\"var(--curve-active)\" stroke-width=\"3\" stroke-linecap=\"round\" style=\"transition: d 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\" />\n\n        <!-- Reactants / Products Static Markers -->\n        <circle cx=\"40\" cy=\"140\" r=\"4\" fill=\"var(--fg)\" />\n        <text x=\"45\" y=\"155\" fill=\"var(--fg)\" font-size=\"11\" font-weight=\"bold\">Reactants</text>\n        \n        <circle id=\"product-dot\" cx=\"320\" cy=\"150\" r=\"4\" fill=\"var(--fg)\" style=\"transition: cy 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\" />\n        <text id=\"product-text\" x=\"325\" y=\"165\" fill=\"var(--fg)\" font-size=\"11\" font-weight=\"bold\" style=\"transition: y 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\">Products</text>\n\n        <!-- Ea Arrow Indicator -->\n        <g id=\"ea-group\" style=\"transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\">\n          <line id=\"ea-line\" x1=\"120\" y1=\"140\" x2=\"120\" y2=\"50\" stroke=\"var(--ea-color)\" stroke-width=\"2\" stroke-dasharray=\"2 2\" />\n          <polygon id=\"ea-arrow-up\" points=\"120,44 116,52 124,52\" fill=\"var(--ea-color)\" />\n          <polygon id=\"ea-arrow-down\" points=\"120,146 116,138 124,138\" fill=\"var(--ea-color)\" />\n          <text id=\"ea-label\" x=\"110\" y=\"95\" fill=\"var(--ea-color)\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"end\">Ea</text>\n        </g>\n\n        <!-- Delta H Arrow Indicator -->\n        <g id=\"dh-group\" style=\"transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\">\n          <line id=\"dh-line\" x1=\"280\" y1=\"140\" x2=\"280\" y2=\"150\" stroke=\"var(--dh-color)\" stroke-width=\"2\" />\n          <polygon id=\"dh-arrow-up\" points=\"280,136 276,142 284,142\" fill=\"var(--dh-color)\" />\n          <polygon id=\"dh-arrow-down\" points=\"280,154 276,148 284,148\" fill=\"var(--dh-color)\" />\n          <text id=\"dh-label\" x=\"290\" y=\"148\" fill=\"var(--dh-color)\" font-size=\"11\" font-weight=\"bold\">ΔH</text>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Controls -->\n    <div class=\"control-panel\">\n      <p class=\"action-hint\">Drag the slider to test different reaction pathways:</p>\n      \n      <div class=\"slider-container\" id=\"slider-box\" role=\"slider\" aria-valuemin=\"1\" aria-valuemax=\"4\" aria-valuenow=\"1\" tabindex=\"0\" aria-label=\"Reaction Pathway Modifier\">\n        <div class=\"slider-track\"></div>\n        <div class=\"slider-ticks\">\n          <div class=\"tick active\"></div>\n          <div class=\"tick\"></div>\n          <div class=\"tick\"></div>\n          <div class=\"tick\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"slider-handle\"></div>\n      </div>\n\n      <div class=\"state-label\" id=\"state-label\">...</div>\n    </div>\n  </div>\n\n  <script>\n    // State Options mapping\n    const OPTIONS = [\n      \"Lower activation energy, same enthalpy change\",\n      \"Higher activation energy, lower enthalpy change\",\n      \"Lower activation energy, lower enthalpy change\",\n      \"Same activation energy, lower enthalpy change\"\n    ];\n\n    // Curve geometry mappings for each option (Reactant is always fixed at Y=140)\n    // Format: { peakY, productY }\n    const PATHWAY_GEOMETRY = [\n      { peakY: 90, productY: 150 },  // Lower Ea, same DH (Product matches uncatalyzed at Y=150)\n      { peakY: 35, productY: 175 },  // Higher Ea, lower DH (Product lower than uncatalyzed at Y=175)\n      { peakY: 90, productY: 175 },  // Lower Ea, lower DH\n      { peakY: 50, productY: 175 }   // Same Ea (Peak matches uncatalyzed at 50), lower DH\n    ];\n\n    let currentIndex = 0;\n    let isLocked = false;\n\n    const sliderBox = document.getElementById('slider-box');\n    const sliderHandle = document.getElementById('slider-handle');\n    const ticks = document.querySelectorAll('.tick');\n    const stateLabel = document.getElementById('state-label');\n\n    // SVG elements to animate\n    const dynamicPath = document.getElementById('dynamic-path');\n    const productDot = document.getElementById('product-dot');\n    const productText = document.getElementById('product-text');\n    const eaLine = document.getElementById('ea-line');\n    const eaArrowUp = document.getElementById('ea-arrow-up');\n    const eaArrowDown = document.getElementById('ea-arrow-down');\n    const eaLabel = document.getElementById('ea-label');\n    const dhLine = document.getElementById('dh-line');\n    const dhArrowUp = document.getElementById('dh-arrow-up');\n    const dhArrowDown = document.getElementById('dh-arrow-down');\n    const dhLabel = document.getElementById('dh-label');\n\n    function updateVisuals(index) {\n      const geo = PATHWAY_GEOMETRY[index];\n      \n      // Update curve path\n      // Uncatalyzed shape ref: M 40,140 C 110,140 130,50 180,50 C 230,50 250,150 320,150 L 380,150\n      const newD = `M 40,140 C 110,140 130,${geo.peakY} 180,${geo.peakY} C 230,${geo.peakY} 250,${geo.productY} 320,${geo.productY} L 380,${geo.productY}`;\n      dynamicPath.setAttribute('d', newD);\n\n      // Update product dot & text position\n      productDot.setAttribute('cy', geo.productY);\n      productText.setAttribute('y', geo.productY + 15);\n\n      // Update Ea indicator\n      eaLine.setAttribute('y2', geo.peakY);\n      eaArrowUp.setAttribute('points', `120,${geo.peakY - 6} 116,${geo.peakY + 2} 124,${geo.peakY + 2}`);\n      eaLabel.setAttribute('y', (140 + geo.peakY) / 2 + 4);\n\n      // Update DH indicator\n      dhLine.setAttribute('y2', geo.productY);\n      dhArrowDown.setAttribute('points', `280,${geo.productY + 4} 276,${geo.productY - 2} 284,${geo.productY - 2}`);\n      dhLabel.setAttribute('y', (140 + geo.productY) / 2 + 4);\n\n      // Highlight active tick\n      ticks.forEach((tick, idx) => {\n        if (idx === index) {\n          tick.classList.add('active');\n        } else {\n          tick.classList.remove('active');\n        }\n      });\n\n      // Update Text Label & Accessibility attributes\n      stateLabel.textContent = OPTIONS[index];\n      sliderBox.setAttribute('aria-valuenow', index + 1);\n    }\n\n    // Slider Positioning Logic\n    function getSliderWidth() {\n      return sliderBox.clientWidth - 20; // accounting for 10px track paddings\n    }\n\n    function setHandlePosition(index) {\n      const totalWidth = getSliderWidth();\n      const posX = 10 + (index / 3) * totalWidth - 12; // 12 is half handle width\n      sliderHandle.style.left = `${posX}px`;\n    }\n\n    function handlePointer(clientX) {\n      if (isLocked) return;\n      const rect = sliderBox.getBoundingClientRect();\n      const relativeX = clientX - rect.left - 10;\n      const totalWidth = getSliderWidth();\n      let percentage = relativeX / totalWidth;\n      percentage = Math.max(0, Math.min(1, percentage));\n      \n      const newIndex = Math.round(percentage * 3);\n      if (newIndex !== currentIndex) {\n        currentIndex = newIndex;\n        updateVisuals(currentIndex);\n        setHandlePosition(currentIndex);\n        // Report answer change\n        parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[currentIndex] }, '*');\n      }\n    }\n\n    // Event Listeners for dragging\n    let isDragging = false;\n\n    sliderBox.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      sliderBox.setPointerCapture(e.pointerId);\n      handlePointer(e.clientX);\n    });\n\n    sliderBox.addEventListener('pointermove', (e) => {\n      if (isDragging) {\n        handlePointer(e.clientX);\n      }\n    });\n\n    const stopDrag = (e) => {\n      if (isDragging) {\n        isDragging = false;\n        setHandlePosition(currentIndex); // Snap visually to precise step\n      }\n    };\n\n    sliderBox.addEventListener('pointerup', stopDrag);\n    sliderBox.addEventListener('pointercancel', stopDrag);\n\n    // Keyboard support\n    sliderBox.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        if (currentIndex < 3) {\n          currentIndex++;\n          updateVisuals(currentIndex);\n          setHandlePosition(currentIndex);\n          parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[currentIndex] }, '*');\n        }\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        if (currentIndex > 0) {\n          currentIndex--;\n          updateVisuals(currentIndex);\n          setHandlePosition(currentIndex);\n          parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[currentIndex] }, '*');\n        }\n      }\n    });\n\n    // Resize Observer for dynamic width adjustment\n    const resizeObserver = new ResizeObserver(() => {\n      setHandlePosition(currentIndex);\n      sendHeight();\n    });\n    resizeObserver.observe(document.body);\n\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    // Host Locking Protocol\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        sliderBox.classList.add('locked');\n        sliderBox.removeAttribute('tabindex');\n      }\n    });\n\n    // Init\n    window.addEventListener('load', () => {\n      updateVisuals(0);\n      setHandlePosition(0);\n      sendHeight();\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Lower activation energy, same enthalpy change"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Energy, Thermodynamics, and Electrochemistry Unit Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "An unknown metal with a mass of 50.0 g at 100.0°C is placed into 100.0 g of water at 20.0°C. The final equilibrium temperature is 25.0°C. Which of the following statements correctly evaluates the specific heat capacity of the metal compared to water?",
+     "options": [
+      "The specific heat of the metal is significantly higher than water because its temperature change was larger.",
+      "The specific heat of the metal is significantly lower than water because its temperature change was much larger for the same energy transfer.",
+      "The specific heat of the metal is equal to water because the mass of the water and metal are the same.",
+      "The specific heat of the metal is lower than water because it released more heat than the water absorbed."
+     ],
+     "explanation": "Since the heat lost by the metal equals the heat gained by the water (q = mcΔT), and both have similar masses, the substance with the much larger temperature change (75°C for metal vs 5°C for water) must have a proportionally smaller specific heat capacity.",
+     "correctAnswers": [
+      "The specific heat of the metal is significantly lower than water because its temperature change was much larger for the same energy transfer."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the Gibbs Free Energy equation (ΔG = ΔH - TΔS), under which sets of conditions will a reaction ALWAYS be spontaneous (thermodynamically favored) regardless of the temperature?",
+     "options": [
+      "The reaction is exothermic (ΔH < 0).",
+      "The reaction results in an increase in entropy (ΔS > 0).",
+      "The reaction is endothermic (ΔH > 0).",
+      "The reaction results in a decrease in entropy (ΔS < 0).",
+      "The reaction has a negative ΔG value."
+     ],
+     "explanation": "For ΔG to be negative at all temperatures, the enthalpy term (ΔH) must be negative and the entropy term (-TΔS) must also be negative (which requires ΔS to be positive). By definition, a spontaneous reaction has a negative ΔG.",
+     "correctAnswers": [
+      "The reaction is exothermic (ΔH < 0).",
+      "The reaction results in an increase in entropy (ΔS > 0).",
+      "The reaction has a negative ΔG value."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When a salt is dissolved in water in a coffee-cup calorimeter and the temperature of the water decreases, the dissolution process is classified as ____.",
+     "placeholder": "Endothermic or Exothermic?",
+     "correctAnswers": [
+      "endothermic"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If a reaction has a positive ΔH and a positive ΔS, what is the effect of increasing temperature on the spontaneity of the reaction?",
+     "options": [
+      "The reaction becomes more spontaneous as temperature increases.",
+      "The reaction becomes less spontaneous as temperature increases.",
+      "The temperature has no effect on spontaneity.",
+      "The reaction will never be spontaneous regardless of temperature."
+     ],
+     "explanation": "With ΔH > 0 (unfavorable) and ΔS > 0 (favorable), the -TΔS term becomes more negative as T increases. Eventually, -TΔS will outweigh the positive ΔH, making ΔG negative.",
+     "correctAnswers": [
+      "The reaction becomes more spontaneous as temperature increases."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the standard enthalpy of formation (ΔHf°)?",
+     "options": [
+      "ΔHf° for O2 (g) is 0 kJ/mol.",
+      "ΔHf° for Br2 (g) is 0 kJ/mol.",
+      "It represents the formation of 1 mole of a substance from its elements in their standard states.",
+      "ΔHf° for C (diamond) is 0 kJ/mol.",
+      "It is used in the formula ΔHrxn = ΣΔHf°(products) - ΣΔHf°(reactants)."
+     ],
+     "explanation": "Elements in their most stable reference state (like O2 gas) have a ΔHf° of zero. Bromine's standard state is liquid, not gas, and Carbon's is graphite, not diamond.",
+     "correctAnswers": [
+      "ΔHf° for O2 (g) is 0 kJ/mol.",
+      "It represents the formation of 1 mole of a substance from its elements in their standard states.",
+      "It is used in the formula ΔHrxn = ΣΔHf°(products) - ΣΔHf°(reactants)."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In an electrolytic cell, the electrode where reduction occurs is called the ____.",
+     "placeholder": "Anode or Cathode?",
+     "correctAnswers": [
+      "cathode"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A student performs a calorimetry experiment for an exothermic reaction but forgets to put the lid on the coffee cup. How will this error affect the calculated ΔH for the reaction?",
+     "options": [
+      "The calculated ΔH will be more negative than the true value.",
+      "The calculated ΔH will be less negative (smaller magnitude) than the true value.",
+      "The calculated ΔH will be unaffected because q = mcΔT only depends on mass.",
+      "The temperature change (ΔT) will be larger than expected."
+     ],
+     "explanation": "If heat escapes to the air, the water's temperature rise will be smaller than it should have been. A smaller ΔT leads to a smaller calculated q, underestimating the energy released.",
+     "correctAnswers": [
+      "The calculated ΔH will be less negative (smaller magnitude) than the true value."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following changes would increase the amount of metal plated on a cathode during an electrolysis experiment?",
+     "options": [
+      "Increasing the current (Amperes).",
+      "Increasing the time the cell is running.",
+      "Decreasing the concentration of the metal ions.",
+      "Increasing the molar mass of the metal being plated.",
+      "Decreasing the voltage below the decomposition potential."
+     ],
+     "explanation": "Mass = (I * t * MM) / (n * F). Therefore, increasing current (I), time (t), or molar mass (MM) directly increases the mass of the metal deposited.",
+     "correctAnswers": [
+      "Increasing the current (Amperes).",
+      "Increasing the time the cell is running.",
+      "Increasing the molar mass of the metal being plated."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "According to the First Law of Thermodynamics, in an insulated system where a hot object is placed in contact with a cold object, the heat lost by the hot object must ____ the heat gained by the cold object.",
+     "placeholder": "be greater than, less than, or equal to?",
+     "correctAnswers": [
+      "equal"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Exothermic potential energy diagram showing reactant and product energy levels.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit5-q10.png"
+     },
+     "prompt": "Consider the potential energy diagram of a reaction where the products are at a lower energy level than the reactants. What does the vertical distance between the reactants and the products represent?",
+     "options": [
+      "Activation Energy",
+      "Enthalpy of Reaction (ΔH)",
+      "Entropy of Reaction (ΔS)",
+      "Gibbs Free Energy (ΔG)"
+     ],
+     "explanation": "The difference in potential energy (enthalpy) between the reactants and products is the enthalpy change (ΔH). Activation energy is the distance from reactants to the peak.",
+     "correctAnswers": [
+      "Enthalpy of Reaction (ΔH)"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which statements are true regarding a Salt Bridge in a galvanic cell?",
+     "options": [
+      "It allows for the flow of electrons between the two half-cells.",
+      "It maintains electrical neutrality in the half-cells.",
+      "It allows ions to migrate to balance charge buildup.",
+      "It is usually filled with an inert electrolyte like KNO3.",
+      "It prevents the two solutions from mixing entirely."
+     ],
+     "explanation": "A salt bridge allows ion flow to maintain neutrality; electrons flow through the external wire, not the salt bridge.",
+     "correctAnswers": [
+      "It maintains electrical neutrality in the half-cells.",
+      "It allows ions to migrate to balance charge buildup.",
+      "It is usually filled with an inert electrolyte like KNO3.",
+      "It prevents the two solutions from mixing entirely."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Using Hess's Law, if Reaction A has ΔH = +100 kJ and Reaction B has ΔH = -50 kJ, the ΔH for the combined reaction (A + B) is ____ kJ.",
+     "placeholder": "Enter value",
+     "correctAnswers": [
+      "50",
+      "+50"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A reaction has a ΔH° = -100 kJ and a ΔS° = -200 J/K. At what temperature range is this reaction spontaneous?",
+     "options": [
+      "Spontaneous at all temperatures.",
+      "Spontaneous only at temperatures above 500 K.",
+      "Spontaneous only at temperatures below 500 K.",
+      "Never spontaneous at any temperature."
+     ],
+     "explanation": "Spontaneity occurs when ΔH - TΔS < 0. Here, -100,000 - T(-200) < 0. This simplifies to 200T < 100,000, or T < 500 K. Enthalpy drives the reaction, but entropy opposes it.",
+     "correctAnswers": [
+      "Spontaneous only at temperatures below 500 K."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the processes that represent an increase in entropy (ΔS > 0).",
+     "options": [
+      "H2O (l) -> H2O (g)",
+      "2 NO (g) + O2 (g) -> 2 NO2 (g)",
+      "NaCl (s) -> NaCl (aq)",
+      "N2 (g) at 2 atm -> N2 (g) at 0.5 atm",
+      "Fe (s) + S (s) -> FeS (s)"
+     ],
+     "explanation": "Phase changes from liquid to gas, dissolution of solids, and expansion (lower pressure/higher volume) all increase the number of possible microstates.",
+     "correctAnswers": [
+      "H2O (l) -> H2O (g)",
+      "NaCl (s) -> NaCl (aq)",
+      "N2 (g) at 2 atm -> N2 (g) at 0.5 atm"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The mathematical constant used to convert between moles of electrons and Coulombs of charge is known as ____ Constant.",
+     "placeholder": "Name of the constant",
+     "correctAnswers": [
+      "Faraday",
+      "Faraday's"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "A student is assembling a galvanic (voltaic) cell using a Zinc electrode in 1M Zn(NO3)2 and a Copper electrode in 1M Cu(NO3)2. Use the interactive to set up the cell so it produces a positive voltage.",
+     "options": [
+      "Electrons flowing from Copper to Zinc",
+      "Zinc electrode acting as the Anode",
+      "Copper electrode acting as the Anode",
+      "Salt bridge containing non-conducting oil"
+     ],
+     "explanation": "In a spontaneous Zn-Cu cell, Zinc has a more negative reduction potential and is therefore oxidized at the anode. Electrons flow from the anode (Zn) to the cathode (Cu).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Galvanic Cell Interactive Schematic</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n      \n      --zn-color: #8E9AA6;\n      --cu-color: #D37D57;\n      --sol-zn: #e2e6ea;\n      --sol-cu: #D2E4F0;\n      --oil-color: #EAD078;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      -webkit-user-select: none;\n      user-select: none;\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 580px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 10px 14px;\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .instruction {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 2px;\n    }\n\n    /* Stage Styling */\n    .stage {\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 8px;\n      position: relative;\n      border: 1px solid var(--border);\n      height: 150px;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Electron animation */\n    .electron-flow {\n      stroke: #FFE57F;\n      stroke-dasharray: 6 12;\n      stroke-width: 3;\n      stroke-linecap: round;\n      animation: flow 2s linear infinite;\n      display: none;\n    }\n\n    @keyframes flow {\n      to {\n        stroke-dashoffset: -36;\n      }\n    }\n\n    .flow-reverse {\n      animation-direction: reverse;\n    }\n\n    /* Interactive Slots Area */\n    .slots-grid {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 8px;\n      position: relative;\n    }\n\n    .slot {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      padding: 8px 10px;\n      min-height: 48px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      font-size: 12px;\n      font-weight: 500;\n      color: var(--fg);\n      cursor: pointer;\n      position: relative;\n      transition: background-color 0.2s, border-color 0.2s;\n    }\n\n    .slot.active {\n      border-style: solid;\n      border-color: var(--accent);\n      background-color: var(--accent-soft);\n    }\n\n    .slot.drag-over {\n      background-color: var(--accent-soft);\n      border-color: var(--accent-strong);\n    }\n\n    /* Floating Draggable Connector Peg */\n    .draggable-peg {\n      width: 32px;\n      height: 32px;\n      background: var(--accent);\n      border-radius: 50%;\n      position: absolute;\n      cursor: grab;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      box-shadow: 0 4px 10px rgba(0,0,0,0.15);\n      z-index: 10;\n      touch-action: none;\n      outline: none;\n      left: 50%;\n      top: -30px;\n      transform: translate(-50%, -50%);\n      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;\n    }\n\n    .draggable-peg:active {\n      cursor: grabbing;\n      transform: translate(-50%, -50%) scale(1.1);\n      box-shadow: 0 6px 14px rgba(0,0,0,0.25);\n    }\n\n    .draggable-peg:focus-visible {\n      outline: 2px solid var(--accent-strong);\n      outline-offset: 2px;\n    }\n\n    .draggable-peg svg {\n      width: 16px;\n      height: 16px;\n      fill: #ffffff;\n    }\n\n    .peg-container-wrapper {\n      position: relative;\n      height: 20px;\n      margin-top: 5px;\n    }\n\n    .visually-hidden {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"visually-hidden\">Galvanic Cell Configuration Practice</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"instruction\">Drag the plug into a slot to configure the cell:</div>\n\n    <!-- Live Animated Cell Stage -->\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 500 150\">\n        <!-- Beaker Left (Zn) -->\n        <rect x=\"50\" y=\"55\" width=\"90\" height=\"75\" rx=\"5\" fill=\"var(--sol-zn)\" stroke=\"#CCCCCC\" stroke-width=\"2\" />\n        <!-- Beaker Right (Cu) -->\n        <rect x=\"360\" y=\"55\" width=\"90\" height=\"75\" rx=\"5\" fill=\"var(--sol-cu)\" stroke=\"#CCCCCC\" stroke-width=\"2\" />\n\n        <!-- Solution Labels -->\n        <text x=\"95\" y=\"115\" font-size=\"9\" fill=\"#888888\" text-anchor=\"middle\">Zn²⁺ sol.</text>\n        <text x=\"405\" y=\"115\" font-size=\"9\" fill=\"#5588A3\" text-anchor=\"middle\">Cu²⁺ sol.</text>\n\n        <!-- Zinc Electrode -->\n        <rect id=\"electrode-zn\" x=\"80\" y=\"30\" width=\"20\" height=\"70\" fill=\"var(--zn-color)\" rx=\"2\"/>\n        <text x=\"90\" y=\"25\" font-size=\"10\" font-weight=\"bold\" fill=\"#555\" text-anchor=\"middle\">Zn</text>\n\n        <!-- Copper Electrode -->\n        <rect id=\"electrode-cu\" x=\"400\" y=\"30\" width=\"20\" height=\"70\" fill=\"var(--cu-color)\" rx=\"2\"/>\n        <text x=\"410\" y=\"25\" font-size=\"10\" font-weight=\"bold\" fill=\"#7D432B\" text-anchor=\"middle\">Cu</text>\n\n        <!-- Salt Bridge (U-tube) -->\n        <path id=\"salt-bridge\" d=\"M 125 75 L 125 45 C 125 35, 375 35, 375 45 L 375 75\" fill=\"none\" stroke=\"#EAE6DF\" stroke-width=\"16\" stroke-linecap=\"round\"/>\n        <path id=\"salt-bridge-core\" d=\"M 125 75 L 125 45 C 125 37, 375 37, 375 45 L 375 75\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"10\" stroke-linecap=\"round\"/>\n\n        <!-- External Wire Circuit -->\n        <path id=\"circuit-wire\" d=\"M 90 30 L 90 15 L 220 15 M 280 15 L 410 15 L 410 30\" fill=\"none\" stroke=\"#444444\" stroke-width=\"2\" />\n        \n        <!-- Animated Electron Path -->\n        <path id=\"electron-path\" d=\"M 90 30 L 90 15 L 410 15 L 410 30\" fill=\"none\" class=\"electron-flow\" />\n\n        <!-- Voltmeter -->\n        <circle cx=\"250\" cy=\"15\" r=\"14\" fill=\"#FFFFFF\" stroke=\"#444444\" stroke-width=\"2\" />\n        <text id=\"voltmeter-text\" x=\"250\" y=\"18\" font-size=\"9\" font-weight=\"bold\" fill=\"#1F1F1F\" text-anchor=\"middle\">0.0V</text>\n\n        <!-- State Highlights / Badges -->\n        <g id=\"anode-badge-left\" opacity=\"0\">\n          <rect x=\"42\" y=\"112\" width=\"46\" height=\"14\" rx=\"3\" fill=\"#EAEAEA\" stroke=\"#999\" stroke-width=\"1\"/>\n          <text x=\"65\" y=\"122\" font-size=\"8\" font-weight=\"bold\" fill=\"#444\" text-anchor=\"middle\">ANODE (-)</text>\n        </g>\n        <g id=\"anode-badge-right\" opacity=\"0\">\n          <rect x=\"412\" y=\"112\" width=\"46\" height=\"14\" rx=\"3\" fill=\"#EAEAEA\" stroke=\"#999\" stroke-width=\"1\"/>\n          <text x=\"435\" y=\"122\" font-size=\"8\" font-weight=\"bold\" fill=\"#444\" text-anchor=\"middle\">ANODE (-)</text>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Draggable Origin Anchor Row -->\n    <div class=\"peg-container-wrapper\">\n      <div id=\"drag-peg\" class=\"draggable-peg\" draggable=\"true\" tabindex=\"0\" aria-label=\"Configuration Plug. Use arrow keys to select option.\">\n        <svg viewBox=\"0 0 24 24\">\n          <path d=\"M16,17.01V10C16,7.79 14.21,6 12,6C9.79,6 8,7.79 8,10V17.01H6.13L12,22L17.87,17.01H16M11,2H13V4H11V2M15,2H17V4H15V2M7,2H9V4H7V2Z\"/>\n        </svg>\n      </div>\n    </div>\n\n    <!-- Target Slots Grid -->\n    <div class=\"slots-grid\" id=\"slots-container\">\n      <div class=\"slot\" id=\"slot-zn-anode\" data-option=\"Zinc electrode acting as the Anode\">\n        Zinc electrode acting as the Anode\n      </div>\n      <div class=\"slot\" id=\"slot-cu-anode\" data-option=\"Copper electrode acting as the Anode\">\n        Copper electrode acting as the Anode\n      </div>\n      <div class=\"slot\" id=\"slot-cu-to-zn\" data-option=\"Electrons flowing from Copper to Zinc\">\n        Electrons flowing from Copper to Zinc\n      </div>\n      <div class=\"slot\" id=\"slot-oil-bridge\" data-option=\"Salt bridge containing non-conducting oil\">\n        Salt bridge containing non-conducting oil\n      </div>\n    </div>\n  </div>\n\n  <script>\n    const peg = document.getElementById('drag-peg');\n    const slots = document.querySelectorAll('.slot');\n    const slotsContainer = document.getElementById('slots-container');\n    const eFlow = document.getElementById('electron-path');\n    const voltText = document.getElementById('voltmeter-text');\n    const saltBridgeCore = document.getElementById('salt-bridge-core');\n    const anodeLeft = document.getElementById('anode-badge-left');\n    const anodeRight = document.getElementById('anode-badge-right');\n\n    let currentOption = null;\n    let isLocked = false;\n    let activeSlotIndex = -1;\n\n    // Report height on load and changes\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n    window.addEventListener('load', reportHeight);\n    window.addEventListener('resize', reportHeight);\n\n    // Coordinate & Drag offset protection\n    let isDragging = false;\n    let startX = 0;\n    let startY = 0;\n    let pegStartX = 0;\n    let pegStartY = 0;\n\n    // Initialize positions\n    function resetPeg() {\n      peg.style.transition = 'transform 0.2s cubic-bezier(.34,1.56,.64,1)';\n      peg.style.left = '50%';\n      peg.style.top = '-10px';\n    }\n\n    // Interactive State updates\n    function updateCellVisualization(option) {\n      // Reset defaults\n      eFlow.style.display = 'none';\n      eFlow.classList.remove('flow-reverse');\n      saltBridgeCore.setAttribute('stroke', '#FFFFFF');\n      voltText.textContent = '0.0V';\n      anodeLeft.setAttribute('opacity', '0');\n      anodeRight.setAttribute('opacity', '0');\n\n      if (option === \"Zinc electrode acting as the Anode\") {\n        eFlow.style.display = 'block';\n        voltText.textContent = '+1.10V';\n        anodeLeft.setAttribute('opacity', '1');\n      } else if (option === \"Copper electrode acting as the Anode\") {\n        eFlow.style.display = 'block';\n        eFlow.classList.add('flow-reverse');\n        voltText.textContent = '-1.10V';\n        anodeRight.setAttribute('opacity', '1');\n      } else if (option === \"Electrons flowing from Copper to Zinc\") {\n        eFlow.style.display = 'block';\n        eFlow.classList.add('flow-reverse');\n        voltText.textContent = 'Ext V';\n      } else if (option === \"Salt bridge containing non-conducting oil\") {\n        saltBridgeCore.setAttribute('stroke', 'var(--oil-color)');\n        voltText.textContent = '0.00V';\n      }\n    }\n\n    function selectOption(option, slotElement) {\n      if (isLocked) return;\n      currentOption = option;\n\n      slots.forEach(s => s.classList.remove('active'));\n      if (slotElement) {\n        slotElement.classList.add('active');\n        // Snap peg visually to the center of the active slot\n        const sRect = slotElement.getBoundingClientRect();\n        const pRect = peg.parentElement.getBoundingClientRect();\n        const targetX = sRect.left + sRect.width/2 - pRect.left;\n        const targetY = sRect.top + sRect.height/2 - pRect.top;\n        \n        peg.style.transition = 'all 0.25s cubic-bezier(.34,1.56,.64,1)';\n        peg.style.left = `${targetX}px`;\n        peg.style.top = `${targetY}px`;\n      }\n\n      updateCellVisualization(option);\n      \n      // Dispatch option update\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: option }, '*');\n      } catch (e) {}\n    }\n\n    // Pointer Events for dragging\n    peg.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      peg.setPointerCapture(e.pointerId);\n      \n      const pegRect = peg.getBoundingClientRect();\n      const parentRect = peg.parentElement.getBoundingClientRect();\n      \n      // Keep grab offset\n      startX = e.clientX;\n      startY = e.clientY;\n      pegStartX = pegRect.left + pegRect.width / 2 - parentRect.left;\n      pegStartY = pegRect.top + pegRect.height / 2 - parentRect.top;\n      \n      peg.style.transition = 'none';\n    });\n\n    peg.addEventListener('pointermove', (e) => {\n      if (!isDragging) return;\n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n      \n      const newX = pegStartX + dx;\n      const newY = pegStartY + dy;\n      \n      peg.style.left = `${newX}px`;\n      peg.style.top = `${newY}px`;\n\n      // Visual feedback for hovering over slots\n      const pegRect = peg.getBoundingClientRect();\n      const pegCenterX = pegRect.left + pegRect.width / 2;\n      const pegCenterY = pegRect.top + pegRect.height / 2;\n\n      slots.forEach(slot => {\n        const r = slot.getBoundingClientRect();\n        if (pegCenterX >= r.left && pegCenterX <= r.right && pegCenterY >= r.top && pegCenterY <= r.bottom) {\n          slot.classList.add('drag-over');\n        } else {\n          slot.classList.remove('drag-over');\n        }\n      });\n    });\n\n    peg.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      peg.releasePointerCapture(e.pointerId);\n\n      // Check drop target\n      const pegRect = peg.getBoundingClientRect();\n      const pegCenterX = pegRect.left + pegRect.width / 2;\n      const pegCenterY = pegRect.top + pegRect.height / 2;\n      \n      let targetSlot = null;\n      slots.forEach((slot, index) => {\n        const r = slot.getBoundingClientRect();\n        slot.classList.remove('drag-over');\n        if (pegCenterX >= r.left && pegCenterX <= r.right && pegCenterY >= r.top && pegCenterY <= r.bottom) {\n          targetSlot = slot;\n          activeSlotIndex = index;\n        }\n      });\n\n      if (targetSlot) {\n        selectOption(targetSlot.dataset.option, targetSlot);\n      } else {\n        // Return to last chosen or original state\n        if (currentOption) {\n          const activeSlot = Array.from(slots).find(s => s.dataset.option === currentOption);\n          selectOption(currentOption, activeSlot);\n        } else {\n          resetPeg();\n        }\n      }\n    });\n\n    // Make slots clickable as well\n    slots.forEach((slot, index) => {\n      slot.addEventListener('click', () => {\n        if (isLocked) return;\n        activeSlotIndex = index;\n        selectOption(slot.dataset.option, slot);\n      });\n    });\n\n    // Keyboard navigation support\n    peg.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {\n        e.preventDefault();\n        if (activeSlotIndex === -1) {\n          activeSlotIndex = 0;\n        } else {\n          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n            activeSlotIndex = (activeSlotIndex + 1) % slots.length;\n          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n            activeSlotIndex = (activeSlotIndex - 1 + slots.length) % slots.length;\n          }\n        }\n        const targetSlot = slots[activeSlotIndex];\n        selectOption(targetSlot.dataset.option, targetSlot);\n      }\n    });\n\n    // Handle incoming messages\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        peg.style.pointerEvents = 'none';\n        peg.style.cursor = 'default';\n        slots.forEach(s => {\n          s.style.pointerEvents = 'none';\n          s.style.cursor = 'default';\n        });\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Zinc electrode acting as the Anode"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Equilibrium, Acids, and Bases Unit Exam",
+   "unitId": "unit6",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A reaction system at equilibrium is described by the equation 2A(g) ⇌ B(g). If the volume of the container is suddenly halved at constant temperature, what is the immediate effect on the reaction quotient (Q) relative to the equilibrium constant (K)?",
+     "options": [
+      "Q will be equal to K",
+      "Q will be greater than K",
+      "Q will be less than K",
+      "Q will become zero"
+     ],
+     "explanation": "Halving the volume doubles the partial pressures of all gases. For Q = P(B) / P(A)^2, doubling the pressures results in (2)/(2)^2 = 1/2 of the original K value. Since Q is now smaller than K, the system will shift right.",
+     "correctAnswers": [
+      "Q will be less than K"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following conditions must be true for a chemical system to be considered in a state of dynamic equilibrium?",
+     "options": [
+      "The rate of the forward reaction equals the rate of the reverse reaction.",
+      "The concentrations of reactants and products are equal.",
+      "The concentrations of all species remain constant over time.",
+      "The reaction has completely stopped at the molecular level.",
+      "The Gibbs Free Energy change (ΔG) for the system is zero."
+     ],
+     "explanation": "Equilibrium is characterized by equal rates and constant concentrations, but those concentrations are rarely equal to each other. It is a dynamic process, not a static stop.",
+     "correctAnswers": [
+      "The rate of the forward reaction equals the rate of the reverse reaction.",
+      "The concentrations of all species remain constant over time.",
+      "The Gibbs Free Energy change (ΔG) for the system is zero."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a heterogeneous equilibrium involving the decomposition of solid calcium carbonate, CaCO3(s) ⇌ CaO(s) + CO2(g), the equilibrium constant Kp is equal to ____.",
+     "placeholder": "Expression for Kp",
+     "correctAnswers": [
+      "P(CO2)",
+      "the partial pressure of CO2",
+      "PCO2"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A 0.10 M solution of a weak acid HA has a pH of 3.00. What is the approximate Ka for this acid?",
+     "options": [
+      "1.0 x 10^-3",
+      "1.0 x 10^-5",
+      "1.0 x 10^-6",
+      "1.0 x 10^-2"
+     ],
+     "explanation": "pH 3 means [H+] = 10^-3. For a weak acid, Ka ≈ [H+]^2 / [HA]. (10^-3)^2 / 0.1 = 10^-6 / 10^-1 = 10^-5.",
+     "correctAnswers": [
+      "1.0 x 10^-5"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A buffer solution is prepared using 0.50 M acetic acid (CH3COOH) and 0.50 M sodium acetate (NaCH3COO). Which of the following changes would increase the pH of this buffer?",
+     "options": [
+      "Adding a small amount of NaOH",
+      "Adding a small amount of HCl",
+      "Increasing the concentration of sodium acetate",
+      "Increasing the concentration of acetic acid",
+      "Diluting the buffer with a small amount of distilled water"
+     ],
+     "explanation": "pH = pKa + log([Base]/[Acid]). Adding NaOH converts acid to base, increasing the ratio. Increasing the salt (base) concentration also increases the ratio and the pH.",
+     "correctAnswers": [
+      "Adding a small amount of NaOH",
+      "Increasing the concentration of sodium acetate"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If the molar solubility of AgCl (Ksp = 1.8 x 10^-10) is measured in a 0.10 M NaCl solution, the solubility will be lower than in pure water due to the ____ effect.",
+     "placeholder": "Type of effect",
+     "correctAnswers": [
+      "common ion",
+      "common-ion"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Titration curve of a weak base with a strong acid showing an acidic equivalence point.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d56ac6b5-72df-425e-bd1a-bd3d008e4291/exam/images/unit6-q7.png"
+     },
+     "prompt": "Consider the titration of a weak base with a strong acid. Which of the following correctly describes the pH at the equivalence point?",
+     "options": [
+      "pH = 7.00",
+      "pH > 7.00",
+      "pH < 7.00",
+      "pH = pKa"
+     ],
+     "explanation": "At the equivalence point of a weak base/strong acid titration, the solution contains the conjugate acid of the weak base, which hydrolyzes to produce H3O+, resulting in an acidic pH.",
+     "correctAnswers": [
+      "pH < 7.00"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following salts will produce a basic solution when dissolved in water?",
+     "options": [
+      "KClO4",
+      "NaCN",
+      "NH4Cl",
+      "K2CO3",
+      "LiF"
+     ],
+     "explanation": "Salts derived from a strong base and a weak acid undergo anion hydrolysis to produce OH-. CN-, CO3(2-), and F- are all conjugates of weak acids.",
+     "correctAnswers": [
+      "NaCN",
+      "K2CO3",
+      "LiF"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The point in a titration where the moles of titrant added are stoichiometrically equivalent to the moles of analyte is called the ____ point.",
+     "placeholder": "Name of point",
+     "correctAnswers": [
+      "equivalence",
+      "stoichiometric"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "For the reaction A(g) ⇌ 2B(g), Kc = 4.0 at 25°C. If a vessel contains [A] = 2.0 M and [B] = 2.0 M, which of the following is true?",
+     "options": [
+      "The system is at equilibrium.",
+      "Q = 2.0, and the reaction shifts right.",
+      "Q = 2.0, and the reaction shifts left.",
+      "Q = 0.5, and the reaction shifts right."
+     ],
+     "explanation": "Q = [B]^2 / [A] = (2.0)^2 / 2.0 = 2.0. Since Q (2.0) < Kc (4.0), the reaction must proceed forward (to the right) to reach equilibrium.",
+     "correctAnswers": [
+      "Q = 2.0, and the reaction shifts right."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In an ICE table used for the dissociation of a 0.50 M weak acid HA (Ka = 1.0 x 10^-8), which of the following approximations or values are typically used?",
+     "options": [
+      "The change in [HA] is represented as -x.",
+      "The initial [H+] and [A-] are assumed to be 0 M.",
+      "0.50 - x is approximated as 0.50 because Ka is very small.",
+      "The value of x is found using the quadratic formula only.",
+      "The final [H+] will be approximately 7.07 x 10^-5 M."
+     ],
+     "explanation": "Because Ka is much smaller than the initial concentration (5% rule), we can simplify the denominator. x^2 / 0.5 = 10^-8 leads to x = sqrt(5 x 10^-9) ≈ 7.1 x 10^-5.",
+     "correctAnswers": [
+      "The change in [HA] is represented as -x.",
+      "The initial [H+] and [A-] are assumed to be 0 M.",
+      "0.50 - x is approximated as 0.50 because Ka is very small.",
+      "The final [H+] will be approximately 7.07 x 10^-5 M."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "For a saturated solution of Ag2CO3, the solubility product expression is Ksp = ____.",
+     "placeholder": "Ksp expression",
+     "correctAnswers": [
+      "[Ag+]^2[CO3^2-]",
+      "[Ag+]^2[CO3-2]",
+      "[Ag+]^2 * [CO3^2-]"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the relationship between Kc and Kp for the reaction: 2SO2(g) + O2(g) ⇌ 2SO3(g)?",
+     "options": [
+      "Kp = Kc(RT)^1",
+      "Kp = Kc(RT)^-1",
+      "Kp = Kc",
+      "Kp = Kc(RT)^-3"
+     ],
+     "explanation": "Δn = moles of gaseous products - moles of gaseous reactants. Δn = 2 - (2 + 1) = -1. Therefore, Kp = Kc(RT)^Δn = Kc(RT)^-1.",
+     "correctAnswers": [
+      "Kp = Kc(RT)^-1"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which factors will change the numerical value of the equilibrium constant (K) for a specific reaction?",
+     "options": [
+      "Increasing the concentration of reactants",
+      "Changing the temperature of the system",
+      "Adding a catalyst",
+      "Changing the initial volume of the container",
+      "Changing the solvent of the reaction"
+     ],
+     "explanation": "K is temperature-dependent. While concentration and volume changes shift the position of equilibrium, they do not change the constant K itself. Catalysts only speed up the reach to equilibrium.",
+     "correctAnswers": [
+      "Changing the temperature of the system",
+      "Changing the solvent of the reaction"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Adjust the chemical system to reach a state where the concentration of products is maximized at equilibrium for the exothermic reaction: N2(g) + 3H2(g) ⇌ 2NH3(g) + heat.",
+     "options": [
+      "High Temperature / High Volume",
+      "Low Temperature / Low Volume",
+      "High Temperature / Low Volume",
+      "Low Temperature / High Volume"
+     ],
+     "explanation": "According to Le Chatelier's Principle, decreasing temperature favors the exothermic direction (products), and decreasing volume (increasing pressure) favors the side with fewer moles of gas (products).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Haber Process Equilibrium Chamber</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --hot-color: #e76f51;\n      --cold-color: #2a9d8f;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      padding: 12px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n    }\n\n    .stage {\n      width: 100%;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      position: relative;\n      overflow: hidden;\n      aspect-ratio: 1.6 / 1;\n      max-height: 240px;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    .controls-panel {\n      width: 100%;\n      margin-top: 10px;\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 12px;\n    }\n\n    .control-group {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 8px 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 6px;\n    }\n\n    .control-label {\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.05em;\n      color: var(--muted-fg);\n      font-weight: 600;\n      display: flex;\n      justify-content: space-between;\n    }\n\n    .control-value {\n      font-size: 13px;\n      color: var(--fg);\n      font-weight: bold;\n    }\n\n    .action-hint {\n      margin-top: 8px;\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n    }\n\n    /* Grabbing states */\n    .draggable {\n      cursor: grab;\n    }\n    .draggable:active {\n      cursor: grabbing;\n    }\n\n    .state-indicator {\n      margin-top: 8px;\n      padding: 6px 12px;\n      background: var(--accent-soft);\n      border: 1px solid rgba(76,102,150,0.15);\n      border-radius: 20px;\n      font-size: 12px;\n      color: var(--accent-strong);\n      font-weight: 500;\n      text-align: center;\n      transition: all 0.2s ease;\n    }\n\n    /* Focus styling */\n    .interactive-element:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n    \n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;\">\n    Interactive Haber Process Equilibrium Chamber\n  </h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\">\n        <!-- Definitions for chemical species & gradients -->\n        <defs>\n          <!-- Background glow for heating/cooling -->\n          <radialGradient id=\"temp-glow\" cx=\"50%\" cy=\"100%\" r=\"60%\">\n            <stop offset=\"0%\" id=\"glow-start\" stop-color=\"#faf9f7\" stop-opacity=\"0.5\"/>\n            <stop offset=\"100%\" stop-color=\"#faf9f7\" stop-opacity=\"0\"/>\n          </radialGradient>\n        </defs>\n\n        <!-- Dynamic Chamber Background (Temp Glow) -->\n        <rect x=\"110\" y=\"25\" width=\"180\" height=\"155\" fill=\"url(#temp-glow)\" rx=\"4\" />\n\n        <!-- Gas Chamber Frame -->\n        <rect x=\"110\" y=\"25\" width=\"180\" height=\"155\" fill=\"none\" stroke=\"#bdc3c7\" stroke-width=\"3\" rx=\"4\" />\n        \n        <!-- Inside Chamber Grid Backing -->\n        <line x1=\"110\" y1=\"75\" x2=\"290\" y2=\"75\" stroke=\"#e2e2e2\" stroke-dasharray=\"4 4\" stroke-width=\"1\" />\n        <line x1=\"110\" y1=\"125\" x2=\"290\" y2=\"125\" stroke=\"#e2e2e2\" stroke-dasharray=\"4 4\" stroke-width=\"1\" />\n\n        <!-- Chemical Equation Signage inside chamber background -->\n        <text x=\"200\" y=\"165\" font-size=\"10\" fill=\"#cccccc\" font-weight=\"bold\" text-anchor=\"middle\" letter-spacing=\"1\">N₂ + 3H₂ ⇌ 2NH₃ + Q</text>\n\n        <!-- Molecules Group (rendered & updated via JS) -->\n        <g id=\"molecules-group\"></g>\n\n        <!-- Piston Component -->\n        <g id=\"piston-assembly\">\n          <!-- Shaft -->\n          <rect x=\"194\" y=\"0\" width=\"12\" height=\"100\" fill=\"#95a5a6\" />\n          <!-- Handle -->\n          <rect id=\"piston-handle\" class=\"draggable interactive-element\" x=\"170\" y=\"10\" width=\"60\" height=\"14\" rx=\"4\" fill=\"#7f8c8d\" stroke=\"#5d6d7e\" stroke-width=\"1\" tabindex=\"0\" aria-label=\"Volume Piston. Drag up or down.\" />\n          <line x1=\"180\" y1=\"17\" x2=\"220\" y2=\"17\" stroke=\"#ffffff\" stroke-width=\"1.5\" stroke-linecap=\"round\" />\n          <!-- Piston Head (seals the chamber) -->\n          <rect x=\"112\" y=\"80\" width=\"176\" height=\"12\" fill=\"#7f8c8d\" rx=\"2\" />\n          <!-- Pressure Gauge representation inside piston -->\n          <circle cx=\"200\" cy=\"86\" r=\"4\" fill=\"#e74c3c\" />\n        </g>\n\n        <!-- Temperature Slider Control under the chamber -->\n        <g id=\"temp-control-group\">\n          <!-- Track -->\n          <rect x=\"120\" y=\"205\" width=\"160\" height=\"6\" rx=\"3\" fill=\"#e2e2e2\" />\n          <!-- Warm/Cold visual track markers -->\n          <circle cx=\"120\" cy=\"208\" r=\"4\" fill=\"var(--cold-color)\" />\n          <circle cx=\"280\" cy=\"208\" r=\"4\" fill=\"var(--hot-color)\" />\n          <!-- Handle -->\n          <g id=\"temp-handle\" class=\"draggable interactive-element\" transform=\"translate(200, 208)\" tabindex=\"0\" aria-label=\"Temperature slider. Drag left for cold, right for hot.\">\n            <circle cx=\"0\" cy=\"0\" r=\"10\" fill=\"#ffffff\" stroke=\"var(--accent)\" stroke-width=\"2.5\" />\n            <circle cx=\"0\" cy=\"0\" r=\"4\" fill=\"var(--accent)\" />\n          </g>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Active Selection / Answer State Indicator -->\n    <div class=\"state-indicator\" id=\"state-readout\">\n      Current State: High Temperature / High Volume\n    </div>\n\n    <div class=\"controls-panel\">\n      <div class=\"control-group\">\n        <span class=\"control-label\">Chamber Volume <span id=\"vol-lbl-short\" style=\"color:var(--accent)\">High</span></span>\n        <span class=\"control-value\" id=\"vol-val\">High Volume</span>\n      </div>\n      <div class=\"control-group\">\n        <span class=\"control-label\">Temperature <span id=\"temp-lbl-short\" style=\"color:var(--accent)\">High</span></span>\n        <span class=\"control-value\" id=\"temp-val\">High Temp</span>\n      </div>\n    </div>\n\n    <div class=\"action-hint\">\n      Drag the <b>Piston</b> and <b>Temperature Slider</b> to shift the equilibrium.\n    </div>\n  </div>\n\n  <script>\n    // --- State & Constants ---\n    const STATE = {\n      volume: 'High Volume',       // 'High Volume' | 'Low Volume'\n      temperature: 'High Temperature', // 'High Temperature' | 'Low Temperature'\n      locked: false,\n      pistonY: 35,   // range: 35 (High Vol) to 95 (Low Vol)\n      tempX: 280     // range: 120 (Cold) to 280 (Hot)\n    };\n\n    const OPTIONS_MAP = {\n      'High Temperature_High Volume': 'High Temperature / High Volume',\n      'Low Temperature_Low Volume': 'Low Temperature / Low Volume',\n      'High Temperature_Low Volume': 'High Temperature / Low Volume',\n      'Low Temperature_High Volume': 'Low Temperature / High Volume'\n    };\n\n    let reportedAnswer = \"\";\n\n    // Elements\n    const pistonAssembly = document.getElementById('piston-assembly');\n    const pistonHandle = document.getElementById('piston-handle');\n    const tempHandle = document.getElementById('temp-handle');\n    const glowStart = document.getElementById('glow-start');\n    const moleculesGroup = document.getElementById('molecules-group');\n    const stateReadout = document.getElementById('state-readout');\n    const volVal = document.getElementById('vol-val');\n    const tempVal = document.getElementById('temp-val');\n    const volLblShort = document.getElementById('vol-lbl-short');\n    const tempLblShort = document.getElementById('temp-lbl-short');\n\n    // --- Molecular Simulation Engine ---\n    // We run a simple 2D bouncy particle system inside the chamber boundaries\n    const chamberLeft = 115;\n    const chamberRight = 285;\n    const chamberBottom = 175;\n    \n    let molecules = [];\n    const MAX_MOLECULES = 24;\n\n    function initMolecules() {\n      molecules = [];\n      for (let i = 0; i < MAX_MOLECULES; i++) {\n        molecules.push({\n          x: chamberLeft + Math.random() * (chamberRight - chamberLeft - 15),\n          y: 100 + Math.random() * 60,\n          vx: (Math.random() - 0.5) * 2,\n          vy: (Math.random() - 0.5) * 2,\n          type: 'N2', // default type, will be populated dynamically based on state\n          size: 6\n        });\n      }\n    }\n\n    // Determine the ideal composition based on current system state\n    // According to Le Chatelier's principle for N2 + 3H2 ⇌ 2NH3 + heat (exothermic):\n    // - Low Temp + Low Vol (High Pressure) => Heavily favors NH3 (Product)\n    // - High Temp + High Vol => Heavily favors reactants (N2, H2)\n    // - Mixed states => Intermediate mix\n    function updateChemicalComposition() {\n      let numN2 = 6, numH2 = 14, numNH3 = 4; // High Temp / High Vol default\n\n      if (STATE.temperature === 'Low Temperature' && STATE.volume === 'Low Volume') {\n        numN2 = 1; numH2 = 3; numNH3 = 10; // Maximized product\n      } else if (STATE.temperature === 'Low Temperature' && STATE.volume === 'High Volume') {\n        numN2 = 3; numH2 = 9; numNH3 = 6;\n      } else if (STATE.temperature === 'High Temperature' && STATE.volume === 'Low Volume') {\n        numN2 = 4; numH2 = 10; numNH3 = 5;\n      }\n\n      // Distribute types among the active molecules pool\n      let typesPool = [];\n      for (let i = 0; i < numN2; i++) typesPool.push('N2');\n      for (let i = 0; i < numH2; i++) typesPool.push('H2');\n      for (let i = 0; i < numNH3; i++) typesPool.push('NH3');\n\n      // Shuffle slightly\n      typesPool.sort(() => Math.random() - 0.5);\n\n      molecules.forEach((m, idx) => {\n        m.type = typesPool[idx % typesPool.length];\n      });\n    }\n\n    // Render molecules as SVG nodes\n    function drawMolecules() {\n      moleculesGroup.innerHTML = '';\n      molecules.forEach((m) => {\n        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');\n        \n        if (m.type === 'N2') {\n          // Double blue sphere\n          g.innerHTML = `\n            <line x1=\"-4\" y1=\"0\" x2=\"4\" y2=\"0\" stroke=\"#1f1f1f\" stroke-width=\"1.5\" />\n            <circle cx=\"-4\" cy=\"0\" r=\"4.5\" fill=\"#2B5C8F\" stroke=\"#1f1f1f\" stroke-width=\"0.5\" />\n            <circle cx=\"4\" cy=\"0\" r=\"4.5\" fill=\"#2B5C8F\" stroke=\"#1f1f1f\" stroke-width=\"0.5\" />\n          `;\n        } else if (m.type === 'H2') {\n          // Double small grey sphere\n          g.innerHTML = `\n            <line x1=\"-3\" y1=\"0\" x2=\"3\" y2=\"0\" stroke=\"#1f1f1f\" stroke-width=\"1\" />\n            <circle cx=\"-3\" cy=\"0\" r=\"3\" fill=\"#d2d7df\" stroke=\"#666\" stroke-width=\"0.5\" />\n            <circle cx=\"3\" cy=\"0\" r=\"3\" fill=\"#d2d7df\" stroke=\"#666\" stroke-width=\"0.5\" />\n          `;\n        } else {\n          // NH3: Dark blue center with 3 small grey outer spheres\n          g.innerHTML = `\n            <line x1=\"0\" y1=\"0\" x2=\"-4\" y2=\"4\" stroke=\"#1f1f1f\" stroke-width=\"1\" />\n            <line x1=\"0\" y1=\"0\" x2=\"4\" y2=\"4\" stroke=\"#1f1f1f\" stroke-width=\"1\" />\n            <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-5\" stroke=\"#1f1f1f\" stroke-width=\"1\" />\n            <circle cx=\"-4\" cy=\"4\" r=\"3\" fill=\"#d2d7df\" stroke=\"#666\" stroke-width=\"0.5\" />\n            <circle cx=\"4\" cy=\"4\" r=\"3\" fill=\"#d2d7df\" stroke=\"#666\" stroke-width=\"0.5\" />\n            <circle cx=\"0\" cy=\"-5\" r=\"3\" fill=\"#d2d7df\" stroke=\"#666\" stroke-width=\"0.5\" />\n            <circle cx=\"0\" cy=\"0\" r=\"5\" fill=\"#2B5C8F\" stroke=\"#1f1f1f\" stroke-width=\"0.5\" />\n          `;\n        }\n        \n        g.setAttribute('transform', `translate(${m.x}, ${m.y})`);\n        moleculesGroup.appendChild(g);\n        m.element = g;\n      });\n    }\n\n    // Physics update step\n    function updatePhysics() {\n      // Temperature affects molecular speed\n      const speedFactor = STATE.temperature === 'High Temperature' ? 1.6 : 0.6;\n      const pistonCeiling = STATE.pistonY + 57; // top physical boundary depends on piston position\n\n      molecules.forEach((m) => {\n        m.x += m.vx * speedFactor;\n        m.y += m.vy * speedFactor;\n\n        // Bounce off left/right\n        if (m.x < chamberLeft + 6) {\n          m.x = chamberLeft + 6;\n          m.vx *= -1;\n        } else if (m.x > chamberRight - 6) {\n          m.x = chamberRight - 6;\n          m.vx *= -1;\n        }\n\n        // Bounce off bottom/piston\n        if (m.y < pistonCeiling + 6) {\n          m.y = pistonCeiling + 6;\n          m.vy *= -1;\n        } else if (m.y > chamberBottom - 6) {\n          m.y = chamberBottom - 6;\n          m.vy *= -1;\n        }\n\n        // Update visual position\n        if (m.element) {\n          m.element.setAttribute('transform', `translate(${m.x}, ${m.y})`);\n        }\n      });\n\n      requestAnimationFrame(updatePhysics);\n    }\n\n    // --- State Resolution & Output ---\n    function resolveState() {\n      // 1. Determine discrete states\n      STATE.volume = (STATE.pistonY < 65) ? 'High Volume' : 'Low Volume';\n      STATE.temperature = (STATE.tempX < 200) ? 'Low Temperature' : 'High Temperature';\n\n      // Update indicators\n      volVal.textContent = STATE.volume;\n      tempVal.textContent = STATE.temperature === 'High Temperature' ? 'High Temp' : 'Low Temp (Cold)';\n      volLblShort.textContent = STATE.volume === 'High Volume' ? 'High' : 'Low';\n      tempLblShort.textContent = STATE.temperature === 'High Temperature' ? 'High' : 'Low';\n\n      // Update background glow color depending on temperature\n      if (STATE.temperature === 'High Temperature') {\n        glowStart.setAttribute('stop-color', 'var(--hot-color)');\n        glowStart.setAttribute('stop-opacity', '0.25');\n      } else {\n        glowStart.setAttribute('stop-color', 'var(--cold-color)');\n        glowStart.setAttribute('stop-opacity', '0.25');\n      }\n\n      // Update composition of molecules to match state\n      updateChemicalComposition();\n\n      // Resolve final answer string\n      const stateKey = `${STATE.temperature}_${STATE.volume}`;\n      const mappedOption = OPTIONS_MAP[stateKey];\n\n      stateReadout.textContent = `Current State: ${mappedOption}`;\n\n      if (reportedAnswer !== mappedOption) {\n        reportedAnswer = mappedOption;\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: mappedOption }, '*');\n        } catch(e) {}\n      }\n    }\n\n    // Apply physical transform to piston visual layout\n    function renderPiston() {\n      // Move whole piston assembly\n      pistonAssembly.setAttribute('transform', `translate(0, ${STATE.pistonY - 35})`);\n    }\n\n    // --- Input Interactions ---\n    let activeDrag = null; // 'piston' | 'temp'\n    let startY = 0;\n    let startX = 0;\n    let startPistonY = 0;\n    let startTempX = 0;\n\n    function onPointerDown(e) {\n      if (STATE.locked) return;\n      const target = e.target.closest('.draggable');\n      if (!target) return;\n\n      activeDrag = target.id === 'piston-handle' ? 'piston' : 'temp';\n      \n      if (activeDrag === 'piston') {\n        startY = e.clientY;\n        startPistonY = STATE.pistonY;\n        pistonHandle.setPointerCapture(e.pointerId);\n      } else {\n        startX = e.clientX;\n        startTempX = STATE.tempX;\n        document.getElementById('temp-handle').setPointerCapture(e.pointerId);\n      }\n      e.preventDefault();\n    }\n\n    function onPointerMove(e) {\n      if (!activeDrag || STATE.locked) return;\n\n      if (activeDrag === 'piston') {\n        const deltaY = e.clientY - startY;\n        // Scale delta depending on SVG rendering scale if needed (approximate is fine with relative drag)\n        let nextY = startPistonY + deltaY * 0.8; \n        nextY = Math.max(35, Math.min(95, nextY)); // Clamp limits\n        STATE.pistonY = nextY;\n        renderPiston();\n      } else {\n        const deltaX = e.clientX - startX;\n        let nextX = startTempX + deltaX * 0.8;\n        nextX = Math.max(120, Math.min(280, nextX)); // Clamp limits\n        STATE.tempX = nextX;\n        tempHandle.setAttribute('transform', `translate(${STATE.tempX}, 208)`);\n      }\n\n      resolveState();\n    }\n\n    function onPointerUp(e) {\n      if (!activeDrag) return;\n      \n      // Snap to discrete state positions smoothly\n      if (activeDrag === 'piston') {\n        STATE.pistonY = STATE.pistonY < 65 ? 35 : 95;\n        pistonHandle.releasePointerCapture(e.pointerId);\n        // Animate snap\n        pistonAssembly.style.transition = \"transform 0.2s cubic-bezier(.34,1.56,.64,1)\";\n        renderPiston();\n        setTimeout(() => { pistonAssembly.style.transition = \"\"; }, 200);\n      } else {\n        STATE.tempX = STATE.tempX < 200 ? 120 : 280;\n        document.getElementById('temp-handle').releasePointerCapture(e.pointerId);\n        tempHandle.style.transition = \"transform 0.2s cubic-bezier(.34,1.56,.64,1)\";\n        tempHandle.setAttribute('transform', `translate(${STATE.tempX}, 208)`);\n        setTimeout(() => { tempHandle.style.transition = \"\"; }, 200);\n      }\n\n      activeDrag = null;\n      resolveState();\n    }\n\n    // --- Keyboard Accessibility ---\n    function setupKeyboard() {\n      pistonHandle.addEventListener('keydown', (e) => {\n        if (STATE.locked) return;\n        if (e.key === 'ArrowUp') {\n          STATE.pistonY = 35;\n          renderPiston();\n          resolveState();\n        } else if (e.key === 'ArrowDown') {\n          STATE.pistonY = 95;\n          renderPiston();\n          resolveState();\n        }\n      });\n\n      tempHandle.addEventListener('keydown', (e) => {\n        if (STATE.locked) return;\n        if (e.key === 'ArrowLeft') {\n          STATE.tempX = 120;\n          tempHandle.setAttribute('transform', `translate(${STATE.tempX}, 208)`);\n          resolveState();\n        } else if (e.key === 'ArrowRight') {\n          STATE.tempX = 280;\n          tempHandle.setAttribute('transform', `translate(${STATE.tempX}, 208)`);\n          resolveState();\n        }\n      });\n    }\n\n    // --- Host Lock/Communication Protocols ---\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        STATE.locked = true;\n        document.querySelectorAll('.interactive-element').forEach(el => el.classList.add('disabled'));\n      }\n    });\n\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch(e) {}\n    }\n\n    // --- Init ---\n    window.addEventListener('load', () => {\n      initMolecules();\n      updateChemicalComposition();\n      drawMolecules();\n      updatePhysics();\n      \n      // Wire pointer event listeners\n      document.addEventListener('pointerdown', onPointerDown);\n      document.addEventListener('pointermove', onPointerMove);\n      document.addEventListener('pointerup', onPointerUp);\n      \n      setupKeyboard();\n      resolveState();\n      \n      // Initial height report\n      setTimeout(reportHeight, 100);\n      \n      // Setup auto-resize reporting\n      if (window.ResizeObserver) {\n        new ResizeObserver(reportHeight).observe(document.body);\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Low Temperature / Low Volume"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "df235d50-8e6a-497f-bd14-bb0ceb7addb4"
+}

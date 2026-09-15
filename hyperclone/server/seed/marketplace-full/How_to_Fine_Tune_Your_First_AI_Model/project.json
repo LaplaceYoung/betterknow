@@ -1,0 +1,317 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project stage! Over the course of this project, you will build a production-ready Sentiment & Intent Classifier for customer support. By the end, you'll have a fully fine-tuned transformer model, a performance dashboard, and an interactive prediction interface to showcase your work. In this first stage, we are laying the foundation. Before we touch any code or GPUs, we need to define exactly what our model is supposed to learn and how we will know if it’s actually successful. Building on our lecture on planning, we'll start by defining our task and establishing a baseline to beat.",
+     "step_title": "Project Introduction & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your chosen classification task (Sentiment or Intent) and the specific list of labels you plan to use. Good work clearly defines non-overlapping categories that cover typical customer support scenarios."
+     },
+     "step_body": "Every fine-tuning project starts with a clear objective. We are working with a customer support dataset, but 'classification' can mean many things. You need to decide: will you focus on 'Sentiment' (e.g., Happy, Frustrated, Neutral) or 'Intent' (e.g., Refund Request, Technical Issue, Billing Inquiry)? Referencing our discussion on domain-specific tasks, choose a schema that would be most useful for a support team. Think about the labels you'll need. For your first task, write out your chosen task name and a list of at least 3-5 specific labels (categories) you want your model to identify.",
+     "step_title": "Define Your Classification Task",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a target F1 score (e.g., 0.85) and a brief 1-2 sentence justification of why this level of performance is necessary for your specific support task."
+     },
+     "step_body": "In our session on parameters and loss, we learned how models minimize error. However, business success is measured by metrics like the F1 score, which balances precision and recall. For a production-ready model, we can't just 'hope' it's good; we need a target. Given that customer support requires high accuracy to avoid frustrating users, what is your minimum acceptable F1 score for this project? Consider the 'cost' of a wrong prediction—if a refund request is misclassified as a technical issue, how much does that hurt the workflow?",
+     "step_title": "Establish Success Metrics",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe one simple heuristic (like keyword matching) you would use as a baseline for your labels. Briefly explain why a fine-tuned model is expected to outperform this simple logic."
+     },
+     "step_body": "Before we spend money and time on fine-tuning a transformer like DistilBERT, we need to know how well a 'dumb' system performs. This is called a baseline. Think of a simple keyword-matching strategy (e.g., if the message contains the word 'money', classify as 'Refund'). This represents the 'random noise' or 'simple patterns' our pretrained model needs to beat. Briefly describe a simple rule-based heuristic you could use for your labels and estimate what its accuracy might be compared to a sophisticated AI.",
+     "step_title": "Create a Heuristic Baseline",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your project_plan.md file. It should contain the Task/Labels, Target F1 score, and the Heuristic Baseline description. A complete plan is structured, professional, and provides a clear roadmap for the technical work ahead."
+     },
+     "step_body": "Now it's time to consolidate your decisions into your first project deliverable: `project_plan.md`. This document serves as your north star. It should include your Task Definition, the Target Metrics (F1 score), and your Baseline Strategy. Having this written down ensures that when you move into the training phase, you have a clear benchmark to evaluate your model's progress against. Once your markdown file is ready, upload it here to complete the stage.",
+     "step_title": "Submit the Project Plan",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "90707edf-6948-4961-929a-bbd65e58904a",
+   "stage_title": "Project Scope and Baseline Planning",
+   "parent_project_id": "67401392-d384-42aa-954a-1dad5d84fe64",
+   "stage_description": "Define the target machine learning task for a raw customer support ticket dataset, establish clear success metrics (minimum acceptable F1 score), and record a simple heuristic-based baseline (such as keyword matching) to compare against future fine-tuned models.",
+   "deliverable_increment": "A markdown design document (project_plan.md) specifying the dataset task, performance targets, and baseline model performance metrics."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome back! In the previous stage, you defined the blueprint for your customer support classifier in `project_plan.md`. You now have a target schema and a baseline for performance. Now, we move from planning to the data bedrock. This stage is about transforming raw, potentially 'noisy' or sensitive customer text into the structured, cleaned, and tokenized format required by a Hugging Face training pipeline. You will be building the final data artifacts (parquet files) that your model will actually 'see' during training.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short description of your PII removal strategy (e.g., regex for emails) and your label-to-integer mapping dictionary. Good work will show a clear one-to-one mapping and a logical approach to protecting sensitive information."
+     },
+     "step_body": "Before we split the data, we must ensure it's safe and structured. First, load your raw JSON data. Identify any Personally Identifiable Information (PII) like names, emails, or credit card numbers and use regex or placeholder substitution to mask them without destroying the sentence structure. Next, map your string categories (e.g., 'Billing') to zero-indexed integers (e.g., 0). This ensures the model receives consistent numerical targets. Briefly describe your sanitization approach and provide the mapping dictionary you've created.",
+     "step_title": "Sanitize PII and map labels",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "To prevent 'data leakage'—where the model accidentally sees testing data during training—you must divide your data into distinct sets. Create a Training set (for learning), a Validation set (for hyperparameter tuning), and a Test set (for final evaluation). A typical split is 80/10/10. Ensure that the distribution of labels is balanced across all three splits so that one set isn't accidentally missing a specific category. Prepare your Python script to handle this division.",
+     "step_title": "Split the dataset",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Neural networks process numbers, not words. Using the `transformers` library, load the DistilBERT tokenizer and apply it to your text. This will convert strings into `input_ids` and `attention_mask` arrays. Ensure you use padding and truncation so that every sequence in a batch has a consistent length. Once your data is tokenized and formatted as a Hugging Face Dataset object, export your splits to Parquet format. Parquet is highly efficient for machine learning workflows because it preserves schema and compresses well.",
+     "step_title": "Tokenize for DistilBERT",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a ZIP file containing your preprocessing script and the three parquet files (train.parquet, val.parquet, test.parquet). Criteria for success: the script must handle PII, perform a clean 3-way split, and produce parquet files that include 'input_ids', 'attention_mask', and 'label' columns."
+     },
+     "step_body": "It's time to submit the core deliverable for this stage. You should have a preprocessing script (e.g., `preprocess.py` or a notebook) and your final serialized data files. These files are the 'refined fuel' for your training pipeline in the next stage. Ensure your script is well-commented so others can follow your data cleaning logic.",
+     "step_title": "Submit data files and script",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "As a final check, reload one of your Parquet files and print a single example. Does the text look readable but anonymous? Are the token IDs present? Is the label an integer? Verifying this now prevents cryptic errors during the training stage. You've successfully built the foundation of your pipeline—next, we'll start the actual fine-tuning process!",
+     "step_title": "Verify data integrity",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "5a2ce6fd-0e56-4e17-9be1-dcc344682f34",
+   "stage_title": "Dataset Preparation and Tokenization",
+   "parent_project_id": "67401392-d384-42aa-954a-1dad5d84fe64",
+   "stage_description": "Clean a raw customer support JSON dataset, handle sensitive personal information, balance the labels, divide the data into clean train, validation, and test splits without leakage, and run Hugging Face Tokenizers to prepare the input arrays.",
+   "deliverable_increment": "A set of serialized parquet data files (train.parquet, val.parquet, test.parquet) and a preprocessing script demonstrating clean data separation and tokenization."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Paste the name of the GPU detected (e.g., Tesla T4) or type 'CPU' if no hardware accelerator was found. Also, mention if you plan to use a smaller batch size based on this result."
+     },
+     "step_body": "In the previous stages, you defined your project scope and prepared your tokenized datasets (train.parquet, val.parquet, test.parquet). Now, it's time to fire up the engine! Before we code, we need to ensure you have the right hardware acceleration. In your notebook environment (like Google Colab), run the command `!nvidia-smi`. This will confirm if a GPU is available. If you see a GPU listed, you're ready for high-speed training; if not, we'll proceed with smaller batch sizes to keep things running smoothly on a CPU.",
+     "step_title": "Recap and environment check",
+     "need_response": true
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "Now we will perform some 'neural surgery.' We need to load the DistilBERT backbone but replace its original language modeling head with a classification head tailored to your customer support categories. Use the `AutoModelForSequenceClassification` class from the Hugging Face Transformers library. When you load the model, you will likely see a warning that 'some weights were not used' and 'some weights were newly initialized.' Don't panic! This is exactly what we want: it means the old head is gone, and your new, untrained classifier is ready for your specific labels.",
+     "step_title": "Initialize the model and head",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short snippet of your TrainingArguments code or a summary of your chosen learning rate and batch size."
+     },
+     "step_body": "To control the training process, you must configure the `TrainingArguments`. This is where you set the learning rate (try 2e-5), the number of epochs (start with 3), and your evaluation strategy. Crucially, set your 'output_dir' to a specific folder name where your checkpoints will live. This configuration acts as the blueprint for the Hugging Face Trainer, telling it exactly how fast to learn and how often to save progress.",
+     "step_title": "Define TrainingArguments",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It's time to train. Initialize the `Trainer` by passing in your model, your training arguments, and your tokenized train/validation datasets. Use a `DataCollatorWithPadding` to ensure your batches are padded dynamically, saving memory. Once configured, call `trainer.train()`. You should see a progress bar appear, and as the epochs pass, keep a close eye on the 'Validation Loss'—we want to see this number consistently decreasing.",
+     "step_title": "Execute the training run",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a zip file containing your saved model directory (including config.json and pytorch_model.bin) along with a screenshot or text log of your final training and validation loss."
+     },
+     "step_body": "Once training finishes, use `trainer.save_model()` to export the final weights. This will create a directory containing a `config.json` (the architecture) and a `pytorch_model.bin` (the learned weights). These files are the heart of your project! They represent the transformation from a general language model to a specialized customer support classifier.",
+     "step_title": "Submit your model artifact",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "With the model saved, take a moment to look at your training logs. Did the training loss drop significantly faster than the validation loss? If so, your model might be starting to overfit. If both dropped steadily, you've likely hit the 'sweet spot.' This analysis is vital before we move into the next stage, where we will build a dashboard to visualize exactly where the model is making its mistakes.",
+     "step_title": "Reflect on training logs",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "c60eb52c-ab2b-47d0-b1b8-338465fcfdeb",
+   "stage_title": "Model Fine-Tuning Execution",
+   "parent_project_id": "67401392-d384-42aa-954a-1dad5d84fe64",
+   "stage_description": "Load a pretrained DistilBERT model, configure hyperparameter training arguments (learning rate, batch size, epoch checkpoints), execute the Hugging Face Trainer run, and save the final fine-tuned model checkpoint.",
+   "deliverable_increment": "A saved PyTorch model checkpoint directory with config.json and pytorch_model.bin along with training logs recording validation loss decay."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Great work on fine-tuning your classifier! In the previous stage, you successfully saved your DistilBERT model checkpoints and tracked your validation loss. However, as we discussed in our sessions on 'Choosing an Evaluation Metric,' a low loss doesn't always translate to high business value. Now, it's time to move beyond loss curves and evaluate how your model actually handles the nuances of customer support tickets by calculating precision, recall, and F1-scores, and performing a deep-dive error analysis.",
+     "step_title": "Recap and stage orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief summary (text) of your overall F1-score and identify which specific class (e.g., 'Refunds' or 'Technical Error') had the lowest Recall. Explain why you think the model struggled with that specific class based on what you know about the training data."
+     },
+     "step_body": "Start by running your fine-tuned model against the `test.parquet` set you created earlier. You need to calculate more than just raw accuracy—calculate Precision, Recall, and the F1-score for each category (e.g., Billing, Tech Support). Remember our lecture on 'Accuracy': if your dataset is imbalanced, accuracy might look great while the model completely fails to catch a critical minority class. Use the Scikit-learn `classification_report` or Hugging Face's `evaluate` library to generate these numbers.",
+     "step_title": "Compute classification metrics",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image (PNG or JPG) of your Confusion Matrix. Ensure the axes are labeled with your class names so the overlaps are clearly visible."
+     },
+     "step_body": "To see exactly where the 'signal' is getting crossed, generate a Confusion Matrix. This 2x2 (or larger) contingency table will show you which classes are being swapped—for example, are your 'Billing' tickets being frequently misclassified as 'General Inquiry'? This visual will reveal the 'False Positives' and 'False Negatives' we mapped out on the whiteboard. Use Matplotlib or Seaborn to plot the matrix so the patterns of confusion are easy to see.",
+     "step_title": "Generate a confusion matrix",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short text log detailing three specific failure modes you discovered. For each mode, describe one example ticket and why you believe the model failed (e.g., 'The model ignored the word NOT because of an HTML tag' or 'The label was ambiguous')."
+     },
+     "step_body": "Now, let's go deeper than the numbers. Identify at least 5-10 specific support tickets where the model's prediction was wrong but the confidence was high. Look for the 'noise' we discussed in the 'Improving Data Quality' session: are there weird HTML tags, inconsistent casing, or ambiguous wording that confused the tokenizer? Create a mapping of these failure modes (e.g., 'Sarcasm', 'Multiple intents in one message', or 'Technical jargon').",
+     "step_title": "Perform qualitative error analysis",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your final evaluation_results.json or a combined PDF report. This must include your precision/recall/F1 table, the failure mode log, and a brief statement on whether you recommend retraining with adjusted data weights."
+     },
+     "step_body": "Finalize your work for this stage by compiling your metrics and failure modes into a structured format. This report is a crucial part of your final deliverable, as it justifies the next iteration of training. In a real-world pipeline, this document would tell your team whether the model is safe for deployment or needs a second pass with better data weights or more samples for weak categories.",
+     "step_title": "Submit the evaluation report",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "You've now completed the most critical diagnostic phase of the project. By identifying exactly where the model fails, you've moved from 'guessing' to 'engineering'. In the next and final stage, we will wrap this all into a Gradio interface and a Model Card, completing your production-ready pipeline. Take a moment to consider: if you had to double the performance on your weakest class, would you change the code, or would you follow our 'data-first' philosophy and hunt for better examples?",
+     "step_title": "Reflect and prepare",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "17858bf6-a8cc-414c-aabc-cf2163229dc3",
+   "stage_title": "Evaluation, Error Analysis, and Iteration",
+   "parent_project_id": "67401392-d384-42aa-954a-1dad5d84fe64",
+   "stage_description": "Calculate precision, recall, F1-scores, and confusion matrices on the test set. Identify misclassified support tickets to perform an error analysis, looking for bias or edge cases, and run a second fine-tuning pass with adjusted data weights.",
+   "deliverable_increment": "An evaluation report script (evaluation_results.json) containing a confusion matrix visualization image and a text log mapping specific model failure modes."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have successfully fine-tuned your transformer model and conducted a thorough error analysis of its performance. However, a model artifact in a folder isn't a finished product. In this final stage, you will bridge the gap between a trained weight file and a usable application. We will begin by constructing a robust inference pipeline, then wrap it in a user-facing interface, and finally document the entire system's ethical and operational profile in a professional Model Card.",
+     "step_title": "Recap and stage orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a code snippet of your core 'predict' function or class. It should clearly show how you handle the transition from raw text to a human-readable label and a confidence probability."
+     },
+     "step_body": "A production pipeline needs to handle raw text, not just pre-tokenized tensors. Create a Python class or function that encapsulates the full logic: 1) Loading your saved model and tokenizer, 2) Converting raw input strings into tensors using the correct padding and truncation settings, 3) Running the forward pass inside a 'torch.no_grad()' context to save memory, and 4) Applying a softmax to the logits to return both the predicted label and the confidence score. Ensure your label mapping (e.g., 0 -> 'Refund') is correctly hardcoded or loaded from your config.",
+     "step_title": "Build the inference pipeline",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Submit a screenshot of your running interface (Gradio or Streamlit) showing a successful prediction for a sample customer support message."
+     },
+     "step_body": "Now, let's make the model accessible. Using a library like Gradio or Streamlit, build a simple web interface (app.py). This app should feature a text input box for customer support queries and a clear output display for the predicted sentiment or intent. Pay close attention to 'defensive engineering': add a validation layer that checks for empty inputs or excessively long strings before they hit your model to prevent crashes. Launch the app locally and test it with five varied inputs, including one 'adversarial' prompt designed to test the boundaries of its training.",
+     "step_title": "Create the interactive UI",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Documentation is a core part of responsible AI. Create a README.md that functions as a 'Model Card'. This must include: 'Intended Use' (who is this for?), 'Limitations' (where does it fail?), and 'Ethical Considerations' (potential biases you identified during error analysis). Refer back to our session on PII and systemic bias—explicitly state what precautions were taken to ensure the model doesn't leak sensitive data or discriminate against specific user demographics based on your earlier audit.",
+     "step_title": "Draft the Model Card",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit a ZIP file containing your app.py and your README.md (Model Card). The Model Card must contain sections for Intended Use, Limitations, and License Compliance to pass."
+     },
+     "step_body": "It is time to assemble the final pieces of this stage. Ensure your repository includes your finalized app.py and your comprehensive Model Card. Double-check that you have cited the licenses for both the base model (e.g., Apache 2.0 for DistilBERT) and your dataset to ensure commercial and educational compliance. This documentation ensures that anyone who uses your model in the future understands its technical constraints and its social impact.",
+     "step_title": "Submit final app and documentation",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief reflection (3-5 sentences) on the trade-off between model accuracy and inference speed/cost in a production environment based on your experience building the UI."
+     },
+     "step_body": "Building the UI and the documentation often reveals new insights. Think about the latency you observed while testing the app. If you had to scale this to 100,000 requests per day, what would be your biggest concern? Would it be the cost of GPU hosting, the speed of the tokenizer, or the risk of the model encountering data types it wasn't trained on? Consider how these operational realities might influence your next fine-tuning iteration.",
+     "step_title": "Reflect on production readiness",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "3eef7cc0-fa51-4353-84a4-9538daa9ef87",
+   "stage_title": "Inference Pipeline and Model Card Documentation",
+   "parent_project_id": "67401392-d384-42aa-954a-1dad5d84fe64",
+   "stage_description": "Assemble the model into an inference pipeline, build a quick interactive local UI to test predictions live, and author a comprehensive Model Card that details ethical implications, data privacy licenses, and deployment constraints.",
+   "deliverable_increment": "A runnable application file (app.py) featuring an interactive web interface and a comprehensive README.md (Model Card) outlining intended use, limitations, and licenses."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "67401392-d384-42aa-954a-1dad5d84fe64",
+   "project_name": "Fine-Tuning a Customer Support Sentiment & Intent Classifier",
+   "final_deliverable": "A complete, executable Python notebook and GitHub repository containing: 1) a clean, formatted dataset split into train/validation/test sets; 2) training code that registers baseline results and saves a fine-tuned Hugging Face classifier; 3) an evaluation dashboard generating F1 scores, a confusion matrix, and a list of failure modes; 4) a lightweight interactive prediction interface using Gradio or Streamlit; and 5) a completed Model Card documenting intended use, license constraints, and performance limitations.",
+   "project_description": "In this hands-on project, you will build a production-ready sentiment and classification pipeline by fine-tuning a small pretrained transformer model (like DistilBERT) on a custom customer support dataset. You will take this project from planning and dataset preparation through configuration, training, evaluation, error analysis, and deployment documentation."
+  }
+ ],
+ "courseUuid": "6f5cbbef-6655-4fac-b522-7530cc5be3a2"
+}

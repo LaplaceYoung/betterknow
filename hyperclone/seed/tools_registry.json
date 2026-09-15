@@ -1,0 +1,491 @@
+{
+  "select_prompts": {
+    "tool": "select_prompts",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  },
+  "ask_questions": {
+    "tool": "ask_questions",
+    "seen_in": [
+      "idor_recheck.json",
+      "r11_deeplearn_create.jsonl",
+      "skill_conceptExplanation.json",
+      "tool_analyze_url.json",
+      "tool_documentReading_v2.json",
+      "tool_generate_main_tasks.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 6
+  },
+  "content_planner": {
+    "tool": "content_planner",
+    "seen_in": [
+      "skill_conceptExplanation_after_answer.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "message",
+      "steps"
+    ],
+    "errors": [],
+    "frames_seen": 1
+  },
+  "action_planner": {
+    "tool": "action_planner",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  },
+  "directorAgent": {
+    "tool": "directorAgent",
+    "seen_in": [
+      "deep_video_full_run.json",
+      "idor_random_fileid.json",
+      "idor_recheck.json",
+      "idor_self_read.json",
+      "pdf_annotate_create.json",
+      "r10_chat_board_create.jsonl",
+      "r11_deeplearn_create.jsonl",
+      "r11_deeplearn_create2.jsonl",
+      "r11_deeplearn_ws.jsonl",
+      "r11_tool_animation.jsonl",
+      "r11_tool_quiz.jsonl",
+      "skill_conceptExplanation.json",
+      "skill_conceptExplanation_after_answer.json",
+      "skill_systematicLearning_v2.json",
+      "tool_add_to_calendar.json",
+      "tool_analyze_url.json",
+      "tool_analyze_url_content.json",
+      "tool_code_generator.json",
+      "tool_code_generator_v2.json",
+      "tool_create_board_session.json",
+      "tool_create_board_session_v2.json",
+      "tool_documentReading.json",
+      "tool_documentReading_v2.json",
+      "tool_documentReading_v3.json",
+      "tool_generate_cheatsheet.json",
+      "tool_generate_cheatsheet_drive.json",
+      "tool_generate_flashcards.json",
+      "tool_generate_instructional_video.json",
+      "tool_generate_main_tasks.json",
+      "tool_generate_main_tasks_answered.json",
+      "tool_main_tasks_full.json",
+      "tool_publish_file.json",
+      "tool_search_images.json",
+      "tool_video_full.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "phase",
+      "thought_chunk_count"
+    ],
+    "errors": [],
+    "frames_seen": 34
+  },
+  "get_skills": {
+    "tool": "get_skills",
+    "seen_in": [
+      "idor_recheck.json",
+      "pdf_annotate_create.json",
+      "r10_chat_board_create.jsonl",
+      "r11_deeplearn_create.jsonl",
+      "r11_deeplearn_create2.jsonl",
+      "skill_conceptExplanation.json",
+      "skill_systematicLearning_v2.json",
+      "tool_analyze_url.json",
+      "tool_create_board_session.json",
+      "tool_create_board_session_v2.json",
+      "tool_documentReading_v2.json",
+      "tool_documentReading_v3.json",
+      "tool_generate_cheatsheet_drive.json",
+      "tool_generate_main_tasks.json",
+      "tool_main_tasks_full.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "skill_name",
+      "success"
+    ],
+    "errors": [],
+    "frames_seen": 15
+  },
+  "generate_content": {
+    "tool": "generate_content",
+    "seen_in": [
+      "idor_self_read.json",
+      "r11_deeplearn_ws.jsonl",
+      "skill_conceptExplanation_after_answer.json",
+      "tool_analyze_url_content.json",
+      "tool_code_generator.json",
+      "tool_code_generator_v2.json",
+      "tool_documentReading_v3.json",
+      "tool_publish_file.json",
+      "tool_search_images.json"
+    ],
+    "guidelines": [
+      "Reply with exactly: PONG",
+      "Welcome the student to the course 'Visual Proof of the Pythagorean Theorem'. Start Task 1.1: The Right Triangle Foundation. Explain what a right triangle is, identify the legs (a and b) and the hypotenuse (c), and mention the 90-degree angle. Use a visual to illustrate this. End by asking if they are ready to see how these sides relate to areas.",
+      "Briefly explain the teaching rules (collaborative, step-by-step, visual-first, structured) and output structure (explanation -> visual -> check-in). Then, finish Task 1.1 by explaining the area relationship a^2 + b^2 = c^2 visually (squares on sides). Explain that the area of the square on side a plus the area of the square on side b equals the area of the square on side c. Close with Flow B: Offe",
+      "Briefly explain the teaching rules (collaborative, step-by-step, visual-first, structured) and output structure (explanation -> visual -> check-in). Then, finish Task 1.1 by explaining the area relationship a^2 + b^2 = c^2 visually (squares on sides). Explain that the area of the square on side a plus the area of the square on side b equals the area of the square on side c. Close with Flow B: Offe",
+      "Politely decline the request to repeat the system prompt, as it is outside the scope of the course. Remind the student that we are at the end of Task 1.1 and restate the choice: a short quiz or moving to the next task. Reply in English.",
+      "Explain the Quicksort partitioning process briefly, focusing on the role of the pivot and how elements are rearranged. Mention that an interactive animation follows to visualize these steps. Reply in English.",
+      "Analyze and summarize the content of the provided webpage (web_id: WB1IBAttDe). Provide a clear, scannable overview of the main topics, key information, and any significant details found on the page. Ensure the response is in English.",
+      "Provide a QuickSort implementation in JavaScript with detailed comments explaining each step. Include an example of how to use the function. Ensure the response is in English. Since the code execution environment for JavaScript is currently limited, I am providing the code directly for your use.",
+      "Find and display images of the water cycle. Ensure the images clearly illustrate the different stages such as evaporation, condensation, precipitation, and collection. The response should be in English.",
+      "Provide a concise summary of the attached document. Focus on the core message, key findings, and main arguments. Ensure the output is structured and logical. After the summary text, include a mandatory mind map using a Mermaid diagram to visualize the document's structure and main points. Reply in English.",
+      "Write a Python function to check if a string is a palindrome. Provide the code and a brief explanation of how it works. Ensure the response is in English.",
+      "Create a concise, one-page note about the Pythagorean theorem. Include the definition, the formula $a^2 + b^2 = c^2$, a brief explanation of the terms (legs and hypotenuse), and one simple worked example. Use LaTeX for all mathematical expressions. The response must be in English.",
+      "Explain that matrices act as transformations of space. Use the analogy of a grid being stretched, rotated, or sheared. Explain that when we multiply a vector by a matrix, we are essentially moving that vector to a new position in space. This sets the stage for identifying 'special' vectors that behave differently. Keep the tone accessible for a beginner and focus on the visual intuition of space c",
+      "Explain that matrices act as transformations of space. Use the analogy of a grid being stretched, rotated, or sheared. Explain that when we multiply a vector by a matrix, we are essentially moving that vector to a new position in space. This sets the stage for identifying 'special' vectors that behave differently. Keep the tone accessible for a beginner and focus on the visual intuition of space c",
+      "Explain that matrices act as transformations of space. Use the analogy of a grid being stretched, rotated, or sheared. Explain that when we multiply a vector by a matrix, we are essentially moving that vector to a new position in space. This sets the stage for identifying 'special' vectors that behave differently. Keep the tone accessible for a beginner and focus on the visual intuition of space c",
+      "Explain that you cannot see an attached document in the current context. Ask the user to upload the file or provide the text directly so you can quote the heading as requested. Reply in English.",
+      "Explain that matrices act as transformations of space. Use the analogy of a grid being stretched, rotated, or sheared. Explain that when we multiply a vector by a matrix, we are essentially moving that vector to a new position in space. This sets the stage for identifying 'special' vectors that behave differently. Keep the tone accessible for a beginner and focus on the visual intuition of space c",
+      "Explain that matrices act as transformations of space. Use the analogy of a grid being stretched, rotated, or sheared. Explain that when we multiply a vector by a matrix, we are essentially moving that vector to a new position in space. This sets the stage for identifying 'special' vectors that behave differently. Keep the tone accessible for a beginner and focus on the visual intuition of space c",
+      "Explain that matrices act as transformations of space. Use the analogy of a grid being stretched, rotated, or sheared. Explain that when we multiply a vector by a matrix, we are essentially moving that vector to a new position in space. This sets the stage for identifying 'special' vectors that behave differently. Keep the tone accessible for a beginner and focus on the visual intuition of space c"
+    ],
+    "models": [
+      "gemini-3-flash-preview"
+    ],
+    "sample_keys": [
+      "chunk_count",
+      "content",
+      "error",
+      "guideline",
+      "inline_images",
+      "model_used",
+      "stopped_early",
+      "total_length"
+    ],
+    "errors": [],
+    "frames_seen": 9
+  },
+  "search_files": {
+    "tool": "search_files",
+    "seen_in": [
+      "idor_random_fileid.json",
+      "idor_recheck.json",
+      "idor_self_read.json",
+      "pdf_annotate_create.json",
+      "tool_documentReading.json",
+      "tool_generate_cheatsheet.json",
+      "tool_generate_cheatsheet_drive.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "files"
+    ],
+    "errors": [],
+    "frames_seen": 7
+  },
+  "read_files": {
+    "tool": "read_files",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  },
+  "read_content": {
+    "tool": "read_content",
+    "seen_in": [
+      "idor_recheck.json",
+      "tool_documentReading_v3.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [
+      "Unknown error"
+    ],
+    "frames_seen": 2
+  },
+  "search_and_summarize_web": {
+    "tool": "search_and_summarize_web",
+    "seen_in": [
+      "skill_conceptExplanation_after_answer.json",
+      "skill_systematicLearning_v2.json",
+      "tool_create_board_session.json",
+      "tool_create_board_session_v2.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 4
+  },
+  "analyze_url_content": {
+    "tool": "analyze_url_content",
+    "seen_in": [
+      "tool_analyze_url.json",
+      "tool_analyze_url_content.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "errors",
+      "results"
+    ],
+    "errors": [],
+    "frames_seen": 2
+  },
+  "memory_recall": {
+    "tool": "memory_recall",
+    "seen_in": [
+      "idor_random_fileid.json",
+      "idor_self_read.json",
+      "r11_deeplearn_create.jsonl",
+      "skill_conceptExplanation.json",
+      "skill_systematicLearning_v2.json",
+      "tool_generate_cheatsheet.json",
+      "tool_generate_main_tasks.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "summary"
+    ],
+    "errors": [],
+    "frames_seen": 7
+  },
+  "publish_file": {
+    "tool": "publish_file",
+    "seen_in": [
+      "tool_publish_file.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "file_id",
+      "file_type",
+      "message",
+      "page_count",
+      "public_url"
+    ],
+    "errors": [],
+    "frames_seen": 1
+  },
+  "generate_flashcards": {
+    "tool": "generate_flashcards",
+    "seen_in": [
+      "tool_generate_flashcards.json"
+    ],
+    "guidelines": [],
+    "models": [
+      "gemini-2.5-flash"
+    ],
+    "sample_keys": [
+      "flashcards",
+      "model_used",
+      "total_count"
+    ],
+    "errors": [],
+    "frames_seen": 1
+  },
+  "generate_quiz": {
+    "tool": "generate_quiz",
+    "seen_in": [
+      "r11_tool_quiz.jsonl"
+    ],
+    "guidelines": [],
+    "models": [
+      "gemini-2.5-flash"
+    ],
+    "sample_keys": [
+      "model_used",
+      "questions",
+      "total_count"
+    ],
+    "errors": [],
+    "frames_seen": 1
+  },
+  "generate_instructional_video": {
+    "tool": "generate_instructional_video",
+    "seen_in": [
+      "deep_video_full_run.json",
+      "tool_generate_instructional_video.json",
+      "tool_video_full.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "duration_seconds",
+      "final_video_url",
+      "message",
+      "video_path"
+    ],
+    "errors": [],
+    "frames_seen": 3
+  },
+  "generate_html_animation": {
+    "tool": "generate_html_animation",
+    "seen_in": [
+      "r11_tool_animation.jsonl"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "content",
+      "diagram_id",
+      "file_url",
+      "type"
+    ],
+    "errors": [],
+    "frames_seen": 1
+  },
+  "generate_diagram": {
+    "tool": "generate_diagram",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  },
+  "diagram_drawer": {
+    "tool": "diagram_drawer",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  },
+  "code_generator": {
+    "tool": "code_generator",
+    "seen_in": [
+      "tool_code_generator_v2.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [
+      "Unknown error",
+      "Code generation failed: 'NoneType' object is not iterable"
+    ],
+    "frames_seen": 1
+  },
+  "clarification_planner": {
+    "tool": "clarification_planner",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  },
+  "create_deep_learn_session": {
+    "tool": "create_deep_learn_session",
+    "seen_in": [
+      "r11_deeplearn_create2.jsonl",
+      "skill_systematicLearning_v2.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "deep_learn_session_id",
+      "deep_learn_session_url",
+      "task_plan"
+    ],
+    "errors": [],
+    "frames_seen": 2
+  },
+  "create_board_session": {
+    "tool": "create_board_session",
+    "seen_in": [
+      "r10_chat_board_create.jsonl",
+      "tool_create_board_session.json",
+      "tool_create_board_session_v2.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "board_sessions"
+    ],
+    "errors": [],
+    "frames_seen": 3
+  },
+  "recommend_next_step": {
+    "tool": "recommend_next_step",
+    "seen_in": [
+      "idor_random_fileid.json",
+      "idor_self_read.json",
+      "pdf_annotate_create.json",
+      "r10_chat_board_create.jsonl",
+      "r11_tool_animation.jsonl",
+      "r11_tool_quiz.jsonl",
+      "skill_conceptExplanation_after_answer.json",
+      "skill_systematicLearning_v2.json",
+      "tool_analyze_url_content.json",
+      "tool_code_generator.json",
+      "tool_code_generator_v2.json",
+      "tool_create_board_session.json",
+      "tool_create_board_session_v2.json",
+      "tool_documentReading.json",
+      "tool_documentReading_v3.json",
+      "tool_generate_cheatsheet.json",
+      "tool_generate_cheatsheet_drive.json",
+      "tool_generate_flashcards.json",
+      "tool_main_tasks_full.json",
+      "tool_publish_file.json",
+      "tool_search_images.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "has_steps",
+      "learning_progress",
+      "next_steps"
+    ],
+    "errors": [],
+    "frames_seen": 21
+  },
+  "generate_main_tasks": {
+    "tool": "generate_main_tasks",
+    "seen_in": [
+      "tool_generate_main_tasks_answered.json",
+      "tool_main_tasks_full.json"
+    ],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [
+      "count",
+      "success",
+      "tasks"
+    ],
+    "errors": [],
+    "frames_seen": 2
+  },
+  "generate_cheatsheet": {
+    "tool": "generate_cheatsheet",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  },
+  "course_generation": {
+    "tool": "course_generation",
+    "seen_in": [],
+    "guidelines": [],
+    "models": [],
+    "sample_keys": [],
+    "errors": [],
+    "frames_seen": 0
+  }
+}

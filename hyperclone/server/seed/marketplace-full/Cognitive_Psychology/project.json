@@ -1,0 +1,327 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project stage! Over the course of this project, you will become a Cognitive UX Auditor. You aren't just looking at 'pretty' designs; you are going to analyze how the human brain actually processes digital information. By the end of the course, you will have built a Comprehensive Cognitive Audit Portfolio, featuring a diagnostic report of a real-world interface and a scientifically-justified redesign. We are starting with the 'Sensation and Perception Analysis' stage. Drawing from our recent sessions, remember that perception is a mental construction—a 'best guess' of the raw data (sensation) our brains receive. Today, you'll begin by selecting the subject of your audit and looking for the 'seams' in its digital experience.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify the name of the app/website and a 1-2 sentence description of its primary function. A good selection is a tool that requires high attention or memory load."
+     },
+     "step_body": "Your first task is to choose a complex digital interface to audit. This could be a mobile app you use daily, a dense professional software (like a CRM or code editor), or a complex website (like a government portal or flight booking engine). Complexity is key here—you want an interface with enough information density that the brain has to work hard to 'process' it. Once chosen, briefly describe the interface and explain what primary goal a user is trying to achieve when they open it.",
+     "step_title": "Select Your Interface",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of 3 specific interface elements (e.g., 'The neon green Submit button') and why they trigger bottom-up attention (e.g., color contrast, size, or motion)."
+     },
+     "step_body": "Now, look at your chosen interface through the lens of 'Bottom-Up Processing.' These are the raw sensory inputs that demand attention based on their physical properties alone—think of bright 'Sale' buttons, high-contrast text, or flashing notifications. These elements force the 'biological camera' of the eye to send signals to the brain before any conscious thought occurs. List three specific visual elements in your chosen interface that drive bottom-up processing and explain why they catch the eye immediately.",
+     "step_title": "Identify Bottom-Up Elements",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide two examples: one where top-down processing helps the user (e.g., standard iconography) and one where it fails (e.g., a non-standard symbol for 'Save')."
+     },
+     "step_body": "Perception isn't just about what hits the retina; it's about what we expect to see. This is 'Top-Down Processing.' For example, we expect a 'cart' icon to be in the top-right of an e-commerce site because of our internal mental models. Examine your interface: where does it rely on your prior knowledge or 'mental software' to make sense of things? Identify one area where the interface works perfectly because it matches user expectations, and one area where it might be confusing because it breaks standard 'digital grammar.'",
+     "step_title": "Analyze Top-Down Expectations",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Recall our 'Information Processing' session: our 'RAM' (working memory) is limited. A 'sensory bottleneck' occurs when an interface provides too much raw data at once, overwhelming our ability to perceive it cohesively. Look for 'visual noise' or 'hierarchy flaws'—places where everything looks equally important, making it hard for the brain to decide what to process first. Take a screenshot of the interface and mark (mentally or with a basic editor) where the 'bottlenecks' are. Describe these flaws in detail.",
+     "step_title": "Map Sensory Bottlenecks",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a PDF or Image showing the interface with your notes. It must clearly identify: 1) Sensory bottlenecks (visual clutter), 2) Hierarchical flaws (poor use of size/color to direct attention), and 3) Two specific predicted user errors based on these perceptual issues."
+     },
+     "step_body": "It's time to finalize your Stage 1 deliverable: The Perceptual Map. This is a diagnostic document that summarizes your findings. You need to combine a screenshot of your interface with a written breakdown of the sensory bottlenecks and visual hierarchy flaws you've identified. Ensure you specifically mention at least two areas where a user might experience an 'error' (like clicking the wrong thing or missing a button) because the interface fails to account for how perception works.",
+     "step_title": "Submit the Perceptual Map",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {},
+     "step_body": "Great work. You've successfully moved from seeing an interface as just 'good or bad' to seeing it as a series of inputs for the human information-processing system. You've identified how raw data (sensation) and expectations (top-down) collide to create the user's reality. In the next stage, we will move deeper into the 'Black Box' to look at Attention and Memory—how the user decides what to focus on once they've perceived it. Keep your Perceptual Map handy, as it will be the foundation for your eventual redesign!",
+     "step_title": "Stage Reflect & Wrap-up",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "b7addb7c-d15c-42e6-8f4d-929966d3841b",
+   "stage_title": "Interface Sensation and Perception Analysis",
+   "parent_project_id": "26fd2db8-72bb-4829-859e-618cb8e4e55c",
+   "stage_description": "Select a complex digital interface and document how it utilizes bottom-up and top-down processing. Identify two areas where perceptual illusions or poor object recognition might lead to user error.",
+   "deliverable_increment": "A 'Perceptual Map' document identifying sensory bottlenecks and visual hierarchy flaws in the chosen interface."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you mapped the sensation and perception flaws of your chosen interface, focusing on how visual and auditory signals reach the brain. Now, we move deeper into the processor itself: Attention. Building on our sessions about the Cocktail Party Effect and Selection Models, you will now analyze how the interface manages—or mismanages—the user's limited cognitive 'fuel tank.' This stage will culminate in an Attention Audit report that identifies where the interface causes bottlenecking or divided attention costs.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of 3 attention-grabbing elements. For each, note if it is a 'valid' cue (assisting the task) or an 'invalid' distraction, and explain why based on the selection models (Broadbent or Treisman) we studied."
+     },
+     "step_body": "Think back to Treisman’s Attenuation Theory and the 'Dictionary Unit.' Certain stimuli have a lower threshold and can 'break through' even when a user is focused on a task. Audit your interface for 'Attention-Grabbers'—notifications, moving banners, or high-contrast pop-ups. Are these relevant to the user's current goal, or are they causing an 'Inattentional Blindness' effect by forcing a central executive bottleneck? List three specific elements in your interface that act as these 'low-threshold' stimuli and briefly explain if they help or hinder the user's focus.",
+     "step_title": "Identify 'Breakthrough' stimuli",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of the primary task screen. Use markup (circles/arrows) to show the 'Ideal Spotlight' (where they should look) vs. the 'Distractor Cues' (where the interface pulls them away)."
+     },
+     "step_body": "Using the 'Spotlight' and 'Zoom-Lens' metaphors, analyze the primary task workflow. When a user is performing a core action (like checking out or filling a form), where is their 'mental beam' directed? Identify any 'Invalid Cues'—areas where the interface visually suggests the user look one way, but the necessary information is actually located elsewhere. This forces the user to 'disengage, move, and re-engage' their attention, increasing reaction time and cognitive load.",
+     "step_title": "Map the visual spotlight",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a short paragraph (150-200 words) describing a specific dual-task scenario on your interface. Identify the 'bottleneck' and explain the likely performance drop using the concept of serial processing vs. parallel processing."
+     },
+     "step_body": "Now, let's look at the 'Dual-Task Paradigm.' Choose a primary task in your interface and introduce a secondary 'distraction' that often occurs in a real-world setting (e.g., a chat notification or a complex background video). Describe the 'Psychological Refractory Period' that occurs here: how does the interface's design force the user to queue these tasks? Does the system design minimize the 'task-switching' cost, or does it leave the user in a state of 'continuous partial attention'?",
+     "step_title": "Measure the multitasking cost",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your 'Attention Audit' report as a PDF. The report must include: 1) A summary of identified cognitive bottlenecks, 2) An analysis of visual spotlight efficiency, and 3) Three specific recommendations to reduce divided attention costs. Good work will use technical terms like 'attenuation,' 'central executive,' and 'overt/covert attention' correctly."
+     },
+     "step_body": "It's time to compile your findings into the final deliverable for this stage. Your 'Attention Audit' should combine your analysis of sensory filters, visual spotlights, and multitasking costs. Focus on suggesting concrete 'Attenuation' strategies: how can you 'turn down the volume' on distractions to ensure the user's central executive resources are preserved for the primary task?",
+     "step_title": "Draft the Attention Audit",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great job. You've moved from how the eye sees to how the mind selects. By identifying these attention bottlenecks, you have the diagnostic data needed for the final redesign. In the next stage, we will look at Memory—how once information passes the attention filter, it is encoded (or lost) within the system. Take a moment to consider: which was more disruptive in your interface—the visual distractions or the cognitive load of the task itself?",
+     "step_title": "Wrap-up & reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "df603e51-85cd-478d-bc9d-93e161cd40c2",
+   "stage_title": "Attention Load Testing",
+   "parent_project_id": "26fd2db8-72bb-4829-859e-618cb8e4e55c",
+   "stage_description": "Conduct a cognitive load assessment of the interface by identifying 'attention-grabbers' and potential causes of inattentional blindness. Measure the multitasking cost for a user attempting to complete a primary task on the platform.",
+   "deliverable_increment": "An 'Attention Audit' report detailing specific points of high cognitive load and suggested methods for reducing divided attention."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you mapped the physical sensory bottlenecks (Sensation & Perception) and identified where attention is split or overwhelmed (Attention Audit). Now, we shift from the 'funnel' of input to the 'workbench' of the mind: Working Memory and Long-Term Memory. Based on our lessons on 'Levels of Processing' and 'Baddeley’s Working Memory Model,' this stage focuses on how your interface facilitates the encoding and retrieval of information. We want to move from an interface that forces users to perform 'maintenance rehearsal' (repeating info in their heads) to one that utilizes recognition and semantic hooks.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short list of three memory bottlenecks you've identified. For each, specify if it taxes the Phonological Loop (verbal), Visuospatial Sketchpad (visual/spatial), or Central Executive (coordination/decision making)."
+     },
+     "step_body": "Open the interface you are auditing and look specifically for 'Memory Taxes.' These are moments where a user must remember information from one screen to use on another, or where they must recall a specific command rather than recognizing it from a list. Think about the 'Phonological Loop'—is the user forced to repeat a code or a price to themselves while navigating? Or the 'Visuospatial Sketchpad'—is the layout so complex they lose their place? List at least three specific points in the current workflow where working memory is likely to 'overflow' due to the 7 ± 2 limit.",
+     "step_title": "Identify memory bottlenecks",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "To reduce the burden on Long-Term Memory, we need to transition from 'Recall' to 'Recognition.' Recall is harder because it requires the user to search their 'archive' without help. Recognition provides cues. For the bottlenecks you identified, brainstorm 'retrieval cues' or 'semantic hooks' you could add. This might include persistent headers, breadcrumbs, auto-fill suggestions, or icons that relate to the user's existing mental schemas (the 'Self-Reference Effect').",
+     "step_title": "Draft retrieval cues",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload your 'Memory Architecture' diagram (PNG, JPG, or screenshot). Good work will clearly distinguish between original high-load paths and your new, optimized paths, using labels like 'Chunked,' 'Recognition Cue,' or 'Offloaded to Interface' to justify your design choices."
+     },
+     "step_body": "It is time to visualize the solution. You will create a 'Memory Architecture' diagram. This is a flowchart of your revised interface that explicitly labels how information is maintained and moved. Use one color to show 'recognition aids' (information the interface provides so the user doesn't have to remember it) and another color to show 'chunking strategies' (how you've grouped data-entry or navigation to fit the 7 ± 2 limit). Your goal is to show a 'seamless flow' where information is processed semantically and retrieval failure is mitigated by the design.",
+     "step_title": "Map the Memory Architecture",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a 1-paragraph reflection connecting your 'Memory Architecture' diagram to the Levels of Processing theory. Explain how your design facilitates 'deep' encoding for the user."
+     },
+     "step_body": "Finally, consider the 'Levels of Processing' (LOP) framework. Does your new design encourage 'deep' semantic processing (where the user understands the meaning and context of their actions) or does it still feel like 'shallow' structural processing (where they are just clicking buttons based on shapes)? Briefly explain how your design changes help the user form a more durable 'mental model' of the task, making them more proficient over time.",
+     "step_title": "Reflect on LOP",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "c89d001e-cd07-4404-8fed-9785279a7278",
+   "stage_title": "Working Memory and Retrieval Optimization",
+   "parent_project_id": "26fd2db8-72bb-4829-859e-618cb8e4e55c",
+   "stage_description": "Analyze the navigation structure and data-entry requirements of the interface. Propose changes to reduce the burden on working memory, such as utilizing recognition over recall and optimizing retrieval cues.",
+   "deliverable_increment": "A 'Memory Architecture' diagram showing the revised information flow designed to minimize encoding effort and retrieval failure."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you mapped out the sensory bottlenecks and memory architecture of your chosen interface. You've addressed how users perceive information and how it flows through their working memory. Now, we shift from 'how' users see to 'what' they understand. Building on our recent sessions on Categories, Concepts, and Semantic Networks, this stage focuses on aligning the interface’s internal logic with the user's mental shortcuts. We will audit your current system's labels and icons to ensure they match human prototypes and facilitate efficient 'spreading activation' during navigation.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a list of 3 current category labels or menu items from your interface that likely mismatch a user's mental model, and briefly explain the cognitive friction caused by each (e.g., 'The label X is too abstract to trigger the concept of Y')."
+     },
+     "step_body": "Begin by listing the primary navigation categories and sub-menus of your interface. Based on the 'Definition Trap' and 'Cognitive Economy' principles we discussed, evaluate if your categories are too rigid or if they provide the necessary 'inference engine' for a new user. For example, if a user is looking for 'Account Privacy,' is it buried under a category label that doesn't semantically link to it? Identify at least three areas where the current categorization might lead to a 'retrieval failure' because the label doesn't trigger the expected mental concept.",
+     "step_title": "Identify category mismatches",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let’s apply Prototype Theory to your interface's iconography. In UI design, an icon is essentially a visual 'prototype' for an action. If you use a floppy disk for 'Save,' you are relying on an exemplar that many modern users may no longer have in their 'mental filing cabinet.' Review your interface’s icons: are they 'typical' members of their category (like a magnifying glass for 'Search') or are they 'atypical' (like a telescope)? High typicality reduces reaction time, while atypical icons increase cognitive load as the user struggles to categorize them.",
+     "step_title": "Audit icons for typicality",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your revised Semantic Schema. This should be a document or diagram showing the new organizational hierarchy of your interface. Good work will show clear parent-child relationships where the child nodes are semantically 'primed' by the parent labels."
+     },
+     "step_body": "It's time to build the revised Semantic Schema. This is a visual or hierarchical map that redesigns the interface's labels and navigation flow to mirror a natural semantic network. Use the principle of 'Spreading Activation': when a user clicks a top-level node, the sub-items should be the most likely 'associative links' that fire in their mind. Group related functions based on shared properties at the highest possible level to maximize cognitive economy.",
+     "step_title": "Draft the Semantic Schema",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Submit a screenshot or image of your revised icon set (at least 4-6 icons). For each icon, include a one-sentence justification explaining why this visual is the best 'prototype' for the intended action."
+     },
+     "step_body": "Select the key icons that accompany your new Semantic Schema. For each icon, justify its design using either Prototype Theory (the 'average' representation of a concept) or Exemplar Theory (a specific, highly recognizable instance). If you choose an unconventional icon, you must justify how you will mitigate the increased reaction time—perhaps through clear text labeling to assist with the semantic link.",
+     "step_title": "Refine the Icon Set",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Reflect on how your new schema and icons optimize the 'inference engine' for your users. By aligning the interface with human semantic networks, you've reduced the need for users to 'test' every button, allowing them to predict functionality based on cognitive labels. This completes the conceptual mapping phase. In the next stage, we will bring all these pieces together—perception, attention, memory, and concepts—into your final high-fidelity prototype.",
+     "step_title": "Final justification & wrap-up",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "e1b103fc-e03a-42da-8980-4d2da15763da",
+   "stage_title": "Conceptual Mapping and Semantic Alignment",
+   "parent_project_id": "26fd2db8-72bb-4829-859e-618cb8e4e55c",
+   "stage_description": "Audit the interface's labels, icons, and categories to ensure they align with common human prototypes and mental models. Ensure the semantic network of the navigation matches user expectations.",
+   "deliverable_increment": "A revised 'Semantic Schema' and icon set with evidence-based justifications for category labels and imagery."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the final integration phase of your CUX Audit. So far, you have mapped out the perceptual, attentional, and memory-based foundations of your interface. Now, we move into the 'high-level' cognitive layer: Decision Making. Based on our lecture on Judgment and Heuristics, we know that users don't act like perfect calculators; they use mental shortcuts (heuristics) and are highly sensitive to how information is framed. In this stage, you will transform your previous diagrams into a cohesive Audit Report and a low-fidelity prototype that guides users toward better decisions without overloading their 'finite brains.'",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List two specific decision points in your chosen interface and name the cognitive bias or heuristic (e.g., Framing Effect, Representativeness, or Mental Set) that currently hinders the user's progress at each point. Briefly explain why it's a bottleneck."
+     },
+     "step_body": "Every interface presents a 'Problem Space' where users move from an initial state to a goal. Review your current interface workflow and identify at least two specific points where a user must make a choice. Look for potential 'cognitive straightjackets'—where could a user suffer from functional fixedness (seeing only one way to solve a problem) or be misled by the Availability Heuristic (judging importance based only on the most vivid information)? For example, is a 'Delete' button as prominent as a 'Save' button, causing unnecessary anxiety?",
+     "step_title": "Identify decision bottlenecks",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe two 'nudges' or design interventions you will implement. Explain how each nudge uses a cognitive principle (like sub-goaling or framing) to simplify the user's path through the problem space."
+     },
+     "step_body": "Now that you've found the bottlenecks, let's apply Means-Ends Analysis to reduce the user's cognitive distance to their goal. Your task is to design 'nudges'—small changes in framing or information hierarchy—that help users sub-goal effectively. If a task feels like an 'exhaustive algorithm' (scanning every aisle), how can you turn it into a heuristic search (heading straight to the right section)? Consider using framing to highlight gains over losses or simplifying the 'operators' (the moves the user can make) to prevent choice paralysis.",
+     "step_title": "Design cognitive nudges",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your Comprehensive Cognitive UX Audit Report. This should be a PDF document that includes: 1) Identification of cognitive flaws from all stages, 2) Analysis of decision biases, and 3) Clear, scientifically-grounded recommendations for the redesign."
+     },
+     "step_body": "It is time to compile your findings into the 'Cognitive UX Audit Report.' This document should synthesize your previous work—perceptual mapping, attention audits, and memory architecture—with your new decision-support strategies. This isn't just a list of UI changes; it's a scientific justification. Why does this icon work better semantically? How does this new flow reduce working memory load? Use the 'Cognitive Economy' concept: prove that your design is 'satisficing'—making the best use of the user's limited mental resources.",
+     "step_title": "Draft the final Audit Report",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your low-fidelity prototype as a file or a document containing a link to the interactive wireframes (e.g., Figma or Balsamiq). Good work will demonstrate a clear reduction in cognitive load and a deliberate application of the 'nudges' identified earlier."
+     },
+     "step_body": "The final piece of your portfolio is a low-fidelity interactive prototype (wireframes). This should be the 'tangible' version of your audit, showing the restructured interface in action. Focus on clarity over aesthetics: ensure the 'Semantic Schema' is logical, the visual hierarchy respects sensory limits, and the decision paths are clear. This prototype should demonstrate the 'Aha!' moment where the interface finally makes sense to the human brain.",
+     "step_title": "Submit your wireframe prototype",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Congratulations! You've moved from basic sensation all the way to complex problem-solving and insight. You've built a portfolio that treats the user not just as a 'customer,' but as a biological system with specific evolutionary constraints. Take a moment to reflect on how your perception of 'good design' has shifted from 'looking pretty' to 'aligning with the human cognitive architecture.'",
+     "step_title": "Project wrap-up",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "25f04946-1efa-44ac-86a2-c5fa1cf244d0",
+   "stage_title": "Decision Support and Nudge Implementation",
+   "parent_project_id": "26fd2db8-72bb-4829-859e-618cb8e4e55c",
+   "stage_description": "Identify common decision biases (like framing or confirmation bias) that occur within the user's workflow. Implement 'nudges' or heuristic-based shortcuts to assist in effective problem solving and choice selection.",
+   "deliverable_increment": "The final 'Cognitive UX Audit Report' and a low-fidelity interactive prototype (wireframes) incorporating all previous cognitive improvements."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "26fd2db8-72bb-4829-859e-618cb8e4e55c",
+   "project_name": "Cognitive User Experience (CUX) Design Audit",
+   "final_deliverable": "A Comprehensive Cognitive Audit Portfolio consisting of a diagnostic analysis of an existing system and a redesigned interface prototype with a technical justification based on experimental findings.",
+   "project_description": "In this project, you will apply cognitive psychology principles to analyze and redesign a real-world digital interface or daily task workflow. You will identify cognitive bottlenecks, memory load issues, and decision-making biases to create a scientifically-grounded UX Audit Report and a refined prototype that optimizes for the human information-processing system."
+  }
+ ],
+ "courseUuid": "b408925e-86e7-41e1-bd35-4abc8432a8ac"
+}

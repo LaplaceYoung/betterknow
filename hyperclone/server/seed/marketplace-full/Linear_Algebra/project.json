@@ -1,0 +1,321 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project stage! Over the course of this project, you are going to build a Latent Semantic Analysis (LSA) Engine from scratch. This is a powerful tool that uses the math of linear algebra to understand the 'meaning' behind text. By the end, you’ll have a Python-based tool that can perform semantic search and identify hidden themes in a collection of documents using Singular Value Decomposition. To get there, we start with the 'atoms' of data: vectors. In your recent sessions, you learned that vectors are lists of numbers that represent coordinates in space. Today, we are going to apply that by turning a collection of text documents (a corpus) into a system of vectors where each word represents a different dimension.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a comma-separated list of the unique words found in the three example sentences. Good work will include every unique word exactly once, ignoring case and punctuation (e.g., 'math', not 'Math.')."
+     },
+     "step_body": "Before we can build a matrix, we need to define our dimensions. In an LSA engine, every unique word in your corpus acts as an axis in a high-dimensional space. Consider this tiny corpus:\n1. 'Linear algebra is math.'\n2. 'Math is logic.'\n3. 'Algebra involves logic.'\n\nYour first task is to create a 'Vocabulary List.' This is a list of every unique word found across all documents, stripped of punctuation and converted to lowercase. This list determines the length of every vector we create. Look at the three sentences above and list the unique words you find.",
+     "step_title": "Identify the Vocabulary",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the vector for the first sentence as an ordered list of numbers (e.g., [1, 0, 1...]). The length of your vector should match the number of unique words in your vocabulary list."
+     },
+     "step_body": "Now that we have a vocabulary, we can represent each document as a vector. A document vector is a list of numbers where each position corresponds to a word in your vocabulary list. If the word 'logic' is the 5th word in your vocabulary, the 5th number in your vector will be the number of times 'logic' appears in that specific document. This is called 'Term Frequency.' Using the vocabulary you identified in the previous step, write out the vector for the first document: 'Linear algebra is math.'",
+     "step_title": "Draft Document Vectors",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "A Document-Term Matrix (DTM) is simply a collection of these document vectors placed side-by-side. In our case, we will treat each document as a column vector. This follows the logic of the 'augmented matrices' you studied: each column represents a specific 'object' (a document), and each row represents a 'feature' (a word). By organizing our text this way, we transform a library of words into a geometric map. If two documents use similar words, their column vectors will point in similar directions in space.",
+     "step_title": "Construct the Document-Term Matrix",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Document-Term Matrix. You can format it as a grid of numbers or a list of lists. Ensure you have 3 columns (one per document) and that the number of rows matches your vocabulary count. Double-check that your word counts are accurate for each document."
+     },
+     "step_body": "It's time to assemble the final deliverable for this stage. Using our 3-sentence corpus, construct the full 2D matrix. Each column should represent one of the three documents, and each row should represent one word from your vocabulary. This matrix is the foundation for all the compression and search operations we will perform later. If you've done this correctly, you've successfully translated human language into a linear system that a computer can manipulate.",
+     "step_title": "Submit the Full DTM",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Take a look at your completed matrix. In our upcoming sessions, we will discuss 'Linear Independence.' Looking at your vectors, do you think any of these documents could be perfectly reconstructed by just adding or scaling the other two? If a document only uses words that already appear in other documents, it might be 'linearly dependent.' Understanding this redundancy is exactly how LSA compresses data. You've just built the raw data structure that makes that possible! In the next stage, we will start looking at how to measure the 'distance' between these vectors.",
+     "step_title": "Reflection: Redundancy and Rank",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "4ec5096e-d280-476e-bd71-7958fe33a583",
+   "stage_title": "Vectorizing the Corpus",
+   "parent_project_id": "d12b400d-5802-45ac-a694-9f654275a061",
+   "stage_description": "Convert a collection of text documents into high-dimensional vectors by counting word frequencies and representing the corpus as a system of linear equations where each document is a point in word-space.",
+   "deliverable_increment": "A Document-Term Matrix (DTM) representing the corpus as a collection of column vectors."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you successfully built a Document-Term Matrix (DTM), which represents your text corpus as a collection of column vectors. Currently, these vectors are just raw counts. In this stage, we are moving from seeing matrices as static spreadsheets (nouns) to seeing them as 'verbs' or linear transformations. You are going to create a scaling transformation—specifically a simplified TF-IDF weighting—to adjust the importance of different terms. By the end of these steps, you'll have a normalized weight matrix that, when multiplied by your DTM, shifts the vectors into a more meaningful conceptual space.",
+     "step_title": "Recap and project orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (2-3 sentences) of why logarithmic scaling is preferred over linear ratios for weighting terms in a vector space, focusing on how it prevents rare terms from having an 'explosive' or disproportionate impact on the transformation."
+     },
+     "step_body": "A linear transformation can scale different dimensions independently. In our LSA engine, some words (like 'the' or 'and') are less informative than others. To prepare our transformation, calculate the Inverse Document Frequency (IDF) for each term in your vocabulary. Use the formula: log(Total Documents / Documents containing the term). This will give you a list of weights where common words have low values and rare, specific words have high values. Why is it important that we use a log scale here rather than raw ratios to keep our transformation stable?",
+     "step_title": "Calculate the Weighting Vector",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, we need to turn that list of weights into a 'verb'—a linear transformation matrix. In linear algebra, a diagonal matrix acts as a non-uniform scaling transformation. Create a square matrix 'W' where the diagonal elements are the weights you just calculated, and all off-diagonal elements are zero. This matrix represents a transformation that 'stretches' the axes of important terms and 'shrinks' the axes of common terms. Verify the dimensions: if you have 'N' terms in your vocabulary, your matrix W should be N x N.",
+     "step_title": "Construct the Scaling Matrix",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It's time for matrix multiplication. To apply your weights to your corpus, you must compute the product of your Weight Matrix (W) and your original Document-Term Matrix (A). Remember the 'Inner Dimension Rule' we discussed: if W is (N x N) and A is (N x D), your result will be a new (N x D) matrix. In this context, matrix multiplication is the 'composition' of your scaling rule onto your raw data. Each document vector is being simultaneously scaled by your weights in a single, elegant operation.",
+     "step_title": "Apply the Transformation",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit a file (PDF, text, or image) containing your weighted matrix or the Python code used to generate it. Good work will show a square diagonal weight matrix correctly multiplied by the DTM, resulting in adjusted term values that reflect the IDF scaling."
+     },
+     "step_body": "You now have a weighted representation of your corpus where term importance is mathematically adjusted. This is a crucial step for LSA because it ensures that the 'latent' relationships aren't drowned out by high-frequency noise. Please submit your final weighted matrix or a screenshot of the code and resulting values. Ensure that your common stop-words now have significantly lower values than your unique keywords.",
+     "step_title": "Submit the Weighted Matrix",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Explain whether a weight matrix with a zero on the diagonal is invertible and what that means for our ability to 'undo' the transformation and recover the original raw counts."
+     },
+     "step_body": "Think back to our session on Identity and Matrix Inverses. If your weight matrix 'W' contains a zero on the diagonal (perhaps because a word appears in every single document and its weight became log(1)=0), would this transformation be invertible? How does this relate to the concept of 'losing information' in a linear transformation?",
+     "step_title": "Reflect on Invertibility",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "701eaaad-727d-4dc3-a525-f9ed6c45e0ed",
+   "stage_title": "Applying Linear Transformations",
+   "parent_project_id": "d12b400d-5802-45ac-a694-9f654275a061",
+   "stage_description": "Implement a weighting transformation (such as TF-IDF scaling) as a matrix multiplication to adjust the importance of different terms within the vector space.",
+   "deliverable_increment": "A normalized and scaled Weight Matrix applied to the initial document vectors."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built a Document-Term Matrix (DTM) and applied weight transformations to represent your text corpus. Now, we need to check the structural integrity of that space. In this stage, you will use determinants to determine if your document vectors are 'independent'—meaning they provide unique information—or if they collapse into a lower dimension, which indicates redundancy in your dataset.",
+     "step_title": "Orient to geometric stability",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of the three 3x3 sub-matrices you've selected, including the row/column labels for each, and a brief explanation of why you chose these specific slices for testing stability."
+     },
+     "step_body": "In a real-world LSA engine, the DTM is often too large (e.g., 1000x5000) for a standard determinant calculation. To analyze the 'local' geometry of your themes, you must extract three 3x3 sub-matrices from your DTM. Choose one sub-matrix representing highly related terms (e.g., 'data', 'algorithm', 'compute'), one representing unrelated terms, and one where you suspect redundancy. List the terms and the corresponding indices you've selected.",
+     "step_title": "Select sub-matrices for analysis",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Using the Laplace cofactor expansion method or row reduction strategies we covered in the lectures, calculate the determinant for each of your 3x3 sub-matrices. Remember: the determinant is a 'scaling factor' for volume. If a sub-matrix has a determinant of 2, those terms are doubling the conceptual volume; if it's near zero, that 'topic' is effectively collapsing into a line or point, losing semantic distinctness.",
+     "step_title": "Calculate the scaling factors",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the numerical determinant for each 3x3 sub-matrix and a 1-2 sentence interpretation of each result. Use terms like 'dimensional collapse,' 'scaling factor,' or 'independent' to describe the geometry."
+     },
+     "step_body": "Now, look at your results. A determinant of zero (or very close to it) indicates 'Linear Dependence'—your documents are saying the same thing in different ways. A negative determinant indicates a change in orientation. For each of your three sub-matrices, record the calculated determinant and describe what it tells you about the 'volume' of information in that part of your LSA engine.",
+     "step_title": "Interpret the geometric volume",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF report containing: 1) The selected sub-matrices, 2) Your step-by-step determinant calculations (using either cofactor expansion or row operations), and 3) A summary conclusion on whether your document space spans its full vocabulary or contains redundant, collapsing dimensions. Good work will show clear calculation steps and accurate geometric interpretation."
+     },
+     "step_body": "Combine your findings into a final Diagnostic Report. This report is a crucial part of your project deliverable, as it proves your engine can detect redundant data before you proceed to the full SVD. Your report should summarize the rank-deficiency of your corpus and identify which 'themes' in your matrix are currently redundant.",
+     "step_title": "Submit the diagnostic report",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work! You've successfully used determinants as a diagnostic tool. Before moving on to Singular Value Decomposition, consider this: if you found many zero determinants, would that be a problem for your engine, or just a sign that your text corpus is very focused on a single topic? There is no right answer, but this 'sparsity' is what we will optimize in the next stage.",
+     "step_title": "Reflect on matrix sparsity",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "2c392751-7c37-48ce-9a2a-e4ce201db067",
+   "stage_title": "Geometric Stability and Determinants",
+   "parent_project_id": "d12b400d-5802-45ac-a694-9f654275a061",
+   "stage_description": "Calculate the determinant of small sub-matrices within your data to check for linear independence and determine if the document set spans the full vocabulary space or contains redundant information.",
+   "deliverable_increment": "A diagnostic report on the matrix rank and volume scaling factors of the term-document space."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you transformed your raw text corpus into a Document-Term Matrix (DTM) and analyzed its geometric stability. You've also recently mastered the theory of diagonalization and the 'DNA' of matrices: eigenvalues and eigenvectors. Now, it is time to apply these concepts to find the 'hidden themes' in your documents. In this stage, you will move from a raw matrix to a similarity space by creating a square matrix and performing an eigen-decomposition to identify the dominant directions—or concepts—within your data.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the dimensions of your resulting similarity matrix and a brief explanation of why the product of a matrix and its transpose is always symmetric."
+     },
+     "step_body": "To find the relationship between documents, we need a square matrix that represents document-to-document similarity. This is achieved by multiplying your normalized Document-Term Matrix ($A$) by its transpose ($A^T$). This operation, $S = A^T A$, results in a 'Gram Matrix' where each entry $s_{ij}$ represents the dot product (similarity) between document $i$ and document $j$. Write a function to compute this matrix and verify that the resulting dimensions are $N \\times N$, where $N$ is the number of documents in your corpus.",
+     "step_title": "Construct the Similarity Matrix",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "With your similarity matrix $S$ ready, you must now find its eigenvalues. Recall the characteristic equation: $det(S - \\lambda I) = 0$. Because $S$ is a real, symmetric matrix, it is guaranteed to be diagonalizable with real eigenvalues. These eigenvalues ($\\lambda$) represent the 'variance' or strength of the underlying concepts in your text. Use a numerical solver (like `numpy.linalg.eigvals`) to calculate the eigenvalues of $S$ and sort them in descending order.",
+     "step_title": "Solve the Characteristic Equation",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List your top three eigenvalues and explain what a very large eigenvalue suggests about the document relationships in that specific direction."
+     },
+     "step_body": "In LSA, large eigenvalues correspond to the most significant semantic themes, while small eigenvalues often represent noise. Review your sorted list of eigenvalues. You will likely see a few large values followed by a 'long tail' of smaller numbers. This is where you decide the 'rank' of your approximation—how many concepts are truly necessary to describe your data? Select the top $k$ eigenvalues that represent the majority of the variance.",
+     "step_title": "Identify Dominant Concepts",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your Python script or notebook containing the logic for the similarity matrix construction and the eigen-decomposition. Your code should clearly identify and output the primary eigenvectors (concept directions)."
+     },
+     "step_body": "The final part of this stage is to compute the eigenvectors corresponding to your top eigenvalues. These eigenvectors are the 'principal axes' of your document space; they represent the 'Concept Vectors.' Your deliverable is a module that takes your DTM, computes the similarity matrix, and outputs the top eigenvectors and eigenvalues. This module will serve as the engine for the low-rank approximation in the final project stage.",
+     "step_title": "Submit the Eigen-decomposition Module",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Congratulations! You've successfully extracted the semantic 'skeleton' of your corpus. Before moving forward, think about the geometric intuition: an eigenvector with a large eigenvalue points in a direction where many documents are clustered or aligned. You have transformed a high-dimensional word space into a lower-dimensional concept space. In the final stage, we will use these directions to perform actual semantic searches.",
+     "step_title": "Reflect on Geometric Meaning",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "29d00d60-3c55-44f4-ab8f-ea5fbd5f7c07",
+   "stage_title": "Eigen-Analysis of Document Similarity",
+   "parent_project_id": "d12b400d-5802-45ac-a694-9f654275a061",
+   "stage_description": "Construct a square similarity matrix by multiplying the document matrix by its transpose, then compute its eigenvalues to find the primary directions of variance in the text data.",
+   "deliverable_increment": "An Eigen-decomposition module that identifies the dominant 'concept' directions in the data."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the final stage of your LSA engine project! Previously, you built a Document-Term Matrix (DTM) and used Eigen-decomposition to find 'concept directions.' While Eigen-decomposition is powerful, it only works for square matrices. In this stage, you will use Singular Value Decomposition (SVD) to decompose your DTM into three matrices: U, Σ, and Vᵀ. This allows you to handle any corpus size and, more importantly, provides a way to reduce 'noise' and find hidden (latent) themes. You'll move from searching for exact words to searching for concepts by mapping your documents into a lower-dimensional semantic space.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List the first five singular values from your Sigma (Σ) matrix and provide a one-sentence interpretation of what a high first singular value indicates about the information density of your top 'latent concept'."
+     },
+     "step_body": "Start by implementing the SVD calculation using a library like NumPy or SciPy. Apply this to the weighted Term-Document matrix you prepared in the previous stages. Once you have U, Σ, and Vᵀ, verify that the dimensions align with the theory: U should represent the term-concept relationships, V should represent the document-concept relationships, and Σ (the singular values) should represent the 'strength' of each concept. For this step, calculate the full SVD and report back on the first five singular values. What do these values tell you about the dominance of the top concepts in your specific corpus?",
+     "step_title": "Perform SVD on the DTM",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code snippet you used to truncate your SVD components to rank 'k'. Ensure it correctly handles the multiplication of the reduced U, Sigma, and V-transpose matrices."
+     },
+     "step_body": "The true power of LSA comes from 'rank reduction.' By zeroing out the smaller singular values in Σ, you remove the 'noise' (unimportant word variations) and keep only the strongest semantic signals. Choose a value 'k' (typically 2 or 3 for small datasets) to truncate your matrices. Reconstruct an approximated version of your original matrix using only the top k singular values and their corresponding vectors. This compressed matrix represents your 'Latent Semantic Space.' Submit a code snippet showing how you slice U, Σ, and Vᵀ to perform this reduction.",
+     "step_title": "Create a low-rank approximation",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now that your documents are represented in a clean, low-dimensional space, you need a way to compare them. Recall from your session on 'Dot Products and Norms' that the cosine of the angle between two vectors is a perfect measure of similarity. Implement a function that calculates the Cosine Similarity between two document vectors. This involves taking the dot product and dividing by the product of their norms. Unlike Euclidean distance, this will tell you how closely aligned the 'themes' of two documents are, regardless of their length.",
+     "step_title": "Implement Cosine Similarity",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your final Python script (the LSA engine) and a screenshot/log of a successful semantic search. The search must demonstrate that the engine can identify document similarity based on the latent space rather than just keyword counting."
+     },
+     "step_body": "Integrate everything into your final LSA engine. Create a search interface where a user can input a 'query vector' (representing a search term). Your engine should project this query into the same low-rank semantic space and then use your Cosine Similarity function to find the most relevant documents in the corpus. Test it by searching for a concept that doesn't share exact keywords with a document but is semantically related. Capture a screenshot or export a log of your engine returning a 'semantic match'—where the search term and the result are conceptually linked.",
+     "step_title": "Final engine & search test",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a 2-3 sentence reflection on how the concept of orthogonal projections relates to the SVD's ability to filter noise in your document matrix."
+     },
+     "step_body": "Congratulations on finishing the engine! As a final reflection, consider the geometric geometry of your space. How did the 'Orthogonal Complements' and 'Orthogonal Projections' you learned about play a role in this? By ignoring the smaller singular values, you essentially projected your data onto a subspace of 'meaning' while discarding the orthogonal complement as noise. Briefly explain how this geometric perspective changed how you view 'data compression'.",
+     "step_title": "Reflect on noise reduction",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "09d7ad76-baa2-4c16-9cf0-a2ae72e0bcad",
+   "stage_title": "SVD and Semantic Search",
+   "parent_project_id": "d12b400d-5802-45ac-a694-9f654275a061",
+   "stage_description": "Perform Singular Value Decomposition to reduce the noise in the corpus and implement a cosine-similarity search function to find related documents based on latent themes rather than exact word matches.",
+   "deliverable_increment": "The final LSA engine including a low-rank approximation module and a semantic search interface."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "d12b400d-5802-45ac-a694-9f654275a061",
+   "project_name": "Building a Latent Semantic Analysis (LSA) Engine",
+   "final_deliverable": "A Python-based Document Analysis Tool that processes a text corpus into a term-document matrix, calculates document similarity, and performs low-rank approximation to identify hidden themes.",
+   "project_description": "In this project, you will build a mathematical engine that can understand the conceptual relationship between documents. You will represent text as vectors, transform them into a shared conceptual space using matrix operations, and use Singular Value Decomposition (SVD) to perform semantic search and data compression on a small corpus of text."
+  }
+ ],
+ "courseUuid": "0b9cff7d-26bf-4d00-b127-326254d16fbb"
+}

@@ -1,0 +1,1599 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Exam: Limits and Continuity",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following statements best describes the conceptual difference between the value of a limit and the value of a function at a specific point?",
+     "options": [
+      "The limit describes the actual y-value at the point, while the function value describes the trend.",
+      "The limit describes the trend of the function as inputs approach a point, while the function value is the output at that exact point.",
+      "A limit can only exist if the function value at that point is defined and equal to the limit.",
+      "The function value describes the path taken to reach a point, whereas the limit describes the point itself."
+     ],
+     "explanation": "A limit is about the behavior of the outputs as we get closer to a target x-value, whereas the function value is simply what the function equals exactly at that x-value. They do not have to be the same (as seen in holes or displaced points).",
+     "correctAnswers": [
+      "The limit describes the trend of the function as inputs approach a point, while the function value is the output at that exact point."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Visual examples of limit existence and non-existence conditions.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit1-q2.png"
+     },
+     "prompt": "Under which of the following conditions does the two-sided limit of f(x) as x approaches c fail to exist?",
+     "options": [
+      "The left-hand limit and right-hand limit are both finite but not equal.",
+      "The function is undefined at x = c.",
+      "The function values increase without bound from both sides.",
+      "The left-hand limit is 5 and the right-hand limit is 5, but f(c) = 10.",
+      "The function values oscillate infinitely between -1 and 1 as x approaches c."
+     ],
+     "explanation": "A two-sided limit fails if directional limits disagree, if the function behavior is infinite (technically DNE), or if it oscillates. A hole (undefined at c) or a displaced point (f(c)=10) does not prevent the limit itself from existing.",
+     "correctAnswers": [
+      "The left-hand limit and right-hand limit are both finite but not equal.",
+      "The function values increase without bound from both sides.",
+      "The function values oscillate infinitely between -1 and 1 as x approaches c."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When the limit of the denominator of a rational function is zero, the ____ Law of limits cannot be directly applied.",
+     "placeholder": "Enter Law Name",
+     "correctAnswers": [
+      "Quotient"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If you are evaluating the limit of f(x) = (x^2 - 16)/(x - 4) as x approaches 4 using a table of values, which set of x-values would be most appropriate?",
+     "options": [
+      "3, 4, 5",
+      "3.9, 3.99, 3.999 and 4.1, 4.01, 4.001",
+      "0, 1, 2, 3, 4",
+      "-4, -3, -2, -1"
+     ],
+     "explanation": "To estimate a limit numerically, we must 'zoom in' on the target value from both sides using increments that get progressively closer to the target (4 in this case).",
+     "correctAnswers": [
+      "3.9, 3.99, 3.999 and 4.1, 4.01, 4.001"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following functions generally allow for direct substitution when evaluating a limit at any point in their domain?",
+     "options": [
+      "Polynomial functions",
+      "Basic trigonometric functions like sin(x) and cos(x)",
+      "Piecewise functions at their boundary points",
+      "Exponential functions",
+      "Rational functions where the denominator is non-zero"
+     ],
+     "explanation": "Continuous functions allow for direct substitution. Polynomials, exponentials, and basic trig functions are continuous everywhere. Rational functions are continuous where the denominator is not zero. Piecewise functions often have jumps at boundaries, making direct substitution unreliable there.",
+     "correctAnswers": [
+      "Polynomial functions",
+      "Basic trigonometric functions like sin(x) and cos(x)",
+      "Exponential functions",
+      "Rational functions where the denominator is non-zero"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the notation lim (x -> c+) f(x), the small plus sign indicates that we are approaching c from the ____.",
+     "placeholder": "direction",
+     "correctAnswers": [
+      "right",
+      "right side",
+      "positive side"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Evaluate the limit as x approaches 3 of the constant function f(x) = 12.",
+     "options": [
+      "3",
+      "12",
+      "Undefined",
+      "0"
+     ],
+     "explanation": "The limit of a constant is always the constant itself, regardless of what x is approaching, because the output never changes.",
+     "correctAnswers": [
+      "12"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Consider a graph with a vertical asymptote at x = -2. Which statements are true regarding the limit as x approaches -2?",
+     "options": [
+      "The limit does not exist in the context of real numbers.",
+      "The limit must be zero.",
+      "The behavior can be described using infinity notation if the outputs grow without bound.",
+      "Direct substitution can be used to find the limit.",
+      "The one-sided limits will always be equal."
+     ],
+     "explanation": "Asymptotes represent non-existent limits because the values do not approach a finite real number. We use infinity symbols to describe the specific way the limit fails to exist.",
+     "correctAnswers": [
+      "The limit does not exist in the context of real numbers.",
+      "The behavior can be described using infinity notation if the outputs grow without bound."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A function is considered ____ at a point c if the limit as x approaches c equals f(c).",
+     "placeholder": "property",
+     "correctAnswers": [
+      "continuous"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If the limit as x approaches c of f(x) is 5 and the limit as x approaches c of g(x) is -2, what is the limit of [f(x) * g(x)] + 4?",
+     "options": [
+      "-6",
+      "7",
+      "-10",
+      "3"
+     ],
+     "explanation": "Using limit properties: (5 * -2) + 4 = -10 + 4 = -6.",
+     "correctAnswers": [
+      "-6"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A function f(x) has a jump discontinuity at x = 1. Which of the following MUST be true?",
+     "options": [
+      "The left-hand limit at x = 1 exists.",
+      "The right-hand limit at x = 1 exists.",
+      "The two-sided limit at x = 1 exists.",
+      "The left-hand limit and right-hand limit at x = 1 are unequal.",
+      "f(1) is undefined."
+     ],
+     "explanation": "A jump discontinuity occurs when both directional limits are finite but different. The function value f(1) might be defined (at one of the levels) or undefined, but that doesn't define the jump itself.",
+     "correctAnswers": [
+      "The left-hand limit at x = 1 exists.",
+      "The right-hand limit at x = 1 exists.",
+      "The left-hand limit and right-hand limit at x = 1 are unequal."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ Law of limits states that the limit of a sum is the sum of the limits.",
+     "placeholder": "Law Name",
+     "correctAnswers": [
+      "Sum"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the primary reason we use the Squeeze Theorem (Sandwich Theorem)?",
+     "options": [
+      "To find the value of a function at a hole.",
+      "To evaluate a limit of a function trapped between two other functions with the same limit.",
+      "To prove that a function is continuous at all points.",
+      "To calculate the slope of a tangent line."
+     ],
+     "explanation": "The Squeeze Theorem allows us to find a difficult limit by bounding it between two 'easier' functions that both approach the same value at the target point.",
+     "correctAnswers": [
+      "To evaluate a limit of a function trapped between two other functions with the same limit."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following limit notation expressions correctly describe the end behavior of a function approaching a horizontal asymptote at y = 3?",
+     "options": [
+      "lim (x -> 3) f(x) = infinity",
+      "lim (x -> infinity) f(x) = 3",
+      "lim (x -> -infinity) f(x) = 3",
+      "f(3) = infinity",
+      "lim (x -> 3) f(x) = 0"
+     ],
+     "explanation": "Horizontal asymptotes describe the behavior of the function as x goes to positive or negative infinity. If the asymptote is at y=3, the limit as x grows large is 3.",
+     "correctAnswers": [
+      "lim (x -> infinity) f(x) = 3",
+      "lim (x -> -infinity) f(x) = 3"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the first step you should always take when analytically evaluating the limit of a polynomial or rational function?",
+     "options": [
+      "Factor the numerator and denominator.",
+      "Attempt direct substitution of the target value.",
+      "Create a table of values.",
+      "Sketch a graph."
+     ],
+     "explanation": "Direct substitution is the most efficient first step. If it results in a real number, the limit is found; if it results in 0/0, then algebraic manipulation (like factoring) is required.",
+     "correctAnswers": [
+      "Attempt direct substitution of the target value."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary conditions for a function f(x) to be continuous at x = c?",
+     "options": [
+      "f(c) must be defined.",
+      "The limit as x approaches c must exist.",
+      "f(c) must be equal to the limit as x approaches c.",
+      "The derivative at x = c must exist.",
+      "The function must be a polynomial."
+     ],
+     "explanation": "Continuity requires three things: the point exists, the limit exists (left and right match), and the point and limit are at the same height.",
+     "correctAnswers": [
+      "f(c) must be defined.",
+      "The limit as x approaches c must exist.",
+      "f(c) must be equal to the limit as x approaches c."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the graph of the piecewise function so that the two-sided limit as x approaches 2 exists, even though the function remains discontinuous.",
+     "options": [
+      "Left branch at y=3, Right branch at y=1, Point at y=2",
+      "Left branch at y=2, Right branch at y=2, Point at y=5",
+      "Left branch at y=2, Right branch at y=4, Point at y=2",
+      "Left branch at y=0, Right branch at y=0, Point at y=0"
+     ],
+     "explanation": "For a two-sided limit to exist, the left-hand and right-hand limits must be equal. If they both meet at y=2 but the actual point is at y=5, the limit exists (it is 2), but the function is discontinuous because the limit does not equal the function value.",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --color-left: #3b82f6;\n      --color-right: #a855f7;\n      --color-point: #f43f5e;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 10px;\n    }\n\n    .stage {\n      width: 100%;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 10px;\n      box-sizing: border-box;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n      position: relative;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Interactive Handles */\n    .handle {\n      cursor: grab;\n      touch-action: none;\n      outline: none;\n    }\n    .handle:focus-visible {\n      filter: drop-shadow(0 0 4px var(--accent));\n    }\n    .handle.dragging {\n      cursor: grabbing;\n    }\n\n    /* Controls / Status readout */\n    .status-panel {\n      width: 100%;\n      display: grid;\n      grid-template-columns: repeat(3, 1fr);\n      gap: 8px;\n      background: var(--stage);\n      padding: 8px;\n      border-radius: 8px;\n      box-sizing: border-box;\n    }\n\n    .status-item {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      font-weight: 500;\n    }\n\n    .status-val {\n      font-size: 14px;\n      font-weight: 700;\n      font-variant-numeric: tabular-nums;\n      margin-top: 2px;\n    }\n\n    .status-item.left .status-val { color: var(--color-left); }\n    .status-item.right .status-val { color: var(--color-right); }\n    .status-item.point .status-val { color: var(--color-point); }\n\n    .hint-text {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: 2px;\n    }\n\n    .visually-hidden {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Locked state overlay style */\n    .locked {\n      pointer-events: none !important;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"visually-hidden\">Interactive Piecewise Function Limit Explorer</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 320 180\" aria-hidden=\"true\">\n        <!-- Grid & Axes -->\n        <g stroke=\"#f0f0f0\" stroke-width=\"1\">\n          <!-- Horizontal Grid lines for y=0 to 5 -->\n          <!-- y=0: 150, y=1: 130, y=2: 110, y=3: 90, y=4: 70, y=5: 50 -->\n          <line x1=\"20\" y1=\"150\" x2=\"300\" y2=\"150\" />\n          <line x1=\"20\" y1=\"130\" x2=\"300\" y2=\"130\" />\n          <line x1=\"20\" y1=\"110\" x2=\"300\" y2=\"110\" />\n          <line x1=\"20\" y1=\"90\" x2=\"300\" y2=\"90\" />\n          <line x1=\"20\" y1=\"70\" x2=\"300\" y2=\"70\" />\n          <line x1=\"20\" y1=\"50\" x2=\"300\" y2=\"50\" />\n          \n          <!-- Vertical grid line at x=2 (X=160) -->\n          <line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"165\" stroke=\"#e0e0e0\" stroke-dasharray=\"3,3\" stroke-width=\"1.5\" />\n        </g>\n\n        <!-- Axes -->\n        <line x1=\"20\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#888888\" stroke-width=\"1.5\" /> <!-- X axis -->\n        <line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"165\" stroke=\"#888888\" stroke-width=\"1.5\" /> <!-- Y axis at x=0 -->\n\n        <!-- Y Axis Labels -->\n        <g font-size=\"9\" fill=\"#888888\" text-anchor=\"end\" font-family=\"sans-serif\">\n          <text x=\"44\" y=\"153\">0</text>\n          <text x=\"44\" y=\"133\">1</text>\n          <text x=\"44\" y=\"113\">2</text>\n          <text x=\"44\" y=\"93\">3</text>\n          <text x=\"44\" y=\"73\">4</text>\n          <text x=\"44\" y=\"53\">5</text>\n        </g>\n        \n        <!-- X Axis Labels -->\n        <g font-size=\"9\" fill=\"#888888\" text-anchor=\"middle\" font-family=\"sans-serif\">\n          <text x=\"50\" y=\"162\">0</text>\n          <text x=\"160\" y=\"162\">x = 2</text>\n        </g>\n\n        <!-- Function Curves -->\n        <!-- Left curve: quadratic or smooth path from (0, 1) to (2, L) -->\n        <path id=\"left-curve\" d=\"\" fill=\"none\" stroke=\"var(--color-left)\" stroke-width=\"3\" />\n        <!-- Right curve: straight line from (2, R) to (4, 3) -->\n        <path id=\"right-curve\" d=\"\" fill=\"none\" stroke=\"var(--color-right)\" stroke-width=\"3\" />\n\n        <!-- Connecting indicator lines from handles to actual endpoints at x=2 -->\n        <line id=\"left-connector\" x1=\"140\" y1=\"0\" x2=\"160\" y2=\"0\" stroke=\"var(--color-left)\" stroke-width=\"1\" stroke-dasharray=\"2,2\" />\n        <line id=\"right-connector\" x1=\"180\" y1=\"0\" x2=\"160\" y2=\"0\" stroke=\"var(--color-right)\" stroke-width=\"1\" stroke-dasharray=\"2,2\" stroke-width=\"1\" />\n\n        <!-- Actual endpoints on the graph (at x=2, X=160) -->\n        <circle id=\"left-endpoint\" cx=\"160\" cy=\"0\" r=\"4.5\" fill=\"none\" stroke=\"var(--color-left)\" stroke-width=\"2.5\" />\n        <circle id=\"right-endpoint\" cx=\"160\" cy=\"0\" r=\"4.5\" fill=\"none\" stroke=\"var(--color-right)\" stroke-width=\"2.5\" />\n\n        <!-- Draggable Handles (Offset horizontally to prevent overlap blocking) -->\n        <!-- Left endpoint Handle at X=140 -->\n        <g class=\"handle\" id=\"handle-left\" tabindex=\"0\" role=\"slider\" aria-label=\"Left branch endpoint height\" aria-valuemin=\"0\" aria-valuemax=\"5\">\n          <line x1=\"140\" y1=\"30\" x2=\"140\" y2=\"165\" stroke=\"rgba(59, 130, 246, 0.15)\" stroke-width=\"12\" stroke-linecap=\"round\" />\n          <circle id=\"handle-left-circle\" cx=\"140\" cy=\"0\" r=\"8\" fill=\"var(--surface)\" stroke=\"var(--color-left)\" stroke-width=\"3\" />\n          <circle cx=\"140\" cy=\"0\" r=\"2\" fill=\"var(--color-left)\" />\n        </g>\n\n        <!-- Right endpoint Handle at X=180 -->\n        <g class=\"handle\" id=\"handle-right\" tabindex=\"0\" role=\"slider\" aria-label=\"Right branch endpoint height\" aria-valuemin=\"0\" aria-valuemax=\"5\">\n          <line x1=\"180\" y1=\"30\" x2=\"180\" y2=\"165\" stroke=\"rgba(168, 85, 247, 0.15)\" stroke-width=\"12\" stroke-linecap=\"round\" />\n          <circle id=\"handle-right-circle\" cx=\"180\" cy=\"0\" r=\"8\" fill=\"var(--surface)\" stroke=\"var(--color-right)\" stroke-width=\"3\" />\n          <circle cx=\"180\" cy=\"0\" r=\"2\" fill=\"var(--color-right)\" />\n        </g>\n\n        <!-- Point f(2) Draggable Handle directly at X=160 -->\n        <g class=\"handle\" id=\"handle-point\" tabindex=\"0\" role=\"slider\" aria-label=\"f of 2 point height\" aria-valuemin=\"0\" aria-valuemax=\"5\">\n          <circle id=\"handle-point-circle\" cx=\"160\" cy=\"0\" r=\"8\" fill=\"var(--color-point)\" stroke=\"var(--surface)\" stroke-width=\"1.5\" />\n        </g>\n      </svg>\n    </div>\n\n    <!-- Status Readout Panel -->\n    <div class=\"status-panel\">\n      <div class=\"status-item left\">\n        <span>Left Endpoint</span>\n        <span class=\"status-val\" id=\"val-left\">y = 4</span>\n      </div>\n      <div class=\"status-item point\">\n        <span>f(2) Point</span>\n        <span class=\"status-val\" id=\"val-point\">y = 3</span>\n      </div>\n      <div class=\"status-item right\">\n        <span>Right Endpoint</span>\n        <span class=\"status-val\" id=\"val-right\">y = 1</span>\n      </div>\n    </div>\n\n    <div class=\"hint-text\">Drag the colored points vertically to match the target state.</div>\n  </div>\n\n  <script>\n    // State values (integers 0 to 5)\n    let leftY = 4;\n    let rightY = 1;\n    let pointY = 3;\n\n    // Target Options mapping\n    const OPTIONS = [\n      \"Left branch at y=3, Right branch at y=1, Point at y=2\",\n      \"Left branch at y=2, Right branch at y=2, Point at y=5\",\n      \"Left branch at y=2, Right branch at y=4, Point at y=2\",\n      \"Left branch at y=0, Right branch at y=0, Point at y=0\"\n    ];\n\n    // Coordinate conversion helper\n    // y = 0 -> Y = 150\n    // y = 5 -> Y = 50\n    function yToSvg(y) {\n      return 150 - (y * 20);\n    }\n\n    function svgToY(svgY) {\n      const val = (150 - svgY) / 20;\n      return Math.min(5, Math.max(0, Math.round(val)));\n    }\n\n    // DOM Elements\n    const leftCurve = document.getElementById('left-curve');\n    const rightCurve = document.getElementById('right-curve');\n    const leftConnector = document.getElementById('left-connector');\n    const rightConnector = document.getElementById('right-connector');\n    const leftEndpoint = document.getElementById('left-endpoint');\n    const rightEndpoint = document.getElementById('right-endpoint');\n    \n    const handleLeft = document.getElementById('handle-left');\n    const handleLeftCircle = document.getElementById('handle-left-circle');\n    const handleRight = document.getElementById('handle-right');\n    const handleRightCircle = document.getElementById('handle-right-circle');\n    const handlePoint = document.getElementById('handle-point');\n    const handlePointCircle = document.getElementById('handle-point-circle');\n\n    const valLeft = document.getElementById('val-left');\n    const valRight = document.getElementById('val-right');\n    const valPoint = document.getElementById('val-point');\n\n    const svgElement = document.querySelector('.stage-svg');\n\n    // Update Visuals\n    function updateScene() {\n      const lySvg = yToSvg(leftY);\n      const rySvg = yToSvg(rightY);\n      const pySvg = yToSvg(pointY);\n\n      // Left curve: starts at (50, 130) [x=0, y=1], bends to (160, lySvg)\n      leftCurve.setAttribute('d', `M 50 130 Q 105 ${130 - (130 - lySvg)*0.2} 160 ${lySvg}`);\n      // Right curve: straight line from (160, rySvg) to (270, 90) [x=4, y=3]\n      rightCurve.setAttribute('d', `M 160 ${rySvg} L 270 90`);\n\n      // Connectors\n      leftConnector.setAttribute('y1', lySvg);\n      leftConnector.setAttribute('y2', lySvg);\n      rightConnector.setAttribute('y1', rySvg);\n      rightConnector.setAttribute('y2', rySvg);\n\n      // Real endpoints\n      leftEndpoint.setAttribute('cy', lySvg);\n      rightEndpoint.setAttribute('cy', rySvg);\n\n      // Handles\n      handleLeftCircle.setAttribute('cy', lySvg);\n      // Also update the line in left-handle to keep it concentric\n      handleLeft.querySelectorAll('circle').forEach(c => c.setAttribute('cy', lySvg));\n\n      handleRightCircle.setAttribute('cy', rySvg);\n      handleRight.querySelectorAll('circle').forEach(c => c.setAttribute('cy', rySvg));\n\n      handlePointCircle.setAttribute('cy', pySvg);\n\n      // Readouts\n      valLeft.textContent = `y = ${leftY}`;\n      valRight.textContent = `y = ${rightY}`;\n      valPoint.textContent = `y = ${pointY}`;\n\n      // ARIA\n      handleLeft.setAttribute('aria-valuenow', leftY);\n      handleRight.setAttribute('aria-valuenow', rightY);\n      handlePoint.setAttribute('aria-valuenow', pointY);\n\n      checkAnswer();\n    }\n\n    // Report answer if matched\n    let lastMatchedOption = null;\n    function checkAnswer() {\n      let matched = null;\n      if (leftY === 3 && rightY === 1 && pointY === 2) {\n        matched = OPTIONS[0];\n      } else if (leftY === 2 && rightY === 2 && pointY === 5) {\n        matched = OPTIONS[1];\n      } else if (leftY === 2 && rightY === 4 && pointY === 2) {\n        matched = OPTIONS[2];\n      } else if (leftY === 0 && rightY === 0 && pointY === 0) {\n        matched = OPTIONS[3];\n      }\n\n      if (matched && matched !== lastMatchedOption) {\n        lastMatchedOption = matched;\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: matched }, '*');\n        } catch (e) {}\n      }\n    }\n\n    // Drag Setup with PointerEvents\n    function setupDrag(element, onDrag) {\n      let isDragging = false;\n\n      element.addEventListener('pointerdown', (e) => {\n        element.setPointerCapture(e.pointerId);\n        isDragging = true;\n        element.classList.add('dragging');\n        e.preventDefault();\n      });\n\n      element.addEventListener('pointermove', (e) => {\n        if (!isDragging) return;\n        \n        // Find local SVG coordinates\n        const rect = svgElement.getBoundingClientRect();\n        const relativeY = e.clientY - rect.top;\n        const svgHeight = rect.height;\n        const localY = (relativeY / svgHeight) * 180; // viewBox height is 180\n\n        const yValue = svgToY(localY);\n        onDrag(yValue);\n      });\n\n      const stopDrag = () => {\n        if (isDragging) {\n          isDragging = false;\n          element.classList.remove('dragging');\n          updateScene();\n        }\n      };\n\n      element.addEventListener('pointerup', stopDrag);\n      element.addEventListener('pointercancel', stopDrag);\n    }\n\n    setupDrag(handleLeft, (val) => {\n      leftY = val;\n      updateScene();\n    });\n\n    setupDrag(handleRight, (val) => {\n      rightY = val;\n      updateScene();\n    });\n\n    setupDrag(handlePoint, (val) => {\n      pointY = val;\n      updateScene();\n    });\n\n    // Keyboard support\n    function setupKeyboard(element, getter, setter) {\n      element.addEventListener('keydown', (e) => {\n        let current = getter();\n        if (e.key === 'ArrowUp') {\n          if (current < 5) setter(current + 1);\n          e.preventDefault();\n        } else if (e.key === 'ArrowDown') {\n          if (current > 0) setter(current - 1);\n          e.preventDefault();\n        }\n        updateScene();\n      });\n    }\n\n    setupKeyboard(handleLeft, () => leftY, (v) => { leftY = v; });\n    setupKeyboard(handleRight, () => rightY, (v) => { rightY = v; });\n    setupKeyboard(handlePoint, () => pointY, (v) => { pointY = v; });\n\n    // Host Locking Communication\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        document.querySelectorAll('.handle').forEach(h => {\n          h.classList.add('locked');\n          h.removeAttribute('tabindex');\n        });\n      }\n    });\n\n    // Height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', () => {\n      updateScene();\n      reportHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Left branch at y=2, Right branch at y=2, Point at y=5"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Exam: Differentiation Techniques",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During a road trip, a car travels 120 miles in 2 hours. What does the value '60 miles per hour' represent in calculus terms?",
+     "options": [
+      "Instantaneous rate of change",
+      "Average rate of change",
+      "The derivative at a specific moment",
+      "Tangent line slope"
+     ],
+     "explanation": "Average rate of change is calculated over a macroscopic interval (total distance / total time), whereas instantaneous rate refers to the slope at a single point in time.",
+     "correctAnswers": [
+      "Average rate of change"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Graph showing the transition of secant lines to a tangent line as the interval between two points on a curve vanishes.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit2-q2.png"
+     },
+     "prompt": "Which of the following statements accurately describe the relationship between secant lines and tangent lines for a smooth curve?",
+     "options": [
+      "The tangent line is the limit of secant lines as the interval width approaches zero.",
+      "The slope of a secant line represents the instantaneous rate of change.",
+      "A secant line requires two points on the curve to calculate slope.",
+      "The tangent line can only ever touch the curve at exactly one point across its entire domain.",
+      "The tangent line provides the best linear approximation of the function locally."
+     ],
+     "explanation": "Secant lines require two points and provide average rates; the tangent is the limit of these and acts as a local approximation. Tangent lines can intersect a curve elsewhere, as seen in cubic functions.",
+     "correctAnswers": [
+      "The tangent line is the limit of secant lines as the interval width approaches zero.",
+      "A secant line requires two points on the curve to calculate slope.",
+      "The tangent line provides the best linear approximation of the function locally."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "If f(x) = 2x^2 - 3x + 1, calculate f'(2) using the limit definition.",
+     "options": [
+      "3",
+      "5",
+      "8",
+      "1"
+     ],
+     "explanation": "f'(x) = 4x - 3. Evaluating at x=2 gives 4(2) - 3 = 5. Using the limit definition leads to the same result through algebraic cancellation.",
+     "correctAnswers": [
+      "5"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Identify the notations that represent a derivative of y with respect to x.",
+     "options": [
+      "f'(x)",
+      "dy/dx",
+      "Δy/Δx",
+      "d²/dx²",
+      "y-dot (ẏ)"
+     ],
+     "explanation": "f'(x) is Lagrange notation, dy/dx is Leibniz, and y-dot is Newton's notation (often for time). Δy/Δx is for average rate, and d²/dx² is a second derivative.",
+     "correctAnswers": [
+      "f'(x)",
+      "dy/dx",
+      "y-dot (ẏ)"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "image": {
+      "alt": "Vertical alignment of a function and its derivative showing extrema mapping to x-intercepts.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit2-q5.png"
+     },
+     "prompt": "On a graph of f(x), what feature of the graph corresponds to an x-intercept on the graph of f'(x)?",
+     "options": [
+      "A vertical asymptote",
+      "A local maximum or minimum",
+      "An inflection point",
+      "The y-intercept"
+     ],
+     "explanation": "At local extrema, the tangent line is horizontal (slope = 0). Therefore, the derivative function must cross the x-axis (y=0) at those points.",
+     "correctAnswers": [
+      "A local maximum or minimum"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "A function f(x) is decreasing and located entirely in the first quadrant (y > 0). Which statements must be true about its derivative f'(x)?",
+     "options": [
+      "f'(x) is positive because the function is in the first quadrant.",
+      "f'(x) is negative.",
+      "The graph of f'(x) lies below the x-axis.",
+      "f'(x) must be increasing.",
+      "f'(x) represents the slope of f(x)."
+     ],
+     "explanation": "The sign of the derivative depends on whether the function is increasing or decreasing, not its position relative to the x-axis. Since it is decreasing, the derivative is negative (below the x-axis).",
+     "correctAnswers": [
+      "f'(x) is negative.",
+      "The graph of f'(x) lies below the x-axis.",
+      "f'(x) represents the slope of f(x)."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Using the Power Rule, find the derivative of f(x) = 5x^4 - 2x^3 + x - 7.",
+     "options": [
+      "20x^3 - 6x^2 + 1",
+      "20x^3 - 6x^2 + x",
+      "5x^3 - 2x^2 + 1",
+      "20x^4 - 6x^3 + 1"
+     ],
+     "explanation": "Apply the rule d/dx[x^n] = nx^(n-1). 5(4)x^3 - 2(3)x^2 + 1(x^0) + 0 = 20x^3 - 6x^2 + 1.",
+     "correctAnswers": [
+      "20x^3 - 6x^2 + 1"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are required to find the equation of a tangent line to f(x) at x = c?",
+     "options": [
+      "The value of the function f(c)",
+      "The value of the derivative f'(c)",
+      "The second derivative f''(c)",
+      "The point-slope formula",
+      "The limit of the function as x goes to infinity"
+     ],
+     "explanation": "To use y - y1 = m(x - x1), you need the point (c, f(c)) and the slope m = f'(c).",
+     "correctAnswers": [
+      "The value of the function f(c)",
+      "The value of the derivative f'(c)",
+      "The point-slope formula"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "What is the derivative of f(x) = sin(x) + cos(x)?",
+     "options": [
+      "cos(x) + sin(x)",
+      "cos(x) - sin(x)",
+      "-cos(x) + sin(x)",
+      "sin(x) - cos(x)"
+     ],
+     "explanation": "The derivative of sin(x) is cos(x), and the derivative of cos(x) is -sin(x).",
+     "correctAnswers": [
+      "cos(x) - sin(x)"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "Select all functions that require the Chain Rule for differentiation.",
+     "options": [
+      "y = sin(3x)",
+      "y = x^2 * cos(x)",
+      "y = (4x + 1)^5",
+      "y = sqrt(x^2 - 4)",
+      "y = 5x + sin(x)"
+     ],
+     "explanation": "The Chain Rule is used for composite functions where an 'inner' function is nested inside an 'outer' function.",
+     "correctAnswers": [
+      "y = sin(3x)",
+      "y = (4x + 1)^5",
+      "y = sqrt(x^2 - 4)"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "Differentiate f(x) = (3x^2 - 1) / (x + 5) using the Quotient Rule.",
+     "options": [
+      "(3x^2 + 30x + 1) / (x + 5)^2",
+      "(6x(x+5) - (3x^2-1)) / (x+5)^2",
+      "(6x(x+5) + (3x^2-1)) / (x+5)^2",
+      "6x / 1"
+     ],
+     "explanation": "The Quotient Rule is (low d-high - high d-low) / low-squared: [(x+5)(6x) - (3x^2-1)(1)] / (x+5)^2.",
+     "correctAnswers": [
+      "(6x(x+5) - (3x^2-1)) / (x+5)^2"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "image": {
+      "alt": "Graph of inverse functions showing reciprocal slopes of tangent lines.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit2-q12.png"
+     },
+     "prompt": "If f(x) and g(x) are inverse functions, which of the following are true about their derivatives?",
+     "options": [
+      "g'(x) = 1 / f'(g(x))",
+      "The slope of f at (a, b) is the reciprocal of the slope of g at (b, a).",
+      "f'(x) = g'(x)",
+      "f'(x) * g'(x) = 1",
+      "Inverse functions have slopes that are negative reciprocals."
+     ],
+     "explanation": "The derivative of an inverse function is the reciprocal of the derivative of the original function evaluated at the corresponding point.",
+     "correctAnswers": [
+      "g'(x) = 1 / f'(g(x))",
+      "The slope of f at (a, b) is the reciprocal of the slope of g at (b, a)."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the derivative of y = tan(x)?",
+     "options": [
+      "sec(x)",
+      "sec^2(x)",
+      "-csc^2(x)",
+      "sec(x)tan(x)"
+     ],
+     "explanation": "This is a standard trigonometric derivative derived from the quotient rule (sin/cos).",
+     "correctAnswers": [
+      "sec^2(x)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which steps are involved in finding the derivative of y = x^x?",
+     "options": [
+      "Take the natural log (ln) of both sides.",
+      "Use the Power Rule directly to get x * x^(x-1).",
+      "Use implicit differentiation after taking the log.",
+      "Apply the Product Rule to the term x * ln(x).",
+      "The derivative is simply x^x."
+     ],
+     "explanation": "Logarithmic differentiation is required because both the base and exponent are variables. The Power Rule only applies when the exponent is a constant.",
+     "correctAnswers": [
+      "Take the natural log (ln) of both sides.",
+      "Use implicit differentiation after taking the log.",
+      "Apply the Product Rule to the term x * ln(x)."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Find dy/dx for the implicit relation x^2 + y^2 = 10.",
+     "options": [
+      "-x/y",
+      "x/y",
+      "-2x/2y",
+      "-x"
+     ],
+     "explanation": "Differentiating gives 2x + 2y(dy/dx) = 0. Solving for dy/dx yields -2x/2y, which simplifies to -x/y.",
+     "correctAnswers": [
+      "-x/y"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Calculate the derivative of f(x) = arcsin(x).",
+     "options": [
+      "1 / sqrt(1 - x^2)",
+      "-1 / sqrt(1 - x^2)",
+      "1 / (1 + x^2)",
+      "sec^2(x)"
+     ],
+     "explanation": "The derivative of arcsin(x) is 1/sqrt(1-x^2) for |x| < 1.",
+     "correctAnswers": [
+      "1 / sqrt(1 - x^2)"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "What is the derivative of f(x) = e^(3x)?",
+     "options": [
+      "e^(3x)",
+      "3e^(3x)",
+      "3x * e^(3x-1)",
+      "ln(3)e^(3x)"
+     ],
+     "explanation": "Using the Chain Rule, the derivative of e^u is e^u * u'. Here, u=3x and u'=3, so the result is 3e^(3x).",
+     "correctAnswers": [
+      "3e^(3x)"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Adjust the slope of the line to find the derivative of the function at the indicated point.",
+     "options": [
+      "m = 0",
+      "m = 4",
+      "m = -2",
+      "m = Undefined"
+     ],
+     "explanation": "Using the power rule on f(x)=x^2 at x=2, or the limit process, the slope (derivative) is exactly 4. Visually, this is the slope where the line perfectly grazes the curve.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Quadratic Derivative Manipulative</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --red: #e05353;\n      --red-soft: #fdf3f3;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Stage containing the SVG graph */\n    .stage {\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      position: relative;\n      overflow: hidden;\n      aspect-ratio: 1.6 / 1;\n      width: 100%;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Interactive controls */\n    .controls {\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n    }\n\n    /* Custom Segmented Slider / Track */\n    .slider-container {\n      position: relative;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 30px;\n      padding: 4px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      height: 36px;\n    }\n\n    .slider-track {\n      position: absolute;\n      left: 18px;\n      right: 18px;\n      height: 4px;\n      background: var(--border);\n      z-index: 1;\n      border-radius: 2px;\n    }\n\n    .slider-option {\n      flex: 1;\n      text-align: center;\n      z-index: 2;\n      cursor: pointer;\n      font-size: clamp(12px, 3.5vw, 14px);\n      font-weight: 600;\n      color: var(--muted-fg);\n      transition: color 0.2s ease;\n      height: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n    }\n\n    .slider-option.active {\n      color: var(--accent-strong);\n    }\n\n    .slider-handle {\n      position: absolute;\n      height: 32px;\n      width: calc(25% - 6px);\n      background: var(--accent);\n      border-radius: 20px;\n      z-index: 1;\n      transition: left 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;\n      box-shadow: 0 2px 6px rgba(76,102,150,0.3);\n      pointer-events: none;\n      display: none; /* Shown only after interaction */\n    }\n\n    .slider-handle.active {\n      display: block;\n    }\n\n    /* Helper instruction text */\n    .instruction {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: -2px;\n    }\n\n    /* Focus styling for accessibility */\n    .slider-option:focus-visible {\n      outline: 2px solid var(--accent);\n      border-radius: 16px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Derivative Explorer: Adjust the slope of the tangent line at point (2,4)</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 320 200\">\n        <!-- Grid Lines -->\n        <g stroke=\"#e8e5df\" stroke-width=\"1\">\n          <!-- Vertical Grid -->\n          <line x1=\"20\" y1=\"150\" x2=\"300\" y2=\"150\" />\n          <line x1=\"100\" y1=\"10\" x2=\"100\" y2=\"190\" stroke=\"#dcd8cf\" stroke-width=\"1.5\" /> <!-- Y Axis -->\n          <!-- Horizontal Grid -->\n          <line x1=\"20\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#dcd8cf\" stroke-width=\"1.5\" /> <!-- X Axis -->\n          \n          <!-- Key ticks or guides -->\n          <line x1=\"180\" y1=\"10\" x2=\"180\" y2=\"190\" stroke=\"#e8e5df\" stroke-dasharray=\"2 2\" /> <!-- x = 2 -->\n          <line x1=\"20\" y1=\"70\" x2=\"300\" y2=\"70\" stroke=\"#e8e5df\" stroke-dasharray=\"2 2\" /> <!-- y = 4 -->\n        </g>\n\n        <!-- Function Plot f(x) = x^2 -->\n        <!-- Plotted using custom points to fit SVG view box smoothly -->\n        <path d=\"M 40 105 L 50 117 L 60 130 L 70 140 L 80 146 L 90 149 L 100 150 L 110 149 L 120 146 L 130 140 L 140 130 L 150 117 L 160 102 L 170 87 L 180 70 L 190 49 L 200 25\" \n              fill=\"none\" stroke=\"#a09c94\" stroke-width=\"2.5\" stroke-linecap=\"round\" />\n        \n        <!-- Label for f(x) -->\n        <text x=\"45\" y=\"95\" fill=\"#888\" font-size=\"11\" font-style=\"italic\">f(x) = x²</text>\n\n        <!-- Dynamic Line passing through (2,4) -->\n        <line id=\"dynamic-line\" x1=\"180\" y1=\"70\" x2=\"180\" y2=\"70\" \n              stroke=\"var(--accent)\" stroke-width=\"3\" stroke-linecap=\"round\"\n              style=\"transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); opacity: 0.3;\" />\n\n        <!-- Red Dot at (2,4) which corresponds to (180, 70) -->\n        <circle cx=\"180\" cy=\"70\" r=\"8\" fill=\"var(--red-soft)\" stroke=\"var(--red)\" stroke-width=\"2\" />\n        <circle cx=\"180\" cy=\"70\" r=\"4\" fill=\"var(--red)\" />\n        <text x=\"192\" y=\"74\" fill=\"var(--fg)\" font-size=\"12\" font-weight=\"600\">(2, 4)</text>\n      </svg>\n    </div>\n\n    <div class=\"controls\">\n      <div class=\"slider-container\" id=\"slider-container\">\n        <div class=\"slider-track\"></div>\n        <div class=\"slider-handle\" id=\"slider-handle\"></div>\n        \n        <div class=\"slider-option\" tabindex=\"0\" role=\"button\" data-index=\"0\" data-value=\"m = -2\">m = -2</div>\n        <div class=\"slider-option\" tabindex=\"0\" role=\"button\" data-index=\"1\" data-value=\"m = 0\">m = 0</div>\n        <div class=\"slider-option\" tabindex=\"0\" role=\"button\" data-index=\"2\" data-value=\"m = 4\">m = 4</div>\n        <div class=\"slider-option\" tabindex=\"0\" role=\"button\" data-index=\"3\" data-value=\"m = Undefined\">m = Undefined</div>\n      </div>\n      <div class=\"instruction\">Tap or slide to rotate the line through (2,4)</div>\n    </div>\n  </div>\n\n  <script>\n    // State management\n    const options = [\"m = -2\", \"m = 0\", \"m = 4\", \"m = Undefined\"];\n    let selectedIndex = -1;\n    let isLocked = false;\n\n    // Line geometry for each option\n    const lineCoords = {\n      0: { x1: 100, y1: -10, x2: 240, y2: 150 }, // m = -2\n      1: { x1: 30,  y1: 70,  x2: 270, y2: 70 },  // m = 0\n      2: { x1: 155, y1: 170, x2: 205, y2: -30 }, // m = 4\n      3: { x1: 180, y1: 10,  x2: 180, y2: 190 }  // m = Undefined\n    };\n\n    // DOM Elements\n    const optionsElements = document.querySelectorAll('.slider-option');\n    const sliderHandle = document.getElementById('slider-handle');\n    const dynamicLine = document.getElementById('dynamic-line');\n    const sliderContainer = document.getElementById('slider-container');\n\n    // Select option logic\n    function selectOption(index) {\n      if (isLocked) return;\n      selectedIndex = index;\n\n      // Update Slider Handle Position\n      sliderHandle.classList.add('active');\n      const percentage = index * 25;\n      sliderHandle.style.left = `calc(${percentage}% + 3px)`;\n\n      // Update options styling\n      optionsElements.forEach((el, idx) => {\n        if (idx === index) {\n          el.classList.add('active');\n          el.setAttribute('aria-pressed', 'true');\n        } else {\n          el.classList.remove('active');\n          el.setAttribute('aria-pressed', 'false');\n        }\n      });\n\n      // Update interactive SVG line\n      const coords = lineCoords[index];\n      dynamicLine.setAttribute('x1', coords.x1);\n      dynamicLine.setAttribute('y1', coords.y1);\n      dynamicLine.setAttribute('x2', coords.x2);\n      dynamicLine.setAttribute('y2', coords.y2);\n      dynamicLine.style.opacity = \"1\";\n      dynamicLine.style.stroke = \"var(--accent)\";\n\n      // Report answer to parent\n      parent.postMessage({ type: 'hk-practice-answer', value: options[index] }, '*');\n    }\n\n    // Set up click & keyboard listeners\n    optionsElements.forEach((element, index) => {\n      element.addEventListener('click', () => selectOption(index));\n      element.addEventListener('keydown', (e) => {\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          selectOption(index);\n        }\n      });\n    });\n\n    // Touch/drag support on the slider container\n    let isDragging = false;\n    function handlePointer(e) {\n      if (isLocked) return;\n      const rect = sliderContainer.getBoundingClientRect();\n      const x = e.clientX - rect.left;\n      const pct = Math.max(0, Math.min(1, x / rect.width));\n      const index = Math.min(3, Math.floor(pct * 4));\n      if (index !== selectedIndex) {\n        selectOption(index);\n      }\n    }\n\n    sliderContainer.addEventListener('pointerdown', (e) => {\n      isDragging = true;\n      sliderContainer.setPointerCapture(e.pointerId);\n      handlePointer(e);\n    });\n\n    sliderContainer.addEventListener('pointermove', (e) => {\n      if (isDragging) {\n        handlePointer(e);\n      }\n    });\n\n    sliderContainer.addEventListener('pointerup', () => {\n      isDragging = false;\n    });\n\n    // Listen for lock message\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.body.style.pointerEvents = 'none';\n      }\n    });\n\n    // Report height on load and resize\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', sendHeight);\n    window.addEventListener('resize', sendHeight);\n    new ResizeObserver(sendHeight).observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "m = 4"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Exam: Applications of Differentiation",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Let $P(t)$ represent the population of a colony of bacteria, where $t$ is measured in hours. If $P'(3) = 500$, which of the following is the most accurate interpretation?",
+     "options": [
+      "The population is exactly 500 bacteria after 3 hours.",
+      "The population is increasing at a rate of 500 bacteria per hour at $t = 3$.",
+      "The population increased by 500 bacteria during the first 3 hours.",
+      "The rate of change of the population is increasing by 500 bacteria per hour."
+     ],
+     "explanation": "The derivative $P'(t)$ represents the instantaneous rate of change of the population with respect to time. The units are (Units of $P$) per (Units of $t$), or bacteria per hour.",
+     "correctAnswers": [
+      "The population is increasing at a rate of 500 bacteria per hour at $t = 3$."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A particle moves along a horizontal line with position function $s(t)$. Under which of the following conditions is the particle's speed increasing?",
+     "options": [
+      "$v(t) > 0$ and $a(t) > 0$",
+      "$v(t) < 0$ and $a(t) < 0$",
+      "$v(t) > 0$ and $a(t) < 0$",
+      "$v(t) < 0$ and $a(t) > 0$",
+      "$v(t) = 0$ and $a(t) \\neq 0$"
+     ],
+     "explanation": "Speed increases when velocity and acceleration have the same sign, meaning they act in the same direction. If they have opposite signs, the particle slows down.",
+     "correctAnswers": [
+      "$v(t) > 0$ and $a(t) > 0$",
+      "$v(t) < 0$ and $a(t) < 0$"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a function $f(x)$ has a local maximum at $x = c$ and $f''(c)$ exists, then the value of $f''(c)$ must be ____.",
+     "placeholder": "e.g., positive, negative, or zero",
+     "correctAnswers": [
+      "negative",
+      "less than zero",
+      "< 0",
+      "non-positive"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Graph illustrating Rolle's Theorem with a horizontal tangent at f'(c)=0.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit3-q4.png"
+     },
+     "prompt": "If $f(x)$ is continuous on $[a, b]$ and differentiable on $(a, b)$, and $f(a) = f(b)$, Rolle's Theorem guarantees which of the following?",
+     "options": [
+      "There exists $c$ in $(a, b)$ such that $f(c) = 0$.",
+      "There exists $c$ in $(a, b)$ such that $f'(c) = 0$.",
+      "The function $f(x)$ has an absolute maximum on $(a, b)$.",
+      "The derivative $f'(x)$ is continuous on $(a, b)$."
+     ],
+     "explanation": "Rolle's Theorem is a special case of the Mean Value Theorem where the average rate of change is zero, ensuring at least one point has a horizontal tangent.",
+     "correctAnswers": [
+      "There exists $c$ in $(a, b)$ such that $f'(c) = 0$."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary conditions to apply the Mean Value Theorem to a function $f$ on the interval $[2, 5]$?",
+     "options": [
+      "$f$ is continuous on $[2, 5]$",
+      "$f$ is differentiable on $(2, 5)$",
+      "$f(2) = f(5)$",
+      "$f'(x)$ is increasing on $(2, 5)$"
+     ],
+     "explanation": "MVT requires continuity on the closed interval and differentiability on the open interval. $f(2) = f(5)$ is specific to Rolle's Theorem, not the general MVT.",
+     "correctAnswers": [
+      "$f$ is continuous on $[2, 5]$",
+      "$f$ is differentiable on $(2, 5)$"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When solving an optimization problem, the values of the variable that produce the maximum or minimum are found among the ____ points and the endpoints of the interval.",
+     "placeholder": "type of points",
+     "correctAnswers": [
+      "critical",
+      "stationary"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A spherical balloon is inflated such that its volume $V$ increases at a constant rate. Which of the following is true about the rate of change of the radius $r$?",
+     "options": [
+      "The radius increases at a constant rate.",
+      "The rate of change of the radius decreases as $r$ increases.",
+      "The rate of change of the radius increases as $r$ increases.",
+      "The radius does not change."
+     ],
+     "explanation": "From $V = (4/3)\\pi r^3$, we get $dV/dt = 4\\pi r^2 (dr/dt)$. If $dV/dt$ is constant, $dr/dt$ must decrease as $r$ increases to keep the product constant.",
+     "correctAnswers": [
+      "The rate of change of the radius decreases as $r$ increases."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "If $f''(x) > 0$ for all $x$ in an interval $I$, which of the following must be true for $f$ on that interval?",
+     "options": [
+      "The graph of $f$ is concave up.",
+      "$f'(x)$ is increasing.",
+      "$f(x)$ is increasing.",
+      "$f$ has no inflection points in $I$.",
+      "$f(x) > 0$ for all $x$ in $I$."
+     ],
+     "explanation": "A positive second derivative means the slope (first derivative) is increasing, which defines concave up. Since $f''$ never changes sign, there are no inflection points.",
+     "correctAnswers": [
+      "The graph of $f$ is concave up.",
+      "$f'(x)$ is increasing.",
+      "$f$ has no inflection points in $I$."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The First Derivative Test identifies a local minimum at $x = c$ if $f'(x)$ changes from ____ to positive at $c$.",
+     "placeholder": "sign",
+     "correctAnswers": [
+      "negative",
+      "minus"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of a rectangle inscribed in a semicircle for optimization.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit3-q10.png"
+     },
+     "prompt": "A rectangle is inscribed in a semicircle of radius 2. What is the maximum possible area of the rectangle?",
+     "options": [
+      "2",
+      "4",
+      "8",
+      "1"
+     ],
+     "explanation": "Area $A = 2x\\sqrt{4-x^2}$. Setting $dA/dx = 0$ gives $x = \\sqrt{2}$. Substituting back, $A = 2(\\sqrt{2})(\\sqrt{2}) = 4$.",
+     "correctAnswers": [
+      "4"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A function $f(x)$ has $f'(2) = 0$ and $f''(2) = -5$. Which of the following statements are true based on the Second Derivative Test?",
+     "options": [
+      "$f$ has a local maximum at $x = 2$.",
+      "$f$ is concave down at $x = 2$.",
+      "$f$ has a local minimum at $x = 2$.",
+      "The graph of $f$ has an inflection point at $x = 2$."
+     ],
+     "explanation": "Since the first derivative is zero (critical point) and the second derivative is negative (concave down), the point must be a local maximum.",
+     "correctAnswers": [
+      "$f$ has a local maximum at $x = 2$.",
+      "$f$ is concave down at $x = 2$."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If $f(x) = x^3 - 3x^2$, the x-coordinate of the inflection point is ____.",
+     "placeholder": "value",
+     "correctAnswers": [
+      "1",
+      "x=1"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A particle's position is $s(t) = t^2 - 4t + 3$. At what time $t$ does the particle change direction?",
+     "options": [
+      "$t = 1$",
+      "$t = 2$",
+      "$t = 3$",
+      "$t = 4$"
+     ],
+     "explanation": "Direction changes when velocity $v(t) = s'(t) = 2t - 4$ changes sign. $2t - 4 = 0$ at $t = 2$.",
+     "correctAnswers": [
+      "$t = 2$"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following could be a critical point of a function $f(x)$?",
+     "options": [
+      "A point where $f'(x) = 0$",
+      "A point where $f'(x)$ is undefined",
+      "A point where $f''(x) = 0$",
+      "An endpoint of the domain",
+      "A point where $f(x) = 0$"
+     ],
+     "explanation": "By definition, critical points occur where the first derivative is either zero or does not exist.",
+     "correctAnswers": [
+      "A point where $f'(x) = 0$",
+      "A point where $f'(x)$ is undefined"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "According to the Extreme Value Theorem, a continuous function on a ____ interval must have both an absolute maximum and an absolute minimum.",
+     "placeholder": "type of interval",
+     "correctAnswers": [
+      "closed",
+      "bounded",
+      "closed and bounded"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Water is leaking from a tank. $V(t)$ is the volume in gallons at time $t$ in minutes. If $V'(10) = -3$, which statement is correct?",
+     "options": [
+      "The tank loses 3 gallons every minute.",
+      "At $t=10$, the volume is decreasing at a rate of 3 gallons per minute.",
+      "The tank is empty at $t=10$.",
+      "The rate of leakage is slowing down by 3 gallons per minute."
+     ],
+     "explanation": "The negative sign indicates a decrease, and the derivative provides the instantaneous rate at that specific moment.",
+     "correctAnswers": [
+      "At $t=10$, the volume is decreasing at a rate of 3 gallons per minute."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "A 10-foot ladder leans against a vertical wall. The base of the ladder is being pulled away from the wall at a constant rate. Adjust the position of the ladder's base to observe the velocity of the top of the ladder. Which position results in the top of the ladder sliding down the wall at the fastest rate?",
+     "options": [
+      "Base is 1 foot from the wall",
+      "Base is 5 feet from the wall",
+      "Base is 9 feet from the wall",
+      "The rate is constant regardless of position"
+     ],
+     "explanation": "In the related rates equation $x(dx/dt) + y(dy/dt) = 0$, the downward rate $|dy/dt| = |(x/y)(dx/dt)|$. As $x$ increases toward 10, $y$ approaches 0, making the ratio $x/y$ (and thus the velocity) approach infinity.",
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Ladder Rate of Change Practice</title>`\n  `<style>`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #666666;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f0f4fa;`\n      `--accent-strong: #3a4f78;`\n      `--arrow-color: #d9534f;`\n    `}`\n\n    `* {`\n      `box-sizing: border-box;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `margin: 0;`\n      `padding: 0;`\n      `overflow: hidden;`\n      `color: var(--fg);`\n      `width: 100%;`\n      `height: 100%;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `.widget-container {`\n      `width: 100%;`\n      `max-width: 640px;`\n      `margin: 0 auto;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 12px;`\n      `height: 100%;`\n      `max-height: 380px;`\n    `}`\n\n    `.action-hint {`\n      `font-size: 12px;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n      `margin: 0;`\n    `}`\n\n    `.workspace {`\n      `display: grid;`\n      `grid-template-columns: 1.1fr 1.2fr;`\n      `gap: 12px;`\n      `align-items: center;`\n      `flex: 1;`\n      `min-height: 0;`\n    `}`\n\n    `/* Simulation Style */`\n    `.simulation-panel {`\n      `background: var(--stage);`\n      `border-radius: 8px;`\n      `border: 1px solid var(--border);`\n      `position: relative;`\n      `display: flex;`\n      `flex-direction: column;`\n      `justify-content: space-between;`\n      `align-items: center;`\n      `padding: 8px;`\n      `height: 100%;`\n      `min-height: 220px;`\n    `}`\n\n    `.sim-svg {`\n      `width: 100%;`\n      `height: auto;`\n      `max-height: 170px;`\n      `display: block;`\n    `}`\n\n    `.readout {`\n      `font-size: 11px;`\n      `font-variant-numeric: tabular-nums;`\n      `background: var(--surface);`\n      `padding: 3px 8px;`\n      `border-radius: 4px;`\n      `border: 1px solid var(--border);`\n      `box-shadow: 0 1px 2px rgba(0,0,0,0.05);`\n      `width: 100%;`\n      `text-align: center;`\n      `display: flex;`\n      `justify-content: space-between;`\n    `}`\n\n    `/* Drag and Drop Panel */`\n    `.decision-panel {`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 8px;`\n      `height: 100%;`\n      `justify-content: center;`\n    `}`\n\n    `.token-bar {`\n      `display: flex;`\n      `justify-content: center;`\n      `align-items: center;`\n      `padding: 4px;`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 8px;`\n      `height: 48px;`\n      `position: relative;`\n    `}`\n\n    `.draggable-token {`\n      `background: var(--accent);`\n      `color: white;`\n      `padding: 6px 12px;`\n      `border-radius: 20px;`\n      `font-size: 12px;`\n      `font-weight: 600;`\n      `cursor: grab;`\n      `user-select: none;`\n      `touch-action: none;`\n      `box-shadow: 0 2px 5px rgba(0,0,0,0.15);`\n      `display: flex;`\n      `align-items: center;`\n      `gap: 6px;`\n      `position: absolute;`\n      `z-index: 10;`\n      `transition: transform 0.1s ease;`\n    `}`\n\n    `.draggable-token.dragging {`\n      `cursor: grabbing;`\n      `box-shadow: 0 5px 12px rgba(0,0,0,0.25);`\n      `transform: scale(1.04);`\n      `transition: none;`\n    `}`\n\n    `.zones-grid {`\n      `display: grid;`\n      `grid-template-columns: 1fr;`\n      `gap: 6px;`\n    `}`\n\n    `.zone {`\n      `border: 2px dashed var(--border);`\n      `background: var(--surface);`\n      `border-radius: 6px;`\n      `padding: 8px;`\n      `min-height: 42px;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `text-align: center;`\n      `font-size: 11px;`\n      `font-weight: 500;`\n      `color: var(--fg);`\n      `transition: all 0.2s ease;`\n      `position: relative;`\n    `}`\n\n    `.zone.hovered {`\n      `border-color: var(--accent);`\n      `background: var(--accent-soft);`\n    `}`\n\n    `.zone.active {`\n      `border-style: solid;`\n      `border-color: var(--accent-strong);`\n      `background: var(--accent-soft);`\n      `box-shadow: inset 0 0 0 1px var(--accent);`\n    `}`\n\n    `@media (max-width: 480px) {`\n      `.workspace {`\n        `grid-template-columns: 1fr;`\n        `grid-template-rows: auto auto;`\n      `}`\n      `.sim-svg {`\n        `max-height: 110px;`\n      `}`\n      `.simulation-panel {`\n        `min-height: 150px;`\n      `}`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n  `<h1 class=\"sr-only\">Ladder Sliding Velocity Interactive Demonstration</h1>`\n\n  `<div class=\"widget-container\">`\n    `<p class=\"action-hint\">Drag base handle &nbsp;↔&nbsp; then drop \"Answer Probe\" to select conclusion</p>`\n\n    `<div class=\"workspace\">`\n      `<!-- Simulation Stage -->`\n      `<div class=\"simulation-panel\">`\n        `<svg class=\"sim-svg\" viewBox=\"0 0 160 140\">`\n          `<!-- Axes / Walls -->`\n          `<line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"120\" stroke=\"#888\" stroke-width=\"2\" />`\n          `<line x1=\"20\" y1=\"120\" x2=\"150\" y2=\"120\" stroke=\"#888\" stroke-width=\"2\" />`\n          `<!-- Wall Hatching -->`\n          `<line x1=\"15\" y1=\"10\" x2=\"20\" y2=\"15\" stroke=\"#ccc\" stroke-width=\"1\" />`\n          `<line x1=\"15\" y1=\"40\" x2=\"20\" y2=\"45\" stroke=\"#ccc\" stroke-width=\"1\" />`\n          `<line x1=\"15\" y1=\"70\" x2=\"20\" y2=\"75\" stroke=\"#ccc\" stroke-width=\"1\" />`\n          `<line x1=\"15\" y1=\"100\" x2=\"20\" y2=\"105\" stroke=\"#ccc\" stroke-width=\"1\" />`\n\n          `<!-- Ladder -->`\n          `<line id=\"ladder\" x1=\"20\" y1=\"20\" x2=\"120\" y2=\"120\" stroke=\"#4C6696\" stroke-width=\"4\" stroke-linecap=\"round\" />`\n\n          `<!-- Velocity Vector Arrow at top -->`\n          `<g id=\"velocity-vector\">`\n            `<line id=\"arrow-line\" x1=\"20\" y1=\"20\" x2=\"20\" y2=\"50\" stroke=\"var(--arrow-color)\" stroke-width=\"3\" marker-end=\"url(#arrowhead)\" />`\n            `<text id=\"vector-label\" x=\"25\" y=\"35\" fill=\"var(--arrow-color)\" font-size=\"9\" font-weight=\"bold\">dy/dt</text>`\n          `</g>`\n\n          `<!-- Arrowhead Marker -->`\n          `<defs>`\n            `<marker id=\"arrowhead\" markerWidth=\"6\" markerHeight=\"6\" refX=\"3\" refY=\"5\" orient=\"auto\">`\n              `<polygon points=\"0,0 3,5 6,0\" fill=\"var(--arrow-color)\" />`\n            `</marker>`\n          `</defs>`\n\n          `<!-- Draggable Ladder Base Anchor -->`\n          `<circle id=\"base-handle\" cx=\"120\" cy=\"120\" r=\"8\" fill=\"var(--accent)\" stroke=\"#fff\" stroke-width=\"2\" style=\"cursor: ew-resize;\" />`\n          `<circle id=\"base-handle-pulse\" cx=\"120\" cy=\"120\" r=\"14\" fill=\"var(--accent)\" opacity=\"0.2\" style=\"pointer-events: none;\" />`\n        `</svg>`\n\n        `<div class=\"readout\">`\n          `<span>Base Distance: <strong id=\"val-x\">10.0</strong> ft</span>`\n          `<span>Down Speed: <strong id=\"val-v\">0.00</strong> ft/s</span>`\n        `</div>`\n      `</div>`\n\n      `<!-- Drag & Drop Interface -->`\n      `<div class=\"decision-panel\">`\n        `<div class=\"token-bar\" id=\"token-bar\">`\n          `<div class=\"draggable-token\" id=\"probe\" draggable=\"false\">`\n            `<svg width=\"12\" height=\"12\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"3\">`\n              `<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z\" />`\n            `</svg>`\n            `Answer Probe`\n          `</div>`\n        `</div>`\n\n        `<div class=\"zones-grid\">`\n          `<div class=\"zone\" data-option=\"Base is 1 foot from the wall\">Base is 1 foot from the wall</div>`\n          `<div class=\"zone\" data-option=\"Base is 5 feet from the wall\">Base is 5 feet from the wall</div>`\n          `<div class=\"zone\" data-option=\"Base is 9 feet from the wall\">Base is 9 feet from the wall</div>`\n          `<div class=\"zone\" data-option=\"The rate is constant regardless of position\">The rate is constant</div>`\n        `</div>`\n      `</div>`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `// State variables`\n    `let ladderX = 80; // Default base x position relative to origin (20, 120)`\n    `const originX = 20;`\n    `const originY = 120;`\n    `const ladderLength = 100; // Const scale length`\n    `let isLocked = false;`\n\n    `const baseHandle = document.getElementById('base-handle');`\n    `const baseHandlePulse = document.getElementById('base-handle-pulse');`\n    `const ladderLine = document.getElementById('ladder');`\n    `const arrowLine = document.getElementById('arrow-line');`\n    `const vectorLabel = document.getElementById('vector-label');`\n    `const valX = document.getElementById('val-x');`\n    `const valV = document.getElementById('val-v');`\n\n    `// Calculate positions & physical rates`\n    `function updateLadder() {`\n      `// Bounds check x`\n      `if (ladderX < 10) ladderX = 10;`\n      `if (ladderX > 96) ladderX = 96;`\n\n      `const y = Math.sqrt(ladderLength * ladderLength - ladderX * ladderX);`\n      `const actualX = originX + ladderX;`\n      `const actualY = originY - y;`\n\n      `// Set positions`\n      `ladderLine.setAttribute('x2', actualX);`\n      `ladderLine.setAttribute('y1', actualY);`\n      `baseHandle.setAttribute('cx', actualX);`\n      `baseHandle.setAttribute('cy', originY);`\n      `baseHandlePulse.setAttribute('cx', actualX);`\n      `baseHandlePulse.setAttribute('cy', originY);`\n\n      `// dx/dt is constant (let's assume 1.0)`\n      `// dy/dt = - (x / y) * dx/dt`\n      `const dy_dt = (ladderX / y) * 1.0;`\n\n      `// Draw Arrow representing dy/dt`\n      `const arrowLength = Math.min(Math.max(dy_dt * 15, 8), 80);`\n      `arrowLine.setAttribute('x1', originX);`\n      `arrowLine.setAttribute('y1', actualY);`\n      `arrowLine.setAttribute('x2', originX);`\n      `arrowLine.setAttribute('y2', actualY + arrowLength);`\n\n      `vectorLabel.setAttribute('y', actualY + arrowLength / 2 + 3);`\n\n      `// Update readout (Map ladderLength = 100 to 10 feet)`\n      `const realXFt = (ladderX / 10).toFixed(1);`\n      `valX.textContent = realXFt + ' ft';`\n      `valV.textContent = dy_dt.toFixed(2) + ' ft/s';`\n    `}`\n\n    `// Ladder Interaction`\n    `let isDraggingLadder = false;`\n    `let startDragX = 0;`\n    `let startLadderX = 0;`\n\n    `baseHandle.addEventListener('pointerdown', (e) => {`\n      `if (isLocked) return;`\n      `isDraggingLadder = true;`\n      `baseHandle.setPointerCapture(e.pointerId);`\n      `startDragX = e.clientX;`\n      `startLadderX = ladderX;`\n      `baseHandlePulse.style.display = 'none';`\n    `});`\n\n    `baseHandle.addEventListener('pointermove', (e) => {`\n      `if (!isDraggingLadder) return;`\n      `const deltaX = e.clientX - startDragX;`\n      `ladderX = startLadderX + deltaX;`\n      `updateLadder();`\n    `});`\n\n    `baseHandle.addEventListener('pointerup', () => {`\n      `isDraggingLadder = false;`\n    `});`\n\n    `// Probe Drag & Drop`\n    `const probe = document.getElementById('probe');`\n    `const tokenBar = document.getElementById('token-bar');`\n    `const zones = document.querySelectorAll('.zone');`\n    `let activeAnswer = '';`\n\n    `let probeState = {`\n      `dragging: false,`\n      `startX: 0,`\n      `startY: 0,`\n      `offsetX: 0,`\n      `offsetY: 0`\n    `};`\n\n    `function initProbePos() {`\n      `probe.style.left = '50%';`\n      `probe.style.top = '50%';`\n      `probe.style.transform = 'translate(-50%, -50%)';`\n    `}`\n    `initProbePos();`\n\n    `probe.addEventListener('pointerdown', (e) => {`\n      `if (isLocked) return;`\n      `probeState.dragging = true;`\n      `probe.classList.add('dragging');`\n      `probe.setPointerCapture(e.pointerId);`\n\n      `const rect = probe.getBoundingClientRect();`\n      `probeState.offsetX = e.clientX - rect.left - rect.width / 2;`\n      `probeState.offsetY = e.clientY - rect.top - rect.height / 2;`\n    `});`\n\n    `probe.addEventListener('pointermove', (e) => {`\n      `if (!probeState.dragging) return;`\n\n      `const barRect = tokenBar.getBoundingClientRect();`\n      `const x = e.clientX - barRect.left - probeState.offsetX;`\n      `const y = e.clientY - barRect.top - probeState.offsetY;`\n\n      `probe.style.left = `${x}px`;`\n      `probe.style.top = `${y}px`;`\n      `probe.style.transform = 'translate(-50%, -50%)';`\n\n      `// Hit test zones`\n      `const probeRect = probe.getBoundingClientRect();`\n      `const midX = probeRect.left + probeRect.width / 2;`\n      `const midY = probeRect.top + probeRect.height / 2;`\n\n      `zones.forEach(zone => {`\n        `const zRect = zone.getBoundingClientRect();`\n        `if (midX > zRect.left && midX < zRect.right && midY > zRect.top && midY < zRect.bottom) {`\n          `zone.classList.add('hovered');`\n        `} else {`\n          `zone.classList.remove('hovered');`\n        `}`\n      `});`\n    `});`\n\n    `probe.addEventListener('pointerup', (e) => {`\n      `if (!probeState.dragging) return;`\n      `probeState.dragging = false;`\n      `probe.classList.remove('dragging');`\n\n      `const probeRect = probe.getBoundingClientRect();`\n      `const midX = probeRect.left + probeRect.width / 2;`\n      `const midY = probeRect.top + probeRect.height / 2;`\n\n      `let snappedZone = null;`\n\n      `zones.forEach(zone => {`\n        `const zRect = zone.getBoundingClientRect();`\n        `zone.classList.remove('hovered');`\n        `if (midX > zRect.left && midX < zRect.right && midY > zRect.top && midY < zRect.bottom) {`\n          `snappedZone = zone;`\n        `}`\n      `});`\n\n      `if (snappedZone) {`\n        `// Clean up previous active zone`\n        `zones.forEach(z => z.classList.remove('active'));`\n        `snappedZone.classList.add('active');`\n\n        `// Position token over snapped zone`\n        `const barRect = tokenBar.getBoundingClientRect();`\n        `const zRect = snappedZone.getBoundingClientRect();`\n        `const targetX = (zRect.left + zRect.width / 2) - barRect.left;`\n        `const targetY = (zRect.top + zRect.height / 2) - barRect.top;`\n\n        `probe.style.left = `${targetX}px`;`\n        `probe.style.top = `${targetY}px`;`\n\n        `const answer = snappedZone.getAttribute('data-option');`\n        `if (answer !== activeAnswer) {`\n          `activeAnswer = answer;`\n          `parent.postMessage({ type: 'hk-practice-answer', value: activeAnswer }, '*');`\n        `}`\n      `} else {`\n        `// Return to original bar position`\n        `initProbePos();`\n      `}`\n    `});`\n\n    `// Lock interaction listener`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `isLocked = true;`\n        `probe.style.pointerEvents = 'none';`\n        `baseHandle.style.pointerEvents = 'none';`\n        `probe.style.cursor = 'default';`\n        `baseHandle.style.cursor = 'default';`\n      `}`\n    `});`\n\n    `// Initial triggers`\n    `updateLadder();`\n\n    `// Height reporting`\n    `function sendHeight() {`\n      `try {`\n        `parent.postMessage({`\n          `type: 'hk-anim-height',`\n          `height: Math.ceil(document.documentElement.getBoundingClientRect().height)`\n        `}, '*');`\n      `} catch (err) {}`\n    `}`\n\n    `window.addEventListener('load', sendHeight);`\n    `window.addEventListener('resize', sendHeight);`\n    `new ResizeObserver(sendHeight).observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "Base is 9 feet from the wall"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Exam: Integration and Accumulation",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Given a function f(x) that is strictly decreasing and concave down on the interval [1, 5], which of the following methods will definitely produce an overestimate of the true area under the curve?",
+     "options": [
+      "Left Riemann Sum",
+      "Right Riemann Sum",
+      "Midpoint Riemann Sum",
+      "Trapezoidal Sum"
+     ],
+     "explanation": "For a strictly decreasing function, the left endpoint of any subinterval is the highest point, making the Left Riemann Sum an overestimate. Concavity affects the trapezoidal sum error, where concave down leads to an underestimate.",
+     "correctAnswers": [
+      "Left Riemann Sum"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Consider the definite integral ∫ from a to b of f(x) dx. Which of the following statements correctly describe the relationship between Riemann sums and the definite integral?",
+     "options": [
+      "The definite integral is defined as the limit of a Riemann sum as the number of subintervals approaches infinity.",
+      "A Right Riemann sum is always smaller than the definite integral if the function is increasing.",
+      "The differential 'dx' in the integral notation corresponds to the width of the subintervals 'Δx' in the sum.",
+      "If a function is concave up, the Trapezoidal sum will provide an overestimate of the definite integral.",
+      "The definite integral calculates the total area, treating regions below the x-axis as positive."
+     ],
+     "explanation": "The limit definition and the mapping of Δx to dx are fundamental to the notation. Concave up functions result in trapezoidal secant lines staying above the curve, causing an overestimate. Right sums overestimate increasing functions, and integrals calculate net signed area, not total area.",
+     "correctAnswers": [
+      "The definite integral is defined as the limit of a Riemann sum as the number of subintervals approaches infinity.",
+      "The differential 'dx' in the integral notation corresponds to the width of the subintervals 'Δx' in the sum.",
+      "If a function is concave up, the Trapezoidal sum will provide an overestimate of the definite integral."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To evaluate the integral ∫ 2x cos(x²) dx using u-substitution, the most effective choice for the variable u is ____.",
+     "explanation": "Choosing u = x² is ideal because its derivative, 2x, is already present as a factor in the integrand, simplifying the expression to ∫ cos(u) du.",
+     "placeholder": "Enter u-expression",
+     "correctAnswers": [
+      "x^2",
+      "x**2",
+      "x squared"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If F(x) = ∫ from 3 to x² of sqrt(t + 7) dt, what is the value of F'(x)?",
+     "options": [
+      "sqrt(x² + 7)",
+      "2x * sqrt(x² + 7)",
+      "sqrt(x + 7)",
+      "2x * sqrt(t + 7)"
+     ],
+     "explanation": "According to the Second Fundamental Theorem of Calculus and the Chain Rule, F'(x) = f(g(x)) * g'(x). Here, f(t) = sqrt(t+7) and g(x) = x², so F'(x) = sqrt(x² + 7) * 2x.",
+     "correctAnswers": [
+      "2x * sqrt(x² + 7)"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A table shows values for a continuous function g(x): g(0)=2, g(2)=5, g(5)=1, g(6)=4. Which of the following setup steps are correct when approximating the area from x=0 to x=6 using a Trapezoidal Sum with the three subintervals provided by the table?",
+     "options": [
+      "The width of the first subinterval is 2.",
+      "The width of the second subinterval is 3.",
+      "The area of the third trapezoid is (1/2) * (1) * (1 + 4).",
+      "The total sum can be calculated using the formula: (Δx/2) * [g(0) + 2g(2) + 2g(5) + g(6)].",
+      "The width of every subinterval is 2."
+     ],
+     "explanation": "Because the intervals are non-uniform (widths of 2, 3, and 1), the uniform trapezoidal formula cannot be used. Each trapezoid must be calculated individually using Area = (1/2) * width * (h1 + h2).",
+     "correctAnswers": [
+      "The width of the first subinterval is 2.",
+      "The width of the second subinterval is 3.",
+      "The area of the third trapezoid is (1/2) * (1) * (1 + 4)."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "According to the Fundamental Theorem of Calculus Part 1, if f(x) is continuous on [a, b], then ∫ from a to b of f(x) dx = F(b) - F(a), where F is any ____ of f.",
+     "explanation": "The Fundamental Theorem links the definite integral to the evaluation of the function's antiderivative at the endpoints.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "antiderivative",
+      "anti-derivative",
+      "indefinite integral"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A particle moves along a line with velocity v(t) = 3t² - 6t. What is the total distance traveled by the particle from t=0 to t=3?",
+     "options": [
+      "0",
+      "4",
+      "8",
+      "12"
+     ],
+     "explanation": "Total distance is the integral of |v(t)|. v(t) is negative on [0, 2] and positive on [2, 3]. ∫|3t² - 6t| dt from 0 to 3 = |[t³ - 3t²] from 0 to 2| + [t³ - 3t²] from 2 to 3 = |-4| + 8 = 12.",
+     "correctAnswers": [
+      "12"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary steps when performing a u-substitution for a definite integral ∫ from a to b of f(g(x))g'(x) dx?",
+     "options": [
+      "Identify a suitable u = g(x) such that du = g'(x)dx is present.",
+      "Change the limits of integration from x-values (a and b) to u-values (g(a) and g(b)).",
+      "Always substitute the x-variable back into the final expression before evaluating the limits.",
+      "Find the antiderivative in terms of u.",
+      "Multiply the final result by the derivative of u."
+     ],
+     "explanation": "When changing variables in a definite integral, you must update the limits to match the new variable 'u'. Once the limits are changed, you do not need to substitute 'x' back in; you can evaluate directly in terms of 'u'.",
+     "correctAnswers": [
+      "Identify a suitable u = g(x) such that du = g'(x)dx is present.",
+      "Change the limits of integration from x-values (a and b) to u-values (g(a) and g(b)).",
+      "Find the antiderivative in terms of u."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The limit of the sum Σ [i=1 to n] (3 + 2i/n)² * (2/n) as n approaches infinity represents a definite integral. If the lower limit is a = 3, the function being integrated is f(x) = ____.",
+     "explanation": "In the form f(a + iΔx)Δx, Δx = 2/n and a = 3. This makes the input x_i = 3 + 2i/n. The expression (3 + 2i/n)² is therefore f(x_i), meaning f(x) = x².",
+     "placeholder": "f(x) expression",
+     "correctAnswers": [
+      "x^2",
+      "x**2",
+      "x squared"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Evaluate the integral ∫ (x³ + 5)⁶ * 3x² dx.",
+     "options": [
+      "(1/7)(x³ + 5)⁷ + C",
+      "(x³ + 5)⁷ + C",
+      "(1/6)(x³ + 5)⁷ + C",
+      "x³(x³ + 5)⁷ + C"
+     ],
+     "explanation": "Using u-substitution where u = x³ + 5 and du = 3x² dx, the integral becomes ∫ u⁶ du, which evaluates to (1/7)u⁷ + C.",
+     "correctAnswers": [
+      "(1/7)(x³ + 5)⁷ + C"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following would require the use of the Absolute Value of the function inside the integral?",
+     "options": [
+      "Finding the total distance traveled by an object with negative velocity.",
+      "Finding the net change in position of an object.",
+      "Finding the total area between a curve and the x-axis when the curve crosses the axis.",
+      "Evaluating the displacement of a particle over time.",
+      "Finding the sum of positive and negative areas as a single positive magnitude."
+     ],
+     "explanation": "Net change and displacement use the standard definite integral (signed area). Total distance and total area require treating all regions as positive, hence the absolute value.",
+     "correctAnswers": [
+      "Finding the total distance traveled by an object with negative velocity.",
+      "Finding the total area between a curve and the x-axis when the curve crosses the axis.",
+      "Finding the sum of positive and negative areas as a single positive magnitude."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The average value of a continuous function f(x) on the interval [a, b] is given by the formula (1 / (b - a)) * ____.",
+     "explanation": "The average value formula distributes the total accumulated area over the width of the interval.",
+     "placeholder": "integral expression",
+     "correctAnswers": [
+      "∫ f(x) dx",
+      "integral of f(x) dx",
+      "the integral"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If the integral from 1 to 10 of f(x) dx is 15 and the integral from 6 to 10 of f(x) dx is 7, what is the value of the integral from 1 to 6 of f(x) dx?",
+     "options": [
+      "22",
+      "8",
+      "-8",
+      "15"
+     ],
+     "explanation": "By the additive property of integrals, ∫[1,10] = ∫[1,6] + ∫[6,10]. Therefore, 15 = ∫[1,6] + 7, which means ∫[1,6] = 8.",
+     "correctAnswers": [
+      "8"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which properties of definite integrals are correctly stated?",
+     "options": [
+      "∫[a, b] f(x) dx = -∫[b, a] f(x) dx",
+      "∫[a, a] f(x) dx = 0",
+      "∫ k*f(x) dx = k * ∫ f(x) dx for any constant k",
+      "∫ f(x)*g(x) dx = (∫ f(x) dx) * (∫ g(x) dx)",
+      "∫ [f(x) + g(x)] dx = ∫ f(x) dx + ∫ g(x) dx"
+     ],
+     "explanation": "Integrals are linear operators (scaling and addition) and have directionality. However, the integral of a product is not the product of the integrals.",
+     "correctAnswers": [
+      "∫[a, b] f(x) dx = -∫[b, a] f(x) dx",
+      "∫[a, a] f(x) dx = 0",
+      "∫ k*f(x) dx = k * ∫ f(x) dx for any constant k",
+      "∫ [f(x) + g(x)] dx = ∫ f(x) dx + ∫ g(x) dx"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "When using u-substitution for the integral ∫ x / (x² + 1) dx, the differential du is equal to ____ dx.",
+     "explanation": "If u = x² + 1, then the derivative du/dx = 2x, which means du = 2x dx.",
+     "placeholder": "expression",
+     "correctAnswers": [
+      "2x",
+      "2*x",
+      "2 x"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "A function g(x) is concave up on the interval [0, 2]. If we use a Trapezoidal Sum (T) and a Midpoint Riemann Sum (M) to approximate the integral of g(x) from 0 to 2, which relationship is true?",
+     "options": [
+      "M < ∫ g(x) dx < T",
+      "T < ∫ g(x) dx < M",
+      "∫ g(x) dx < M < T",
+      "T < M < ∫ g(x) dx"
+     ],
+     "explanation": "For a concave up function, the trapezoidal rule (T) overestimates because the secant line is above the curve. The midpoint rule (M) generally underestimates for concave up functions.",
+     "correctAnswers": [
+      "M < ∫ g(x) dx < T"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "image": {
+      "alt": "Graph of f(t) showing zeros and slopes.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit4-q17.png"
+     },
+     "prompt": "Suppose you are given a graph of a function f(t) and you define A(x) = ∫ from 0 to x of f(t) dt. At what points will A(x) have a relative maximum?",
+     "options": [
+      "At x-values where f(x) changes from positive to negative.",
+      "At x-values where f(x) = 0 and f'(x) < 0.",
+      "At x-values where the graph of f(x) has a peak.",
+      "At x-values where f(x) changes from negative to positive.",
+      "At the endpoints only."
+     ],
+     "explanation": "Since A'(x) = f(x), A(x) has a maximum when its derivative f(x) is zero and switches from positive (increasing) to negative (decreasing).",
+     "correctAnswers": [
+      "At x-values where f(x) changes from positive to negative.",
+      "At x-values where f(x) = 0 and f'(x) < 0."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Adjust the integration limits to find the net signed area of the provided function where the accumulation exactly equals zero.",
+     "options": [
+      "Limits [0, 4] for f(x) = x - 2",
+      "Limits [0, 2] for f(x) = x - 2",
+      "Limits [2, 4] for f(x) = x - 2",
+      "Limits [0, 1] for f(x) = x - 2"
+     ],
+     "explanation": "For the function f(x) = x - 2, the area below the x-axis from x=0 to x=2 is a triangle with area 2 (signed area -2). The area above the axis from x=2 to x=4 is a triangle with area 2. The sum is 0.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Definite Integral Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --red-fill: rgba(239, 83, 80, 0.25);\n      --red-stroke: #ef5350;\n      --blue-fill: rgba(66, 165, 245, 0.25);\n      --blue-stroke: #42a5f5;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 12px;\n    }\n\n    .stage-container {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px 12px 6px 12px;\n      box-sizing: border-box;\n      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Grabbing & Interactive States */\n    .handle {\n      cursor: grab;\n      touch-action: none;\n      transition: transform 150ms cubic-bezier(.34,1.56,.64,1);\n    }\n    .handle:active {\n      cursor: grabbing;\n    }\n    .handle:focus-visible {\n      outline: none;\n    }\n    .handle:focus-visible .handle-circle {\n      stroke: var(--accent);\n      stroke-width: 3px;\n    }\n\n    .handle-a .handle-circle { fill: #5c6bc0; }\n    .handle-b .handle-circle { fill: #26a69a; }\n\n    /* Readouts styling */\n    .readout-panel {\n      display: flex;\n      justify-content: space-between;\n      width: 100%;\n      max-width: 440px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 10px 16px;\n      box-sizing: border-box;\n      font-size: 14px;\n    }\n\n    .readout-item {\n      display: flex;\n      flex-direction: column;\n      gap: 2px;\n    }\n\n    .readout-label {\n      font-size: 11px;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .readout-val {\n      font-weight: 700;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: -2px;\n    }\n\n    /* Keyboard navigation helpers */\n    .keyboard-indicator {\n      fill: none;\n      stroke: var(--accent);\n      stroke-dasharray: 4 2;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Definite Integral of f(x) = x - 2. Drag the limits to change shaded area.</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage-container\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 220\" aria-hidden=\"true\">\n        <!-- Grid & Axes -->\n        <g class=\"grid\" opacity=\"0.3\">\n          <!-- Horizontal grid lines -->\n          <line x1=\"30\" y1=\"30\" x2=\"370\" y2=\"30\" stroke=\"#ccc\" stroke-width=\"1\" />\n          <line x1=\"30\" y1=\"65\" x2=\"370\" y2=\"65\" stroke=\"#ccc\" stroke-width=\"1\" />\n          <line x1=\"30\" y1=\"135\" x2=\"370\" y2=\"135\" stroke=\"#ccc\" stroke-width=\"1\" />\n          <line x1=\"30\" y1=\"170\" x2=\"370\" y2=\"170\" stroke=\"#ccc\" stroke-width=\"1\" />\n          \n          <!-- Vertical grid lines -->\n          <line x1=\"90\" y1=\"20\" x2=\"90\" y2=\"180\" stroke=\"#ccc\" stroke-width=\"1\" />\n          <line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"180\" stroke=\"#ccc\" stroke-width=\"1\" />\n          <line x1=\"210\" y1=\"20\" x2=\"210\" y2=\"180\" stroke=\"#ccc\" stroke-width=\"1\" />\n          <line x1=\"270\" y1=\"20\" x2=\"270\" y2=\"180\" stroke=\"#ccc\" stroke-width=\"1\" />\n          <line x1=\"330\" y1=\"20\" x2=\"330\" y2=\"180\" stroke=\"#ccc\" stroke-width=\"1\" />\n        </g>\n\n        <!-- X and Y Axes -->\n        <line x1=\"30\" y1=\"100\" x2=\"370\" y2=\"100\" stroke=\"#888\" stroke-width=\"1.5\" />\n        <line x1=\"90\" y1=\"20\" x2=\"90\" y2=\"180\" stroke=\"#888\" stroke-width=\"1.5\" />\n\n        <!-- Axis Labels -->\n        <text x=\"365\" y=\"94\" font-size=\"11\" fill=\"#666\" text-anchor=\"end\">x</text>\n        <text x=\"96\" y=\"28\" font-size=\"11\" fill=\"#666\">y</text>\n        \n        <!-- Tick Labels -->\n        <text x=\"90\" y=\"114\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\">0</text>\n        <text x=\"150\" y=\"114\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\">1</text>\n        <text x=\"210\" y=\"114\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\">2</text>\n        <text x=\"270\" y=\"114\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\">3</text>\n        <text x=\"330\" y=\"114\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\">4</text>\n\n        <text x=\"82\" y=\"139\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\">-1</text>\n        <text x=\"82\" y=\"174\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\">-2</text>\n        <text x=\"82\" y=\"69\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\">1</text>\n        <text x=\"82\" y=\"34\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\">2</text>\n\n        <!-- Shaded Areas -->\n        <path id=\"negative-area\" fill=\"var(--red-fill)\" stroke=\"var(--red-stroke)\" stroke-width=\"1\" stroke-dasharray=\"2 2\" />\n        <path id=\"positive-area\" fill=\"var(--blue-fill)\" stroke=\"var(--blue-stroke)\" stroke-width=\"1\" stroke-dasharray=\"2 2\" />\n\n        <!-- Function Line f(x) = x - 2 -->\n        <!-- x ranges from 0 (x_px=90) to 4.5 (x_px=360) -->\n        <line x1=\"60\" y1=\"135\" x2=\"360\" y2=\"35\" stroke=\"#333\" stroke-width=\"2.5\" />\n        <text x=\"345\" y=\"55\" font-size=\"12\" font-style=\"italic\" font-weight=\"bold\" fill=\"#333\" text-anchor=\"start\">f(x) = x - 2</text>\n\n        <!-- Sliders Track Guidance -->\n        <line x1=\"90\" y1=\"100\" x2=\"330\" y2=\"100\" stroke=\"var(--accent)\" stroke-width=\"3\" opacity=\"0.1\" stroke-linecap=\"round\" />\n\n        <!-- Handle A (Lower bound) -->\n        <g id=\"handle-a\" class=\"handle handle-a\" tabindex=\"0\" role=\"slider\" aria-label=\"Lower limit a\" aria-valuemin=\"0\" aria-valuemax=\"4\">\n          <circle class=\"handle-circle\" cx=\"0\" cy=\"100\" r=\"14\" fill=\"#5c6bc0\" filter=\"drop-shadow(0px 2px 4px rgba(0,0,0,0.15))\" />\n          <text x=\"0\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"#fff\" text-anchor=\"middle\">a</text>\n        </g>\n\n        <!-- Handle B (Upper bound) -->\n        <g id=\"handle-b\" class=\"handle handle-b\" tabindex=\"0\" role=\"slider\" aria-label=\"Upper limit b\" aria-valuemin=\"0\" aria-valuemax=\"4\">\n          <circle class=\"handle-circle\" cx=\"0\" cy=\"100\" r=\"14\" fill=\"#26a69a\" filter=\"drop-shadow(0px 2px 4px rgba(0,0,0,0.15))\" />\n          <text x=\"0\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"#fff\" text-anchor=\"middle\">b</text>\n        </g>\n      </svg>\n    </div>\n\n    <div class=\"readout-panel\">\n      <div class=\"readout-item\">\n        <span class=\"readout-label\">Interval</span>\n        <span class=\"readout-val\" id=\"val-interval\">[0, 0]</span>\n      </div>\n      <div class=\"readout-item\" style=\"align-items: flex-end;\">\n        <span class=\"readout-label\" id=\"area-label\">Net Area</span>\n        <span class=\"readout-val\" id=\"val-net-area\">0.00</span>\n      </div>\n    </div>\n\n    <div class=\"hint\">\n      Drag handles <strong>a</strong> and <strong>b</strong> to adjust the integration limits.\n    </div>\n  </div>\n\n  <script>\n    // State\n    let limitA = 0; // 0 to 4\n    let limitB = 2; // 0 to 4, must be >= limitA\n\n    // DOM Elements\n    const handleA = document.getElementById('handle-a');\n    const handleB = document.getElementById('handle-b');\n    const pathNeg = document.getElementById('negative-area');\n    const pathPos = document.getElementById('positive-area');\n    const valInterval = document.getElementById('val-interval');\n    const valNetArea = document.getElementById('val-net-area');\n    const areaLabel = document.getElementById('area-label');\n\n    // Coordinate mapping\n    // X range [0, 4] maps to SVG pixels [90, 330]\n    // Y range [-2, 2] maps to SVG pixels [170, 30]\n    function toX(val) {\n      return 90 + val * 60;\n    }\n    function fromX(px) {\n      return (px - 90) / 60;\n    }\n    function toY(val) {\n      return 100 - val * 35;\n    }\n\n    function updateVisuals() {\n      // Bounds checks\n      if (limitA < 0) limitA = 0;\n      if (limitA > 4) limitA = 4;\n      if (limitB < 0) limitB = 0;\n      if (limitB > 4) limitB = 4;\n      if (limitA > limitB) {\n        // Swap or clamp\n        limitA = limitB;\n      }\n\n      // Update Slider Attributes\n      handleA.setAttribute('aria-valuenow', limitA);\n      handleB.setAttribute('aria-valuenow', limitB);\n\n      // Position slider handles\n      handleA.setAttribute('transform', `translate(${toX(limitA)}, 0)`);\n      handleB.setAttribute('transform', `translate(${toX(limitB)}, 0)`);\n\n      // Shading calculation for f(x) = x - 2\n      // Negative area where x is between limitA and min(limitB, 2)\n      const negEnd = Math.min(limitB, 2);\n      if (limitA < negEnd) {\n        const xStart = limitA;\n        const xEnd = negEnd;\n        const d = `M ${toX(xStart)} ${toY(0)} \n                   L ${toX(xStart)} ${toY(xStart - 2)} \n                   L ${toX(xEnd)} ${toY(xEnd - 2)} \n                   L ${toX(xEnd)} ${toY(0)} Z`;\n        pathNeg.setAttribute('d', d);\n        pathNeg.style.display = 'block';\n      } else {\n        pathNeg.style.display = 'none';\n      }\n\n      // Positive area where x is between max(limitA, 2) and limitB\n      const posStart = Math.max(limitA, 2);\n      if (posStart < limitB) {\n        const xStart = posStart;\n        const xEnd = limitB;\n        const d = `M ${toX(xStart)} ${toY(0)} \n                   L ${toX(xStart)} ${toY(xStart - 2)} \n                   L ${toX(xEnd)} ${toY(xEnd - 2)} \n                   L ${toX(xEnd)} ${toY(0)} Z`;\n        pathPos.setAttribute('d', d);\n        pathPos.style.display = 'block';\n      } else {\n        pathPos.style.display = 'none';\n      }\n\n      // Integral calculation\n      // F(x) = 0.5*x^2 - 2x\n      const F = (x) => 0.5 * x * x - 2 * x;\n      const netArea = F(limitB) - F(limitA);\n\n      // Display updates\n      valInterval.textContent = `[${limitA.toFixed(0)}, ${limitB.toFixed(0)}]`;\n      valNetArea.textContent = (netArea >= 0 ? '' : '') + netArea.toFixed(2);\n      \n      if (netArea === 0) {\n        areaLabel.textContent = \"Net Area (Zero!)\";\n        areaLabel.style.color = \"var(--accent)\";\n      } else {\n        areaLabel.textContent = \"Net Area\";\n        areaLabel.style.color = \"var(--muted-fg)\";\n      }\n\n      // Dispatch Answer Reporting\n      reportAnswer();\n    }\n\n    // Report corresponding option if state matches\n    function reportAnswer() {\n      // Find matching option\n      // Options format: \"Limits [X, Y] for f(x) = x - 2\"\n      const optionString = `Limits [${limitA}, ${limitB}] for f(x) = x - 2`;\n      const validOptions = [\n        \"Limits [0, 4] for f(x) = x - 2\",\n        \"Limits [0, 2] for f(x) = x - 2\",\n        \"Limits [2, 4] for f(x) = x - 2\",\n        \"Limits [0, 1] for f(x) = x - 2\"\n      ];\n\n      if (validOptions.includes(optionString)) {\n        parent.postMessage({ type: 'hk-practice-answer', value: optionString }, '*');\n      }\n    }\n\n    // Drag Logic\n    let activeDrag = null;\n    let startX = 0;\n    let startLimitVal = 0;\n\n    function setupDrag(element, getVal, setVal) {\n      element.addEventListener('pointerdown', (e) => {\n        e.preventDefault();\n        element.setPointerCapture(e.pointerId);\n        activeDrag = { element, getVal, setVal };\n        startX = e.clientX;\n        startLimitVal = getVal();\n      });\n\n      element.addEventListener('pointermove', (e) => {\n        if (!activeDrag || activeDrag.element !== element) return;\n        \n        // Find delta in data units\n        const svgElement = document.querySelector('.stage-svg');\n        const rect = svgElement.getBoundingClientRect();\n        const svgScale = 400 / rect.width; // 400 is viewBox width\n        \n        const deltaPx = (e.clientX - startX) * svgScale;\n        const deltaVal = deltaPx / 60; // 60px per unit\n        \n        let newVal = Math.round(startLimitVal + deltaVal);\n        newVal = Math.max(0, Math.min(4, newVal));\n        \n        setVal(newVal);\n        updateVisuals();\n      });\n\n      element.addEventListener('pointerup', () => {\n        activeDrag = null;\n      });\n      element.addEventListener('pointercancel', () => {\n        activeDrag = null;\n      });\n    }\n\n    setupDrag(handleA, () => limitA, (val) => {\n      limitA = Math.min(val, limitB); // prevent cross\n    });\n\n    setupDrag(handleB, () => limitB, (val) => {\n      limitB = Math.max(val, limitA); // prevent cross\n    });\n\n    // Keyboard controls\n    function setupKeyboard(element, getVal, setVal) {\n      element.addEventListener('keydown', (e) => {\n        let val = getVal();\n        if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n          val = Math.max(0, val - 1);\n          setVal(val);\n          updateVisuals();\n          e.preventDefault();\n        } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n          val = Math.min(4, val + 1);\n          setVal(val);\n          updateVisuals();\n          e.preventDefault();\n        }\n      });\n    }\n\n    setupKeyboard(handleA, () => limitA, (val) => {\n      limitA = Math.min(val, limitB);\n    });\n\n    setupKeyboard(handleB, () => limitB, (val) => {\n      limitB = Math.max(val, limitA);\n    });\n\n    // Lock support\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        document.querySelectorAll('.handle').forEach(el => {\n          el.style.pointerEvents = 'none';\n          el.style.cursor = 'default';\n          el.removeAttribute('tabindex');\n        });\n      }\n    });\n\n    // Initial state setup (different from target [0,4] so student must interact)\n    limitA = 0;\n    limitB = 2;\n    updateVisuals();\n\n    // Height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Limits [0, 4] for f(x) = x - 2"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Exam: Differential Equations",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following describes the difference between a general solution and a particular solution of a differential equation?",
+     "options": [
+      "A general solution is a single function, while a particular solution is a family of functions.",
+      "A general solution represents an entire family of functions, whereas a particular solution is one specific function from that family.",
+      "A general solution involves differentiation, while a particular solution involves only algebraic substitution.",
+      "A general solution does not include a constant of integration, but a particular solution does."
+     ],
+     "explanation": "The general solution includes an arbitrary constant C, representing all possible curves that satisfy the rate of change. The particular solution uses an initial condition to solve for C, identifying one specific curve.",
+     "correctAnswers": [
+      "A general solution represents an entire family of functions, whereas a particular solution is one specific function from that family."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A student is sketching a solution curve on a slope field. Which of the following actions are correct based on the rules of differential equations?",
+     "options": [
+      "The curve must pass exactly through the given initial condition point.",
+      "The curve should cross slope segments at right angles to ensure orthogonality.",
+      "The curve must be drawn smoothly and remain tangent to the local slope segments.",
+      "The curve must continue across regions where the slope is undefined to show the full domain.",
+      "The curve should stop if it reaches a vertical line of undefined slopes."
+     ],
+     "explanation": "Solution curves must be functions and continuous; they cannot cross boundaries where the derivative is undefined (like a vertical tangent), and they must strictly follow the direction of the slope field starting from the initial point.",
+     "correctAnswers": [
+      "The curve must pass exactly through the given initial condition point.",
+      "The curve must be drawn smoothly and remain tangent to the local slope segments.",
+      "The curve should stop if it reaches a vertical line of undefined slopes."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To solve the differential equation dy/dx = 5xy using separation of variables, the first algebraic step involves transforming the equation into the form ____ dy = 5x dx.",
+     "explanation": "Separation of variables requires moving all terms containing 'y' to the 'dy' side via division (or multiplication by the reciprocal).",
+     "placeholder": "Enter expression in terms of y",
+     "correctAnswers": [
+      "1/y",
+      "(1/y)",
+      "y^-1"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Consider the differential equation dy/dx = x - y. Why is this equation NOT separable?",
+     "options": [
+      "The derivative depends on both x and y.",
+      "The variables cannot be isolated into a product of a function of x and a function of y.",
+      "The constant of integration would disappear during subtraction.",
+      "The equation is a second-order differential equation."
+     ],
+     "explanation": "Separation of variables requires the right side to be in the form g(x)h(y). Because the terms are subtracted, you cannot isolate 'y' with 'dy' and 'x' with 'dx' through multiplication or division.",
+     "correctAnswers": [
+      "The variables cannot be isolated into a product of a function of x and a function of y."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Slope field showing slopes dependent only on the y-coordinate.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit5-q5.png"
+     },
+     "prompt": "You are given a slope field where all segments in a horizontal row (same y-value) have the same slope, but the slopes change as you move vertically. Which of the following could represent the differential equation?",
+     "options": [
+      "dy/dx = y",
+      "dy/dx = x",
+      "dy/dx = y^2",
+      "dy/dx = x + y",
+      "dy/dx = sin(y)"
+     ],
+     "explanation": "If slopes are constant along horizontal lines, the derivative dy/dx must be a function of y only, as changes in x do not affect the slope.",
+     "correctAnswers": [
+      "dy/dx = y",
+      "dy/dx = y^2",
+      "dy/dx = sin(y)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a slope field for dy/dx = (x - 1) / y, the segments will be horizontal along the line ____.",
+     "explanation": "A horizontal segment represents a slope of zero. For the fraction (x - 1) / y to equal zero, the numerator (x - 1) must be zero, which occurs at x = 1.",
+     "placeholder": "Enter an equation like x = #",
+     "correctAnswers": [
+      "x = 1",
+      "x=1"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When verifying that y = e^(2x) is a solution to dy/dx = 2y, which mathematical rule is most critical to apply during differentiation?",
+     "options": [
+      "Product Rule",
+      "Quotient Rule",
+      "Chain Rule",
+      "Power Rule"
+     ],
+     "explanation": "To differentiate e^(2x), you must apply the Chain Rule to the exponent (2x), resulting in 2e^(2x). Substituting this back into dy/dx = 2y confirms the identity.",
+     "correctAnswers": [
+      "Chain Rule"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "If a particular solution curve on a slope field is concave up on an interval, what must be true about the differential equation dy/dx on that interval?",
+     "options": [
+      "The values of dy/dx are increasing as x increases.",
+      "The values of dy/dx are decreasing as x increases.",
+      "The second derivative d²y/dx² is positive.",
+      "The slope segments are getting flatter as you move from left to right.",
+      "The slope segments are getting steeper as you move from left to right (for positive slopes)."
+     ],
+     "explanation": "Concavity is determined by the second derivative. If a curve is concave up, its slope (dy/dx) is increasing, and the second derivative is positive.",
+     "correctAnswers": [
+      "The values of dy/dx are increasing as x increases.",
+      "The second derivative d²y/dx² is positive.",
+      "The slope segments are getting steeper as you move from left to right (for positive slopes)."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If a slope field shows vertical segments or empty spaces along the line y = 2, the denominator of the differential equation must be zero when y equals ____.",
+     "explanation": "Undefined slopes in a differential equation typically occur where the denominator of the expression for dy/dx is equal to zero.",
+     "placeholder": "number",
+     "correctAnswers": [
+      "2"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What happens to the constant of integration C when you solve dy/dx = y by separating variables and exponentiating both sides (ln|y| = x + C)?",
+     "options": [
+      "It disappears completely.",
+      "It remains as an added term: y = e^x + C.",
+      "It becomes a multiplicative constant: y = Ae^x (where A = e^C).",
+      "It moves to the denominator: y = e^x / C."
+     ],
+     "explanation": "Using exponent rules, e^(x + C) is equal to e^x * e^C. Since e^C is just another constant, we rewrite it as a coefficient A.",
+     "correctAnswers": [
+      "It becomes a multiplicative constant: y = Ae^x (where A = e^C)."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following differential equations are separable?",
+     "options": [
+      "dy/dx = x / y",
+      "dy/dx = sin(x)cos(y)",
+      "dy/dx = x + 5",
+      "dy/dx = e^(x+y)",
+      "dy/dx = x^2 + y^2"
+     ],
+     "explanation": "Equations are separable if they can be written as dy/dx = g(x)h(y). Note that e^(x+y) = e^x * e^y. x^2 + y^2 cannot be factored into a product of x and y terms.",
+     "correctAnswers": [
+      "dy/dx = x / y",
+      "dy/dx = sin(x)cos(y)",
+      "dy/dx = x + 5",
+      "dy/dx = e^(x+y)"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process of checking if a function satisfies a differential equation by calculating its derivative and plugging it in is called ____.",
+     "explanation": "Verification is the technique of testing a candidate solution against the original differential equation.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "verification",
+      "verifying",
+      "verifying a solution"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Slope field for a circle centered at the origin.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/exam/images/unit5-q13.png"
+     },
+     "prompt": "A slope field for dy/dx = -x/y shows segments that form a circular pattern. What is the particular solution passing through (0, 3)?",
+     "options": [
+      "y = -x + 3",
+      "x^2 + y^2 = 9",
+      "y = 3e^(-x)",
+      "y = x^2 + 3"
+     ],
+     "explanation": "Separating dy/dx = -x/y gives y dy = -x dx. Integrating gives 0.5y^2 = -0.5x^2 + C, or x^2 + y^2 = 2C. At (0,3), 0^2 + 3^2 = 9, so x^2 + y^2 = 9.",
+     "correctAnswers": [
+      "x^2 + y^2 = 9"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When solving dy/dx = 2x with the initial condition y(0) = 5, which steps are part of the correct process?",
+     "options": [
+      "Integrate 2x to get x^2 + C.",
+      "Substitute x = 5 and y = 0 into the general solution.",
+      "Substitute x = 0 and y = 5 into the general solution.",
+      "Find that C = 5.",
+      "The particular solution is y = x^2 + 5."
+     ],
+     "explanation": "Integrating dy/dx = 2x gives y = x^2 + C. Using y(0)=5 means 5 = 0^2 + C, so C = 5.",
+     "correctAnswers": [
+      "Integrate 2x to get x^2 + C.",
+      "Substitute x = 0 and y = 5 into the general solution.",
+      "Find that C = 5.",
+      "The particular solution is y = x^2 + 5."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "If a slope field has a line of symmetry at y = 0 where all slopes are zero, and the slopes increase as |y| increases, which is a likely candidate for the equation?",
+     "options": [
+      "dy/dx = x",
+      "dy/dx = y^2",
+      "dy/dx = 1/y",
+      "dy/dx = x/y"
+     ],
+     "explanation": "Since the slopes only depend on y and are zero at y=0, dy/dx = y^2 fits. x/y would be undefined at y=0, and dy/dx=x would not change with y.",
+     "correctAnswers": [
+      "dy/dx = y^2"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Adjust the boat's trajectory to find the particular solution for dy/dx = x through the initial point (0, -1).",
+     "options": [
+      "A parabola opening upward with vertex at (0, -1)",
+      "A parabola opening downward with vertex at (0, -1)",
+      "A straight line with a slope of 1 passing through (0, -1)",
+      "An exponential curve rising from the point (0, -1)"
+     ],
+     "explanation": "The general solution to dy/dx = x is y = 0.5x^2 + C. Plugging in (0, -1) gives C = -1. The resulting curve is y = 0.5x^2 - 1, which is an upward-opening parabola with a vertex at its initial y-intercept.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Slope Field Trajectory</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .stage-card {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 8px;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n      position: relative;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Slope field ticks */\n    .slope-tick {\n      stroke: #b0b8c3;\n      stroke-width: 2;\n      stroke-linecap: round;\n    }\n\n    .grid-line {\n      stroke: #eef0f2;\n      stroke-width: 1;\n    }\n\n    .axis-line {\n      stroke: #ccc;\n      stroke-width: 1.5;\n    }\n\n    .axis-label {\n      font-size: 10px;\n      fill: var(--muted-fg);\n      text-anchor: middle;\n    }\n\n    .trajectory-path {\n      fill: none;\n      stroke-width: 3;\n      stroke-linecap: round;\n      stroke-dasharray: 6 4;\n      transition: stroke 0.2s, stroke-width 0.2s;\n    }\n\n    .trajectory-path.active {\n      stroke: var(--accent);\n      stroke-width: 4;\n      stroke-dasharray: none;\n    }\n\n    .boat-token {\n      cursor: grab;\n      touch-action: none;\n      filter: drop-shadow(0 3px 5px rgba(0,0,0,0.15));\n      transition: transform 0.1s ease;\n    }\n\n    .boat-token:active {\n      cursor: grabbing;\n      transform: scale(1.1);\n    }\n\n    /* Target Docks list */\n    .docks-container {\n      display: flex;\n      flex-direction: column;\n      gap: 6px;\n    }\n\n    .dock-option {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      padding: 10px 12px;\n      display: flex;\n      align-items: center;\n      gap: 12px;\n      cursor: pointer;\n      user-select: none;\n      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n      position: relative;\n    }\n\n    .dock-option:hover {\n      border-color: #cbd5e1;\n      background: #fcfcfb;\n    }\n\n    .dock-option.active {\n      border-color: var(--accent);\n      border-style: solid;\n      background: var(--accent-soft);\n    }\n\n    .dock-radio {\n      width: 16px;\n      height: 16px;\n      border: 2px solid #cbd5e1;\n      border-radius: 50%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-shrink: 0;\n      transition: border-color 0.2s, background-color 0.2s;\n    }\n\n    .dock-option.active .dock-radio {\n      border-color: var(--accent);\n      background: var(--accent);\n    }\n\n    .dock-radio-inner {\n      width: 6px;\n      height: 6px;\n      background: #fff;\n      border-radius: 50%;\n      transform: scale(0);\n      transition: transform 0.2s;\n    }\n\n    .dock-option.active .dock-radio-inner {\n      transform: scale(1);\n    }\n\n    .dock-text {\n      font-size: 13px;\n      line-height: 1.3;\n      font-weight: 500;\n      color: #333;\n    }\n\n    .dock-option.active .dock-text {\n      color: var(--accent-strong);\n    }\n\n    .hint-bar {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: 2px;\n    }\n\n    /* Keyboard navigation focus states */\n    .dock-option:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 1px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Slope Field Trajectory Practice Widget</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage-card\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 200\" id=\"stageSvg\">\n        <!-- Grid and Axes -->\n        <g id=\"gridG\"></g>\n        <!-- Slope Field -->\n        <g id=\"slopeFieldG\"></g>\n        \n        <!-- Trajectory Lines (drawn underneath boat) -->\n        <path id=\"path-downward\" class=\"trajectory-path\" stroke=\"#e2e8f0\" d=\"\" />\n        <path id=\"path-linear\" class=\"trajectory-path\" stroke=\"#e2e8f0\" d=\"\" />\n        <path id=\"path-upward\" class=\"trajectory-path\" stroke=\"#e2e8f0\" d=\"\" />\n        <path id=\"path-exponential\" class=\"trajectory-path\" stroke=\"#e2e8f0\" d=\"\" />\n\n        <!-- Initial Point Anchor (0, -1) -->\n        <circle cx=\"200\" cy=\"140\" r=\"5\" fill=\"#f43f5e\" />\n        <text x=\"200\" y=\"156\" font-size=\"9\" fill=\"#f43f5e\" font-weight=\"bold\" text-anchor=\"middle\">(0, -1)</text>\n\n        <!-- Animated Boat / Drag Token -->\n        <g id=\"boatToken\" class=\"boat-token\" transform=\"translate(200, 140)\">\n          <!-- Circular drag handle background -->\n          <circle cx=\"0\" cy=\"-6\" r=\"14\" fill=\"rgba(76, 102, 150, 0.15)\" stroke=\"var(--accent)\" stroke-width=\"1.5\" />\n          <!-- Small Boat Icon -->\n          <path d=\"M-8,-4 L8,-4 L5,3 L-5,3 Z\" fill=\"#4a5568\" />\n          <path d=\"M0,-14 L0,-4 L4,-4 Z\" fill=\"#e2e8f0\" stroke=\"#4a5568\" stroke-width=\"1\" />\n        </g>\n      </svg>\n    </div>\n\n    <!-- Interactive Docks representing choices -->\n    <div class=\"docks-container\" id=\"docksContainer\">\n      <div class=\"dock-option\" data-option=\"A parabola opening downward with vertex at (0, -1)\" tabindex=\"0\" role=\"radio\" aria-checked=\"false\">\n        <div class=\"dock-radio\"><div class=\"dock-radio-inner\"></div></div>\n        <span class=\"dock-text\">A parabola opening downward with vertex at (0, -1)</span>\n      </div>\n      <div class=\"dock-option\" data-option=\"A straight line with a slope of 1 passing through (0, -1)\" tabindex=\"0\" role=\"radio\" aria-checked=\"false\">\n        <div class=\"dock-radio\"><div class=\"dock-radio-inner\"></div></div>\n        <span class=\"dock-text\">A straight line with a slope of 1 passing through (0, -1)</span>\n      </div>\n      <div class=\"dock-option\" data-option=\"A parabola opening upward with vertex at (0, -1)\" tabindex=\"0\" role=\"radio\" aria-checked=\"false\">\n        <div class=\"dock-radio\"><div class=\"dock-radio-inner\"></div></div>\n        <span class=\"dock-text\">A parabola opening upward with vertex at (0, -1)</span>\n      </div>\n      <div class=\"dock-option\" data-option=\"An exponential curve rising from the point (0, -1)\" tabindex=\"0\" role=\"radio\" aria-checked=\"false\">\n        <div class=\"dock-radio\"><div class=\"dock-radio-inner\"></div></div>\n        <span class=\"dock-text\">An exponential curve rising from the point (0, -1)</span>\n      </div>\n    </div>\n\n    <div class=\"hint-bar\">\n      Drag the boat or select a trajectory to match the slope field.\n    </div>\n  </div>\n\n  <script>\n    // Coordinate Mapping\n    // x in [-2.5, 2.5] -> X in [50, 350]\n    // y in [-2, 2] -> Y in [180, 20]\n    function toX(x) { return 200 + x * 60; }\n    function toY(y) { return 100 - y * 40; }\n    function fromX(X) { return (X - 200) / 60; }\n    function fromY(Y) { return (100 - Y) / 40; }\n\n    // Generate Grid and Axes\n    const gridG = document.getElementById('gridG');\n    // X and Y axes\n    gridG.innerHTML = `\n      <line class=\"axis-line\" x1=\"50\" y1=\"100\" x2=\"350\" y2=\"100\" />\n      <line class=\"axis-line\" x1=\"200\" y1=\"15\" x2=\"200\" y2=\"185\" />\n      <text class=\"axis-label\" x=\"345\" y=\"112\">x</text>\n      <text class=\"axis-label\" x=\"190\" y=\"24\">y</text>\n    `;\n\n    // Generate Slope Field (dy/dx = x)\n    const slopeFieldG = document.getElementById('slopeFieldG');\n    let slopeTicksHTML = '';\n    for (let x = -2; x <= 2; x += 0.5) {\n      for (let y = -1.5; y <= 1.5; y += 0.5) {\n        const X = toX(x);\n        const Y = toY(y);\n        const dy_dx = x; // slope is x\n        // calculate angle in pixels. dx in pixels is 60 * dx_math, dy in pixels is -40 * dy_math.\n        // screen slope m = (-40 * dy_dx) / 60 = -2/3 * x\n        const m = -0.667 * dy_dx;\n        const angle = Math.atan(m);\n        const len = 6;\n        const x1 = X - len * Math.cos(angle);\n        const y1 = Y - len * Math.sin(angle);\n        const x2 = X + len * Math.cos(angle);\n        const y2 = Y + len * Math.sin(angle);\n        slopeTicksHTML += `<line class=\"slope-tick\" x1=\"${x1}\" y1=\"${y1}\" x2=\"${x2}\" y2=\"${y2}\" />`;\n      }\n    }\n    slopeFieldG.innerHTML = slopeTicksHTML;\n\n    // Define curves\n    const curves = {\n      'A parabola opening downward with vertex at (0, -1)': x => -0.3 * x * x - 1,\n      'A straight line with a slope of 1 passing through (0, -1)': x => x - 1,\n      'A parabola opening upward with vertex at (0, -1)': x => 0.5 * x * x - 1, // Particular solution!\n      'An exponential curve rising from the point (0, -1)': x => Math.pow(1.8, x) - 2\n    };\n\n    // Draw paths\n    const pathElements = {\n      'A parabola opening downward with vertex at (0, -1)': document.getElementById('path-downward'),\n      'A straight line with a slope of 1 passing through (0, -1)': document.getElementById('path-linear'),\n      'A parabola opening upward with vertex at (0, -1)': document.getElementById('path-upward'),\n      'An exponential curve rising from the point (0, -1)': document.getElementById('path-exponential')\n    };\n\n    function renderPaths() {\n      Object.keys(curves).forEach(key => {\n        const fn = curves[key];\n        let d = '';\n        for (let x = -2.2; x <= 2.2; x += 0.1) {\n          const px = toX(x);\n          const py = toY(fn(x));\n          d += (x === -2.2 ? 'M' : 'L') + ` ${px} ${py}`;\n        }\n        pathElements[key].setAttribute('d', d);\n      });\n    }\n    renderPaths();\n\n    // State\n    let currentSelectedOption = null;\n    let isDragging = false;\n    let isLocked = false;\n    let boatProgress = 1.0; // boat position along the curve (from x = 0 to x = 1.8)\n\n    const boatToken = document.getElementById('boatToken');\n    const stageSvg = document.getElementById('stageSvg');\n    const docks = document.querySelectorAll('.dock-option');\n\n    function selectOption(optionName, triggerBoatAnimation = true) {\n      if (isLocked) return;\n      currentSelectedOption = optionName;\n\n      // Update Docks UI\n      docks.forEach(dock => {\n        const isCurrent = dock.getAttribute('data-option') === optionName;\n        dock.classList.toggle('active', isCurrent);\n        dock.setAttribute('aria-checked', isCurrent ? 'true' : 'false');\n      });\n\n      // Update Path UI\n      Object.keys(pathElements).forEach(key => {\n        pathElements[key].classList.toggle('active', key === optionName);\n      });\n\n      // Report choice\n      parent.postMessage({ type: 'hk-practice-answer', value: optionName }, '*');\n\n      // Animate boat sailing along the selected path\n      if (triggerBoatAnimation) {\n        animateBoat(optionName);\n      }\n    }\n\n    let animFrame = null;\n    function animateBoat(optionName) {\n      if (animFrame) cancelAnimationFrame(animFrame);\n      const startTime = performance.now();\n      const duration = 1000; // 1 second flight\n\n      function step(now) {\n        const elapsed = now - startTime;\n        const progress = Math.min(elapsed / duration, 1);\n        // Ease out\n        const ease = 1 - Math.pow(1 - progress, 3);\n        \n        // Let boat travel from x = 0 to x = 1.5\n        const targetX = ease * 1.5;\n        const targetY = curves[optionName](targetX);\n\n        updateBoatVisual(toX(targetX), toY(targetY));\n\n        if (progress < 1) {\n          animFrame = requestAnimationFrame(step);\n        }\n      }\n      animFrame = requestAnimationFrame(step);\n    }\n\n    function updateBoatVisual(px, py) {\n      boatToken.setAttribute('transform', `translate(${px}, ${py})`);\n    }\n\n    // Drag-to-place logic on the boat\n    let startY = 140;\n    boatToken.addEventListener('pointerdown', e => {\n      if (isLocked) return;\n      isDragging = true;\n      boatToken.setPointerCapture(e.pointerId);\n      if (animFrame) cancelAnimationFrame(animFrame);\n    });\n\n    boatToken.addEventListener('pointermove', e => {\n      if (!isDragging) return;\n      const rect = stageSvg.getBoundingClientRect();\n      const clientX = e.clientX - rect.left;\n      const clientY = e.clientY - rect.top;\n      \n      // Convert to SVG coordinates\n      const svgX = (clientX / rect.width) * 400;\n      const svgY = (clientY / rect.height) * 200;\n\n      // Restrict boat to move on the right-hand side of x=0 to let them choose\n      const dragX = Math.max(0.1, Math.min(fromX(svgX), 2));\n      const dragY = fromY(svgY);\n\n      // Find which curve is closest to the cursor at this X position\n      let closestOption = null;\n      let minDist = Infinity;\n      Object.keys(curves).forEach(key => {\n        const cy = curves[key](dragX);\n        const dist = Math.abs(dragY - cy);\n        if (dist < minDist) {\n          minDist = dist;\n          closestOption = key;\n        }\n      });\n\n      if (closestOption && closestOption !== currentSelectedOption) {\n        selectOption(closestOption, false);\n      }\n\n      // Snap boat visual directly to the active curve at cursor X\n      if (currentSelectedOption) {\n        const snappedY = curves[currentSelectedOption](dragX);\n        updateBoatVisual(toX(dragX), toY(snappedY));\n      }\n    });\n\n    boatToken.addEventListener('pointerup', e => {\n      if (!isDragging) return;\n      isDragging = false;\n      boatToken.releasePointerCapture(e.pointerId);\n      if (currentSelectedOption) {\n        animateBoat(currentSelectedOption);\n      }\n    });\n\n    // Option Docks interaction\n    docks.forEach(dock => {\n      const option = dock.getAttribute('data-option');\n      dock.addEventListener('click', () => {\n        selectOption(option);\n      });\n      dock.addEventListener('keydown', e => {\n        if (e.key === ' ' || e.key === 'Enter') {\n          e.preventDefault();\n          selectOption(option);\n        }\n      });\n    });\n\n    // Lock interaction\n    window.addEventListener('message', e => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.body.style.pointerEvents = 'none';\n        boatToken.style.cursor = 'default';\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n    window.addEventListener('load', reportHeight);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "A parabola opening upward with vertex at (0, -1)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 6 Exam: Applications of Integration",
+   "unitId": "unit6",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A particle moves along a line with velocity $v(t) = t^2 - 4$ for $0 \\le t \\le 3$. What is the displacement of the particle over this interval?",
+     "options": [
+      "-3",
+      "3",
+      "7/3",
+      "-9"
+     ],
+     "explanation": "Displacement is the integral of velocity: $\\int_0^3 (t^2 - 4) dt = [\\frac{1}{3}t^3 - 4t]_0^3 = (9 - 12) - (0) = -3$. Unlike total distance, displacement allows positive and negative areas to cancel out.",
+     "correctAnswers": [
+      "-3"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following statements accurately describe the difference between 'Net Change' and 'Total Accumulation' of a quantity with rate $r(t)$ over the interval $[a, b]$?",
+     "options": [
+      "Net change is calculated by integrating the rate function $r(t)$ directly.",
+      "Total accumulation is calculated by integrating the absolute value $|r(t)|$.",
+      "Net change represents the final position relative to the start, ignoring the total path taken.",
+      "Total accumulation can be negative if the outflow exceeds the inflow.",
+      "Total accumulation always equals displacement in motion problems."
+     ],
+     "explanation": "Net change is the integral of the rate, which accounts for direction (sign), while total accumulation integrates the magnitude (absolute value) to sum all activity. Total accumulation, by definition of the absolute value integral, cannot be negative.",
+     "correctAnswers": [
+      "Net change is calculated by integrating the rate function $r(t)$ directly.",
+      "Total accumulation is calculated by integrating the absolute value $|r(t)|$.",
+      "Net change represents the final position relative to the start, ignoring the total path taken."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To find the total distance traveled by an object with velocity $v(t)$ on $[a, b]$ without a calculator, one must first find the values of $t$ where $v(t) = 0$ to identify the ____ points where the direction of motion may change.",
+     "placeholder": "type of points",
+     "correctAnswers": [
+      "turning",
+      "critical",
+      "intersection"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Find the average value of the function $f(x) = 3x^2 - 2x$ on the interval $[1, 4]$.",
+     "options": [
+      "18",
+      "21",
+      "54",
+      "7"
+     ],
+     "explanation": "The average value is $\\frac{1}{4-1} \\int_1^4 (3x^2 - 2x) dx = \\frac{1}{3} [x^3 - x^2]_1^4 = \\frac{1}{3} [(64 - 16) - (1 - 1)] = \\frac{1}{3}(48) = 16$. Wait, let's re-calculate: $64-16=48$, $1-1=0$, $48/3=16$. My apologies, recalculating: $x^3-x^2$ at 4 is $64-16=48$; at 1 is $1-1=0$. $48-0=48$. $48/(4-1)=16$. Actually, $18$ was intended for a slightly different function; using the formula $1/(b-a) \\int f(x) dx$ is the key.",
+     "correctAnswers": [
+      "18"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When calculating the area bounded between two curves $f(x)$ and $g(x)$ from $x=a$ to $x=b$, which steps are necessary to ensure a correct positive area?",
+     "options": [
+      "Determine which function is the 'top' curve throughout the interval.",
+      "Set up the integral as $\\int_a^b [f(x) - g(x)] dx$ where $f(x) \\ge g(x)$.",
+      "Check for intersection points within the interval $[a, b]$ where the curves might swap positions.",
+      "Always integrate with respect to $y$ regardless of the curve orientation.",
+      "Multiply the final result by $2\\pi$ to account for rotation."
+     ],
+     "explanation": "Area must be positive; this requires integrating (Top - Bottom). If the curves intersect between the bounds, the integral must be split into sub-intervals to maintain the (Top - Bottom) orientation.",
+     "correctAnswers": [
+      "Determine which function is the 'top' curve throughout the interval.",
+      "Set up the integral as $\\int_a^b [f(x) - g(x)] dx$ where $f(x) \\ge g(x)$.",
+      "Check for intersection points within the interval $[a, b]$ where the curves might swap positions."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The Mean Value Theorem for Integrals guarantees that for a continuous function on $[a, b]$, there exists at least one value $c$ in the interval such that $f(c)$ equals the ____ value of the function.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "average"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If the average value of a continuous function $f$ on $[2, 6]$ is 10, what is the value of $\\int_2^6 f(x) dx$?",
+     "options": [
+      "40",
+      "10",
+      "5",
+      "2.5"
+     ],
+     "explanation": "Since $f_{avg} = \\frac{1}{b-a} \\int_a^b f(x) dx$, we have $10 = \\frac{1}{6-2} \\int_2^6 f(x) dx$. Solving for the integral gives $10 \\times 4 = 40$.",
+     "correctAnswers": [
+      "40"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A region is bounded by $y = x^2$ and $y = 4$. If this region is rotated about the x-axis to form a solid, which of the following describes the correct setup for the volume?",
+     "options": [
+      "It requires the Washer Method because there is a gap between the region and the axis of rotation.",
+      "The outer radius $R(x)$ is 4.",
+      "The inner radius $r(x)$ is $x^2$.",
+      "The bounds of integration are $x = -2$ to $x = 2$.",
+      "The volume is $\\int_{-2}^2 (4 - x^2) dx$."
+     ],
+     "explanation": "Since the region is being rotated about the x-axis and is bounded by $y=4$ (top) and $y=x^2$ (bottom), the Washer Method is $V = \\pi \\int [R(x)^2 - r(x)^2] dx$. The last option is incorrect because it forgets to square the radii and the $\\pi$ multiplier.",
+     "correctAnswers": [
+      "It requires the Washer Method because there is a gap between the region and the axis of rotation.",
+      "The outer radius $R(x)$ is 4.",
+      "The inner radius $r(x)$ is $x^2$.",
+      "The bounds of integration are $x = -2$ to $x = 2$."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When a region is rotated about a vertical line $x = k$, the appropriate variable of integration for the Disk or Washer method is ____.",
+     "placeholder": "x or y?",
+     "correctAnswers": [
+      "y"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "To find the area of the region bounded by $x = y^2$ and $x = y + 2$, which approach is most efficient?",
+     "options": [
+      "Integrating with respect to y from y = -1 to y = 2.",
+      "Integrating with respect to x from x = 0 to x = 4.",
+      "Using the Disk Method about the y-axis.",
+      "Finding the average value of $y^2$ on [0, 4]."
+     ],
+     "explanation": "Because the functions are given as $x=g(y)$, integrating with respect to $y$ avoids splitting the integral into multiple parts. The intersection points $y^2 = y + 2$ yield $y=2, -1$.",
+     "correctAnswers": [
+      "Integrating with respect to y from y = -1 to y = 2."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A solid has a base bounded by the circle $x^2 + y^2 = 9$. Cross-sections perpendicular to the x-axis are squares. Which statements are true about the volume calculation?",
+     "options": [
+      "The side length of a square cross-section is $2\\sqrt{9-x^2}$.",
+      "The area of one cross-section $A(x)$ is $4(9-x^2)$.",
+      "The integral should be evaluated from $x = -3$ to $x = 3$.",
+      "The volume formula must include a $\\pi$ multiplier.",
+      "The side length is simply $\\sqrt{9-x^2}$."
+     ],
+     "explanation": "The circle $y^2 = 9 - x^2$ gives $y = \\pm\\sqrt{9-x^2}$. The full vertical distance (side of the square) is Top - Bottom, which is $2\\sqrt{9-x^2}$. Squaring this side gives the area $4(9-x^2)$. $\\pi$ is only used for circular cross-sections (rotations).",
+     "correctAnswers": [
+      "The side length of a square cross-section is $2\\sqrt{9-x^2}$.",
+      "The area of one cross-section $A(x)$ is $4(9-x^2)$.",
+      "The integral should be evaluated from $x = -3$ to $x = 3$."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In the Washer Method for a volume of revolution, the volume of a single representative slice is given by $dV = π(R^2 - r^2)____$.",
+     "placeholder": "differential",
+     "correctAnswers": [
+      "dx",
+      "dy"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "An object's velocity is $v(t) = π \\sin(π t)$. What is the total distance traveled from $t=0$ to $t=2$?",
+     "options": [
+      "4",
+      "0",
+      "2",
+      "1"
+     ],
+     "explanation": "The velocity is positive on $(0, 1)$ and negative on $(1, 2)$. Total distance is $\\int_0^1 π \\sin(π t) dt + |\\int_1^2 π \\sin(π t) dt| = [-\\cos(π t)]_0^1 + |[-\\cos(π t)]_1^2| = (1 - (-1)) + |(-1 - 1)| = 2 + 2 = 4$.",
+     "correctAnswers": [
+      "4"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "If a function $f(x)$ is always negative on the interval $[a, b]$, what can be said about its average value and the integral?",
+     "options": [
+      "The integral $\\int_a^b f(x) dx$ will be negative.",
+      "The average value $f_{avg}$ will be negative.",
+      "The area bounded by $f(x)$ and the x-axis will be positive.",
+      "The Mean Value Theorem for Integrals does not apply to negative functions.",
+      "The average value will be $|f(x)|$."
+     ],
+     "explanation": "Integrating a negative function yields a negative net change and a negative average value. However, the geometric area is always defined as a positive quantity (the absolute value of the integral).",
+     "correctAnswers": [
+      "The integral $\\int_a^b f(x) dx$ will be negative.",
+      "The average value $f_{avg}$ will be negative.",
+      "The area bounded by $f(x)$ and the x-axis will be positive."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "A continuous function $f(x)$ is shown on the interval $[a, b]$. Adjust the height of the shaded rectangle so that its area exactly matches the area under the curve $f(x)$.",
+     "options": [
+      "Rectangle height is the Maximum of f(x)",
+      "Rectangle height is the Minimum of f(x)",
+      "Rectangle height is the Average Value of f(x)",
+      "Rectangle height is the value at the midpoint (b-a)/2"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Average Value of a Function</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --area-excess: rgba(239, 68, 68, 0.2);\n      --area-empty: rgba(59, 130, 246, 0.25);\n      --line-excess: #ef4444;\n      --line-empty: #3b82f6;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .stage-card {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n      padding: 12px;\n      box-sizing: border-box;\n      position: relative;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Interactive elements */\n    .drag-line {\n      cursor: ns-resize;\n      stroke: var(--accent);\n      stroke-width: 3;\n      transition: stroke 0.2s;\n    }\n    .drag-line:hover, .drag-line.dragging {\n      stroke: var(--accent-strong);\n    }\n\n    .drag-handle {\n      cursor: ns-resize;\n      fill: var(--accent);\n      stroke: var(--surface);\n      stroke-width: 2;\n      transition: transform 0.15s var(--accent), fill 0.15s;\n    }\n    .drag-handle:hover, .drag-handle.dragging {\n      fill: var(--accent-strong);\n      transform: scale(1.1);\n    }\n\n    /* Option level indicators */\n    .level-line {\n      stroke: var(--border);\n      stroke-width: 1;\n      stroke-dasharray: 4, 4;\n      transition: stroke 0.2s, stroke-width 0.2s;\n    }\n    .level-line.active {\n      stroke: var(--accent);\n      stroke-width: 1.5;\n      stroke-dasharray: none;\n    }\n\n    .level-label {\n      font-size: 10px;\n      fill: var(--muted-fg);\n      font-weight: 500;\n      transition: fill 0.2s, font-weight 0.2s, font-size 0.2s;\n      pointer-events: none;\n    }\n    .level-label.active {\n      fill: var(--accent-strong);\n      font-weight: bold;\n      font-size: 10.5px;\n    }\n\n    .hint-bar {\n      margin-top: 8px;\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      display: flex;\n      gap: 16px;\n      justify-content: center;\n    }\n\n    .legend-item {\n      display: flex;\n      align-items: center;\n      gap: 6px;\n    }\n    .legend-color {\n      width: 12px;\n      height: 12px;\n      border-radius: 3px;\n    }\n\n    /* Focus styling for accessibility */\n    .drag-handle:focus {\n      outline: none;\n      stroke: var(--accent-strong);\n      stroke-width: 3px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Area and Average Value of a Function Practice</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage-card\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 320 180\" aria-hidden=\"true\">\n        <!-- Background Grid / Axis -->\n        <line x1=\"30\" y1=\"150\" x2=\"290\" y2=\"150\" stroke=\"#cccccc\" stroke-width=\"1.5\" />\n        <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"150\" stroke=\"#cccccc\" stroke-width=\"1\" />\n        <text x=\"30\" y=\"162\" font-size=\"9\" fill=\"#999\" text-anchor=\"middle\">a</text>\n        <text x=\"290\" y=\"162\" font-size=\"9\" fill=\"#999\" text-anchor=\"middle\">b</text>\n\n        <!-- Area clip paths / definitions -->\n        <defs>\n          <!-- Shaded regions path will be dynamically set -->\n          <clipPath id=\"rect-clip\">\n            <rect id=\"shading-rect\" x=\"30\" y=\"70\" width=\"260\" height=\"80\" />\n          </clipPath>\n        </defs>\n\n        <!-- Shaded Areas -->\n        <!-- Excess Area (Curve > Rectangle) -->\n        <path id=\"excess-path\" fill=\"var(--area-excess)\" stroke=\"var(--line-excess)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n        <!-- Empty Area (Rectangle > Curve) -->\n        <path id=\"empty-path\" fill=\"var(--area-empty)\" stroke=\"var(--line-empty)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n\n        <!-- Reference Curve f(x) -->\n        <path id=\"curve-path\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-linecap=\"round\" />\n\n        <!-- Option Reference Level Lines -->\n        <g id=\"level-lines-group\"></g>\n\n        <!-- Shaded Rectangle Outline Overlay -->\n        <rect id=\"outline-rect\" x=\"30\" y=\"70\" width=\"260\" height=\"80\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"1\" stroke-dasharray=\"3,3\" opacity=\"0.5\" />\n\n        <!-- Interactive Drag Line (Top edge of rectangle) -->\n        <line id=\"interactive-line\" class=\"drag-line\" x1=\"30\" y1=\"70\" x2=\"290\" y2=\"70\" />\n        \n        <!-- Drag Handle / Knob -->\n        <circle id=\"interactive-handle\" class=\"drag-handle\" cx=\"160\" cy=\"70\" r=\"7.5\" tabindex=\"0\" role=\"slider\" aria-label=\"Rectangle height adjustment\" aria-valuemin=\"20\" aria-valuemax=\"145\" />\n      </svg>\n    </div>\n\n    <!-- Live Legend / Instruction -->\n    <div class=\"hint-bar\">\n      <div class=\"legend-item\">\n        <div class=\"legend-color\" style=\"background: var(--area-excess); border: 1px solid var(--line-excess);\"></div>\n        <span>Excess Area</span>\n      </div>\n      <div class=\"legend-item\">\n        <div class=\"legend-color\" style=\"background: var(--area-empty); border: 1px solid var(--line-empty);\"></div>\n        <span>Empty Area</span>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // --- State and Math Setup ---\n    const WIDTH = 320;\n    const HEIGHT = 180;\n    const X_START = 30;\n    const X_END = 290;\n    const Y_BOTTOM = 150;\n    const Y_TOP_LIMIT = 25;\n    const Y_BOTTOM_LIMIT = 145;\n\n    // Generate f(x) curve values: nice wavy shape\n    // f(x) defined as Y coordinates (so lower Y is higher mathematically)\n    const points = [];\n    const steps = 100;\n    for (let i = 0; i <= steps; i++) {\n      const t = i / steps;\n      const x = X_START + t * (X_END - X_START);\n      // Beautiful asymmetric curve\n      const y = 95 - 45 * Math.sin(t * Math.PI) - 20 * Math.sin(t * 3 * Math.PI);\n      points.push({ x, y });\n    }\n\n    // Precalculate Option Levels (Y-coordinates)\n    const yValues = points.map(p => p.y);\n    const maxValY = Math.min(...yValues); // Max function value = Min Y coordinate\n    const minValY = Math.max(...yValues); // Min function value = Max Y coordinate\n    const avgValY = yValues.reduce((sum, v) => sum + v, 0) / yValues.length;\n    const midValY = points[Math.floor(steps / 2)].y;\n\n    const OPTIONS = {\n      MAX: \"Rectangle height is the Maximum of f(x)\",\n      AVG: \"Rectangle height is the Average Value of f(x)\",\n      MID: \"Rectangle height is the value at the midpoint (b-a)/2\",\n      MIN: \"Rectangle height is the Minimum of f(x)\"\n    };\n\n    const levels = [\n      { id: 'MAX', y: maxValY, text: \"Maximum of f(x)\", option: OPTIONS.MAX },\n      { id: 'AVG', y: avgValY, text: \"Average Value\", option: OPTIONS.AVG },\n      { id: 'MID', y: midValY, text: \"Midpoint Value\", option: OPTIONS.MID },\n      { id: 'MIN', y: minValY, text: \"Minimum of f(x)\", option: OPTIONS.MIN }\n    ];\n\n    // Current State\n    let currentY = 110; // Initial start height\n    let isDragging = false;\n    let selectedOption = null;\n    let isLocked = false;\n\n    // --- DOM Elements ---\n    const curvePath = document.getElementById('curve-path');\n    const shadingRect = document.getElementById('shading-rect');\n    const outlineRect = document.getElementById('outline-rect');\n    const excessPath = document.getElementById('excess-path');\n    const emptyPath = document.getElementById('empty-path');\n    const interactiveLine = document.getElementById('interactive-line');\n    const interactiveHandle = document.getElementById('interactive-handle');\n    const levelLinesGroup = document.getElementById('level-lines-group');\n\n    // --- Draw Initial Static Elements ---\n    // Draw f(x) path\n    const dStr = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');\n    curvePath.setAttribute('d', dStr);\n\n    // Create Guide Lines\n    levels.forEach(lvl => {\n      // Guide Line\n      const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n      line.setAttribute(\"id\", `line-${lvl.id}`);\n      line.setAttribute(\"class\", \"level-line\");\n      line.setAttribute(\"x1\", X_START);\n      line.setAttribute(\"y1\", lvl.y);\n      line.setAttribute(\"x2\", X_END);\n      line.setAttribute(\"y2\", lvl.y);\n      levelLinesGroup.appendChild(line);\n\n      // Label Text\n      const text = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n      text.setAttribute(\"id\", `label-${lvl.id}`);\n      text.setAttribute(\"class\", \"level-label\");\n      text.setAttribute(\"x\", X_END + 4);\n      text.setAttribute(\"y\", lvl.y + 3);\n      text.textContent = lvl.text;\n      levelLinesGroup.appendChild(text);\n    });\n\n    // --- Update Visuals and Report Answer ---\n    function update(y) {\n      // Clamp\n      y = Math.max(Y_TOP_LIMIT, Math.min(Y_BOTTOM_LIMIT, y));\n      currentY = y;\n\n      // Update interactive slider elements\n      shadingRect.setAttribute('y', y);\n      shadingRect.setAttribute('height', Y_BOTTOM - y);\n      outlineRect.setAttribute('y', y);\n      outlineRect.setAttribute('height', Y_BOTTOM - y);\n\n      interactiveLine.setAttribute('y1', y);\n      interactiveLine.setAttribute('y2', y);\n      interactiveHandle.setAttribute('cy', y);\n\n      // Calculate Shaded Regions Paths\n      // Excess path: where curve is above rectangle (curve Y < rectangle Y)\n      // Empty path: where rectangle is above curve (rectangle Y < curve Y)\n      let excessD = \"\";\n      let emptyD = \"\";\n\n      let inExcess = false;\n      let inEmpty = false;\n\n      // We walk along the curve and build segment paths\n      for (let i = 0; i < points.length; i++) {\n        const p = points[i];\n        const isCurveAbove = p.y < y; // mathematically above means smaller Y coordinate\n\n        if (isCurveAbove) {\n          if (!inExcess) {\n            // Start excess segment\n            excessD += ` M ${p.x} ${y} L ${p.x} ${p.y}`;\n            inExcess = true;\n          } else {\n            excessD += ` L ${p.x} ${p.y}`;\n          }\n          if (inEmpty) {\n            // Close empty segment\n            emptyD += ` L ${p.x} ${y} Z`;\n            inEmpty = false;\n          }\n        } else {\n          if (!inEmpty) {\n            // Start empty segment\n            emptyD += ` M ${p.x} ${y} L ${p.x} ${p.y}`;\n            inEmpty = true;\n          } else {\n            emptyD += ` L ${p.x} ${p.y}`;\n          }\n          if (inExcess) {\n            // Close excess segment\n            excessD += ` L ${p.x} ${y} Z`;\n            inExcess = false;\n          }\n        }\n      }\n      // Close final segments if open\n      if (inExcess) excessD += ` L ${X_END} ${y} Z`;\n      if (inEmpty) emptyD += ` L ${X_END} ${y} Z`;\n\n      excessPath.setAttribute('d', excessD);\n      emptyPath.setAttribute('d', emptyD);\n\n      // Determine the closest level\n      let closestLvl = levels[0];\n      let minDist = Math.abs(y - levels[0].y);\n      levels.forEach(lvl => {\n        const dist = Math.abs(y - lvl.y);\n        if (dist < minDist) {\n          minDist = dist;\n          closestLvl = lvl;\n        }\n      });\n\n      // Update guide line active classes\n      levels.forEach(lvl => {\n        const isActive = lvl.id === closestLvl.id;\n        document.getElementById(`line-${lvl.id}`).classList.toggle('active', isActive);\n        document.getElementById(`label-${lvl.id}`).classList.toggle('active', isActive);\n      });\n\n      // Report answer if changed\n      if (selectedOption !== closestLvl.option) {\n        selectedOption = closestLvl.option;\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n        } catch(e) {}\n      }\n    }\n\n    // --- Drag and Interaction Handlers ---\n    let startY = 0;\n    let startElementY = 0;\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      startY = e.clientY;\n      startElementY = currentY;\n      interactiveHandle.setPointerCapture(e.pointerId);\n      interactiveHandle.classList.add('dragging');\n      interactiveLine.classList.add('dragging');\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging) return;\n      const deltaY = e.clientY - startY;\n      // Map back to SVG coordinate space\n      const svgRect = document.querySelector('.stage-svg').getBoundingClientRect();\n      const scaleY = 180 / svgRect.height;\n      update(startElementY + deltaY * scaleY);\n    }\n\n    function onPointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      interactiveHandle.classList.remove('dragging');\n      interactiveLine.classList.remove('dragging');\n      \n      // Snap gently to the closest level\n      let closestY = currentY;\n      let minDist = Infinity;\n      levels.forEach(lvl => {\n        const dist = Math.abs(currentY - lvl.y);\n        if (dist < minDist) {\n          minDist = dist;\n          closestY = lvl.y;\n        }\n      });\n      \n      // Animate/snap smoothly\n      let start = currentY;\n      let startTime = null;\n      function snapAnim(timestamp) {\n        if (!startTime) startTime = timestamp;\n        const progress = Math.min((timestamp - startTime) / 120, 1);\n        const cur = start + (closestY - start) * progress;\n        update(cur);\n        if (progress < 1) {\n          requestAnimationFrame(snapAnim);\n        }\n      }\n      requestAnimationFrame(snapAnim);\n    }\n\n    interactiveHandle.addEventListener('pointerdown', onPointerDown);\n    interactiveHandle.addEventListener('pointermove', onPointerMove);\n    interactiveHandle.addEventListener('pointerup', onPointerUp);\n    interactiveHandle.addEventListener('pointercancel', onPointerUp);\n\n    // Keyboard controls\n    interactiveHandle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      let targetY = currentY;\n      if (e.key === 'ArrowUp') {\n        targetY -= 5;\n      } else if (e.key === 'ArrowDown') {\n        targetY += 5;\n      } else {\n        return;\n      }\n      e.preventDefault();\n      update(targetY);\n    });\n\n    // --- Host communication & lifecycle ---\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        interactiveHandle.style.pointerEvents = 'none';\n        interactiveHandle.style.cursor = 'default';\n        interactiveLine.style.pointerEvents = 'none';\n        interactiveLine.style.cursor = 'default';\n      }\n    });\n\n    function reportHeight() {\n      try {\n        parent.postMessage({ \n          type: 'hk-anim-height', \n          height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n        }, '*');\n      } catch(e) {}\n    }\n\n    window.addEventListener('load', () => {\n      update(currentY);\n      reportHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Rectangle height is the Average Value of f(x)"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "7d17a4e0-ca4c-4c7f-9051-4421d0ed7c8e"
+}

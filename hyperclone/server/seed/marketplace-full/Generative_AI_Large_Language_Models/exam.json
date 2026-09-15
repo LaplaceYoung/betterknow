@@ -1,0 +1,1446 @@
+{
+ "exams": [
+  {
+   "title": "Foundations of Generative Modeling Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a model predicts the next word in 'The cat sat on the...', what is it mathematically maximizing?",
+     "options": [
+      "The factual accuracy of the sentence",
+      "The conditional probability P(w_n | w_1, ..., w_{n-1})",
+      "The similarity score between 'cat' and 'mat'",
+      "The total count of the word 'mat' in its database"
+     ],
+     "explanation": "Generative models are predictive engines that calculate the likelihood of a token based on the preceding sequence, not truth-verifiers or simple word counters.",
+     "correctAnswers": [
+      "The conditional probability P(w_n | w_1, ..., w_{n-1})"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are consequences of the 'Autoregressive' nature of LLM generation?",
+     "options": [
+      "The model's output at step N becomes part of the input for step N+1",
+      "A 'hallucination spiral' can occur if an early error is justified by subsequent tokens",
+      "The model can look ahead at the end of the paragraph to ensure consistency",
+      "The model's internal training weights change dynamically during a single chat session",
+      "The model can only generate text one unit at a time"
+     ],
+     "explanation": "Autoregressive models generate sequentially and use previous outputs as context; they cannot 'see' the future of the sentence and their weights remain frozen during inference.",
+     "correctAnswers": [
+      "The model's output at step N becomes part of the input for step N+1",
+      "A 'hallucination spiral' can occur if an early error is justified by subsequent tokens",
+      "The model can only generate text one unit at a time"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of iteratively merging the most frequent adjacent character pairs into new units is known as ____.",
+     "explanation": "BPE is the standard subword tokenization algorithm used to balance vocabulary size and sequence length.",
+     "placeholder": "Algorithm name",
+     "correctAnswers": [
+      "Byte Pair Encoding",
+      "BPE"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why might a model struggle to reverse the letters in the word 'intelligence'?",
+     "options": [
+      "The word is stored as a single token, so the model never 'sees' the individual characters.",
+      "The model has a context window too short for 12-letter words.",
+      "The vocabulary matrix does not include the letter 'i'.",
+      "The model is biased toward forward-moving English grammar."
+     ],
+     "explanation": "If a word is a single token, the model processes it as one atomic number and lacks direct access to its internal character sequence.",
+     "correctAnswers": [
+      "The word is stored as a single token, so the model never 'sees' the individual characters."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "In the context of the 'API Economy' and model costs, which statements are true?",
+     "options": [
+      "A poor tokenizer that over-fragments text increases the cost for the user.",
+      "Input tokens (prompts) and output tokens (completions) are both typically billed.",
+      "Increasing the context window size has a linear (1:1) effect on computational cost.",
+      "Information density is a measure of how much meaning is packed into fewer tokens."
+     ],
+     "explanation": "Context window costs are often quadratic, not linear. Over-fragmentation wastes tokens and increases costs, while information density improves efficiency.",
+     "correctAnswers": [
+      "A poor tokenizer that over-fragments text increases the cost for the user.",
+      "Input tokens (prompts) and output tokens (completions) are both typically billed.",
+      "Information density is a measure of how much meaning is packed into fewer tokens."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The mathematical representation of words as continuous vectors in a high-dimensional space is called ____.",
+     "explanation": "Embeddings translate discrete tokens into numerical vectors where spatial distance represents semantic relationship.",
+     "placeholder": "Term for vector representation",
+     "correctAnswers": [
+      "embeddings",
+      "word embeddings",
+      "vector embeddings"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Visual representation of a sliding context window.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1e37b2cc-3c16-4b27-993e-1b3befb97a06/exam/images/unit1-q7.png"
+     },
+     "prompt": "What happens when the maximum capacity of a model's 'Context Window' is reached?",
+     "options": [
+      "The model crashes and requires a reboot.",
+      "The model begins to compress the entire history into a single new token.",
+      "The earliest tokens are 'forgotten' as they fall out of the active sliding frame.",
+      "The model doubles its vocabulary size to accommodate new information."
+     ],
+     "explanation": "The context window is a fixed-size 'frame'; once full, old data must be discarded to make room for new inputs/outputs.",
+     "correctAnswers": [
+      "The earliest tokens are 'forgotten' as they fall out of the active sliding frame."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What are the trade-offs of using a very large Vocabulary Size in an LLM?",
+     "options": [
+      "It allows for more efficient representation of multiple languages.",
+      "It decreases the memory overhead of the embedding matrix.",
+      "It reduces the fragmentation of complex or rare words.",
+      "It increases the total parameter count and memory requirement of the model."
+     ],
+     "explanation": "Large vocabularies prevent over-fragmentation and aid multi-language support but require more memory to store the larger embedding matrix.",
+     "correctAnswers": [
+      "It allows for more efficient representation of multiple languages.",
+      "It reduces the fragmentation of complex or rare words.",
+      "It increases the total parameter count and memory requirement of the model."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'toy' exercise of manually counting word occurrences to predict a completion is an example of ____ inference.",
+     "explanation": "This exercise demystifies AI by showing it is based on counting patterns and calculating likelihoods (statistics).",
+     "placeholder": "Type of inference",
+     "correctAnswers": [
+      "statistical",
+      "probabilistic"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If a tokenizer splits 'apple' as [apple] but 'apples' as [apple, ##s], how does the model 'know' they are related?",
+     "options": [
+      "It uses a built-in dictionary of singular and plural nouns.",
+      "It recognizes the characters are the same using an OCR layer.",
+      "It learns the relationship through the statistical coincidence of these tokens appearing together.",
+      "The BPE algorithm automatically maps them to the same vector."
+     ],
+     "explanation": "Relationships like grammar or pluralization are not hard-coded; they are learned patterns based on how tokens co-occur in the training data.",
+     "correctAnswers": [
+      "It learns the relationship through the statistical coincidence of these tokens appearing together."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why might a developer prefer 'Model B' (8k context window) over 'Model A' (128k context window)?",
+     "options": [
+      "Model B is likely to have lower latency (faster responses).",
+      "Model B is better at analyzing 200-page legal documents.",
+      "Model B has lower computational and memory requirements.",
+      "Model B is less expensive to operate for short chat tasks."
+     ],
+     "explanation": "Bigger context windows come with a 'tax' of speed and cost; if a task is short, a smaller model is more efficient.",
+     "correctAnswers": [
+      "Model B is likely to have lower latency (faster responses).",
+      "Model B has lower computational and memory requirements.",
+      "Model B is less expensive to operate for short chat tasks."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When an LLM generates the sequence '123, 456' as two tokens while another model sees '12, 34, 56' as three, this is a difference in ____ strategy.",
+     "explanation": "Tokenization strategies vary between models, impacting how they 'see' and process numerical or structured data.",
+     "placeholder": "System component",
+     "correctAnswers": [
+      "tokenization",
+      "tokenizer"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In a probability distribution for the next token, what is the result of a 'Greedy Search'?",
+     "options": [
+      "Selecting a random token to ensure variety",
+      "Always selecting the token with the highest probability",
+      "Selecting the top 3 tokens and averaging them",
+      "Eliminating the lowest 50% of tokens before picking"
+     ],
+     "explanation": "Greedy search always picks the most likely next step, which often leads to repetitive and overly safe text generation.",
+     "correctAnswers": [
+      "Always selecting the token with the highest probability"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "In vector semantics, what does 'spatial proximity' between two word embeddings usually indicate?",
+     "options": [
+      "The words are spelled similarly.",
+      "The words share similar semantic meanings or contexts.",
+      "The words appear frequently near each other in training data.",
+      "The words have the same number of tokens."
+     ],
+     "explanation": "Embeddings map semantic similarity to geometric distance; words used in similar ways (like 'cat' and 'dog') end up closer in the vector space.",
+     "correctAnswers": [
+      "The words share similar semantic meanings or contexts.",
+      "The words appear frequently near each other in training data."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "A model sounds confident while providing incorrect information. This is best explained by:",
+     "options": [
+      "A bug in the retrieval algorithm",
+      "The model prioritizing probability over truth-verification",
+      "The model accessing a corrupted database of facts",
+      "A high temperature setting making the model 'arrogant'"
+     ],
+     "explanation": "Models are trained to predict likely sequences; a sequence can be statistically 'smooth' and likely while being factually wrong.",
+     "correctAnswers": [
+      "The model prioritizing probability over truth-verification"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Why is 'drinking rocks' statistically less probable than 'drinking water' in a language distribution?",
+     "options": [
+      "Grammatical rules prohibit the use of 'rocks' after 'drinking'.",
+      "Logical physical constraints reflected in training data make it rare.",
+      "The tokenizer cannot process the word 'rocks'.",
+      "Human usage patterns favor coherent, realistic scenarios."
+     ],
+     "explanation": "Language models learn both linguistic rules and real-world patterns from their training corpora; 'drinking rocks' is rare in human text.",
+     "correctAnswers": [
+      "Logical physical constraints reflected in training data make it rare.",
+      "Human usage patterns favor coherent, realistic scenarios."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "As the 'Temperature' parameter is increased in this simulation of a probability distribution, why does the generated text become less predictable?",
+     "options": [
+      "High temperature flattens the distribution, making low-probability tokens more likely to be selected.",
+      "High temperature increases the vocabulary size, adding entirely new words to the model.",
+      "High temperature resets the context window, causing the model to forget earlier parts of the sentence.",
+      "High temperature forces the model to only select the single highest-probability token."
+     ],
+     "explanation": "Increasing temperature spreads probability across more candidates (flattening the 'hill'), which introduces variance and 'creativity' at the cost of coherence.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Probability Distribution and Temperature Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .label {\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            font-size: 11px;\n            fill: var(--muted);\n            text-anchor: middle;\n        }\n\n        .bar-label {\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            font-size: 10px;\n            fill: var(--muted);\n            text-anchor: middle;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .readout-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            font-style: italic;\n            margin-bottom: 4px;\n        }\n\n        .readout-value {\n            font-size: 16px;\n            font-weight: 500;\n            color: var(--ink);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .caption {\n            text-align: center;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            margin-top: 8px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Animation of token probability distribution shifting with temperature</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\" aria-label=\"A bar chart showing five tokens. As temperature increases, the distribution flattens.\">\n            <svg class=\"fig\" viewBox=\"0 0 400 220\">\n                <!-- Axes -->\n                <line x1=\"40\" y1=\"180\" x2=\"360\" y2=\"180\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"180\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                \n                <!-- Y-axis ticks and labels -->\n                <line x1=\"35\" y1=\"180\" x2=\"40\" y2=\"180\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"30\" y=\"184\" class=\"label\" text-anchor=\"end\">0.0</text>\n                <line x1=\"35\" y1=\"100\" x2=\"40\" y2=\"100\" stroke=\"var(--muted)\" stroke-width=\"1\" opacity=\"0.5\" />\n                <text x=\"30\" y=\"104\" class=\"label\" text-anchor=\"end\">0.5</text>\n                <line x1=\"35\" y1=\"20\" x2=\"40\" y2=\"20\" stroke=\"var(--muted)\" stroke-width=\"1\" opacity=\"0.5\" />\n                <text x=\"30\" y=\"24\" class=\"label\" text-anchor=\"end\">1.0</text>\n                \n                <!-- Grid lines -->\n                <line x1=\"40\" y1=\"100\" x2=\"360\" y2=\"100\" stroke=\"var(--rule)\" stroke-width=\"1\" stroke-dasharray=\"4,4\" />\n                <line x1=\"40\" y1=\"20\" x2=\"360\" y2=\"20\" stroke=\"var(--rule)\" stroke-width=\"1\" stroke-dasharray=\"4,4\" />\n\n                <!-- Bars (will be animated) -->\n                <rect id=\"bar-0\" x=\"65\" y=\"180\" width=\"40\" height=\"0\" fill=\"var(--accent)\" rx=\"2\" />\n                <rect id=\"bar-1\" x=\"125\" y=\"180\" width=\"40\" height=\"0\" fill=\"var(--accent)\" rx=\"2\" />\n                <rect id=\"bar-2\" x=\"185\" y=\"180\" width=\"40\" height=\"0\" fill=\"var(--accent)\" rx=\"2\" />\n                <rect id=\"bar-3\" x=\"245\" y=\"180\" width=\"40\" height=\"0\" fill=\"var(--accent)\" rx=\"2\" />\n                <rect id=\"bar-4\" x=\"305\" y=\"180\" width=\"40\" height=\"0\" fill=\"var(--accent)\" rx=\"2\" />\n\n                <!-- Prob labels -->\n                <text id=\"val-0\" x=\"85\" y=\"175\" class=\"bar-label\"></text>\n                <text id=\"val-1\" x=\"145\" y=\"175\" class=\"bar-label\"></text>\n                <text id=\"val-2\" x=\"205\" y=\"175\" class=\"bar-label\"></text>\n                <text id=\"val-3\" x=\"265\" y=\"175\" class=\"bar-label\"></text>\n                <text id=\"val-4\" x=\"325\" y=\"175\" class=\"bar-label\"></text>\n\n                <!-- X-axis labels -->\n                <text x=\"85\" y=\"198\" class=\"serif\">Token A</text>\n                <text x=\"145\" y=\"198\" class=\"serif\">Token B</text>\n                <text x=\"205\" y=\"198\" class=\"serif\">Token C</text>\n                <text x=\"265\" y=\"198\" class=\"serif\">Token D</text>\n                <text x=\"325\" y=\"198\" class=\"serif\">Token E</text>\n\n                <!-- Temperature Axis (The \"Control\" readout) -->\n                <g transform=\"translate(40, 215)\">\n                    <line x1=\"0\" y1=\"0\" x2=\"320\" y2=\"0\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                    <line x1=\"0\" y1=\"-3\" x2=\"0\" y2=\"3\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                    <line x1=\"320\" y1=\"-3\" x2=\"320\" y2=\"3\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                    <text x=\"0\" y=\"12\" class=\"label\">0.1</text>\n                    <text x=\"320\" y=\"12\" class=\"label\">2.0</text>\n                    <text x=\"160\" y=\"12\" class=\"serif\">Temperature Sweep</text>\n                    \n                    <!-- Indicator tick -->\n                    <line id=\"temp-indicator\" x1=\"0\" y1=\"-8\" x2=\"0\" y2=\"8\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"readout-grid\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Temperature</span>\n                <span id=\"temp-readout\" class=\"readout-value\">0.10</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Logits</span>\n                <span class=\"readout-value\" style=\"font-size: 12px; color: var(--muted);\">[3.0, 1.5, 1.0, 0.5, 0.2] &middot; fixed</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Next-token probability distribution</div>\n    </div>\n\n    <script>\n        const logits = [3.0, 1.5, 1.0, 0.5, 0.2];\n        const tempMin = 0.1;\n        const tempMax = 2.0;\n        const duration = 8000; // 8 seconds for full cycle\n\n        const bars = [\n            document.getElementById('bar-0'),\n            document.getElementById('bar-1'),\n            document.getElementById('bar-2'),\n            document.getElementById('bar-3'),\n            document.getElementById('bar-4')\n        ];\n\n        const labels = [\n            document.getElementById('val-0'),\n            document.getElementById('val-1'),\n            document.getElementById('val-2'),\n            document.getElementById('val-3'),\n            document.getElementById('val-4')\n        ];\n\n        const tempReadout = document.getElementById('temp-readout');\n        const tempIndicator = document.getElementById('temp-indicator');\n\n        function softmax(logits, temp) {\n            const expLogits = logits.map(l => Math.exp(l / temp));\n            const sumExp = expLogits.reduce((a, b) => a + b, 0);\n            return expLogits.map(e => e / sumExp);\n        }\n\n        function update(timestamp) {\n            // Triangle wave for smooth looping\n            let progress = (timestamp % duration) / duration;\n            let factor = progress < 0.5 ? progress * 2 : 2 - (progress * 2);\n            \n            const currentTemp = tempMin + (tempMax - tempMin) * factor;\n            const probs = softmax(logits, currentTemp);\n\n            probs.forEach((p, i) => {\n                const height = p * 160; // 160 is max height based on SVG viewBox\n                bars[i].setAttribute('height', height);\n                bars[i].setAttribute('y', 180 - height);\n                \n                labels[i].textContent = p.toFixed(2);\n                labels[i].setAttribute('y', 175 - height);\n                // Fade out labels if they get too crowded or low? No, keep clear.\n            });\n\n            tempReadout.textContent = currentTemp.toFixed(2);\n            \n            // Move indicator tick: (current - min) / (max - min) * width\n            const indicatorX = ((currentTemp - tempMin) / (tempMax - tempMin)) * 320;\n            tempIndicator.setAttribute('x1', indicatorX);\n            tempIndicator.setAttribute('x2', indicatorX);\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n            \n            const observer = new ResizeObserver(reportHeight);\n            observer.observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "High temperature flattens the distribution, making low-probability tokens more likely to be selected."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The Transformer Architecture & Inference Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In an RNN, the hidden state becomes 'blurry' as it processes a long sequence. What is the fundamental cause of this 'forgetting' nature?",
+     "options": [
+      "The quadratic complexity of the recurrent layers",
+      "The fixed-length nature of the hidden state vector",
+      "The use of sine and cosine functions in the state update",
+      "The inability to parallelize the gradient updates"
+     ],
+     "explanation": "RNNs attempt to compress an entire history into a single fixed-length vector (the bottleneck), which inevitably leads to information loss as more tokens are processed.",
+     "correctAnswers": [
+      "The fixed-length nature of the hidden state vector"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In the Scaled Dot-Product Attention mechanism, why is the 'Query' vector distinguished from the 'Key' vector?",
+     "options": [
+      "To allow a word to be highly attractive (Key) without necessarily seeking others (Query)",
+      "To prevent the Softmax function from producing a 'winner-takes-most' distribution",
+      "To decouple the role of 'searching' for information from the role of 'being' information",
+      "To ensure that the attention matrix remains diagonal and sparse",
+      "To enable the model to learn different 'personalities' or roles for the same input embedding"
+     ],
+     "explanation": "Separating Q and K allows the model to learn asymmetric relationships. A word like a period might be a strong Key (it is relevant to many things) while having a weak Query (it doesn't need much context to define itself).",
+     "correctAnswers": [
+      "To allow a word to be highly attractive (Key) without necessarily seeking others (Query)",
+      "To decouple the role of 'searching' for information from the role of 'being' information",
+      "To enable the model to learn different 'personalities' or roles for the same input embedding"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "What would happen to a standard Transformer's understanding of the sentences 'The chef cooked the steak' and 'The steak cooked the chef' if the positional encodings were removed?",
+     "options": [
+      "The model would interpret both sentences as having identical meaning.",
+      "The model would rely on the KV-cache to determine the word order.",
+      "The vanishing gradient problem would prevent the model from processing the second sentence.",
+      "The Softmax function would prioritize the word 'chef' in both cases due to its higher frequency."
+     ],
+     "explanation": "Without positional encodings, the self-attention mechanism is a 'Bag of Words' operation; it is permutation-invariant and cannot distinguish word order.",
+     "correctAnswers": [
+      "The model would interpret both sentences as having identical meaning."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Which of the following are benefits of using Multi-Head Attention rather than a single large attention head?",
+     "options": [
+      "It reduces the total computational complexity from quadratic to linear.",
+      "It allows the model to attend to different types of relationships, such as syntactic and semantic.",
+      "It prevents the model from having 'tunnel vision' by ensemble-ing different perspectives.",
+      "It increases the total dimensionality of the model's representational space.",
+      "It enables the parallel capture of both short-range and long-range dependencies."
+     ],
+     "explanation": "Multi-head attention slices the embedding space to allow specialized heads to focus on different linguistic features simultaneously, though the total dimensionality remains the same.",
+     "correctAnswers": [
+      "It allows the model to attend to different types of relationships, such as syntactic and semantic.",
+      "It prevents the model from having 'tunnel vision' by ensemble-ing different perspectives.",
+      "It enables the parallel capture of both short-range and long-range dependencies."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of the weighted sum of Value vectors in self-attention.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1e37b2cc-3c16-4b27-993e-1b3befb97a06/exam/images/unit2-q5.png"
+     },
+     "prompt": "In the context of the 'Value' (V) projection, what is the role of the Softmax output weights?",
+     "options": [
+      "They act as a 'blender' that determines the proportion of each word's information to include in the final representation.",
+      "They scale the Query vectors to ensure they align with the Key vectors.",
+      "They determine the frequency of the sine waves used for positional encoding.",
+      "They filter out the gradients that would otherwise cause the vanishing gradient problem."
+     ],
+     "explanation": "The Softmax weights are applied to the Value vectors, creating a weighted sum that represents the 'context-aware' output for a specific token.",
+     "correctAnswers": [
+      "They act as a 'blender' that determines the proportion of each word's information to include in the final representation."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "How do sine and cosine functions provide 'positional' information to the Transformer?",
+     "options": [
+      "They create a unique geometric 'fingerprint' for every absolute index in the sequence.",
+      "They allow the model to calculate relative distances between tokens through linear transformations.",
+      "They replace the word embeddings entirely to save memory in long sequences.",
+      "They utilize periodic waves of different frequencies to encode both fine-grained and coarse-grained position data.",
+      "They ensure the model processes the tokens one-at-a-time to mimic human reading."
+     ],
+     "explanation": "Fixed positional encodings use periodicity to give each position a unique vector while maintaining a mathematical relationship (relative distance) between indices.",
+     "correctAnswers": [
+      "They create a unique geometric 'fingerprint' for every absolute index in the sequence.",
+      "They allow the model to calculate relative distances between tokens through linear transformations.",
+      "They utilize periodic waves of different frequencies to encode both fine-grained and coarse-grained position data."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a Transformer with 8 heads and a 512-dimensional embedding, what is the dimensionality of the subspace processed by each individual head?",
+     "options": [
+      "512",
+      "8",
+      "64",
+      "4096"
+     ],
+     "explanation": "The embedding dimension (512) is split equally among the heads (512 / 8 = 64). Each head processes a smaller 64-dimensional slice.",
+     "correctAnswers": [
+      "64"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Visual representation of a vanishing gradient in a sequential model.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1e37b2cc-3c16-4b27-993e-1b3befb97a06/exam/images/unit2-q8.png"
+     },
+     "prompt": "Why was the 'Vanishing Gradient' problem such a significant hurdle for training early RNNs on long sequences?",
+     "options": [
+      "The error signal became smaller as it traveled backward through the linear chain of the network.",
+      "The hardware was incapable of processing more than 10 words at a time.",
+      "It prevented the model from learning relationships between words that were far apart in a sentence.",
+      "The positional encodings would overlap, confusing the backpropagation algorithm.",
+      "The model's fixed-length memory made it difficult to pinpoint exactly which earlier word caused a later error."
+     ],
+     "explanation": "Vanishing gradients occur because the multiplicative chain rule causes the signal to shrink during backpropagation, making long-range dependencies unlearnable.",
+     "correctAnswers": [
+      "The error signal became smaller as it traveled backward through the linear chain of the network.",
+      "It prevented the model from learning relationships between words that were far apart in a sentence.",
+      "The model's fixed-length memory made it difficult to pinpoint exactly which earlier word caused a later error."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "What is the primary purpose of the 'Output Projection' (the final linear layer) in Multi-Head Attention?",
+     "options": [
+      "To scale the raw dot-product scores by the square root of dk.",
+      "To blend the concatenated outputs of all heads back into a single vector of the original size.",
+      "To assign relative positional information to the context-aware vectors.",
+      "To convert the context vectors into a probability distribution over the vocabulary."
+     ],
+     "explanation": "After each head calculates its context-aware vector, they are concatenated. The Output Projection weight matrix then combines these 'opinions' into one coherent embedding.",
+     "correctAnswers": [
+      "To blend the concatenated outputs of all heads back into a single vector of the original size."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "Which of these are examples of 'Emergent Linguistic Intelligence' caused by the multi-head structure?",
+     "options": [
+      "One head specializing in resolving pronouns (e.g., 'he' refers to 'John').",
+      "One head strictly managing the temperature of the model output.",
+      "One head focusing on grammatical subject-verb agreement.",
+      "One head identifying the emotional tone of a passage.",
+      "One head deciding when to stop the generation of a sentence."
+     ],
+     "explanation": "Training naturally specializes heads into different roles (syntactic, semantic, or structural) to effectively process the multi-dimensional nature of language.",
+     "correctAnswers": [
+      "One head specializing in resolving pronouns (e.g., 'he' refers to 'John').",
+      "One head focusing on grammatical subject-verb agreement.",
+      "One head identifying the emotional tone of a passage."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "If a Query vector and a Key vector are orthogonal (at a 90-degree angle to each other), what is their attention score before Softmax?",
+     "options": [
+      "1",
+      "0",
+      "-1",
+      "Infinity"
+     ],
+     "explanation": "The dot product of two orthogonal vectors is 0, indicating no compatibility/alignment between the Query and Key.",
+     "correctAnswers": [
+      "0"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "What are the physical or computational consequences of the 'Quadratic Trap' in standard Transformers?",
+     "options": [
+      "Context windows are often limited to a few thousand tokens.",
+      "Generating long books requires significantly more VRAM (GPU memory).",
+      "The model becomes faster as the sequence length increases.",
+      "It becomes prohibitively expensive to compute attention for very long documents.",
+      "The model must switch to RNN mode to handle sequences over 512 tokens."
+     ],
+     "explanation": "Because attention scales with N-squared, both memory and time requirements explode as the sequence grows, creating a ceiling for context length.",
+     "correctAnswers": [
+      "Context windows are often limited to a few thousand tokens.",
+      "Generating long books requires significantly more VRAM (GPU memory).",
+      "It becomes prohibitively expensive to compute attention for very long documents."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why do Rotary Positional Embeddings (RoPE) offer an advantage over fixed absolute positional encodings?",
+     "options": [
+      "They allow the model to generalize to longer sequences than those seen during training by focusing on relative rotation.",
+      "They eliminate the need for the QKV dot-product entirely.",
+      "They use learned weights for every index, making the model more accurate at short ranges.",
+      "They prevent the 'winner-takes-most' behavior of the Softmax function."
+     ],
+     "explanation": "RoPE encodes position as a relative rotation between vectors, allowing models to interpret sequences beyond their training window by understanding the 'angle' between tokens.",
+     "correctAnswers": [
+      "They allow the model to generalize to longer sequences than those seen during training by focusing on relative rotation."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which components are present in a single Multi-Head Attention layer?",
+     "options": [
+      "Learned weight matrices for Q, K, and V projections.",
+      "A Softmax function applied to the scaled dot-products.",
+      "A final linear projection to re-integrate the heads.",
+      "A recurrence loop that passes hidden states to the next time-step.",
+      "A set of fixed or learned positional vectors added before the attention calculation."
+     ],
+     "explanation": "Recurrence is an RNN trait, not a Transformer trait. Positional vectors are usually added to the embeddings before the attention layers start.",
+     "correctAnswers": [
+      "Learned weight matrices for Q, K, and V projections.",
+      "A Softmax function applied to the scaled dot-products.",
+      "A final linear projection to re-integrate the heads."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Using the example 'The hiker didn't go to the bank to deposit his check,' how does self-attention resolve the meaning of 'bank'?",
+     "options": [
+      "It ignores 'bank' and focuses only on the word 'hiker'.",
+      "It looks ahead to the future 'Value' of the sentence to find the definition.",
+      "It computes high attention scores between 'bank' and context words like 'deposit' and 'check'.",
+      "It averages the embedding of 'bank' with every other word in the dictionary."
+     ],
+     "explanation": "Attention allows the specific token 'bank' to weight the 'Values' of relevant context words more heavily, disambiguating its meaning.",
+     "correctAnswers": [
+      "It computes high attention scores between 'bank' and context words like 'deposit' and 'check'."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Why is the metaphor of a 'whisper game' used to describe RNNs but not Transformers?",
+     "options": [
+      "Transformers have a 'direct line of sight' to every word regardless of distance.",
+      "RNNs rely on a sequential chain where information must pass through every intermediate step.",
+      "Transformers do not use vectors to represent information.",
+      "In a Transformer, the signal at the end of a sentence doesn't have to 'travel' through the middle to reach the beginning.",
+      "RNNs are faster because they don't have to wait for the whole sentence."
+     ],
+     "explanation": "RNNs are sequential, causing the 'whisper' effect (blurring). Transformers use global attention, providing direct connections between all tokens.",
+     "correctAnswers": [
+      "Transformers have a 'direct line of sight' to every word regardless of distance.",
+      "RNNs rely on a sequential chain where information must pass through every intermediate step.",
+      "In a Transformer, the signal at the end of a sentence doesn't have to 'travel' through the middle to reach the beginning."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "What is the primary intuition behind the 'Selective Focus' of the Attention mechanism?",
+     "options": [
+      "The model must process every word with equal importance to avoid bias.",
+      "The model must dynamically decide which words are vital and which should be ignored for the current calculation.",
+      "The model focuses only on the most frequent words in the training set.",
+      "The model only attends to words that are directly adjacent to the current token."
+     ],
+     "explanation": "Attention is about weighting; it filters noise by assigning low scores to irrelevant tokens and high scores to critical ones.",
+     "correctAnswers": [
+      "The model must dynamically decide which words are vital and which should be ignored for the current calculation."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "If you double the number of attention heads but keep the total embedding dimension the same, what happens to each head's subspace?",
+     "options": [
+      "The subspace dimension is cut in half.",
+      "The subspace dimension doubles.",
+      "The subspace dimension remains unchanged.",
+      "The subspace is eliminated and the model reverts to single-head attention."
+     ],
+     "explanation": "Because we are reallocating the representational budget, increasing the number of heads while keeping the total dimension constant forces each head to work in a smaller vector space.",
+     "correctAnswers": [
+      "The subspace dimension is cut in half."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Observe the attention weights as the sequence length increases. Why does the computational cost grow quadratically rather than linearly?",
+     "options": [
+      "Because every new token must generate its own unique sine-wave frequency for its positional encoding.",
+      "Because each new token must produce a Query to check against the Keys of all previous and current tokens.",
+      "Because the Softmax function requires a larger scaling factor to prevent the vanishing gradient problem.",
+      "Because the Multi-Head mechanism must re-slice the embedding dimension for every added token."
+     ],
+     "explanation": "In self-attention, every token in a sequence of length N is compared to every other token, resulting in an NxN matrix of scores, hence the N-squared complexity.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Attention Matrix Complexity Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            width: 100%;\n            display: flex;\n            gap: 20px;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        @media (min-width: 450px) {\n            .figure-container {\n                flex-direction: row;\n                justify-content: space-between;\n                align-items: flex-start;\n            }\n        }\n\n        .viz-svg {\n            width: 100%;\n            height: auto;\n            max-width: 320px;\n            display: block;\n        }\n\n        .readouts {\n            flex: 1;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n            min-width: 160px;\n            margin-top: 10px;\n        }\n\n        .readout-item {\n            border-bottom: 1px solid var(--rule);\n            padding-bottom: 4px;\n        }\n\n        .label {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            display: block;\n        }\n\n        .value {\n            font-size: 18px;\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n        }\n\n        .caption {\n            margin-top: 24px;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            fill: var(--muted);\n        }\n\n        .token-rect {\n            stroke-width: 1px;\n            transition: fill 0.2s;\n        }\n\n        .dot-product-line {\n            stroke: var(--amber);\n            stroke-width: 1.5px;\n            stroke-dasharray: 4 2;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of Matrix Growth in Sequential Processing</h1>\n\n    <div class=\"container\">\n        <div class=\"figure-container\">\n            <svg class=\"viz-svg\" viewBox=\"0 0 350 350\" aria-label=\"A grid representing an attention matrix growing from 1 by 1 to 10 by 10\">\n                <!-- Grid Area -->\n                <g id=\"grid-group\" transform=\"translate(40, 40)\"></g>\n                \n                <!-- X Axis (Keys/Columns) -->\n                <line x1=\"40\" y1=\"310\" x2=\"310\" y2=\"310\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <text x=\"175\" y=\"335\" text-anchor=\"middle\" class=\"axis-label\">Columns (Existing Tokens)</text>\n                \n                <!-- Y Axis (Queries/Rows) -->\n                <line x1=\"30\" y1=\"40\" x2=\"30\" y2=\"310\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <text x=\"15\" y=\"175\" text-anchor=\"middle\" class=\"axis-label\" transform=\"rotate(-90, 15, 175)\">Rows (New Tokens)</text>\n                \n                <!-- Ticks -->\n                <g id=\"ticks-x\"></g>\n                <g id=\"ticks-y\"></g>\n            </svg>\n\n            <div class=\"readouts\">\n                <div class=\"readout-item\">\n                    <span class=\"label\">Sequence Length (N)</span>\n                    <span id=\"val-n\" class=\"value\">1</span>\n                </div>\n                <div class=\"readout-item\">\n                    <span class=\"label\">Total Connections</span>\n                    <span id=\"val-total\" class=\"value\">1</span>\n                </div>\n                <div class=\"readout-item\">\n                    <span class=\"label\">Current Row Operations</span>\n                    <span id=\"val-row\" class=\"value\">1</span>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"caption\">\n            Growth of computational grid as tokens are added to a sequence.\n        </div>\n    </div>\n\n    <script>\n        const gridGroup = document.getElementById('grid-group');\n        const ticksX = document.getElementById('ticks-x');\n        const ticksY = document.getElementById('ticks-y');\n        const valN = document.getElementById('val-n');\n        const valTotal = document.getElementById('val-total');\n        const valRow = document.getElementById('val-row');\n\n        const MAX_N = 10;\n        const GRID_SIZE = 270;\n        const CELL_SIZE = GRID_SIZE / MAX_N;\n        \n        let frame = 0;\n        const duration = 600; // total frames for full cycle\n\n        function update(timestamp) {\n            // Cycle: 0 to 1 is one full growth cycle, with a pause at the end\n            const t = (frame % duration) / duration;\n            let n;\n            \n            if (t < 0.8) {\n                // Growth phase\n                n = Math.floor((t / 0.8) * MAX_N) + 1;\n            } else {\n                // Pause at max\n                n = MAX_N;\n            }\n\n            // Draw Grid\n            let gridHTML = '';\n            for (let r = 0; r < n; r++) {\n                for (let c = 0; c < n; c++) {\n                    const isNewRow = (r === n - 1);\n                    const fill = isNewRow ? 'var(--accent)' : 'var(--rule)';\n                    const opacity = isNewRow ? 0.8 : 0.3;\n                    \n                    gridHTML += `<rect \n                        x=\"${c * CELL_SIZE}\" \n                        y=\"${r * CELL_SIZE}\" \n                        width=\"${CELL_SIZE - 2}\" \n                        height=\"${CELL_SIZE - 2}\" \n                        fill=\"${fill}\" \n                        opacity=\"${opacity}\"\n                        class=\"token-rect\"\n                    />`;\n                    \n                    // Highlight the horizontal \"sweep\" of the newest token\n                    if (isNewRow) {\n                         gridHTML += `<rect \n                            x=\"${c * CELL_SIZE + 4}\" \n                            y=\"${r * CELL_SIZE + 4}\" \n                            width=\"${CELL_SIZE - 10}\" \n                            height=\"${CELL_SIZE - 10}\" \n                            fill=\"none\" \n                            stroke=\"var(--bg)\" \n                            stroke-width=\"1\"\n                        />`;\n                    }\n                }\n            }\n            gridGroup.innerHTML = gridHTML;\n\n            // Draw Ticks\n            let tx = '';\n            let ty = '';\n            for (let i = 1; i <= n; i++) {\n                tx += `<line x1=\"${40 + (i-0.5)*CELL_SIZE}\" y1=\"310\" x2=\"${40 + (i-0.5)*CELL_SIZE}\" y2=\"315\" stroke=\"var(--muted)\" />`;\n                tx += `<text x=\"${40 + (i-0.5)*CELL_SIZE}\" y=\"325\" text-anchor=\"middle\" class=\"axis-label\">${i}</text>`;\n                \n                ty += `<line x1=\"25\" y1=\"${40 + (i-0.5)*CELL_SIZE}\" x2=\"30\" y2=\"${40 + (i-0.5)*CELL_SIZE}\" stroke=\"var(--muted)\" />`;\n                ty += `<text x=\"20\" y=\"${40 + (i-0.5)*CELL_SIZE + 4}\" text-anchor=\"end\" class=\"axis-label\">${i}</text>`;\n            }\n            ticksX.innerHTML = tx;\n            ticksY.innerHTML = ty;\n\n            // Update Readouts\n            valN.textContent = n;\n            valTotal.textContent = n * n;\n            valRow.textContent = n;\n\n            frame++;\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because each new token must produce a Query to check against the Keys of all previous and current tokens."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Training and Adaptation Certification Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the Chinchilla scaling laws, what is the optimal ratio for scaling when you double your compute budget?",
+     "options": [
+      "Increase model parameters by 10x and keep dataset size constant",
+      "Keep model parameters constant and increase dataset size by 10x",
+      "Increase model parameters and dataset size in equal proportions",
+      "Increase model parameters by 4x and decrease dataset size by 2x"
+     ],
+     "explanation": "The Chinchilla scaling laws (Hoffmann et al.) established that for compute-optimal training, model size and dataset size should be scaled in equal measure as the budget increases.",
+     "correctAnswers": [
+      "Increase model parameters and dataset size in equal proportions"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Why is 'Code' included in the pretraining data of modern LLMs, even for models not intended solely for programming?",
+     "options": [
+      "To teach the model high-fidelity world history",
+      "To improve the model's logical reasoning capabilities",
+      "To help the model learn structured dependencies and long-range patterns",
+      "To allow the model to bypass safety filters",
+      "To provide examples of highly structured human-designed logic"
+     ],
+     "explanation": "Code provides a level of structural logic and dependency that informal web text lacks, which helps the model develop better reasoning and sequence prediction skills.",
+     "correctAnswers": [
+      "To improve the model's logical reasoning capabilities",
+      "To help the model learn structured dependencies and long-range patterns",
+      "To provide examples of highly structured human-designed logic"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The 'Rule of Six' states that for a standard transformer architecture, it takes roughly ____ FLOPs per parameter, per token during the training phase.",
+     "placeholder": "Enter a number",
+     "correctAnswers": [
+      "6",
+      "six"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A developer is choosing between a 7B and a 70B model for a real-time mobile application. What is the primary 'hard ceiling' that makes the 70B model difficult to deploy in this context?",
+     "options": [
+      "Lack of emergent logic",
+      "Memory bandwidth limits",
+      "The deduplication of the dataset",
+      "The quality of the instruction tuning"
+     ],
+     "explanation": "Memory bandwidth is the physical speed at which weights move from VRAM to the processor; larger models require moving significantly more data per token, creating a hardware bottleneck for latency.",
+     "correctAnswers": [
+      "Memory bandwidth limits"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'hidden costs' or engineering hurdles when training an LLM on a large GPU cluster?",
+     "options": [
+      "Hardware failure rates and the need for checkpointing",
+      "The cost of physical interconnects like Infiniband",
+      "The need for high-quality synthetic data for distillation",
+      "Model FLOPs Utilization (MFU) being significantly lower than 100%",
+      "The time taken to manually write every instruction pair"
+     ],
+     "explanation": "MFU represents the actual efficiency of hardware; interconnects handle data synchronization; and hardware failures necessitate robust checkpointing systems to prevent loss of progress.",
+     "correctAnswers": [
+      "Hardware failure rates and the need for checkpointing",
+      "The cost of physical interconnects like Infiniband",
+      "Model FLOPs Utilization (MFU) being significantly lower than 100%"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The phenomenon where a model repeats specific phrases because they appeared multiple times in the training data is often called the ____ problem.",
+     "placeholder": "Two words",
+     "correctAnswers": [
+      "Boring Model",
+      "boring model"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If a 7B parameter model is trained on significantly more than the 140B tokens recommended by Chinchilla (e.g., 2 trillion tokens), what is the most likely motivation?",
+     "options": [
+      "To achieve the best possible performance for the training dollar",
+      "To follow the Kaplan scaling laws more strictly",
+      "To optimize for inference efficiency and speed later on",
+      "To reduce the need for deduplication in the dataset"
+     ],
+     "explanation": "Over-training a smaller model beyond the compute-optimal point (like Llama) is a strategy to create a more capable model that remains small and fast for users during deployment.",
+     "correctAnswers": [
+      "To optimize for inference efficiency and speed later on"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which components typically make up the 'Nutrition Label' (primary data sources) of a high-quality base LLM?",
+     "options": [
+      "Web Text (for breadth)",
+      "Books (for depth and narrative)",
+      "Code (for logic and structure)",
+      "Personal user emails (for privacy)",
+      "Real-time sensor data from IoT devices"
+     ],
+     "explanation": "Modern LLMs primarily rely on a mix of web scrapes, books, and code to balance broad knowledge, narrative reasoning, and logical structure.",
+     "correctAnswers": [
+      "Web Text (for breadth)",
+      "Books (for depth and narrative)",
+      "Code (for logic and structure)"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The percentage of a GPU's theoretical peak performance that is actually achieved during training is known as ____.",
+     "placeholder": "Acronym or phrase",
+     "correctAnswers": [
+      "MFU",
+      "Model FLOPs Utilization"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A model trained on 90% English web text fails to accurately describe cultural traditions in Southeast Asia. This is primarily a failure of:",
+     "options": [
+      "Model FLOPs Utilization (MFU)",
+      "Scaling Laws",
+      "Instruction Tuning",
+      "Pretraining Data Diversity"
+     ],
+     "explanation": "An LLM's world knowledge is bounded by its training corpus; if specific cultural or regional information is underrepresented in the pretraining data, the model will likely hallucinate or fail on those topics.",
+     "correctAnswers": [
+      "Pretraining Data Diversity"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In the context of pretraining, why is 'Deduplication' a critical step in the data pipeline?",
+     "options": [
+      "It prevents the model from memorizing repetitive web content",
+      "It reduces the total number of parameters in the model",
+      "It helps the model avoid becoming 'stuck' on repetitive generations",
+      "It ensures the model learns English syntax more effectively",
+      "It reduces training costs by removing redundant tokens"
+     ],
+     "explanation": "Deduplication is vital to prevent overfitting on repetitive noise and to ensure the model uses its capacity to learn diverse patterns rather than redundant text.",
+     "correctAnswers": [
+      "It prevents the model from memorizing repetitive web content",
+      "It helps the model avoid becoming 'stuck' on repetitive generations",
+      "It reduces training costs by removing redundant tokens"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The time it takes for a model to generate its very first response character is called the Time to First ____.",
+     "placeholder": "One word",
+     "correctAnswers": [
+      "Token",
+      "token"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Isoloss curves on a scaling graph.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1e37b2cc-3c16-4b27-993e-1b3befb97a06/exam/images/unit3-q13.png"
+     },
+     "prompt": "What does an 'Isoloss' curve represent on a graph of Model Size vs. Dataset Size?",
+     "options": [
+      "The point where the model stops learning",
+      "The specific ratio of parameters to tokens that yields the same loss",
+      "The total financial cost of a training run",
+      "The speed at which data is transferred to the GPU"
+     ],
+     "explanation": "An Isoloss curve shows different combinations of model size and data size that result in the same level of model performance (loss).",
+     "correctAnswers": [
+      "The specific ratio of parameters to tokens that yields the same loss"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which factors contribute to why a training run might achieve only 40-50% MFU?",
+     "options": [
+      "Data movement between CPU and GPU",
+      "Synchronization overhead across thousands of GPUs",
+      "The use of high-quality books in the dataset",
+      "Inefficiencies in the model's software implementation",
+      "The energy consumption of the cooling system"
+     ],
+     "explanation": "MFU is reduced by data transfer bottlenecks, the wait times associated with parallel computing across a cluster, and software overhead.",
+     "correctAnswers": [
+      "Data movement between CPU and GPU",
+      "Synchronization overhead across thousands of GPUs",
+      "Inefficiencies in the model's software implementation"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the 'Golden Rule of AI Architecture' regarding model selection for a specific task?",
+     "options": [
+      "Always use the largest available model to ensure accuracy",
+      "Use the smallest model that comfortably solves the problem",
+      "Only use models trained on at least 10 trillion tokens",
+      "Prioritize Kaplan-optimal models over Chinchilla-optimal ones"
+     ],
+     "explanation": "This rule balances capability with deployment costs and latency, ensuring efficiency in production environments.",
+     "correctAnswers": [
+      "Use the smallest model that comfortably solves the problem"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'Emergent Properties' that typically only appear in large-scale models?",
+     "options": [
+      "Simple word association",
+      "Multi-step chain-of-thought reasoning",
+      "Basic grammar recognition",
+      "Zero-shot translation in low-resource languages",
+      "Solving complex logic puzzles"
+     ],
+     "explanation": "Emergent properties are qualitative shifts in capability, like reasoning and low-resource translation, that do not manifest in smaller models despite being present in the training data.",
+     "correctAnswers": [
+      "Multi-step chain-of-thought reasoning",
+      "Zero-shot translation in low-resource languages",
+      "Solving complex logic puzzles"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "How did the 'Kaplan' era of scaling differ from the 'Chinchilla' era?",
+     "options": [
+      "Kaplan suggested that data size was more important than model size",
+      "Kaplan suggested that model size was the dominant factor in performance",
+      "Kaplan focused on inference speed rather than training loss",
+      "Kaplan introduced the Rule of Six"
+     ],
+     "explanation": "Early scaling laws (Kaplan et al.) over-emphasized increasing parameters, whereas Chinchilla proved that data must grow proportionally with model size.",
+     "correctAnswers": [
+      "Kaplan suggested that model size was the dominant factor in performance"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "In this simulation of model performance on a complex logic task, why does the accuracy suddenly 'jump' after a specific parameter count is reached?",
+     "options": [
+      "Because the model begins to memorize the training data exactly as it was written.",
+      "Because the model develops the internal circuitry required for multi-step reasoning only at a certain scale.",
+      "Because the dataset size was reduced to allow the model to focus on logic.",
+      "Because the compute-optimal frontier dictates that small models must be less accurate."
+     ],
+     "explanation": "This depicts an 'emergent property.' Certain capabilities, like multi-step logic, do not scale linearly; they appear suddenly when the model is large enough to support the complex internal representations required.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Model Size vs Logic Accuracy</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            position: relative;\n            width: 100%;\n            aspect-ratio: 1.6 / 1;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .labels {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .axis-label {\n            font-family: -apple-system, sans-serif;\n            font-size: 11px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            font-style: normal;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 8px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .readout-label {\n            font-size: 10px;\n            color: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.03em;\n        }\n\n        .readout-value {\n            font-family: -apple-system, sans-serif;\n            font-variant-numeric: tabular-nums;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--ink);\n        }\n\n        .readout-value span.unit {\n            font-size: 11px;\n            font-weight: normal;\n            color: var(--muted);\n            margin-left: 2px;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            font-style: italic;\n            margin-top: 4px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"sr-only\">Simulation of logic task accuracy across increasing model sizes</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\" aria-label=\"A graph showing accuracy staying at zero for small model sizes, then suddenly increasing after a specific point.\">\n            <svg class=\"fig\" viewBox=\"0 0 400 240\">\n                <!-- Grid Lines -->\n                <line x1=\"50\" y1=\"40\" x2=\"350\" y2=\"40\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                <line x1=\"50\" y1=\"90\" x2=\"350\" y2=\"90\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                <line x1=\"50\" y1=\"140\" x2=\"350\" y2=\"140\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                <line x1=\"50\" y1=\"190\" x2=\"350\" y2=\"190\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n\n                <!-- Axes -->\n                <line x1=\"50\" y1=\"190\" x2=\"350\" y2=\"190\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                <line x1=\"50\" y1=\"40\" x2=\"50\" y2=\"190\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n\n                <!-- Axis Labels -->\n                <text x=\"200\" y=\"225\" text-anchor=\"middle\" class=\"axis-label\">Model Size (Parameters)</text>\n                <text x=\"20\" y=\"115\" text-anchor=\"middle\" class=\"axis-label\" transform=\"rotate(-90 20 115)\">Accuracy</text>\n\n                <!-- Ticks and Tick Labels -->\n                <text x=\"50\" y=\"205\" text-anchor=\"middle\" class=\"labels\">10⁷</text>\n                <text x=\"125\" y=\"205\" text-anchor=\"middle\" class=\"labels\">10⁸</text>\n                <text x=\"200\" y=\"205\" text-anchor=\"middle\" class=\"labels\">10⁹</text>\n                <text x=\"275\" y=\"205\" text-anchor=\"middle\" class=\"labels\">10¹⁰</text>\n                <text x=\"350\" y=\"205\" text-anchor=\"middle\" class=\"labels\">10¹¹</text>\n\n                <text x=\"45\" y=\"193\" text-anchor=\"end\" class=\"labels\">0%</text>\n                <text x=\"45\" y=\"143\" text-anchor=\"end\" class=\"labels\">25%</text>\n                <text x=\"45\" y=\"93\" text-anchor=\"end\" class=\"labels\">50%</text>\n                <text x=\"45\" y=\"43\" text-anchor=\"end\" class=\"labels\">75%</text>\n\n                <!-- The Plot Trace -->\n                <path id=\"trace\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2.5\" stroke-linejoin=\"round\" />\n                \n                <!-- Active Indicator -->\n                <line id=\"crosshair\" x1=\"50\" y1=\"40\" x2=\"50\" y2=\"190\" stroke=\"var(--muted)\" stroke-width=\"0.5\" stroke-dasharray=\"3,3\" opacity=\"0\" />\n                <circle id=\"point\" cx=\"50\" cy=\"190\" r=\"3\" fill=\"var(--accent)\" opacity=\"0\" />\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Model Scale</span>\n                <span id=\"val-size\" class=\"readout-value\">0<span class=\"unit\">B params</span></span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Task Accuracy</span>\n                <span id=\"val-acc\" class=\"readout-value\">0%</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Multistep Logic Reasoning Performance</div>\n    </div>\n\n    <script>\n        const trace = document.getElementById('trace');\n        const crosshair = document.getElementById('crosshair');\n        const point = document.getElementById('point');\n        const valSize = document.getElementById('val-size');\n        const valAcc = document.getElementById('val-acc');\n\n        const PADDING = 50;\n        const WIDTH = 300;\n        const HEIGHT = 150;\n        const BASE_Y = 190;\n        const THRESHOLD = 0.65; // Normalized x where accuracy jumps\n\n        // Generates data point based on normalized t (0 to 1)\n        function getAccuracy(t) {\n            if (t < THRESHOLD) {\n                // Return 0 with slight noise to keep it realistic\n                return 0;\n            } else {\n                // Logistic-like curve starting at threshold\n                const steepness = 15;\n                const normX = (t - THRESHOLD) / (1 - THRESHOLD);\n                return Math.pow(normX, 2) * 0.8; // Curves up to 80%\n            }\n        }\n\n        function update(timestamp) {\n            // Loop every 8 seconds\n            const duration = 8000;\n            const progress = (timestamp % duration) / duration;\n            \n            // Map progress to a smoother \"sweep\" \n            // We spend a bit of time at the end and start\n            let t = 0;\n            if (progress < 0.1) t = 0;\n            else if (progress > 0.9) t = 1;\n            else t = (progress - 0.1) / 0.8;\n\n            const points = [];\n            const steps = 100;\n            \n            for (let i = 0; i <= steps * t; i++) {\n                const currT = i / steps;\n                const x = PADDING + (currT * WIDTH);\n                const acc = getAccuracy(currT);\n                const y = BASE_Y - (acc * 200); // Scale 0-1 to 0-200px\n                points.push(`${x},${y}`);\n            }\n\n            if (points.length > 0) {\n                trace.setAttribute('d', `M ${points.join(' L ')}`);\n                \n                const lastPoint = points[points.length - 1].split(',');\n                const lastX = parseFloat(lastPoint[0]);\n                const lastY = parseFloat(lastPoint[1]);\n\n                crosshair.setAttribute('x1', lastX);\n                crosshair.setAttribute('x2', lastX);\n                crosshair.setAttribute('opacity', 1);\n                \n                point.setAttribute('cx', lastX);\n                point.setAttribute('cy', lastY);\n                point.setAttribute('opacity', 1);\n\n                // Update Readouts\n                // Scale t to 0-175 Billion parameters\n                const params = (t * 175).toFixed(1);\n                valSize.innerHTML = `${params}<span class=\"unit\">B params</span>`;\n                \n                const accPercent = (getAccuracy(t) * 100).toFixed(1);\n                valAcc.innerText = `${accPercent}%`;\n            } else {\n                trace.setAttribute('d', '');\n                crosshair.setAttribute('opacity', 0);\n                point.setAttribute('opacity', 0);\n            }\n\n            requestAnimationFrame(update);\n        }\n\n        // Height Reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the model develops the internal circuitry required for multi-step reasoning only at a certain scale."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Building with LLMs Comprehensive Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are building a tool to extract data from medical records. Why would you use a 'Senior Medical Auditor' persona in the prompt rather than just asking for the data directly?",
+     "options": [
+      "It increases the model's processing speed for long medical documents.",
+      "It narrows the model's probability space toward professional vocabulary and styles.",
+      "It bypasses the model's safety filters regarding sensitive health information.",
+      "It forces the model to use a higher temperature for more creative extraction."
+     ],
+     "explanation": "Assigning a persona serves as a high-level filter for the latent knowledge the model retrieves, moving it away from a generic assistant tone toward specialized domain knowledge.",
+     "correctAnswers": [
+      "It narrows the model's probability space toward professional vocabulary and styles."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'structural anchors' that prevent instruction injection by separating data from instructions?",
+     "options": [
+      "XML tags like <text></text>",
+      "Parentheses ( )",
+      "Triple backticks (```)",
+      "System personas",
+      "Dashes (---)"
+     ],
+     "explanation": "Delimiters like XML tags, backticks, and dashes act as clear structural boundaries to ensure the model doesn't confuse input data with its core instructions.",
+     "correctAnswers": [
+      "XML tags like <text></text>",
+      "Triple backticks (```)",
+      "Dashes (---)"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When a model is forced to solve a large problem by breaking it into a hierarchy of smaller, manageable sub-questions, it is using ____ prompting.",
+     "placeholder": "strategy name",
+     "correctAnswers": [
+      "Least-to-Most",
+      "least to most"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "According to the session on Few-Shot examples, what is the 'Goldilocks zone' for the number of examples to include in a prompt for optimal performance?",
+     "options": [
+      "1-2 examples",
+      "3-8 examples",
+      "15-20 examples",
+      "Exactly 50 examples"
+     ],
+     "explanation": "Beyond 8 examples, developers often hit diminishing returns or context window limits, while fewer than 3 may not sufficiently establish the pattern.",
+     "correctAnswers": [
+      "3-8 examples"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the primary risks of providing an unbalanced label distribution in few-shot prompts (e.g., all 5 examples are 'Positive')?",
+     "options": [
+      "The model becomes statistically biased toward the majority label.",
+      "The model's temperature will automatically reset to 0.",
+      "The model may fail to recognize the 'Negative' label as a valid option.",
+      "The context window will decrease in size.",
+      "The model will ignore the query and only repeat the examples."
+     ],
+     "explanation": "Unbalanced examples create a statistical bias where the model assumes the output should always match the pattern provided in the demonstrations.",
+     "correctAnswers": [
+      "The model becomes statistically biased toward the majority label.",
+      "The model may fail to recognize the 'Negative' label as a valid option."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'Markdown Wrap' or adding phrases like 'Sure, here is your JSON' is a common failure mode that can be prevented by using ____ structural steering.",
+     "correctAnswers": [
+      "Few-Shot",
+      "few shot",
+      "few-shot"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why does Chain-of-Thought (CoT) prompting typically improve performance on complex logical tasks?",
+     "options": [
+      "It increases the model's internal parameter count during inference.",
+      "It allows the model to search the web for external verification.",
+      "It externalizes reasoning into tokens that act as a 'working memory'.",
+      "It bypasses the transformer architecture's attention mechanism."
+     ],
+     "explanation": "Computational depth in LLMs is tied to token generation; CoT forces the model to use previous outputs to inform the final answer.",
+     "correctAnswers": [
+      "It externalizes reasoning into tokens that act as a 'working memory'."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When designing a prompt for 'Structured Output,' which of the following practices ensure programmatic reliability?",
+     "options": [
+      "Placing structural constraints at the very end of the prompt.",
+      "Defining an explicit schema with keys and data types.",
+      "Using few-shot examples that start immediately with the data structure.",
+      "Asking the model to explain the JSON structure before providing it.",
+      "Using the System Message to define the schema."
+     ],
+     "explanation": "Structural reliability is achieved by reducing conversational preamble and using recency bias and clear definitions to force valid syntax.",
+     "correctAnswers": [
+      "Placing structural constraints at the very end of the prompt.",
+      "Defining an explicit schema with keys and data types.",
+      "Using few-shot examples that start immediately with the data structure.",
+      "Using the System Message to define the schema."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "Which technique involves sampling multiple reasoning paths and taking a majority vote to boost reliability?",
+     "options": [
+      "Few-shot priming",
+      "Self-Consistency",
+      "Recursive Chunking",
+      "System Message Steering"
+     ],
+     "explanation": "Self-Consistency mitigates the risk of a single 'bad' token path by looking for the most frequent answer across multiple independent reasoning attempts.",
+     "correctAnswers": [
+      "Self-Consistency"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "Which of the following are components of the 'Anatomy of a Prompt' framework?",
+     "options": [
+      "Persona",
+      "Weights and Biases",
+      "Constraints",
+      "Output Indicators",
+      "Task"
+     ],
+     "explanation": "The framework includes Persona, Context, Task, and Constraints, often aided by Output Indicators for consistency.",
+     "correctAnswers": [
+      "Persona",
+      "Constraints",
+      "Output Indicators",
+      "Task"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "What is 'Recency Bias' in the context of few-shot prompting?",
+     "options": [
+      "The model's tendency to prefer information from the most recent training data.",
+      "The tendency of models to over-weight the final example provided before the query.",
+      "The model's ability to remember the user's first prompt in a long conversation.",
+      "A hardware limitation where newer tokens are processed faster than older ones."
+     ],
+     "explanation": "Models often place higher importance on the information immediately preceding the query, which can lead to repeating the last example's format or label.",
+     "correctAnswers": [
+      "The tendency of models to over-weight the final example provided before the query."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Identify the drawbacks of using 'Self-Consistency' as a reliability strategy in production.",
+     "options": [
+      "Increased latency due to multiple generation runs.",
+      "Decreased accuracy on math problems.",
+      "Higher token costs.",
+      "It eliminates the need for any prompt engineering.",
+      "Complexity in implementation for real-time systems."
+     ],
+     "explanation": "While self-consistency boosts accuracy, it multiplies the tokens used and the time taken for a response, creating a significant trade-off.",
+     "correctAnswers": [
+      "Increased latency due to multiple generation runs.",
+      "Higher token costs.",
+      "Complexity in implementation for real-time systems."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why might a 'Zero-Shot' prompt fail for a task involving a proprietary data format?",
+     "options": [
+      "The model is not allowed to process proprietary data.",
+      "The model defaults to its pre-trained 'average' of a concept which may not match the format.",
+      "Zero-shot prompting requires a specialized API key.",
+      "Zero-shot prompting only works for creative writing, not data tasks."
+     ],
+     "explanation": "Without examples (few-shot), the model relies on general patterns from its training set, which likely won't align with niche or internal proprietary formats.",
+     "correctAnswers": [
+      "The model defaults to its pre-trained 'average' of a concept which may not match the format."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When moving from 'chatting' to 'engineering,' how should a developer visualize an LLM?",
+     "options": [
+      "As a human-like entity with intuition.",
+      "As a statistical completion engine.",
+      "As an entity sensitive to initial conditions.",
+      "As a deterministic database.",
+      "As a tool whose output is shaped by language boundaries."
+     ],
+     "explanation": "Engineering LLMs requires treating them as sensitive completion engines where structured language acts as a programming interface.",
+     "correctAnswers": [
+      "As a statistical completion engine.",
+      "As an entity sensitive to initial conditions.",
+      "As a tool whose output is shaped by language boundaries."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "In the 'Anatomy of a Prompt,' what is the primary role of 'Output Indicators'?",
+     "options": [
+      "To tell the model how many tokens to use.",
+      "To force the model into the right completion path from the very first token.",
+      "To summarize the user's input before processing.",
+      "To provide a feedback loop for the engineer."
+     ],
+     "explanation": "Starting a response with a specific word or tag (e.g., 'Summary:') ensures the model doesn't drift into irrelevant preamble.",
+     "correctAnswers": [
+      "To force the model into the right completion path from the very first token."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Why is 'Context' just as important as 'Task' in a high-performance prompt?",
+     "options": [
+      "It provides the necessary background for the model to interpret the task correctly.",
+      "It increases the latency of the model to allow for more thinking time.",
+      "It allows for dynamic inputs to be processed safely when using delimiters.",
+      "It reduces the word count of the model's output.",
+      "It anchors the model's response to specific data provided by the user."
+     ],
+     "explanation": "Context provides the data environment for the task. Without it, the model lacks the boundaries and information needed to perform specific operations accurately.",
+     "correctAnswers": [
+      "It provides the necessary background for the model to interpret the task correctly.",
+      "It allows for dynamic inputs to be processed safely when using delimiters.",
+      "It anchors the model's response to specific data provided by the user."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "Which technique is best for preventing a 'hallucination spiral' in a multi-step logic problem?",
+     "options": [
+      "Chain-of-Thought (CoT)",
+      "Least-to-Most prompting",
+      "Increasing the temperature",
+      "Using more delimiters"
+     ],
+     "explanation": "Least-to-Most is hierarchical; by solving sub-problems sequentially, it prevents a single error from cascading through a long, linear chain of thought.",
+     "correctAnswers": [
+      "Least-to-Most prompting"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Watch the model generate reasoning steps across three different 'Self-Consistency' paths. Why does the 'Majority Vote' mechanism improve the final reliability of the answer?",
+     "options": [
+      "Because the model is more likely to repeat a correct logical pattern than to arrive at the same specific error multiple times.",
+      "Because taking the average of all numerical outputs mathematically cancels out any hallucinations produced in individual paths.",
+      "Because the model's temperature decreases with each subsequent path, making the final vote more deterministic.",
+      "Because the voting mechanism forces the model to re-train its weights on the fly based on the most common path."
+     ],
+     "explanation": "LLMs are probabilistic. While one path might hit a 'bad' token (an error), the correct logic is more statistically stable across multiple independent attempts.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Self-Consistency Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .reasoning-grid {\n            display: grid;\n            grid-template-columns: repeat(3, 1fr);\n            gap: 12px;\n            width: 100%;\n        }\n\n        .path-column {\n            display: flex;\n            flex-direction: column;\n            gap: 8px;\n        }\n\n        .path-header {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            border-bottom: 1px solid var(--rule);\n            padding-bottom: 4px;\n        }\n\n        .step-box {\n            background: #fff;\n            border: 1px solid var(--rule);\n            padding: 8px;\n            font-size: 13px;\n            min-height: 48px;\n            display: flex;\n            align-items: center;\n            line-height: 1.4;\n            opacity: 0;\n            transform: translateY(4px);\n            transition: opacity 0.4s ease, transform 0.4s ease;\n        }\n\n        .step-box.visible {\n            opacity: 1;\n            transform: translateY(0);\n        }\n\n        .step-box.error {\n            border-color: var(--amber);\n            color: var(--amber);\n        }\n\n        .answer-box {\n            margin-top: 4px;\n            padding: 10px;\n            border: 1px solid var(--rule);\n            background: #fff;\n            font-weight: 600;\n            text-align: center;\n            font-size: 14px;\n            opacity: 0;\n            transition: opacity 0.5s ease;\n        }\n\n        .answer-box.visible {\n            opacity: 1;\n        }\n\n        .answer-box.match {\n            border: 2px solid var(--accent);\n            color: var(--accent);\n        }\n\n        .tally-section {\n            margin-top: 10px;\n            border-top: 1px solid var(--rule);\n            padding-top: 16px;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            gap: 12px;\n        }\n\n        .vote-viz {\n            display: flex;\n            gap: 20px;\n            align-items: flex-end;\n            height: 60px;\n        }\n\n        .vote-bar-container {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            gap: 4px;\n        }\n\n        .vote-bar {\n            width: 40px;\n            background: var(--rule);\n            transition: height 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67), background 0.6s;\n        }\n\n        .vote-bar.winner {\n            background: var(--accent);\n        }\n\n        .vote-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n        }\n\n        .vote-count {\n            font-variant-numeric: tabular-nums;\n            font-weight: 600;\n            font-size: 13px;\n        }\n\n        .status-text {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            height: 1.2em;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Parallel Reasoning and Consensus Simulation</h1>\n    <div class=\"container\" aria-label=\"A simulation showing three parallel reasoning paths converging on a majority answer despite one path containing an error.\">\n        \n        <div class=\"reasoning-grid\">\n            <!-- Path A -->\n            <div class=\"path-column\">\n                <div class=\"path-header\">Path A</div>\n                <div id=\"a-s1\" class=\"step-box\">Start with 10. Double it to get 20.</div>\n                <div id=\"a-s2\" class=\"step-box\">Add 22 to the total.</div>\n                <div id=\"a-ans\" class=\"answer-box\">Answer: 42</div>\n            </div>\n\n            <!-- Path B -->\n            <div class=\"path-column\">\n                <div class=\"path-header\">Path B</div>\n                <div id=\"b-s1\" class=\"step-box\">Start with 10. Multiply by 2: 20.</div>\n                <div id=\"b-s2\" class=\"step-box error\">Subtract 5 by mistake: 15.</div>\n                <div id=\"b-ans\" class=\"answer-box\">Answer: 15</div>\n            </div>\n\n            <!-- Path C -->\n            <div class=\"path-column\">\n                <div class=\"path-header\">Path C</div>\n                <div id=\"c-s1\" class=\"step-box\">10 + 10 = 20.</div>\n                <div id=\"c-s2\" class=\"step-box\">20 + 22 = 42.</div>\n                <div id=\"c-ans\" class=\"answer-box\">Answer: 42</div>\n            </div>\n        </div>\n\n        <div class=\"tally-section\">\n            <div class=\"vote-viz\">\n                <div class=\"vote-bar-container\">\n                    <div id=\"count-42\" class=\"vote-count\">0</div>\n                    <div id=\"bar-42\" class=\"vote-bar\" style=\"height: 0px;\"></div>\n                    <div class=\"vote-label\">\"42\"</div>\n                </div>\n                <div class=\"vote-bar-container\">\n                    <div id=\"count-15\" class=\"vote-count\">0</div>\n                    <div id=\"bar-15\" class=\"vote-bar\" style=\"height: 0px;\"></div>\n                    <div class=\"vote-label\">\"15\"</div>\n                </div>\n            </div>\n            <div id=\"status\" class=\"status-text\">Generating samples...</div>\n        </div>\n    </div>\n\n    <script>\n        const steps = [\n            { ids: ['a-s1', 'b-s1', 'c-s1'], delay: 1000, status: 'Generating step 1...' },\n            { ids: ['a-s2', 'b-s2', 'c-s2'], delay: 2500, status: 'Generating step 2...' },\n            { ids: ['a-ans', 'b-ans', 'c-ans'], delay: 4000, status: 'Finalizing answers...' },\n            { type: 'tally', delay: 5500, status: 'Comparing results...' },\n            { type: 'winner', delay: 7000, status: 'Aggregated result determined.' }\n        ];\n\n        const duration = 10000;\n        let startTime = null;\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) % duration;\n\n            // Reset all\n            if (elapsed < 100) {\n                document.querySelectorAll('.step-box, .answer-box').forEach(el => {\n                    el.classList.remove('visible', 'match');\n                });\n                document.getElementById('bar-42').style.height = '0px';\n                document.getElementById('bar-42').classList.remove('winner');\n                document.getElementById('bar-15').style.height = '0px';\n                document.getElementById('count-42').innerText = '0';\n                document.getElementById('count-15').innerText = '0';\n                document.getElementById('status').innerText = 'Generating samples...';\n            }\n\n            steps.forEach(step => {\n                if (elapsed >= step.delay) {\n                    if (step.ids) {\n                        step.ids.forEach(id => document.getElementById(id).classList.add('visible'));\n                    }\n                    if (step.status) {\n                        document.getElementById('status').innerText = step.status;\n                    }\n                    if (step.type === 'tally') {\n                        document.getElementById('bar-42').style.height = '40px';\n                        document.getElementById('bar-15').style.height = '20px';\n                        document.getElementById('count-42').innerText = '2';\n                        document.getElementById('count-15').innerText = '1';\n                    }\n                    if (step.type === 'winner') {\n                        document.getElementById('bar-42').classList.add('winner');\n                        document.getElementById('a-ans').classList.add('match');\n                        document.getElementById('c-ans').classList.add('match');\n                    }\n                }\n            });\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the model is more likely to repeat a correct logical pattern than to arrive at the same specific error multiple times."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Production & Safety Certification Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A developer notices their model has an extremely high MMLU score but fails to answer basic questions about a newly released software library from last month. What is the most likely cause?",
+     "options": [
+      "The model is suffering from verbosity bias.",
+      "The model's training data has a temporal cutoff that predates the library.",
+      "The MMLU benchmark is too difficult for the model's reasoning capabilities.",
+      "The developer failed to use pass@k metrics for evaluation."
+     ],
+     "explanation": "Benchmarks like MMLU are static snapshots. If the model was trained before the library was released, it cannot 'reason' about it regardless of its benchmark scores, highlighting the limit of general knowledge evaluations for recent data.",
+     "correctAnswers": [
+      "The model's training data has a temporal cutoff that predates the library."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'Cognitive Biases' specifically associated with using an LLM-as-a-Judge?",
+     "options": [
+      "Positional Bias",
+      "Verbosity Bias",
+      "Self-Preference Bias",
+      "Data Contamination Bias",
+      "Negative Constraint Bias"
+     ],
+     "explanation": "Positional, Verbosity, and Self-Preference are documented biases where the judge favors certain response orders, lengths, or styles similar to its own training. Data Contamination is a benchmark issue, and Negative Constraint is a testing strategy.",
+     "correctAnswers": [
+      "Positional Bias",
+      "Verbosity Bias",
+      "Self-Preference Bias"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To calculate the ____ metric, a developer generates multiple samples for a single prompt and determines the probability that at least one of those samples is correct.",
+     "explanation": "The pass@k metric accounts for the probabilistic nature of LLMs by rewarding the model if any of its 'k' attempts succeed, which is more useful than simple binary accuracy for generative tasks.",
+     "placeholder": "e.g., accuracy",
+     "correctAnswers": [
+      "pass@k",
+      "pass @ k",
+      "pass@K"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In the context of evaluating a RAG-based legal assistant, what is the primary goal of including a 'Negative Constraint' test case?",
+     "options": [
+      "To ensure the model uses the most expensive embedding model available.",
+      "To verify the model admits it does not know the answer when information is missing.",
+      "To maximize the semantic similarity score between the query and the chunk.",
+      "To increase the speed of the retrieval pipeline."
+     ],
+     "explanation": "Negative constraints test 'groundedness' by providing scenarios where the answer is absent; a robust model should say 'I don't know' rather than hallucinating a plausible-sounding answer.",
+     "correctAnswers": [
+      "To verify the model admits it does not know the answer when information is missing."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When designing a human evaluation rubric to improve 'Inter-rater Reliability,' which strategies are effective?",
+     "options": [
+      "Using a broad 1-10 scale without specific labels for each number.",
+      "Defining clear, granular criteria for each numerical score (e.g., what constitutes a '2').",
+      "Focusing on a single 'vibes' metric to allow for subjective intuition.",
+      "Breaking the evaluation into dimensions like Factuality, Tone, and Formatting.",
+      "Providing an annotation guide with examples of 'Good' vs 'Bad' responses."
+     ],
+     "explanation": "Vague or overly broad scales lead to high variance. Granular definitions, multi-dimensional rubrics, and clear guides ensure different human graders reach the same conclusions.",
+     "correctAnswers": [
+      "Defining clear, granular criteria for each numerical score (e.g., what constitutes a '2').",
+      "Breaking the evaluation into dimensions like Factuality, Tone, and Formatting.",
+      "Providing an annotation guide with examples of 'Good' vs 'Bad' responses."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The process of running an evaluation twice with the order of Model A and Model B swapped to mitigate positional bias is known as ____.",
+     "explanation": "Shuffling or swapping the order of candidates helps cancel out the judge's tendency to favor the first or second position in a side-by-side comparison.",
+     "placeholder": "method name",
+     "correctAnswers": [
+      "shuffling",
+      "swapping",
+      "order randomization"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why is a 'Cross-Encoder' often preferred over 'Cosine Similarity' for high-precision automated evaluation?",
+     "options": [
+      "It is significantly faster to compute for millions of documents.",
+      "It only looks at keyword overlap (ROUGE scores).",
+      "It evaluates the deep interaction between query and response rather than just vector proximity.",
+      "It eliminates the need for any reference-based 'Golden Pairs'."
+     ],
+     "explanation": "While slower than cosine similarity, Cross-Encoders are more accurate for evaluation because they capture nuanced relationships between the text pairs, similar to human judgment.",
+     "correctAnswers": [
+      "It evaluates the deep interaction between query and response rather than just vector proximity."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which features should be included in a 'Chain of Thought' prompt for an LLM-as-a-Judge to ensure better reliability?",
+     "options": [
+      "A requirement to provide an explanation before the final score.",
+      "A multi-dimensional rubric (e.g., Tone, Accuracy, Clarity).",
+      "An instruction to always give a score of 5 for safety.",
+      "A 1-5 scale with specific definitions for each point.",
+      "A reference-based answer to compare against."
+     ],
+     "explanation": "Reliable judges use reasoning-first (CoT), detailed rubrics, defined scales, and reference answers to anchor their judgment and provide debuggable logic.",
+     "correctAnswers": [
+      "A requirement to provide an explanation before the final score.",
+      "A multi-dimensional rubric (e.g., Tone, Accuracy, Clarity).",
+      "A 1-5 scale with specific definitions for each point.",
+      "A reference-based answer to compare against."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'Gold Standard' in LLM evaluation refers to a dataset that has been vetted by ____.",
+     "explanation": "Human judgment remains the ultimate ground truth for calibrating all other automated or AI-based evaluation systems.",
+     "placeholder": "who?",
+     "correctAnswers": [
+      "humans",
+      "human experts",
+      "human annotators"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is the primary risk of using a benchmark published in 2021 to evaluate a model trained on a 2023 web crawl?",
+     "options": [
+      "The model will be unable to understand the questions due to language drift.",
+      "Data contamination, as the model may have seen the questions and answers during pre-training.",
+      "The benchmark will be too large for the model's memory.",
+      "The pass@k score will naturally drop to zero."
+     ],
+     "explanation": "If test questions are part of the training set (contamination), the model performs 'memorization' rather than 'reasoning,' leading to artificially inflated scores.",
+     "correctAnswers": [
+      "Data contamination, as the model may have seen the questions and answers during pre-training."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why are BLEU and ROUGE scores considered less effective for modern generative LLM evaluation compared to older NLP tasks?",
+     "options": [
+      "They rely on exact keyword overlap rather than meaning.",
+      "They penalize paraphrasing that might be perfectly correct.",
+      "They are too computationally expensive to run in production.",
+      "They do not account for factual accuracy, only n-gram similarity.",
+      "They require an LLM to calculate."
+     ],
+     "explanation": "BLEU/ROUGE are n-gram based. They fail to recognize that two sentences can have the same meaning with different words, and they cannot detect hallucinations.",
+     "correctAnswers": [
+      "They rely on exact keyword overlap rather than meaning.",
+      "They penalize paraphrasing that might be perfectly correct.",
+      "They do not account for factual accuracy, only n-gram similarity."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When an evaluation set is updated to reflect changes in a RAG pipeline's chunking or embedding strategy, we are addressing ____ Drift.",
+     "explanation": "Evaluation Drift occurs when the static test set no longer accurately reflects the current state or needs of the evolving system.",
+     "placeholder": "type of drift",
+     "correctAnswers": [
+      "Evaluation",
+      "Eval",
+      "Dataset"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "The LLM Testing Pyramid showing layers from deterministic to subjective evaluation.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1e37b2cc-3c16-4b27-993e-1b3befb97a06/exam/images/unit5-q13.png"
+     },
+     "prompt": "In the 'Testing Pyramid' for LLMs, what sits at the base (the first layer of testing)?",
+     "options": [
+      "Human A/B testing",
+      "Simple assertions (e.g., JSON validation)",
+      "LLM-as-a-Judge scoring",
+      "Blind side-by-side comparisons"
+     ],
+     "explanation": "The base of the testing pyramid consists of fast, deterministic checks (assertions) to ensure the output meets basic structural requirements before moving to complex semantic evaluation.",
+     "correctAnswers": [
+      "Simple assertions (e.g., JSON validation)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of these are benchmarks specifically mentioned for testing mathematical reasoning and coding, respectively?",
+     "options": [
+      "GSM8K",
+      "HumanEval",
+      "MMLU",
+      "ROUGE",
+      "BLEU"
+     ],
+     "explanation": "GSM8K is the standard for grade-school math word problems, while HumanEval is used to measure code generation capabilities.",
+     "correctAnswers": [
+      "GSM8K",
+      "HumanEval"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is 'Evaluation Saturation'?",
+     "options": [
+      "When a model's training data is completely filled with benchmark questions.",
+      "When models perform so well on a benchmark that it can no longer distinguish between top-tier performers.",
+      "When a developer runs too many evaluations and exceeds their API budget.",
+      "When human annotators get tired and start providing inconsistent scores."
+     ],
+     "explanation": "Saturation occurs when a benchmark becomes too 'easy' for modern models, meaning small differences in scores no longer reflect meaningful differences in capability.",
+     "correctAnswers": [
+      "When models perform so well on a benchmark that it can no longer distinguish between top-tier performers."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "When building a task-specific eval set for a legal assistant, which types of cases are most important to include?",
+     "options": [
+      "Commonly asked questions that are easy to answer.",
+      "Edge cases involving conflicting information.",
+      "Scenarios where the answer is not present in the source documents.",
+      "Complex multi-step reasoning queries.",
+      "Standard 'Hello' and 'Who are you?' prompts."
+     ],
+     "explanation": "A high-quality eval set focuses on 'stress tests' and edge cases that represent real-world pain points and model weaknesses, not just easy wins.",
+     "correctAnswers": [
+      "Edge cases involving conflicting information.",
+      "Scenarios where the answer is not present in the source documents.",
+      "Complex multi-step reasoning queries."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "In a 'Blind Side-by-Side' (SxS) test, why are model names hidden from the judge?",
+     "options": [
+      "To prevent brand bias from influencing the preference score.",
+      "To reduce the cost of the evaluation process.",
+      "Because models perform better when they are anonymous.",
+      "To comply with privacy regulations regarding AI identity."
+     ],
+     "explanation": "Knowing a response comes from a 'famous' model like GPT-4 can cause human judges to subconsciously favor it. Blinding ensures the judgment is based solely on output quality.",
+     "correctAnswers": [
+      "To prevent brand bias from influencing the preference score."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Why does the Judge Model's agreement with the Human Gold Standard fluctuate as the length of the Candidate Response increases?",
+     "options": [
+      "The model exhibits Verbosity Bias, assigning higher scores to longer text even when accuracy stays constant.",
+      "Longer responses naturally contain more factual errors, which the judge is trained to catch.",
+      "The judge model runs out of context window tokens, leading to random scoring patterns.",
+      "The judge model prefers shorter responses to save on inference costs."
+     ],
+     "explanation": "In simulations of LLM judges, as word count increases (the 'X' parameter), scores often trend upward despite no change in factual ground truth. This is 'Verbosity Bias,' where the judge confuses length with quality.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Verbosity Bias Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --font-serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            color: var(--ink);\n            font-family: var(--font-sans);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            background: var(--bg);\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n        }\n\n        .label {\n            font-family: var(--font-serif);\n            font-style: italic;\n            font-size: clamp(11px, 2.5vw, 13px);\n            color: var(--muted);\n        }\n\n        .value {\n            font-size: clamp(14px, 3vw, 16px);\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n        }\n\n        .caption {\n            font-family: var(--font-serif);\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n\n        .model-point {\n            transition: r 0.2s ease;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Scatter plot showing LLM Judge scores vs response length</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\" aria-label=\"A scatter plot where model response points drift rightward as length increases while their scores rise, compared to a constant ground truth line.\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 240\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <!-- Axes -->\n                <line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n                <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"200\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n                \n                <!-- Ticks and Labels X -->\n                <g class=\"ticks-x\" font-family=\"var(--font-sans)\" font-size=\"9\" fill=\"var(--muted)\">\n                    <line x1=\"40\" y1=\"200\" x2=\"40\" y2=\"205\" stroke=\"var(--muted)\" />\n                    <text x=\"40\" y=\"218\" text-anchor=\"middle\">0</text>\n                    \n                    <line x1=\"125\" y1=\"200\" x2=\"125\" y2=\"205\" stroke=\"var(--muted)\" />\n                    <text x=\"125\" y=\"218\" text-anchor=\"middle\">250</text>\n                    \n                    <line x1=\"210\" y1=\"200\" x2=\"210\" y2=\"205\" stroke=\"var(--muted)\" />\n                    <text x=\"210\" y=\"218\" text-anchor=\"middle\">500</text>\n                    \n                    <line x1=\"295\" y1=\"200\" x2=\"295\" y2=\"205\" stroke=\"var(--muted)\" />\n                    <text x=\"295\" y=\"218\" text-anchor=\"middle\">750</text>\n                    \n                    <line x1=\"380\" y1=\"200\" x2=\"380\" y2=\"205\" stroke=\"var(--muted)\" />\n                    <text x=\"380\" y=\"218\" text-anchor=\"middle\">1000</text>\n                    \n                    <text x=\"210\" y=\"235\" text-anchor=\"middle\" fill=\"var(--ink)\" font-family=\"var(--font-serif)\" font-style=\"italic\">Response Length (tokens)</text>\n                </g>\n\n                <!-- Ticks and Labels Y -->\n                <g class=\"ticks-y\" font-family=\"var(--font-sans)\" font-size=\"9\" fill=\"var(--muted)\">\n                    <line x1=\"35\" y1=\"200\" x2=\"40\" y2=\"200\" stroke=\"var(--muted)\" />\n                    <text x=\"30\" y=\"203\" text-anchor=\"end\">0</text>\n                    \n                    <line x1=\"35\" y1=\"110\" x2=\"40\" y2=\"110\" stroke=\"var(--muted)\" />\n                    <text x=\"30\" y=\"113\" text-anchor=\"end\">5</text>\n                    \n                    <line x1=\"35\" y1=\"20\" x2=\"40\" y2=\"20\" stroke=\"var(--muted)\" />\n                    <text x=\"30\" y=\"23\" text-anchor=\"end\">10</text>\n                    \n                    <text x=\"15\" y=\"110\" text-anchor=\"middle\" transform=\"rotate(-90, 15, 110)\" fill=\"var(--ink)\" font-family=\"var(--font-serif)\" font-style=\"italic\">Judge Score</text>\n                </g>\n\n                <!-- Ground Truth Reference -->\n                <line id=\"ground-truth-line\" x1=\"40\" y1=\"110\" x2=\"380\" y2=\"110\" stroke=\"var(--amber)\" stroke-width=\"1.5\" stroke-dasharray=\"4 2\" />\n                <text x=\"375\" y=\"102\" text-anchor=\"end\" font-family=\"var(--font-serif)\" font-style=\"italic\" font-size=\"10\" fill=\"var(--amber)\">Ground Truth (fixed)</text>\n\n                <!-- Data Points Group -->\n                <g id=\"points-layer\"></g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Response Duration</span>\n                <span id=\"readout-length\" class=\"value\">0 tokens</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Average Judge Score</span>\n                <span id=\"readout-score\" class=\"value\">0.0</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Tracking model performance evaluations across varying output lengths</div>\n    </div>\n\n    <script>\n        // Seeded random for deterministic point distribution\n        function createRandom(seed) {\n            return function() {\n                seed = (seed * 16807) % 2147483647;\n                return (seed - 1) / 2147483646;\n            };\n        }\n        const rng = createRandom(42);\n\n        const pointsLayer = document.getElementById('points-layer');\n        const readoutLength = document.getElementById('readout-length');\n        const readoutScore = document.getElementById('readout-score');\n\n        const NUM_POINTS = 18;\n        const points = [];\n        \n        // Generate baseline points\n        for (let i = 0; i < NUM_POINTS; i++) {\n            const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n            circle.setAttribute(\"r\", \"3.5\");\n            circle.setAttribute(\"fill\", \"var(--accent)\");\n            circle.setAttribute(\"opacity\", \"0.6\");\n            pointsLayer.appendChild(circle);\n            \n            points.push({\n                el: circle,\n                // Random offsets for each point relative to the mean cluster\n                offsetX: (rng() - 0.5) * 40,\n                offsetY: (rng() - 0.5) * 30\n            });\n        }\n\n        let startTime = null;\n        const duration = 8000; // 8 seconds per loop cycle\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let progress = ((timestamp - startTime) % duration) / duration;\n            \n            // Ping-pong or continuous loop? \n            // We want a sweep from short to long, then a quick reset.\n            // Using a slight ease-in-out for the sweep\n            const t = progress < 0.85 ? progress / 0.85 : 1 - (progress - 0.85) / 0.15;\n            const easedT = t * t * (3 - 2 * t);\n\n            // X-axis mapping: 0 to 1000 tokens\n            // Y-axis mapping: score 5 to 8.5\n            const meanX = 40 + (easedT * 300); // 40 is 0, 340 is ~880 tokens\n            const meanY = 110 - (easedT * 60);  // 110 is score 5, 50 is score 8.3\n\n            points.forEach(p => {\n                const px = meanX + p.offsetX;\n                const py = meanY + p.offsetY;\n                p.el.setAttribute(\"cx\", px);\n                p.el.setAttribute(\"cy\", py);\n            });\n\n            // Update readouts\n            const displayTokens = Math.floor(easedT * 920);\n            const displayScore = (5 + easedT * 3.4).toFixed(1);\n            \n            readoutLength.textContent = `${displayTokens} tokens`;\n            readoutScore.textContent = displayScore;\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The model exhibits Verbosity Bias, assigning higher scores to longer text even when accuracy stays constant."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "817d8378-7c68-40c1-ae64-131ef104c54e"
+}

@@ -1,0 +1,316 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the AP Biology Quantitative Inquiry and Modeling Portfolio! Over the course of this project, you will step into the role of a research scientist to build a professional-grade portfolio. You'll move from the microscopic scale of enzyme kinetics and membrane transport to the macroscopic scale of genetics and ecosystem modeling. By the end, you will have produced a 6-chapter scientific deliverable that includes Python scripts, statistical analyses, and predictive simulators. We begin our journey at the molecular level. In our recent sessions, we explored how the structure of macromolecules like proteins determines their function and how environmental factors like pH and temperature can disrupt those delicate geometries. In this first stage, you will translate those concepts into quantitative data by analyzing how enzyme activity responds to varying conditions.",
+     "step_title": "Project Launch & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief description of your chosen enzyme and a text-based version of your initial data table (Substrate Concentration vs. Reaction Rate). Good work will include units (e.g., mM and μmol/min) and a logical range of concentrations."
+     },
+     "step_body": "To calculate the efficiency of an enzyme, we first need to organize our raw data. For this project, assume you are working with a digestive enzyme like amylase. You have been provided with reaction rates (velocity, V) measured at various substrate concentrations ([S]). Start by setting up a table in a spreadsheet or a Python data frame. Your data should include at least five substrate concentrations and their corresponding reaction rates. Ensure you also note the constant conditions of your 'control' group, such as a set pH of 7 and a temperature of 37°C. Briefly describe the enzyme you are modeling and why its specific molecular structure makes it suited for its substrate.",
+     "step_title": "Organize Experimental Data",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated values for Vmax and Km. Include a short explanation of what a 'low Km' value would tell you about the enzyme's affinity for its substrate based on the molecular interactions we discussed in class."
+     },
+     "step_body": "Now, let's turn that data into biological insights. You need to determine two key parameters: Vmax (the maximum reaction velocity) and Km (the Michaelis constant, which indicates substrate affinity). While you can estimate these from a standard hyperbolic plot, scientists use a Lineweaver-Burk plot (a double-reciprocal plot of 1/V vs. 1/[S]) to find more precise values. Use your spreadsheet or a Python script to calculate the reciprocals and plot them. The y-intercept of your trendline is 1/Vmax, and the x-intercept is -1/Km. Perform these calculations now.",
+     "step_title": "Calculate Km and Vmax",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Enzymes are sensitive machines. Based on what we learned about hydrogen bonding and tertiary structure, predict what happens to your Vmax and Km if the temperature is increased to 60°C or if the pH drops to 2. At these extremes, the kinetic energy or the excess of H+ ions disrupts the non-covalent bonds holding the active site together. Draft a brief analysis (1-2 paragraphs) explaining the 'Structure-Function' relationship here: how does the physical unfolding (denaturation) manifest in your quantitative data?",
+     "step_title": "Analyze Environmental Disruptions",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 1 of your portfolio as a PDF. It must include: 1) The data table, 2) Two labeled plots (Rate vs. [S] and the Double-Reciprocal plot), 3) Calculated Km and Vmax with units, and 4) A scientific discussion explaining how molecular structure dictates these results and how denaturation would alter the graph."
+     },
+     "step_body": "It is time to assemble the first chapter of your portfolio. This document serves as the formal record of your enzyme inquiry. Combine your data tables, your kinetic plots (the Michaelis-Menten curve and the Lineweaver-Burk line), your calculated parameters (Vmax/Km), and your written discussion regarding structure-function relationships and environmental denaturation. This chapter sets the standard for the quantitative rigor required in the upcoming stages of your portfolio.",
+     "step_title": "Submit Portfolio Chapter 1",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "4846b69c-59d2-4a16-aaf5-8f411ff66d18",
+   "stage_title": "Chapter 1: Quantitative Enzyme Kinetics and Macromolecular Interaction Analysis",
+   "parent_project_id": "7ad811f4-c610-4fdc-8236-6e7b5e078cbb",
+   "stage_description": "Analyze experimental data regarding enzyme reaction rates under varying substrate concentrations, pH, and temperature. You will write a Python script or use a spreadsheet tool to calculate Km and Vmax values, interpreting how molecular structure determines functional output.",
+   "deliverable_increment": "Chapter 1 of the portfolio, including data analysis plots, calculated enzyme kinetic parameters (Vmax and Km), and a written scientific discussion of structure-function relationships."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you analyzed enzyme kinetics and the chemical properties of the plasma membrane. We saw that the membrane's structure—the fluid mosaic of lipids and proteins—determines what can enter or leave a cell. Now, we will transition from structure to quantitative dynamics. You will model how physical constraints like surface area, volume, and water potential dictate the survival and efficiency of a cell as it interacts with its environment. This work will form Chapter 2 of your portfolio.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your SA:V calculations for the three cell sizes and a brief (2-3 sentence) explanation of how the ratio change affects the rate of nutrient intake and waste removal. Good work will show accurate math and a clear link between a shrinking ratio and decreased diffusion efficiency."
+     },
+     "step_body": "Every cell is a 'metabolic factory' limited by its shipping docks (the membrane). To begin Chapter 2, you must demonstrate the geometric constraints on life. Model three hypothetical spherical cells with radii of 1μm, 10μm, and 100μm. Calculate the Surface-Area-to-Volume (SA:V) ratio for each using the formulas: SA = 4πr² and V = (4/3)πr³. Based on your results, explain why a cell cannot simply grow to the size of an apple and remain a single-celled organism without internal compartmentalization.",
+     "step_title": "Calculate cell scaling limits",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Ψs calculation and your prediction for the direction of water flow (into or out of the cell). Accuracy in applying the formula and identifying the movement from high to low potential is required."
+     },
+     "step_body": "Water moves according to the 'Water Potential' (Ψ) gradient, calculated as the sum of Pressure Potential (Ψp) and Solute Potential (Ψs). In an open container, Ψp is zero. Use the formula Ψs = -iCRT to calculate the solute potential of a 0.3M sucrose solution at 22°C (remember to convert to Kelvin and use the constant R = 0.0831 liter bars/mole-K). Then, predict the direction of water movement if a cell with an internal water potential of -5.5 bars is placed into this solution.",
+     "step_title": "Model water potential",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image of your transport velocity graph. Ensure the axes are labeled (x-axis: Concentration Gradient; y-axis: Rate of Transport) and that the two different transport mechanisms are clearly distinguished by their curve shapes."
+     },
+     "step_body": "Passive diffusion and facilitated transport respond differently to concentration gradients. Using a spreadsheet or graphing tool, sketch or generate two curves: one for simple diffusion (where rate increases linearly with concentration) and one for facilitated diffusion (where the rate levels off as carrier proteins become saturated). This visualizes the physical limit of transport proteins you studied in the previous session.",
+     "step_title": "Graph transport velocity",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit the completed Chapter 2 of your portfolio in PDF format. It must include: (1) SA:V data and analysis, (2) Water potential calculations and predictions, and (3) Transport velocity graphs. Success is defined by correct application of biological formulas and professional data presentation."
+     },
+     "step_body": "It is time to compile your findings into the Chapter 2 deliverable for your portfolio. This chapter should present a professional synthesis of your quantitative work. Organize your SA:V analysis, your water potential calculations with their biological implications, and your transport velocity graphs into a structured document. Include a brief summary discussing how these mathematical models explain the evolution of complex eukaryotic internal membranes (like the ER and Golgi) as a solution to volume constraints.",
+     "step_title": "Finalize Chapter 2",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Excellent work. You have now established how physical laws and water chemistry govern the 'open-concept' vs 'multi-room' designs of cells. This quantitative foundation is essential as we move into Chapter 3, where we will look at how the cell's internal machinery handles genetic information and complex inheritance. Take a moment to review your feedback on the enzyme kinetics from Chapter 1 to see if your data visualization skills are improving.",
+     "step_title": "Reflect and review",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "ee17ef5b-35d3-47c5-99ba-344127085930",
+   "stage_title": "Chapter 2: Membrane Transport and Water Potential Modeling",
+   "parent_project_id": "7ad811f4-c610-4fdc-8236-6e7b5e078cbb",
+   "stage_description": "Build a mathematical simulation of water potential and cell-to-environment transport dynamics. You will calculate solute potentials across different concentrations and model the rates of passive diffusion and active transport across a selectively permeable membrane.",
+   "deliverable_increment": "Chapter 2 of the portfolio, featuring calculated water potential problems, transport velocity graphs under different concentration gradients, and simulated cell surface-area-to-volume calculations."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to Chapter 3 of your portfolio. In the previous chapters, you modeled molecular interactions and membrane transport. Now, we move to the organismal level by connecting the mechanics of meiosis—specifically crossing over and independent assortment—to the physical location of genes. You will analyze phenotypic data from a 'test cross' to determine if specific traits are inherited together because they sit on the same chromosome, or separately because they are on different ones. This work will culminate in a chromosomal map that visualizes these biological relationships.",
+     "step_title": "Orient to genetic linkage",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Submit a diagram (hand-drawn or digital) of your genetic cross pathway. It must clearly label the P, F1, and Test Cross generations, include genotypes (e.g., BbVv), and identify which gametes are parental vs. recombinant."
+     },
+     "step_body": "Before performing the math, you must define the biological system. Choose two linked traits (e.g., body color and wing shape in Drosophila) and draft a genetic cross pathway diagram. Start with the Parent (P) generation crossing a homozygous dominant individual with a homozygous recessive individual. Show the resulting F1 dihybrid. Then, show the 'test cross' where that F1 is crossed back with a double-recessive parent. Label the potential gametes produced by the F1, highlighting where crossing over would create 'recombinant' genotypes versus 'parental' genotypes.",
+     "step_title": "Visualize the pathway",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide your Chi-Square calculation table. Include: Phenotypes, Observed counts, Expected counts, (o-e)²/e values, the total χ² sum, and your final p-value determination (is p < 0.05?). Specify whether you reject or fail to reject the null hypothesis of independent assortment."
+     },
+     "step_body": "Using the offspring data provided for your cross (or simulated data based on a 1:1:1:1 ratio for independent assortment), you must now determine if the observed deviation from expected values is statistically significant. Construct a Chi-Square table. Calculate the 'Expected' (e) values based on Mendel's Law of Independent Assortment and compare them to the 'Observed' (o) offspring counts. Use the formula (o-e)² / e for each phenotype to find your Chi-Square (χ²) value. Compare this to the critical value for your degrees of freedom.",
+     "step_title": "Perform Chi-Square analysis",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your recombination frequency calculation. Show the math: (Total Recombinants / Total Offspring) * 100 = X map units."
+     },
+     "step_body": "If your Chi-Square test indicated that the genes are linked (p < 0.05), you can now calculate the physical distance between them. This distance is measured in centimorgans (cM) or map units. To find this, divide the number of recombinant offspring by the total number of offspring and multiply by 100. This percentage represents the frequency of crossing over between those two loci.",
+     "step_title": "Calculate map units",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "The final component of this chapter is a visual representation of the chromosome. Draw a simple line to represent the chromosome and mark the relative positions of the genes you studied. Label the distance between them using the map units you just calculated. Ensure this diagram follows the standard conventions of a genetic linkage map, including gene symbols and the specific distance.",
+     "step_title": "Draft the chromosomal layout",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 3 of your portfolio as a PDF. Good work will include: 1) Accurate cross diagrams, 2) Complete χ² tables with correct p-value interpretation, 3) A clear chromosomal map with map units, and 4) A brief reflection on the biological mechanism of recombination."
+     },
+     "step_body": "Combine your cross pathway diagram, your Chi-Square statistical tables (including the null hypothesis conclusion), and your mapped chromosomal layout into a single document. This document forms Chapter 3 of your Quantitative Inquiry and Modeling Portfolio. Reflect briefly on how chromosomal distance influences the probability of a chiasma forming during Prophase I of meiosis.",
+     "step_title": "Submit Chapter 3",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "0935515d-d90c-468e-8526-5c70403fbc83",
+   "stage_title": "Chapter 3: Genetic Linkage Mapping and Chi-Square Statistical Analysis",
+   "parent_project_id": "7ad811f4-c610-4fdc-8236-6e7b5e078cbb",
+   "stage_description": "Use phenotypic offspring data from multi-generation Drosophila or plant crosses to construct a genetic linkage map. You will perform Chi-Square goodness-of-fit statistical tests to determine if genes are assorting independently or are physically linked on the same chromosome.",
+   "deliverable_increment": "Chapter 3 of the portfolio, containing genetic cross pathway diagrams, Chi-Square statistical tables with p-value calculations, and a mapped chromosomal layout showing map units (centimorgans)."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In previous sessions, we explored how allele frequencies (p and q) serve as a mathematical snapshot of a population's gene pool. We also established that the Hardy-Weinberg Principle acts as a null hypothesis: if frequencies change over time, microevolution is occurring. For Chapter 4 of your portfolio, you are going to move from static calculations to dynamic modeling. You will build a simulation that tracks how specific evolutionary forces—like natural selection and genetic drift—violate the H-W assumptions and drive population change.",
+     "step_title": "Recap and Model Setup",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a text description of your initial parameters: starting p and q frequencies, your chosen population size (e.g., N=1000), and the specific selection coefficient (s) you will apply to the recessive phenotype."
+     },
+     "step_body": "Before building your simulation in a spreadsheet (Excel/Google Sheets) or script (Python/R), you must define your starting parameters. Choose a starting frequency for a dominant allele 'p' and a recessive allele 'q' (ensuring p + q = 1). Next, decide on a 'Selection Coefficient' (s) for the homozygous recessive phenotype (aa). This value (between 0 and 1) represents the relative reduction in fitness; for example, s=0.2 means the 'aa' individuals are 20% less likely to survive and reproduce compared to 'AA' individuals. Describe your initial population size, starting frequencies, and your chosen selection pressure.",
+     "step_title": "Define Your Variables",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, build your simulation to run for at least 50 generations. Your model should calculate the number of individuals for each genotype (AA, Aa, aa) in each generation based on the current allele frequencies, apply your selection coefficient to the 'aa' group to determine the surviving 'breeders,' and then calculate the new p and q for the next generation. This creates a feedback loop. Observe the 'Selection Coefficient Impact Table' as it populates. Does the recessive allele disappear entirely, or does it persist in the heterozygotes?",
+     "step_title": "Construct the Dynamic Model",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short reflection (1-2 paragraphs) comparing your results from the large vs. small population runs. Explain how population size influenced the predictability of your model."
+     },
+     "step_body": "A key part of Chapter 4 is contrasting Natural Selection with Genetic Drift. Run your simulation twice: once with a massive population (N=10,000) and once with a very small population (N=20). In the small population, you will likely see allele frequencies fluctuate wildly regardless of selection—this is genetic drift. Capture the data from these runs. How do these two forces interact when the population is small? Does drift ever 'overpower' selection?",
+     "step_title": "Analyze Drift and Selection",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image (screenshot or exported chart) of your generation-by-generation allele frequency plot. A high-quality graph will have labeled axes, a title, and clear lines for both p and q."
+     },
+     "step_body": "Visualizing data is crucial for your portfolio. Create a multi-line graph showing the frequency of 'p' and 'q' over 50 generations for your primary selection scenario. Ensure your axes are clearly labeled and include a figure legend. This graph provides the visual proof of microevolutionary change—specifically, the shift in the gene pool you've been tracking mathematically.",
+     "step_title": "Generate Visual Evidence",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload the complete Chapter 4 of your portfolio as a PDF. It must include: (1) Initial parameters, (2) Selection impact table, (3) Allele frequency graphs, and (4) A formal scientific discussion/conclusion linking the math to biological theory."
+     },
+     "step_body": "It's time to assemble Chapter 4. Combine your parameter definitions, your Selection Coefficient Impact Table (showing the numerical change over time), your frequency plots, and a formal conclusion. Your conclusion should be framed as a scientific hypothesis test: state your null hypothesis (H-W equilibrium), explain why it was rejected based on your data, and identify which specific evolutionary force (selection, drift, etc.) was the primary driver of change.",
+     "step_title": "Final Portfolio Submission",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "587481cd-62c7-4264-a08c-bf22b1ac5ae1",
+   "stage_title": "Chapter 4: Hardy-Weinberg Population Genetics Simulation",
+   "parent_project_id": "7ad811f4-c610-4fdc-8236-6e7b5e078cbb",
+   "stage_description": "Construct a dynamic spreadsheet or script that models natural selection, genetic drift, and gene flow across multiple generations. You will test how violating Hardy-Weinberg assumptions shifts allele and genotype frequencies over time.",
+   "deliverable_increment": "Chapter 4 of the portfolio, including generation-by-generation allele frequency plots, selection coefficient impact tables, and a formal scientific hypothesis test of microevolutionary change."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to Chapter 5. In our previous stages, we’ve analyzed everything from the microscopic level of enzymes to the macroscopic level of population genetics. Now, we zoom out to the level of the ecosystem. In Unit 6, we explored the hierarchy of ecological organization and the mathematical foundations of population growth. In this stage, you will move from theory to simulation, building the mathematical models that represent how populations grow, compete for resources, and respond to environmental stressors like climate change. This will form the fifth chapter of your final portfolio.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated value for 'r', the result for 'dN/dt', and a brief explanation (2-3 sentences) of why the number of individuals added increases as 'N' grows. Good work shows accurate arithmetic and a clear understanding of the relationship between per capita rates and total population growth."
+     },
+     "step_body": "Before we simulate, let's ensure the math is sound. Recall the intrinsic growth rate formula: r = b - d. If a population of 500 sea otters has a per capita birth rate (b) of 0.2 and a per capita death rate (d) of 0.05, calculate the intrinsic growth rate (r). Then, determine the change in population size (dN/dt) for the next time interval using the exponential growth model: dN/dt = rN. Explain why the total number of individuals added changes even if 'r' remains constant.",
+     "step_title": "Calculate growth rates",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your logistic growth graph. Ensure the axes are labeled (Time on X, Population Size on Y). In your submission, state the population size (N) at which the growth rate was highest."
+     },
+     "step_body": "In the real world, resources are finite. You will now transition from exponential (J-curve) to logistic (S-curve) growth by introducing Carrying Capacity (K). Draft a simulation (you can use a spreadsheet or a script) that plots population size over 50 generations where r = 0.1, initial population N = 10, and K = 1000. Observe how the 'feedback modifier' term ((K-N)/K) slows growth as N approaches K. Identify the 'inflection point'—the population size where the growth rate is at its absolute maximum.",
+     "step_title": "Model logistic growth",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short analysis of your simulation results. Define whether the drought is a density-dependent or density-independent factor and describe the specific behavior of the curve after generation 25."
+     },
+     "step_body": "Carrying capacity is dynamic, not fixed. Simulate a 'climate disruption' scenario. Start with the same parameters as the previous step, but at generation 25, simulate an abiotic factor (like a prolonged drought) that reduces the carrying capacity (K) by 50%. Describe how the population responds: Does it stabilize at the new K immediately, or is there an 'overshoot and dieback' pattern? Analyze if this is a density-dependent or density-independent reaction based on your Unit 6 readings.",
+     "step_title": "Conduct sensitivity analysis",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 5 of your portfolio as a PDF. It must include your growth simulations, labeled graphs, and the written ecological projection report. Success is defined by the accurate use of the logistic growth equation and a logical connection between abiotic changes and carrying capacity shifts."
+     },
+     "step_body": "It's time to compile your findings into a formal report for your portfolio. Your report should include: 1) The mathematical comparison between exponential and logistic models, 2) Your graphs showing stable vs. disrupted carrying capacity, and 3) An ecological projection report discussing how climate-driven changes in abiotic factors (like temperature or water) might shift the K for a specific real-world species of your choice. Ensure your discussion uses professional terminology such as 'per capita rate' and 'environmental resistance'.",
+     "step_title": "Finalize Chapter 5 report",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit6",
+   "stage_id": "b67d7785-b51b-4a97-b1ab-056febceed74",
+   "stage_title": "Chapter 5: Mathematical Modeling of Population Dynamics and Carrying Capacity",
+   "parent_project_id": "7ad811f4-c610-4fdc-8236-6e7b5e078cbb",
+   "stage_description": "Develop and graph mathematical models representing exponential and logistic population growth. You will simulate how changes in carrying capacity (K) and intrinsic growth rate (r) impact population stability and ecosystem equilibrium.",
+   "deliverable_increment": "Chapter 5 of the portfolio, containing logistic growth curve simulations, carrying capacity sensitivity analyses, and a written ecological projection report under climate-disruption scenarios."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "7ad811f4-c610-4fdc-8236-6e7b5e078cbb",
+   "project_name": "AP Biology Quantitative Inquiry and Modeling Portfolio",
+   "final_deliverable": "A comprehensive 6-chapter scientific inquiry portfolio (PDF format) containing an enzyme kinetic modeling script and analysis, a membrane transport and water potential simulator, a simulated genetic linkage map with statistical chi-square tests, an interactive Hardy-Weinberg population simulator, and a complete predator-prey ecosystem dynamic model with carrying capacity projections.",
+   "project_description": "Throughout this course, you will build a comprehensive, publication-style scientific inquiry portfolio. You will apply mathematical modeling, analyze real-world quantitative data sets, and design theoretical experiments that directly address the fundamental concepts of biological systems, from biochemical kinetics up to ecosystem dynamics."
+  }
+ ],
+ "courseUuid": "c93d78cc-deaf-493e-b1f8-0f5b384f1632"
+}

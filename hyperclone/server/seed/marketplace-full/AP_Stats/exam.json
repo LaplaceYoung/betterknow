@@ -1,0 +1,1323 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Exam: Exploring and Collecting Data",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following is the best example of a statistical question?",
+     "options": [
+      "How many goals did the varsity soccer team score in their game last night?",
+      "What is the high temperature recorded at the local airport on July 4th, 2023?",
+      "How many text messages do high school students typically send in a day?",
+      "What is the official height of the Empire State Building in New York City?"
+     ],
+     "explanation": "A statistical question anticipates and accounts for variability in the data. While the other options seek a single deterministic fact, the number of text messages varies among different students, requiring the collection and analysis of a distribution of data.",
+     "correctAnswers": [
+      "How many text messages do high school students typically send in a day?"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A researcher is studying the health of trees in a large national park. For each tree, they record the species, the diameter of the trunk (in centimeters), the presence of any pests (Yes/No), and the GPS coordinates. Which of the following are categorical variables in this dataset?",
+     "options": [
+      "Tree species",
+      "Trunk diameter",
+      "Presence of pests",
+      "GPS coordinates",
+      "The individual tree"
+     ],
+     "explanation": "Species and pest presence are qualitative descriptors. GPS coordinates, while numeric, function as labels for location and fail the 'average test' (averaging them doesn't yield a meaningful central measurement). Trunk diameter is quantitative, and the tree is the individual, not a variable.",
+     "correctAnswers": [
+      "Tree species",
+      "Presence of pests",
+      "GPS coordinates"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a dataset where rows represent individual classroom sessions and columns represent the teacher's name and number of desks, the 'individual' or observational unit is the ____.",
+     "explanation": "The individual is the entity from which information is collected. In this grid structure, each row corresponds to a specific session, regardless of who is in the room.",
+     "placeholder": "e.g., student",
+     "correctAnswers": [
+      "classroom session",
+      "session",
+      "class session"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A student calculates the 'average' of five residential ZIP codes in their neighborhood. Why is this result statistically invalid as a measure of center?",
+     "options": [
+      "The sample size is too small to calculate an average.",
+      "ZIP codes are categorical variables, so arithmetic operations are meaningless.",
+      "The distribution of ZIP codes is likely skewed to the right.",
+      "The average is only valid if the ZIP codes are recorded in a frequency table."
+     ],
+     "explanation": "ZIP codes are numerical labels used for classification, not quantitative measurements. Because they fail the 'average test'—the resulting number does not describe a physical midpoint—they are treated as categorical.",
+     "correctAnswers": [
+      "ZIP codes are categorical variables, so arithmetic operations are meaningless."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary components of a well-designed randomized experiment? Select all that apply.",
+     "options": [
+      "Random assignment of subjects to treatments",
+      "A control group or comparison group",
+      "Replication using enough experimental units",
+      "A census of the entire population",
+      "Blocking for all possible variables"
+     ],
+     "explanation": "Random assignment, control/comparison, and replication are core pillars of experimental design. A census is a sampling method, and blocking is used for specific known variables but is not always required for all variables.",
+     "correctAnswers": [
+      "Random assignment of subjects to treatments",
+      "A control group or comparison group",
+      "Replication using enough experimental units"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If a distribution is heavily skewed to the left, the ____ is typically less than the median.",
+     "explanation": "In a left-skewed distribution, the long tail of low values pulls the mean toward the left, making it smaller than the median.",
+     "placeholder": "measure of center",
+     "correctAnswers": [
+      "mean",
+      "arithmetic mean"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a relative frequency table, what must the sum of all proportions (expressed as decimals) theoretically equal?",
+     "options": [
+      "The total count of individuals (n)",
+      "0.5",
+      "1.0",
+      "100"
+     ],
+     "explanation": "Relative frequencies represent parts of a whole; therefore, the sum of all proportions must equal 1 (representing 100% of the data), though rounding may cause slight variations in practice.",
+     "correctAnswers": [
+      "1.0"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When describing a quantitative distribution using 'SOCS', which of the following must be addressed?",
+     "options": [
+      "Shape",
+      "Outliers",
+      "Sample Size",
+      "Center",
+      "Spread"
+     ],
+     "explanation": "SOCS stands for Shape, Outliers, Center, and Spread. While sample size is important for inference, it is not part of the standard SOCS descriptive framework.",
+     "correctAnswers": [
+      "Shape",
+      "Outliers",
+      "Center",
+      "Spread"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A ____ is a type of observational study that looks back at existing records or interviews to investigate the causes of a condition.",
+     "explanation": "Retrospective studies examine data that has already occurred, whereas prospective studies follow subjects into the future.",
+     "placeholder": "type of study",
+     "correctAnswers": [
+      "retrospective study",
+      "retrospective"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "A chart showing stacked bars for categories vs a histogram with bins.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/f2257433-6ca6-4951-acaf-e681bd179f96/exam/images/unit1-q10.png"
+     },
+     "prompt": "Which visual display is most appropriate for showing the relationship between two categorical variables?",
+     "options": [
+      "Histogram",
+      "Side-by-side boxplots",
+      "Segmented bar chart",
+      "Stem-and-leaf plot"
+     ],
+     "explanation": "Segmented bar charts (and side-by-side bar charts) are designed to show proportions within categories of another variable. Histograms and boxplots are for quantitative data.",
+     "correctAnswers": [
+      "Segmented bar chart"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "An experimenter wants to test a new fertilizer. They have 20 plots of land: 10 in a sunny valley and 10 on a shaded hillside. If they assign the new fertilizer to the valley and the old fertilizer to the hillside, which of the following occur?",
+     "options": [
+      "Confounding",
+      "Randomization",
+      "A clear cause-and-effect relationship",
+      "Bias in the results",
+      "A blocked design"
+     ],
+     "explanation": "The effect of the fertilizer is mixed (confounded) with the effect of the sunlight. Because the treatments were not randomized or properly blocked, the results are biased.",
+     "correctAnswers": [
+      "Confounding",
+      "Bias in the results"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ is the distance between the first and third quartiles, representing the middle 50% of the data.",
+     "explanation": "The Interquartile Range (IQR) measures the spread of the middle half of the distribution.",
+     "placeholder": "Abbreviation or full name",
+     "correctAnswers": [
+      "IQR",
+      "Interquartile Range"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Using the 1.5 x IQR rule, if Q1 = 20 and Q3 = 50, which value would be considered an outlier?",
+     "options": [
+      "5",
+      "35",
+      "90",
+      "100"
+     ],
+     "explanation": "IQR = 50 - 20 = 30. The upper boundary is Q3 + 1.5(IQR) = 50 + 45 = 95. Since 100 > 95, it is an outlier. The lower boundary is 20 - 45 = -25, so 5 is not an outlier.",
+     "correctAnswers": [
+      "100"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are resistant measures (not strongly influenced by extreme outliers)?",
+     "options": [
+      "Mean",
+      "Median",
+      "Interquartile Range (IQR)",
+      "Standard Deviation",
+      "Range"
+     ],
+     "explanation": "The median and IQR are based on the position of data rather than the specific values of the tails, making them resistant to outliers. Mean, Range, and Standard Deviation all incorporate the values of outliers, which can distort them.",
+     "correctAnswers": [
+      "Median",
+      "Interquartile Range (IQR)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "A histogram and boxplot showing the same skewed data distribution.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/f2257433-6ca6-4951-acaf-e681bd179f96/exam/images/unit1-q15.png"
+     },
+     "prompt": "What is the primary advantage of using a boxplot over a histogram for a single dataset?",
+     "options": [
+      "It shows the frequency of every individual data point.",
+      "It clearly displays the five-number summary and outliers.",
+      "It is better for showing the exact shape of a multi-modal distribution.",
+      "It can be used for both categorical and quantitative data."
+     ],
+     "explanation": "Boxplots are excellent for summarizing the center and spread via the five-number summary and identifying outliers, though they hide features like gaps or multiple modes that histograms show.",
+     "correctAnswers": [
+      "It clearly displays the five-number summary and outliers."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following would be considered quantitative variables?",
+     "options": [
+      "Weight of a package",
+      "Number of siblings",
+      "Time spent studying",
+      "Rating of a movie (1 to 5 stars)",
+      "Phone number"
+     ],
+     "explanation": "Weight, count of siblings, and time are measurements/counts where averages are meaningful. Movie ratings are ordinal (categorical), and phone numbers are identifiers (categorical).",
+     "correctAnswers": [
+      "Weight of a package",
+      "Number of siblings",
+      "Time spent studying"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "image": {
+      "alt": "Illustration of stratified sampling with strata and random selection.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/f2257433-6ca6-4951-acaf-e681bd179f96/exam/images/unit1-q17.png"
+     },
+     "prompt": "A sample is chosen by dividing the population into groups based on age and then taking a simple random sample from each age group. What is this sampling method called?",
+     "options": [
+      "Cluster sampling",
+      "Systematic sampling",
+      "Stratified random sampling",
+      "Convenience sampling"
+     ],
+     "explanation": "Stratified sampling involves dividing the population into 'strata' (homogeneous groups like age) and sampling from each to ensure representation.",
+     "correctAnswers": [
+      "Stratified random sampling"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Adjust the data points on the scale to create a distribution where the standard deviation is as small as possible.",
+     "options": [
+      "All points are clustered at the exact same value",
+      "Points are spread evenly across the entire range",
+      "Points are split into two groups at the far ends",
+      "Points follow a bell-shaped curve"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Standard Deviation Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Top Stats Bar */\n    .stats-bar {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 8px 16px;\n    }\n\n    .stat-box {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n    }\n\n    .stat-label {\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      color: var(--muted-fg);\n    }\n\n    .stat-value {\n      font-size: 18px;\n      font-weight: 700;\n      color: var(--accent-strong);\n      font-variant-numeric: tabular-nums;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      position: relative;\n      height: 120px;\n      touch-action: none;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    .track {\n      stroke: #d0cbd8;\n      stroke-width: 4px;\n      stroke-linecap: round;\n    }\n\n    .tick {\n      stroke: #d0cbd8;\n      stroke-width: 2px;\n    }\n\n    .tick-text {\n      fill: var(--muted-fg);\n      font-size: 10px;\n      font-weight: 500;\n      text-anchor: middle;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .dot-node {\n      cursor: grab;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .dot-node:active {\n      cursor: grabbing;\n    }\n\n    .dot-node circle {\n      fill: var(--accent);\n      stroke: var(--surface);\n      stroke-width: 1.5px;\n      filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.15));\n      transition: fill 0.2s, stroke-width 0.2s;\n    }\n\n    .dot-node.dragging circle {\n      fill: var(--accent-strong);\n      stroke-width: 2.5px;\n    }\n\n    /* Answer States / Categories */\n    .categories-grid {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n    }\n\n    .category-card {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 10px;\n      display: flex;\n      align-items: center;\n      gap: 8px;\n      transition: all 0.2s cubic-bezier(.4,0,.2,1);\n    }\n\n    .category-card.active {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      box-shadow: 0 0 0 1px var(--accent);\n    }\n\n    .radio-indicator {\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      border: 1.5px solid var(--border);\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-shrink: 0;\n      transition: all 0.2s;\n    }\n\n    .category-card.active .radio-indicator {\n      border-color: var(--accent);\n      background: var(--accent);\n    }\n\n    .category-card.active .radio-indicator::after {\n      content: '';\n      width: 4px;\n      height: 4px;\n      border-radius: 50%;\n      background: var(--surface);\n    }\n\n    .category-text {\n      font-size: 12px;\n      font-weight: 500;\n      line-height: 1.3;\n      color: var(--fg);\n    }\n\n    .category-card.active .category-text {\n      color: var(--accent-strong);\n      font-weight: 600;\n    }\n\n    .action-hint {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -2px;\n    }\n\n    /* Lock state */\n    .locked {\n      pointer-events: none !important;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Standard Deviation Simulator</h1>\n\n  <div id=\"widget-container\">\n    <!-- Live Stats -->\n    <div class=\"stats-bar\">\n      <div class=\"stat-box\">\n        <span class=\"stat-label\">Mean (μ)</span>\n        <div id=\"mean-val\" class=\"stat-value\">50.0</div>\n      </div>\n      <div class=\"stat-box\">\n        <span class=\"stat-label\">Std Dev (σ)</span>\n        <div id=\"sd-val\" class=\"stat-value\">0.0</div>\n      </div>\n    </div>\n\n    <!-- Interactive Track -->\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 120\" preserveAspectRatio=\"none\">\n        <!-- Number Line Track -->\n        <line x1=\"30\" y1=\"90\" x2=\"370\" y2=\"90\" class=\"track\" />\n        \n        <!-- Ticks -->\n        <line x1=\"30\" y1=\"90\" x2=\"30\" y2=\"96\" class=\"tick\" />\n        <text x=\"30\" y=\"110\" class=\"tick-text\">0</text>\n\n        <line x1=\"115\" y1=\"90\" x2=\"115\" y2=\"95\" class=\"tick\" />\n        <text x=\"115\" y=\"110\" class=\"tick-text\">25</text>\n\n        <line x1=\"200\" y1=\"90\" x2=\"200\" y2=\"96\" class=\"tick\" />\n        <text x=\"200\" y=\"110\" class=\"tick-text\">50</text>\n\n        <line x1=\"285\" y1=\"90\" x2=\"285\" y2=\"95\" class=\"tick\" />\n        <text x=\"285\" y=\"110\" class=\"tick-text\">75</text>\n\n        <line x1=\"370\" y1=\"90\" x2=\"370\" y2=\"96\" class=\"tick\" />\n        <text x=\"370\" y=\"110\" class=\"tick-text\">100</text>\n\n        <!-- Draggable dots container -->\n        <g id=\"dots-container\"></g>\n      </svg>\n    </div>\n\n    <!-- Hidden / Highlightable Option Cards -->\n    <div class=\"categories-grid\" role=\"radiogroup\" aria-label=\"Distribution shapes\">\n      <div class=\"category-card\" id=\"opt-cluster\">\n        <div class=\"radio-indicator\"></div>\n        <span class=\"category-text\">All points are clustered at the exact same value</span>\n      </div>\n      <div class=\"category-card\" id=\"opt-even\">\n        <div class=\"radio-indicator\"></div>\n        <span class=\"category-text\">Points are spread evenly across the entire range</span>\n      </div>\n      <div class=\"category-card\" id=\"opt-split\">\n        <div class=\"radio-indicator\"></div>\n        <span class=\"category-text\">Points are split into two groups at the far ends</span>\n      </div>\n      <div class=\"category-card\" id=\"opt-bell\">\n        <div class=\"radio-indicator\"></div>\n        <span class=\"category-text\">Points follow a bell-shaped curve</span>\n      </div>\n    </div>\n\n    <div class=\"action-hint\">Drag the dots to change the distribution shapes.</div>\n  </div>\n\n  <script>\n    // State\n    const NUM_DOTS = 10;\n    // Initial configuration: slightly spread out so the student sees they can move them\n    let dots = [20, 25, 35, 45, 50, 50, 55, 65, 75, 80];\n    let activeDotIndex = null;\n    let grabOffset = 0;\n    let isLocked = false;\n    let currentReportedAnswer = \"\";\n\n    const OPTIONS = {\n      CLUSTER: \"All points are clustered at the exact same value\",\n      EVEN: \"Points are spread evenly across the entire range\",\n      SPLIT: \"Points are split into two groups at the far ends\",\n      BELL: \"Points follow a bell-shaped curve\"\n    };\n\n    // DOM Elements\n    const stageArea = document.getElementById('stage-area');\n    const dotsContainer = document.getElementById('dots-container');\n    const meanValEl = document.getElementById('mean-val');\n    const sdValEl = document.getElementById('sd-val');\n    \n    const cardCluster = document.getElementById('opt-cluster');\n    const cardEven = document.getElementById('opt-even');\n    const cardSplit = document.getElementById('opt-split');\n    const cardBell = document.getElementById('opt-bell');\n\n    // Bounds configuration\n    const trackLeftX = 30;\n    const trackRightX = 370;\n    const trackWidth = trackRightX - trackLeftX;\n\n    // Initialize dots in DOM\n    function initDots() {\n      dotsContainer.innerHTML = '';\n      for (let i = 0; i < NUM_DOTS; i++) {\n        const g = document.createElementNS(\"http://www.w3.org/2000/svg\", \"g\");\n        g.setAttribute('class', 'dot-node');\n        g.setAttribute('data-index', i);\n        \n        const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n        circle.setAttribute('r', '8');\n        g.appendChild(circle);\n        \n        dotsContainer.appendChild(g);\n\n        // Pointer handlers\n        g.addEventListener('pointerdown', onPointerDown);\n      }\n      updatePositions();\n    }\n\n    // Convert normalized value (0-100) to SVG local X coordinate\n    function valToX(val) {\n      return trackLeftX + (val / 100) * trackWidth;\n    }\n\n    // Convert SVG local X coordinate to normalized value (0-100)\n    function xToVal(x) {\n      const val = ((x - trackLeftX) / trackWidth) * 100;\n      return Math.max(0, Math.min(100, val));\n    }\n\n    // Stacking offset logic to handle overlapping dots beautifully\n    function updatePositions() {\n      // Calculate stacking\n      const sortedWithIndices = dots\n        .map((val, idx) => ({ val, idx }))\n        .sort((a, b) => a.val - b.val);\n\n      const stackCounts = {};\n      const offsets = new Array(NUM_DOTS).fill(0);\n\n      // Group close values to stack them vertically\n      const threshold = 2.5; // percent spacing threshold for vertical stacking\n      for (let i = 0; i < sortedWithIndices.length; i++) {\n        let current = sortedWithIndices[i];\n        let stackLevel = 0;\n        \n        // Check backwards to see if we stack on previous items\n        for (let j = i - 1; j >= 0; j--) {\n          if (Math.abs(current.val - sortedWithIndices[j].val) < threshold) {\n            stackLevel = offsets[sortedWithIndices[j].idx] + 1;\n            break;\n          }\n        }\n        offsets[current.idx] = stackLevel;\n      }\n\n      // Update actual DOM elements\n      const dotElements = dotsContainer.children;\n      for (let i = 0; i < NUM_DOTS; i++) {\n        const x = valToX(dots[i]);\n        const y = 84 - offsets[i] * 13; // Stack upwards from track\n        dotElements[i].setAttribute('transform', `translate(${x}, ${y})`);\n      }\n\n      calculateStats();\n    }\n\n    function calculateStats() {\n      // Mean\n      const sum = dots.reduce((a, b) => a + b, 0);\n      const mean = sum / NUM_DOTS;\n\n      // Variance\n      const variance = dots.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / NUM_DOTS;\n      const sd = Math.sqrt(variance);\n\n      meanValEl.textContent = mean.toFixed(1);\n      sdValEl.textContent = sd.toFixed(1);\n\n      classifyDistribution(mean, sd);\n    }\n\n    function classifyDistribution(mean, sd) {\n      const sorted = [...dots].sort((a, b) => a - b);\n      \n      // Calculate Mean Absolute Deviation (MAD)\n      const mad = sorted.reduce((sum, val) => sum + Math.abs(val - mean), 0) / NUM_DOTS;\n\n      // 1. CLUSTER\n      // If points are extremely close together\n      if (mad < 4.5 || (sorted[9] - sorted[0]) <= 10) {\n        selectCategory(OPTIONS.CLUSTER);\n        return;\n      }\n\n      // Archetype Distance Matcher\n      // Compute Mean Absolute Error (MAE) compared to normalized theoretical shapes\n      const T_split = [0, 0, 0, 0, 0, 100, 100, 100, 100, 100];\n      const T_even = [5, 15, 25, 35, 45, 55, 65, 75, 85, 95];\n      const T_bell = [15, 30, 42, 48, 50, 50, 52, 58, 70, 85];\n\n      let maeSplit = 0;\n      let maeEven = 0;\n      let maeBell = 0;\n\n      for (let i = 0; i < NUM_DOTS; i++) {\n        maeSplit += Math.abs(sorted[i] - T_split[i]);\n        maeEven += Math.abs(sorted[i] - T_even[i]);\n        maeBell += Math.abs(sorted[i] - T_bell[i]);\n      }\n\n      maeSplit /= NUM_DOTS;\n      maeEven /= NUM_DOTS;\n      maeBell /= NUM_DOTS;\n\n      // Find minimum MAE to classify\n      let bestMatch = OPTIONS.EVEN;\n      let minMae = maeEven;\n\n      if (maeSplit < minMae) {\n        minMae = maeSplit;\n        bestMatch = OPTIONS.SPLIT;\n      }\n      if (maeBell < minMae) {\n        minMae = maeBell;\n        bestMatch = OPTIONS.BELL;\n      }\n\n      // Fine tune splits/bell boundaries for extreme cases\n      if (sd > 40 && maeSplit < 18) {\n        bestMatch = OPTIONS.SPLIT;\n      }\n\n      selectCategory(bestMatch);\n    }\n\n    function selectCategory(optionText) {\n      // Highlight active card\n      [cardCluster, cardEven, cardSplit, cardBell].forEach(card => card.classList.remove('active'));\n\n      if (optionText === OPTIONS.CLUSTER) cardCluster.classList.add('active');\n      else if (optionText === OPTIONS.EVEN) cardEven.classList.add('active');\n      else if (optionText === OPTIONS.SPLIT) cardSplit.classList.add('active');\n      else if (optionText === OPTIONS.BELL) cardBell.classList.add('active');\n\n      if (currentReportedAnswer !== optionText) {\n        currentReportedAnswer = optionText;\n        parent.postMessage({ type: 'hk-practice-answer', value: optionText }, '*');\n      }\n    }\n\n    // Drag Implementation with Grab Offset Preservation\n    function onPointerDown(e) {\n      if (isLocked) return;\n      \n      const node = e.currentTarget;\n      activeDotIndex = parseInt(node.getAttribute('data-index'));\n      node.classList.add('dragging');\n      node.setPointerCapture(e.pointerId);\n\n      // SVG coordinate space conversion\n      const svg = stageArea.querySelector('svg');\n      const rect = svg.getBoundingClientRect();\n      const clientX = e.clientX - rect.left;\n      const localX = (clientX / rect.width) * 400; // 400 is viewBox width\n\n      // Store offset so grab is seamless\n      const currentX = valToX(dots[activeDotIndex]);\n      grabOffset = localX - currentX;\n\n      window.addEventListener('pointermove', onPointerMove);\n      window.addEventListener('pointerup', onPointerUp);\n    }\n\n    function onPointerMove(e) {\n      if (activeDotIndex === null) return;\n\n      const svg = stageArea.querySelector('svg');\n      const rect = svg.getBoundingClientRect();\n      const clientX = e.clientX - rect.left;\n      const localX = (clientX / rect.width) * 400;\n\n      // New X coordinate applying stored offset\n      const newX = Math.max(trackLeftX, Math.min(trackRightX, localX - grabOffset));\n      dots[activeDotIndex] = xToVal(newX);\n\n      updatePositions();\n    }\n\n    function onPointerUp(e) {\n      if (activeDotIndex !== null) {\n        const node = dotsContainer.children[activeDotIndex];\n        if (node) {\n          node.classList.remove('dragging');\n          node.releasePointerCapture(e.pointerId);\n        }\n      }\n      activeDotIndex = null;\n      window.removeEventListener('pointermove', onPointerMove);\n      window.removeEventListener('pointerup', onPointerUp);\n    }\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('widget-container').classList.add('locked');\n      }\n    });\n\n    // Height reporter\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    // Initialize layout\n    window.addEventListener('load', () => {\n      initDots();\n      reportHeight();\n    });\n\n    const observer = new ResizeObserver(() => reportHeight());\n    observer.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "All points are clustered at the exact same value"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Exam: Probability and Random Variables",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a simulation is conducted to estimate the probability of three consecutive heads appearing in ten coin tosses, which of the following represents the 'response variable' in the simulation design?",
+     "options": [
+      "A single coin toss (Heads or Tails)",
+      "Whether or not three consecutive heads occurred in ten flips",
+      "The assumption that the coin is fair",
+      "The total number of coins available to flip"
+     ],
+     "explanation": "The response variable measures the outcome of a trial; in this case, the trial is the set of ten flips, and the outcome we track is the binary success of meeting the 'three heads' criteria.",
+     "correctAnswers": [
+      "Whether or not three consecutive heads occurred in ten flips"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following conditions must be true for two events, A and B, to be considered mutually exclusive (disjoint)?",
+     "options": [
+      "P(A and B) = 0",
+      "P(A or B) = P(A) + P(B)",
+      "P(A | B) = P(A)",
+      "The events cannot occur at the same time",
+      "The events must be independent"
+     ],
+     "explanation": "Mutually exclusive events have no overlap (intersection is 0), which simplifies the addition rule. Independence is a separate concept and is actually impossible for disjoint events (unless one has probability 0).",
+     "correctAnswers": [
+      "P(A and B) = 0",
+      "P(A or B) = P(A) + P(B)",
+      "The events cannot occur at the same time"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The Law of Large Numbers states that as the number of trials increases, the ____ probability (the observed ratio) will converge toward the theoretical probability.",
+     "placeholder": "type of probability",
+     "correctAnswers": [
+      "empirical",
+      "observed",
+      "relative frequency"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A school reports that 60% of students play a sport, 40% play an instrument, and 20% do both. What is the probability that a randomly selected student plays a sport OR an instrument?",
+     "options": [
+      "100%",
+      "80%",
+      "20%",
+      "60%"
+     ],
+     "explanation": "Using the General Addition Rule: P(Sport or Instrument) = P(Sport) + P(Instrument) - P(Both) = 0.60 + 0.40 - 0.20 = 0.80.",
+     "correctAnswers": [
+      "80%"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following mathematical statements can be used to prove that Event A and Event B are independent?",
+     "options": [
+      "P(A | B) = P(A)",
+      "P(B | A) = P(B)",
+      "P(A and B) = P(A) * P(B)",
+      "P(A and B) = 0",
+      "P(A or B) = P(A) + P(B)"
+     ],
+     "explanation": "Independence means the occurrence of one does not change the probability of the other. P(A and B) = 0 defines mutually exclusive events, not independent ones.",
+     "correctAnswers": [
+      "P(A | B) = P(A)",
+      "P(B | A) = P(B)",
+      "P(A and B) = P(A) * P(B)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If P(A) = 0.3 and P(B) = 0.4, and A and B are independent, then P(A and B) = ____.",
+     "placeholder": "0.00",
+     "correctAnswers": [
+      "0.12",
+      ".12"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a deck of 52 cards, are the events 'Drawing a Heart' and 'Drawing a Queen' mutually exclusive?",
+     "options": [
+      "Yes, because a card can only be one rank",
+      "Yes, because hearts are a suit and queens are a rank",
+      "No, because the Queen of Hearts exists",
+      "No, because there are 4 queens and 13 hearts"
+     ],
+     "explanation": "Events are mutually exclusive only if they cannot occur simultaneously. Since it is possible to draw a card that is both a Heart and a Queen, the events overlap.",
+     "correctAnswers": [
+      "No, because the Queen of Hearts exists"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A diagnostic test for a rare disease has a 99% sensitivity (P(Positive | Disease) = 0.99). Which of the following statements about this scenario are true?",
+     "options": [
+      "P(Positive | Disease) is the same as P(Disease | Positive)",
+      "The probability P(Disease | Positive) depends on the overall prevalence of the disease",
+      "Multiplying P(Disease) by P(Positive | Disease) gives the probability of having the disease and testing positive",
+      "Confusing P(A|B) with P(B|A) is known as the confusion of the inverse"
+     ],
+     "explanation": "Conditional probabilities are not reversible (P(A|B) ≠ P(B|A)). To find P(Disease | Positive), you must use Bayes' theorem which incorporates the general population prevalence.",
+     "correctAnswers": [
+      "The probability P(Disease | Positive) depends on the overall prevalence of the disease",
+      "Multiplying P(Disease) by P(Positive | Disease) gives the probability of having the disease and testing positive",
+      "Confusing P(A|B) with P(B|A) is known as the confusion of the inverse"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In a probability distribution for a discrete random variable X, the sum of all P(X) values must exactly equal ____.",
+     "placeholder": "value",
+     "correctAnswers": [
+      "1",
+      "1.0",
+      "one"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Venn diagram showing sample space restriction for conditional probability.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/f2257433-6ca6-4951-acaf-e681bd179f96/exam/images/unit2-q10.png"
+     },
+     "prompt": "What is the primary visual effect of 'conditioning' on a Venn Diagram for P(A | B)?",
+     "options": [
+      "The entire sample space S stays the same",
+      "The sample space shrinks to only the area inside Circle B",
+      "The area of Circle A expands to cover Circle B",
+      "Circle A and Circle B merge into a single circle"
+     ],
+     "explanation": "Conditional probability restricts the denominator to the 'given' condition, effectively making the event B the new sample space.",
+     "correctAnswers": [
+      "The sample space shrinks to only the area inside Circle B"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Consider a discrete random variable X. Which of the following are required to calculate its Expected Value E(X)?",
+     "options": [
+      "The value of each possible outcome x",
+      "The probability of each outcome P(X = x)",
+      "The sample size of the population",
+      "The sum of the products of each outcome and its probability",
+      "The z-score of the variable"
+     ],
+     "explanation": "E(X) = Σ [x * P(x)]. You need the outcomes and their weights (probabilities) to compute the weighted average.",
+     "correctAnswers": [
+      "The value of each possible outcome x",
+      "The probability of each outcome P(X = x)",
+      "The sum of the products of each outcome and its probability"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A binomial distribution requires a fixed number of trials, independent trials, a constant probability of success, and ____ possible outcomes per trial.",
+     "placeholder": "number",
+     "correctAnswers": [
+      "two",
+      "2",
+      "binary"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "How does the 'Gambler's Fallacy' relate to the Law of Large Numbers?",
+     "options": [
+      "It correctly predicts that a head is 'due' after many tails",
+      "It is a misconception that short-run trials must compensate to reach the long-run average",
+      "It proves that coins have a short-term memory of previous flips",
+      "It is the mathematical proof used to calculate expected value"
+     ],
+     "explanation": "The Law of Large Numbers works through dilution over many trials, not through a 'balancing' act where the coin remembers past outcomes.",
+     "correctAnswers": [
+      "It is a misconception that short-run trials must compensate to reach the long-run average"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "image": {
+      "alt": "Standard Normal Distribution bell curve showing symmetry.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/f2257433-6ca6-4951-acaf-e681bd179f96/exam/images/unit2-q14.png"
+     },
+     "prompt": "Which properties are characteristic of the Normal Distribution curve?",
+     "options": [
+      "It is symmetric and bell-shaped",
+      "The total area under the curve is 1",
+      "It is defined by its mean and standard deviation",
+      "It is always skewed to the right",
+      "The mean, median, and mode are all located at the center"
+     ],
+     "explanation": "Normal distributions are perfectly symmetric (not skewed) and centered at the mean/median/mode.",
+     "correctAnswers": [
+      "It is symmetric and bell-shaped",
+      "The total area under the curve is 1",
+      "It is defined by its mean and standard deviation",
+      "The mean, median, and mode are all located at the center"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "A random variable has a mean of 10 and a standard deviation of 2. If every value in the set is multiplied by 3, what is the new standard deviation?",
+     "options": [
+      "2",
+      "5",
+      "6",
+      "18"
+     ],
+     "explanation": "When a random variable is multiplied by a constant 'k', its standard deviation is also multiplied by |k|. 2 * 3 = 6.",
+     "correctAnswers": [
+      "6"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "You are examining the probability of rolling a 'Sum of 7' using two fair six-sided dice. Adjust the 'Trial Count' slider to see how the relative frequency of 7s changes as the number of rolls increases. Based on the Law of Large Numbers, where will the frequency stabilize?",
+     "options": [
+      "At approximately 0.167 (1/6)",
+      "At exactly 0.500 (1/2)",
+      "At approximately 0.083 (1/12)",
+      "It will continue to fluctuate wildly regardless of trial count"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      user-select: none;\n      -webkit-user-select: none;\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Visualization Stage */\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      position: relative;\n    }\n\n    .graph-svg {\n      width: 100%;\n      height: 110px;\n      display: block;\n    }\n\n    .axis-label {\n      font-size: 8.5px;\n      fill: var(--muted-fg);\n      font-variant-numeric: tabular-nums;\n    }\n\n    .grid-line {\n      stroke: #eae7e2;\n      stroke-width: 1;\n      stroke-dasharray: 2 2;\n    }\n\n    .target-guide {\n      stroke-width: 1.2;\n      stroke-dasharray: 4 2;\n    }\n\n    .plot-line {\n      fill: none;\n      stroke: var(--accent);\n      stroke-width: 2;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n      transition: stroke-dasharray 0.1s ease;\n    }\n\n    /* Slider styling */\n    .control-panel {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n      background: var(--stage);\n      padding: 8px 12px;\n      border-radius: 8px;\n    }\n\n    .slider-row {\n      display: flex;\n      align-items: center;\n      gap: 12px;\n    }\n\n    .slider-label {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--fg);\n      min-width: 75px;\n    }\n\n    .slider-container {\n      flex: 1;\n      display: flex;\n      align-items: center;\n    }\n\n    .custom-slider {\n      -webkit-appearance: none;\n      width: 100%;\n      height: 6px;\n      border-radius: 3px;\n      background: var(--border);\n      outline: none;\n      margin: 0;\n    }\n\n    .custom-slider::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      appearance: none;\n      width: 16px;\n      height: 16px;\n      border-radius: 50%;\n      background: var(--accent);\n      cursor: pointer;\n      transition: transform 0.1s ease, background 0.1s ease;\n      border: 2px solid var(--surface);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.2);\n    }\n\n    .custom-slider::-moz-range-thumb {\n      width: 14px;\n      height: 14px;\n      border-radius: 50%;\n      background: var(--accent);\n      cursor: pointer;\n      transition: transform 0.1s ease, background 0.1s ease;\n      border: 2px solid var(--surface);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.2);\n    }\n\n    .custom-slider:focus {\n      outline: 2px solid rgba(76,102,150,0.3);\n      outline-offset: 2px;\n    }\n\n    .slider-readout {\n      font-size: 11px;\n      font-weight: bold;\n      color: var(--accent);\n      min-width: 65px;\n      text-align: right;\n      font-variant-numeric: tabular-nums;\n    }\n\n    /* Drag Answer Section */\n    .interaction-area {\n      display: grid;\n      grid-template-columns: 80px 1fr;\n      gap: 12px;\n      align-items: center;\n    }\n\n    .token-source {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      background: var(--stage);\n      border: 1px dashed var(--border);\n      border-radius: 8px;\n      height: 72px;\n      position: relative;\n    }\n\n    .token-label {\n      font-size: 9px;\n      color: var(--muted-fg);\n      margin-top: 4px;\n      text-align: center;\n    }\n\n    .dice-token {\n      width: 38px;\n      height: 38px;\n      background: var(--accent);\n      color: white;\n      border-radius: 8px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      cursor: grab;\n      box-shadow: 0 2px 5px rgba(0,0,0,0.15);\n      touch-action: none;\n      z-index: 10;\n      position: absolute;\n    }\n\n    .dice-token:active {\n      cursor: grabbing;\n    }\n\n    .dice-token.dragging {\n      transform: scale(1.08);\n      box-shadow: 0 5px 12px rgba(0,0,0,0.25);\n    }\n\n    .dice-token svg {\n      width: 24px;\n      height: 24px;\n      fill: currentColor;\n    }\n\n    .drop-zones {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 6px;\n    }\n\n    .zone {\n      background: var(--surface);\n      border: 1px dashed var(--border);\n      border-radius: 6px;\n      padding: 6px;\n      min-height: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      font-size: 10.5px;\n      font-weight: 500;\n      color: var(--fg);\n      cursor: pointer;\n      position: relative;\n      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;\n    }\n\n    .zone.hovered {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n    }\n\n    .zone.active {\n      background: var(--accent-soft);\n      border: 2px solid var(--accent);\n      color: var(--accent-strong);\n      font-weight: 600;\n      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);\n    }\n\n    .hint-text {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -4px;\n    }\n\n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"sr-only\">Law of Large Numbers Interactive Dice Simulation</h1>\n\n  <div class=\"widget-container\" id=\"mainContainer\">\n    <!-- Graph Stage -->\n    <div class=\"stage\">\n      <svg class=\"graph-svg\" id=\"graph\" viewBox=\"0 0 300 110\">\n        <!-- Grid and axis lines -->\n        <line x1=\"30\" y1=\"90\" x2=\"290\" y2=\"90\" stroke=\"#ccc\" stroke-width=\"1\" />\n        <line x1=\"30\" y1=\"10\" x2=\"30\" y2=\"90\" stroke=\"#ccc\" stroke-width=\"1\" />\n        \n        <!-- Y Axis Ticks & Labels -->\n        <line class=\"grid-line\" x1=\"30\" y1=\"90\" x2=\"290\" y2=\"90\" />\n        <text class=\"axis-label\" x=\"24\" y=\"93\" text-anchor=\"end\">0.00</text>\n        \n        <line class=\"grid-line\" x1=\"30\" y1=\"77.5\" x2=\"290\" y2=\"77.5\" />\n        <text class=\"axis-label\" x=\"24\" y=\"80.5\" text-anchor=\"end\">0.083</text>\n        \n        <line class=\"grid-line\" x1=\"30\" y1=\"65\" x2=\"290\" y2=\"65\" />\n        <text class=\"axis-label\" x=\"24\" y=\"68\" text-anchor=\"end\">0.167</text>\n        \n        <line class=\"grid-line\" x1=\"30\" y1=\"15\" x2=\"290\" y2=\"15\" />\n        <text class=\"axis-label\" x=\"24\" y=\"18\" text-anchor=\"end\">0.500</text>\n\n        <!-- Highlight lines matching the options -->\n        <line id=\"guide-083\" class=\"target-guide\" x1=\"30\" y1=\"77.5\" x2=\"290\" y2=\"77.5\" stroke=\"#bbb\" opacity=\"0\" />\n        <line id=\"guide-167\" class=\"target-guide\" x1=\"30\" y1=\"65\" x2=\"290\" y2=\"65\" stroke=\"var(--accent)\" opacity=\"0\" />\n        <line id=\"guide-500\" class=\"target-guide\" x1=\"30\" y1=\"15\" x2=\"290\" y2=\"15\" stroke=\"#bbb\" opacity=\"0\" />\n\n        <!-- X Axis Labels -->\n        <text class=\"axis-label\" x=\"30\" y=\"102\" text-anchor=\"middle\">1</text>\n        <text class=\"axis-label\" x=\"95\" y=\"102\" text-anchor=\"middle\">10</text>\n        <text class=\"axis-label\" x=\"160\" y=\"102\" text-anchor=\"middle\">100</text>\n        <text class=\"axis-label\" x=\"225\" y=\"102\" text-anchor=\"middle\">1k</text>\n        <text class=\"axis-label\" x=\"290\" y=\"102\" text-anchor=\"middle\">10k</text>\n\n        <!-- Legend -->\n        <text x=\"290\" y=\"24\" class=\"axis-label\" text-anchor=\"end\" font-weight=\"bold\">Relative Frequency of rolling 7</text>\n\n        <!-- The plotted data line -->\n        <path id=\"plot\" class=\"plot-line\" d=\"\" />\n      </svg>\n    </div>\n\n    <!-- Trial Slider Panel -->\n    <div class=\"control-panel\" id=\"sliderPanel\">\n      <div class=\"slider-row\">\n        <span class=\"slider-label\">Trial Count (N):</span>\n        <div class=\"slider-container\">\n          <input type=\"range\" class=\"custom-slider\" id=\"trialSlider\" min=\"1\" max=\"10000\" value=\"1\" aria-label=\"Trial Count\">\n        </div>\n        <span class=\"slider-readout\" id=\"trialReadout\">1 roll</span>\n      </div>\n    </div>\n\n    <!-- Interactive Drop Zone -->\n    <div class=\"interaction-area\" id=\"dragArea\">\n      <div class=\"token-source\" id=\"sourceBin\">\n        <div class=\"dice-token\" id=\"token\" draggable=\"false\" tabindex=\"0\" aria-label=\"Answer Token: Drag to your prediction zone\">\n          <svg viewBox=\"0 0 24 24\">\n            <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n            <circle cx=\"8\" cy=\"8\" r=\"1.5\" />\n            <circle cx=\"16\" cy=\"16\" r=\"1.5\" />\n            <circle cx=\"12\" cy=\"12\" r=\"1.5\" />\n            <circle cx=\"16\" cy=\"8\" r=\"1.5\" />\n            <circle cx=\"8\" cy=\"16\" r=\"1.5\" />\n          </svg>\n        </div>\n        <span class=\"token-label\">Drag<br>Token</span>\n      </div>\n\n      <div class=\"drop-zones\" role=\"radiogroup\" aria-label=\"Stabilization options\">\n        <div class=\"zone\" data-option=\"At approximately 0.167 (1/6)\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n          At ~0.167 (1/6)\n        </div>\n        <div class=\"zone\" data-option=\"At exactly 0.500 (1/2)\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n          At exactly 0.500 (1/2)\n        </div>\n        <div class=\"zone\" data-option=\"At approximately 0.083 (1/12)\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n          At ~0.083 (1/12)\n        </div>\n        <div class=\"zone\" data-option=\"It will continue to fluctuate wildly regardless of trial count\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n          Fluctuates wildly\n        </div>\n      </div>\n    </div>\n\n    <div class=\"hint-text\">Drag the dice token to your observation above.</div>\n  </div>\n\n  <script>\n    // Pseudo-random deterministic rolling generator for standard simulation presentation\n    const totalPoints = 300;\n    const pathData = [];\n    \n    // Seeded random to ensure the same beautiful illustrative curve every time\n    let seed = 7;\n    function seededRandom() {\n      let x = Math.sin(seed++) * 10000;\n      return x - Math.floor(x);\n    }\n\n    // Pre-calculate running probabilities\n    let sumOf7s = 0;\n    for (let i = 1; i <= 10000; i++) {\n      // Theoretical prob of 7 with 2 dice is 6/36 = 1/6 (~0.1667)\n      const roll1 = Math.floor(seededRandom() * 6) + 1;\n      const roll2 = Math.floor(seededRandom() * 6) + 1;\n      if (roll1 + roll2 === 7) {\n        sumOf7s++;\n      }\n      \n      // Inject slightly higher fluctuation at start for visual drama\n      let rate = sumOf7s / i;\n      if (i < 15) {\n        // Force dramatic early swings\n        if (i === 1) rate = 1.0; \n        else if (i === 2) rate = 0.5;\n        else if (i === 3) rate = 0.0;\n        else if (i === 4) rate = 0.25;\n      }\n      \n      pathData.push({ n: i, rate: rate });\n    }\n\n    // Elements\n    const slider = document.getElementById('trialSlider');\n    const readout = document.getElementById('trialReadout');\n    const plot = document.getElementById('plot');\n    const token = document.getElementById('token');\n    const sourceBin = document.getElementById('sourceBin');\n    const zones = document.querySelectorAll('.zone');\n    const guide083 = document.getElementById('guide-083');\n    const guide167 = document.getElementById('guide-167');\n    const guide500 = document.getElementById('guide-500');\n\n    // State\n    let selectedOption = null;\n    let isLocked = false;\n\n    // Map log-scale positioning\n    function getX(n) {\n      const minL = 0; // log10(1)\n      const maxL = 4; // log10(10000)\n      const currentL = Math.log10(n);\n      const ratio = currentL / maxL;\n      return 30 + ratio * 260; // 30px margin to 290px\n    }\n\n    function getY(rate) {\n      // Map rate 0.0 -> 90px (bottom), 0.60 -> 10px (top)\n      const clampedRate = Math.max(0, Math.min(0.60, rate));\n      const ratio = clampedRate / 0.60;\n      return 90 - ratio * 80;\n    }\n\n    // Draw graph based on active trials\n    function updateGraph(trials) {\n      let d = \"\";\n      // Decide density of points to plot\n      const step = trials < 100 ? 1 : trials < 1000 ? 5 : 20;\n      \n      for (let i = 1; i <= trials; i += step) {\n        const pt = pathData[i - 1];\n        const x = getX(pt.n);\n        const y = getY(pt.rate);\n        d += (d === \"\" ? \"M\" : \"L\") + ` ${x.toFixed(1)},${y.toFixed(1)}`;\n      }\n      \n      // Always ensure the final point is included\n      const finalPt = pathData[trials - 1];\n      d += ` L ${getX(finalPt.n).toFixed(1)},${getY(finalPt.rate).toFixed(1)}`;\n      \n      plot.setAttribute('d', d);\n    }\n\n    // Slider Event\n    function handleSliderInput() {\n      const val = parseInt(slider.value, 10);\n      readout.textContent = val === 1 ? \"1 roll\" : val.toLocaleString() + \" rolls\";\n      updateGraph(val);\n    }\n    slider.addEventListener('input', handleSliderInput);\n    handleSliderInput(); // Initial paint\n\n    // Drag and Drop Logic\n    let startX = 0, startY = 0;\n    let currentX = 0, currentY = 0;\n    let isDragging = false;\n\n    function resetTokenPosition() {\n      token.style.left = '50%';\n      token.style.top = '50%';\n      token.style.transform = 'translate(-50%, -50%)';\n    }\n    resetTokenPosition();\n\n    token.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      token.classList.add('dragging');\n      token.setPointerCapture(e.pointerId);\n\n      // Identify initial offset relative to parent viewport\n      const rect = token.getBoundingClientRect();\n      startX = e.clientX - rect.left - rect.width / 2;\n      startY = e.clientY - rect.top - rect.height / 2;\n    });\n\n    token.addEventListener('pointermove', (e) => {\n      if (!isDragging) return;\n      \n      const parentRect = sourceBin.getBoundingClientRect();\n      const x = e.clientX - parentRect.left - startX;\n      const y = e.clientY - parentRect.top - startY;\n\n      token.style.left = `${x}px`;\n      token.style.top = `${y}px`;\n      token.style.transform = 'translate(-50%, -50%)';\n\n      // Live Highlight collision test\n      let matchedZone = null;\n      zones.forEach(zone => {\n        const zRect = zone.getBoundingClientRect();\n        if (e.clientX >= zRect.left && e.clientX <= zRect.right &&\n            e.clientY >= zRect.top && e.clientY <= zRect.bottom) {\n          zone.classList.add('hovered');\n          matchedZone = zone.dataset.option;\n        } else {\n          zone.classList.remove('hovered');\n        }\n      });\n\n      // Highlight corresponding guide line in graph\n      guide083.style.opacity = matchedZone === \"At approximately 0.083 (1/12)\" ? \"1\" : \"0\";\n      guide167.style.opacity = matchedZone === \"At approximately 0.167 (1/6)\" ? \"1\" : \"0\";\n      guide500.style.opacity = matchedZone === \"At exactly 0.500 (1/2)\" ? \"1\" : \"0\";\n    });\n\n    token.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      token.classList.remove('dragging');\n      token.releasePointerCapture(e.pointerId);\n\n      let targetZone = null;\n      zones.forEach(zone => {\n        const zRect = zone.getBoundingClientRect();\n        if (e.clientX >= zRect.left && e.clientX <= zRect.right &&\n            e.clientY >= zRect.top && e.clientY <= zRect.bottom) {\n          targetZone = zone;\n        }\n        zone.classList.remove('hovered');\n      });\n\n      if (targetZone) {\n        selectZone(targetZone);\n      } else {\n        // Return home if missed\n        resetTokenPosition();\n      }\n    });\n\n    // Handle standard clicks/taps for accessibility\n    zones.forEach(zone => {\n      zone.addEventListener('click', () => {\n        if (isLocked) return;\n        selectZone(zone);\n      });\n      zone.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === ' ' || e.key === 'Enter') {\n          selectZone(zone);\n        }\n      });\n    });\n\n    function selectZone(zoneElement) {\n      zones.forEach(z => {\n        z.classList.remove('active');\n        z.setAttribute('aria-checked', 'false');\n      });\n      zoneElement.classList.add('active');\n      zoneElement.setAttribute('aria-checked', 'true');\n      \n      selectedOption = zoneElement.dataset.option;\n\n      // Position token visual directly over the chosen box\n      const zRect = zoneElement.getBoundingClientRect();\n      const parentRect = sourceBin.getBoundingClientRect();\n      const targetX = zRect.left + zRect.width / 2 - parentRect.left;\n      const targetY = zRect.top + zRect.height / 2 - parentRect.top;\n\n      token.style.left = `${targetX}px`;\n      token.style.top = `${targetY}px`;\n      token.style.transform = 'translate(-50%, -50%) scale(0.85)';\n\n      // Guide Line setup\n      guide083.style.opacity = selectedOption === \"At approximately 0.083 (1/12)\" ? \"1\" : \"0\";\n      guide167.style.opacity = selectedOption === \"At approximately 0.167 (1/6)\" ? \"1\" : \"0\";\n      guide500.style.opacity = selectedOption === \"At exactly 0.500 (1/2)\" ? \"1\" : \"0\";\n\n      // Report answer to host\n      parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n    }\n\n    // Keyboard support for token\n    token.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      let currentIndex = -1;\n      zones.forEach((z, i) => {\n        if (z.dataset.option === selectedOption) currentIndex = i;\n      });\n\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        const next = (currentIndex + 1) % zones.length;\n        selectZone(zones[next]);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        const prev = (currentIndex - 1 + zones.length) % zones.length;\n        selectZone(zones[prev]);\n      }\n    });\n\n    // Height Reporting Contract\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Lock Handling Contract\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('mainContainer').classList.add('disabled');\n        slider.disabled = true;\n        token.removeAttribute('tabindex');\n        zones.forEach(z => z.removeAttribute('tabindex'));\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "At approximately 0.167 (1/6)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Exam: Inference for Categorical Data",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A researcher wants to estimate the true proportion of all high school students who eat breakfast every day. She surveys a random sample of 250 students and finds that 140 of them eat breakfast. Which of the following correctly identifies the parameter and the statistic in this scenario?",
+     "options": [
+      "The parameter is the 140 students who eat breakfast; the statistic is the sample size of 250.",
+      "The parameter is the proportion of all high school students who eat breakfast; the statistic is 0.56.",
+      "The parameter is 0.56; the statistic is the unknown proportion of all high school students.",
+      "The parameter is the 250 students surveyed; the statistic is the proportion of all students who eat breakfast."
+     ],
+     "explanation": "Parameters are fixed values describing a population (often unknown), while statistics are values calculated from a sample (p-hat = 140/250 = 0.56) to estimate those parameters.",
+     "correctAnswers": [
+      "The parameter is the proportion of all high school students who eat breakfast; the statistic is 0.56."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following conditions must be satisfied to justify using the standard deviation formula $\\sigma_{\\hat{p}} = \\sqrt{\\frac{p(1-p)}{n}}$ for the sampling distribution of a proportion?",
+     "options": [
+      "The sample must be selected randomly from the population.",
+      "The sample size (n) must be less than 10% of the population size (N).",
+      "The population distribution must be approximately Normal.",
+      "The expected counts np and n(1-p) must both be at least 10.",
+      "Observations must be independent or treated as independent."
+     ],
+     "explanation": "The standard deviation formula specifically requires independence between trials. We assume independence if the sample is random and the 10% condition is met. The Large Counts condition (np >= 10) is for Normality, not the SD formula.",
+     "correctAnswers": [
+      "The sample must be selected randomly from the population.",
+      "The sample size (n) must be less than 10% of the population size (N).",
+      "Observations must be independent or treated as independent."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "An estimator is considered ____ if the mean of its sampling distribution is equal to the true value of the population parameter it is estimating.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "unbiased"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If the true population proportion of successes is p = 0.05 and a researcher takes a random sample of n = 100, which condition for performing inference is violated?",
+     "options": [
+      "The Random condition",
+      "The 10% condition",
+      "The Large Counts condition",
+      "The independence condition"
+     ],
+     "explanation": "For the Large Counts condition, np and n(1-p) must be >= 10. Here, np = 100 * 0.05 = 5, which is less than 10, meaning the sampling distribution is not approximately Normal.",
+     "correctAnswers": [
+      "The Large Counts condition"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "In a Chi-Square Test for Independence, which of the following statements about the 'Expected Counts' are true?",
+     "options": [
+      "They are calculated as (Row Total * Column Total) / Grand Total.",
+      "They represent the counts we would expect if there were no association between variables.",
+      "Every expected count must be at least 5 to meet the Large Counts condition.",
+      "They must be whole numbers because they represent people or objects.",
+      "They are the values actually observed in the random sample."
+     ],
+     "explanation": "Expected counts are theoretical values under the null hypothesis (independence). They do not need to be integers and are compared to 'Observed' counts to find the Chi-Square statistic.",
+     "correctAnswers": [
+      "They are calculated as (Row Total * Column Total) / Grand Total.",
+      "They represent the counts we would expect if there were no association between variables.",
+      "Every expected count must be at least 5 to meet the Large Counts condition."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a 2x3 contingency table for a Chi-Square test, the degrees of freedom would be ____.",
+     "placeholder": "df",
+     "correctAnswers": [
+      "2"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary difference between a Chi-Square Test for Homogeneity and a Chi-Square Test for Independence?",
+     "options": [
+      "Independence uses one sample categorized by two variables; Homogeneity compares one variable across multiple populations/samples.",
+      "Homogeneity uses one sample categorized by two variables; Independence compares one variable across multiple populations/samples.",
+      "Homogeneity is for means, while Independence is for proportions.",
+      "There is no difference; they are two names for the exact same procedure and data collection method."
+     ],
+     "explanation": "Homogeneity looks for a difference in distributions across distinct groups (e.g., Are music tastes the same for seniors vs. freshmen?), whereas Independence looks for an association between two categorical variables within one population.",
+     "correctAnswers": [
+      "Independence uses one sample categorized by two variables; Homogeneity compares one variable across multiple populations/samples."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following would result in a narrower confidence interval for a population proportion?",
+     "options": [
+      "Increasing the sample size (n).",
+      "Decreasing the confidence level (e.g., from 99% to 90%).",
+      "Increasing the confidence level (e.g., from 95% to 99%).",
+      "Decreasing the sample size (n).",
+      "Decreasing the standard error."
+     ],
+     "explanation": "Precision (narrower intervals) is improved by increasing sample size (which lowers SE) or by accepting a lower confidence level (which uses a smaller critical value z*).",
+     "correctAnswers": [
+      "Increasing the sample size (n).",
+      "Decreasing the confidence level (e.g., from 99% to 90%).",
+      "Decreasing the standard error."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When calculating the test statistic for a two-sample z-test for the difference in proportions, we use a ____ proportion to estimate the common success rate, assuming the null hypothesis (p1 = p2) is true.",
+     "placeholder": "p-hat combined",
+     "correctAnswers": [
+      "pooled"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A 95% confidence interval for the proportion of residents who support a tax increase is calculated as (0.42, 0.52). What is the point estimate and the margin of error?",
+     "options": [
+      "Estimate = 0.47; Margin of Error = 0.05",
+      "Estimate = 0.50; Margin of Error = 0.05",
+      "Estimate = 0.42; Margin of Error = 0.10",
+      "Estimate = 0.47; Margin of Error = 0.10"
+     ],
+     "explanation": "The point estimate is the midpoint of the interval: (0.42 + 0.52)/2 = 0.47. The margin of error is the distance from the midpoint to either end: 0.52 - 0.47 = 0.05.",
+     "correctAnswers": [
+      "Estimate = 0.47; Margin of Error = 0.05"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A researcher is comparing the proportion of success between two treatments. Which of the following are necessary conditions for a two-sample z-test for p1 - p2?",
+     "options": [
+      "Data comes from two independent random samples or a randomized experiment.",
+      "The 10% condition must be met for both populations if sampling without replacement.",
+      "Both samples must have at least 10 successes and 10 failures.",
+      "The two sample sizes must be exactly equal.",
+      "The populations must be normally distributed."
+     ],
+     "explanation": "Equality of sample size is not required. Proportions rely on Large Counts (successes/failures), not the population distribution shape.",
+     "correctAnswers": [
+      "Data comes from two independent random samples or a randomized experiment.",
+      "The 10% condition must be met for both populations if sampling without replacement.",
+      "Both samples must have at least 10 successes and 10 failures."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ condition for proportions ensures that the sampling distribution of p-hat is approximately Normal, allowing us to use z-critical values.",
+     "placeholder": "Name of condition",
+     "correctAnswers": [
+      "Large Counts"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "When testing the hypotheses H0: p = 0.4 vs Ha: p > 0.4, a researcher calculates a p-value of 0.02. Using a significance level of alpha = 0.05, what is the correct conclusion?",
+     "options": [
+      "Fail to reject H0; there is not enough evidence that p > 0.4.",
+      "Reject H0; there is convincing evidence that p > 0.4.",
+      "Reject H0; there is convincing evidence that p = 0.4.",
+      "Accept H0; the data proves that p = 0.4."
+     ],
+     "explanation": "Since the p-value (0.02) is less than the significance level (0.05), we reject the null hypothesis and conclude there is evidence for the alternative hypothesis.",
+     "correctAnswers": [
+      "Reject H0; there is convincing evidence that p > 0.4."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are properties of the Chi-Square distribution?",
+     "options": [
+      "The total area under the curve is 1.",
+      "The distribution is skewed to the right.",
+      "It can take on negative values if the observed counts are less than expected.",
+      "As the degrees of freedom increase, the shape becomes more symmetric.",
+      "It is centered at zero."
+     ],
+     "explanation": "Chi-Square values are squared, so they are always non-negative. While skewed right for low df, the distribution approaches a Normal shape as df increases.",
+     "correctAnswers": [
+      "The total area under the curve is 1.",
+      "The distribution is skewed to the right.",
+      "As the degrees of freedom increase, the shape becomes more symmetric."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "For a Chi-Square Goodness-of-Fit test with 5 categories, the degrees of freedom are ____.",
+     "placeholder": "number",
+     "correctAnswers": [
+      "4"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "image": {
+      "alt": "Chi-square distribution curve showing a large test statistic in the extreme right tail.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/f2257433-6ca6-4951-acaf-e681bd179f96/exam/images/unit3-q16.png"
+     },
+     "prompt": "In a Chi-Square Goodness-of-Fit test, if the Chi-Square statistic is very large, what does this suggest about the relationship between observed and expected counts?",
+     "options": [
+      "The observed counts are very close to the expected counts.",
+      "The observed counts are very different from the expected counts.",
+      "The sample size is too small to draw a conclusion.",
+      "The null hypothesis is likely true."
+     ],
+     "explanation": "The Chi-Square statistic is a sum of squared differences. A large value means the data (observed) deviates significantly from what was predicted by the model (expected).",
+     "correctAnswers": [
+      "The observed counts are very different from the expected counts."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "If a 95% confidence interval for p1 - p2 is (-0.08, 0.02), what can we conclude about the significance test of H0: p1 = p2 vs Ha: p1 != p2 at the alpha = 0.05 level?",
+     "options": [
+      "We fail to reject the null hypothesis.",
+      "We have evidence that p1 and p2 are significantly different.",
+      "The p-value is greater than 0.05.",
+      "The value 0 is a plausible value for the difference p1 - p2.",
+      "We reject the null hypothesis."
+     ],
+     "explanation": "Since the interval contains 0, a difference of zero is plausible. This corresponds to failing to reject the null (p-value > alpha) in a two-sided test.",
+     "correctAnswers": [
+      "We fail to reject the null hypothesis.",
+      "The p-value is greater than 0.05.",
+      "The value 0 is a plausible value for the difference p1 - p2."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Investigate how the sampling distribution of the sample proportion ($\\hat{p}$) changes as you manipulate the sample size.",
+     "options": [
+      "The center of the distribution shifts to the right as n increases.",
+      "The spread of the distribution decreases, becoming more tightly clustered around p.",
+      "The shape of the distribution becomes highly skewed as n increases.",
+      "The standard deviation of the distribution increases as n increases."
+     ],
+     "explanation": "As n increases, the denominator in the standard deviation formula increases, which reduces the variability (spread) of the sampling distribution, making the estimator more precise.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Sampling Distribution Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      --shadow: rgba(0, 0, 0, 0.06);\n    }\n\n    * {\n      box-sizing: border-box;\n      -webkit-user-select: none;\n      user-select: none;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 580px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Visualization Stage */\n    .stage {\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 10px 14px;\n      position: relative;\n      display: flex;\n      flex-direction: column;\n      gap: 6px;\n      border: 1px solid var(--border);\n    }\n\n    .population-cloud {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      color: var(--muted-fg);\n      font-size: 12px;\n      font-weight: 500;\n    }\n\n    .population-cloud svg {\n      width: 24px;\n      height: 24px;\n      fill: #d1ced6;\n    }\n\n    /* Slider styling */\n    .slider-container {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      gap: 12px;\n      background: var(--surface);\n      padding: 6px 12px;\n      border-radius: 8px;\n      box-shadow: 0 1px 3px var(--shadow);\n    }\n\n    .slider-label {\n      font-size: 12px;\n      font-weight: 600;\n      color: var(--fg);\n      white-space: nowrap;\n      min-width: 110px;\n    }\n\n    .slider-label span {\n      font-variant-numeric: tabular-nums;\n      color: var(--accent);\n    }\n\n    .range-slider {\n      flex: 1;\n      -webkit-appearance: none;\n      appearance: none;\n      height: 6px;\n      border-radius: 3px;\n      background: var(--stage);\n      outline: none;\n    }\n\n    .range-slider::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      appearance: none;\n      width: 18px;\n      height: 18px;\n      border-radius: 50%;\n      background: var(--accent);\n      cursor: grab;\n      border: 2px solid var(--surface);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.2);\n      transition: background 0.15s;\n    }\n\n    .range-slider::-webkit-slider-thumb:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n    }\n\n    /* Dotplot Canvas */\n    .canvas-container {\n      position: relative;\n      width: 100%;\n      height: 100px;\n      background: var(--surface);\n      border-radius: 8px;\n      border: 1px solid rgba(0,0,0,0.03);\n    }\n\n    canvas {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Drag and Drop Workspace */\n    .workspace {\n      display: grid;\n      grid-template-columns: 80px 1fr;\n      gap: 12px;\n      align-items: stretch;\n    }\n\n    .dock-area {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n      padding: 8px;\n      min-height: 110px;\n    }\n\n    .dock-label {\n      font-size: 10px;\n      color: var(--muted-fg);\n      text-align: center;\n      pointer-events: none;\n      margin-top: 4px;\n    }\n\n    /* Draggable Lens Token */\n    .lens-token {\n      width: 46px;\n      height: 46px;\n      border-radius: 50%;\n      background: var(--accent);\n      color: white;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      cursor: grab;\n      box-shadow: 0 4px 10px rgba(76, 102, 150, 0.3);\n      position: absolute;\n      z-index: 10;\n      touch-action: none;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .lens-token:active {\n      cursor: grabbing;\n      transform: scale(1.08);\n      box-shadow: 0 6px 14px rgba(76, 102, 150, 0.45);\n    }\n\n    .lens-token svg {\n      width: 22px;\n      height: 22px;\n      fill: none;\n      stroke: currentColor;\n      stroke-width: 2.5;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n    }\n\n    /* Zones Grid */\n    .zones-grid {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n    }\n\n    .drop-zone {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 10px;\n      padding: 8px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      font-size: 11px;\n      line-height: 1.3;\n      color: var(--fg);\n      position: relative;\n      transition: all 0.2s ease;\n      min-height: 52px;\n      cursor: pointer;\n    }\n\n    .drop-zone:hover {\n      border-color: var(--accent);\n      background: rgba(76, 102, 150, 0.02);\n    }\n\n    .drop-zone.drag-over {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      transform: scale(1.02);\n    }\n\n    .drop-zone.occupied {\n      border: 2px solid var(--accent);\n      background: var(--accent-soft);\n      box-shadow: inset 0 0 0 1px var(--accent);\n      font-weight: 500;\n    }\n\n    .hint-text {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -4px;\n    }\n\n    /* Read-only / Locked state */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n    .locked .lens-token {\n      cursor: default;\n      box-shadow: none;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Sampling Distribution of Sample Proportion Animation</h1>\n\n  <div class=\"widget-container\" id=\"main-widget\">\n    \n    <!-- Top Visualization Stage -->\n    <div class=\"stage\">\n      <div class=\"population-cloud\">\n        <svg viewBox=\"0 0 24 24\">\n          <path d=\"M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z\"/>\n        </svg>\n        <span>Population Center (p = 0.5)</span>\n      </div>\n\n      <!-- Live Slider -->\n      <div class=\"slider-container\">\n        <label class=\"slider-label\" for=\"n-slider\">Sample Size <span>n = <span id=\"n-val\">50</span></span></label>\n        <input type=\"range\" id=\"n-slider\" class=\"range-slider\" min=\"10\" max=\"500\" value=\"50\" step=\"5\">\n      </div>\n\n      <!-- Canvas Dotplot -->\n      <div class=\"canvas-container\">\n        <canvas id=\"dotplot-canvas\"></canvas>\n      </div>\n    </div>\n\n    <!-- Optional Tiny Interaction Hint -->\n    <div class=\"hint-text\">Drag the lens token into the matching observation card below</div>\n\n    <!-- Drag & Drop Interface -->\n    <div class=\"workspace\">\n      <div class=\"dock-area\" id=\"home-dock\">\n        <div class=\"lens-token\" id=\"draggable-lens\" draggable=\"false\">\n          <svg viewBox=\"0 0 24 24\">\n            <circle cx=\"11\" cy=\"11\" r=\"8\"></circle>\n            <line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line>\n          </svg>\n        </div>\n        <div class=\"dock-label\">LENS</div>\n      </div>\n\n      <div class=\"zones-grid\">\n        <div class=\"drop-zone\" data-option=\"The center of the distribution shifts to the right as n increases.\">\n          The center of the distribution shifts to the right as n increases.\n        </div>\n        <div class=\"drop-zone\" data-option=\"The spread of the distribution decreases, becoming more tightly clustered around p.\">\n          The spread of the distribution decreases, becoming more tightly clustered around p.\n        </div>\n        <div class=\"drop-zone\" data-option=\"The shape of the distribution becomes highly skewed as n increases.\">\n          The shape of the distribution becomes highly skewed as n increases.\n        </div>\n        <div class=\"drop-zone\" data-option=\"The standard deviation of the distribution increases as n increases.\">\n          The standard deviation of the distribution increases as n increases.\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <script>\n    // --- DOTPLOT MATHEMATICS & RENDERING ---\n    const canvas = document.getElementById('dotplot-canvas');\n    const ctx = canvas.getContext('2d');\n    const slider = document.getElementById('n-slider');\n    const nValDisplay = document.getElementById('n-val');\n\n    // Generate 100 fixed normal offsets so dots move smoothly rather than flashing randomly\n    const NUM_DOTS = 100;\n    const standardNormals = [];\n    for (let i = 0; i < NUM_DOTS; i++) {\n      // Box-Muller transform\n      let u = 0, v = 0;\n      while(u === 0) u = Math.random();\n      while(v === 0) v = Math.random();\n      let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);\n      standardNormals.push(num);\n    }\n\n    // Dot visual representation state\n    const dots = [];\n    for (let i = 0; i < NUM_DOTS; i++) {\n      dots.push({ x: 0.5, y: 0, currentX: 150, currentY: 50 });\n    }\n\n    function updateDotTargets() {\n      const n = parseInt(slider.value, 10);\n      nValDisplay.textContent = n;\n\n      // Standard error of proportion for p = 0.5\n      const se = Math.sqrt(0.25 / n);\n\n      // Generate actual sample proportion values\n      const pVals = standardNormals.map(z => {\n        let p = 0.5 + z * se;\n        return Math.max(0.01, Math.min(0.99, p)); // clamp\n      });\n\n      // Bin the dots to stack them\n      const numBins = 45;\n      const bins = Array.from({ length: numBins }, () => []);\n      \n      pVals.forEach((p, idx) => {\n        let binIdx = Math.floor(p * numBins);\n        if (binIdx >= numBins) binIdx = numBins - 1;\n        bins[binIdx].push(idx);\n      });\n\n      // Calculate target screen positions\n      const padLeft = 20;\n      const padRight = 20;\n      const plotWidth = canvas.width - (padLeft + padRight);\n      const dotRadius = 2.2;\n      const verticalSpacing = 4.8;\n\n      bins.forEach((binDots, binIdx) => {\n        const binCenterX = padLeft + (binIdx / (numBins - 1)) * plotWidth;\n        binDots.forEach((dotIdx, stackIdx) => {\n          dots[dotIdx].x = binCenterX;\n          dots[dotIdx].y = (canvas.height - 20) - (stackIdx * verticalSpacing);\n        });\n      });\n    }\n\n    function initCanvas() {\n      const dpr = window.devicePixelRatio || 1;\n      const rect = canvas.getBoundingClientRect();\n      canvas.width = rect.width * dpr;\n      canvas.height = rect.height * dpr;\n      ctx.scale(dpr, dpr);\n      updateDotTargets();\n      // Instantly snap dots to targets on first paint\n      dots.forEach(d => {\n        d.currentX = d.x;\n        d.currentY = d.y;\n      });\n    }\n\n    function animate() {\n      ctx.clearRect(0, 0, canvas.width, canvas.height);\n\n      // Draw axis\n      ctx.strokeStyle = '#e2e2e2';\n      ctx.lineWidth = 1.5;\n      const padLeft = 20;\n      const padRight = 20;\n      const w = canvas.getBoundingClientRect().width;\n      const h = canvas.getBoundingClientRect().height;\n      const axisY = h - 16;\n\n      ctx.beginPath();\n      ctx.moveTo(padLeft, axisY);\n      ctx.lineTo(w - padRight, axisY);\n      ctx.stroke();\n\n      // Axis Ticks\n      const ticks = [0, 0.5, 1];\n      ctx.fillStyle = '#888888';\n      ctx.font = '9px -apple-system, sans-serif';\n      ctx.textAlign = 'center';\n\n      ticks.forEach(t => {\n        const x = padLeft + t * (w - padLeft - padRight);\n        ctx.beginPath();\n        ctx.moveTo(x, axisY);\n        ctx.lineTo(x, axisY + 4);\n        ctx.stroke();\n        ctx.fillText(t.toFixed(1), x, axisY + 13);\n      });\n\n      // Update & Draw Dots\n      dots.forEach(d => {\n        // smooth interpolation\n        d.currentX += (d.x - d.currentX) * 0.22;\n        d.currentY += (d.y - d.currentY) * 0.22;\n\n        ctx.beginPath();\n        ctx.arc(d.currentX, d.currentY, 2.2, 0, 2 * Math.PI);\n        ctx.fillStyle = 'rgba(76, 102, 150, 0.8)';\n        ctx.fill();\n      });\n\n      requestAnimationFrame(animate);\n    }\n\n    slider.addEventListener('input', updateDotTargets);\n    window.addEventListener('resize', initCanvas);\n    setTimeout(initCanvas, 50);\n    requestAnimationFrame(animate);\n\n\n    // --- DRAG & DROP LOGIC ---\n    const token = document.getElementById('draggable-lens');\n    const homeDock = document.getElementById('home-dock');\n    const zones = document.querySelectorAll('.drop-zone');\n    \n    let isDragging = false;\n    let startX = 0;\n    let startY = 0;\n    let tokenStartX = 0;\n    let tokenStartY = 0;\n    let activeZone = null;\n\n    // Set initial position of the token relative to the viewport\n    function resetTokenToDock() {\n      token.style.transition = 'all 0.3s cubic-bezier(.34,1.56,.64,1)';\n      token.style.left = '50%';\n      token.style.top = '50%';\n      token.style.transform = 'translate(-50%, -50%)';\n      zones.forEach(z => z.classList.remove('occupied'));\n      activeZone = null;\n    }\n\n    // Set up drag events\n    token.addEventListener('pointerdown', function(e) {\n      if (document.body.classList.contains('locked')) return;\n      \n      isDragging = true;\n      token.style.transition = 'none';\n      token.setPointerCapture(e.pointerId);\n\n      const tokenRect = token.getBoundingClientRect();\n      const parentRect = token.parentElement.getBoundingClientRect();\n\n      // Record coordinates relative to parent container\n      tokenStartX = tokenRect.left - parentRect.left;\n      tokenStartY = tokenRect.top - parentRect.top;\n      \n      startX = e.clientX;\n      startY = e.clientY;\n      \n      e.preventDefault();\n    });\n\n    token.addEventListener('pointermove', function(e) {\n      if (!isDragging) return;\n\n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n\n      // Absolute movement within parent coordinate space\n      const newX = tokenStartX + dx;\n      const newY = tokenStartY + dy;\n\n      token.style.left = `${newX}px`;\n      token.style.top = `${newY}px`;\n      token.style.transform = 'none';\n\n      // Hit-test zones\n      const tokenRect = token.getBoundingClientRect();\n      const tokenCenter = {\n        x: tokenRect.left + tokenRect.width / 2,\n        y: tokenRect.top + tokenRect.height / 2\n      };\n\n      zones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        if (\n          tokenCenter.x >= zoneRect.left &&\n          tokenCenter.x <= zoneRect.right &&\n          tokenCenter.y >= zoneRect.top &&\n          tokenCenter.y <= zoneRect.bottom\n        ) {\n          zone.classList.add('drag-over');\n        } else {\n          zone.classList.remove('drag-over');\n        }\n      });\n    });\n\n    token.addEventListener('pointerup', function(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      token.releasePointerCapture(e.pointerId);\n\n      const tokenRect = token.getBoundingClientRect();\n      const tokenCenter = {\n        x: tokenRect.left + tokenRect.width / 2,\n        y: tokenRect.top + tokenRect.height / 2\n      };\n\n      let droppedZone = null;\n\n      zones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        zone.classList.remove('drag-over');\n        if (\n          tokenCenter.x >= zoneRect.left &&\n          tokenCenter.x <= zoneRect.right &&\n          tokenCenter.y >= zoneRect.top &&\n          tokenCenter.y <= zoneRect.bottom\n        ) {\n          droppedZone = zone;\n        }\n      });\n\n      if (droppedZone) {\n        snapToZone(droppedZone);\n      } else {\n        resetTokenToDock();\n        // Report empty state if dragged away entirely\n        parent.postMessage({ type: 'hk-practice-answer', value: '' }, '*');\n      }\n    });\n\n    function snapToZone(zone) {\n      zones.forEach(z => z.classList.remove('occupied'));\n      zone.classList.add('occupied');\n      activeZone = zone;\n\n      // Position token perfectly on top of the zone's center\n      const zoneRect = zone.getBoundingClientRect();\n      const parentRect = token.parentElement.getBoundingClientRect();\n      \n      const targetX = (zoneRect.left - parentRect.left) + (zoneRect.width / 2) - (token.offsetWidth / 2);\n      const targetY = (zoneRect.top - parentRect.top) + (zoneRect.height / 2) - (token.offsetHeight / 2);\n\n      token.style.transition = 'all 0.25s cubic-bezier(.34,1.56,.64,1)';\n      token.style.left = `${targetX}px`;\n      token.style.top = `${targetY}px`;\n      token.style.transform = 'none';\n\n      // Report answer\n      const choice = zone.getAttribute('data-option');\n      parent.postMessage({ type: 'hk-practice-answer', value: choice }, '*');\n    }\n\n    // Direct click/tap on zone selection for accessibility and alternate flow\n    zones.forEach(zone => {\n      zone.addEventListener('click', () => {\n        if (document.body.classList.contains('locked')) return;\n        snapToZone(zone);\n      });\n    });\n\n    // Make Dock area click reset the token\n    homeDock.addEventListener('click', (e) => {\n      if (document.body.classList.contains('locked')) return;\n      if (e.target === homeDock || e.target.classList.contains('dock-label')) {\n        resetTokenToDock();\n        parent.postMessage({ type: 'hk-practice-answer', value: '' }, '*');\n      }\n    });\n\n    // Keyboard support\n    let focusIndex = -1;\n    window.addEventListener('keydown', (e) => {\n      if (document.body.classList.contains('locked')) return;\n      if (e.key === 'Tab') {\n        // Simple manual cycling of zones on Tab\n        e.preventDefault();\n        focusIndex = (focusIndex + 1) % zones.length;\n        snapToZone(zones[focusIndex]);\n      }\n    });\n\n    // Setup initial position on layout ready\n    window.addEventListener('load', () => {\n      resetTokenToDock();\n      reportHeight();\n    });\n\n    // --- PARENT COMMUNICATION HANDLERS ---\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        document.body.classList.add('locked');\n        slider.disabled = true;\n      }\n    });\n\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The spread of the distribution decreases, becoming more tightly clustered around p."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Exam: Inference for Quantitative Data",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a population distribution is heavily skewed to the right, what happens to the shape of the sampling distribution of the sample mean as the sample size increases from 5 to 50?",
+     "options": [
+      "It becomes increasingly skewed to the right.",
+      "It becomes approximately normal.",
+      "It becomes skewed to the left.",
+      "It becomes perfectly uniform."
+     ],
+     "explanation": "According to the Central Limit Theorem, as the sample size increases (specifically reaching n ≥ 30), the sampling distribution of the mean approaches a normal distribution regardless of the population's shape.",
+     "correctAnswers": [
+      "It becomes approximately normal."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary conditions to check before performing a one-sample t-test for a mean?",
+     "options": [
+      "The sample must be selected randomly.",
+      "The population size must be at least 10 times the sample size (if sampling without replacement).",
+      "The sample size must be at least 10% of the population.",
+      "The sample data should show no extreme skewness or outliers if n < 30.",
+      "The population standard deviation (sigma) must be known."
+     ],
+     "explanation": "Randomness ensures representativeness, the 10% condition (N ≥ 10n) ensures independence, and the Normality condition (CLT or graph check) ensures the t-model is valid. Knowing sigma is not a condition; in fact, we use t-procedures specifically because sigma is unknown.",
+     "correctAnswers": [
+      "The sample must be selected randomly.",
+      "The population size must be at least 10 times the sample size (if sampling without replacement).",
+      "The sample data should show no extreme skewness or outliers if n < 30."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The standard error of the sample mean is calculated by dividing the population standard deviation by the ____ of the sample size.",
+     "explanation": "The formula for the standard error of the mean is σ/√n, meaning the variability of the sample mean is inversely proportional to the square root of n.",
+     "placeholder": "mathematical operation...",
+     "correctAnswers": [
+      "square root",
+      "sqrt"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A researcher quadruples the sample size of a study (e.g., from n=25 to n=100). What is the resulting effect on the standard error of the sample mean?",
+     "options": [
+      "The standard error is reduced by half.",
+      "The standard error is reduced by one-fourth.",
+      "The standard error is doubled.",
+      "The standard error remains the same."
+     ],
+     "explanation": "Because the sample size n is under a square root in the denominator of the standard error formula, multiplying n by 4 results in dividing the standard error by √4, which is 2.",
+     "correctAnswers": [
+      "The standard error is reduced by half."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Comparison plot of Z and T distributions.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/f2257433-6ca6-4951-acaf-e681bd179f96/exam/images/unit4-q5.png"
+     },
+     "prompt": "Which of the following characteristics distinguish the t-distribution from the standard normal (z) distribution?",
+     "options": [
+      "The t-distribution has more area in the tails.",
+      "The t-distribution is centered at the mean, while the z-distribution is not.",
+      "The shape of the t-distribution depends on the degrees of freedom.",
+      "The t-distribution is only used for proportions.",
+      "The t-distribution is symmetric and bell-shaped."
+     ],
+     "explanation": "Both are symmetric and centered at zero, but the t-distribution has 'heavier' tails to account for the uncertainty of estimating the population standard deviation, and its specific shape is determined by df = n - 1.",
+     "correctAnswers": [
+      "The t-distribution has more area in the tails.",
+      "The shape of the t-distribution depends on the degrees of freedom."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a one-sample t-test with a sample size of n = 22, the degrees of freedom used to find the critical value would be ____.",
+     "explanation": "For a single mean inference procedure, the degrees of freedom is calculated as n - 1.",
+     "placeholder": "integer value",
+     "correctAnswers": [
+      "21"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When is it appropriate to use a t-procedure for a sample size of n = 12?",
+     "options": [
+      "Always, as long as the sample is random.",
+      "Only if the population distribution is known to be normal or the sample data shows no outliers/strong skewness.",
+      "Only if the population standard deviation is known.",
+      "Never, because the sample size must be at least 30."
+     ],
+     "explanation": "When n < 30, the Central Limit Theorem does not apply. Therefore, we must verify the Normality condition by ensuring the population is normal or by checking the sample data for outliers and skewness.",
+     "correctAnswers": [
+      "Only if the population distribution is known to be normal or the sample data shows no outliers/strong skewness."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A 95% confidence interval for the mean height of a population is calculated as (165 cm, 175 cm). Which of the following statements are correct interpretations?",
+     "options": [
+      "There is a 95% probability that the true mean height is between 165 and 175.",
+      "We are 95% confident that the interval from 165 to 175 captures the true population mean height.",
+      "95% of the individuals in the population have a height between 165 and 175.",
+      "If we took many samples and built many 95% intervals, about 95% of them would capture the true mean.",
+      "The sample mean is 170 cm."
+     ],
+     "explanation": "Confidence levels describe the success rate of the method over many trials, not the probability of a specific interval. The sample mean is the midpoint of the interval.",
+     "correctAnswers": [
+      "We are 95% confident that the interval from 165 to 175 captures the true population mean height.",
+      "If we took many samples and built many 95% intervals, about 95% of them would capture the true mean.",
+      "The sample mean is 170 cm."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The ____ condition for inference is satisfied when we can reasonably assume that the population is at least 10 times larger than the sample size.",
+     "explanation": "The 10% condition is a rule of thumb used to assume independence when sampling without replacement from a finite population.",
+     "placeholder": "Name of condition...",
+     "correctAnswers": [
+      "Independence",
+      "10%",
+      "ten percent"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is the primary reason we use the t-distribution instead of the z-distribution when constructing a confidence interval for a population mean?",
+     "options": [
+      "The population mean is unknown.",
+      "The population standard deviation is unknown and must be estimated using the sample standard deviation.",
+      "The sample size is always too small for the z-distribution.",
+      "The t-distribution is more accurate for proportions."
+     ],
+     "explanation": "Because the sample standard deviation (s) varies from sample to sample, it introduces extra variability that the z-distribution doesn't account for; the t-distribution was designed for this specific uncertainty.",
+     "correctAnswers": [
+      "The population standard deviation is unknown and must be estimated using the sample standard deviation."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In a hypothesis test for a single mean (H0: mu = 50 vs Ha: mu > 50), the calculated p-value is 0.02. If the significance level is alpha = 0.05, which of the following are true?",
+     "options": [
+      "We reject the null hypothesis.",
+      "We fail to reject the null hypothesis.",
+      "There is convincing evidence that the true mean is greater than 50.",
+      "There is not enough evidence to say the mean is greater than 50.",
+      "The probability that the null hypothesis is true is 2%."
+     ],
+     "explanation": "Since the p-value (0.02) is less than alpha (0.05), we reject H0. This provides statistically significant evidence for the alternative hypothesis.",
+     "correctAnswers": [
+      "We reject the null hypothesis.",
+      "There is convincing evidence that the true mean is greater than 50."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If a sample mean is 100 and the margin of error for a 95% confidence interval is 8, the upper bound of the confidence interval is ____.",
+     "explanation": "A confidence interval is calculated as (point estimate ± margin of error). Therefore, 100 + 8 = 108.",
+     "placeholder": "number",
+     "correctAnswers": [
+      "108"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A study measures the weight of 10 participants before and after a diet. To determine if the diet was effective, which procedure is most appropriate?",
+     "options": [
+      "One-sample t-test for a mean",
+      "Paired t-test for the mean difference",
+      "Two-sample t-test for the difference of means",
+      "One-proportion z-test"
+     ],
+     "explanation": "Since the measurements come from the same participants ('before' and 'after'), the data is dependent (paired), requiring a paired t-test on the differences.",
+     "correctAnswers": [
+      "Paired t-test for the mean difference"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Suppose you are comparing the mean test scores of two independent groups (Group A and Group B). Which conditions must be met for a two-sample t-test?",
+     "options": [
+      "Both groups must be randomly and independently selected.",
+      "The groups must have the same number of participants.",
+      "Both populations must be normal or both sample sizes must be at least 30.",
+      "The 10% condition must be met for both samples if sampling without replacement.",
+      "The population standard deviations must be known to be equal."
+     ],
+     "explanation": "Two-sample t-tests require independent random samples, the 10% rule for independence within groups, and normality for both distributions. They do not require equal sample sizes or equal variances (though pooled versions exist).",
+     "correctAnswers": [
+      "Both groups must be randomly and independently selected.",
+      "Both populations must be normal or both sample sizes must be at least 30.",
+      "The 10% condition must be met for both samples if sampling without replacement."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Adjust the sample size and observe the change in the t-distribution curve relative to the standard normal (z) curve. Which setting produces the 'heaviest' tails in the t-distribution?",
+     "options": [
+      "Sample size n = 2",
+      "Sample size n = 15",
+      "Sample size n = 30",
+      "Sample size n = 100"
+     ],
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>t-Distribution Sample Size Interactive</title>`\n  `<style>`\n    `/* Warm, clean, standard UI styles */`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f5f4f0;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #707070;`\n      `--accent: #4C6696;`\n      `--accent-soft: #eef2f7;`\n      `--accent-strong: #334668;`\n      `--t-curve: #d97706;`\n      `--t-curve-soft: rgba(217, 119, 6, 0.12);`\n      `--z-curve: #64748b;`\n      `--focus-ring: rgba(76, 102, 150, 0.4);`\n    `}`\n\n    `* {`\n      `box-sizing: border-box;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `margin: 0;`\n      `padding: 0;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;`\n      `color: var(--fg);`\n      `-webkit-font-smoothing: antialiased;`\n      `-moz-osx-font-smoothing: grayscale;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `white-space: nowrap;`\n      `border: 0;`\n    `}`\n\n    `#app {`\n      `width: 100%;`\n      `max-width: 480px;`\n      `margin: 0 auto;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 12px;`\n      `user-select: none;`\n    `}`\n\n    `.stage {`\n      `background: var(--stage);`\n      `border: 1px solid var(--border);`\n      `border-radius: 12px;`\n      `padding: 12px 12px 8px 12px;`\n      `position: relative;`\n      `display: flex;`\n      `flex-direction: column;`\n      `align-items: center;`\n    `}`\n\n    `.stage-svg {`\n      `width: 100%;`\n      `height: auto;`\n      `display: block;`\n      `overflow: visible;`\n    `}`\n\n    `.legend {`\n      `display: flex;`\n      `justify-content: center;`\n      `gap: 16px;`\n      `font-size: 11px;`\n      `margin-top: -4px;`\n      `margin-bottom: 4px;`\n    `}`\n\n    `.legend-item {`\n      `display: flex;`\n      `align-items: center;`\n      `gap: 6px;`\n      `font-weight: 500;`\n    `}`\n\n    `.legend-color {`\n      `width: 14px;`\n      `height: 3px;`\n      `border-radius: 1.5px;`\n    `}`\n\n    `.legend-color.z {`\n      `background: var(--z-curve);`\n      `border-top: 1px dashed var(--z-curve);`\n      `height: 1px;`\n    `}`\n\n    `.legend-color.t {`\n      `background: var(--t-curve);`\n    `}`\n\n    `/* Slider & Controls Area */`\n    `.control-panel {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 12px;`\n      `padding: 16px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 16px;`\n      `box-shadow: 0 1px 3px rgba(0,0,0,0.02);`\n    `}`\n\n    `.readout {`\n      `display: flex;`\n      `justify-content: space-between;`\n      `align-items: center;`\n      `font-size: 14px;`\n      `font-weight: 600;`\n    `}`\n\n    `.readout-label {`\n      `color: var(--muted-fg);`\n      `font-weight: 500;`\n    `}`\n\n    `.readout-value {`\n      `color: var(--t-curve);`\n      `background: var(--t-curve-soft);`\n      `padding: 2px 8px;`\n      `border-radius: 6px;`\n      `font-variant-numeric: tabular-nums;`\n    `}`\n\n    `.slider-container {`\n      `position: relative;`\n      `height: 40px;`\n      `display: flex;`\n      `align-items: center;`\n      `cursor: pointer;`\n      `touch-action: none;`\n    `}`\n\n    `.slider-track {`\n      `position: absolute;`\n      `left: 10px;`\n      `right: 10px;`\n      `height: 6px;`\n      `background: #e2e8f0;`\n      `border-radius: 3px;`\n      `pointer-events: none;`\n    `}`\n\n    `.slider-stops {`\n      `position: absolute;`\n      `left: 10px;`\n      `right: 10px;`\n      `display: flex;`\n      `justify-content: space-between;`\n      `pointer-events: none;`\n    `}`\n\n    `.slider-stop {`\n      `width: 10px;`\n      `height: 10px;`\n      `border-radius: 50%;`\n      `background: #cbd5e1;`\n      `transform: translate(-50%, -2px);`\n      `transition: background 0.2s;`\n    `}`\n\n    `.slider-stop.active {`\n      `background: var(--accent);`\n    `}`\n\n    `.slider-labels {`\n      `position: absolute;`\n      `left: 10px;`\n      `right: 10px;`\n      `top: 26px;`\n      `display: flex;`\n      `justify-content: space-between;`\n      `pointer-events: none;`\n    `}`\n\n    `.slider-label {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `font-weight: 600;`\n      `transform: translateX(-50%);`\n      `white-space: nowrap;`\n      `transition: color 0.2s, transform 0.2s;`\n    `}`\n\n    `.slider-label.active {`\n      `color: var(--fg);`\n      `transform: translateX(-50%) scale(1.05);`\n    `}`\n\n    `.slider-handle {`\n      `position: absolute;`\n      `width: 24px;`\n      `height: 24px;`\n      `background: var(--accent);`\n      `border: 2px solid var(--surface);`\n      `border-radius: 50%;`\n      `box-shadow: 0 2px 4px rgba(0,0,0,0.15);`\n      `cursor: grab;`\n      `touch-action: none;`\n      `z-index: 2;`\n      `transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);`\n    `}`\n\n    `.slider-handle:active {`\n      `cursor: grabbing;`\n      `transform: scale(1.15);`\n      `background: var(--accent-strong);`\n    `}`\n\n    `.slider-container:focus-visible {`\n      `outline: none;`\n    `}`\n\n    `.slider-container:focus-visible .slider-handle {`\n      `outline: 2px solid var(--accent);`\n      `outline-offset: 2px;`\n    `}`\n\n    `.action-hint {`\n      `text-align: center;`\n      `font-size: 12px;`\n      `color: var(--muted-fg);`\n      `margin-top: -4px;`\n    `}`\n\n    `/* Curve elements styling */`\n    `.curve-t {`\n      `stroke: var(--t-curve);`\n      `stroke-width: 2.5;`\n      `fill: none;`\n      `transition: d 0.2s ease-out;`\n    `}`\n\n    `.curve-z {`\n      `stroke: var(--z-curve);`\n      `stroke-width: 1.5;`\n      `stroke-dasharray: 4 3;`\n      `fill: none;`\n    `}`\n\n    `.tail-shading {`\n      `fill: var(--t-curve-soft);`\n      `transition: d 0.2s ease-out;`\n    `}`\n\n    `/* Tail labels / helpers */`\n    `.tail-label {`\n      `font-size: 9px;`\n      `font-weight: bold;`\n      `fill: var(--t-curve);`\n      `opacity: 0.8;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"sr-only\">Interactive t-Distribution and Standard Normal Curve Plotter</h1>`\n\n  `<div id=\"app\">`\n    `<div class=\"stage\">`\n      `<svg class=\"stage-svg\" viewBox=\"0 0 320 160\" aria-hidden=\"true\">`\n        `<!-- Shaded Tail Area under t-distribution -->`\n        `<path class=\"tail-shading\" d=\"\" />`\n        `<!-- Guidelines & Labels -->`\n        `<line x1=\"20\" y1=\"140\" x2=\"300\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1\" />`\n        `<line x1=\"160\" y1=\"10\" x2=\"160\" y2=\"140\" stroke=\"#e2e8f0\" stroke-width=\"1\" stroke-dasharray=\"2 2\" />`\n        `<!-- X Axis Ticks -->`\n        `<text x=\"160\" y=\"152\" font-size=\"9\" fill=\"#94a3b8\" text-anchor=\"middle\">0</text>`\n        `<text x=\"60\" y=\"152\" font-size=\"9\" fill=\"#94a3b8\" text-anchor=\"middle\">-2</text>`\n        `<text x=\"260\" y=\"152\" font-size=\"9\" fill=\"#94a3b8\" text-anchor=\"middle\">+2</text>`\n        `<!-- Fixed Z Curve -->`\n        `<path class=\"curve-z\" d=\"M 20,139.8 L 30,139.5 L 40,138.4 L 50,135.5 L 60,129.6 L 70,120.0 L 80,106.1 L 90,88.4 L 100,68.2 L 110,47.9 L 120,30.2 L 130,17.2 L 140,10.1 L 150,7.2 L 160,6.5 L 170,7.2 L 180,10.1 L 190,17.2 L 200,30.2 L 210,47.9 L 220,68.2 L 230,88.4 L 240,106.1 L 250,120.0 L 260,129.6 L 270,135.5 L 280,138.4 L 290,139.5 L 300,139.8\" />`\n        `<!-- Dynamic T Curve -->`\n        `<path class=\"curve-t\" d=\"\" />`\n        `<!-- Tail visual indicators -->`\n        `<text x=\"35\" y=\"125\" class=\"tail-label\" text-anchor=\"middle\">Tail</text>`\n        `<text x=\"285\" y=\"125\" class=\"tail-label\" text-anchor=\"middle\">Tail</text>`\n      `</svg>`\n\n      `<div class=\"legend\">`\n        `<div class=\"legend-item\">`\n          `<div class=\"legend-color z\"></div>`\n          `<span style=\"color: var(--z-curve);\">Normal (z)</span>`\n        `</div>`\n        `<div class=\"legend-item\">`\n          `<div class=\"legend-color t\"></div>`\n          `<span style=\"color: var(--t-curve);\">t-distribution</span>`\n        `</div>`\n      `</div>`\n    `</div>`\n\n    `<div class=\"control-panel\">`\n      `<div class=\"readout\">`\n        `<span class=\"readout-label\">Sample Size:</span>`\n        `<span class=\"readout-value\" id=\"sample-size-val\">n = 2</span>`\n      `</div>`\n\n      `<div class=\"slider-container\" id=\"slider-container\" tabindex=\"0\" role=\"slider\" aria-label=\"Sample Size\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"0\" aria-valuetext=\"Sample size n = 2\">`\n        `<div class=\"slider-track\"></div>`\n        `<div class=\"slider-stops\" id=\"stops-container\"></div>`\n        `<div class=\"slider-labels\" id=\"labels-container\"></div>`\n        `<div class=\"slider-handle\" id=\"slider-handle\"></div>`\n      `</div>`\n    `</div>`\n\n    `<div class=\"action-hint\">`\n      `Drag the slider to adjust sample size and watch the tails`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `const OPTIONS = [`\n      `\"Sample size n = 2\",`\n      `\"Sample size n = 15\",`\n      `\"Sample size n = 30\",`\n      `\"Sample size n = 100\"`\n    `];`\n\n    `const values = [2, 15, 30, 100];`\n    `const nus = [1, 14, 29, 99]; // df = n - 1`\n    `const coeffs = [0.3183, 0.3891, 0.3934, 0.3975];`\n\n    `let currentIndex = 0;`\n    `let isLocked = false;`\n\n    `const handle = document.getElementById('slider-handle');`\n    `const container = document.getElementById('slider-container');`\n    `const stopsContainer = document.getElementById('stops-container');`\n    `const labelsContainer = document.getElementById('labels-container');`\n    `const readoutValue = document.getElementById('sample-size-val');`\n    `const tCurvePath = document.querySelector('.curve-t');`\n    `const tailShadingPath = document.querySelector('.tail-shading');`\n\n    `// Generate stops and labels`\n    `OPTIONS.forEach((opt, idx) => {`\n      `const stop = document.createElement('div');`\n      `stop.className = 'slider-stop' + (idx === 0 ? ' active' : '');`\n      `stopsContainer.appendChild(stop);`\n\n      `const label = document.createElement('div');`\n      `label.className = 'slider-label' + (idx === 0 ? ' active' : '');`\n      `label.textContent = `n = ${values[idx]}`;`\n      `labelsContainer.appendChild(label);`\n    `});`\n\n    `const stops = document.querySelectorAll('.slider-stop');`\n    `const labels = document.querySelectorAll('.slider-label');`\n\n    `// Math helper for t-distribution PDF`\n    `function getT_Y(x, nu, coeff) {`\n      `// f(x) = coeff * (1 + x^2 / nu) ^ -((nu+1)/2)`\n      `return coeff * Math.pow(1 + (x * x) / nu, -(nu + 1) / 2);`\n    `}`\n\n    `// Render curve based on chosen index`\n    `function renderCurves(index) {`\n      `const nu = nus[index];`\n      `const coeff = coeffs[index];`\n      `let tPoints = [];`\n      `let tailPointsLeft = [];`\n      `let tailPointsRight = [];`\n\n      `// Plotting range: x from -3.5 to 3.5 mapped to SVG width 20 to 300`\n      `// Baseline Y coordinate is 140. Max peak at Y = 10 (amplitude = 130)`\n      `for (let px = 20; px <= 300; px += 2) {`\n        `const x = ((px - 160) / 140) * 3.5;`\n        `const yVal = getT_Y(x, nu, coeff);`\n        `const py = 140 - (yVal / 0.45) * 130;`\n        `tPoints.push(`${px},${py.toFixed(1)}`);`\n\n        `// Track points for shading tails: say |x| > 1.5`\n        `if (x < -1.5) {`\n          `tailPointsLeft.push(`${px},${py.toFixed(1)}`);`\n        `} else if (x > 1.5) {`\n          `tailPointsRight.push(`${px},${py.toFixed(1)}`);`\n        `}`\n      `}`\n\n      `tCurvePath.setAttribute('d', `M ${tPoints.join(' L ')}`);`\n\n      `// Construct path for tail shading (left tail and right tail)`\n      `if (tailPointsLeft.length > 0 && tailPointsRight.length > 0) {`\n        `const leftStartX = 20;`\n        `const leftEndX = 20 + tailPointsLeft.length * 2 - 2;`\n        `const rightStartX = 300 - tailPointsRight.length * 2 + 2;`\n        `const rightEndX = 300;`\n\n        `let dShading = `M ${leftStartX},140 `;`\n        `dShading += tailPointsLeft.map(p => 'L ' + p).join(' ');`\n        `dShading += ` L ${leftEndX},140 Z `;`\n\n        `dShading += `M ${rightStartX},140 `;`\n        `dShading += tailPointsRight.map(p => 'L ' + p).join(' ');`\n        `dShading += ` L ${rightEndX},140 Z`;`\n\n        `tailShadingPath.setAttribute('d', dShading);`\n      `}`\n    `}`\n\n    `function setIndex(index) {`\n      `if (index < 0) index = 0;`\n      `if (index > 3) index = 3;`\n      `currentIndex = index;`\n\n      `// Update handle position`\n      `const percent = (index / 3) * 100;`\n      `handle.style.left = `calc(${percent}% - 12px)`;`\n\n      `// Update Active states`\n      `stops.forEach((s, idx) => s.classList.toggle('active', idx === index));`\n      `labels.forEach((l, idx) => l.classList.toggle('active', idx === index));`\n\n      `// Readout`\n      `readoutValue.textContent = `n = ${values[index]}`;`\n\n      `// Curve`\n      `renderCurves(index);`\n\n      `// Accessibility`\n      `container.setAttribute('aria-valuenow', index);`\n      `container.setAttribute('aria-valuetext', OPTIONS[index]);`\n\n      `// Post answer`\n      `try {`\n        `parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');`\n      `} catch (e) {}`\n    `}`\n\n    `// Handle Drag / Pointer Logic`\n    `let isDragging = false;`\n\n    `function getIndexFromPointer(e) {`\n      `const rect = container.getBoundingClientRect();`\n      `const trackWidth = rect.width - 20; // 10px offset each side`\n      `const relativeX = e.clientX - rect.left - 10;`\n      `const rawPercent = Math.max(0, Math.min(relativeX / trackWidth, 1));`\n      `return Math.round(rawPercent * 3);`\n    `}`\n\n    `function onPointerDown(e) {`\n      `if (isLocked) return;`\n      `isDragging = true;`\n      `container.setPointerCapture(e.pointerId);`\n      `const index = getIndexFromPointer(e);`\n      `setIndex(index);`\n    `}`\n\n    `function onPointerMove(e) {`\n      `if (!isDragging || isLocked) return;`\n      `const index = getIndexFromPointer(e);`\n      `setIndex(index);`\n    `}`\n\n    `function onPointerUp(e) {`\n      `if (!isDragging) return;`\n      `isDragging = false;`\n      `container.releasePointerCapture(e.pointerId);`\n    `}`\n\n    `container.addEventListener('pointerdown', onPointerDown);`\n    `container.addEventListener('pointermove', onPointerMove);`\n    `container.addEventListener('pointerup', onPointerUp);`\n\n    `// Keyboard Logic`\n    `container.addEventListener('keydown', (e) => {`\n      `if (isLocked) return;`\n      `if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {`\n        `setIndex(currentIndex + 1);`\n      `} else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {`\n        `setIndex(currentIndex - 1);`\n      `}`\n    `});`\n\n    `// Lock hook`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `isLocked = true;`\n        `container.style.pointerEvents = 'none';`\n        `handle.style.cursor = 'default';`\n      `}`\n    `});`\n\n    `// Height reporting`\n    `function sendHeight() {`\n      `try {`\n        `parent.postMessage({`\n          `type: 'hk-anim-height',`\n          `height: Math.ceil(document.documentElement.getBoundingClientRect().height)`\n        `}, '*');`\n      `} catch (e) {}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `setIndex(0); // Start at n = 2`\n      `sendHeight();`\n    `});`\n\n    `const resizeObserver = new ResizeObserver(() => {`\n      `sendHeight();`\n    `});`\n    `resizeObserver.observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "Sample size n = 2"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Exam: Regression Analysis",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In an experiment designed to study how varying the amount of liquid a sponge absorbs affects its weight, which variable is the explanatory variable?",
+     "options": [
+      "The type of liquid used",
+      "The final weight of the sponge",
+      "The amount of liquid absorbed",
+      "The initial weight of the sponge"
+     ],
+     "explanation": "The explanatory variable is the one that we suspect explains or predicts changes in the outcome. In this case, the amount of liquid absorbed is manipulated to see how it influences the response variable, which is the final weight.",
+     "correctAnswers": [
+      "The amount of liquid absorbed"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When describing a scatterplot's relationship between two quantitative variables, which of the following components must be included to provide a complete description?",
+     "options": [
+      "Direction",
+      "Form",
+      "Strength",
+      "Mean of the x-values",
+      "Unusual features (outliers or clusters)"
+     ],
+     "explanation": "A complete description (FODS) requires Form, Outliers/Unusual features, Direction, and Strength. Statistical measures like the mean are not part of the visual description of the bivariate relationship.",
+     "correctAnswers": [
+      "Direction",
+      "Form",
+      "Strength",
+      "Unusual features (outliers or clusters)"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A researcher calculates the correlation coefficient between height in inches and weight in pounds. If the researcher converts all heights to centimeters (1 inch = 2.54 cm), the value of the correlation coefficient will ____.",
+     "placeholder": "change or stay the same?",
+     "correctAnswers": [
+      "stay the same",
+      "remain unchanged",
+      "not change"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Which of the following correlation coefficients represents the strongest linear relationship?",
+     "options": [
+      "r = 0.85",
+      "r = -0.92",
+      "r = 0.00",
+      "r = 1.05"
+     ],
+     "explanation": "Strength is determined by the absolute value of r. | -0.92 | is 0.92, which is closer to 1 than 0.85. Note that r cannot exceed 1.0.",
+     "correctAnswers": [
+      "r = -0.92"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following statements about the correlation coefficient (r) are true?",
+     "options": [
+      "The value of r is always between -1 and 1 inclusive.",
+      "A correlation of r = 0 indicates no relationship whatsoever between variables.",
+      "Swapping the explanatory and response variables does not change the value of r.",
+      "Correlation is heavily influenced by outliers.",
+      "Correlation measures the strength of any pattern, including curves."
+     ],
+     "explanation": "r only measures linear association (not curved). r = 0 means no linear relationship, but a strong non-linear one could still exist. r is symmetric and sensitive to outliers.",
+     "correctAnswers": [
+      "The value of r is always between -1 and 1 inclusive.",
+      "Swapping the explanatory and response variables does not change the value of r.",
+      "Correlation is heavily influenced by outliers."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A residual is calculated as the observed y-value minus the ____ y-value.",
+     "placeholder": "predicted",
+     "correctAnswers": [
+      "predicted",
+      "expected",
+      "fitted"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If a Least-Squares Regression Line (LSRL) has the equation ŷ = 12 + 3.5x, what is the correct interpretation of the slope?",
+     "options": [
+      "For every 1 unit increase in x, the predicted y increases by 3.5 units.",
+      "For every 1 unit increase in y, the predicted x increases by 3.5 units.",
+      "When x is 0, the predicted value of y is 3.5.",
+      "The correlation between x and y is 3.5."
+     ],
+     "explanation": "The slope (b) represents the estimated change in the response variable (y) for each one-unit increase in the explanatory variable (x).",
+     "correctAnswers": [
+      "For every 1 unit increase in x, the predicted y increases by 3.5 units."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A residual plot shows a clear 'U' shaped pattern. What does this indicate about the linear model?",
+     "options": [
+      "The linear model is appropriate for the data.",
+      "The original relationship is likely non-linear.",
+      "A linear model will systematically over- or under-predict at different ranges of x.",
+      "The correlation coefficient r is definitely 1 or -1.",
+      "The standard deviation of residuals (s) is 0."
+     ],
+     "explanation": "A pattern in the residual plot (like a curve) suggests that a linear model is not the best fit and that the true relationship is non-linear.",
+     "correctAnswers": [
+      "The original relationship is likely non-linear.",
+      "A linear model will systematically over- or under-predict at different ranges of x."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If every point in a scatterplot falls exactly on a straight line with a negative slope, the value of r is ____.",
+     "placeholder": "number",
+     "correctAnswers": [
+      "-1",
+      "-1.0"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If the coefficient of determination (r-squared) is 0.64, what percentage of the variation in the response variable is explained by the linear relationship with the explanatory variable?",
+     "options": [
+      "36%",
+      "64%",
+      "80%",
+      "It depends on the slope."
+     ],
+     "explanation": "R-squared represents the proportion (or percentage) of the variance in the response variable that is predictable from the explanatory variable.",
+     "correctAnswers": [
+      "64%"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of the Least-Squares Regression Line (LSRL)?",
+     "options": [
+      "It minimizes the sum of the squared residuals.",
+      "It always passes through the point (mean of x, mean of y).",
+      "It is used to predict the explanatory variable from the response variable.",
+      "The sum of the residuals from the LSRL is always zero.",
+      "It is resistant to the effects of outliers."
+     ],
+     "explanation": "The LSRL is specifically defined by minimizing squared vertical distances. It must pass through the centroid of the data, and residuals always sum to zero. It is NOT resistant to outliers.",
+     "correctAnswers": [
+      "It minimizes the sum of the squared residuals.",
+      "It always passes through the point (mean of x, mean of y).",
+      "The sum of the residuals from the LSRL is always zero."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "On a scatterplot, the variable plotted on the vertical axis is called the ____ variable.",
+     "placeholder": "type of variable",
+     "correctAnswers": [
+      "response",
+      "dependent",
+      "outcome"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A data point has an observed value of y = 20. The regression line predicts ŷ = 24. What is the residual for this point?",
+     "options": [
+      "4",
+      "-4",
+      "44",
+      "0.83"
+     ],
+     "explanation": "Residual = Observed - Predicted. So, 20 - 24 = -4.",
+     "correctAnswers": [
+      "-4"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "A study finds a strong positive correlation (r = 0.88) between the number of firefighters at a fire and the amount of damage caused. Which statements are valid conclusions?",
+     "options": [
+      "Sending more firefighters causes more damage.",
+      "There is a strong linear association between firefighters and damage.",
+      "The size of the fire is likely a lurking variable influencing both.",
+      "Reducing the number of firefighters will reduce damage.",
+      "Firefighters and damage have a causal relationship."
+     ],
+     "explanation": "Correlation does not imply causation. A third variable (fire size) likely explains why more firefighters are present at more damaging fires.",
+     "correctAnswers": [
+      "There is a strong linear association between firefighters and damage.",
+      "The size of the fire is likely a lurking variable influencing both."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "When looking at a scatterplot of car weights (x) and fuel efficiency (y), you see that as weight increases, fuel efficiency decreases. Which of the following is most likely the correlation coefficient?",
+     "options": [
+      "r = 0.82",
+      "r = -0.75",
+      "r = -1.20",
+      "r = 0.05"
+     ],
+     "explanation": "A decrease in y as x increases indicates a negative relationship (r < 0). Since r cannot be less than -1, -0.75 is the only plausible answer.",
+     "correctAnswers": [
+      "r = -0.75"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which conditions are necessary for a correlation coefficient to be a meaningful measure of the relationship between two variables?",
+     "options": [
+      "Both variables must be quantitative.",
+      "The relationship must be roughly linear.",
+      "There must be no outliers in the data.",
+      "One variable must cause the other.",
+      "The data must be collected via an experiment."
+     ],
+     "explanation": "Correlation is only for quantitative data and only measures linear strength. While outliers affect it, they don't make it 'meaningless' to calculate, but a curved relationship does make r misleading.",
+     "correctAnswers": [
+      "Both variables must be quantitative.",
+      "The relationship must be roughly linear."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "What is the primary danger of extrapolation in regression analysis?",
+     "options": [
+      "It results in a negative r-squared value.",
+      "It makes the residual plot appear curved.",
+      "The relationship between variables may not hold true outside the range of observed data.",
+      "It causes the slope of the line to become zero."
+     ],
+     "explanation": "Extrapolation is predicting outside the x-range of the data. We have no evidence that the linear trend continues beyond what was measured.",
+     "correctAnswers": [
+      "The relationship between variables may not hold true outside the range of observed data."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Identify the scatterplot that exhibits a 'Moderate, Negative, Linear' relationship.",
+     "options": [
+      "A tight cloud of points sloping steeply upward from left to right.",
+      "A loosely scattered cloud of points showing a general downward trend.",
+      "A perfect U-shaped curve where points follow a quadratic path.",
+      "A horizontal band of points with no discernible upward or downward trend."
+     ],
+     "explanation": "A moderate relationship shows some scatter, negative direction indicates a downward slope, and linear indicates a straight-line trend rather than a curve.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: rgba(76, 102, 150, 0.08);\n      --accent-strong: #3a4f78;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 10px;\n    }\n\n    .stage-card {\n      width: 100%;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);\n      position: relative;\n      overflow: hidden;\n      touch-action: none;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n    }\n\n    /* Quadrant styles */\n    .quadrant-bg {\n      fill: var(--surface);\n      transition: fill 0.2s ease, stroke 0.2s ease;\n      stroke: var(--border);\n      stroke-width: 1;\n    }\n    .quadrant-group:focus {\n      outline: none;\n    }\n    .quadrant-group:focus .quadrant-bg {\n      stroke: var(--accent);\n      stroke-width: 2;\n    }\n    .quadrant-group.active .quadrant-bg {\n      fill: var(--accent-soft);\n      stroke: var(--accent);\n      stroke-width: 2;\n    }\n\n    /* Axis lines and text */\n    .axis {\n      stroke: #cccccc;\n      stroke-width: 1;\n      stroke-dasharray: 2, 2;\n    }\n    .axis-label {\n      font-size: 9px;\n      fill: var(--muted-fg);\n    }\n\n    /* Scatterplot points */\n    .point {\n      fill: #555555;\n      transition: fill 0.2s ease, transform 0.2s ease;\n    }\n    .quadrant-group.active .point {\n      fill: var(--accent);\n    }\n\n    /* Magnifier Lens */\n    .lens-group {\n      cursor: grab;\n    }\n    .lens-group:active {\n      cursor: grabbing;\n    }\n    .lens-outer {\n      fill: none;\n      stroke: var(--accent-strong);\n      stroke-width: 3.5;\n      filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.2));\n      transition: stroke 0.2s;\n    }\n    .lens-glass {\n      fill: rgba(255, 255, 255, 0.15);\n      stroke: rgba(255, 255, 255, 0.4);\n      stroke-width: 1;\n    }\n    .lens-handle {\n      stroke: var(--accent-strong);\n      stroke-width: 6;\n      stroke-linecap: round;\n    }\n    .lens-glare {\n      fill: rgba(255, 255, 255, 0.25);\n    }\n\n    /* Locked state */\n    .locked {\n      pointer-events: none !important;\n      cursor: default !important;\n    }\n    .locked .lens-group {\n      cursor: default;\n    }\n\n    .hint-text {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: 4px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Scatterplot Magnifier - Drag the lens to choose the correct relationship</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"stage-card\" id=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 340 260\" id=\"svg-element\">\n        <!-- Grid and Quadrant Backgrounds -->\n        <g id=\"quadrants\">\n          <!-- Top Left: Strong Positive -->\n          <g class=\"quadrant-group\" id=\"quad-0\" tabindex=\"0\" role=\"button\" aria-label=\"Quadrant 1: Strong Positive Trend\">\n            <rect class=\"quadrant-bg\" x=\"5\" y=\"5\" width=\"160\" height=\"120\" rx=\"6\" />\n            <!-- Points -->\n            <circle class=\"point\" cx=\"25\" cy=\"105\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"40\" cy=\"93\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"55\" cy=\"85\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"70\" cy=\"71\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"85\" cy=\"62\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"100\" cy=\"50\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"115\" cy=\"38\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"130\" cy=\"27\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"145\" cy=\"18\" r=\"3.5\" />\n          </g>\n\n          <!-- Top Right: Moderate Negative -->\n          <g class=\"quadrant-group\" id=\"quad-1\" tabindex=\"0\" role=\"button\" aria-label=\"Quadrant 2: Moderate Negative Trend\">\n            <rect class=\"quadrant-bg\" x=\"175\" y=\"5\" width=\"160\" height=\"120\" rx=\"6\" />\n            <!-- Points -->\n            <circle class=\"point\" cx=\"190\" cy=\"25\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"205\" cy=\"50\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"210\" cy=\"20\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"225\" cy=\"45\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"235\" cy=\"70\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"250\" cy=\"50\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"265\" cy=\"80\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"275\" cy=\"55\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"290\" cy=\"75\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"300\" cy=\"95\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"315\" cy=\"70\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"325\" cy=\"100\" r=\"3.5\" />\n          </g>\n\n          <!-- Bottom Left: Quadratic/U-shaped -->\n          <g class=\"quadrant-group\" id=\"quad-2\" tabindex=\"0\" role=\"button\" aria-label=\"Quadrant 3: Quadratic Trend\">\n            <rect class=\"quadrant-bg\" x=\"5\" y=\"135\" width=\"160\" height=\"120\" rx=\"6\" />\n            <!-- Points -->\n            <circle class=\"point\" cx=\"20\" cy=\"155\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"35\" cy=\"180\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"50\" cy=\"205\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"65\" cy=\"225\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"85\" cy=\"235\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"105\" cy=\"225\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"120\" cy=\"205\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"135\" cy=\"180\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"150\" cy=\"155\" r=\"3.5\" />\n          </g>\n\n          <!-- Bottom Right: Horizontal Band / Random -->\n          <g class=\"quadrant-group\" id=\"quad-3\" tabindex=\"0\" role=\"button\" aria-label=\"Quadrant 4: No Trend / Horizontal Band\">\n            <rect class=\"quadrant-bg\" x=\"175\" y=\"135\" width=\"160\" height=\"120\" rx=\"6\" />\n            <!-- Points -->\n            <circle class=\"point\" cx=\"190\" cy=\"195\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"205\" cy=\"182\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"215\" cy=\"208\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"230\" cy=\"178\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"242\" cy=\"192\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"255\" cy=\"212\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"270\" cy=\"180\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"282\" cy=\"202\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"295\" cy=\"188\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"308\" cy=\"210\" r=\"3.5\" />\n            <circle class=\"point\" cx=\"320\" cy=\"182\" r=\"3.5\" />\n          </g>\n        </g>\n\n        <!-- Quadrant Grid Dividers -->\n        <line class=\"axis\" x1=\"170\" y1=\"5\" x2=\"170\" y2=\"255\" />\n        <line class=\"axis\" x1=\"5\" y1=\"130\" x2=\"335\" y2=\"130\" />\n\n        <!-- Draggable Magnifier Lens -->\n        <g id=\"lens\" class=\"lens-group\" transform=\"translate(170, 130)\">\n          <!-- Handle -->\n          <line class=\"lens-handle\" x1=\"28\" y1=\"28\" x2=\"52\" y2=\"52\" />\n          <!-- Outer Rim -->\n          <circle class=\"lens-outer\" cx=\"0\" cy=\"0\" r=\"38\" />\n          <!-- Inner glass highlight -->\n          <circle class=\"lens-glass\" cx=\"0\" cy=\"0\" r=\"36\" />\n          <path class=\"lens-glare\" d=\"M -22 -15 A 28 28 0 0 1 15 -24 A 32 32 0 0 0 -22 -15 Z\" />\n        </g>\n      </svg>\n    </div>\n    <div class=\"hint-text\">Drag the magnifier lens over a plot to select it</div>\n  </div>\n\n  <script>\n    const OPTIONS = [\n      \"A tight cloud of points sloping steeply upward from left to right.\",\n      \"A loosely scattered cloud of points showing a general downward trend.\",\n      \"A perfect U-shaped curve where points follow a quadratic path.\",\n      \"A horizontal band of points with no discernible upward or downward trend.\"\n    ];\n\n    const stage = document.getElementById('stage');\n    const svg = document.getElementById('svg-element');\n    const lens = document.getElementById('lens');\n    const quads = [\n      document.getElementById('quad-0'),\n      document.getElementById('quad-1'),\n      document.getElementById('quad-2'),\n      document.getElementById('quad-3')\n    ];\n\n    let currentX = 170;\n    let currentY = 130;\n    let isDragging = false;\n    let isLocked = false;\n    let activeIndex = -1;\n    let dragOffset = { x: 0, y: 0 };\n\n    // Set initial lens placement\n    updateLensPosition(currentX, currentY);\n\n    // Coordinate conversion\n    function getSVGCoords(e) {\n      const rect = svg.getBoundingClientRect();\n      const clientX = e.clientX || (e.touches && e.touches[0].clientX);\n      const clientY = e.clientY || (e.touches && e.touches[0].clientY);\n      const x = ((clientX - rect.left) / rect.width) * 340;\n      const y = ((clientY - rect.top) / rect.height) * 260;\n      return { x, y };\n    }\n\n    // Pointer Events\n    lens.addEventListener('pointerdown', function(e) {\n      if (isLocked) return;\n      isDragging = true;\n      lens.setPointerCapture(e.pointerId);\n      \n      const coords = getSVGCoords(e);\n      dragOffset.x = coords.x - currentX;\n      dragOffset.y = coords.y - currentY;\n      \n      e.preventDefault();\n    });\n\n    window.addEventListener('pointermove', function(e) {\n      if (!isDragging || isLocked) return;\n      const coords = getSVGCoords(e);\n      \n      // Calculate & clamp inside the boundaries\n      let targetX = coords.x - dragOffset.x;\n      let targetY = coords.y - dragOffset.y;\n      \n      // Clamp values so center of lens stays inside stage borders\n      currentX = Math.max(15, Math.min(325, targetX));\n      currentY = Math.max(15, Math.min(245, targetY));\n      \n      updateLensPosition(currentX, currentY);\n      checkActiveQuadrant();\n    });\n\n    window.addEventListener('pointerup', function(e) {\n      if (!isDragging) return;\n      isDragging = false;\n    });\n\n    // Keyboard controls for Accessibility\n    quads.forEach((quad, idx) => {\n      quad.addEventListener('click', () => {\n        if (isLocked) return;\n        snapToQuadrant(idx);\n      });\n      quad.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          snapToQuadrant(idx);\n          e.preventDefault();\n        }\n      });\n    });\n\n    function snapToQuadrant(index) {\n      // Coordinates of quadrant centers\n      const centers = [\n        { x: 85, y: 65 },   // Top Left\n        { x: 255, y: 65 },  // Top Right\n        { x: 85, y: 195 },  // Bottom Left\n        { x: 255, y: 195 }  // Bottom Right\n      ];\n      \n      currentX = centers[index].x;\n      currentY = centers[index].y;\n      \n      // Animate smoothly via CSS transition on SVG group\n      lens.style.transition = 'transform 0.25s cubic-bezier(.34,1.56,.64,1)';\n      updateLensPosition(currentX, currentY);\n      checkActiveQuadrant();\n      \n      setTimeout(() => {\n        lens.style.transition = 'none';\n      }, 250);\n    }\n\n    function updateLensPosition(x, y) {\n      lens.setAttribute('transform', `translate(${x}, ${y})`);\n    }\n\n    function checkActiveQuadrant() {\n      // Determine which quadrant contains the center of the lens\n      // We also add a threshold so it doesn't instantly snap in the exact middle deadzone on load\n      let nextIndex = -1;\n      \n      const distanceToCenter = Math.hypot(currentX - 170, currentY - 130);\n      if (distanceToCenter > 18) {\n        const isLeft = currentX < 170;\n        const isTop = currentY < 130;\n        \n        if (isTop && isLeft) nextIndex = 0;\n        else if (isTop && !isLeft) nextIndex = 1;\n        else if (!isTop && isLeft) nextIndex = 2;\n        else if (!isTop && !isLeft) nextIndex = 3;\n      }\n\n      if (nextIndex !== activeIndex) {\n        activeIndex = nextIndex;\n        quads.forEach((q, idx) => {\n          if (idx === activeIndex) {\n            q.classList.add('active');\n          } else {\n            q.classList.remove('active');\n          }\n        });\n\n        if (activeIndex !== -1) {\n          // Report answer\n          parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[activeIndex] }, '*');\n        }\n      }\n    }\n\n    // Host locking mechanism\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('widget-container').classList.add('locked');\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "A loosely scattered cloud of points showing a general downward trend."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "07666455-74fd-4d98-9ee0-d18c5ba77868"
+}

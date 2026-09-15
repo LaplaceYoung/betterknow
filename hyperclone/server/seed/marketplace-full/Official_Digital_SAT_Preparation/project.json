@@ -1,0 +1,584 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the first stage of your Personalized SAT Score-Maximizer Playbook! Over the course of this project, you are going to build a data-driven, custom-tailored strategy guide designed to secure your maximum possible score. By the end, you will have a comprehensive playbook featuring a deep-dive gap analysis, a custom vocabulary map, a grammar boundary guide, and a specialized Math & Desmos optimization sheet. To get started, we must establish your baseline. Think back to your Bluebook Diagnostic—was it a 'clean' test under real conditions, or did distractions creep in? Understanding your starting point is the only way to build a map to your target score. Today, we begin Section 1 of your Playbook: the Diagnostic Baseline and Score Gap Roadmap.",
+     "step_title": "Project Launch: Your SAT Roadmap",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "Open your official College Board Score Report from the Bluebook app. We aren't just looking at the big number; we are looking at the 'Routing Path.' Recall our lesson on Multi-Stage Adaptive Testing (MST): did you land in the 'Hard' or 'Easy' Module 2 for each section? Remember, the Easy Module 2 carries a score ceiling (approx. 600), while the Hard Module 2 unlocks the path to 800. Look at your 'Knowledge and Skills' breakdown. Identify which of the four domains in Reading & Writing (Craft and Structure, Information and Ideas, Standard English Conventions, Expression of Ideas) and the four in Math (Algebra, Advanced Math, Problem Solving and Data Analysis, Geometry and Trigonometry) show the largest gaps.",
+     "step_title": "Decode Your Score Report",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief reflection including: 1) Your Diagnostic Score (R&W and Math), 2) Your Target Scores, and 3) A description of one pacing bottleneck you experienced (e.g., getting stuck on SPR math questions or dense R&W passages)."
+     },
+     "step_body": "Now that you see where you are, let's define where you are going. A realistic yet ambitious goal is key to a focused playbook. Based on your diagnostic, what is your target score for both the Reading & Writing and Math sections? More importantly, based on the pacing we discussed—71 seconds per question for R&W and 95 seconds for Math—identify which section felt more 'rushed.' In a few sentences, describe your 'Pacing Bottlenecks' and state your specific target score goals for the final exam.",
+     "step_title": "Set Your Target Benchmarks",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It is time to translate the College Board's 'bars' into a concrete study focus. For this step, you will select your two weakest domains in Reading & Writing and your two weakest in Math. For each, you need to identify the official practice stream. Go to the College Board Student Question Bank or Khan Academy and find the names of the specific sub-topics you need to master (e.g., 'Linear Functions' or 'Boundaries'). This transforms a vague 'I'm bad at math' into a tactical 'I need to master Systems of Linear Equations.'",
+     "step_title": "Map Your Domain Gaps",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 1 of your Playbook as a PDF. It must include: 1) Your baseline scores and Module 2 routing status, 2) Your specific target scores, 3) A list of your top 4 target domains (2 R&W, 2 Math), and 4) A proposed retesting schedule (e.g., 'Next Bluebook Diagnostic in 3 weeks')."
+     },
+     "step_body": "You are now ready to finalize the first section of your Playbook. You will compile your diagnostic data, your target goals, and your specific domain focus areas into a structured document. This 'Diagnostic Baseline and Score Gap Roadmap' will serve as the foundation that all future strategy sections will build upon. Ensure you include your official 'Module 2' routing status (Easy or Hard) for both sections, as this dictates whether your first priority is accuracy in Module 1 or tackling high-difficulty content in Module 2.",
+     "step_title": "Submit the Baseline Roadmap",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work completing the foundation of your playbook! You've moved from a raw score to a strategic roadmap. Before we move on to building your Verbal Strategy Map in the next stage, take a moment to consider your Math Student-Produced Responses (SPRs). Did you find yourself falling into the decimal rounding trap or making errors because you couldn't use a negative sign? Keep those formatting rules in mind—they are 'free' points that you now know how to protect. Your roadmap is set; next, we start the specialized content deep-dives.",
+     "step_title": "Reflect and Prepare",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit0",
+   "stage_id": "dca6887a-517c-4df5-b066-3d5d9d14eae9",
+   "stage_title": "Diagnostic Score Gap & Official Study Plan",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Analyze your official Bluebook diagnostic score and College Board Domain Report to map out score gaps. Identify target ranges, set a formal retesting schedule, and establish links to official Khan Academy and Student Question Bank practice streams.",
+   "deliverable_increment": "Section 1 of the Playbook: 'Diagnostic Baseline and Score Gap Roadmap'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you established your Diagnostic Baseline and identified the score gap you need to close. Now, we are moving into the Verbal section of your Playbook, specifically focusing on the 'Information & Ideas' category. In recent lessons, you learned how to strip away academic jargon to find functional relationships (Cause -> Effect) and how to isolate the central idea using a 'funnel' approach. Today, you will begin building Section 2a of your Playbook: the Evidence, Detail, and Inference Strategy Map. This tool will be your go-to guide for handling the SAT's most logic-intensive reading questions.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short 3-step process for analyzing Command of Evidence questions. Good work will clearly mention isolating variables and verifying the directional relationship (e.g., Variable A causes change in Variable B)."
+     },
+     "step_body": "The SAT 'Command of Evidence' questions require you to find the exact textual segment that supports a researcher’s hypothesis. Using the 'Functional Blueprint' concept from our lecture, write out a 3-step process you will use during the test to avoid 'Thematic Traps' (choices that sound right but don't match the logic). Specifically, describe how you will identify the 'Independent Variable' and 'Dependent Variable' in a prompt before you even look at the answer choices. How will you ensure the quote you pick actually 'instantiates' the relationship?",
+     "step_title": "Draft the Evidence Blueprint",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 'Elimination Rules' for Central Idea questions. Include definitions/examples for 'Too Broad' (over-generalizing) and 'Too Narrow' (focusing on a single fact)."
+     },
+     "step_body": "Recall our 'funnel' exercise: the central idea is the most objective, all-encompassing summary of a passage, while supporting details are just pillars. For your Playbook, draft a set of 'Elimination Rules' for Central Idea questions. Based on the unit material, define what makes an answer 'Too Broad' versus 'Too Narrow.' These rules will help you stay disciplined when the test tries to lure you into a 'Logical Leap' or a distracting minor detail.",
+     "step_title": "Build the Central Idea Funnel",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a mini 'Cheat Sheet' listing at least 5 pivot words and their associated relationship types (e.g., 'Consequently' = Cause/Effect)."
+     },
+     "step_body": "When a passage describes interactions—like how CO2 affects soil pH—you need to map 'nodes' and 'vectors.' In this step, describe how you will use 'Pivot Words' (like 'however' or 'consequently') to identify whether two ideas are in agreement, contrast, or modification. Create a small 'Cheat Sheet' section for your Playbook that lists at least 5 common SAT pivot words and the specific relationship type they signal.",
+     "step_title": "Map Relationship Vectors",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Detail questions are 'open-book'—the answer is printed on the screen! To finalize this section of your Playbook, outline the 'Keyword Extraction' and 'Boundary Testing' techniques. Explain how you will find 'anchors' (proper nouns/dates) to scan the text quickly, and how you will avoid the 'adjacent sentence trap.' This completes the logic-based strategy portion of your Verbal map.",
+     "step_title": "Refine the Detail Tracker",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 2a of your Playbook as a PDF. It should be a cohesive document titled 'Evidence, Detail, and Inference Strategy Map' containing all the strategies drafted in the previous steps. Good work is organized, easy to read during a timed drill, and uses the specific terminology (Vectors, Anchors, Thematic Traps) from the course."
+     },
+     "step_body": "It is time to compile your work into the formal deliverable: Section 2a: Evidence, Detail, and Inference Strategy Map. This document should combine your 3-step evidence process, your central idea elimination rules, your pivot word cheat sheet, and your detail-tracking workflow. This artifact will serve as your primary study guide for all Information & Ideas questions on the Digital SAT.",
+     "step_title": "Submit the Strategy Map",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "476e24d4-8a3a-4a41-9f13-43926fd61d81",
+   "stage_title": "Verbal Evidence and Inference Strategy Matrix",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Draft detailed response strategies and evidence-evaluation frameworks for Information & Ideas questions. Create an analytical breakdown of how to identify central ideas and handle quantitative graphics.",
+   "deliverable_increment": "Section 2a of the Playbook: 'Evidence, Detail, and Inference Strategy Map'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built your Diagnostic Roadmap and mapped out strategies for Evidence and Inference. Now, we move to the 'engine' of the SAT Reading section: Words in Context and Text Structure. You recently learned how to map the 'logical skeleton' of a passage—moving beyond what a text says to how it is built. This stage will help you turn those insights into Section 2b of your Playbook, ensuring you can decode complex vocabulary and structural shifts with mathematical precision.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of 3 semantic domains, each containing 5 vocabulary words and a brief (1-sentence) explanation of their functional role in a passage. Good work focuses on words that act as 'logical signposts' rather than simple nouns."
+     },
+     "step_body": "The SAT doesn't test every word in the dictionary; it focuses on 'Tier 2' academic vocabulary that functions across different subjects. Based on your recent sessions, identify three semantic domains (e.g., Scientific Inquiry, Literary Critique, Socio-Historical Debate). For each domain, list at least 5 'high-utility' words you've encountered in practice or lessons. Briefly explain what 'job' these words do—for example, does 'corroborate' serve to validate data or to introduce a pivot?",
+     "step_title": "Identify high-utility domains",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of 5 words with their common vs. academic definitions. Accuracy is key here; ensure the academic definition reflects how the word is actually used in a formal SAT context (e.g., 'qualify' as 'to limit a claim')."
+     },
+     "step_body": "A common SAT trap involves 'deceptive' words—everyday terms used in specialized ways. Words like 'qualify,' 'compromise,' and 'want' have specific academic definitions that differ from daily speech. Review your notes and select 5 words that have tricky secondary meanings. For each, write the common definition versus the SAT-specific academic definition. This list will serve as your 'False Friends' cheat sheet in your Playbook.",
+     "step_title": "Master secondary meanings",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Digital SAT passages are short, meaning every sentence has a job. Recall the three primary structural patterns: 1) Phenomenon/Explanation, 2) Tradition/Challenge, and 3) Experiment/Interpretation. Create a 'Structural Cheat Sheet' for your Playbook. For each pattern, write a brief description of the 'flow' (e.g., 'Sentence 1 introduces a belief, Sentence 2 provides a pivot word like 'However,' and Sentence 3 introduces new data'). Then, list 3 'structural signaling words' (like 'indeed' or 'nevertheless') that typically alert you to these shifts.",
+     "step_title": "Draft the structural templates",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a written 4-5 step 'Pre-Solving Workflow' that covers everything from identifying context clues to final word selection using the three pillars (Semantic Alignment, Register, Collocation)."
+     },
+     "step_body": "To avoid 'detail traps' and 'topic association traps,' you must predict the answer before looking at the choices. Outline your personal 'Pre-Solving' workflow. Explain the steps: how do you locate the structural lock? How do you 'measure the blank' with a 'dumb' word? And how do you use the three pillars (Semantic Alignment, Register, and Collocation) to filter the final options? This should be a step-by-step guide you can follow during the high-pressure environment of the exam.",
+     "step_title": "Formulate the Pre-Solving strategy",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 2b: 'Words in Context and Text Structure Playbook' as a PDF. It must include: (1) The Vocabulary Domain Map, (2) The Secondary Meanings list, (3) The 3 Structural Patterns with signaling words, and (4) Your step-by-step Pre-Solving strategy."
+     },
+     "step_body": "It's time to assemble your work into the 'Words in Context and Text Structure Playbook' (Section 2b). Combine your high-utility vocabulary domains, your secondary meaning list, your structural templates, and your Pre-Solving workflow into a clean, organized document. Ensure it is formatted clearly so you can reference it quickly during practice tests. This artifact completes the second major section of your Verbal strategy guide.",
+     "step_title": "Finalize Section 2b",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "fbce8afb-0d97-492c-b50b-0588742f943b",
+   "stage_title": "Contextual Vocabulary & Structure Analysis Guide",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Compile a curated list of high-utility academic vocabulary words frequently found on the SAT. Write explicit strategies for evaluating author purpose, sentence function, and multi-text connections.",
+   "deliverable_increment": "Section 2b of the Playbook: 'Words in Context and Text Structure Playbook'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built the foundation of your SAT Playbook by analyzing your score gaps and creating strategy maps for evidence, inference, and vocabulary questions. Now, we are moving into the final part of the Verbal section: Rhetorical Synthesis and Transitions. These questions aren't about how well you read a passage, but how well you can follow a 'rhetorical goal' to link ideas. This stage will produce Section 2c of your Playbook, ensuring you never fall for the 'distractor of truth' again.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Transition Cheat Sheet. It should include the four logical families (Continuous, Contrasting, Causal, Illustrative), at least three transition words for each, and a brief 'rule of use' for each category."
+     },
+     "step_body": "Transition questions test your ability to identify the logical relationship between two ideas. Based on our lessons, there are four primary logical families: Continuous (addition), Contrasting (however), Causal (therefore), and Illustrative (for instance). Create a cheat sheet that lists these four categories. For each, list at least three 'trigger words' used by the SAT and write a one-sentence rule for when to use that category (e.g., 'Use Contrast when Sentence 2 limits or qualifies Sentence 1').",
+     "step_title": "Build the Transition Cheat Sheet",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of 5 common SAT rhetorical goals and the specific trigger words or grammatical structures associated with each. Good work shows a clear link between the prompt's command and the expected structure of the answer."
+     },
+     "step_body": "In Rhetorical Synthesis (bullet-point questions), the notes are mostly noise. The prompt at the bottom contains the 'Rhetorical Goal'—the specific instruction you must follow. Take a moment to list five common SAT prompt goals we discussed, such as 'Emphasize a contrast' or 'Summarize a methodology.' For each goal, identify the 'trigger verbs' you should look for in the answer choices (e.g., 'while' or 'but' for contrast). This list will help you filter answer choices instantly.",
+     "step_title": "Analyze the Rhetorical Goal",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 3-step workflow for solving Rhetorical Synthesis questions. Your steps should emphasize identifying the prompt constraint first and filtering bullet points second."
+     },
+     "step_body": "Now, let's put it all together. You need a reliable workflow to avoid the 'summarization instinct'—the urge to include every bullet point. Draft a 3-step 'Information Filter' checklist for your playbook. This should guide you from reading the prompt, to labeling bullets as 'Signal' or 'Noise,' to selecting the answer that prioritizes the goal over stylistic elegance. Remember: a factually true answer is still wrong if it doesn't meet the prompt's specific requirement.",
+     "step_title": "Draft the Synthesis Blueprint",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 2c of your Playbook as a PDF. It must include: 1) The Transition Logic Families and words, 2) The Rhetorical Goal trigger list, and 3) Your 3-step workflow for synthesis questions."
+     },
+     "step_body": "It's time to assemble Section 2c of your Personalized SAT Score-Maximizer Playbook: 'Rhetorical Synthesis and Transition Rules.' Combine your Transition Cheat Sheet, your Rhetorical Goal triggers, and your 3-step Information Filter into a single, clean document. This guide will be your tactical template for securing every point in the 'Expression of Ideas' portion of the exam.",
+     "step_title": "Submit Section 2c",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Excellent work. You have now completed the entire Verbal Strategy portion of your playbook! You've moved from diagnostic gaps to specific tactical guides for every major Reading and Writing question type. Take a moment to review your complete Section 2 (a, b, and c). In the next stage, we will pivot to the Math section, starting with the Desmos Optimization Sheet.",
+     "step_title": "Stage reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "76dd801b-178a-417b-a45c-d6c28af82f90",
+   "stage_title": "Rhetorical Synthesis and Transition Blueprint",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Create a tactical template for synthesizing note-based questions and navigating logical transitions. Write transition-category cheat sheets (contrast, addition, cause-effect) with corresponding official-style SAT examples.",
+   "deliverable_increment": "Section 2c of the Playbook: 'Rhetorical Synthesis and Transition Rules'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you've mastered the logic behind SAT Evidence and Rhetorical Synthesis. Now, we move to the 'engine' of the exam: Standard English Conventions. This stage focuses on 'Section 3: Punctuation & Grammar Guide' of your Playbook. We are moving beyond reading by 'ear' or 'breath' and instead focusing on the rigid architectural rules the SAT tests. You will start by organizing the four main 'Boundary' punctuations: periods, semicolons, colons, and dashes.",
+     "step_title": "Recap & Punctuation Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 'Rules of Engagement' draft. It should include a brief explanation of the difference between an independent and dependent clause, and one 'Incorrect vs. Correct' sentence pair demonstrating a comma splice fix. Good work shows a clear understanding of clause boundaries."
+     },
+     "step_body": "A major SAT pitfall is the comma splice—trying to join two independent clauses with only a weak comma. Review the 'Complete Sentences and Fragments' session and identify the three primary ways to fix a run-on (FANBOYS, Semicolons, and Periods). Draft a 'Rules of Engagement' section for your guide that explains when a semicolon is mandatory versus when a comma is sufficient. Create one original example of a 'Comma Splice' and show how to fix it using two different methods.",
+     "step_title": "Map Clause Boundaries",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit two sentences: one where a clause is 'Essential' (restrictive) and one where it is 'Non-Essential' (non-restrictive). Use the same subject in both to show how the commas change the meaning."
+     },
+     "step_body": "Now, let's tackle the 'deletion test' you learned for commas and dashes. Non-essential information (appositives) must be framed by 'punctuation hugs'—two commas, two dashes, or parentheses. If you can cross the information out and the sentence still makes sense, it needs those boundaries. Draft a section for your guide that distinguishes between 'Essential' (no commas) and 'Non-Essential' (commas needed) relative clauses.",
+     "step_title": "Define Non-Essential Elements",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Colons and single dashes have one golden rule on the SAT: they must be preceded by a complete independent clause. However, what follows them can be a list, a single word, or another clause that explains the first. Create a quick-reference 'Matrix' for your playbook that lists these rules. This will serve as your visual cheat-sheet for those tricky 'Punctuation & Structure' questions.",
+     "step_title": "The Colons and Dashes Matrix",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 'Alignment Traps' section. It must include one example of an 'inverted' sentence (where the verb comes before the subject) and one example of a collective noun trap. High-quality work clearly identifies the 'true' subject in each example."
+     },
+     "step_body": "Grammar isn't just about punctuation; it's about alignment. Recall the 'Subject-Verb Agreement' session where we stripped away the 'syntactic clutter' (prepositional phrases) to find the true subject. Draft a final section for your guide titled 'Alignment Traps.' Include a rule for collective nouns (like 'committee') and indefinite pronouns (like 'everyone'), and explain why these often trick students into using plural verbs.",
+     "step_title": "Subject-Verb & Modifier Alignment",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload the completed 'Standard English Conventions Punctuation & Grammar Guide' as a PDF. The guide should be well-organized with clear headings for Punctuation Boundaries, Non-Essential Elements, and Subject-Verb Agreement. Success is defined by the inclusion of correct/incorrect examples for every rule mentioned in the unit."
+     },
+     "step_body": "It is time to compile your work into the formal deliverable. Combine your Punctuation Rules, Clause Boundaries, and Alignment Traps into a cohesive document titled 'Section 3: Standard English Conventions Punctuation & Grammar Guide.' Ensure every rule has at least one 'SAT-style' example sentence to illustrate the point. This will be the third major pillar of your Personalized Playbook.",
+     "step_title": "Finalize and Submit Section 3",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "80c7e899-78b3-443e-be7e-9d27157b7850",
+   "stage_title": "Standard English Conventions Mastery Blueprint",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Design a personalized grammar rules guide focusing on boundary punctuation (commas, semicolons, colons, dashes) and structure issues like subject-verb agreement and modifiers. Provide correct and incorrect example sentences for each rule.",
+   "deliverable_increment": "Section 3 of the Playbook: 'Standard English Conventions Punctuation & Grammar Guide'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In our previous stages, we mastered the Verbal and English sections of your SAT Playbook. Now, we transition to the Math section, starting with its most foundational component: Linear Equations and Systems. In the recent lectures, we explored how to solve these algebraically via substitution and elimination, and how to interpret them graphically as intersecting or parallel lines. This stage focuses on turning those concepts into a repeatable, high-speed strategy guide that leverages the Desmos calculator—a powerful tool that can solve complex systems in seconds if you know the right commands.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short written procedure (3-5 sentences) explaining the 'structural matching' rule for zero vs. infinite solutions and the value of 'k' from the example provided. Good work clearly defines the relationship between coefficients (a=c) and constants (b vs d)."
+     },
+     "step_body": "A common 'trap' on the SAT involves parameter questions, such as finding 'k' in an equation so that it has 'no solution.' Instead of solving for x, we use 'structural matching.' For Section 4a of your playbook, draft a brief procedure for identifying if an equation has one, zero, or infinite solutions based on comparing coefficients and constants (e.g., if the x-coefficients match but constants differ, there is no solution). Explain how you would apply this 'structural matching' to an equation like 3(2x - 4) = kx + 8 to find k instantly.",
+     "step_title": "Draft the 'Structure Matching' guide",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a bulleted list of 3-4 Desmos specific strategies for solving systems. This should include how to find intersections and a reminder about variable renaming (swapping p/t for x/y)."
+     },
+     "step_body": "Desmos is your best friend for systems of equations. On the Digital SAT, you don't always need to solve algebraically. For your playbook, you need a 'Desmos Shortcut Matrix.' List the specific steps to solve a system of linear equations using the built-in calculator. Include how to input the equations exactly as they appear, how to locate the intersection point, and how to identify 'no solution' (parallel lines) or 'infinite solutions' (overlapping lines) visually. Also, note the 'Variable Error'—remind yourself that Desmos prefers 'x' and 'y', and you must often swap other variables (like 'p' or 't') to 'x' or 'y' to make the graph appear.",
+     "step_title": "Develop the Desmos shortcut matrix",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 2-step process for interpreting slope and y-intercept in context. Criteria: It must mention the 'unit trick' and differentiate between the 'rate' (m) and the 'starting value' (b)."
+     },
+     "step_body": "The SAT often asks you to interpret the 'real-world' meaning of the slope in a linear function (f(x) = mx + b). Using the 'unit trick' from our lecture—where the units of slope are always (units of y) / (units of x)—create a template for your playbook. For example, if C(m) = 0.25m + 40 represents the cost (C) per mile (m), the slope 0.25 means '$0.25 per mile.' Write down a 2-step process for identifying the meaning of 'm' and 'b' in any word problem you encounter.",
+     "step_title": "Interpret slope in context",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 4a of your Playbook as a PDF. It should be titled 'Linear Equations, Systems, and Desmos Strategies' and include the three components developed in previous steps: 1) Structural Matching rules, 2) Desmos system shortcuts, and 3) The Slope/Intercept unit interpretation guide."
+     },
+     "step_body": "It's time to assemble your work into the final format for Section 4a of your Playbook: 'Linear Equations, Systems, and Desmos Strategies.' Combine your 'Structural Matching' guide, your 'Desmos Shortcut Matrix,' and your 'Slope Interpretation' template into a single, cohesive document. This section will be your go-to reference whenever you hit a coordinate geometry or algebra problem during the exam.",
+     "step_title": "Submit Section 4a",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work! You've successfully built the first major technical section of your Math Playbook. Reflect on the 'No Solution' scenario: why is it faster to check the slopes in Desmos or via structural matching than to solve the system using substitution? Keep this time-saving mindset as we move into more complex quadratic and non-linear functions in the next stage.",
+     "step_title": "Review and reflect",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "2b9b7f5c-58bc-4cbf-ba77-2eee6cb064df",
+   "stage_title": "Algebraic Systems and Desmos Strategy Log",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Draft step-by-step mathematical procedures for solving linear equations, inequalities, and systems. Detail specific Desmos calculator shortcuts for rapid linear graphing and intercept identification.",
+   "deliverable_increment": "Section 4a of the Playbook: 'Linear Equations, Systems, and Desmos Strategies'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In previous stages, you mastered linear systems and grammar conventions. Now, we move into Section 4b of your Playbook: 'Nonlinear Functions, Exponential Models, and Advanced Math Matrix'. This stage focuses on parabolas, radicals, and exponent laws—topics that frequently appear in the most difficult questions of the Digital SAT. We will start by building a reference for the 'three viewports' of a quadratic: Standard, Vertex, and Factored form. Review your notes on how each form reveals a specific property (intercepts, vertex, or y-intercept) and prepare to document these as your first set of quick-action strategies.",
+     "step_title": "Recap and nonlinear foundations",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a text outline of your quadratic forms table. For each form (Standard, Vertex, Factored), include the general equation and the primary graphical feature it highlights. Good work clearly distinguishes how to find the vertex and intercepts for each."
+     },
+     "step_body": "A key time-saver on the SAT is knowing which quadratic form to use without doing extra math. Draft a reference table for Section 4b. For each of the three forms (Standard, Vertex, and Factored), identify: 1) The general formula, 2) The specific feature it reveals (e.g., 'reveals the vertex as (h, k)'), and 3) The quick formula to find the Axis of Symmetry from that form. This will be the first entry in your Advanced Math Matrix.",
+     "step_title": "Map the three quadratic forms",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type out your exponent laws summary. Include the general rule for converting radicals to fractional exponents and at least one 'Pitfall Warning' about applying exponents to numerical coefficients."
+     },
+     "step_body": "The SAT often tests your ability to convert between radical forms and rational exponents (e.g., changing the cube root of x-squared into x to the 2/3 power). Based on the lesson, summarize the 'Law of Rational Exponents' and the 'Negative Exponent Reciprocal Rule'. Write out a specific warning for yourself regarding coefficients—remind yourself why '8x^6 raised to the 1/3' isn't just '8x^2'. This 'Pitfall Warning' is crucial for the Playbook to prevent common mistakes under pressure.",
+     "step_title": "Codify exponent and radical laws",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Complexity in SAT math often comes from rational expressions (fractions with variables). The secret to speed here is 'Factor Before You Act'. Document a 3-step workflow for simplifying complex rational expressions. Your workflow should include: 1) Identifying and extracting the Greatest Common Factor (GCF), 2) Factoring trinomials or using the Difference of Squares, and 3) The rule for when you are allowed to 'cancel' terms (and when you aren't!). This becomes your 'Rational Expression Protocol'.",
+     "step_title": "The Factoring and Rational workflow",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Discriminant Guide. Explain what a positive, zero, and negative discriminant tells you about the number of solutions in a nonlinear system."
+     },
+     "step_body": "When a linear equation meets a quadratic equation in a system, you are often looking for intersection points. Create a guide for using the Discriminant (b^2 - 4ac) as a diagnostic tool. Explain how to determine if a system has zero, one, or two solutions without graphing. Then, write a short set of instructions for using Desmos to find these intersections quickly, as this is a high-percentage strategy for the digital exam.",
+     "step_title": "Draft the Nonlinear Systems guide",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 4b of your Playbook as a PDF. It must include the Quadratic Forms Table, Exponent/Radical Laws with Pitfall Warnings, the Factoring Workflow, and the Discriminant/Nonlinear Systems Guide. Criteria for success: clarity, technical accuracy of formulas, and ease of use as a reference."
+     },
+     "step_body": "It's time to assemble Section 4b: 'Nonlinear Functions, Exponential Models, and Advanced Math Matrix'. Combine your quadratic forms table, your exponent/radical rules, your factoring workflow, and your nonlinear systems guide into one comprehensive document. Ensure it is formatted for quick reading—use bold headings and bullet points so you can use it as a 'cheat sheet' during practice tests.",
+     "step_title": "Submit the Section 4b Deliverable",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {},
+     "step_body": "You have now completed the advanced math core of your Playbook! Reflect on the 'Difference of Squares' and 'Perfect Square Trinomial' patterns. Which one do you find hardest to spot in a timed setting? Recognizing these patterns instantly is the difference between a 650 and a 750+ score. Keep this section of your Playbook handy for your next practice module.",
+     "step_title": "Stage reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit6",
+   "stage_id": "2c23e902-5751-4e86-a67c-d39a59888160",
+   "stage_title": "Advanced Nonlinear Math Formulas and Models",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Create a quick-reference guide for exponent rules, radical expressions, quadratics, and exponential growth models. Write specific workflows for solving nonlinear systems and finding vertex forms.",
+   "deliverable_increment": "Section 4b of the Playbook: 'Nonlinear Functions, Exponential Models, and Advanced Math Matrix'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already mastered the foundational math sections of your Playbook, covering everything from linear systems to advanced nonlinear modeling. Now, we turn our focus to the final major math component: Problem-Solving and Data Analysis. This stage covers ratios, rates, unit conversions, and the statistical reasoning required to interpret data and probability tables accurately on the Digital SAT.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short list of 2-3 specific rules or a 'mental checklist' you will use to ensure you never miss a unit conversion, especially for rates and multi-dimensional units."
+     },
+     "step_body": "One of the biggest traps on the SAT involves converting area or volume units. Recall that if the linear ratio is 1:12 (inches to feet), the area ratio is 1:144. Draft a set of 'Unit Integrity Rules' for your playbook. Include a specific step-by-step process for dimensional analysis (canceling units) and a reminder on how to handle square and cubic conversions so you don't use linear factors by mistake.",
+     "step_title": "Draft unit conversion rules",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "In your Playbook, you need to distinguish between direct variation (y = kx) and inverse variation (y = k/x). Create a 'Variation Recognition Table' that explains how to identify each from a set of data. For direct variation, the ratio y/x is constant; for inverse, the product xy is constant. Don't forget to include the 'physics shortcut' we discussed (P1V1 = P2V2) for solving inverse problems without finding 'k' first.",
+     "step_title": "Define proportional relationships",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation or a 'template sentence' you will use to identify the correct denominator when faced with a conditional probability table question."
+     },
+     "step_body": "Probability on the SAT is all about the denominator. Conditional probability 'shrinks the universe' based on specific criteria. Write out a strategy for handling two-way frequency tables. Specifically, explain how you will identify the 'target population' versus the 'total population' based on phrasing like 'of those who...' or 'given that...'. This will be Section 4c's core logic for data interpretation.",
+     "step_title": "Map probability strategies",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit Section 4c of your Playbook as a PDF. Good work will include: 1) A clear procedure for multi-step unit conversions, 2) The algebraic differences between direct and inverse variation, 3) A strategy for conditional probability denominators, and 4) A 'pitfall' note on average speed calculations."
+     },
+     "step_body": "It is time to assemble Section 4c: 'Ratios, Statistics, and Probability Analysis Rules'. Combine your work on rates (like the average speed trap), unit conversions, variation constants, and statistical probability. Ensure you have included a note on 'mean vs. median' in skewed data and the concept of margin of error from our statistics session.",
+     "step_title": "Finalize Section 4c",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "With this section complete, you have now built the entire Math strategy component of your Playbook. Reflect on which of these 'Data Analysis' concepts felt the most counter-intuitive before this unit. Recognizing these personal friction points is what makes this Playbook truly personalized and effective for your final review.",
+     "step_title": "Reflect on math mastery",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit7",
+   "stage_id": "a8eedbef-1492-4415-9ecb-a934217eca4c",
+   "stage_title": "Problem-Solving, Statistics, and Data Interpretation Playbook",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Synthesize your strategies for interpreting data distributions, scatterplots, sample margins of error, and conditional probabilities. Write brief execution guidelines for solving complex percentages and unit conversions.",
+   "deliverable_increment": "Section 4c of the Playbook: 'Ratios, Statistics, and Probability Analysis Rules'."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have successfully built the majority of your SAT Playbook, covering everything from complex algebra and statistics to advanced rhetorical strategies. In the previous session, we mastered the Pythagorean theorem, special right triangles (45-45-90 and 30-60-90), and the logic of side-angle relationships. This final stage focuses on the last piece of the math puzzle: Geometry, Trigonometry, and Circles. You will now synthesize these rules into a high-density cheat sheet to complete your final deliverable.",
+     "step_title": "Recap and geometry roadmap",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short summary of your 'Area and Volume' section. Include at least one original tip for tackling 'shaded region' or 'compound shape' problems that isn't just a raw formula."
+     },
+     "step_body": "Start your cheat sheet by documenting the formulas for area, perimeter, surface area, and volume. Don't just list the formulas from the SAT reference sheet; add your own 'decomposition' notes. Explain how to split L-shaped figures into rectangles and how to find the volume of any prism by multiplying the base area (B) by the height (h). In a sentence or two, explain why you should look for 'subtraction' opportunities when dealing with shaded region problems.",
+     "step_title": "Map area and volume logic",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, add a section for Lines and Angles. Focus on the relationship between parallel lines cut by a transversal. Remember the 'Acute vs. Obtuse' shortcut: when lines are parallel, all acute angles are equal, and any acute/obtuse pair sums to 180 degrees. Also, note the 'Not Drawn to Scale' warning—remind yourself to never assume lines are parallel unless the problem explicitly states it or provides parallel markers.",
+     "step_title": "Draft line and angle rules",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your completed circle equation entry and the 'sin(x) = cos(90-x)' rule. Explain in your own words how to find the center and radius if a circle equation is given in standard form."
+     },
+     "step_body": "Circles and Trigonometry often carry high point values on the SAT. Document the standard form of a circle equation: (x - h)² + (y - k)² = r². Additionally, record the SOH CAH TOA ratios and the relationship between sine and cosine for complementary angles (sin(x) = cos(90-x)). This is a frequent 'trick' on the exam. Ensure you have a clear way to distinguish between a circle's circumference and its area.",
+     "step_title": "Construct the circle and trig matrix",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Finally, create a 5-item 'Geometry Strategy Checklist' for exam day. This should include specific checks like 'Did I plug x back in?', 'Is the radius or diameter being asked for?', and 'Did I use the correct special right triangle ratio?'. This list will serve as your mental safety net during the actual test.",
+     "step_title": "Create your Exam-Day checklist",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 4d of your Playbook as a PDF. Your work should include: 1) Formulas for area/volume with conceptual notes, 2) Parallel line and angle rules, 3) Circle equations and Trigonometry ratios, and 4) Your 5-item strategy checklist. Good work is organized, accurate, and includes personal annotations beyond simple formulas."
+     },
+     "step_body": "It is time to finalize Section 4d of your Playbook: the 'Geometry, Trigonometry, and Circles Cheat Sheet'. Combine your formula notes, the decomposition strategies, the circle equation rules, and your exam-day checklist into a clean, easy-to-read document. This is the final component of your comprehensive SAT Score-Maximizer Playbook.",
+     "step_title": "Submit final geometry cheat sheet",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit8",
+   "stage_id": "3e889fdb-7e52-48bc-b909-2ffb71c1ae97",
+   "stage_title": "Geometry, Trigonometry, and Circle Equations Cheat Sheet",
+   "parent_project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "stage_description": "Create your final math cheat sheet compiling essential geometry formulas, trigonometric ratios (sine, cosine, tangent), and circle equations. Formulate a final exam-day checklist for geometry questions.",
+   "deliverable_increment": "Section 4d of the Playbook: 'Geometry, Trigonometry, and Circles Cheat Sheet', completing the final comprehensive document."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "b0219215-f730-42a9-9744-13561c07408f",
+   "project_name": "Personalized SAT Score-Maximizer Playbook",
+   "final_deliverable": "A comprehensive, multi-section Personalized SAT Score-Maximizer Playbook (PDF or Markdown) consisting of a Diagnostic & Score Gap Analysis, a targeted Vocabulary & Rhetorical Strategy Map, a custom English Grammar & Boundary Guide, and a completed Math & Desmos Optimization Sheet.",
+   "project_description": "Build a complete, data-driven SAT Preparation Playbook using official resources. You will analyze your diagnostic scores, create personalized error-tracking frameworks, construct custom verbal and math strategy guides, and build interactive tools (including a Desmos formula matrix) to secure maximum points on exam day."
+  }
+ ],
+ "courseUuid": "6333c742-aefc-4d40-8ef4-0e27567de84f"
+}

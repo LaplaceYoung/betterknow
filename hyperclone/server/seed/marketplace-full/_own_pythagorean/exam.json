@@ -1,0 +1,520 @@
+{
+ "courseUuid": "3ea5b7d5-d475-4c4f-84bf-9834e24a35c2",
+ "exams": [
+  {
+   "unitId": "unit1",
+   "title": "Unit 1 Comprehensive Assessment",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which component of a right triangle is considered the 'anchor' or 'boss' that defines the relationship between all other sides?",
+     "options": [
+      "The longest side",
+      "The 90-degree angle",
+      "The vertical leg",
+      "The horizontal base"
+     ],
+     "correctAnswers": [
+      "The 90-degree angle"
+     ],
+     "explanation": "The 90-degree angle is the anchor because it defines which sides are legs (the ones forming the angle) and which side is the hypotenuse (the one opposite the angle)."
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "If you rotate a right triangle 45 degrees so that no side is perfectly horizontal or vertical, which of the following properties remain unchanged?",
+     "options": [
+      "The identification of the hypotenuse as the side opposite the right angle",
+      "The designation of the two sides forming the right angle as 'legs'",
+      "The orientation of the hypotenuse as the 'top' side",
+      "The mathematical relationship between the areas of the squares on each side"
+     ],
+     "correctAnswers": [
+      "The identification of the hypotenuse as the side opposite the right angle",
+      "The designation of the two sides forming the right angle as 'legs'",
+      "The mathematical relationship between the areas of the squares on each side"
+     ],
+     "explanation": "Orientation does not change the geometric roles of the sides; the hypotenuse is always opposite the 90-degree vertex regardless of rotation.",
+     "image": {
+      "src": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/3ea5b7d5-d475-4c4f-84bf-9834e24a35c2/exam/images/unit1-q2.png",
+      "alt": "A diagram showing a right triangle in three different rotations."
+     }
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the context of the Pythagorean theorem, the exponent '2' in the term $a^2$ represents the ____ of a shape built using side 'a'.",
+     "correctAnswers": [
+      "area",
+      "two dimensions",
+      "physical area"
+     ],
+     "placeholder": "geometric property"
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "When moving from a 1D side length of 5 units to its 2D representation in the theorem, what does the resulting '25 units' physically represent?",
+     "options": [
+      "The length of the hypotenuse",
+      "The perimeter of the triangle",
+      "The area of a square built on that side",
+      "The sum of the two legs"
+     ],
+     "correctAnswers": [
+      "The area of a square built on that side"
+     ],
+     "explanation": "Squaring a side length (5x5) translates a 1D measurement into a 2D square area containing 25 grid units."
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are common pitfalls when learners first apply the Pythagorean theorem?",
+     "options": [
+      "Adding the side lengths directly (3 + 4 = 7) instead of their areas",
+      "Squaring the area value a second time (e.g., squaring 25 again)",
+      "Identifying the hypotenuse as the side opposite the right angle",
+      "Applying the formula to triangles that do not have a 90-degree angle"
+     ],
+     "correctAnswers": [
+      "Adding the side lengths directly (3 + 4 = 7) instead of their areas",
+      "Squaring the area value a second time (e.g., squaring 25 again)",
+      "Applying the formula to triangles that do not have a 90-degree angle"
+     ],
+     "explanation": "Learners often mistakenly add lengths instead of areas, over-square values, or ignore the 90-degree requirement."
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'oppositeness' relationship is used to identify the hypotenuse because using the description '____' can be visually misleading in nearly isosceles right triangles.",
+     "correctAnswers": [
+      "longest side",
+      "the longest side",
+      "longest"
+     ],
+     "placeholder": "visual descriptor"
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If a triangle has an angle greater than 90 degrees (obtuse), how does the area of the square on the longest side compare to the sum of the areas of the squares on the two shorter sides?",
+     "options": [
+      "It is exactly equal to the sum",
+      "It is smaller than the sum",
+      "It is larger than the sum",
+      "It is half of the sum"
+     ],
+     "correctAnswers": [
+      "It is larger than the sum"
+     ],
+     "explanation": "In an obtuse triangle, the opening of the angle stretches the 'bridge' (the longest side), making its square area exceed the combined area of the leg squares.",
+     "image": {
+      "src": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/3ea5b7d5-d475-4c4f-84bf-9834e24a35c2/exam/images/unit1-q7.png",
+      "alt": "Obtuse triangle with squares on sides illustrating area mismatch."
+     }
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of these are required to be true for the area of the square on side C to equal the sum of the areas on sides A and B?",
+     "options": [
+      "The angle opposite side C must be exactly 90 degrees",
+      "The triangle must have three sides of equal length",
+      "Sides A and B must be the 'legs' that form the right angle",
+      "The triangle must be located on a coordinate grid"
+     ],
+     "correctAnswers": [
+      "The angle opposite side C must be exactly 90 degrees",
+      "Sides A and B must be the 'legs' that form the right angle"
+     ],
+     "explanation": "The theorem only applies to right triangles where the squares of the two sides forming the 90-degree angle sum to the square of the side opposite it."
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To identify the hypotenuse in a complex diagram, one should draw an arrow starting from the vertex of the ____ and pointing outward.",
+     "correctAnswers": [
+      "right angle",
+      "90 degree angle",
+      "90-degree angle",
+      "square symbol"
+     ],
+     "placeholder": "specific angle"
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In the 'Core Area Equality' lesson, the 3-4-5 triangle is used primarily because:",
+     "options": [
+      "It is the only triangle where the theorem works",
+      "It allows for easy verification by counting whole grid squares",
+      "It is an equilateral triangle with equal areas",
+      "It proves that the legs are always longer than the hypotenuse"
+     ],
+     "correctAnswers": [
+      "It allows for easy verification by counting whole grid squares"
+     ],
+     "explanation": "The 3-4-5 triangle yields perfect square areas of 9, 16, and 25, which can be visually counted on a grid without dealing with decimals.",
+     "image": {
+      "src": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/3ea5b7d5-d475-4c4f-84bf-9834e24a35c2/exam/images/unit1-q10.png",
+      "alt": "3-4-5 triangle on a grid with side squares."
+     }
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "When visualizing 'sides as squares,' what are we transitionining between?",
+     "options": [
+      "1D line segments and 2D regions",
+      "Algebraic symbols and geometric shapes",
+      "Right angles and obtuse angles",
+      "Side lengths and physical space"
+     ],
+     "correctAnswers": [
+      "1D line segments and 2D regions",
+      "Algebraic symbols and geometric shapes",
+      "Side lengths and physical space"
+     ],
+     "explanation": "The unit emphasizes moving from abstract numbers (algebra) and lines (1D) to tangible areas (2D) and physical space."
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The Pythagorean theorem is described as an 'if and only if' relationship, meaning it ____ apply to triangles without a 90-degree angle.",
+     "correctAnswers": [
+      "cannot",
+      "does not",
+      "will not"
+     ],
+     "placeholder": "can/cannot"
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What happens to the area relationship if we test an equilateral triangle (where all angles are 60 degrees)?",
+     "options": [
+      "The area of one square equals the sum of the other two",
+      "The square on any side is smaller than the sum of the other two",
+      "The square on any side is larger than the sum of the other two",
+      "The areas cannot be measured because there is no right angle"
+     ],
+     "correctAnswers": [
+      "The square on any side is smaller than the sum of the other two"
+     ],
+     "explanation": "Because 60 degrees is less than 90 degrees (acute), the 'bridge' side is shorter than it would be in a right triangle, leading to an area deficit ($c^2 < a^2 + b^2$)."
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the characteristics of 'Legs' in a right triangle.",
+     "options": [
+      "They are the two sides that build the right angle",
+      "They are always shorter than the hypotenuse",
+      "They are always equal in length to each other",
+      "They represent the 'addends' in the area-sum relationship"
+     ],
+     "correctAnswers": [
+      "They are the two sides that build the right angle",
+      "They are always shorter than the hypotenuse",
+      "They represent the 'addends' in the area-sum relationship"
+     ],
+     "explanation": "Legs form the 90-degree angle and their squared areas are added together; they are always shorter than the hypotenuse, but they do not have to be equal to each other."
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Why is the term 'hypotenuse' specifically linked to the concept of 'sum' in this unit?",
+     "options": [
+      "Because it is the smallest area",
+      "Because its square area is the total of the other two square areas",
+      "Because you add its length to the legs to find the perimeter",
+      "Because it is always the horizontal side"
+     ],
+     "correctAnswers": [
+      "Because its square area is the total of the other two square areas"
+     ],
+     "explanation": "In the area-addition principle, the hypotenuse square is the 'whole' (sum), while the leg squares are the 'parts' (addends)."
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "As the vertex angle of the triangle increases from 90 degrees to 120 degrees while the lengths of the two legs stay fixed, why does the Pythagorean equality ($a^2 + b^2 = c^2$) fail?",
+     "options": [
+      "Because the side connecting the legs must stretch to cover the wider opening, making its square area too large.",
+      "Because the squares on the two legs grow in size to match the new angle, exceeding the hypotenuse square.",
+      "Because the triangle's perimeter remains constant while the internal area is redistributed to the legs.",
+      "Because the right-angle anchor is lost, which causes the area of the two legs to decrease automatically."
+     ],
+     "correctAnswers": [
+      "Because the side connecting the legs must stretch to cover the wider opening, making its square area too large."
+     ],
+     "explanation": "In the simulation, you can see that side 'c' must lengthen to bridge the wider gap as the angle opens, meaning $c^2$ will now be greater than $a^2 + b^2$.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Geometric Relationship Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            aspect-ratio: 1.2 / 1;\n            max-height: 380px;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: 100%;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 13px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: repeat(3, 1fr);\n            gap: 12px;\n            width: 100%;\n            margin-top: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            text-align: center;\n        }\n\n        .readout-label {\n            display: block;\n            font-size: clamp(10px, 2.5vw, 12px);\n            color: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            margin-bottom: 2px;\n        }\n\n        .readout-value {\n            display: block;\n            font-size: clamp(14px, 3.5vw, 16px);\n            font-weight: 500;\n            color: var(--ink);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .axis-container {\n            width: 100%;\n            margin-top: 16px;\n            padding: 0 10px;\n            box-sizing: border-box;\n        }\n\n        .axis-line {\n            height: 1px;\n            background: var(--rule);\n            width: 100%;\n            position: relative;\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: 0;\n            height: 6px;\n            width: 1px;\n            background: var(--muted);\n        }\n\n        .axis-label {\n            position: absolute;\n            top: 8px;\n            transform: translateX(-50%);\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n        }\n\n        .axis-marker {\n            position: absolute;\n            top: -5px;\n            height: 11px;\n            width: 2px;\n            background: var(--accent);\n            transform: translateX(-50%);\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            font-style: italic;\n        }\n    </style>\n</head>\n<body>\n\n<h1 class=\"visually-hidden\">Geometric relationship simulation: A triangle with squares on all sides where the interior angle varies.</h1>\n\n<div class=\"container\">\n    <div class=\"fig-container\">\n        <svg class=\"fig-svg\" viewBox=\"0 0 400 350\" aria-hidden=\"true\">\n            <!-- Grid Reference -->\n            <defs>\n                <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n                    <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#e8e6e2\" stroke-width=\"0.5\"/>\n                </pattern>\n            </defs>\n            <rect width=\"400\" height=\"350\" fill=\"url(#grid)\" />\n\n            <!-- Group for centered triangle -->\n            <g transform=\"translate(200, 180)\">\n                <!-- Square on Side a (Fixed) -->\n                <rect id=\"sq-a\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"1.5\" opacity=\"0.6\" />\n                <text id=\"label-a\" class=\"serif\" text-anchor=\"middle\"></text>\n\n                <!-- Square on Side b (Fixed) -->\n                <rect id=\"sq-b\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"1.5\" opacity=\"0.6\" />\n                <text id=\"label-b\" class=\"serif\" text-anchor=\"middle\"></text>\n\n                <!-- Square on Side c (Dynamic) -->\n                <polygon id=\"sq-c\" fill=\"var(--accent)\" fill-opacity=\"0.1\" stroke=\"var(--accent)\" stroke-width=\"1.5\" />\n                <text id=\"label-c\" class=\"serif\" fill=\"var(--accent)\" text-anchor=\"middle\"></text>\n\n                <!-- The Triangle -->\n                <path id=\"tri-path\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"2\" stroke-linejoin=\"round\" />\n                \n                <!-- Angle Arc -->\n                <path id=\"angle-arc\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"1.5\" />\n            </g>\n        </svg>\n    </div>\n\n    <div class=\"readouts\">\n        <div class=\"readout-item\">\n            <span class=\"readout-label\">Square A Area</span>\n            <span class=\"readout-value\">64.0 · <small style=\"font-size:0.7em\">FIXED</small></span>\n        </div>\n        <div class=\"readout-item\">\n            <span class=\"readout-label\">Square B Area</span>\n            <span class=\"readout-value\">36.0 · <small style=\"font-size:0.7em\">FIXED</small></span>\n        </div>\n        <div class=\"readout-item\">\n            <span class=\"readout-label\">Square C Area</span>\n            <span id=\"area-c-readout\" class=\"readout-value\" style=\"color: var(--accent);\">100.0</span>\n        </div>\n    </div>\n\n    <div class=\"axis-container\">\n        <div class=\"axis-line\">\n            <div class=\"axis-tick\" style=\"left: 0%;\"></div>\n            <div class=\"axis-label\" style=\"left: 0%;\">90°</div>\n            <div class=\"axis-tick\" style=\"left: 33.3%;\"></div>\n            <div class=\"axis-label\" style=\"left: 33.3%;\">110°</div>\n            <div class=\"axis-tick\" style=\"left: 66.6%;\"></div>\n            <div class=\"axis-label\" style=\"left: 66.6%;\">130°</div>\n            <div class=\"axis-tick\" style=\"left: 100%;\"></div>\n            <div class=\"axis-label\" style=\"left: 100%;\">150°</div>\n            <div id=\"axis-pointer\" class=\"axis-marker\"></div>\n        </div>\n    </div>\n\n    <div class=\"caption\">Geometry of a triangle with varying interior angle</div>\n</div>\n\n<script>\n    const sqA = document.getElementById('sq-a');\n    const sqB = document.getElementById('sq-b');\n    const sqC = document.getElementById('sq-c');\n    const triPath = document.getElementById('tri-path');\n    const angleArc = document.getElementById('angle-arc');\n    const areaCReadout = document.getElementById('area-c-readout');\n    const axisPointer = document.getElementById('axis-pointer');\n    \n    const labelA = document.getElementById('label-a');\n    const labelB = document.getElementById('label-b');\n    const labelC = document.getElementById('label-c');\n\n    const sideA = 80;\n    const sideB = 60;\n    \n    let startTime = null;\n    const duration = 8000; // 8 seconds per loop\n\n    function update(timestamp) {\n        if (!startTime) startTime = timestamp;\n        let progress = (timestamp - startTime) / duration;\n        \n        // Loop ping-pong effect for smooth observation\n        let phase = (Math.sin(progress * Math.PI * 2 - Math.PI / 2) + 1) / 2;\n        \n        // Angle goes from 90 to 150 degrees\n        const angleDeg = 90 + (phase * 60);\n        const angleRad = (angleDeg * Math.PI) / 180;\n\n        // Coordinates of triangle vertices\n        // C is at (0,0)\n        // B is at (sideA, 0)\n        // A is at (sideB * cos(angleRad), -sideB * sin(angleRad))\n        const bx = sideA;\n        const by = 0;\n        const ax = sideB * Math.cos(angleRad);\n        const ay = -sideB * Math.sin(angleRad);\n\n        // Update Triangle\n        triPath.setAttribute('d', `M 0 0 L ${bx} ${by} L ${ax} ${ay} Z`);\n\n        // Square on side a (C to B) - Fixed\n        sqA.setAttribute('x', 0);\n        sqA.setAttribute('y', 0);\n        sqA.setAttribute('width', sideA);\n        sqA.setAttribute('height', sideA);\n        labelA.setAttribute('x', sideA / 2);\n        labelA.setAttribute('y', sideA / 2 + 5);\n        labelA.textContent = 'a²';\n\n        // Square on side b (C to A) - Fixed size, rotated\n        sqB.setAttribute('x', 0);\n        sqB.setAttribute('y', -sideB);\n        sqB.setAttribute('width', sideB);\n        sqB.setAttribute('height', sideB);\n        sqB.setAttribute('transform', `rotate(${angleDeg - 90}, 0, 0)`);\n        \n        // Label B positioning\n        const lbAngle = (angleDeg - 90 - 45) * Math.PI / 180;\n        labelB.setAttribute('x', Math.cos(lbAngle) * (sideB * 0.7));\n        labelB.setAttribute('y', Math.sin(lbAngle) * (sideB * 0.7));\n        labelB.textContent = 'b²';\n\n        // Square on side c (A to B) - Dynamic\n        const dx = bx - ax;\n        const dy = by - ay;\n        const sideC = Math.sqrt(dx*dx + dy*dy);\n        \n        // Vector for side c: (dx, dy)\n        // Normal vector for square: (-dy, dx)\n        const p1x = ax; const p1y = ay;\n        const p2x = bx; const p2y = by;\n        const p3x = bx - dy; const p3y = by + dx;\n        const p4x = ax - dy; const p4y = ay + dx;\n        \n        sqC.setAttribute('points', `${p1x},${p1y} ${p2x},${p2y} ${p3x},${p3y} ${p4x},${p4y}`);\n        \n        // Label C positioning (center of square)\n        labelC.setAttribute('x', (p1x+p2x+p3x+p4x)/4);\n        labelC.setAttribute('y', (p1y+p2y+p3y+p4y)/4 + 5);\n        labelC.textContent = 'c²';\n\n        // Angle Arc\n        const arcR = 25;\n        const arcEnd = { x: arcR * Math.cos(angleRad), y: -arcR * Math.sin(angleRad) };\n        angleArc.setAttribute('d', `M ${arcR} 0 A ${arcR} ${arcR} 0 0 1 ${arcEnd.x} ${arcEnd.y}`);\n\n        // Update Readouts\n        const areaCValue = (sideC * sideC / 100).toFixed(1);\n        areaCReadout.textContent = areaCValue;\n        \n        // Update Axis\n        axisPointer.style.left = `${phase * 100}%`;\n\n        requestAnimationFrame(update);\n    }\n\n    // Height reporting\n    function sendHeight() {\n        try {\n            parent.postMessage({ \n                type: 'hk-anim-height', \n                height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n            }, '*');\n        } catch(e) {}\n    }\n\n    window.addEventListener('load', () => {\n        requestAnimationFrame(update);\n        sendHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => sendHeight());\n    resizeObserver.observe(document.body);\n</script>\n\n</body>\n</html>"
+    }
+   ]
+  },
+  {
+   "unitId": "unit3",
+   "title": "Unit 3 Mastery Exam",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are building a ramp with a base (leg) of 12 feet and a height (leg) of 5 feet. What is the length of the ramp (hypotenuse)?",
+     "options": [
+      "13 feet",
+      "17 feet",
+      "169 feet",
+      "14.5 feet"
+     ],
+     "correctAnswers": [
+      "13 feet"
+     ],
+     "explanation": "This follows the 5-12-13 Pythagorean triple. By calculating 5 squared (25) plus 12 squared (144), you get 169. The square root of 169 is 13."
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following sets of numbers represent valid Pythagorean triples?",
+     "options": [
+      "3, 4, 5",
+      "6, 8, 10",
+      "1, 2, 3",
+      "7, 24, 25",
+      "5, 12, 14"
+     ],
+     "correctAnswers": [
+      "3, 4, 5",
+      "6, 8, 10",
+      "7, 24, 25"
+     ],
+     "explanation": "3-4-5 and 7-24-25 are basic triples. 6-8-10 is a triple because it is a multiple of 3-4-5 (the Scaling Principle). 1-2-3 and 5-12-14 do not satisfy the theorem."
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When solving for a missing leg 'a' given the hypotenuse 'c' and leg 'b', the correctly rearranged formula is a² = ____.",
+     "correctAnswers": [
+      "c^2 - b^2",
+      "c² - b²",
+      "c*c - b*b"
+     ],
+     "placeholder": "e.g., c^2 - b^2",
+     "explanation": "To isolate a leg, you must subtract the square of the known leg from the square of the hypotenuse."
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A 10ft ladder is leaning against a wall. The base of the ladder is 6ft away from the wall. How high up the wall does the ladder reach?",
+     "options": [
+      "4 ft",
+      "8 ft",
+      "11.6 ft",
+      "64 ft"
+     ],
+     "correctAnswers": [
+      "8 ft"
+     ],
+     "explanation": "The ladder is the hypotenuse (10). Using the formula for a leg: 10² - 6² = 100 - 36 = 64. The square root of 64 is 8.",
+     "image": {
+      "src": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/3ea5b7d5-d475-4c4f-84bf-9834e24a35c2/exam/images/unit3-q4.png",
+      "alt": "Right triangle formed by a ladder against a wall."
+     }
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When calculating the distance between two coordinates (x1, y1) and (x2, y2) using the Distance Formula, which steps are mathematically necessary?",
+     "options": [
+      "Find the difference between the x-coordinates and square it.",
+      "Subtract the y-coordinates and square the result.",
+      "Add the two squared differences together.",
+      "Take the square root of the final sum.",
+      "Multiply the x-difference by the y-difference."
+     ],
+     "correctAnswers": [
+      "Find the difference between the x-coordinates and square it.",
+      "Subtract the y-coordinates and square the result.",
+      "Add the two squared differences together.",
+      "Take the square root of the final sum."
+     ],
+     "explanation": "The Distance Formula is d = √((x2-x1)² + (y2-y1)²). This involves finding differences (legs), squaring them, summing them, and taking the root."
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The Pythagorean triple (3, 4, 5) can be scaled by a factor of 10 to create the triple (____).",
+     "correctAnswers": [
+      "30, 40, 50",
+      "30,40,50",
+      "30-40-50"
+     ],
+     "placeholder": "Enter three numbers",
+     "explanation": "The Scaling Principle states that if you multiply all sides of a triple by the same constant 'k', the resulting triangle is still a right triangle."
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If a triangle has sides of 10, 15, and 20, is it a right triangle?",
+     "options": [
+      "Yes, because 10 + 15 > 20.",
+      "No, because 10² + 15² is 325, which is not equal to 20² (400).",
+      "Yes, because any three sides can form a right triangle if arranged correctly.",
+      "No, because the sides are not integers."
+     ],
+     "correctAnswers": [
+      "No, because 10² + 15² is 325, which is not equal to 20² (400)."
+     ],
+     "explanation": "According to the Converse of the Pythagorean Theorem, a² + b² must equal c². Here, 100 + 225 = 325, which does not match 400."
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Why is the order of subtraction (e.g., x1-x2 vs x2-x1) irrelevant in the Distance Formula?",
+     "options": [
+      "Because distances are always positive anyway.",
+      "Because squaring a negative number results in a positive number.",
+      "Because the formula uses absolute values before squaring.",
+      "Because the coordinate plane is symmetrical.",
+      "Because the squares of opposite numbers (like -3 and 3) are identical."
+     ],
+     "correctAnswers": [
+      "Because squaring a negative number results in a positive number.",
+      "Because the squares of opposite numbers (like -3 and 3) are identical."
+     ],
+     "explanation": "Squaring removes the effect of the sign. Whether the difference is 3 or -3, the squared result (the area of the square on that leg) is 9."
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the formula a² + b² = c², the variable ____ must always represent the longest side.",
+     "correctAnswers": [
+      "c",
+      "c side",
+      "the hypotenuse"
+     ],
+     "placeholder": "Variable name",
+     "explanation": "The hypotenuse is always the longest side and must be the 'c' variable isolated on one side of the equation."
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A box has a length of 3cm, a width of 4cm, and a height of 12cm. What is the length of the longest diagonal inside the box?",
+     "options": [
+      "5 cm",
+      "13 cm",
+      "19 cm",
+      "15 cm"
+     ],
+     "correctAnswers": [
+      "13 cm"
+     ],
+     "explanation": "First find the floor diagonal: √(3² + 4²) = 5. Then use that as a leg with the height: √(5² + 12²) = √169 = 13.",
+     "image": {
+      "src": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/3ea5b7d5-d475-4c4f-84bf-9834e24a35c2/exam/images/unit3-q10.png",
+      "alt": "3D diagram of a rectangular prism space diagonal."
+     }
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these errors are common when students first learn to solve for the hypotenuse?",
+     "options": [
+      "Adding the lengths (a+b) before squaring them.",
+      "Forgetting to take the square root at the final step.",
+      "Subtracting the legs instead of adding them.",
+      "Using the formula for triangles that don't have a right angle.",
+      "Squaring the numbers before adding them."
+     ],
+     "correctAnswers": [
+      "Adding the lengths (a+b) before squaring them.",
+      "Forgetting to take the square root at the final step.",
+      "Using the formula for triangles that don't have a right angle."
+     ],
+     "explanation": "Students often add before squaring (the order of operations error), forget the root (leaving the area instead of side), or apply it to non-right triangles."
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process of moving from $a^2 + b^2 = c^2$ to $a = \\sqrt{c^2 - b^2}$ is known as algebraic ____.",
+     "correctAnswers": [
+      "isolation",
+      "manipulation",
+      "rearrangement"
+     ],
+     "placeholder": "e.g., isolation",
+     "explanation": "Isolation refers to getting the unknown variable by itself on one side of the equals sign."
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the distance between coordinates (1, 2) and (4, 6)?",
+     "options": [
+      "7 units",
+      "5 units",
+      "25 units",
+      "3.5 units"
+     ],
+     "correctAnswers": [
+      "5 units"
+     ],
+     "explanation": "The horizontal leg (Δx) is 4-1=3. The vertical leg (Δy) is 6-2=4. This forms a 3-4-5 triangle, so the distance is 5.",
+     "image": {
+      "src": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/3ea5b7d5-d475-4c4f-84bf-9834e24a35c2/exam/images/unit3-q13.png",
+      "alt": "Coordinate plane distance calculation."
+     }
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "If you calculate the side of a triangle to be √50, which of the following are true?",
+     "options": [
+      "The result is an irrational number.",
+      "The length is exactly 7.",
+      "The length is between 7 and 8.",
+      "You likely made a mistake as sides must be integers.",
+      "It can be rounded to approximately 7.07."
+     ],
+     "correctAnswers": [
+      "The result is an irrational number.",
+      "The length is between 7 and 8.",
+      "It can be rounded to approximately 7.07."
+     ],
+     "explanation": "Most square roots in geometry are irrational. Since 7²=49 and 8²=64, √50 is just over 7."
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "In the 3D distance formula d² = x² + y² + z², what does the component (x² + y²) represent?",
+     "options": [
+      "The volume of the box.",
+      "The square of the diagonal of the base (floor).",
+      "The height of the prism.",
+      "The perimeter of the base."
+     ],
+     "correctAnswers": [
+      "The square of the diagonal of the base (floor)."
+     ],
+     "explanation": "According to the two-step logic, the square of the floor diagonal is x² + y². This value then becomes the 'a²' in the final 3D calculation."
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Observe the relationship between the 2D floor diagonal and the 3D space diagonal as the height of the box increases. Why does the space diagonal grow even when the floor dimensions remain constant?",
+     "options": [
+      "Because the floor diagonal acts as a fixed leg in a new vertical right triangle where the increasing height is the second leg.",
+      "Because increasing the height of the box increases the area of the base, which forces the diagonal to stretch.",
+      "Because the 3D diagonal is simply the sum of the length, width, and height regardless of the angles.",
+      "Because the triangle on the floor rotates upward, making the original hypotenuse longer through expansion."
+     ],
+     "correctAnswers": [
+      "Because the floor diagonal acts as a fixed leg in a new vertical right triangle where the increasing height is the second leg."
+     ],
+     "explanation": "The 3D diagonal calculation is a two-step process. The floor diagonal is calculated first and then becomes the 'base' leg for the vertical triangle that includes the height.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>3D Spatial Reasoning: Interior Diagonal Visualization</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr 1fr;\n            gap: 12px;\n            width: 100%;\n            margin-top: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            text-align: center;\n        }\n\n        .label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            font-style: italic;\n            color: var(--muted);\n            display: block;\n            margin-bottom: 2px;\n        }\n\n        .value {\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--ink);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .fixed-tag {\n            font-size: 10px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            opacity: 0.7;\n            margin-left: 4px;\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-size: 13px;\n            color: var(--muted);\n            font-style: italic;\n        }\n\n        /* SVG Styles */\n        .fig .edge { stroke: var(--ink); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }\n        .fig .edge-back { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 4 2; }\n        .fig .floor-diag { stroke: var(--amber); stroke-width: 2; fill: none; }\n        .fig .space-diag { stroke: var(--accent); stroke-width: 2.5; fill: none; stroke-linecap: round; }\n        .fig .height-line { stroke: var(--ink); stroke-width: 2.5; fill: none; }\n        .fig .face { fill: var(--ink); fill-opacity: 0.03; }\n    </style>\n</head>\n<body>\n    <h1 class=\"sr-only\">3D Rectangular Prism Diagonal Visualization</h1>\n    \n    <div class=\"container\">\n        <div class=\"fig-wrapper\" aria-label=\"A 3D prism showing the relationship between base diagonal, height, and space diagonal.\">\n            <svg class=\"fig\" viewBox=\"0 0 400 300\">\n                <!-- Isometric projection helpers -->\n                <!-- Base is 160x100. Center roughly at 200, 200. -->\n                <g id=\"scene-transform\" transform=\"translate(200, 220)\">\n                    \n                    <!-- Back edges (Lower Opacity/Dashed) -->\n                    <path class=\"edge edge-back\" d=\"M -80,0 L 0,-40 L 80,0\" />\n                    <line id=\"back-vertical\" class=\"edge edge-back\" x1=\"0\" y1=\"-40\" x2=\"0\" y2=\"-40\" />\n\n                    <!-- Floor Surface -->\n                    <path class=\"face\" d=\"M -80,0 L 0,40 L 80,0 L 0,-40 Z\" />\n                    \n                    <!-- Base Diagonal (Fixed Length) -->\n                    <line id=\"floor-diag\" class=\"floor-diag\" x1=\"-80\" y1=\"0\" x2=\"80\" y2=\"0\" />\n\n                    <!-- Front Edges (Base) -->\n                    <path class=\"edge\" d=\"M -80,0 L 0,40 L 80,0\" />\n\n                    <!-- Dynamic Height Elements -->\n                    <!-- Height line at the far right corner -->\n                    <line id=\"height-line\" class=\"height-line\" x1=\"80\" y1=\"0\" x2=\"80\" y2=\"0\" />\n                    \n                    <!-- Space Diagonal connecting (-80,0) to (80, -height) -->\n                    <line id=\"space-diag\" class=\"space-diag\" x1=\"-80\" y1=\"0\" x2=\"80\" y2=\"0\" />\n\n                    <!-- Prism Frame (Dynamic Top) -->\n                    <g id=\"top-frame\">\n                        <path id=\"top-edges\" class=\"edge\" d=\"M -80,0 L 0,40 L 80,0 L 0,-40 Z\" />\n                        <line id=\"v-1\" class=\"edge\" x1=\"-80\" y1=\"0\" x2=\"-80\" y2=\"0\" />\n                        <line id=\"v-2\" class=\"edge\" x1=\"0\" y1=\"40\" x2=\"0\" y2=\"40\" />\n                        <!-- v-3 (80,0) is handled by the \"height-line\" for emphasis -->\n                    </g>\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Width &amp; Depth</span>\n                <span class=\"value\">Fixed</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\" style=\"color: var(--amber)\">Base Diagonal</span>\n                <span class=\"value\">188.7 <span class=\"fixed-tag\">fixed</span></span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Height</span>\n                <span class=\"value\" id=\"val-height\">0.0</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Prism height varying over time.</div>\n    </div>\n\n    <script>\n        const heightLine = document.getElementById('height-line');\n        const backVertical = document.getElementById('back-vertical');\n        const v1 = document.getElementById('v-1');\n        const v2 = document.getElementById('v-2');\n        const topEdges = document.getElementById('top-edges');\n        const spaceDiag = document.getElementById('space-diag');\n        const valHeight = document.getElementById('val-height');\n\n        let startTime = null;\n        const duration = 8000; // 8 seconds for full cycle\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) % duration;\n            const t = progress / duration;\n            \n            // Ping-pong height: 0 to 140 and back\n            let h;\n            if (t < 0.5) {\n                // Easing for a more \"thoughtful\" observation pace\n                const eased = 0.5 - Math.cos(t * 2 * Math.PI) / 2;\n                h = eased * 140;\n            } else {\n                const eased = 0.5 - Math.cos((1 - t) * 2 * Math.PI) / 2;\n                h = eased * 140;\n            }\n\n            // Update SVG elements\n            // Height is \"up\", so y-coordinate is negative\n            heightLine.setAttribute('y2', -h);\n            backVertical.setAttribute('y2', -40 - h);\n            v1.setAttribute('y2', -h);\n            v2.setAttribute('y2', 40 - h);\n\n            // Move the whole top face\n            topEdges.setAttribute('transform', `translate(0, ${-h})`);\n            \n            // The diagonal through space\n            spaceDiag.setAttribute('x2', 80);\n            spaceDiag.setAttribute('y2', -h);\n\n            // Update readout\n            valHeight.textContent = h.toFixed(1);\n\n            requestAnimationFrame(animate);\n        }\n\n        // Standard height reporting for host\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n        });\n\n        const resizeObserver = new ResizeObserver(() => {\n            reportHeight();\n        });\n        resizeObserver.observe(document.body);\n\n        // Deterministic check for motion reduction\n        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {\n            // If reduced motion is preferred, we hold at a significant frame\n            // instead of running the animation loop.\n            // We can do this by just not calling requestAnimationFrame \n            // and setting a static state.\n            setTimeout(() => {\n                const staticH = 80;\n                heightLine.setAttribute('y2', -staticH);\n                backVertical.setAttribute('y2', -40 - staticH);\n                v1.setAttribute('y2', -staticH);\n                v2.setAttribute('y2', 40 - staticH);\n                topEdges.setAttribute('transform', `translate(0, ${-staticH})`);\n                spaceDiag.setAttribute('y2', -staticH);\n                valHeight.textContent = staticH.toFixed(1);\n            }, 100);\n        }\n    </script>\n</body>\n</html>"
+    }
+   ]
+  }
+ ]
+}

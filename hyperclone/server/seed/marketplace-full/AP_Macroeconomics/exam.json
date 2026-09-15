@@ -1,0 +1,1538 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Exam: Basic Economic Concepts",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following scenarios best represents the concept of scarcity in a way that distinguishes it from a temporary shortage?",
+     "options": [
+      "A sudden spike in demand for winter coats during a record-breaking blizzard.",
+      "A tech company running out of a popular smartphone on its release day.",
+      "A billionaire being unable to find enough time in a day to manage all of their investments.",
+      "A government rationing gasoline during an international supply chain disruption."
+     ],
+     "explanation": "Scarcity is a permanent condition where resources (like time) are finite while wants are unlimited, whereas shortages are temporary market disequilibria where demand exceeds supply at a specific price.",
+     "correctAnswers": [
+      "A billionaire being unable to find enough time in a day to manage all of their investments."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In the context of the four factors of production, which of the following are correctly categorized?",
+     "options": [
+      "A pizza oven used in a restaurant is categorized as Capital.",
+      "The $50,000 used to buy ingredients is categorized as Capital.",
+      "The recipe created by the restaurant owner is categorized as Entrepreneurship.",
+      "The wild yeast used in sourdough starter is categorized as Land.",
+      "The waitstaff serving customers is categorized as Labor."
+     ],
+     "explanation": "Capital refers to manufactured goods used for production (not money); Land includes all natural resources (like wild yeast); Labor is human effort. The recipe itself is more closely associated with labor or capital; Entrepreneurship is the act of combining factors and taking risks.",
+     "correctAnswers": [
+      "A pizza oven used in a restaurant is categorized as Capital.",
+      "The wild yeast used in sourdough starter is categorized as Land.",
+      "The waitstaff serving customers is categorized as Labor."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The total economic cost of a decision is calculated by adding together the explicit costs and the ____ costs.",
+     "placeholder": "Type the cost type",
+     "correctAnswers": [
+      "implicit"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A student has three choices for their evening: Study (1st choice), Work for $60 (2nd choice), or Sleep (3rd choice). What is the opportunity cost of choosing to study?",
+     "options": [
+      "$60 only",
+      "The value of sleeping only",
+      "The combined value of $60 and sleeping",
+      "Zero, because studying is an investment in future earnings"
+     ],
+     "explanation": "Opportunity cost is defined as the value of the single next-best alternative sacrificed, which in this case is the $60 the student would have earned working.",
+     "correctAnswers": [
+      "$60 only"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following events would cause an outward shift (to the right) of a nation's Production Possibilities Curve?",
+     "options": [
+      "A decrease in the national unemployment rate.",
+      "The discovery of new oil reserves within the country.",
+      "A significant advancement in manufacturing technology.",
+      "A decision to move production from consumer goods to capital goods.",
+      "An increase in the total size of the labor force."
+     ],
+     "explanation": "Outward shifts are caused by changes in the quantity or quality of resources or technology. Moving production along the curve or reducing unemployment are movements toward the existing curve, not shifts of the curve itself.",
+     "correctAnswers": [
+      "The discovery of new oil reserves within the country.",
+      "A significant advancement in manufacturing technology.",
+      "An increase in the total size of the labor force."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The Law of Increasing Opportunity Costs explains why the Production Possibilities Curve is usually ____ to the origin.",
+     "placeholder": "Describe the shape",
+     "correctAnswers": [
+      "bowed-out",
+      "concave"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "A PPC graph with a point labeled inside the boundary line.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit1-q7.png"
+     },
+     "prompt": "Referencing a Production Possibilities Curve (PPC), what does a point located inside the curve signify?",
+     "options": [
+      "An unattainable level of production given current technology.",
+      "Productive efficiency and full employment of resources.",
+      "Inefficiency, such as high unemployment or idle factories.",
+      "The optimal mix of consumer and capital goods for growth."
+     ],
+     "explanation": "Points inside the PPC indicate that the economy is not utilizing all of its available resources to their maximum potential.",
+     "correctAnswers": [
+      "Inefficiency, such as high unemployment or idle factories."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which statements regarding Absolute and Comparative Advantage are true?",
+     "options": [
+      "A country can have the absolute advantage in both goods.",
+      "A country can have the comparative advantage in both goods.",
+      "Comparative advantage is based on lower opportunity costs.",
+      "Absolute advantage is based on using fewer inputs per unit of output.",
+      "Trade should be based on absolute advantage to maximize global output."
+     ],
+     "explanation": "Because opportunity costs are reciprocals, it is mathematically impossible for one party to have a comparative advantage in both goods. Trade is beneficial when based on comparative advantage.",
+     "correctAnswers": [
+      "A country can have the absolute advantage in both goods.",
+      "Comparative advantage is based on lower opportunity costs.",
+      "Absolute advantage is based on using fewer inputs per unit of output."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To find the opportunity cost of a good in an Output Model, you should divide the 'other' good by the good you are ____.",
+     "placeholder": "Action",
+     "correctAnswers": [
+      "producing",
+      "choosing"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A nation that chooses to produce more capital goods today rather than consumer goods will most likely experience:",
+     "options": [
+      "A shift of the PPC to the left in the future.",
+      "Higher standards of living immediately but slower growth.",
+      "Greater outward shifts of the PPC in the future.",
+      "No change in the PPC, as the total resources remain the same."
+     ],
+     "explanation": "Capital goods are used to produce other goods. Investing in them now increases the future quantity of resources, leading to faster economic growth/PPC shifts.",
+     "correctAnswers": [
+      "Greater outward shifts of the PPC in the future."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "If Country X has a comparative advantage in Coffee and Country Y has a comparative advantage in Salmon, which of the following must be true?",
+     "options": [
+      "Country X has a lower opportunity cost for Coffee than Country Y.",
+      "Country X has the absolute advantage in Coffee.",
+      "Country Y has a higher opportunity cost for Salmon than Country X.",
+      "Country Y should specialize in Salmon and trade for Coffee.",
+      "Total global production will increase if both countries specialize."
+     ],
+     "explanation": "Comparative advantage is determined by lower opportunity costs. Specialization and trade based on these advantages lead to increased global efficiency.",
+     "correctAnswers": [
+      "Country X has a lower opportunity cost for Coffee than Country Y.",
+      "Country Y should specialize in Salmon and trade for Coffee.",
+      "Total global production will increase if both countries specialize."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ is the person who takes the risk to combine land, labor, and capital to create new products.",
+     "placeholder": "Factor of production",
+     "correctAnswers": [
+      "entrepreneur"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In an Output Model table, Country A can produce 10 apples or 20 oranges. What is the opportunity cost for Country A to produce 1 apple?",
+     "options": [
+      "0.5 oranges",
+      "2 oranges",
+      "10 oranges",
+      "2 apples"
+     ],
+     "explanation": "Using the 'Other Over' rule for output: 20 oranges / 10 apples = 2 oranges per apple.",
+     "correctAnswers": [
+      "2 oranges"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of Capital as a factor of production?",
+     "options": [
+      "A delivery truck.",
+      "A corporate bond.",
+      "A computer programmer's coding skills.",
+      "A factory building.",
+      "A hydraulic press."
+     ],
+     "explanation": "Physical capital refers to man-made tools and infrastructure. Bonds are financial capital (not a factor), and skills are human capital (part of labor).",
+     "correctAnswers": [
+      "A delivery truck.",
+      "A factory building.",
+      "A hydraulic press."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "In an Input Model table, it takes Worker X 4 hours to make a chair and 2 hours to make a table. What is Worker X's opportunity cost for 1 chair?",
+     "options": [
+      "0.5 tables",
+      "2 tables",
+      "4 tables",
+      "8 tables"
+     ],
+     "explanation": "Using the 'Other Under' rule for input: 4 (time for chair) / 2 (time for table) = 2 tables per chair. Logic: If you spend 4 hours on a chair, you could have made 2 tables.",
+     "correctAnswers": [
+      "2 tables"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Identify the implicit costs for a student attending a four-year university.",
+     "options": [
+      "Tuition payments.",
+      "Forgone wages from a full-time job.",
+      "Textbook costs.",
+      "The value of leisure time lost to studying.",
+      "Student loan interest."
+     ],
+     "explanation": "Implicit costs are non-monetary opportunity costs. Tuition and books are explicit (out-of-pocket) costs.",
+     "correctAnswers": [
+      "Forgone wages from a full-time job.",
+      "The value of leisure time lost to studying."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "The economy of 'Alpha' is currently experiencing 15% unemployment. Move the production point to the correct location on the graph to represent this state.",
+     "options": [
+      "A point on the curve favoring capital goods.",
+      "A point outside the curve.",
+      "A point inside the curve.",
+      "A point on the curve favoring consumer goods."
+     ],
+     "explanation": "Unemployment signifies that resources are not being fully utilized, which is visually represented by a point inside the Production Possibilities Curve.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>PPC Interactive Graph</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Stage */\n    .stage {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px;\n      box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n      position: relative;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Typography / Labels */\n    .axis-label {\n      font-size: 11px;\n      fill: var(--muted-fg);\n      font-weight: 600;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .zone-label {\n      font-size: 10px;\n      fill: var(--muted-fg);\n      pointer-events: none;\n      transition: fill 0.2s ease, font-weight 0.2s ease;\n    }\n\n    .zone-label.active {\n      fill: var(--accent-strong);\n      font-weight: bold;\n    }\n\n    /* PPC Elements */\n    .ppc-axis {\n      stroke: var(--fg);\n      stroke-width: 2;\n      stroke-linecap: round;\n    }\n\n    .ppc-curve {\n      fill: none;\n      stroke: #8da1b9;\n      stroke-width: 3.5;\n      stroke-linecap: round;\n    }\n\n    /* Target Zones */\n    .target-zone {\n      cursor: pointer;\n      pointer-events: all;\n    }\n\n    .target-bg {\n      fill: transparent;\n      transition: fill 0.2s ease;\n    }\n\n    .target-ring {\n      fill: none;\n      stroke: var(--border);\n      stroke-width: 1.5;\n      stroke-dasharray: 3 3;\n      transition: stroke 0.2s ease, stroke-width 0.2s ease;\n    }\n\n    .target-zone:hover .target-ring,\n    .target-zone:focus-visible .target-ring {\n      stroke: var(--accent);\n      stroke-width: 2;\n    }\n\n    .target-zone.active .target-ring {\n      stroke: var(--accent);\n      stroke-width: 2.5;\n      stroke-dasharray: none;\n    }\n\n    .target-zone.active .target-bg {\n      fill: var(--accent-soft);\n    }\n\n    /* Draggable Production Point */\n    .prod-point {\n      cursor: grab;\n      touch-action: none;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .prod-point:active {\n      cursor: grabbing;\n    }\n\n    .prod-point-outer {\n      fill: var(--accent);\n      opacity: 0.2;\n      transition: r 0.2s ease, opacity 0.2s ease;\n    }\n\n    .prod-point:hover .prod-point-outer,\n    .prod-point:active .prod-point-outer {\n      r: 16;\n      opacity: 0.35;\n    }\n\n    .prod-point-inner {\n      fill: var(--accent);\n      stroke: #fff;\n      stroke-width: 2.5;\n      box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n    }\n\n    /* Pulse animation for initial state */\n    @keyframes pulse {\n      0% { r: 8; opacity: 0.2; }\n      50% { r: 15; opacity: 0.4; }\n      100% { r: 8; opacity: 0.2; }\n    }\n\n    .pulse .prod-point-outer {\n      animation: pulse 2s infinite ease-in-out;\n    }\n\n    /* Action Hint */\n    .hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: 10px;\n      font-weight: 500;\n    }\n\n    /* Focus styling */\n    .target-zone:focus-visible {\n      outline: none;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Production Possibilities Curve Interaction</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 380 220\" aria-hidden=\"true\">\n        <!-- Axes -->\n        <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"180\" class=\"ppc-axis\" />\n        <line x1=\"50\" y1=\"180\" x2=\"350\" y2=\"180\" class=\"ppc-axis\" />\n\n        <!-- Axis Labels -->\n        <text x=\"45\" y=\"15\" class=\"axis-label\" text-anchor=\"end\" transform=\"rotate(-90 45 15)\">Capital Goods</text>\n        <text x=\"350\" y=\"195\" class=\"axis-label\" text-anchor=\"end\">Consumer Goods</text>\n\n        <!-- PPC Curve (Bowed out) -->\n        <path d=\"M 50,40 Q 280,50 320,180\" class=\"ppc-curve\" />\n\n        <!-- Target Zone 1 (Capital favoring, on curve) -->\n        <g id=\"zone-capital\" class=\"target-zone\" tabindex=\"0\" role=\"button\" aria-label=\"Point on the curve favoring capital goods\">\n          <circle cx=\"115\" cy=\"55\" r=\"22\" class=\"target-bg\" />\n          <circle cx=\"115\" cy=\"55\" r=\"14\" class=\"target-ring\" />\n          <text x=\"115\" y=\"27\" class=\"zone-label\" text-anchor=\"middle\">On Curve</text>\n          <text x=\"115\" y=\"37\" class=\"zone-label\" text-anchor=\"middle\">(Capital-focused)</text>\n        </g>\n\n        <!-- Target Zone 3 (Outside curve) -->\n        <g id=\"zone-outside\" class=\"target-zone\" tabindex=\"0\" role=\"button\" aria-label=\"Point outside the curve\">\n          <circle cx=\"260\" cy=\"70\" r=\"22\" class=\"target-bg\" />\n          <circle cx=\"260\" cy=\"70\" r=\"14\" class=\"target-ring\" />\n          <text x=\"260\" y=\"44\" class=\"zone-label\" text-anchor=\"middle\">Outside Curve</text>\n          <text x=\"260\" y=\"54\" class=\"zone-label\" text-anchor=\"middle\">(Unattainable)</text>\n        </g>\n\n        <!-- Target Zone 2 (Inside curve) -->\n        <g id=\"zone-inside\" class=\"target-zone\" tabindex=\"0\" role=\"button\" aria-label=\"Point inside the curve\">\n          <circle cx=\"130\" cy=\"130\" r=\"22\" class=\"target-bg\" />\n          <circle cx=\"130\" cy=\"130\" r=\"14\" class=\"target-ring\" />\n          <text x=\"130\" y=\"104\" class=\"zone-label\" text-anchor=\"middle\">Inside Curve</text>\n          <text x=\"130\" y=\"114\" class=\"zone-label\" text-anchor=\"middle\">(Inefficient)</text>\n        </g>\n\n        <!-- Target Zone 4 (Consumer favoring, on curve) -->\n        <g id=\"zone-consumer\" class=\"target-zone\" tabindex=\"0\" role=\"button\" aria-label=\"Point on the curve favoring consumer goods\">\n          <circle cx=\"270\" cy=\"135\" r=\"22\" class=\"target-bg\" />\n          <circle cx=\"270\" cy=\"135\" r=\"14\" class=\"target-ring\" />\n          <text x=\"270\" y=\"109\" class=\"zone-label\" text-anchor=\"middle\">On Curve</text>\n          <text x=\"270\" y=\"119\" class=\"zone-label\" text-anchor=\"middle\">(Consumer-focused)</text>\n        </g>\n\n        <!-- Draggable Production Point -->\n        <g id=\"prod-point\" class=\"prod-point pulse\" transform=\"translate(195, 100)\">\n          <circle cx=\"0\" cy=\"0\" r=\"10\" class=\"prod-point-outer\" />\n          <circle cx=\"0\" cy=\"0\" r=\"7\" class=\"prod-point-inner\" />\n          <text x=\"0\" y=\"-14\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--accent-strong)\" text-anchor=\"middle\" pointer-events=\"none\">Current Production</text>\n        </g>\n      </svg>\n    </div>\n    <div class=\"hint\">Drag the production point to one of the 4 zones</div>\n  </div>\n\n  <script>\n    // Constants\n    const OPTIONS = {\n      'zone-capital': 'A point on the curve favoring capital goods.',\n      'zone-outside': 'A point outside the curve.',\n      'zone-inside': 'A point inside the curve.',\n      'zone-consumer': 'A point on the curve favoring consumer goods.'\n    };\n\n    const targets = {\n      'zone-capital': { x: 115, y: 55 },\n      'zone-outside': { x: 260, y: 70 },\n      'zone-inside': { x: 130, y: 130 },\n      'zone-consumer': { x: 270, y: 135 }\n    };\n\n    // State\n    let currentX = 195;\n    let currentY = 100;\n    let isDragging = false;\n    let dragStartX = 0;\n    let dragStartY = 0;\n    let activeZoneId = null;\n    let isLocked = false;\n\n    // DOM Elements\n    const prodPoint = document.getElementById('prod-point');\n    const svg = document.querySelector('.stage-svg');\n    const zoneElements = {\n      'zone-capital': document.getElementById('zone-capital'),\n      'zone-outside': document.getElementById('zone-outside'),\n      'zone-inside': document.getElementById('zone-inside'),\n      'zone-consumer': document.getElementById('zone-consumer')\n    };\n\n    // Height reporter\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    new ResizeObserver(reportHeight).observe(document.body);\n\n    // Coordinate conversion\n    function getSVGCoords(e) {\n      const rect = svg.getBoundingClientRect();\n      // Calculate scaled coords inside 380x220 viewBox\n      const x = ((e.clientX - rect.left) / rect.width) * 380;\n      const y = ((e.clientY - rect.top) / rect.height) * 220;\n      return { x, y };\n    }\n\n    // Drag handlers\n    prodPoint.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      prodPoint.classList.remove('pulse');\n      prodPoint.setPointerCapture(e.pointerId);\n      \n      const coords = getSVGCoords(e);\n      dragStartX = coords.x - currentX;\n      dragStartY = coords.y - currentY;\n      e.preventDefault();\n    });\n\n    window.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      const coords = getSVGCoords(e);\n      \n      // Calculate proposed point pos\n      let targetX = coords.x - dragStartX;\n      let targetY = coords.y - dragStartY;\n\n      // Keep within reasonable graph bounds\n      targetX = Math.max(50, Math.min(340, targetX));\n      targetY = Math.max(20, Math.min(185, targetY));\n\n      updatePointPosition(targetX, targetY);\n      checkProximity(targetX, targetY);\n    });\n\n    window.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      snapToNearestZone();\n    });\n\n    // Handle clicks/taps on zones directly\n    Object.keys(zoneElements).forEach(zoneId => {\n      const el = zoneElements[zoneId];\n      \n      el.addEventListener('click', () => {\n        if (isLocked) return;\n        prodPoint.classList.remove('pulse');\n        snapToZone(zoneId);\n      });\n\n      el.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          prodPoint.classList.remove('pulse');\n          snapToZone(zoneId);\n        }\n      });\n    });\n\n    function updatePointPosition(x, y) {\n      currentX = x;\n      currentY = y;\n      // Use setAttribute on transform for crisp performance without overriding css scaling transitions\n      prodPoint.setAttribute('transform', `translate(${x}, ${y})`);\n    }\n\n    function checkProximity(x, y) {\n      let closestZone = null;\n      let minDistance = 45; // Max radius to trigger live highlight while dragging\n\n      Object.keys(targets).forEach(zoneId => {\n        const target = targets[zoneId];\n        const dist = Math.hypot(x - target.x, y - target.y);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestZone = zoneId;\n        }\n      });\n\n      highlightZone(closestZone);\n    }\n\n    function highlightZone(zoneId) {\n      Object.keys(zoneElements).forEach(id => {\n        const el = zoneElements[id];\n        const label = el.querySelector('.zone-label');\n        if (id === zoneId) {\n          el.classList.add('active');\n          if (label) label.classList.add('active');\n        } else {\n          el.classList.remove('active');\n          if (label) label.classList.remove('active');\n        }\n      });\n    }\n\n    function snapToNearestZone() {\n      let closestZone = null;\n      let minDistance = Infinity;\n\n      Object.keys(targets).forEach(zoneId => {\n        const target = targets[zoneId];\n        const dist = Math.hypot(currentX - target.x, currentY - target.y);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestZone = zoneId;\n        }\n      });\n\n      snapToZone(closestZone);\n    }\n\n    function snapToZone(zoneId) {\n      if (!zoneId) return;\n      const target = targets[zoneId];\n      updatePointPosition(target.x, target.y);\n      highlightZone(zoneId);\n\n      if (activeZoneId !== zoneId) {\n        activeZoneId = zoneId;\n        // Post selected option to host\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[zoneId] }, '*');\n        } catch (e) {}\n      }\n    }\n\n    // Keyboard navigation accessibility\n    window.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      const zoneKeys = Object.keys(targets);\n      let currentIndex = zoneKeys.indexOf(activeZoneId);\n\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        e.preventDefault();\n        prodPoint.classList.remove('pulse');\n        let nextIndex = (currentIndex + 1) % zoneKeys.length;\n        snapToZone(zoneKeys[nextIndex]);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        e.preventDefault();\n        prodPoint.classList.remove('pulse');\n        let prevIndex = (currentIndex - 1 + zoneKeys.length) % zoneKeys.length;\n        snapToZone(zoneKeys[prevIndex]);\n      }\n    });\n\n    // Lock listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.querySelectorAll('.target-zone, .prod-point').forEach(el => {\n          el.style.pointerEvents = 'none';\n          el.style.cursor = 'default';\n        });\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "A point inside the curve."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Exam: Economic Indicators and the Business Cycle",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following would be strictly excluded from the 'Government Purchases' (G) component of GDP?",
+     "options": [
+      "The salary of a public school teacher",
+      "The purchase of a new fleet of military aircraft",
+      "Social Security payments to a retired worker",
+      "Concrete used to repair a federal highway"
+     ],
+     "explanation": "Social Security is a transfer payment; it does not involve the production of a new good or service in exchange for the payment, so it is excluded to prevent double-counting.",
+     "correctAnswers": [
+      "Social Security payments to a retired worker"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following transactions are included in the 'Gross Private Domestic Investment' (I) category of GDP? Select all that apply.",
+     "options": [
+      "A car dealership adding 50 unsold vehicles to its lot at year-end",
+      "A household purchasing a newly constructed suburban home",
+      "A small business buying shares of a technology startup's stock",
+      "A factory purchasing a new automated assembly line",
+      "An individual buying a vintage 1960s sports car"
+     ],
+     "explanation": "Investment includes changes in inventory, new residential construction, and business capital goods. Stock purchases are financial transfers, and vintage cars are secondhand sales, both excluded from GDP.",
+     "correctAnswers": [
+      "A car dealership adding 50 unsold vehicles to its lot at year-end",
+      "A household purchasing a newly constructed suburban home",
+      "A factory purchasing a new automated assembly line"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the circular flow model, the ____ market is where households act as sellers by providing labor, land, and capital to businesses.",
+     "placeholder": "Market name",
+     "correctAnswers": [
+      "factor",
+      "resource"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of the circular flow model highlighting the counter-clockwise flow of money.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit2-q4.png"
+     },
+     "prompt": "Based on the Circular Flow Model, which of the following is an accurate description of the flow of money?",
+     "options": [
+      "Money flows from households to the factor market as wages.",
+      "Money flows from businesses to the product market as revenue.",
+      "Money flows from the factor market to households as income.",
+      "Money flows from the product market to households as consumption."
+     ],
+     "explanation": "In the monetary loop, businesses pay the factor market for resources, and that money flows to households as wages, rent, interest, and profit (income).",
+     "correctAnswers": [
+      "Money flows from the factor market to households as income."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Why are 'intermediate goods', such as the flour bought by a commercial bakery, excluded from the final calculation of GDP?",
+     "options": [
+      "To avoid the accounting error of double-counting",
+      "Because intermediate goods have no market value",
+      "Because their value is already included in the price of the final good",
+      "Because they represent a non-market transaction",
+      "To ensure GDP only reflects the value added at the final stage of production"
+     ],
+     "explanation": "Intermediate goods are already embedded in the price of the final product; counting them separately would artificially inflate GDP through double-counting.",
+     "correctAnswers": [
+      "To avoid the accounting error of double-counting",
+      "Because their value is already included in the price of the final good",
+      "To ensure GDP only reflects the value added at the final stage of production"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The total market value of all final goods and services produced within a country's borders in a specific time period is known as ____.",
+     "placeholder": "Economic indicator",
+     "correctAnswers": [
+      "Gross Domestic Product",
+      "GDP"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "An American consumer buys a $40,000 car manufactured in Germany. How does this transaction initially affect the components of U.S. GDP?",
+     "options": [
+      "C increases by $40,000; Nx decreases by $40,000",
+      "C increases by $40,000; Nx is unaffected",
+      "I increases by $40,000; M decreases by $40,000",
+      "G increases by $40,000; X increases by $40,000"
+     ],
+     "explanation": "The purchase is recorded in Consumption (C) because it is a household purchase, but since it is an import, it is subtracted in Net Exports (Nx), resulting in a zero net effect on domestic GDP.",
+     "correctAnswers": [
+      "C increases by $40,000; Nx decreases by $40,000"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios describe a non-market transaction that is excluded from GDP?",
+     "options": [
+      "A professional chef cooking a meal at a restaurant",
+      "A parent staying home to care for their own children",
+      "A homeowner painting their own fence",
+      "An individual selling their used lawnmower on an online marketplace",
+      "A volunteer cleaning up a local park"
+     ],
+     "explanation": "Non-market transactions involve productive work that is not sold in a legal market and lacks an observable price. Selling a used lawnmower is a secondhand sale, which is also excluded but for a different reason.",
+     "correctAnswers": [
+      "A parent staying home to care for their own children",
+      "A homeowner painting their own fence",
+      "A volunteer cleaning up a local park"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The ____ approach to GDP calculation measures the total amount spent on all final goods and services produced within the economy.",
+     "placeholder": "Approach name",
+     "correctAnswers": [
+      "expenditure"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Pie chart illustrating that Consumption is the largest component of GDP.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit2-q10.png"
+     },
+     "prompt": "Which component of GDP is typically the largest and most stable in developed economies like the United States?",
+     "options": [
+      "Gross Private Domestic Investment",
+      "Government Purchases",
+      "Net Exports",
+      "Personal Consumption Expenditures"
+     ],
+     "explanation": "Consumption usually accounts for over two-thirds of GDP, making it the primary driver of economic activity.",
+     "correctAnswers": [
+      "Personal Consumption Expenditures"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In the Income Approach to calculating GDP, which of the following are summed to reach the total? Select all that apply.",
+     "options": [
+      "Wages and Salaries",
+      "Rental Income",
+      "Corporate Profits",
+      "Personal Savings",
+      "Interest Income"
+     ],
+     "explanation": "The income approach sums the returns to the factors of production (labor, land, capital, and entrepreneurship). Personal savings is a use of income, not a primary source of factor income.",
+     "correctAnswers": [
+      "Wages and Salaries",
+      "Rental Income",
+      "Corporate Profits",
+      "Interest Income"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "To calculate Net Exports (Nx), you must take total Exports and subtract total ____.",
+     "placeholder": "Variable M",
+     "correctAnswers": [
+      "Imports"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a shoe manufacturer produces 1,000 pairs of boots in December 2023 but does not sell them until February 2024, how is this handled in 2023 GDP?",
+     "options": [
+      "It is not counted until it is sold in 2024.",
+      "It is counted as Consumption in 2023.",
+      "It is counted as Investment (Inventory) in 2023.",
+      "It is counted as a Government Purchase in 2023."
+     ],
+     "explanation": "Unsold goods are treated as inventory investment in the year they are produced, ensuring that GDP reflects current production rather than just current sales.",
+     "correctAnswers": [
+      "It is counted as Investment (Inventory) in 2023."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the 'Real' flows in the Circular Flow Model. Select all that apply.",
+     "options": [
+      "Household labor provided to firms",
+      "Wages paid to employees",
+      "Finished goods sold to consumers",
+      "Consumer spending at retail stores",
+      "Raw materials provided to factories"
+     ],
+     "explanation": "Real flows refer to physical inputs and outputs (factors and goods). Wages and spending are monetary flows that mirror these real movements.",
+     "correctAnswers": [
+      "Household labor provided to firms",
+      "Finished goods sold to consumers",
+      "Raw materials provided to factories"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "An economy is experiencing a period of contraction. Drag the economy's position on the business cycle curve to the point where unemployment is likely at its highest and output is at its lowest.",
+     "options": [
+      "Peak",
+      "Expansion",
+      "Trough",
+      "Recovery"
+     ],
+     "explanation": "The trough is the lowest point of the business cycle, characterized by the highest unemployment and the lowest level of real GDP before a recovery begins.",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Business Cycle Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n      \n      --trough-color: #8b9bb4;\n      --recovery-color: #728cb0;\n      --expansion-color: #4C6696;\n      --peak-color: #2e446d;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 4px;\n      user-select: none;\n    }\n\n    /* Stage Area */\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 16px;\n      position: relative;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n      touch-action: none;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Grid lines */\n    .grid-line {\n      stroke: #f0ede8;\n      stroke-width: 1;\n      stroke-dasharray: 4,4;\n    }\n\n    /* Interactive path styling */\n    .cycle-path-bg {\n      stroke: #e6e3dd;\n      stroke-width: 8;\n      stroke-linecap: round;\n      fill: none;\n    }\n\n    .cycle-path-fill {\n      stroke: var(--accent);\n      stroke-width: 4;\n      stroke-linecap: round;\n      fill: none;\n      opacity: 0.8;\n      transition: stroke 0.2s;\n    }\n\n    /* Interactive Handle / Bead */\n    .handle-group {\n      cursor: grab;\n    }\n    .handle-group:active {\n      cursor: grabbing;\n    }\n    \n    .handle-glow {\n      fill: var(--accent);\n      opacity: 0.15;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n    \n    .handle-outer {\n      fill: var(--surface);\n      stroke: var(--accent);\n      stroke-width: 4;\n      filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));\n      transition: stroke 0.2s, stroke-width 0.15s;\n    }\n\n    .handle-inner {\n      fill: var(--accent);\n      transition: fill 0.2s;\n    }\n\n    .handle-group:focus {\n      outline: none;\n    }\n    .handle-group:focus .handle-outer {\n      stroke-width: 6;\n      stroke: var(--accent-strong);\n    }\n\n    /* Region Zones & Labels */\n    .zone-rect {\n      fill: transparent;\n      transition: fill 0.2s ease;\n    }\n    .zone-rect.active {\n      fill: var(--accent-soft);\n    }\n\n    .zone-boundary {\n      stroke: var(--border);\n      stroke-width: 1;\n      stroke-dasharray: 2,4;\n    }\n\n    .zone-label-bg {\n      fill: var(--stage);\n      rx: 4px;\n      transition: fill 0.2s;\n    }\n    .zone-label-bg.active {\n      fill: var(--accent);\n    }\n\n    .zone-text {\n      font-size: 11px;\n      font-weight: 500;\n      fill: var(--muted-fg);\n      text-anchor: middle;\n      pointer-events: none;\n      transition: fill 0.2s, font-weight 0.2s;\n    }\n    .zone-text.active {\n      fill: var(--surface);\n      font-weight: 700;\n    }\n\n    /* Indicator Card */\n    .status-banner {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      background: var(--stage);\n      border-radius: 8px;\n      padding: 10px 16px;\n      font-size: 13px;\n      border: 1px solid rgba(0,0,0,0.02);\n    }\n\n    .status-label {\n      color: var(--muted-fg);\n      font-weight: 500;\n    }\n\n    .status-value {\n      font-weight: 700;\n      color: var(--accent);\n      transition: color 0.2s;\n    }\n\n    /* Disabled state */\n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n    .disabled .handle-group {\n      cursor: default;\n    }\n\n    /* Screen reader helper */\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Business Cycle Curve - Phase Selector</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"action-hint\">Drag the marker along the curve to set the economic position</div>\n\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 500 220\" id=\"cycle-svg\">\n        <!-- Definitions -->\n        <defs>\n          <linearGradient id=\"curve-grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n            <stop offset=\"0%\" stop-color=\"var(--trough-color)\" />\n            <stop offset=\"33%\" stop-color=\"var(--recovery-color)\" />\n            <stop offset=\"66%\" stop-color=\"var(--expansion-color)\" />\n            <stop offset=\"100%\" stop-color=\"var(--peak-color)\" />\n          </linearGradient>\n        </defs>\n\n        <!-- Vertical Zone Backgrounds -->\n        <!-- Trough Zone: 50 to 140 -->\n        <rect class=\"zone-rect\" id=\"zone-bg-0\" x=\"50\" y=\"20\" width=\"90\" height=\"150\" rx=\"6\" />\n        <!-- Recovery Zone: 140 to 240 -->\n        <rect class=\"zone-rect\" id=\"zone-bg-1\" x=\"140\" y=\"20\" width=\"100\" height=\"150\" rx=\"6\" />\n        <!-- Expansion Zone: 240 to 360 -->\n        <rect class=\"zone-rect\" id=\"zone-bg-2\" x=\"240\" y=\"20\" width=\"120\" height=\"150\" rx=\"6\" />\n        <!-- Peak Zone: 360 to 450 -->\n        <rect class=\"zone-rect\" id=\"zone-bg-3\" x=\"360\" y=\"20\" width=\"90\" height=\"150\" rx=\"6\" />\n\n        <!-- Zone Separators -->\n        <line class=\"zone-boundary\" x1=\"140\" y1=\"20\" x2=\"140\" y2=\"170\" />\n        <line class=\"zone-boundary\" x1=\"240\" y1=\"20\" x2=\"240\" y2=\"170\" />\n        <line class=\"zone-boundary\" x1=\"360\" y1=\"20\" x2=\"360\" y2=\"170\" />\n\n        <!-- Horizontal Baseline -->\n        <line class=\"grid-line\" x1=\"40\" y1=\"170\" x2=\"460\" y2=\"170\" />\n        <line class=\"grid-line\" x1=\"40\" y1=\"50\" x2=\"460\" y2=\"50\" />\n\n        <!-- Static Labels / Indicators -->\n        <text x=\"35\" y=\"54\" font-size=\"9\" fill=\"var(--muted-fg)\" text-anchor=\"end\">Peak Output</text>\n        <text x=\"35\" y=\"174\" font-size=\"9\" fill=\"var(--muted-fg)\" text-anchor=\"end\">Trough Output</text>\n\n        <!-- The Curve (S-Shape from Trough to Peak) -->\n        <!-- Control points configured for elegant rise -->\n        <path class=\"cycle-path-bg\" d=\"M 60 170 C 170 170, 330 50, 440 50\" />\n        <path class=\"cycle-path-fill\" id=\"curve-path\" d=\"M 60 170 C 170 170, 330 50, 440 50\" />\n\n        <!-- Phase Text Labels -->\n        <g transform=\"translate(95, 192)\">\n          <rect class=\"zone-label-bg\" id=\"lbl-bg-0\" x=\"-32\" y=\"-10\" width=\"64\" height=\"18\" />\n          <text class=\"zone-text\" id=\"lbl-txt-0\" y=\"2\">Trough</text>\n        </g>\n        <g transform=\"translate(190, 192)\">\n          <rect class=\"zone-label-bg\" id=\"lbl-bg-1\" x=\"-36\" y=\"-10\" width=\"72\" height=\"18\" />\n          <text class=\"zone-text\" id=\"lbl-txt-1\" y=\"2\">Recovery</text>\n        </g>\n        <g transform=\"translate(300, 192)\">\n          <rect class=\"zone-label-bg\" id=\"lbl-bg-2\" x=\"-38\" y=\"-10\" width=\"76\" height=\"18\" />\n          <text class=\"zone-text\" id=\"lbl-txt-2\" y=\"2\">Expansion</text>\n        </g>\n        <g transform=\"translate(405, 192)\">\n          <rect class=\"zone-label-bg\" id=\"lbl-bg-3\" x=\"-30\" y=\"-10\" width=\"60\" height=\"18\" />\n          <text class=\"zone-text\" id=\"lbl-txt-3\" y=\"2\">Peak</text>\n        </g>\n\n        <!-- Draggable Handle -->\n        <g class=\"handle-group\" id=\"drag-handle\" tabindex=\"0\" role=\"slider\" aria-label=\"Business cycle position\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\">\n          <circle class=\"handle-glow\" id=\"h-glow\" r=\"22\" />\n          <circle class=\"handle-outer\" id=\"h-outer\" r=\"11\" />\n          <circle class=\"handle-inner\" id=\"h-inner\" r=\"5\" />\n        </g>\n      </svg>\n    </div>\n\n    <!-- Live Status Banner -->\n    <div class=\"status-banner\">\n      <span class=\"status-label\">Current Phase Status:</span>\n      <span class=\"status-value\" id=\"status-readout\">Trough</span>\n    </div>\n  </div>\n\n  <script>\n    // Configurable coordinates for the Bezier curve\n    const P0 = { x: 60, y: 170 };\n    const P1 = { x: 170, y: 170 };\n    const P2 = { x: 330, y: 50 };\n    const P3 = { x: 440, y: 50 };\n\n    const minX = P0.x;\n    const maxX = P3.x;\n\n    // Define option mappings\n    const OPTIONS = [\"Trough\", \"Recovery\", \"Expansion\", \"Peak\"];\n    // Define intervals along X to map to options\n    const thresholds = [140, 240, 360];\n\n    let currentX = minX; // Start at Trough\n    let activeOptionIndex = 0;\n    let isLocked = false;\n\n    const dragHandle = document.getElementById('drag-handle');\n    const svgElement = document.getElementById('cycle-svg');\n    const statusReadout = document.getElementById('status-readout');\n\n    // Cubic Bezier helper functions\n    function getTForX(targetX, x0, x1, x2, x3) {\n      let low = 0, high = 1;\n      for (let i = 0; i < 12; i++) {\n        let t = (low + high) / 2;\n        let x = Math.pow(1-t, 3)*x0 + 3*Math.pow(1-t, 2)*t*x1 + 3*(1-t)*t*t*x2 + Math.pow(t, 3)*x3;\n        if (x < targetX) low = t;\n        else high = t;\n      }\n      return (low + high) / 2;\n    }\n\n    function getYForT(t, y0, y1, y2, y3) {\n      return Math.pow(1-t, 3)*y0 + 3*Math.pow(1-t, 2)*t*y1 + 3*(1-t)*t*t*y2 + Math.pow(t, 3)*y3;\n    }\n\n    function getCurvePosition(x) {\n      const t = getTForX(x, P0.x, P1.x, P2.x, P3.x);\n      const y = getYForT(t, P0.y, P1.y, P2.y, P3.y);\n      return { x, y };\n    }\n\n    function updateWidget(x) {\n      currentX = Math.max(minX, Math.min(maxX, x));\n      const pos = getCurvePosition(currentX);\n\n      // Update handle position using SVG translation\n      dragHandle.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);\n      dragHandle.setAttribute('aria-valuenow', Math.round(((currentX - minX) / (maxX - minX)) * 100));\n\n      // Determine active option\n      let optionIndex = 0;\n      if (currentX < thresholds[0]) {\n        optionIndex = 0; // Trough\n      } else if (currentX < thresholds[1]) {\n        optionIndex = 1; // Recovery\n      } else if (currentX < thresholds[2]) {\n        optionIndex = 2; // Expansion\n      } else {\n        optionIndex = 3; // Peak\n      }\n\n      // Update visual active classes\n      for (let i = 0; i < 4; i++) {\n        const bg = document.getElementById(`zone-bg-${i}`);\n        const lblBg = document.getElementById(`lbl-bg-${i}`);\n        const lblTxt = document.getElementById(`lbl-txt-${i}`);\n        if (i === optionIndex) {\n          bg.classList.add('active');\n          lblBg.classList.add('active');\n          lblTxt.classList.add('active');\n        } else {\n          bg.classList.remove('active');\n          lblBg.classList.remove('active');\n          lblTxt.classList.remove('active');\n        }\n      }\n\n      // Live status text update\n      const selectedOption = OPTIONS[optionIndex];\n      statusReadout.textContent = selectedOption;\n      \n      // Dynamic colors based on active phase\n      const colors = ['var(--trough-color)', 'var(--recovery-color)', 'var(--expansion-color)', 'var(--peak-color)'];\n      const activeColor = colors[optionIndex];\n      document.getElementById('h-inner').style.fill = activeColor;\n      document.getElementById('h-outer').style.stroke = activeColor;\n      document.getElementById('h-glow').style.fill = activeColor;\n      statusReadout.style.color = activeColor;\n\n      if (optionIndex !== activeOptionIndex) {\n        activeOptionIndex = optionIndex;\n        // Post response selection\n        parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n      }\n    }\n\n    // Pointer event dragging logic with offset preservation\n    let isDragging = false;\n    let startX = 0;\n    let startHandleX = 0;\n\n    dragHandle.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      dragHandle.setPointerCapture(e.pointerId);\n      \n      // Calculate local coordinate of click relative to SVG\n      const rect = svgElement.getBoundingClientRect();\n      const clickX = ((e.clientX - rect.left) / rect.width) * 500;\n      \n      startX = clickX;\n      startHandleX = currentX;\n      \n      document.getElementById('h-glow').style.transform = 'scale(1.3)';\n    });\n\n    dragHandle.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      const rect = svgElement.getBoundingClientRect();\n      const currentClickX = ((e.clientX - rect.left) / rect.width) * 500;\n      const deltaX = currentClickX - startX;\n      \n      updateWidget(startHandleX + deltaX);\n    });\n\n    const endDrag = (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      document.getElementById('h-glow').style.transform = 'scale(1)';\n    };\n\n    dragHandle.addEventListener('pointerup', endDrag);\n    dragHandle.addEventListener('pointercancel', endDrag);\n\n    // Keyboard support\n    dragHandle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      let step = 15;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        updateWidget(currentX + step);\n        e.preventDefault();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        updateWidget(currentX - step);\n        e.preventDefault();\n      }\n    });\n\n    // Initialize with Trough (default state)\n    updateWidget(minX);\n\n    // Lock listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.querySelector('.widget-container').classList.add('disabled');\n        dragHandle.setAttribute('tabindex', '-1');\n      }\n    });\n\n    // Height reporter\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const observer = new ResizeObserver(reportHeight);\n    observer.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Trough"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Exam: National Income and Price Determination",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following would be categorized under the 'Investment' (I) component of the Aggregate Demand formula (AD = C + I + G + NX)?",
+     "options": [
+      "A household purchasing 100 shares of tech company stock",
+      "A manufacturing firm building a new warehouse for inventory storage",
+      "A family buying a 20-year-old Victorian house in the suburbs",
+      "A local government agency spending funds on a new public park"
+     ],
+     "explanation": "In macroeconomics, 'Investment' refers to the purchase of physical capital goods or new construction, not financial assets (stocks) or transfers of existing assets (used homes). New warehouse construction represents a productive addition to the economy's capital stock.",
+     "correctAnswers": [
+      "A manufacturing firm building a new warehouse for inventory storage"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "If the general price level in an economy rises, which of the following mechanisms explain why the quantity of real GDP demanded decreases, causing a movement along the AD curve?",
+     "options": [
+      "The Wealth Effect: Real purchasing power of cash assets decreases",
+      "The Interest Rate Effect: Higher demand for money increases borrowing costs",
+      "The Expectations Effect: Businesses anticipate lower future profits",
+      "The Foreign Purchases Effect: Domestic goods become more expensive relative to imports"
+     ],
+     "explanation": "The downward slope of AD is explained by the wealth, interest rate, and foreign purchases effects. Business expectations shift the entire curve rather than causing a movement along it.",
+     "correctAnswers": [
+      "The Wealth Effect: Real purchasing power of cash assets decreases",
+      "The Interest Rate Effect: Higher demand for money increases borrowing costs",
+      "The Foreign Purchases Effect: Domestic goods become more expensive relative to imports"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If the Marginal Propensity to Consume (MPC) is 0.75, the value of the spending multiplier is ____.",
+     "explanation": "The spending multiplier is calculated as 1 / (1 - MPC) or 1 / MPS. Given an MPC of 0.75, the MPS is 0.25 (1 - 0.75), and 1 / 0.25 equals 4.",
+     "placeholder": "Enter a number",
+     "correctAnswers": [
+      "4"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A significant depreciation of the domestic currency (the dollar weakening) will most likely result in which of the following shifts?",
+     "options": [
+      "AD shifts left because imports become cheaper for domestic consumers",
+      "AD shifts right because exports become cheaper for foreign buyers",
+      "SRAS shifts right because the cost of imported raw materials decreases",
+      "LRAS shifts left because the productive capacity of the nation is reduced"
+     ],
+     "explanation": "Currency depreciation makes domestic goods more affordable for foreigners (increasing exports) and foreign goods more expensive for locals (decreasing imports). This increases Net Exports (NX), shifting the AD curve to the right.",
+     "correctAnswers": [
+      "AD shifts right because exports become cheaper for foreign buyers"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would lead to an increase in Aggregate Demand (a rightward shift)?",
+     "options": [
+      "The government implements a significant cut in personal income taxes",
+      "Business leaders express increased optimism about future consumer spending",
+      "The central bank raises interest rates to combat inflation",
+      "A major trading partner's economy enters a boom, increasing their income"
+     ],
+     "explanation": "Tax cuts increase disposable income (C), optimism increases business investment (I), and foreign booms increase exports (NX). Raising interest rates would decrease AD by making borrowing for 'I' and 'C' more expensive.",
+     "correctAnswers": [
+      "The government implements a significant cut in personal income taxes",
+      "Business leaders express increased optimism about future consumer spending",
+      "A major trading partner's economy enters a boom, increasing their income"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The tax multiplier is always ____ (enter 'stronger' or 'weaker') than the spending multiplier because a portion of a tax cut is saved rather than spent in the first round.",
+     "explanation": "The tax multiplier is -MPC/MPS, whereas the spending multiplier is 1/MPS. Because MPC is less than 1, the tax multiplier will always have a smaller absolute value.",
+     "placeholder": "word",
+     "correctAnswers": [
+      "weaker"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Graph showing equilibrium Real GDP to the left of potential GDP (LRAS).",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit3-q7.png"
+     },
+     "prompt": "The government wants to close a $100 billion recessionary gap. If the MPC is 0.8, what is the minimum change in government spending (G) required to reach full employment?",
+     "options": [
+      "$20 billion increase",
+      "$25 billion increase",
+      "$80 billion increase",
+      "$100 billion increase"
+     ],
+     "explanation": "With an MPC of 0.8, the multiplier is 5 (1 / 0.2). To find the required spending, divide the gap by the multiplier: $100 billion / 5 = $20 billion.",
+     "correctAnswers": [
+      "$20 billion increase"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following events would cause the SRAS curve to shift to the left (a decrease in supply)?",
+     "options": [
+      "A sudden, sharp increase in the global price of crude oil",
+      "A widespread increase in nominal wages across the workforce",
+      "An improvement in industrial technology that increases productivity",
+      "The government reduces regulatory burdens on all businesses"
+     ],
+     "explanation": "Higher input costs, such as oil prices and wages, make production more expensive at every price level, shifting SRAS to the left. Productivity and deregulation shift SRAS to the right.",
+     "correctAnswers": [
+      "A sudden, sharp increase in the global price of crude oil",
+      "A widespread increase in nominal wages across the workforce"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the long run, the economy self-corrects from a recessionary gap because ____ (input prices) eventually fall, shifting the SRAS curve to the right.",
+     "explanation": "During a recessionary gap, unemployment is high. Eventually, workers accept lower nominal wages (or wages rise slower than inflation), reducing production costs and shifting SRAS right back to full employment.",
+     "placeholder": "two words",
+     "correctAnswers": [
+      "nominal wages"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is the Short-Run Aggregate Supply (SRAS) curve upward sloping?",
+     "options": [
+      "Input prices (like wages) are flexible in the short run",
+      "Input prices (like wages) are sticky or slow to adjust in the short run",
+      "Higher price levels decrease the purchasing power of consumers",
+      "The Long-Run Aggregate Supply is determined by technology and resources"
+     ],
+     "explanation": "In the short run, many costs (like wages) are fixed by contracts. If the price level for final goods rises while costs remain fixed, profit margins expand, incentivizing firms to produce more output.",
+     "correctAnswers": [
+      "Input prices (like wages) are sticky or slow to adjust in the short run"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of discretionary expansionary fiscal policy?",
+     "options": [
+      "The government votes to increase spending on interstate highway repairs",
+      "Legislators pass a law providing a one-time tax rebate to all citizens",
+      "Unemployment compensation automatically increases during a downturn",
+      "The central bank lowers the discount rate to encourage bank lending"
+     ],
+     "explanation": "Discretionary policy requires active legislative action (voting on spending or tax changes). Unemployment compensation is an automatic stabilizer, and discount rates are monetary policy.",
+     "correctAnswers": [
+      "The government votes to increase spending on interstate highway repairs",
+      "Legislators pass a law providing a one-time tax rebate to all citizens"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If the government increases taxes by $50 billion and the MPC is 0.8, the total decrease in Aggregate Demand will be $____ billion.",
+     "explanation": "The tax multiplier is -MPC/MPS. With an MPC of 0.8, the multiplier is -0.8/0.2 = -4. $50 billion * -4 = -$200 billion change in AD.",
+     "placeholder": "Number",
+     "correctAnswers": [
+      "200"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Graph showing the intersection of AD and a shifted SRAS curve to the left of LRAS.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit3-q13.png"
+     },
+     "prompt": "If an economy is in a long-run equilibrium and experiences a negative supply shock (e.g., an oil crisis), the result is ____.",
+     "options": [
+      "Expansionary gap with inflation",
+      "Stagflation (higher prices and lower output)",
+      "A movement down along the AD curve only",
+      "Lower prices and higher unemployment"
+     ],
+     "explanation": "A negative supply shock shifts SRAS to the left. This moves the equilibrium to a point with a higher price level (inflation) and lower Real GDP (rising unemployment), a condition known as stagflation.",
+     "correctAnswers": [
+      "Stagflation (higher prices and lower output)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which statements correctly describe the relationship between MPC, MPS, and the Multiplier?",
+     "options": [
+      "As the MPC increases, the spending multiplier increases",
+      "The sum of MPC and MPS is always equal to 1",
+      "A high MPS leads to a larger total change in GDP for every dollar spent",
+      "The tax multiplier is always one unit less (in absolute value) than the spending multiplier"
+     ],
+     "explanation": "Higher MPC means less 'leakage' into savings, resulting in a larger multiplier. The tax multiplier (MPC/MPS) is indeed 1 less than the spending multiplier (1/MPS).",
+     "correctAnswers": [
+      "As the MPC increases, the spending multiplier increases",
+      "The sum of MPC and MPS is always equal to 1",
+      "The tax multiplier is always one unit less (in absolute value) than the spending multiplier"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The 'Foreign Purchases Effect' suggests that if the domestic price level falls, domestic goods become relatively cheaper, which causes ____ to increase.",
+     "explanation": "Lower domestic prices make exports more attractive to foreigners and imports less attractive to locals, thus increasing Net Exports (NX) and the quantity of real GDP demanded.",
+     "placeholder": "two words",
+     "correctAnswers": [
+      "net exports"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "An economy is currently operating at full employment. Suddenly, a stock market crash significantly reduces household wealth. Use the model to show the immediate short-run impact on the Price Level and Real GDP.",
+     "options": [
+      "Lower Price Level and Lower Real GDP",
+      "Higher Price Level and Lower Real GDP",
+      "Lower Price Level and Higher Real GDP",
+      "Higher Price Level and Higher Real GDP"
+     ],
+     "explanation": "A decrease in wealth reduces consumption (the Wealth Effect), shifting the AD curve to the left. In the AD-AS model, a leftward shift of AD along the upward-sloping SRAS curve results in both a lower price level and a decrease in real output.",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>AD-AS Interactive Graph</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --color-ad: #3b82f6;\n      --color-sras: #f97316;\n      --color-lras: #10b981;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 8px;\n      position: relative;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Interactive elements */\n    .draggable-curve {\n      cursor: grab;\n      pointer-events: visibleStroke;\n      stroke-width: 12px; /* Invisible wider hit area */\n      stroke-linecap: round;\n    }\n    .draggable-curve:active {\n      cursor: grabbing;\n    }\n\n    .curve-visual {\n      fill: none;\n      stroke-width: 3px;\n      transition: stroke-width 0.15s ease;\n    }\n\n    .draggable-curve:hover + .curve-visual,\n    .draggable-curve:active + .curve-visual {\n      stroke-width: 5px;\n    }\n\n    .handle-tab {\n      cursor: grab;\n      fill: var(--surface);\n      stroke-width: 2px;\n      filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));\n      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);\n    }\n    .handle-tab:active {\n      cursor: grabbing;\n      transform: scale(1.1);\n    }\n\n    .axis-label {\n      font-size: 11px;\n      fill: var(--fg);\n      font-weight: 600;\n    }\n\n    .curve-label {\n      font-size: 11px;\n      font-weight: bold;\n      user-select: none;\n      pointer-events: none;\n    }\n\n    /* UI Controls and state feedback */\n    .controls-row {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      gap: 8px;\n    }\n\n    .hint-text {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      flex-grow: 1;\n    }\n\n    .btn-reset {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      color: var(--fg);\n      padding: 6px 12px;\n      border-radius: 6px;\n      font-size: 12px;\n      cursor: pointer;\n      font-weight: 500;\n      transition: all 0.2s;\n    }\n    .btn-reset:hover {\n      background: var(--border);\n    }\n\n    /* Accessibility focus styling */\n    .keyboard-controls {\n      display: flex;\n      justify-content: center;\n      gap: 8px;\n    }\n\n    .kb-btn {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      padding: 6px 10px;\n      font-size: 11px;\n      border-radius: 6px;\n      cursor: pointer;\n      display: inline-flex;\n      align-items: center;\n      gap: 4px;\n    }\n    .kb-btn:focus-visible {\n      outline: 2px solid var(--accent);\n    }\n\n    /* Disabled state */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive AD-AS Macroeconomic Graph practice widget</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\">\n        <!-- Grid pattern background -->\n        <defs>\n          <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n            <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#f0ede9\" stroke-width=\"1\"/>\n          </pattern>\n        </defs>\n        <rect width=\"400\" height=\"240\" fill=\"url(#grid)\" rx=\"8\" />\n\n        <!-- Axes -->\n        <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"210\" stroke=\"#444\" stroke-width=\"2\" />\n        <line x1=\"50\" y1=\"210\" x2=\"380\" y2=\"210\" stroke=\"#444\" stroke-width=\"2\" />\n        \n        <!-- Axis labels -->\n        <text x=\"45\" y=\"15\" text-anchor=\"end\" class=\"axis-label\">Price Level (PL)</text>\n        <text x=\"380\" y=\"225\" text-anchor=\"end\" class=\"axis-label\">Real GDP (Y)</text>\n\n        <!-- LRAS Line (Vertical) -->\n        <line x1=\"215\" y1=\"20\" x2=\"215\" y2=\"210\" stroke=\"var(--color-lras)\" stroke-width=\"2.5\" stroke-dasharray=\"4 2\" />\n        <text x=\"215\" y=\"15\" text-anchor=\"middle\" class=\"curve-label\" fill=\"var(--color-lras)\">LRAS</text>\n\n        <!-- Dash lines for Equilibrium tracking -->\n        <line id=\"eq-y-dash\" x1=\"50\" y1=\"115\" x2=\"215\" y2=\"115\" stroke=\"#999\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" />\n        <line id=\"eq-x-dash\" x1=\"215\" y1=\"210\" x2=\"215\" y2=\"115\" stroke=\"#999\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" />\n\n        <!-- Original equilibrium markers -->\n        <circle cx=\"215\" cy=\"115\" r=\"4\" fill=\"#888\" opacity=\"0.6\" />\n        <text x=\"222\" y=\"122\" font-size=\"10\" fill=\"#888\" opacity=\"0.8\">E₀</text>\n\n        <!-- Current Equilibrium Dot -->\n        <circle id=\"eq-dot\" cx=\"215\" cy=\"115\" r=\"6\" fill=\"var(--accent)\" stroke=\"#fff\" stroke-width=\"2\" />\n\n        <!-- Draggable Curve Groups -->\n        <!-- AD Curve -->\n        <g id=\"curve-ad-group\">\n          <!-- Hidden wider drag path -->\n          <path id=\"ad-drag-bar\" class=\"draggable-curve\" stroke=\"transparent\" d=\"M 115 55 L 315 175\" />\n          <path id=\"ad-curve\" class=\"curve-visual\" stroke=\"var(--color-ad)\" d=\"M 115 55 L 315 175\" />\n          \n          <!-- Labeled handle tab -->\n          <g id=\"ad-handle\" class=\"handle-tab\">\n            <rect x=\"290\" y=\"160\" width=\"36\" height=\"20\" rx=\"4\" stroke=\"var(--color-ad)\" />\n            <text x=\"308\" y=\"174\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--color-ad)\">AD</text>\n          </g>\n        </g>\n\n        <!-- SRAS Curve -->\n        <g id=\"curve-sras-group\">\n          <!-- Hidden wider drag path -->\n          <path id=\"sras-drag-bar\" class=\"draggable-curve\" stroke=\"transparent\" d=\"M 115 175 L 315 55\" />\n          <path id=\"sras-curve\" class=\"curve-visual\" stroke=\"var(--color-sras)\" d=\"M 115 175 L 315 55\" />\n          \n          <!-- Labeled handle tab -->\n          <g id=\"sras-handle\" class=\"handle-tab\">\n            <rect x=\"290\" y=\"45\" width=\"42\" height=\"20\" rx=\"4\" stroke=\"var(--color-sras)\" />\n            <text x=\"311\" y=\"59\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--color-sras)\">SRAS</text>\n          </g>\n        </g>\n      </svg>\n    </div>\n\n    <div class=\"controls-row\">\n      <div class=\"hint-text\">\n        👈 Drag <span style=\"color: var(--color-ad); font-weight: bold;\">AD</span> or <span style=\"color: var(--color-sras); font-weight: bold;\">SRAS</span> curves horizontally to shift them 👉\n      </div>\n      <button class=\"btn-reset\" id=\"reset-btn\">Reset</button>\n    </div>\n\n    <div class=\"keyboard-controls\">\n      <button class=\"kb-btn\" id=\"kb-ad-left\" aria-label=\"Shift AD Left\">AD ◄</button>\n      <button class=\"kb-btn\" id=\"kb-ad-right\" aria-label=\"Shift AD Right\">AD ►</button>\n      <button class=\"kb-btn\" id=\"kb-sras-left\" aria-label=\"Shift SRAS Left\">SRAS ◄</button>\n      <button class=\"kb-btn\" id=\"kb-sras-right\" aria-label=\"Shift SRAS Right\">SRAS ►</button>\n    </div>\n  </div>\n\n  <script>\n    // State Variables\n    let currentShiftCurve = null; // 'AD' or 'SRAS'\n    let shiftAmount = 0; // -50 (Left), 0 (Center), 50 (Right)\n    let isLocked = false;\n\n    // Options mapping\n    const OPTIONS = {\n      'AD_LEFT': 'Lower Price Level and Lower Real GDP',\n      'SRAS_LEFT': 'Higher Price Level and Lower Real GDP',\n      'SRAS_RIGHT': 'Lower Price Level and Higher Real GDP',\n      'AD_RIGHT': 'Higher Price Level and Higher Real GDP'\n    };\n\n    // DOM Elements\n    const adGroup = document.getElementById('curve-ad-group');\n    const srasGroup = document.getElementById('curve-sras-group');\n    const adCurve = document.getElementById('ad-curve');\n    const srasCurve = document.getElementById('sras-curve');\n    const adDragBar = document.getElementById('ad-drag-bar');\n    const srasDragBar = document.getElementById('sras-drag-bar');\n    const adHandle = document.getElementById('ad-handle');\n    const srasHandle = document.getElementById('sras-handle');\n\n    const eqDot = document.getElementById('eq-dot');\n    const eqYDash = document.getElementById('eq-y-dash');\n    const eqXDash = document.getElementById('eq-x-dash');\n    \n    const resetBtn = document.getElementById('reset-btn');\n    const kbAdLeft = document.getElementById('kb-ad-left');\n    const kbAdRight = document.getElementById('kb-ad-right');\n    const kbSrasLeft = document.getElementById('kb-sras-left');\n    const kbSrasRight = document.getElementById('kb-sras-right');\n\n    // Drag tracking state\n    let activeDrag = null; // { curve: 'AD'|'SRAS', startX: number, startShift: number }\n\n    // Init position mapping\n    function updateGraph(animate = true) {\n      const dX_AD = currentShiftCurve === 'AD' ? shiftAmount : 0;\n      const dX_SRAS = currentShiftCurve === 'SRAS' ? shiftAmount : 0;\n\n      // Update paths\n      const transitionStr = animate ? 'transform 0.25s cubic-bezier(.25,.8,.25,1)' : 'none';\n      \n      adGroup.style.transition = transitionStr;\n      srasGroup.style.transition = transitionStr;\n\n      adGroup.style.transform = `translateX(${dX_AD}px)`;\n      srasGroup.style.transform = `translateX(${dX_SRAS}px)`;\n\n      // Calculate intersection\n      // Default: X = 215, Y = 115\n      const intersectX = 215 + (dX_AD + dX_SRAS) / 2;\n      const intersectY = 115 + 0.3 * (dX_SRAS - dX_AD);\n\n      eqDot.style.transition = transitionStr;\n      eqYDash.style.transition = transitionStr;\n      eqXDash.style.transition = transitionStr;\n\n      eqDot.setAttribute('cx', intersectX);\n      eqDot.setAttribute('cy', intersectY);\n\n      eqYDash.setAttribute('x2', intersectX);\n      eqYDash.setAttribute('y1', intersectY);\n      eqYDash.setAttribute('y2', intersectY);\n\n      eqXDash.setAttribute('x1', intersectX);\n      eqXDash.setAttribute('x2', intersectX);\n      eqXDash.setAttribute('y2', intersectY);\n\n      // Report answer if committed\n      if (shiftAmount !== 0) {\n        const stateKey = `${currentShiftCurve}_${shiftAmount < 0 ? 'LEFT' : 'RIGHT'}`;\n        const answer = OPTIONS[stateKey];\n        if (answer) {\n          parent.postMessage({ type: 'hk-practice-answer', value: answer }, '*');\n        }\n      }\n    }\n\n    // Drag Setup helper\n    function setupDrag(element, curveName) {\n      element.addEventListener('pointerdown', (e) => {\n        if (isLocked) return;\n        element.setPointerCapture(e.pointerId);\n        \n        // Reset the other curve if shifting a new one\n        if (currentShiftCurve !== curveName) {\n          currentShiftCurve = curveName;\n          shiftAmount = 0;\n        }\n\n        activeDrag = {\n          curve: curveName,\n          startX: e.clientX,\n          startShift: shiftAmount\n        };\n        e.preventDefault();\n      });\n\n      element.addEventListener('pointermove', (e) => {\n        if (!activeDrag || activeDrag.curve !== curveName) return;\n        \n        const deltaX = e.clientX - activeDrag.startX;\n        // Map delta screen pixels directly to coordinate space\n        let newShift = activeDrag.startShift + deltaX;\n        \n        // Clamp shift\n        newShift = Math.max(-55, Math.min(55, newShift));\n        shiftAmount = newShift;\n        updateGraph(false);\n      });\n\n      const endDrag = (e) => {\n        if (!activeDrag || activeDrag.curve !== curveName) return;\n        element.releasePointerCapture(e.pointerId);\n        activeDrag = null;\n\n        // Snap to positions: -50, 0, 50\n        if (shiftAmount < -25) {\n          shiftAmount = -50;\n        } else if (shiftAmount > 25) {\n          shiftAmount = 50;\n        } else {\n          shiftAmount = 0;\n        }\n        updateGraph(true);\n      };\n\n      element.addEventListener('pointerup', endDrag);\n      element.addEventListener('pointercancel', endDrag);\n    }\n\n    setupDrag(adDragBar, 'AD');\n    setupDrag(adHandle, 'AD');\n    setupDrag(srasDragBar, 'SRAS');\n    setupDrag(srasHandle, 'SRAS');\n\n    // Reset button functionality\n    resetBtn.addEventListener('click', () => {\n      if (isLocked) return;\n      currentShiftCurve = null;\n      shiftAmount = 0;\n      updateGraph(true);\n    });\n\n    // Keyboard accessibility handlers\n    kbAdLeft.addEventListener('click', () => { if(!isLocked) { currentShiftCurve = 'AD'; shiftAmount = -50; updateGraph(true); } });\n    kbAdRight.addEventListener('click', () => { if(!isLocked) { currentShiftCurve = 'AD'; shiftAmount = 50; updateGraph(true); } });\n    kbSrasLeft.addEventListener('click', () => { if(!isLocked) { currentShiftCurve = 'SRAS'; shiftAmount = -50; updateGraph(true); } });\n    kbSrasRight.addEventListener('click', () => { if(!isLocked) { currentShiftCurve = 'SRAS'; shiftAmount = 50; updateGraph(true); } });\n\n    // Host app communication\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('widget-container').classList.add('locked');\n        resetBtn.disabled = true;\n        kbAdLeft.disabled = true;\n        kbAdRight.disabled = true;\n        kbSrasLeft.disabled = true;\n        kbSrasRight.disabled = true;\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Initial draw\n    updateGraph(false);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Lower Price Level and Lower Real GDP"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Exam: The Financial Sector",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "An economy’s annual inflation rate is 5%. If a lender wants to earn a real interest rate of 3%, what nominal interest rate must they charge on their loans?",
+     "options": [
+      "2%",
+      "3%",
+      "5%",
+      "8%"
+     ],
+     "explanation": "According to the Fisher Equation (Nominal = Real + Inflation), the lender must sum the desired real return and the expected inflation (3% + 5% = 8%) to maintain their purchasing power.",
+     "correctAnswers": [
+      "8%"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following would be categorized as part of the M1 money supply?",
+     "options": [
+      "Currency in circulation",
+      "Demand deposits (checking accounts)",
+      "Savings accounts",
+      "Credit card limits",
+      "Small-denomination time deposits (CDs)"
+     ],
+     "explanation": "M1 includes the most liquid assets: cash and checking accounts. Savings accounts and CDs are part of M2, and credit cards are a form of debt, not money.",
+     "correctAnswers": [
+      "Currency in circulation",
+      "Demand deposits (checking accounts)"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The inverse relationship between interest rates and bond prices exists because the ____ payment of an existing bond is fixed at the time of issuance.",
+     "placeholder": "Type the term here",
+     "correctAnswers": [
+      "coupon",
+      "interest"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If a bank has $100,000 in demand deposits and the required reserve ratio is 10%, what is the maximum amount of new money the entire banking system can create from a fresh $10,000 cash deposit?",
+     "options": [
+      "$10,000",
+      "$90,000",
+      "$100,000",
+      "$1,000,000"
+     ],
+     "explanation": "The money multiplier is 1/0.1 = 10. The initial $10,000 deposit requires $1,000 in reserves, leaving $9,000 in excess reserves. $9,000 * 10 = $90,000.",
+     "correctAnswers": [
+      "$90,000"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A sudden, unexpected increase in inflation will result in a redistribution of wealth from which groups to which others?",
+     "options": [
+      "From lenders to borrowers",
+      "From fixed-income earners to employers",
+      "From borrowers to lenders",
+      "From people holding cash to people holding real assets",
+      "From the government to taxpayers"
+     ],
+     "explanation": "Lenders lose because they are repaid in 'cheaper' dollars. Cash holders lose purchasing power, while owners of real assets (like property) see values rise with inflation.",
+     "correctAnswers": [
+      "From lenders to borrowers",
+      "From fixed-income earners to employers",
+      "From people holding cash to people holding real assets"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A bank's ____ is a financial statement that lists its assets on one side and its liabilities and net worth on the other.",
+     "placeholder": "Accounting term",
+     "correctAnswers": [
+      "balance sheet",
+      "T-account"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Ample reserves market equilibrium diagram.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit4-q7.png"
+     },
+     "prompt": "In an 'ample-reserves' regime, which tool does the central bank primarily use to influence the federal funds rate?",
+     "options": [
+      "Open Market Operations",
+      "Discount Rate",
+      "Interest on Reserve Balances (IORB)",
+      "Required Reserve Ratio"
+     ],
+     "explanation": "In an ample-reserves environment, the supply of reserves is so high it intersects the flat portion of the demand curve; thus, the Fed uses the IORB as its primary tool.",
+     "correctAnswers": [
+      "Interest on Reserve Balances (IORB)"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "If the Federal Reserve buys $5 billion worth of government bonds from commercial banks, what are the immediate effects on the banking system's balance sheet?",
+     "options": [
+      "Physical currency in circulation increases immediately by $5B",
+      "Bank reserves increase by $5B",
+      "Bank holdings of securities decrease by $5B",
+      "The required reserve ratio decreases",
+      "The money supply (M1) increases immediately by the full $5B"
+     ],
+     "explanation": "When the Fed buys bonds from banks, it swaps an asset (securities) for another asset (reserves). This does not immediately change the money supply until banks lend those reserves out.",
+     "correctAnswers": [
+      "Bank reserves increase by $5B",
+      "Bank holdings of securities decrease by $5B"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The ____ rate is the interest rate that the Federal Reserve charges commercial banks for short-term loans from the 'lending window.'",
+     "placeholder": "Enter rate name",
+     "correctAnswers": [
+      "discount"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which of the following best describes the 'Unit of Account' function of money?",
+     "options": [
+      "Using money to buy a coffee",
+      "Putting $50 into a savings account for next year",
+      "A store listing the price of a shirt as $25",
+      "Trading a goat for three chickens"
+     ],
+     "explanation": "Unit of account refers to the function of money as a standard yardstick used to measure and compare the relative value of goods and services.",
+     "correctAnswers": [
+      "A store listing the price of a shirt as $25"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'near-monies' and are included in M2 but NOT in M1?",
+     "options": [
+      "Traveler's checks",
+      "Savings deposits",
+      "Money market mutual funds",
+      "Small time deposits (CDs)",
+      "Demand deposits"
+     ],
+     "explanation": "M1 consists of currency and demand deposits. M2 adds less liquid 'near-monies' like savings, money market funds, and CDs.",
+     "correctAnswers": [
+      "Savings deposits",
+      "Money market mutual funds",
+      "Small time deposits (CDs)"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ is a phenomenon where government deficit spending increases interest rates, which leads to a decrease in private investment.",
+     "placeholder": "Economic effect",
+     "correctAnswers": [
+      "crowding out effect",
+      "crowding out"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Which asset would likely be the most liquid according to the liquidity-risk spectrum?",
+     "options": [
+      "A 10-year government bond",
+      "Shares in a tech startup",
+      "A checking account balance",
+      "A residential home"
+     ],
+     "explanation": "Checking accounts (demand deposits) are highly liquid because they can be converted to cash or used for transactions instantly with virtually no loss in value.",
+     "correctAnswers": [
+      "A checking account balance"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "In a 'scarce-reserves' (limited-reserves) framework, how can the central bank decrease the money supply?",
+     "options": [
+      "Sell government bonds on the open market",
+      "Increase the reserve requirement",
+      "Decrease the discount rate",
+      "Increase the discount rate",
+      "Buy government bonds"
+     ],
+     "explanation": "Selling bonds removes reserves from the system. Increasing requirements forces banks to hold more, and raising the discount rate makes borrowing reserves more expensive.",
+     "correctAnswers": [
+      "Sell government bonds on the open market",
+      "Increase the reserve requirement",
+      "Increase the discount rate"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "Money market graph showing an increase in demand.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit4-q15.png"
+     },
+     "prompt": "What happens to the demand for money and the nominal interest rate when the price level in the economy increases?",
+     "options": [
+      "Money demand shifts left; interest rates fall",
+      "Money demand shifts right; interest rates rise",
+      "Money demand shifts right; interest rates fall",
+      "Money demand shifts left; interest rates rise"
+     ],
+     "explanation": "A higher price level means people need more money to conduct everyday transactions, increasing the demand for money and driving up the nominal interest rate.",
+     "correctAnswers": [
+      "Money demand shifts right; interest rates rise"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "image": {
+      "alt": "Loanable funds market graph showing a shift in demand.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit4-q16.png"
+     },
+     "prompt": "Which factors can cause a shift in the Demand for Loanable Funds?",
+     "options": [
+      "Changes in business investment opportunities",
+      "Changes in government deficit spending",
+      "Changes in the savings rate of households",
+      "Changes in the money supply by the Fed",
+      "Expectations of future profitability"
+     ],
+     "explanation": "Demand for loanable funds comes from borrowers (firms and government). Savings rate affects the supply of loanable funds, and the money supply affects the money market directly.",
+     "correctAnswers": [
+      "Changes in business investment opportunities",
+      "Changes in government deficit spending",
+      "Expectations of future profitability"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "A bank has $2,000 in required reserves and $8,000 in excess reserves. If the required reserve ratio is 20%, what is the total amount of demand deposits in this bank?",
+     "options": [
+      "$10,000",
+      "$40,000",
+      "$50,000",
+      "$16,000"
+     ],
+     "explanation": "If required reserves are $2,000 and the ratio is 20%, we solve: $2,000 = 0.20 * Deposits. Thus, Deposits = $10,000.",
+     "correctAnswers": [
+      "$10,000"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "The central bank wants to combat high inflation. Move the lever to select the correct Open Market Operation (OMO) and observe the effect on the bond market.",
+     "options": [
+      "Sell bonds: Bond prices fall, interest rates rise",
+      "Buy bonds: Bond prices rise, interest rates fall",
+      "Sell bonds: Bond prices rise, interest rates rise",
+      "Buy bonds: Bond prices fall, interest rates fall"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>OMO Bond Market Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      --buy-color: #2e7d32;\n      --sell-color: #c62828;\n    }\n\n    * {\n      box-sizing: border-box;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 12px;\n      display: grid;\n      grid-template-columns: 1fr 1.2fr;\n      gap: 12px;\n      min-height: 200px;\n    }\n\n    @media (max-width: 480px) {\n      .stage {\n        grid-template-columns: 1fr;\n        gap: 8px;\n      }\n    }\n\n    /* Left Control: Central Bank */\n    .panel-left {\n      background: var(--surface);\n      border-radius: 6px;\n      border: 1px solid var(--border);\n      padding: 10px;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      align-items: center;\n      position: relative;\n    }\n\n    .panel-title {\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      color: var(--muted-fg);\n      font-weight: 600;\n      margin: 0 0 6px 0;\n      text-align: center;\n    }\n\n    /* Central Bank Action Visualizer */\n    .cb-visualizer {\n      width: 100%;\n      height: 70px;\n      position: relative;\n      background: #fcfbfa;\n      border-radius: 4px;\n      border: 1px dashed var(--border);\n      overflow: hidden;\n      display: flex;\n      align-items: center;\n      justify-content: space-around;\n    }\n\n    .cb-vault, .cb-market {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      font-size: 10px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      z-index: 2;\n    }\n\n    .cb-vault svg, .cb-market svg {\n      width: 24px;\n      height: 24px;\n      margin-bottom: 2px;\n    }\n\n    /* Flowing arrows/bonds */\n    .flow-container {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 100%;\n      pointer-events: none;\n    }\n\n    .bond-particle {\n      position: absolute;\n      width: 16px;\n      height: 12px;\n      background: #ffb74d;\n      border: 1px solid #f57c00;\n      border-radius: 2px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 8px;\n      font-weight: bold;\n      color: #e65100;\n      top: calc(50% - 6px);\n      transition: transform 0.5s ease-in-out, opacity 0.3s;\n      opacity: 0;\n    }\n\n    /* Active state classes for visualizer */\n    .flow-buy .bond-particle {\n      animation: flowLeft 1.5s infinite linear;\n      opacity: 1;\n    }\n    .flow-sell .bond-particle {\n      animation: flowRight 1.5s infinite linear;\n      opacity: 1;\n    }\n\n    @keyframes flowLeft {\n      0% { transform: translateX(110px) scale(0.8); }\n      50% { transform: translateX(65px) scale(1.1); }\n      100% { transform: translateX(20px) scale(0.8); }\n    }\n    @keyframes flowRight {\n      0% { transform: translateX(20px) scale(0.8); }\n      50% { transform: translateX(65px) scale(1.1); }\n      100% { transform: translateX(110px) scale(0.8); }\n    }\n\n    /* Right Panel: Market Indicators & Graph */\n    .panel-right {\n      background: var(--surface);\n      border-radius: 6px;\n      border: 1px solid var(--border);\n      padding: 10px;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      gap: 8px;\n    }\n\n    .ticker-grid {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 6px;\n    }\n\n    .ticker-card {\n      border: 1px solid var(--border);\n      border-radius: 4px;\n      padding: 6px;\n      background: #fafafa;\n      text-align: center;\n    }\n\n    .ticker-label {\n      font-size: 10px;\n      color: var(--muted-fg);\n      margin-bottom: 2px;\n    }\n\n    .ticker-value {\n      font-size: 14px;\n      font-weight: bold;\n      font-variant-numeric: tabular-nums;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n    }\n\n    /* Mini Graph Area */\n    .graph-container {\n      height: 75px;\n      background: #1e2530;\n      border-radius: 4px;\n      position: relative;\n      overflow: hidden;\n      border: 1px solid #111;\n    }\n\n    .graph-svg {\n      width: 100%;\n      height: 100%;\n    }\n\n    .graph-line {\n      fill: none;\n      stroke-width: 2.5;\n      stroke-linecap: round;\n      transition: d 0.4s cubic-bezier(.4,0,.2,1);\n    }\n\n    .graph-label {\n      position: absolute;\n      font-size: 9px;\n      color: #90a4ae;\n      font-family: monospace;\n      padding: 2px 4px;\n      pointer-events: none;\n    }\n\n    /* 4-Position Track Selector */\n    .control-track-container {\n      width: 100%;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 12px;\n      position: relative;\n    }\n\n    .track-labels {\n      display: grid;\n      grid-template-columns: repeat(4, 1fr);\n      margin-bottom: 8px;\n      gap: 4px;\n    }\n\n    .track-label {\n      text-align: center;\n      cursor: pointer;\n      padding: 4px;\n      border-radius: 4px;\n      border: 1px solid transparent;\n      transition: all 0.2s;\n    }\n\n    .track-label.active {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n    }\n\n    .label-action {\n      font-size: 11px;\n      font-weight: bold;\n      display: block;\n    }\n\n    .label-details {\n      font-size: 9px;\n      color: var(--muted-fg);\n      display: block;\n      margin-top: 2px;\n      line-height: 1.1;\n    }\n\n    /* Interactive Slider Track */\n    .slider-wrapper {\n      position: relative;\n      height: 36px;\n      background: var(--stage);\n      border-radius: 18px;\n      display: flex;\n      align-items: center;\n      padding: 0 16px;\n    }\n\n    .slider-track-line {\n      position: absolute;\n      left: 18px;\n      right: 18px;\n      height: 4px;\n      background: var(--border);\n      border-radius: 2px;\n      z-index: 1;\n    }\n\n    .slider-tick {\n      position: absolute;\n      width: 8px;\n      height: 8px;\n      background: #ccc;\n      border-radius: 50%;\n      z-index: 2;\n      transform: translateX(-50%);\n      top: calc(50% - 4px);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 32px;\n      height: 32px;\n      background: var(--accent);\n      border-radius: 50%;\n      z-index: 3;\n      cursor: grab;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: white;\n      box-shadow: 0 3px 6px rgba(0,0,0,0.16);\n      transform: translateX(-50%);\n      touch-action: none;\n      outline: none;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n      transform: translateX(-50%) scale(1.08);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .slider-handle svg {\n      width: 16px;\n      height: 16px;\n      fill: currentColor;\n    }\n\n    /* Action Hint */\n    .hint-text {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: 4px;\n    }\n\n    /* Disabled state */\n    .locked {\n      pointer-events: none !important;\n    }\n    .locked .slider-handle {\n      opacity: 0.8;\n      box-shadow: none;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Central Bank Open Market Operations (OMO) Simulator</h1>\n\n  <div id=\"widget-container\">\n    <!-- Visual Stage Area -->\n    <div class=\"stage\">\n      \n      <!-- Central Bank Panel -->\n      <div class=\"panel-left\">\n        <h2 class=\"panel-title\">Central Bank Action</h2>\n        \n        <div class=\"cb-visualizer\" id=\"visualizer\">\n          <div class=\"cb-vault\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n              <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n              <circle cx=\"12\" cy=\"12\" r=\"3\" />\n              <path d=\"M12 2v2M12 20v2M2 12h2M20 12h2\" />\n            </svg>\n            <span>Central Bank</span>\n          </div>\n\n          <div class=\"flow-container\">\n            <div class=\"bond-particle\" id=\"flow-bond\">BOND</div>\n          </div>\n\n          <div class=\"cb-market\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n              <path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\" />\n              <circle cx=\"9\" cy=\"7\" r=\"4\" />\n              <path d=\"M23 21v-2a4 4 0 0 0-3-3.87\" />\n              <path d=\"M16 3.13a4 4 0 0 1 0 7.75\" />\n            </svg>\n            <span>Bond Market</span>\n          </div>\n        </div>\n\n        <div style=\"font-size: 12px; font-weight: bold; margin-top: 6px;\" id=\"action-badge\">\n          -\n        </div>\n      </div>\n\n      <!-- Market Reactions & Graph -->\n      <div class=\"panel-right\">\n        <div class=\"ticker-grid\">\n          <div class=\"ticker-card\">\n            <div class=\"ticker-label\">Bond Price</div>\n            <div class=\"ticker-value\" id=\"price-ticker\">-</div>\n          </div>\n          <div class=\"ticker-card\">\n            <div class=\"ticker-label\">Interest Rate</div>\n            <div class=\"ticker-value\" id=\"rate-ticker\">-</div>\n          </div>\n        </div>\n\n        <div class=\"graph-container\">\n          <span class=\"graph-label\" style=\"top: 4px; left: 6px;\">BOND PRICE</span>\n          <svg class=\"graph-svg\">\n            <!-- Grid lines -->\n            <line x1=\"0\" y1=\"37\" x2=\"100%\" y2=\"37\" stroke=\"#2d3748\" stroke-dasharray=\"3,3\" />\n            <!-- Dynamic path -->\n            <path class=\"graph-line\" id=\"graph-path\" d=\"M 0 37 Q 50 37 200 37\" stroke=\"#4C6696\" />\n          </svg>\n        </div>\n      </div>\n\n    </div>\n\n    <!-- Interactive Track Selector -->\n    <div class=\"control-track-container\" id=\"control-panel\">\n      <div class=\"track-labels\" id=\"labels-container\">\n        <!-- JS will populate or keep structural -->\n        <div class=\"track-label\" data-index=\"0\">\n          <span class=\"label-action\" style=\"color: var(--buy-color)\">BUY</span>\n          <span class=\"label-details\">Price ↓<br>Rate ↓</span>\n        </div>\n        <div class=\"track-label\" data-index=\"1\">\n          <span class=\"label-action\" style=\"color: var(--buy-color)\">BUY</span>\n          <span class=\"label-details\">Price ↑<br>Rate ↓</span>\n        </div>\n        <div class=\"track-label\" data-index=\"2\">\n          <span class=\"label-action\" style=\"color: var(--sell-color)\">SELL</span>\n          <span class=\"label-details\">Price ↓<br>Rate ↑</span>\n        </div>\n        <div class=\"track-label\" data-index=\"3\">\n          <span class=\"label-action\" style=\"color: var(--sell-color)\">SELL</span>\n          <span class=\"label-details\">Price ↑<br>Rate ↑</span>\n        </div>\n      </div>\n\n      <div class=\"slider-wrapper\" id=\"slider-track\">\n        <div class=\"slider-track-line\"></div>\n        <div class=\"slider-tick\" style=\"left: 12.5%;\"></div>\n        <div class=\"slider-tick\" style=\"left: 37.5%;\"></div>\n        <div class=\"slider-tick\" style=\"left: 62.5%;\"></div>\n        <div class=\"slider-tick\" style=\"left: 87.5%;\"></div>\n        \n        <div class=\"slider-handle\" id=\"slider-handle\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"0\" tabindex=\"0\" aria-label=\"Select Market Scenario\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z\"/></svg>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"hint-text\">Drag or tap to test the Central Bank policy outcome</div>\n  </div>\n\n  <script>\n    // Exact option strings matching requirements\n    const OPTIONS = [\n      \"Buy bonds: Bond prices fall, interest rates fall\",\n      \"Buy bonds: Bond prices rise, interest rates fall\",\n      \"Sell bonds: Bond prices fall, interest rates rise\",\n      \"Sell bonds: Bond prices rise, interest rates rise\"\n    ];\n\n    // Core state\n    let currentIndex = -1; // Start uncommitted / neutral\n    let isLocked = false;\n\n    // DOM Elements\n    const container = document.getElementById('widget-container');\n    const handle = document.getElementById('slider-handle');\n    const track = document.getElementById('slider-track');\n    const labels = document.querySelectorAll('.track-label');\n    const visualizer = document.getElementById('visualizer');\n    const actionBadge = document.getElementById('action-badge');\n    const priceTicker = document.getElementById('price-ticker');\n    const rateTicker = document.getElementById('rate-ticker');\n    const graphPath = document.getElementById('graph-path');\n\n    // Layout configuration\n    const numStops = 4;\n    const percentages = [12.5, 37.5, 62.5, 87.5]; // Centers of 4 columns\n\n    // Initial setups\n    function init() {\n      // Set to index 1 or uncommitted? Let's start at a neutral mid-point or index 1 as default selection but report answer immediately if set.\n      // Let's set it to no initial choice, or snap to closest on first interaction. To make it highly intuitive, let's start at position 1.\n      updateState(1, false); \n      sendHeight();\n    }\n\n    function updateState(index, emit = true) {\n      if (index < 0 || index >= numStops) return;\n      currentIndex = index;\n\n      // Update Slider Handle Position\n      const pct = percentages[index];\n      handle.style.left = `${pct}%`;\n      handle.setAttribute('aria-valuenow', index);\n\n      // Update Labels highlight\n      labels.forEach((lbl, idx) => {\n        if (idx === index) {\n          lbl.classList.add('active');\n        } else {\n          lbl.classList.remove('active');\n        }\n      });\n\n      // Update visualizer flow and colors\n      visualizer.className = 'cb-visualizer';\n      if (index < 2) {\n        // Buy Bonds (Flow: Market to Bank)\n        visualizer.classList.add('flow-buy');\n        actionBadge.textContent = \"BUYING BONDS (Injecting Cash)\";\n        actionBadge.style.color = \"var(--buy-color)\";\n      } else {\n        // Sell Bonds (Flow: Bank to Market)\n        visualizer.classList.add('flow-sell');\n        actionBadge.textContent = \"SELLING BONDS (Withdrawing Cash)\";\n        actionBadge.style.color = \"var(--sell-color)\";\n      }\n\n      // Update Tickers and Mini Graph\n      // 0: Buy / Price Fall / Rate Fall\n      // 1: Buy / Price Rise / Rate Fall\n      // 2: Sell / Price Fall / Rate Rise\n      // 3: Sell / Price Rise / Rate Rise\n      let priceDir = '';\n      let rateDir = '';\n      let graphD = '';\n\n      if (index === 0) {\n        priceDir = '<span style=\"color:var(--sell-color)\">▼ Fall</span>';\n        rateDir = '<span style=\"color:var(--buy-color)\">▼ Fall</span>';\n        graphD = \"M 0 37 Q 50 55 240 60\";\n      } else if (index === 1) {\n        priceDir = '<span style=\"color:var(--buy-color)\">▲ Rise</span>';\n        rateDir = '<span style=\"color:var(--buy-color)\">▼ Fall</span>';\n        graphD = \"M 0 37 Q 50 20 240 15\";\n      } else if (index === 2) {\n        priceDir = '<span style=\"color:var(--sell-color)\">▼ Fall</span>';\n        rateDir = '<span style=\"color:var(--sell-color)\">▲ Rise</span>';\n        graphD = \"M 0 37 Q 50 55 240 60\";\n      } else if (index === 3) {\n        priceDir = '<span style=\"color:var(--buy-color)\">▲ Rise</span>';\n        rateDir = '<span style=\"color:var(--sell-color)\">▲ Rise</span>';\n        graphD = \"M 0 37 Q 50 20 240 15\";\n      }\n\n      priceTicker.innerHTML = priceDir;\n      rateTicker.innerHTML = rateDir;\n      graphPath.setAttribute('d', graphD);\n\n      // Report answer\n      if (emit) {\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');\n        } catch (e) {}\n      }\n    }\n\n    // Drag / Touch Interactions\n    let startX = 0;\n    let startPct = 0;\n\n    handle.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      handle.setPointerCapture(e.pointerId);\n      startX = e.clientX;\n      const trackRect = track.getBoundingClientRect();\n      const currentLeft = parseFloat(handle.style.left) || 12.5;\n      startPct = currentLeft;\n      e.preventDefault();\n    });\n\n    handle.addEventListener('pointermove', (e) => {\n      if (isLocked || !handle.hasPointerCapture(e.pointerId)) return;\n      const trackRect = track.getBoundingClientRect();\n      const deltaX = e.clientX - startX;\n      const deltaPct = (deltaX / trackRect.width) * 100;\n      let targetPct = startPct + deltaPct;\n\n      // Clamp to slider bounds\n      targetPct = Math.max(12.5, Math.min(87.5, targetPct));\n      handle.style.left = `${targetPct}%`;\n\n      // Live update to closest index\n      const closestIndex = getClosestIndex(targetPct);\n      if (closestIndex !== currentIndex) {\n        updateState(closestIndex, true);\n      }\n    });\n\n    handle.addEventListener('pointerup', (e) => {\n      if (isLocked) return;\n      // Snap to exact stop position\n      updateState(currentIndex, true);\n    });\n\n    // Tap on labels or track\n    labels.forEach((label) => {\n      label.addEventListener('click', () => {\n        if (isLocked) return;\n        const idx = parseInt(label.getAttribute('data-index'));\n        updateState(idx, true);\n      });\n    });\n\n    track.addEventListener('pointerdown', (e) => {\n      if (isLocked || e.target === handle) return;\n      const trackRect = track.getBoundingClientRect();\n      const clickX = e.clientX - trackRect.left;\n      const clickPct = (clickX / trackRect.width) * 100;\n      const closestIndex = getClosestIndex(clickPct);\n      updateState(closestIndex, true);\n    });\n\n    function getClosestIndex(pct) {\n      let minDist = Infinity;\n      let closestIdx = 0;\n      percentages.forEach((p, idx) => {\n        const dist = Math.abs(p - pct);\n        if (dist < minDist) {\n          minDist = dist;\n          closestIdx = idx;\n        }\n      });\n      return closestIdx;\n    }\n\n    // Keyboard navigation\n    handle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        if (currentIndex < numStops - 1) updateState(currentIndex + 1, true);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        if (currentIndex > 0) updateState(currentIndex - 1, true);\n      }\n    });\n\n    // Height calculation and host reporting\n    function sendHeight() {\n      try {\n        const height = Math.ceil(container.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    // Lock listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        container.classList.add('locked');\n        handle.setAttribute('tabindex', '-1');\n      }\n    });\n\n    // Watch for resizing\n    const resizeObserver = new ResizeObserver(() => {\n      sendHeight();\n    });\n    resizeObserver.observe(document.body);\n\n    window.addEventListener('load', init);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Sell bonds: Bond prices fall, interest rates rise"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Exam: Long-Run Consequences of Stabilization Policies",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the Short-Run Phillips Curve (SRPC), which of the following is the most likely result of an unexpected rightward shift in Aggregate Demand?",
+     "options": [
+      "A movement to a point with lower inflation and higher unemployment.",
+      "A movement to a point with higher inflation and lower unemployment.",
+      "A shift of the SRPC to the right, increasing both variables.",
+      "A shift of the SRPC to the left, decreasing both variables."
+     ],
+     "explanation": "A shift in Aggregate Demand causes a movement along the SRPC. A rightward AD shift increases the price level (inflation) and increases output, which lowers unemployment.",
+     "correctAnswers": [
+      "A movement to a point with higher inflation and lower unemployment."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would cause the Short-Run Phillips Curve (SRPC) to shift to the right?",
+     "options": [
+      "A significant increase in the price of global energy resources.",
+      "An increase in inflationary expectations by labor unions.",
+      "A decrease in the money supply by the central bank.",
+      "An improvement in nationwide industrial productivity.",
+      "A sudden spike in the cost of raw materials used in production."
+     ],
+     "explanation": "The SRPC shifts right when there is a negative supply shock (higher costs) or when inflationary expectations rise. A decrease in money supply is a demand-side change (movement along the curve), and improved productivity shifts the SRPC left.",
+     "correctAnswers": [
+      "A significant increase in the price of global energy resources.",
+      "An increase in inflationary expectations by labor unions.",
+      "A sudden spike in the cost of raw materials used in production."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the long run, the Phillips Curve is a vertical line located at the ____.",
+     "explanation": "The Long-Run Phillips Curve (LRPC) is vertical because there is no trade-off between inflation and unemployment in the long run; the economy returns to its natural rate of unemployment regardless of the inflation rate.",
+     "placeholder": "Enter economic term...",
+     "correctAnswers": [
+      "Natural Rate of Unemployment",
+      "NRU",
+      "Full employment level of unemployment"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If the velocity of money is constant and real GDP grows at 2% per year, what happens if the money supply grows at 5% per year according to the Quantity Theory of Money?",
+     "options": [
+      "The inflation rate will be approximately 3%.",
+      "The inflation rate will be approximately 7%.",
+      "Nominal GDP will remain constant.",
+      "Real GDP will increase by 5%."
+     ],
+     "explanation": "Using %ΔM + %ΔV = %ΔP + %ΔY: 5% + 0% = %ΔP + 2%. Solving for %ΔP (inflation) gives 3%.",
+     "correctAnswers": [
+      "The inflation rate will be approximately 3%."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Loanable funds market graph showing crowding out mechanism.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit5-q5.png"
+     },
+     "prompt": "Which of the following are consequences of persistent government budget deficits and 'crowding out'?",
+     "options": [
+      "Higher real interest rates.",
+      "Decreased private investment in plant and equipment.",
+      "A decrease in the demand for loanable funds.",
+      "Lower long-run economic growth rates.",
+      "An increase in the supply of private savings."
+     ],
+     "explanation": "Deficit spending increases the demand for loanable funds, raising interest rates. This makes borrowing more expensive for firms, reducing (crowding out) investment and slowing long-term capital accumulation.",
+     "correctAnswers": [
+      "Higher real interest rates.",
+      "Decreased private investment in plant and equipment.",
+      "Lower long-run economic growth rates."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'Quantity Theory of Money' is expressed by the equation MV = ____.",
+     "explanation": "M is money supply, V is velocity, P is price level, and Y (or Q) is real output. P times Y equals nominal GDP.",
+     "placeholder": "Enter variables...",
+     "correctAnswers": [
+      "PQ",
+      "PY",
+      "Nominal GDP"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A country's government increases its spending on infrastructure without increasing taxes. In the loanable funds market, this will most likely lead to:",
+     "options": [
+      "An increase in the supply of loanable funds and lower interest rates.",
+      "A decrease in the demand for loanable funds and lower interest rates.",
+      "An increase in the demand for loanable funds and higher interest rates.",
+      "No change in the interest rate because of the Quantity Theory of Money."
+     ],
+     "explanation": "Government borrowing to fund a deficit increases the demand for loanable funds (or decreases the supply of national savings), putting upward pressure on real interest rates.",
+     "correctAnswers": [
+      "An increase in the demand for loanable funds and higher interest rates."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following policies are most likely to increase a nation's long-run economic growth rate?",
+     "options": [
+      "Increased spending on public education and job training.",
+      "Tax credits for businesses that invest in new technology.",
+      "Expansionary monetary policy to lower short-term interest rates.",
+      "Reduction of unnecessary regulatory barriers to business entry.",
+      "Increased transfer payments to stimulate consumer demand."
+     ],
+     "explanation": "Long-run growth is driven by productivity, labor quality, and capital. Short-run demand management (monetary stimulus or transfer payments) affects the business cycle but not the underlying growth potential.",
+     "correctAnswers": [
+      "Increased spending on public education and job training.",
+      "Tax credits for businesses that invest in new technology.",
+      "Reduction of unnecessary regulatory barriers to business entry."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "Stagflation, the simultaneous increase in inflation and unemployment, is graphically represented by a ____ shift of the Short-Run Phillips Curve.",
+     "explanation": "Stagflation is caused by an adverse supply shock, which shifts SRAS left and the SRPC right.",
+     "placeholder": "Direction...",
+     "correctAnswers": [
+      "rightward",
+      "right",
+      "upward"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Phillips Curve diagram showing a recessionary gap.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit5-q10.png"
+     },
+     "prompt": "If the natural rate of unemployment is 5% and the actual rate of unemployment is 7%, which of the following is true according to the Phillips Curve model?",
+     "options": [
+      "There is an inflationary gap.",
+      "The economy is at a point on the SRPC to the right of the LRPC.",
+      "The SRPC will automatically shift to the left to fix the gap.",
+      "The LRPC will shift to the right to meet the 7% rate."
+     ],
+     "explanation": "A 7% unemployment rate when the NRU is 5% indicates a recessionary gap. This is represented as a point on the SRPC located to the right of the vertical LRPC.",
+     "correctAnswers": [
+      "The economy is at a point on the SRPC to the right of the LRPC."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "How does an increase in the government's budget deficit affect the economy in the long run?",
+     "options": [
+      "It leads to a higher stock of public debt.",
+      "It can lead to a lower stock of private physical capital.",
+      "It increases the long-run aggregate supply via higher interest rates.",
+      "It may require higher future taxes to service the interest on debt.",
+      "It eliminates the natural rate of unemployment."
+     ],
+     "explanation": "Deficits accumulate into debt. The resulting crowding out reduces private investment (capital stock), and the debt burden often leads to future tax increases.",
+     "correctAnswers": [
+      "It leads to a higher stock of public debt.",
+      "It can lead to a lower stock of private physical capital.",
+      "It may require higher future taxes to service the interest on debt."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The idea that changes in the money supply have no effect on real variables like output in the long run is known as monetary ____.",
+     "explanation": "Monetary neutrality is the proposition that changes in the money supply affect nominal variables but not real variables in the long run.",
+     "placeholder": "Term...",
+     "correctAnswers": [
+      "neutrality"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Which of the following identifies the primary difference between a movement along the SRPC and a shift of the SRPC?",
+     "options": [
+      "A movement is caused by supply shocks; a shift is caused by demand shocks.",
+      "A movement is caused by changes in AD; a shift is caused by changes in SRAS or expectations.",
+      "A movement affects only unemployment; a shift affects only inflation.",
+      "A movement is a long-run phenomenon; a shift is a short-run phenomenon."
+     ],
+     "explanation": "Shifts in Aggregate Demand move the economy along the SRPC. Shifts in SRAS or changes in inflationary expectations cause the entire SRPC curve to shift.",
+     "correctAnswers": [
+      "A movement is caused by changes in AD; a shift is caused by changes in SRAS or expectations."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following will shift the Long-Run Phillips Curve (LRPC)?",
+     "options": [
+      "Improvements in job-search technology.",
+      "A change in the inflation target by the Central Bank.",
+      "Changes in labor market institutions like unemployment benefits.",
+      "A short-term increase in government infrastructure spending.",
+      "Large-scale job retraining programs."
+     ],
+     "explanation": "The LRPC shifts when the Natural Rate of Unemployment (NRU) changes. This is caused by structural or frictional changes in the labor market, not by cyclical demand-side policies.",
+     "correctAnswers": [
+      "Improvements in job-search technology.",
+      "Changes in labor market institutions like unemployment benefits.",
+      "Large-scale job retraining programs."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "If the government provides a subsidy for every new robot a factory installs, which curve is most likely to shift in the long run?",
+     "options": [
+      "The LRPC shifts to the left.",
+      "The LRPC shifts to the right.",
+      "The SRPC shifts to the right.",
+      "The LRPC stays vertical while the SRPC moves down."
+     ],
+     "explanation": "Subsidies for capital investment increase productivity and potential output (LRAS). This shifts the LRPC to the left, indicating a lower natural rate of unemployment or higher potential efficiency.",
+     "correctAnswers": [
+      "The LRPC shifts to the left."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Adjust the economic variables in the simulation to show the long-run impact of an expansionary monetary policy that was intended to lower unemployment below the natural rate.",
+     "options": [
+      "The economy moves up the SRPC and stays there.",
+      "The SRPC shifts left to meet the new AD level.",
+      "The SRPC shifts right, returning unemployment to the NRU at higher inflation.",
+      "The LRPC shifts right to match the new unemployment level."
+     ],
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">`\n  `<title>Phillips Curve Simulation</title>`\n  `<style>`\n    `/* Variables & Reset */`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #666666;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f5f8fc;`\n      `--accent-strong: #3a4f78;`\n      `--lrpc-color: #e07a5f;`\n      `--srpc-color: #3d5a80;`\n      `--font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;`\n    `}`\n\n    `* {`\n      `box-sizing: border-box;`\n    `}`\n\n    `body {`\n      `background-color: var(--bg);`\n      `color: var(--fg);`\n      `font-family: var(--font-family);`\n      `margin: 0;`\n      `padding: 12px;`\n      `overflow: hidden;`\n      `user-select: none;`\n      `-webkit-user-select: none;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `.widget-container {`\n      `width: 100%;`\n      `max-width: 480px;`\n      `margin: 0 auto;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 12px;`\n    `}`\n\n    `/* Stage & Graph */`\n    `.stage {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 8px;`\n      `padding: 8px;`\n      `position: relative;`\n      `box-shadow: 0 1px 3px rgba(0,0,0,0.05);`\n    `}`\n\n    `.stage-svg {`\n      `width: 100%;`\n      `height: auto;`\n      `display: block;`\n    `}`\n\n    `/* Animated Graph Elements */`\n    `.grid-line {`\n      `stroke: #e8e6e0;`\n      `stroke-width: 1;`\n      `stroke-dasharray: 2 2;`\n    `}`\n\n    `.axis {`\n      `stroke: #888888;`\n      `stroke-width: 1.5;`\n    `}`\n\n    `.lrpc-line {`\n      `stroke: var(--lrpc-color);`\n      `stroke-width: 3;`\n      `transition: transform 0.4s cubic-bezier(.25, .8, .25, 1);`\n    `}`\n\n    `.srpc-line {`\n      `fill: none;`\n      `stroke: var(--srpc-color);`\n      `stroke-width: 3;`\n      `transition: d 0.4s cubic-bezier(.25, .8, .25, 1);`\n    `}`\n\n    `.state-dot {`\n      `fill: #d9383a;`\n      `stroke: #ffffff;`\n      `stroke-width: 2;`\n      `transition: cx 0.4s cubic-bezier(.25, .8, .25, 1), cy 0.4s cubic-bezier(.25, .8, .25, 1);`\n      `filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.2));`\n    `}`\n\n    `.axis-label {`\n      `font-size: 10px;`\n      `fill: var(--muted-fg);`\n      `font-weight: 600;`\n    `}`\n\n    `.curve-label {`\n      `font-size: 9px;`\n      `font-weight: bold;`\n      `transition: transform 0.4s cubic-bezier(.25, .8, .25, 1);`\n    `}`\n\n    `/* Slider Control */`\n    `.control-section {`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 6px;`\n    `}`\n\n    `.action-hint {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n      `font-weight: 500;`\n    `}`\n\n    `.slider-container {`\n      `position: relative;`\n      `width: 100%;`\n      `height: 36px;`\n      `background: var(--stage);`\n      `border-radius: 18px;`\n      `padding: 0 16px;`\n      `display: flex;`\n      `align-items: center;`\n      `touch-action: none;`\n      `border: 1px solid var(--border);`\n    `}`\n\n    `.slider-track {`\n      `position: relative;`\n      `width: 100%;`\n      `height: 4px;`\n      `background: var(--border);`\n      `border-radius: 2px;`\n    `}`\n\n    `.slider-ticks {`\n      `position: absolute;`\n      `width: 100%;`\n      `height: 100%;`\n      `display: flex;`\n      `justify-content: space-between;`\n      `top: 0;`\n      `left: 0;`\n    `}`\n\n    `.tick {`\n      `width: 8px;`\n      `height: 8px;`\n      `background: #cccccc;`\n      `border-radius: 50%;`\n      `margin-top: -2px;`\n      `transition: background 0.2s;`\n    `}`\n\n    `.tick.active {`\n      `background: var(--accent);`\n    `}`\n\n    `.slider-handle {`\n      `position: absolute;`\n      `width: 24px;`\n      `height: 24px;`\n      `background: var(--accent);`\n      `border-radius: 50%;`\n      `cursor: grab;`\n      `top: 50%;`\n      `transform: translate(-50%, -50%);`\n      `box-shadow: 0 2px 5px rgba(0,0,0,0.2);`\n      `transition: background-color 0.2s, transform 0.1s;`\n      `z-index: 2;`\n    `}`\n\n    `.slider-handle:active {`\n      `cursor: grabbing;`\n      `background: var(--accent-strong);`\n      `transform: translate(-50%, -50%) scale(1.1);`\n    `}`\n\n    `.slider-handle:focus-visible {`\n      `outline: 2px solid var(--accent);`\n      `outline-offset: 2px;`\n    `}`\n\n    `/* Description Panel */`\n    `.description-panel {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 8px;`\n      `padding: 10px 12px;`\n      `min-height: 52px;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `text-align: center;`\n      `box-shadow: 0 1px 2px rgba(0,0,0,0.02);`\n      `transition: border-color 0.3s, background-color 0.3s;`\n    `}`\n\n    `.description-panel.active {`\n      `border-color: var(--accent);`\n      `background-color: var(--accent-soft);`\n    `}`\n\n    `.description-text {`\n      `font-size: 13px;`\n      `line-height: 1.4;`\n      `color: var(--fg);`\n      `font-weight: 500;`\n    `}`\n\n    `/* Locked State */`\n    `.locked {`\n      `pointer-events: none !important;`\n      `opacity: 0.8;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"sr-only\">Phillips Curve Interactive Long-Run Outcomes</h1>`\n\n  `<div class=\"widget-container\">`\n    `<!-- Interactive Stage -->`\n    `<div class=\"stage\">`\n      `<svg class=\"stage-svg\" viewBox=\"0 0 300 180\" aria-hidden=\"true\">`\n        `<!-- Grid lines -->`\n        `<line x1=\"40\" y1=\"140\" x2=\"280\" y2=\"140\" class=\"grid-line\" />`\n        `<line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"150\" class=\"grid-line\" />`\n\n        `<!-- Axes -->`\n        `<line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"150\" class=\"axis\" />`\n        `<line x1=\"40\" y1=\"150\" x2=\"280\" y2=\"150\" class=\"axis\" />`\n\n        `<!-- Axis Labels -->`\n        `<text x=\"35\" y=\"15\" class=\"axis-label\" text-anchor=\"end\">Inflation (π)</text>`\n        `<text x=\"280\" y=\"162\" class=\"axis-label\" text-anchor=\"end\">Unemployment (U)</text>`\n        `<text x=\"160\" y=\"162\" class=\"axis-label\" text-anchor=\"middle\" fill=\"#888\">NRU</text>`\n\n        `<!-- Curves -->`\n        `<!-- LRPC Line (Vertical) -->`\n        `<line id=\"lrpc\" x1=\"160\" y1=\"25\" x2=\"160\" y2=\"150\" class=\"lrpc-line\" />`\n        `<text id=\"lrpc-label\" x=\"160\" y=\"20\" class=\"curve-label\" fill=\"var(--lrpc-color)\" text-anchor=\"middle\">LRPC</text>`\n\n        `<!-- SRPC Curve -->`\n        `<path id=\"srpc\" d=\"M 60,40 Q 130,120 260,140\" class=\"srpc-line\" />`\n        `<text id=\"srpc-label\" x=\"250\" y=\"132\" class=\"curve-label\" fill=\"var(--srpc-color)\">SRPC</text>`\n\n        `<!-- Equilibrium Dot -->`\n        `<circle id=\"eq-dot\" cx=\"160\" cy=\"94\" r=\"5.5\" class=\"state-dot\" />`\n      `</svg>`\n    `</div>`\n\n    `<!-- Interactive Controls -->`\n    `<div class=\"control-section\">`\n      `<div class=\"action-hint\">Drag handle to test different economic outcomes:</div>`\n      `<div class=\"slider-container\" id=\"slider-box\" role=\"slider\" aria-label=\"Outcome path slider\" aria-valuemin=\"1\" aria-valuemax=\"4\" aria-valuenow=\"1\" tabindex=\"0\">`\n        `<div class=\"slider-track\">`\n          `<div class=\"slider-ticks\">`\n            `<div class=\"tick active\" data-index=\"0\"></div>`\n            `<div class=\"tick\" data-index=\"1\"></div>`\n            `<div class=\"tick\" data-index=\"2\"></div>`\n            `<div class=\"tick\" data-index=\"3\"></div>`\n          `</div>`\n        `</div>`\n        `<div class=\"slider-handle\" id=\"slider-handle\" style=\"left: 0%;\"></div>`\n      `</div>`\n    `</div>`\n\n    `<!-- Dynamic Description Box -->`\n    `<div class=\"description-panel\" id=\"desc-panel\">`\n      `<div class=\"description-text\" id=\"desc-text\">Drag the slider to select an economic outcome.</div>`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `// List of discrete answer options`\n    `const OPTIONS = [`\n      `\"The economy moves up the SRPC and stays there.\",`\n      `\"The SRPC shifts left to meet the new AD level.\",`\n      `\"The SRPC shifts right, returning unemployment to the NRU at higher inflation.\",`\n      `\"The LRPC shifts right to match the new unemployment level.\"`\n    `];`\n\n    `// Visual representations for each state`\n    `// d: SRPC path, dotX, dotY, lrpcX`\n    `const STATES = [`\n      `{`\n        `d: \"M 60,40 Q 130,120 260,140\",`\n        `dotX: 105,`\n        `dotY: 67,`\n        `lrpcX: 160`\n      `},`\n      `{`\n        `d: \"M 40,55 Q 90,125 210,143\",`\n        `dotX: 80,`\n        `dotY: 82,`\n        `lrpcX: 160`\n      `},`\n      `{`\n        `d: \"M 110,20 Q 180,100 280,115\",`\n        `dotX: 160,`\n        `dotY: 53,`\n        `lrpcX: 160`\n      `},`\n      `{`\n        `d: \"M 60,40 Q 130,120 260,140\",`\n        `dotX: 105,`\n        `dotY: 67,`\n        `lrpcX: 105`\n      `}`\n    `];`\n\n    `let currentIndex = -1;`\n    `let isLocked = false;`\n\n    `const sliderBox = document.getElementById('slider-box');`\n    `const sliderHandle = document.getElementById('slider-handle');`\n    `const ticks = document.querySelectorAll('.tick');`\n    `const descPanel = document.getElementById('desc-panel');`\n    `const descText = document.getElementById('desc-text');`\n\n    `// SVG Elements`\n    `const lrpc = document.getElementById('lrpc');`\n    `const lrpcLabel = document.getElementById('lrpc-label');`\n    `const srpc = document.getElementById('srpc');`\n    `const srpcLabel = document.getElementById('srpc-label');`\n    `const eqDot = document.getElementById('eq-dot');`\n\n    `// Setup interactive dimensions`\n    `let isDragging = false;`\n\n    `function updateState(index) {`\n      `if (index === currentIndex) return;`\n      `currentIndex = index;`\n\n      `// Update active styles on slider`\n      `const percent = (index / 3) * 100;`\n      `sliderHandle.style.left = `${percent}%`;`\n      `sliderBox.setAttribute('aria-valuenow', index + 1);`\n\n      `ticks.forEach((t, i) => {`\n        `if (i <= index) t.classList.add('active');`\n        `else t.classList.remove('active');`\n      `});`\n\n      `// Update Description Text & Highlight Panel`\n      `descPanel.classList.add('active');`\n      `descText.textContent = OPTIONS[index];`\n\n      `// Update SVG visual representation`\n      `const stateData = STATES[index];`\n      `srpc.setAttribute('d', stateData.d);`\n      `eqDot.setAttribute('cx', stateData.dotX);`\n      `eqDot.setAttribute('cy', stateData.dotY);`\n\n      `// Shift LRPC line`\n      `lrpc.setAttribute('x1', stateData.lrpcX);`\n      `lrpc.setAttribute('x2', stateData.lrpcX);`\n      `lrpcLabel.setAttribute('x', stateData.lrpcX);`\n\n      `// Dynamically reposition SRPC label depending on curve`\n      `if (index === 2) {`\n        `srpcLabel.setAttribute('x', 270);`\n        `srpcLabel.setAttribute('y', 110);`\n      `} else if (index === 1) {`\n        `srpcLabel.setAttribute('x', 200);`\n        `srpcLabel.setAttribute('y', 135);`\n      `} else {`\n        `srpcLabel.setAttribute('x', 250);`\n        `srpcLabel.setAttribute('y', 132);`\n      `}`\n\n      `// Post Message to parent`\n      `try {`\n        `parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');`\n      `} catch(e) {}`\n    `}`\n\n    `// Handle dragging / choosing`\n    `function handlePointer(clientX) {`\n      `if (isLocked) return;`\n      `const rect = sliderBox.getBoundingClientRect();`\n      `const padding = 16;`\n      `const width = rect.width - padding * 2;`\n      `const localX = Math.max(0, Math.min(clientX - rect.left - padding, width));`\n      `const ratio = localX / width;`\n      `const index = Math.max(0, Math.min(3, Math.round(ratio * 3)));`\n      `updateState(index);`\n    `}`\n\n    `sliderBox.addEventListener('pointerdown', (e) => {`\n      `if (isLocked) return;`\n      `isDragging = true;`\n      `sliderBox.setPointerCapture(e.pointerId);`\n      `handlePointer(e.clientX);`\n    `});`\n\n    `sliderBox.addEventListener('pointermove', (e) => {`\n      `if (isDragging) {`\n        `handlePointer(e.clientX);`\n      `}`\n    `});`\n\n    `sliderBox.addEventListener('pointerup', () => {`\n      `isDragging = false;`\n    `});`\n\n    `// Keyboard accessibility`\n    `sliderBox.addEventListener('keydown', (e) => {`\n      `if (isLocked) return;`\n      `let index = currentIndex === -1 ? 0 : currentIndex;`\n      `if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {`\n        `index = Math.min(3, index + 1);`\n        `updateState(index);`\n      `} else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {`\n        `index = Math.max(0, index - 1);`\n        `updateState(index);`\n      `}`\n    `});`\n\n    `// Parent page message listening (Lock mechanism)`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `isLocked = true;`\n        `sliderBox.classList.add('locked');`\n        `sliderHandle.classList.add('locked');`\n      `}`\n    `});`\n\n    `// Height reporting`\n    `function sendHeight() {`\n      `try {`\n        `const height = Math.ceil(document.documentElement.getBoundingClientRect().height);`\n        `parent.postMessage({ type: 'hk-anim-height', height: height }, '*');`\n      `} catch(e) {}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `sendHeight();`\n      `// Small initial stagger/pulse hint on first load`\n      `setTimeout(() => {`\n        `if (currentIndex === -1 && !isLocked) {`\n          `sliderHandle.style.transform = 'translate(-50%, -50%) scale(1.15)';`\n          `setTimeout(() => {`\n            `sliderHandle.style.transform = '';`\n          `}, 300);`\n        `}`\n      `}, 600);`\n    `});`\n\n    `const resizeObserver = new ResizeObserver(() => {`\n      `sendHeight();`\n    `});`\n    `resizeObserver.observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "The SRPC shifts right, returning unemployment to the NRU at higher inflation."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 6 Exam: Open Economy—International Trade and Finance",
+   "unitId": "unit6",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a domestic citizen receives a $500 dividend payment from shares they own in a foreign technology company, how is this recorded in the domestic Balance of Payments?",
+     "options": [
+      "A credit to the Current Account",
+      "A debit to the Current Account",
+      "A credit to the Financial Account",
+      "A debit to the Financial Account"
+     ],
+     "explanation": "Investment income, such as dividends or interest earned on foreign assets, is recorded in the Current Account. Since money is flowing into the domestic economy, it is recorded as a credit.",
+     "correctAnswers": [
+      "A credit to the Current Account"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following would contribute to a surplus in a nation's Financial Account?",
+     "options": [
+      "A foreign pension fund purchasing domestic government bonds",
+      "A domestic firm building a new manufacturing plant in a foreign country",
+      "A foreign corporation acquiring a domestic real estate development",
+      "A domestic resident purchasing shares on a foreign stock exchange",
+      "A domestic central bank selling foreign currency reserves"
+     ],
+     "explanation": "A Financial Account surplus occurs when capital inflows (credits) exceed outflows. Buying domestic bonds or real estate brings foreign capital in. Selling central bank reserves also counts as an asset export (credit).",
+     "correctAnswers": [
+      "A foreign pension fund purchasing domestic government bonds",
+      "A foreign corporation acquiring a domestic real estate development",
+      "A domestic central bank selling foreign currency reserves"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The accounting identity that binds international ledgers states that the sum of the Current Account and the Financial Account must theoretically equal ____.",
+     "placeholder": "Enter a value",
+     "correctAnswers": [
+      "zero",
+      "0"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A country currently experiencing a significant Current Account deficit most likely compensates for this by:",
+     "options": [
+      "Increasing its net exports of services",
+      "Running a surplus in its Financial Account",
+      "Decreasing its domestic interest rates",
+      "Purchasing large amounts of foreign currency reserves"
+     ],
+     "explanation": "A Current Account deficit means the nation is spending more on foreign goods and services than it earns; this must be financed by a Financial Account surplus, representing a net inflow of capital (selling assets or borrowing).",
+     "correctAnswers": [
+      "Running a surplus in its Financial Account"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which scenarios are classified under the 'Net Unilateral Transfers' component of the Current Account?",
+     "options": [
+      "A migrant worker sending money to their family in their home country",
+      "A government providing emergency disaster relief funds to a foreign nation",
+      "A domestic company paying wages to a foreign consultant",
+      "A charitable organization shipping food supplies to a famine-stricken region",
+      "A domestic investor receiving interest from a foreign bank account"
+     ],
+     "explanation": "Unilateral transfers are 'one-way' flows like remittances, foreign aid, and grants. Consultant wages are payments for services, and interest is investment income.",
+     "correctAnswers": [
+      "A migrant worker sending money to their family in their home country",
+      "A government providing emergency disaster relief funds to a foreign nation",
+      "A charitable organization shipping food supplies to a famine-stricken region"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the Balance of Payments, any transaction that results in an outflow of money to a foreign country is called a ____.",
+     "placeholder": "Credit or Debit?",
+     "correctAnswers": [
+      "debit"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary conceptual difference between Foreign Direct Investment (FDI) and Portfolio Investment in the Financial Account?",
+     "options": [
+      "FDI involves the sale of goods, while Portfolio Investment involves services",
+      "FDI involves active management or control, while Portfolio Investment is purely financial",
+      "FDI is recorded as a debit, while Portfolio Investment is always a credit",
+      "FDI only involves government transactions, while Portfolio Investment is private"
+     ],
+     "explanation": "FDI refers to investments where the investor has a controlling interest (like building a factory), whereas Portfolio Investment refers to buying stocks or bonds without managerial control.",
+     "correctAnswers": [
+      "FDI involves active management or control, while Portfolio Investment is purely financial"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are components of the Current Account?",
+     "options": [
+      "Net Exports",
+      "Foreign Direct Investment",
+      "Net Investment Income",
+      "Net Unilateral Transfers",
+      "Portfolio Investment"
+     ],
+     "explanation": "The Current Account includes trade in goods/services (Net Exports), income earned on assets (Net Investment Income), and one-way transfers. FDI and Portfolio Investment belong in the Financial Account.",
+     "correctAnswers": [
+      "Net Exports",
+      "Net Investment Income",
+      "Net Unilateral Transfers"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "Transactions such as debt forgiveness and the transfer of intangible assets like patents are recorded in the ____ Account.",
+     "placeholder": "Capital or Financial?",
+     "correctAnswers": [
+      "Capital"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "When a domestic firm exports high-tech machinery to a foreign buyer, how is the transaction categorized?",
+     "options": [
+      "A credit to the Financial Account",
+      "A debit to the Financial Account",
+      "A credit to the Current Account",
+      "A debit to the Current Account"
+     ],
+     "explanation": "Exports result in foreign currency flowing into the domestic country, which is recorded as a credit in the Current Account under the Trade Balance.",
+     "correctAnswers": [
+      "A credit to the Current Account"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "image": {
+      "alt": "Forex market graph showing domestic currency demand increasing.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/9ab3b26a-7fba-4ec6-9e18-8849e0413095/exam/images/unit6-q11.png"
+     },
+     "prompt": "How might a central bank use its 'Official Reserves' to support its own currency value in a managed exchange rate system?",
+     "options": [
+      "By selling foreign currency reserves",
+      "By buying its own domestic currency",
+      "By selling its domestic currency to buy foreign assets",
+      "By increasing the supply of its currency in the forex market",
+      "By recording a credit in the financial account via reserve reduction"
+     ],
+     "explanation": "To support its currency, a central bank buys it using foreign reserves. Selling a foreign asset (reserves) is a credit to the financial account and reduces the supply of domestic currency on the market.",
+     "correctAnswers": [
+      "By selling foreign currency reserves",
+      "By buying its own domestic currency",
+      "By recording a credit in the financial account via reserve reduction"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When a foreign entity purchases domestic real estate, it is recorded as a capital ____ in the Financial Account.",
+     "placeholder": "inflow or outflow?",
+     "correctAnswers": [
+      "inflow"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a country has a Financial Account balance of -$50 billion (a deficit), what must be true about its Current Account, assuming no change in official reserves?",
+     "options": [
+      "It has a surplus of $50 billion",
+      "It has a deficit of $50 billion",
+      "It is balanced at zero",
+      "It is impossible to determine without trade data"
+     ],
+     "explanation": "Because CA + CFA = 0, a deficit in the Financial Account (capital outflow) must be perfectly offset by a surplus in the Current Account (net exports/income inflow).",
+     "correctAnswers": [
+      "It has a surplus of $50 billion"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of these would be recorded as a 'Debit' in the domestic Balance of Payments?",
+     "options": [
+      "Spending by domestic tourists while on vacation in Italy",
+      "A foreign investor buying a domestic tech startup",
+      "The domestic government sending financial aid to an ally",
+      "A domestic bank loaning money to a foreign corporation",
+      "A foreign citizen paying for a domestic online course"
+     ],
+     "explanation": "Debits represent any transaction where money leaves the country. Tourism abroad (import of service), foreign aid (transfer out), and lending money abroad (asset purchase/outflow) all involve money leaving.",
+     "correctAnswers": [
+      "Spending by domestic tourists while on vacation in Italy",
+      "The domestic government sending financial aid to an ally",
+      "A domestic bank loaning money to a foreign corporation"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "A domestic investor buys $10,000 worth of bonds issued by a foreign government. This transaction is a:",
+     "options": [
+      "Current Account credit",
+      "Current Account debit",
+      "Financial Account credit",
+      "Financial Account debit"
+     ],
+     "explanation": "Purchasing a foreign asset (the bond) causes money to flow out of the country today, which is a debit in the Financial Account (capital outflow).",
+     "correctAnswers": [
+      "Financial Account debit"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "In the context of the Balance of Payments, which of the following statements about 'credits' are true?",
+     "options": [
+      "They represent an inflow of foreign currency",
+      "They are recorded with a positive sign (+)",
+      "Exports of goods are always recorded as credits",
+      "Purchasing a foreign bond is recorded as a credit",
+      "Receiving foreign aid is a credit"
+     ],
+     "explanation": "Credits are money inflows. Exports, receiving aid, or selling assets to foreigners all bring money in. Purchasing a foreign bond is a debit because money leaves.",
+     "correctAnswers": [
+      "They represent an inflow of foreign currency",
+      "They are recorded with a positive sign (+)",
+      "Exports of goods are always recorded as credits",
+      "Receiving foreign aid is a credit"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the Balance of Payments visualizer to show the effect of a domestic citizen purchasing a $20,000 foreign automobile.",
+     "options": [
+      "Current Account Debit / Financial Account Credit",
+      "Current Account Credit / Financial Account Debit",
+      "Current Account Debit / Current Account Credit",
+      "Financial Account Debit / Financial Account Credit"
+     ],
+     "explanation": "The purchase of a physical good (import) is a Current Account debit. The currency paid to the foreigner eventually returns to the domestic economy to buy assets or as deposits, creating an offsetting Financial Account credit.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Balance of Payments Visualizer</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --debit-color: #d9534f;\n      --credit-color: #5cb85c;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 12px;\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 580px;\n      margin: 0 auto;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Action Hint */\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 2px;\n    }\n\n    /* Scale / Stage Area */\n    .scale-stage {\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 16px;\n      position: relative;\n      border: 1px solid var(--border);\n      height: 220px;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      overflow: hidden;\n    }\n\n    /* The pivoting beam */\n    .scale-beam-container {\n      position: relative;\n      width: 100%;\n      height: 140px;\n      perspective: 1000px;\n    }\n\n    .scale-beam {\n      position: absolute;\n      top: 20px;\n      left: 5%;\n      width: 90%;\n      height: 8px;\n      background: #8e8e93;\n      border-radius: 4px;\n      transform-origin: center center;\n      transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);\n      display: flex;\n      justify-content: space-between;\n    }\n\n    /* Pivot Center */\n    .scale-pivot {\n      position: absolute;\n      top: 15px;\n      left: 50%;\n      transform: translateX(-50%);\n      width: 0;\n      height: 0;\n      border-left: 15px solid transparent;\n      border-right: 15px solid transparent;\n      border-bottom: 25px solid #8e8e93;\n      z-index: 1;\n    }\n\n    /* Ledger Columns hanging from scale */\n    .ledger-container {\n      display: flex;\n      width: 100%;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .ledger-column {\n      width: 46%;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      box-shadow: 0 4px 10px rgba(0,0,0,0.03);\n      display: flex;\n      flex-direction: column;\n      gap: 6px;\n    }\n\n    .ledger-header {\n      font-size: 11px;\n      font-weight: 700;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      text-align: center;\n      color: var(--fg);\n      border-bottom: 1px solid var(--border);\n      padding-bottom: 4px;\n    }\n\n    .ledger-buckets {\n      display: flex;\n      gap: 6px;\n      height: 70px;\n    }\n\n    .bucket {\n      flex: 1;\n      border: 1.5px dashed var(--border);\n      border-radius: 6px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n      background: rgba(255, 255, 255, 0.4);\n      pointer-events: auto;\n      transition: background-color 0.2s, border-color 0.2s;\n    }\n\n    .bucket.drag-over {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n    }\n\n    .bucket-label {\n      font-size: 10px;\n      font-weight: bold;\n      color: var(--muted-fg);\n      position: absolute;\n      top: 4px;\n    }\n\n    .bucket-sign {\n      font-size: 16px;\n      font-weight: bold;\n      opacity: 0.25;\n      pointer-events: none;\n    }\n\n    /* Dock Area */\n    .dock {\n      background: var(--surface);\n      border: 1px dashed var(--border);\n      border-radius: 12px;\n      padding: 10px;\n      display: flex;\n      justify-content: center;\n      gap: 20px;\n      min-height: 64px;\n      align-items: center;\n    }\n\n    /* Draggable Tokens */\n    .token {\n      width: 44px;\n      height: 44px;\n      border-radius: 50%;\n      background: var(--accent);\n      color: white;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      cursor: grab;\n      position: absolute;\n      touch-action: none;\n      box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n      z-index: 10;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1), box-shadow 0.15s;\n    }\n\n    .token:active {\n      cursor: grabbing;\n    }\n\n    .token.dragging {\n      transform: scale(1.1);\n      box-shadow: 0 8px 16px rgba(0,0,0,0.15);\n      transition: none;\n    }\n\n    .token svg {\n      width: 22px;\n      height: 22px;\n      fill: currentColor;\n    }\n\n    .token-label {\n      font-size: 8px;\n      margin-top: 2px;\n      font-weight: bold;\n      text-align: center;\n      width: 100%;\n      white-space: nowrap;\n      overflow: hidden;\n      text-overflow: ellipsis;\n    }\n\n    /* Token Visual Variations */\n    #token-car {\n      background: #4A90E2;\n    }\n    #token-asset {\n      background: #F5A623;\n    }\n\n    /* Connection indicators / Glow when balanced */\n    .balance-status {\n      text-align: center;\n      font-size: 13px;\n      font-weight: 600;\n      min-height: 18px;\n      transition: color 0.3s;\n    }\n    .status-balanced {\n      color: #2e7d32;\n    }\n    .status-unbalanced {\n      color: var(--muted-fg);\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Balance of Payments Interactive Ledger</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"action-hint\">Drag the tokens into the correct buckets to balance the ledger</div>\n\n    <div class=\"scale-stage\">\n      <!-- Simple Scale Pivot visual -->\n      <div class=\"scale-pivot\"></div>\n\n      <!-- Left / Right Hanging Ledger Container -->\n      <div class=\"scale-beam-container\">\n        <div class=\"scale-beam\" id=\"scale-beam\">\n          \n          <!-- Current Account (Left) -->\n          <div class=\"ledger-column\" style=\"transform: translate(0, 15px);\">\n            <div class=\"ledger-header\">Current Account (CA)</div>\n            <div class=\"ledger-buckets\">\n              <div class=\"bucket\" data-account=\"CA\" data-type=\"Debit\" id=\"bucket-ca-dr\">\n                <span class=\"bucket-label\">Debit (-)</span>\n                <span class=\"bucket-sign\">DR</span>\n              </div>\n              <div class=\"bucket\" data-account=\"CA\" data-type=\"Credit\" id=\"bucket-ca-cr\">\n                <span class=\"bucket-label\">Credit (+)</span>\n                <span class=\"bucket-sign\">CR</span>\n              </div>\n            </div>\n          </div>\n\n          <!-- Financial Account (Right) -->\n          <div class=\"ledger-column\" style=\"transform: translate(0, 15px);\">\n            <div class=\"ledger-header\">Financial Account (CFA)</div>\n            <div class=\"ledger-buckets\">\n              <div class=\"bucket\" data-account=\"CFA\" data-type=\"Debit\" id=\"bucket-cfa-dr\">\n                <span class=\"bucket-label\">Debit (-)</span>\n                <span class=\"bucket-sign\">DR</span>\n              </div>\n              <div class=\"bucket\" data-account=\"CFA\" data-type=\"Credit\" id=\"bucket-cfa-cr\">\n                <span class=\"bucket-label\">Credit (+)</span>\n                <span class=\"bucket-sign\">CR</span>\n              </div>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n      <!-- Dock Area to host original tokens -->\n      <div class=\"dock\" id=\"token-dock\">\n        <!-- Absolute positioned tokens will be spawned over these placeholder slots -->\n        <div style=\"width:44px; height:44px; opacity:0.1; border: 2px dashed var(--fg); border-radius:50%;\"></div>\n        <div style=\"width:44px; height:44px; opacity:0.1; border: 2px dashed var(--fg); border-radius:50%;\"></div>\n      </div>\n    </div>\n\n    <!-- Live readout showing current decision state -->\n    <div class=\"balance-status id=\"balance-status\">\n      Unbalanced Scale\n    </div>\n  </div>\n\n  <!-- Draggable Token Elements placed on top -->\n  <div class=\"token\" id=\"token-car\" aria-label=\"Car Import Token\" tabindex=\"0\">\n    <svg viewBox=\"0 0 24 24\">\n      <path d=\"M18.92 11.01C18.72 10.42 18.16 10 17.5 10H6.5c-.66 0-1.21.42-1.42 1.01L3 17v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 12h10.3l1.04 3H5.81l1.04-3zM6 20c-.83 0-1.5-.67-1.5-1.5S5.17 17 6 17s1.5.67 1.5 1.5S6.83 20 6 20zm12 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z\"/>\n    </svg>\n    <div class=\"token-label\">Car</div>\n  </div>\n\n  <div class=\"token\" id=\"token-asset\" aria-label=\"Asset Payment Token\" tabindex=\"0\">\n    <svg viewBox=\"0 0 24 24\">\n      <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\"/>\n    </svg>\n    <div class=\"token-label\">Asset</div>\n  </div>\n\n  <script>\n    // Config / Option mapping\n    const OPTION_MAP = {\n      'CA_Debit_CFA_Credit': 'Current Account Debit / Financial Account Credit',\n      'CA_Credit_CFA_Debit': 'Current Account Credit / Financial Account Debit',\n      'CA_Debit_CA_Credit': 'Current Account Debit / Current Account Credit',\n      'CFA_Debit_CFA_Credit': 'Financial Account Debit / Financial Account Credit'\n    };\n\n    // Keep track of current state\n    const placements = {\n      car: null, // { account: 'CA'|'CFA', type: 'Debit'|'Credit', bucketId: '...' }\n      asset: null\n    };\n\n    let isLocked = false;\n\n    // Get DOM elements\n    const tokens = {\n      car: document.getElementById('token-car'),\n      asset: document.getElementById('token-asset')\n    };\n    const dock = document.getElementById('token-dock');\n    const scaleBeam = document.getElementById('scale-beam');\n    const balanceStatus = document.getElementById('balance-status');\n    const buckets = document.querySelectorAll('.bucket');\n\n    // Store original dock positions\n    const dockSlots = Array.from(dock.children);\n\n    function initPositions() {\n      if (isLocked) return;\n      const dockRect = dock.getBoundingClientRect();\n      \n      // Place Car Token over first dock slot\n      const carSlotRect = dockSlots[0].getBoundingClientRect();\n      tokens.car.style.left = `${carSlotRect.left + window.scrollX}px`;\n      tokens.car.style.top = `${carSlotRect.top + window.scrollY}px`;\n      \n      // Place Asset Token over second dock slot\n      const assetSlotRect = dockSlots[1].getBoundingClientRect();\n      tokens.asset.style.left = `${assetSlotRect.left + window.scrollX}px`;\n      tokens.asset.style.top = `${assetSlotRect.top + window.scrollY}px`;\n\n      placements.car = null;\n      placements.asset = null;\n      updateScale();\n    }\n\n    // Set up dragging for a token\n    function makeDraggable(tokenKey) {\n      const el = tokens[tokenKey];\n      let startX, startY, origX, origY;\n      let activePointerId = null;\n\n      el.addEventListener('pointerdown', (e) => {\n        if (isLocked) return;\n        e.preventDefault();\n        el.setPointerCapture(e.pointerId);\n        activePointerId = e.pointerId;\n        el.classList.add('dragging');\n\n        const rect = el.getBoundingClientRect();\n        origX = rect.left + window.scrollX;\n        origY = rect.top + window.scrollY;\n        startX = e.clientX;\n        startY = e.clientY;\n      });\n\n      el.addEventListener('pointermove', (e) => {\n        if (activePointerId !== e.pointerId || isLocked) return;\n        const dx = e.clientX - startX;\n        const dy = e.clientY - startY;\n        el.style.left = `${origX + dx}px`;\n        el.style.top = `${origY + dy}px`;\n\n        // Interactive visual feedback for hover over buckets\n        const elCenter = {\n          x: origX + dx + 22,\n          y: origY + dy + 22\n        };\n\n        buckets.forEach(b => {\n          const bRect = b.getBoundingClientRect();\n          const isOver = elCenter.x >= bRect.left + window.scrollX &&\n                         elCenter.x <= bRect.right + window.scrollX &&\n                         elCenter.y >= bRect.top + window.scrollY &&\n                         elCenter.y <= bRect.bottom + window.scrollY;\n          if (isOver) {\n            b.classList.add('drag-over');\n          } else {\n            b.classList.remove('drag-over');\n          }\n        });\n      });\n\n      el.addEventListener('pointerup', (e) => {\n        if (activePointerId !== e.pointerId) return;\n        el.releasePointerCapture(e.pointerId);\n        activePointerId = null;\n        el.classList.remove('dragging');\n\n        // Check drop collision\n        const elRect = el.getBoundingClientRect();\n        const elCenter = {\n          x: elRect.left + window.scrollX + 22,\n          y: elRect.top + window.scrollY + 22\n        };\n\n        let targetBucket = null;\n        buckets.forEach(b => {\n          const bRect = b.getBoundingClientRect();\n          const isOver = elCenter.x >= bRect.left + window.scrollX &&\n                         elCenter.x <= bRect.right + window.scrollX &&\n                         elCenter.y >= bRect.top + window.scrollY &&\n                         elCenter.y <= bRect.bottom + window.scrollY;\n          b.classList.remove('drag-over');\n          if (isOver) {\n            targetBucket = b;\n          }\n        });\n\n        if (targetBucket) {\n          // Snap to bucket center\n          const bRect = targetBucket.getBoundingClientRect();\n          el.style.left = `${bRect.left + window.scrollX + (bRect.width - 44)/2}px`;\n          el.style.top = `${bRect.top + window.scrollY + (bRect.height - 44)/2}px`;\n          \n          placements[tokenKey] = {\n            account: targetBucket.dataset.account,\n            type: targetBucket.dataset.type,\n            bucketId: targetBucket.id\n          };\n        } else {\n          // Snap back to dock\n          const slotIdx = tokenKey === 'car' ? 0 : 1;\n          const slotRect = dockSlots[slotIdx].getBoundingClientRect();\n          el.style.left = `${slotRect.left + window.scrollX}px`;\n          el.style.top = `${slotRect.top + window.scrollY}px`;\n          placements[tokenKey] = null;\n        }\n\n        updateScale();\n      });\n    }\n\n    // Keyboard support\n    function initKeyboard() {\n      let focusedToken = null;\n      const bucketOrder = ['bucket-ca-dr', 'bucket-ca-cr', 'bucket-cfa-dr', 'bucket-cfa-cr'];\n\n      function handleKey(tokenKey, e) {\n        if (isLocked) return;\n        let currentIdx = -1;\n        if (placements[tokenKey]) {\n          currentIdx = bucketOrder.indexOf(placements[tokenKey].bucketId);\n        }\n\n        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n          currentIdx = Math.min(currentIdx + 1, bucketOrder.length - 1);\n        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n          currentIdx = Math.max(currentIdx - 1, -1);\n        } else if (e.key === 'Escape' || e.key === 'Backspace') {\n          currentIdx = -1;\n        } else {\n          return;\n        }\n\n        e.preventDefault();\n\n        const el = tokens[tokenKey];\n        if (currentIdx === -1) {\n          // Snap back to dock\n          const slotIdx = tokenKey === 'car' ? 0 : 1;\n          const slotRect = dockSlots[slotIdx].getBoundingClientRect();\n          el.style.left = `${slotRect.left + window.scrollX}px`;\n          el.style.top = `${slotRect.top + window.scrollY}px`;\n          placements[tokenKey] = null;\n        } else {\n          // Snap to target bucket\n          const targetId = bucketOrder[currentIdx];\n          const targetBucket = document.getElementById(targetId);\n          const bRect = targetBucket.getBoundingClientRect();\n          el.style.left = `${bRect.left + window.scrollX + (bRect.width - 44)/2}px`;\n          el.style.top = `${bRect.top + window.scrollY + (bRect.height - 44)/2}px`;\n          \n          placements[tokenKey] = {\n            account: targetBucket.dataset.account,\n            type: targetBucket.dataset.type,\n            bucketId: targetBucket.id\n          };\n        }\n        updateScale();\n      }\n\n      tokens.car.addEventListener('keydown', (e) => handleKey('car', e));\n      tokens.asset.addEventListener('keydown', (e) => handleKey('asset', e));\n    }\n\n    function updateScale() {\n      let debitCount = 0;\n      let creditCount = 0;\n\n      [placements.car, placements.asset].forEach(p => {\n        if (p) {\n          if (p.type === 'Debit') debitCount++;\n          if (p.type === 'Credit') creditCount++;\n        }\n      });\n\n      // Animate scale beam rotation\n      // Standard balance (debitCount === creditCount) -> perfectly balanced!\n      let tilt = 0;\n      if (debitCount > creditCount) {\n        tilt = -7; // Heavy Debit (Left)\n      } else if (creditCount > debitCount) {\n        tilt = 7; // Heavy Credit (Right)\n      }\n      scaleBeam.style.transform = `rotate(${tilt}deg)`;\n\n      // Identify selected configuration\n      if (placements.car && placements.asset) {\n        // Construct code key to match options\n        // We sort the accounts/types to ensure order independence in matching\n        const parts = [\n          `${placements.car.account}_${placements.car.type}`,\n          `${placements.asset.account}_${placements.asset.type}`\n        ].sort();\n\n        // Join to match the keys of OPTION_MAP\n        // Valid pairs require one Debit and one Credit to truly \"balance\" (net zero)\n        const pairKey = parts.join('_');\n        const matchedOption = OPTION_MAP[pairKey];\n\n        if (matchedOption && debitCount === creditCount) {\n          balanceStatus.className = \"balance-status status-balanced\";\n          balanceStatus.textContent = \"✓ Balanced Ledger: \" + matchedOption.split(' / ').join(' & ');\n          \n          // Report answer\n          parent.postMessage({ type: 'hk-practice-answer', value: matchedOption }, '*');\n        } else {\n          balanceStatus.className = \"balance-status status-unbalanced\";\n          balanceStatus.textContent = \"⚠️ Unbalanced: Both entries cannot be \" + (debitCount > 0 ? \"Debits\" : \"Credits\");\n        }\n      } else {\n        balanceStatus.className = \"balance-status status-unbalanced\";\n        balanceStatus.textContent = \"Unbalanced Ledger (Place both tokens)\";\n      }\n    }\n\n    // Initialize draggables\n    makeDraggable('car');\n    makeDraggable('asset');\n    initKeyboard();\n\n    // Position setup on load & resize\n    window.addEventListener('load', () => {\n      initPositions();\n      sendHeight();\n    });\n    window.addEventListener('resize', () => {\n      initPositions();\n      sendHeight();\n    });\n\n    // Height reporter\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    new ResizeObserver(sendHeight).observe(document.body);\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        tokens.car.style.pointerEvents = 'none';\n        tokens.asset.style.pointerEvents = 'none';\n        tokens.car.style.cursor = 'default';\n        tokens.asset.style.cursor = 'default';\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Current Account Debit / Financial Account Credit"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "fb3a7f7f-86d9-4334-acab-b90cdfd068ab"
+}

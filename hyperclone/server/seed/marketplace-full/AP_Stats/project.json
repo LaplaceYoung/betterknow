@@ -1,0 +1,339 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first major project! Over the course of this project, you will act as a lead educational researcher evaluating an interactive statistics simulator. By the end, you will have produced a professional 5-part statistical analysis portfolio, ranging from experimental design to predictive modeling. We begin this journey by laying the groundwork: designing a rigorous randomized controlled experiment. In our previous sessions, we explored how observational studies differ from experiments and how the concept of variability is at the heart of every statistical question. Today, you will apply those concepts to define exactly how we will test our new simulator against traditional learning methods.",
+     "step_title": "Project Launch & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a text entry identifying: 1) The Explanatory Variable and its levels (treatment vs. control), 2) The Response Variable (must be quantitative), and 3) Two potential confounding variables with a one-sentence explanation for each. Criteria: Variables must be clearly defined and the response variable must be measurable and quantitative."
+     },
+     "step_body": "Every great investigation starts with a clear statistical question. Your task is to evaluate the efficacy of the interactive simulator. To do this, you must define your variables. First, identify your Explanatory Variable (what are you manipulating?) and your Response Variable (what specific, quantitative outcome will you measure to determine 'efficacy'?). Then, list at least two potential confounding variables—outside factors that could influence the response—and briefly explain why they might interfere with your results.",
+     "step_title": "Define the Variables",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a detailed description of your randomization procedure. Criteria: The process must be truly random (not just 'haphazard'), reproducible, and result in two groups of equal or near-equal size."
+     },
+     "step_body": "To establish a cause-and-effect relationship, we must use random assignment to balance those confounding variables you just identified. Imagine you have a pool of 100 student volunteers. Describe a step-by-step process for how you will randomly assign these individuals into two groups: the 'Treatment Group' (using the simulator) and the 'Control Group' (using a traditional textbook). Be specific: will you use a random number generator, a hat draw, or software? How will you ensure each student has an equal chance of being in either group?",
+     "step_title": "Draft the Randomization Protocol",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Beyond randomization, we need to ensure the conditions of our experiment are consistent. In this step, describe the 'Experimental Design' elements you will use to reduce bias. Will you use 'Blinding' (e.g., the person grading the exams doesn't know which group the student was in)? How will you ensure that both groups receive the same amount of 'study time' so that only the *method* of study is being tested? Draft a paragraph outlining these control measures.",
+     "step_title": "Design for Control and Bias",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your complete Part 1: Experimental Design and Data Collection Protocol as a PDF. Criteria: Must include clearly labeled variables, a valid randomization strategy, and specific control measures to minimize bias."
+     },
+     "step_body": "It is time to compile your work into the first official section of your portfolio: The Experimental Design and Data Collection Protocol. Review your previous steps and combine them into a cohesive document. Ensure you have a clear title, a description of your subjects (individuals), a list of all variables (categorical and quantitative), and your full randomization protocol. This document will serve as the 'blueprint' for the simulated data we will analyze in the next stage of the project.",
+     "step_title": "Finalize and Submit Section 1",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "c99aa035-0148-4cd0-ae3f-27f4d693dfdd",
+   "stage_title": "Part 1: Experimental Design and Data Collection Protocol",
+   "parent_project_id": "2f0848bb-0a05-4d99-a1a2-bcea5fb9f82e",
+   "stage_description": "Design a rigorous randomized controlled experiment to evaluate the interactive statistics simulator. You will define your explanatory and response variables, identify potential confounding variables, and draft a complete random assignment protocol to place subjects into control (traditional textbook) and treatment (interactive simulator) groups.",
+   "deliverable_increment": "A written Experimental Design and Data Collection Protocol document (Section 1 of the portfolio) detailing the experimental layout, randomization procedure, and strategies to control for bias."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you established your experimental protocol. Now, we need to determine what 'success' actually looks like. To evaluate if the interactive simulator is effective, we must first establish a baseline: what would happen if students were just guessing? This stage builds Part 2 of your portfolio by using simulations and probability rules to define that 'random guessing' benchmark.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short text response verifying the BINS criteria for a 20-question exam (4 options per question). Good work clearly addresses all four criteria (Binary, Independent, Number, Success) and correctly identifies the probability of success (p) as 0.25."
+     },
+     "step_body": "Before we simulate, we must ensure our scenario fits a binomial model. Imagine a student takes a 20-question multiple-choice exam using only random guessing. Each question has 4 options (A, B, C, D). Evaluate this scenario against the BINS criteria (Binary, Independent, Number of trials, Success probability). Does this situation qualify as a binomial setting? Briefly explain your reasoning for each of the four letters.",
+     "step_title": "Verify BINS criteria",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your simulation design. Criteria for success: clear definitions of the component, the trial (20 components), and the response variable (count of successes)."
+     },
+     "step_body": "Now, let's design a simulation to model 100 students guessing on this 20-question exam. Describe your simulation components and tools. Will you use a random number generator (1-4), a deck of cards, or software? Define what constitutes a 'success' in a single component, what defines one full 'trial', and what your response variable will be (e.g., the number of correct guesses per student).",
+     "step_title": "Design the simulation",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image of your simulation results (a screenshot of your spreadsheet, a photo of your hand-drawn frequency table, or a histogram). The data must show the results of 100 simulated trials."
+     },
+     "step_body": "Run your simulation for 100 trials (representing 100 students). You can use a graphing calculator (randInt), a spreadsheet (RANDBETWEEN), or statistical software. Record the results of these 100 trials. We are looking for the distribution of scores. Calculate the mean number of correct answers across your 100 trials and create a simple frequency table or histogram of the results.",
+     "step_title": "Execute and record trials",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculations for the theoretical mean, standard deviation, and the probability of scoring 10+ correct. Include a brief comparison (1-2 sentences) on how closely your simulation matched these theoretical values."
+     },
+     "step_body": "Now, let's use the Binomial and Normal formulas to check your work. Calculate the theoretical mean (np) and standard deviation (sqrt(npq)) for this binomial distribution (n=20, p=0.25). Then, using the Normal Approximation, calculate the probability that a student would pass the exam (scoring 10 or more out of 20) by pure guessing. Compare this theoretical probability to the actual proportion of 'passers' found in your simulation.",
+     "step_title": "Compare with theoretical limits",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload the final PDF of Part 2. Good work includes the simulation design, recorded data, at least one visualization (histogram/table), and the theoretical probability calculations compared against the simulated results."
+     },
+     "step_body": "Compile your simulation design, trial data, visualizations, and probability calculations into a single document. This document becomes 'Part 2: Probability Benchmarks and Simulation Analysis' of your final portfolio. Ensure all units are labeled and your logic is clear for an outside researcher to follow.",
+     "step_title": "Finalize Section 2",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "fda11ac8-1783-4eed-9034-b44eb452934d",
+   "stage_title": "Part 2: Probability Benchmarks and Simulation Analysis",
+   "parent_project_id": "2f0848bb-0a05-4d99-a1a2-bcea5fb9f82e",
+   "stage_description": "Build a simulation model to estimate the baseline probability of students passing the final exam by random guessing. You will use binomial probability distributions and normal approximations to calculate theoretical benchmarks and compare them with your simulated results.",
+   "deliverable_increment": "A Probability and Simulation Report (Section 2 of the portfolio) containing simulation trial records, probability calculations under the binomial setting, and normal curve visualizations."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Great work on your previous stages! You've already established a solid experimental design and used simulations to understand the baseline probability of student success. Now, it's time to move from simulation to formal categorical inference. In this stage, you will analyze the actual success rates of your students to see if the interactive simulator significantly improved passing proportions compared to the control group. This step will form Section 3 of your final portfolio.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your defined hypotheses (H0 and Ha) in notation and a brief explanation distinguishing between your population parameters and sample statistics. Criteria: Correct use of symbols (p vs p-hat) and a clear one-sided or two-sided alternative hypothesis based on your research goal."
+     },
+     "step_body": "Before running tests, you must clearly define what you are measuring. Based on your experimental setup, identify your population parameters (the true proportions of all students who would pass using each method) and your sample statistics (the actual proportions observed in your experiment). Using the symbols p and p-hat, define your null hypothesis (H0) assuming no difference and your alternative hypothesis (Ha) suggesting the simulator is more effective.",
+     "step_title": "Identify parameters and statistics",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Show your calculations for the Large Counts condition and state whether the conditions for inference are met. Criteria: Calculations must use the correct sample sizes and proportions, and the conclusion must be justified."
+     },
+     "step_body": "You cannot build a valid statistical model on a shaky foundation. Check the 'Large Counts' condition (np and n(1-p) >= 10) for both your simulator and control groups to ensure the sampling distribution of the difference in proportions is approximately normal. Additionally, confirm the 10% condition and the Randomization condition based on the protocol you designed in Part 1.",
+     "step_title": "Verify inference conditions",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated Z-score and p-value. Criteria: The z-score should be correctly calculated using the standard error formula for proportions, and the p-value must align with your alternative hypothesis."
+     },
+     "step_body": "Now, let's treat your control group's passing rate as a known baseline. Perform a one-proportion z-test to see if the simulator group's success rate is significantly higher than this baseline. Calculate your z-score and determine the p-value. This helps you understand the probability of seeing these results if the simulator actually had no effect.",
+     "step_title": "Perform a One-Proportion Z-Test",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide your 2x2 table showing both the Observed counts and the Expected counts (to two decimal places). Criteria: Expected counts must be mathematically accurate based on your observed data totals."
+     },
+     "step_body": "To see if the 'Passing' status is independent of the 'Learning Tool' used, construct a 2x2 contingency table (Simulator vs. Control and Pass vs. Fail). For this step, calculate the 'Expected Counts' for each cell using the formula (Row Total * Column Total) / Grand Total. Remember the lesson: do not round these to whole numbers yet, as they are theoretical averages!",
+     "step_title": "Construct a two-way table",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Chi-Square test statistic, degrees of freedom, and resulting p-value. Criteria: Calculation of the test statistic must be accurate, and degrees of freedom must be correctly identified (df = 1 for a 2x2 table)."
+     },
+     "step_body": "Calculate the Chi-Square (Χ²) statistic by summing the (O-E)²/E contributions from each of your four cells. Determine the degrees of freedom and find the p-value. This test of independence will provide a broader look at the association between the interactive tool and student success.",
+     "step_title": "Conduct the Chi-Square test",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 3 of your portfolio (Categorical Inference Chapter) as a PDF. Criteria: Must include all test results, conditions, a clear interpretation of the p-value in the context of the study, and a concluding statement on the simulator's efficacy."
+     },
+     "step_body": "Compile all your work from this stage—hypotheses, condition checks, z-test results, and Chi-Square analysis—into a cohesive 'Categorical Inference' document. Conclude by interpreting your p-values: do you reject or fail to reject your null hypotheses at a 0.05 significance level? What does this mean for the efficacy of the simulator?",
+     "step_title": "Finalize the Categorical Chapter",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "4bf1aff7-b9de-47e7-8ae2-b823d9c92a0d",
+   "stage_title": "Part 3: Categorical Inference on Simulator Success Rates",
+   "parent_project_id": "2f0848bb-0a05-4d99-a1a2-bcea5fb9f82e",
+   "stage_description": "Analyze the proportions of students who achieved passing grades using the simulator compared to the control group. You will verify conditions, perform a one-proportion z-test against the baseline, and use a Chi-Square test for independence to determine if passing rates are associated with the learning tool used.",
+   "deliverable_increment": "A Categorical Inference Chapter (Section 3 of the portfolio) presenting hypothesis tests, confidence intervals, check-of-conditions, and a Chi-Square calculation table with interpreted p-values."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you designed a robust experimental protocol and analyzed categorical outcomes using proportions and Chi-Square tests. However, evaluating educational efficacy often requires looking at actual test scores—quantitative data. In this stage, you will shift from 'success/failure' rates to analyzing the mean scores of your students. We will use t-inference to determine if the growth seen in the treatment group is statistically significant and if the simulator group outperformed the traditional textbook group.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief summary of your paired t-test results. Include your null and alternative hypotheses, the calculated t-statistic, and a one-sentence interpretation of whether the growth in the treatment group was statistically significant at the alpha = 0.05 level."
+     },
+     "step_body": "Start with the treatment group (those who used the simulator). To measure individual growth, we look at the difference between their pre-test and post-test scores. This requires a paired t-test because the data points are not independent—they belong to the same students. Check your data for the 'Random' condition, the '10%' condition, and the 'Normal/Large Sample' condition (remembering the Central Limit Theorem threshold of n ≥ 30). Once verified, calculate the mean difference, the standard error of the mean difference, and the t-statistic.",
+     "step_title": "Analyze paired growth",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's compare the simulator group's post-test results to the control (textbook) group. Since these are two distinct groups of students, you will perform a two-sample t-test. Re-verify your conditions: independence between groups is key here. Calculate the difference in sample means (x-bar_1 - x-bar_2) and determine the standard error. For your degrees of freedom, you may use the conservative approach (the smaller of n1-1 or n2-1) or the precise Welch-Satterthwaite approximation if you are using software.",
+     "step_title": "Compare group means",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide your 95% confidence interval for the difference between the two group means. State your interpretation of this interval and explain what it implies about the educational impact of the simulator."
+     },
+     "step_body": "P-values tell us if a difference exists, but confidence intervals tell us the magnitude of that difference. Construct a 95% t-interval for the difference in mean post-test scores between the two groups. This interval will provide a range of plausible values for how much better (or worse) the simulator performs compared to the textbook. Ensure you interpret the interval in context—for example, 'We are 95% confident that the true mean difference in scores is between X and Y points.'",
+     "step_title": "Construct confidence intervals",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 4 of your portfolio as a PDF. Good work will show clearly stated hypotheses, verified conditions (Random, 10%, Normal), accurate calculations for t-statistics and p-values, and conclusions that correctly link the statistical results back to the pedagogical efficacy of the simulator."
+     },
+     "step_body": "It is time to finalize Section 4 of your portfolio. Compile your findings into a formal report. This should include: 1) The paired t-test analysis for treatment group growth, 2) The two-sample t-test comparing the two groups, and 3) The confidence interval for the difference in means. Include visualizations of the t-distributions with shaded rejection regions or p-value areas to make your report professional and easy to read.",
+     "step_title": "Submit Quantitative Inference Chapter",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "As you wrap up this stage, consider the standard error you calculated. How would your results have changed if your sample size was four times larger? Recall from our lessons that quadrupling 'n' halves the standard error. Reflect on how sample size influences the 'power' of your study to detect small improvements in student scores. This conceptual understanding will be vital as we move into the final stage: linear regression.",
+     "step_title": "Reflect on variability",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "5604e2b1-d859-49f9-8b4e-24ff41d5fda8",
+   "stage_title": "Part 4: Quantitative Inference on Exam Scores",
+   "parent_project_id": "2f0848bb-0a05-4d99-a1a2-bcea5fb9f82e",
+   "stage_description": "Analyze the quantitative test scores from both the treatment and control groups. You will conduct a paired t-test on pre-test vs. post-test scores within the treatment group to measure growth, and a two-sample t-test to compare the mean post-test scores between the simulator and textbook groups.",
+   "deliverable_increment": "A Quantitative Inference Chapter (Section 4 of the portfolio) documenting t-distributions, confidence intervals for the mean differences, and formal significance tests supporting the pedagogical efficacy claims."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you designed a rigorous experiment, simulated probability benchmarks, and performed statistical tests on student success rates and exam scores. You have demonstrated that the interactive simulator likely improves performance. Now, for the final piece of your portfolio, you will analyze the specific relationship between time and outcome. We want to see if we can predict a student's exam score based on the number of hours they spent using the simulator. This will complete your 5-part comprehensive statistical report.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot or image of your scatterplot. It must have 'Hours Spent on Simulator' on the x-axis and 'Final Exam Score' on the y-axis, with clearly labeled axes and a title. Good work shows a clear visual representation where each point represents an individual student."
+     },
+     "step_body": "Before we run any calculations, we must set up our bivariate analysis correctly. In this scenario, we are investigating if 'Hours Spent on Simulator' predicts 'Final Exam Score.' Recall our classroom sessions: the variable we use to predict is the explanatory variable (x), and the outcome we measure is the response variable (y). Using the dataset provided in your project workspace, construct a scatterplot. Ensure your axes are correctly labeled with the variable names and appropriate scales—don't feel pressured to start every axis at zero if the data is clustered elsewhere.",
+     "step_title": "Identify variables and plot data",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type a paragraph describing the association. You must address all four pillars: Form (linear/curved), Outliers, Direction (positive/negative), and Strength (weak/moderate/strong). To be successful, you must use the specific variable names (Study Hours and Exam Scores) in your description."
+     },
+     "step_body": "Now that you can see the data, it's time to describe it using the 'FODS' framework we covered: Form, Outliers (unusual features), Direction, and Strength. Look at your scatterplot. Is the trend generally straight or curved? Are the points moving up or down as you move to the right? How closely do the points follow a clear path? Be sure to write your description using the context of study hours and exam scores—avoid just saying 'x and y.'",
+     "step_title": "Describe the relationship",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image showing your residual plot. Below the image, type your final LSRL equation using the 'hat' notation for the response variable (e.g., Score-hat = a + b * Hours). High-quality work includes an equation with correctly calculated coefficients and a residual plot that supports the use of a linear model."
+     },
+     "step_body": "With the visual pattern established, calculate the Least-Squares Regression Line (LSRL) in the form y-hat = a + bx. Use your statistical software or calculator to find the correlation coefficient (r), the slope (b), and the y-intercept (a). Once you have your equation, generate a residual plot. Remember, the residual plot helps us confirm if a linear model is actually appropriate; we are looking for a random scatter of points with no clear, curved pattern.",
+     "step_title": "Calculate the LSRL and Residuals",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide two things: 1) A formal interpretation of your slope in the context of study hours and scores. 2) Your predicted score for a student with 8.5 hours of study time. Success is defined by using non-deterministic language (like 'on average' or 'predicted') to describe the relationship."
+     },
+     "step_body": "The numbers in your equation have real-world meanings. Interpret the slope of your regression line using the standard AP template: 'For each additional unit of [explanatory], the model predicts an increase/decrease of [slope] units in [performance] on average.' Then, use your equation to make a prediction: if a student spends exactly 8.5 hours on the simulator, what exam score does your model predict? Be careful not to sound too certain—always use 'predicted' language.",
+     "step_title": "Interpret the model components",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your final 5-part portfolio as a single PDF. It must include all sections from Parts 1 through 5. Evaluation will be based on the accuracy of your statistical tests, the clarity of your visualizations, and the correct contextual interpretation of all results."
+     },
+     "step_body": "Congratulations on reaching the end of the research project! It is time to compile all five sections into your 'Comprehensive Statistical Report.' This should include your Experimental Design, Probability Simulation, Categorical Inference, Quantitative Inference, and this final Regression Analysis. Ensure the formatting is consistent, all charts are clear, and your interpretations are precise. This portfolio represents your complete mastery of the AP Statistics methodology.",
+     "step_title": "Submit the final portfolio",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "df7cd729-1c48-43bb-9de6-52b72911e40e",
+   "stage_title": "Part 5: Regression Modeling of Study Time vs. Exam Score",
+   "parent_project_id": "2f0848bb-0a05-4d99-a1a2-bcea5fb9f82e",
+   "stage_description": "Examine the linear relationship between hours spent on the simulator (explanatory variable) and final exam scores (response variable). Construct a scatterplot, calculate correlation metrics, generate the least-squares regression line, analyze residuals to evaluate fit, and make predictions.",
+   "deliverable_increment": "A Regression Analysis Report (Section 5 of the portfolio) featuring a residual plot, the least-squares regression line equation with interpreted slope/y-intercept, and the final compiled 5-part PDF portfolio."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "2f0848bb-0a05-4d99-a1a2-bcea5fb9f82e",
+   "project_name": "Evaluating the Efficacy of Interactive Learning: A Comprehensive Statistical Report",
+   "final_deliverable": "A comprehensive, 5-part statistical analysis portfolio in PDF format containing: an experimental design protocol, a probability simulation script with results, a categorical inference report (one-proportion z-tests and Chi-Square test), a quantitative inference report (paired and two-sample t-tests), and a linear regression analysis model evaluating study time vs. performance.",
+   "project_description": "In this hands-on project, you will act as a lead educational researcher evaluating the efficacy of a new interactive statistics simulator. You will design a randomized experiment, simulate and analyze baseline probability benchmarks, construct and interpret confidence intervals and hypothesis tests for student success proportions, perform t-tests to evaluate exam score improvements, and build a predictive linear model to understand how study time relates to performance. By completing this project, you will apply the full lifecycle of AP Statistics methods to a single cohesive educational dataset."
+  }
+ ],
+ "courseUuid": "07666455-74fd-4d98-9ee0-d18c5ba77868"
+}

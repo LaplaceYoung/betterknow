@@ -1,0 +1,320 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project! Over the next several stages, you are going to build a structured 'AI Behavior Logbook'—a comprehensive markdown document that serves as your personal laboratory record for demystifying Large Language Models. By the end of this course, you will have a professional-grade technical report mapping everything from tokenization to complex model benchmarking. We are starting at the very beginning: how AI actually 'reads' and 'predicts' text. In the previous sessions, we explored how models break language into tokens and use probability tables to guess what comes next. Today, you’ll roll up your sleeves and perform these calculations manually to see the math behind the 'magic'.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a text-based table or list showing the breakdown of the sentence 'Incredibly, it's working!' into its specific tokens and their corresponding numerical IDs."
+     },
+     "step_body": "Before an AI can process a sentence, it must slice it into tokens. Using an online tokenizer (like the OpenAI Tokenizer or Tiktokenizer), input the following sentence: 'Incredibly, it's working!' Observe how the tool breaks the sentence down. Does it split 'Incredibly' into sub-words? How does it handle the punctuation? For your Logbook, create a simple table with two columns: 'Text Fragment' and 'Token ID'. List each token produced by the tool along with its unique numerical index. This demonstrates how the model converts human language into the arbitrary integer IDs we discussed in class.",
+     "step_title": "Map Words to Tokens",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your probability calculations for 'mouse' and 'red' (e.g., 50% / 50%) and a one-sentence explanation of how the model decides between them based on the provided corpus."
+     },
+     "step_body": "Now, let’s act as the 'correlation calculator.' Imagine a tiny AI trained on only one sentence: 'The hungry cat chased the mouse.' If we give this AI the prompt 'The hungry cat chased the...', there is a 100% probability the next token is 'mouse'. But what if our training data also included 'The hungry cat chased the red ball'? Now, after the word 'the', the model has two paths: 'mouse' or 'red'. Based on these two sentences, what is the mathematical probability (percentage) of 'mouse' being the next token versus 'red'? Calculate the percentages for both and write a brief sentence explaining why 'the' is a 'branching point' for the model's prediction engine.",
+     "step_title": "Calculate Next-Token Probabilities",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief reflection (2-3 sentences) explaining the advantage of sub-word tokenization when the model encounters complex or rare words."
+     },
+     "step_body": "Tokenization isn't always intuitive. Take the word 'outstandingly'. Based on our lesson on efficiency and vocabulary size, why does the tokenizer break this into pieces like 'out', 'stand', 'ing', and 'ly' instead of keeping it as one word? In your Logbook, reflect on this: if the AI encountered a brand new word it had never seen, like 'super-outstandingly', how would sub-word tokenization allow the AI to still 'understand' or process the word? This is the secret to why LLMs rarely run into 'Unknown Word' errors.",
+     "step_title": "Analyze Sub-word Boundaries",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your Section 1 deliverable. This should be a file (Markdown or PDF) containing your formatted Tokenization Table and your Next-Token Probability breakdown. Good work will be clearly organized and demonstrate accurate mapping of tokens to IDs."
+     },
+     "step_body": "It’s time to assemble your work into the first official entry of your 'AI_Behavior_Logbook.md'. Create a Markdown file (or use a text editor) and create a heading titled '# Section 1: Tokenization Map & Next-Token Calculations'. Include your token table from step 2 and your probability breakdown from step 3. Ensure it is neatly formatted with clear headings. This document will be the foundation of your final deliverable, and you will continue to add new sections to it as we move through the experiments in this course.",
+     "step_title": "Finalize Section 1 of your Logbook",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "76405394-260b-49e5-8d6d-26da2446d79a",
+   "stage_title": "Tokenization and Next-Token Prediction Sandbox",
+   "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+   "stage_description": "In this stage, you will manual-tokenize simple sentences using an online tool, convert them to token IDs, and manually calculate simple probabilistic word predictions based on a small text corpus to understand how generative AI computes text.",
+   "deliverable_increment": "Section 1: Tokenization Map & Next-Token Calculations added to the Logbook, featuring comparative tables of words vs. tokens and a step-by-step next-token probability breakdown."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you mapped out how LLMs use tokenization and probability to predict the next word in a sequence. You've seen that a base model is essentially a massive 'Next-Word Predictor.' Now, we move into Phase 2: Alignment. While pretraining makes a model smart, fine-tuning and Reinforcement Learning from Human Feedback (RLHF) make it useful. This stage focuses on 'Instruction Alignment'—the process of taking a wild, pretrained base model and turning it into a helpful assistant that follows directions instead of just completing patterns.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit three specific prompts (questions or instructions) where you predict a raw base model would fail to act as a helpful assistant, and briefly explain what the 'pattern completion' response might look like for each."
+     },
+     "step_body": "Think back to the lecture metaphor: the Base Model is the 'Generalist Academy' student. If you ask a base model a question like 'What are the benefits of exercise?', it might not give you a list. Instead, it might think it's looking at a blog post title and respond with 'What are the risks of a sedentary lifestyle?' because that is a common pattern in internet data. To start your comparison matrix, brainstorm three prompts where a raw, unaligned model would likely fail to provide a helpful answer and instead 'complete the pattern' (e.g., providing a list of similar questions or continuing a story instead of answering).",
+     "step_title": "Identify base model behavior",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "For the three prompts you drafted previously, describe the expected response from an aligned assistant model. Explain how the assistant's response differs from the 'pattern completion' behavior of a base model."
+     },
+     "step_body": "Now, contrast those 'wild' base model behaviors with how an instruction-aligned model (like ChatGPT or Claude) handles the same prompts. These models have undergone fine-tuning on high-quality instruction-response pairs and RLHF to ensure they prioritize helpfulness and safety. For the three prompts you identified in the previous step, describe what a high-quality, aligned response looks like. Consider factors like formatting (bullet points), directness, and the 'assistant' persona.",
+     "step_title": "Contrast with aligned output",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe one scenario where specialized fine-tuning could lead to 'catastrophic forgetting' or a decrease in utility for a general user. What specific skill might the model lose?"
+     },
+     "step_body": "Recall the 'catastrophic forgetting' trap mentioned in the session. When we fine-tune a model to be extremely specialized (e.g., only writing medical reports), it can lose its ability to perform general reasoning or maintain a friendly tone. Before you finalize your deliverable, think of one scenario where too much fine-tuning might actually make a model perform worse on a general-purpose task. This helps you understand why developers must balance 'General Intelligence' and 'Domain Specialization' on their training scales.",
+     "step_title": "Analyze 'Catastrophic Forgetting'",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Section 2 of your 'AI_Behavior_Logbook.md' (exported as PDF). It must include a structured matrix or table comparing Base Models and Aligned Models. Success is defined by clearly identifying the difference between 'pattern completion' and 'instruction following' using concrete examples."
+     },
+     "step_body": "It is time to formalize your findings into your Logbook. You will now create 'Section 2: Pretraining vs. Alignment Comparison Matrix.' This table should visually contrast 'Base Model Behavior' vs. 'Aligned Assistant Behavior' across several categories: instruction following, formatting, and handling of ambiguous queries. Use the examples you brainstormed in the previous steps to populate this matrix. This section will serve as a critical reference for understanding why we don't just use base models for real-world apps.",
+     "step_title": "Submit comparison matrix",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "You've now documented the shift from a 'Next-Token Predictor' to a 'Digital Assistant.' This transition is the secret sauce behind the AI revolution—it's not just about the size of the model, but how it is steered to behave. In the next stage, we will dive deeper into why these models still fail despite alignment, exploring the 'hallucination boundaries' of these systems. Great job completing the second major section of your logbook!",
+     "step_title": "Reflect on alignment",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "37d5ed86-ca7e-4860-828a-315069e71c22",
+   "stage_title": "Instruction Alignment Case Study",
+   "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+   "stage_description": "In this stage, you will analyze and document the differences in responses between a raw, pre-trained base model and a fine-tuned, instruction-aligned assistant model when given the same complex prompts.",
+   "deliverable_increment": "Section 2: Pretraining vs. Alignment Comparison Matrix, showing how RLHF and fine-tuning shape model outputs under different instruction scenarios."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you mapped how tokens are predicted and how alignment fine-tuning shapes model tone. However, we've also seen that LLMs are 'plausibility engines' rather than 'truth engines.' Because they optimize for linguistic probability, they can fluently describe things that don't exist. In this stage, you will move from observing alignment to actively probing the boundaries of factual reliability by designing experiments to trigger and then resolve AI hallucinations.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the prompt you designed and a brief explanation (1-2 sentences) of why the model's internal training data likely lacks this specific factual information."
+     },
+     "step_body": "Start by identifying an obscure or fictional topic that falls outside the model's training data or requires real-time knowledge it doesn't possess (e.g., a made-up historical event from 2024 or the 'biography' of a non-existent local official). Draft a prompt that encourages the model to provide a detailed, authoritative response on this topic. The goal is to induce a 'confabulation' where the model uses its mastery of syntax and academic tone to mask a lack of facts. Write your proposed prompt and explain why you believe it will trigger a hallucination based on the concept of 'Parametric Memory.'",
+     "step_title": "Design a 'Knowledge Gap' prompt",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of the model's hallucinated response. Ensure the screenshot shows the prompt and the convincing but factually incorrect output."
+     },
+     "step_body": "Now, take your designed prompt and run it through a public LLM (like GPT-4o, Claude, or Gemini). To maximize the chance of hallucination, set the 'Temperature' parameter to a higher value (around 0.8 or 1.0) if your interface allows, as this increases the probability of selecting less-likely tokens. Observe the output. Does it use confident logical connectors like 'therefore' or 'consequently'? Does it invent specific names, dates, or citations? Capture the evidence of this failure.",
+     "step_title": "Execute the stress test",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the 'Fixed Prompt' you used and a short description of the result. A good submission shows how the added context successfully constrained the model's 'probabilistic wandering.'"
+     },
+     "step_body": "One of the most effective ways to stop hallucinations is providing 'grounding' context. Take your original prompt and modify it using a simplified Retrieval-Augmented Generation (RAG) approach: paste a factual snippet of text (or a clear instruction that the topic is fictional) into the prompt window before the question. For example, 'Using only the following information: [Insert Fact], answer the question...' and set the temperature to 0. Compare this new output to the previous hallucination. Does the model now admit it doesn't know, or does it stick to the provided facts?",
+     "step_title": "Implement the 'RAG' fix",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload 'Section 3: Hallucination Diagnostics Report' as a PDF. It must include three documented cases with 'Prompt,' 'Hallucination Evidence,' and 'Correction Method' clearly labeled for each."
+     },
+     "step_body": "It's time to formalize your findings for your Logbook. You need to document three distinct stress-test cases: one for a 'Knowledge Gap' (obscure facts), one for a 'Logic Error' (complex reasoning), and one for 'Context Overflow' (asking about a detail in a very long text). For each case, record the failing prompt, the hallucinated response, and the specific adjustment (like adding context or changing instructions) that restored accuracy. This becomes Section 3 of your final project.",
+     "step_title": "Submit the Diagnostics Report",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "To wrap up this stage, consider the 'three-layer' diagram we discussed: Syntax, Semantic Coherence, and Factual Grounding. In your experiments, which layer was the strongest even when the facts were wrong? Reflecting on this helps you develop the 'skeptical eye' necessary for advanced prompt engineering. You are now ready to move on to the next stage: Advanced Prompt Engineering and Benchmarking.",
+     "step_title": "Reflect on plausibility",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "ea7155fd-1104-4c9f-93a1-3d1775e80607",
+   "stage_title": "Hallucination and Context Window Probing",
+   "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+   "stage_description": "In this stage, you will design and execute boundary tests to intentionally trigger and then fix hallucinations in a public LLM by adjusting context windows, knowledge boundaries, and temperature parameters.",
+   "deliverable_increment": "Section 3: Hallucination Diagnostics Report, documenting three stress-test cases where the AI failed and the specific adjustments made to restore factual accuracy."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you mapped how tokens work and documented why models hallucinate. You recently learned that models aren't intuitive mind readers but pattern-prediction engines. This stage moves your 'AI Behavior Logbook' forward by applying those lessons: you will build a 'Master Few-Shot Prompt Template' (Section 4) that uses persona framing, structural delimiters, and few-shot examples to force the AI into a narrow, high-quality probability space for a complex task.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief description of your chosen task and the specific persona text you have drafted. Good work includes a role that narrows the domain (e.g., 'expert billing analyst' rather than 'helpful AI')."
+     },
+     "step_body": "Start by choosing a complex categorization or synthesis task for your AI to perform (e.g., 'Classifying customer feedback into Technical vs. Billing vs. Feature Requests' or 'Summarizing medical abstracts for a 5th-grade reading level'). Once chosen, write a 'Persona and Role' instruction. Instead of saying 'You are an assistant,' use the 'funnel' technique from our session to define a specific expert persona with a clear tone. Describe the task and the persona you've crafted below.",
+     "step_title": "Define the task and persona",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "To prevent 'instruction drift' and help the model distinguish between your rules and the data it processes, you must use structural delimiters. Draft the skeleton of your template using tags like <instructions>, <context>, and <input>. This scaffolding ensures the model understands exactly where the guidance ends and the work begins. Think about which tags will best organize your specific task.",
+     "step_title": "Structure with delimiters",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your three few-shot example pairs. Criteria: The examples must be consistently formatted and cover at least one 'edge case' relevant to your task to help the model find the boundary lines."
+     },
+     "step_body": "Now, prepare exactly three diverse few-shot examples. Remember: quality and diversity matter more than volume. If your task is sentiment analysis, don't just provide three 'happy' examples. Include one straightforward positive, one straightforward negative, and one 'edge case' like a sarcastic or neutral comment. This teaches the model the precise boundary lines of your task. Draft your three pairs of 'Input' and 'Output' examples now.",
+     "step_title": "Select few-shot examples",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF containing Section 4: The Master Few-Shot Prompt Template. It should include: 1) The full prompt (Persona, Delimiters, and Few-Shot Examples) and 2) Your annotated design explanations. I will look for structural consistency and a clear link between your design choices and the session concepts."
+     },
+     "step_body": "It is time to assemble Section 4 of your Logbook. Combine your Persona, your structural delimiters, and your few-shot examples into one cohesive 'Master Few-Shot Prompt Template.' At the end of the template, include an 'Annotated Design' section: a few sentences explaining why you chose these specific examples and how the delimiters help the model stay on track. This demonstrates your mastery of the 'Dialogue' model over the 'Search' model mindset.",
+     "step_title": "Assemble the Master Template",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "You've now moved from vague queries to a structured system. This template is a core component of your final Logbook. Before moving on, consider how you might use 'iteration' if the model still produces average results—could you add a negative constraint or a structural critique step? Your 'AI Behavior Logbook' is nearly complete, now featuring a sophisticated engineering tool for predictable AI behavior.",
+     "step_title": "Reflect and wrap-up",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "0072e30f-1aba-404d-98a3-68be6f543508",
+   "stage_title": "Designing a Few-Shot Prompt Template",
+   "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+   "stage_description": "In this stage, you will engineer a robust few-shot prompt template designed to perform a complex categorization and synthesis task, employing system instructions, context bounding, and few-shot examples.",
+   "deliverable_increment": "Section 4: The Master Few-Shot Prompt Template, complete with annotated design explanations showing how context, constraints, and examples steer the AI's behavior."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have spent the last four stages building the core components of your AI Behavior Logbook: you've mapped tokenization, analyzed instruction alignment, diagnosed hallucinations, and engineered a master few-shot prompt. Now, it's time for the ultimate test. In this final stage, you will move beyond 'vibe checks' and apply a systematic benchmarking process. You will use the prompt template you created in the previous stage to compare the performance of two different LLMs, transforming qualitative text into quantitative data for your final deliverable.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 1-5 scoring rubric definitions for Accuracy, Instruction Adherence, and Helpfulness. A good response will clearly describe what a '5' looks like versus a '1' for each category relative to your specific prompt task."
+     },
+     "step_body": "To evaluate AI objectively, you need a consistent measuring stick. Based on our lessons, we will use three primary dimensions: Accuracy/Factuality (did it get the details right?), Instruction Adherence (did it follow your constraints and few-shot formatting?), and Helpfulness/Tone (is the output fit for its intended purpose?). Think about the specific task your master template was designed for. Do you need to adjust the weight of these criteria? For example, if your prompt generates medical advice, accuracy is weighted higher than tone. Write down a simple 1-5 scale definition for each of these three criteria.",
+     "step_title": "Define your rubric",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, take your master few-shot prompt template from Section 4 and run it through two different models (e.g., GPT-4o and Claude 3.5 Sonnet, or a large model versus a smaller '7B' model). Do not change the prompt between runs; the goal is to see how different neural architectures and alignment histories handle the exact same instructions. Observe how each model interprets your examples and whether they maintain the structural scaffolding (like the triple backticks or tags) you provided.",
+     "step_title": "Execute the dual-model test",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a summary of your scores for both models across your three criteria. Include at least two sentences of analysis explaining why one model outperformed the other in a specific category (e.g., 'Model B scored higher in Adherence because it perfectly followed the XML tags, whereas Model A used standard paragraphs')."
+     },
+     "step_body": "It is time to populate your benchmark matrix. Using the rubric you defined earlier, assign scores to both models. Don't just record the numbers—write a brief 'Analysis' for each. Did Model A's next-token predictions stay closer to your examples? Did Model B exhibit 'instruction drift' where it started ignoring your constraints halfway through? This is where you identify the trade-offs between the two models.",
+     "step_title": "Score and analyze the results",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your final 'AI_Behavior_Logbook.md' file. The document must contain all 5 sections: 1) Tokenization Map, 2) Alignment Matrix, 3) Hallucination Report, 4) Master Few-Shot Template, and 5) The Benchmark Matrix/Evaluation you just completed. Good work will be formatted clearly in Markdown with data-driven observations for every experiment."
+     },
+     "step_body": "You have reached the final milestone! Integrate your benchmark matrix and evaluation into your document as 'Section 5: Dual-Model Benchmark Matrix and Final Evaluation'. Ensure your 'AI_Behavior_Logbook.md' is now complete, including all five sections from the entire course. This document now serves as a professional-grade record of your ability to probe, prompt, and evaluate large language models systematically.",
+     "step_title": "Finalize the Logbook",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Take a moment to look back at Section 1. You started by counting tokens and calculating probabilities, and you ended by designing and benchmarking complex AI systems. How has your mental model of AI changed? You are no longer just a user; you are an operator who understands the mechanics of prediction and the necessity of iteration. Congratulations on completing the AI Behavior Logbook!",
+     "step_title": "Reflect on the journey",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "67d2bdbb-06b8-4937-b50e-c795000919b7",
+   "stage_title": "Comparative Benchmarking of Real-World Tasks",
+   "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+   "stage_description": "In this final stage, you will execute your engineered prompt template across two different AI models, scoring their outputs based on concrete rubrics for accuracy, adherence to instructions, and helpfulness.",
+   "deliverable_increment": "Section 5: Dual-Model Benchmark Matrix and Final Evaluation, scoring and contrasting the performance of two distinct models, completing the final 'AI_Behavior_Logbook.md' deliverable."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+   "project_name": "The AI Behavior Logbook",
+   "final_deliverable": "A comprehensive, multi-section markdown document ('AI_Behavior_Logbook.md') containing detailed records, calculations, and analysis of five structured hands-on experiments mapping tokenization, next-token prediction, hallucination boundaries, prompt engineering, and comparative model benchmarking.",
+   "project_description": "In this project, you will build a structured 'AI Behavior Logbook' to study, probe, and master LLMs. Through hands-on experiments, you will map out how an AI tokenizes language, how it makes probabilistic predictions, how fine-tuning alters its tone, why it hallucinates, and finally, how to engineer advanced prompts and evaluate different models for real-world tasks."
+  }
+ ],
+ "courseUuid": "07857874-2e83-4b64-b4f8-46d93d655b62"
+}

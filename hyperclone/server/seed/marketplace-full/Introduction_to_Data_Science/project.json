@@ -1,0 +1,324 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first major project! Over the course of this project, you will step into the shoes of a data science consultant for GreenGrocer, a retail chain. By the end of this journey, you will have built a complete Data Science Portfolio piece, including a fully documented Jupyter Notebook and a professional Executive Report that forecasts high-value customers. Today, we start at the very beginning: the Foundation. We recently explored the data science lifecycle and how to translate vague business desires into measurable problems. Now, it is time to apply those concepts by framing exactly what we are trying to solve for GreenGrocer before we touch any code.",
+     "step_title": "Project Kickoff",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit two clear business objectives. Good work will specify a goal that is actionable for a retail business rather than just a general observation."
+     },
+     "step_body": "Every successful data project starts with a clear objective. For GreenGrocer, the management is concerned about customer retention and identifying who their most valuable shoppers are. Based on what we learned about the Data Science Persona, think like a Data Scientist: what is the primary 'translation' of 'help us sell more' into a data-driven goal? Write down two specific business objectives this project should address (e.g., 'Identifying shoppers at risk of leaving' or 'Predicting future spending').",
+     "step_title": "Identify Business Goals",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your chosen success metric and a 1-2 sentence justification for why this metric provides business value."
+     },
+     "step_body": "Now that we have goals, we need to know how to measure them. In our session on 'From Question to Measurable Problem,' we discussed turning desires into targets. For a grocery chain, common metrics include Customer Lifetime Value (CLV), Churn Rate, or Average Basket Value. Choose one primary metric you will focus on as your 'Target Variable' and explain why it is the best choice for measuring GreenGrocer's success.",
+     "step_title": "Define Success Metrics",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief summary categorizing at least 3 available variables as either static or dynamic features."
+     },
+     "step_body": "To build our 'Problem Definition Document,' we must look at our 'digital filing cabinet'—the DataFrame. You have been provided with a raw dataset of customer transactions and store info. Review the available variables: Transaction ID, Date, Customer ID, Product Category, and Total Spent. Identify which of these are 'Static Features' (attributes that don't change often) and which are 'Dynamic Features' (related to specific events), as we practiced in our Real Estate example.",
+     "step_title": "Analyze the Data Inventory",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your Problem Definition Document as a PDF. It should include: 1) Project Title, 2) Two Business Goals, 3) Primary Success Metric, and 4) A summary of the data features you will use. Criteria: Clarity, alignment between goals and metrics, and professional formatting."
+     },
+     "step_body": "It is time to finalize your project foundation. Combine your business goals, success metrics, and data inventory notes into a formal 'Problem Definition Document.' This document ensures that as you move into the 'Scrub' and 'Explore' phases of the OSEMN framework in the coming stages, you have a clear roadmap to follow and won't get lost in the technical weeds.",
+     "step_title": "Submit Problem Definition",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work! You have officially framed your first data science project. By defining your 'Unit of Analysis' (the customer) and your 'Target' (success metrics) early, you have avoided the 'Ambiguity Trap.' In the next stage, we will move into the 'Obtain' and 'Scrub' phases, where we will load this data into Python and begin cleaning it for analysis.",
+     "step_title": "Stage 1 Reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "a41df469-b6a0-47dd-894b-32ce74f583dc",
+   "stage_title": "Project Foundation and Problem Framing",
+   "parent_project_id": "29c2871e-5f1e-4ac5-b275-fae2fbfd6fb5",
+   "stage_description": "Define the business problem for GreenGrocer, select success metrics (like Customer Lifetime Value), and set up your analysis environment with the raw dataset.",
+   "deliverable_increment": "A 'Problem Definition Document' specifying business goals, success metrics, and a summary of the data inventory."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you defined the business problem and metrics for GreenGrocer. Now, it's time to move from theory to action by working with the raw transaction data. You've recently learned about the 'shape' of data, the dangers of summary statistics like the mean, and how to handle missing values and outliers. In this stage, you will apply those concepts to transform a messy raw dataset into a clean, 'analysis-ready' foundation for your final report.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short summary (1-2 paragraphs) identifying which columns have missing values, the percentage of missingness, and your hypothesis on the 'type' of missingness (MCAR, MAR, or MNAR) for the price column. Good work clearly identifies the scope and potential bias of the missing data."
+     },
+     "step_body": "Load your transaction dataset and identify columns with missing values. Specifically, look at the 'Price' and 'CustomerID' columns. Based on what you learned about MCAR, MAR, and MNAR, consider why a price might be missing. Is it a scanning error (MCAR) or perhaps related to a specific product category (MAR)? Before you fix them, calculate the percentage of missing data in each column to assess the scale of the problem.",
+     "step_title": "Identify missingness",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'Cleaned Dataset' file (CSV or Excel). It should contain no duplicate transactions, no null values in the 'Price' column, and standardized date formats. Success is defined by a consistent row count and logically filled price values."
+     },
+     "step_body": "Now, perform the 'surgical' work of cleaning. Handle duplicates by looking for 'near-duplicates' (same customer and amount within a 1-minute window). For the missing prices, apply an imputation strategy: use the median price for that specific SKU (Stock Keeping Unit) to avoid the 'spike' at the global mean. Finally, ensure all 'TransactionDate' entries are converted to ISO 8601 format (YYYY-MM-DD) so you can later analyze seasonal trends without date-parsing errors.",
+     "step_title": "Clean and standardize",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type out your calculated IQR fences and describe your decision on how to handle values outside these fences. Which outliers did you keep, which did you drop, and what was your business justification? Good work demonstrates a balance between mathematical rules and business context."
+     },
+     "step_body": "With a clean dataset, use the Interquartile Range (IQR) method to find extreme values in 'TransactionAmount'. Calculate the 'fences' (Q1 - 1.5*IQR and Q3 + 1.5*IQR). Don't just delete them! Look at the highest outliers—are these legitimate 'bulk' purchases for a restaurant, or are they data entry errors (e.g., a quantity of 9999)? Decide on a threshold for removing truly impossible values while keeping legitimate high-value customers.",
+     "step_title": "Detect outliers",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a single image or a PDF document containing your 'Exploratory Plots' (at least one histogram and one scatter plot). High-quality submissions include clear axis labels, titles, and visible trends or clusters."
+     },
+     "step_body": "Now, let's see the 'story' of the data. Create a histogram of transaction amounts to see the distribution shape. Is it a Bell Curve, or is it heavily skewed? Additionally, create scatter plots comparing 'Price' vs. 'Quantity' to look for correlations. These plots are essential for your final report as they prove you understand the underlying behavior of GreenGrocer’s customers beyond just the 'average' sale.",
+     "step_title": "Visualize distributions",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Wrap up this stage by summarizing your findings. Did the bimodal distribution in sales suggest different customer segments (e.g., morning commuters vs. evening families)? Your cleaning and EDA have now provided the 'Cleaned Dataset' and 'Exploratory Plots' required for your portfolio. You are now ready to move into predictive modeling in the next stage.",
+     "step_title": "Reflect on EDA findings",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "6eb01482-9775-4d30-a5a5-dfd77760d4e5",
+   "stage_title": "Data Wrangling and Exploratory Analysis",
+   "parent_project_id": "29c2871e-5f1e-4ac5-b275-fae2fbfd6fb5",
+   "stage_description": "Clean the transaction data by handling missing prices and duplicate entries, then perform EDA to identify seasonal sales trends and customer segments.",
+   "deliverable_increment": "A 'Cleaned Dataset' file and a collection of 'Exploratory Plots' (histograms and scatter plots) showing data distributions and correlations."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you defined the GreenGrocer business problem and performed extensive exploratory data analysis (EDA) to produce a cleaned dataset. Now, you are moving from discovery to communication. Your goal in this stage is to transform those raw findings into a 'Visual Storyboard'—a dashboard or slide deck that uses polished, explanatory visualizations to explain the 'Why' behind sales patterns to stakeholders. You aren't just showing data; you are using the 'Narrative Structure' and 'Perception' principles you just learned to drive a specific business decision.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State your chosen narrative structure (Inverted Pyramid or Chronological Discovery) and write a one-sentence 'Bottom Line Up Front' (BLUF) that summarizes your main finding for GreenGrocer executives. Good work clearly identifies a business-relevant insight (e.g., 'Revenue is dropping because weekend churn among high-value shoppers has increased by 15%')."
+     },
+     "step_body": "Based on your EDA, you likely discovered a key driver of sales or a specific customer behavior. Before you build charts, you must decide how to present this to GreenGrocer leadership. Will you use the 'Inverted Pyramid' (starting with your biggest recommendation first for busy executives) or 'Chronological Discovery' (walking them through the 'detective story' of your data journey)? Think about your 'Bottom Line Up Front' (BLUF). What is the one major insight you want them to walk away with?",
+     "step_title": "Select your narrative structure",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Review your key findings and choose the 3-4 most important metrics that support your BLUF. For each, identify the best 'Mark' (points, lines, or bars) and 'Channel' (position, color, or size) to represent the data. Remember the 'Hierarchy of Perception': use 'Position on a Common Scale' for precise comparisons. Avoid using color hue or area to represent critical numerical growth; stick to length or position to ensure the magnitude is clear and honest.",
+     "step_title": "Draft your visual marks and channels",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF of your 'Communication Dashboard' or slide deck. It should contain at least 3 annotated visualizations that flow logically according to your chosen narrative. Good work uses appropriate chart types (e.g., lines for trends, bars for discrete categories), includes zero-baselines where required, and uses annotations to highlight the most important insights."
+     },
+     "step_body": "Using your chosen marks and channels, create your explanatory visualizations. Ensure your scales are honest—specifically, ensure any bar charts start at a zero-baseline to avoid distorting ratios. For time-series data, use line charts to show trends. Add annotations to your charts to point out specific anomalies or 'hooks' that explain the 'Why' behind the patterns (e.g., 'Sales dip here corresponds to the loyalty program change'). Your charts should be a 'curated museum,' not a raw warehouse of every plot you made during EDA.",
+     "step_title": "Build the Communication Dashboard",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the final 'Call to Action' you have included in your storyboard. A strong CTA is specific, actionable, and directly supported by the data visualizations you submitted in the previous step."
+     },
+     "step_body": "Every data story must end with a 'Call to Action' (CTA). Look at your storyboard and ask: 'Insight + Action = Impact.' Based on the charts you just built, what specific inventory or marketing change should GreenGrocer implement today? Whether it is restocking a specific category or launching a targeted coupon, your final slide or section must make this recommendation explicit. This transforms your work from a technical report into a strategic partnership.",
+     "step_title": "Refine the Call to Action",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "c309da0d-b678-41f0-a044-9bdfe8e76dd6",
+   "stage_title": "The Visual Storyboard",
+   "parent_project_id": "29c2871e-5f1e-4ac5-b275-fae2fbfd6fb5",
+   "stage_description": "Convert your exploratory findings into polished, explanatory visualizations designed to persuade stakeholders about specific inventory or marketing changes.",
+   "deliverable_increment": "A 'Communication Dashboard' or slide deck containing annotated charts that explain the 'Why' behind current sales patterns."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already laid a strong foundation for the GreenGrocer project by cleaning your data, exploring basic distributions, and storyboarding initial sales patterns. Now, we transition from describing what happened to predicting what will happen. In this stage, you will use the statistical principles of sampling and distribution to validate store performance differences and build a logistic regression model to identify high-value customers. This will culminate in your 'Model Evaluation Report,' a critical component of your final portfolio.",
+     "step_title": "Recap & orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide your 95% confidence interval for the difference in means and a 2-3 sentence explanation of your finding. Good work correctly interprets the interval as a range of plausible values rather than a fixed probability."
+     },
+     "step_body": "Before modeling, we must ensure our store-level observations aren't just 'unlucky flukes.' Using the principles of the Central Limit Theorem and Sampling Distributions, compare the average transaction value between two store regions. Calculate the Standard Error for both to understand the 'noise' in your estimates. Construct a 95% Confidence Interval for the mean difference. Does the interval include zero? Briefly explain what this tells you about whether the difference in store performance is likely representative of the whole population or just sample variation.",
+     "step_title": "Inferential store comparison",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's build the predictive engine. Your task is to classify customers into 'High-Value' (1) or 'Standard' (0) based on features like frequency of visits and average spend. Start by defining your target variable and splitting your data into training and testing sets. Think back to our discussion on the Sigmoid function: we are moving from linear math to a 0-to-1 probability range. Ensure you handle any class imbalance if 'High-Value' customers are rare compared to the general population.",
+     "step_title": "Prepare your classifier",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short list of your model's top 3 features and their associated p-values. A good response identifies features with p-values below 0.05 as statistically significant predictors."
+     },
+     "step_body": "Run your Logistic Regression model. Instead of just looking at the final prediction, look at the regression coefficients and p-values. Remember our 'Log-Odds' discussion: a positive coefficient increases the likelihood of a customer being 'High-Value.' Identify which feature has the most significant impact on your model. Does a specific shopping behavior (like buying organic) significantly shift the probability?",
+     "step_title": "Interpret model coefficients",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "A probability of 0.55 might classify someone as 'High-Value,' but is that threshold right for GreenGrocer? If we offer a 20% discount to everyone the model flags, a 'False Positive' (flagging a standard customer) costs us money. Generate a Confusion Matrix for your model. Observe the trade-offs between Precision and Recall. Adjust your decision boundary if necessary to better align with the business goal of identifying truly elite spenders without overspending on marketing.",
+     "step_title": "Evaluate the decision boundary",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your Model Evaluation Report as a PDF. It must include: 1) The results of your store comparison (CI), 2) Logistic regression coefficients/p-values, and 3) A confusion matrix with a brief comment on model accuracy."
+     },
+     "step_body": "It's time to finalize this stage's deliverable. Consolidate your findings into a concise 'Model Evaluation Report.' This should include your statistical inference results (the confidence intervals), your logistic regression summary (coefficients and p-values), and a visualization of your Confusion Matrix. This report proves that your predictions are rooted in sound statistical theory and provides the evidence needed for the executive summary in the final project stage.",
+     "step_title": "Submit Model Evaluation Report",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "2eb892bd-81d5-484b-ad88-8b0648dae664",
+   "stage_title": "Predictive Modeling and Inference",
+   "parent_project_id": "29c2871e-5f1e-4ac5-b275-fae2fbfd6fb5",
+   "stage_description": "Apply statistical tests to compare store performances and build a classification model to predict whether a customer will churn or become high-value.",
+   "deliverable_increment": "A 'Model Evaluation Report' including regression coefficients, p-values, and a confusion matrix for the classifier."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You've come a long way from framing the business problem to building a predictive model. In the last session, we explored the nuances of causality, ethics, and the gold standard of A/B testing. Now, it's time for the final sprint: Feature Engineering and Final Synthesis. This stage is where you move beyond raw data to inject 'domain knowledge' into your model—creating smarter inputs that capture the actual behavior of GreenGrocer's customers and finalizing your professional report.",
+     "step_title": "Recap & synthesize",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief explanation of the two temporal features you created and one reason why 'Recency' is a critical feature for a retail forecasting model."
+     },
+     "step_body": "Raw timestamps are just strings to a model. To help GreenGrocer understand buying patterns, you need to extract the 'logic' of time. Open your notebook and derive at least two temporal features from your transaction dates, such as 'DayOfWeek' or 'IsWeekend'. Additionally, create a 'Recency' feature (days since last purchase) for each customer. Reflect on why these specific features might be more predictive of future spending than a raw date.",
+     "step_title": "Engineer temporal features",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, apply the technical rigor we discussed regarding Categorical Encoding and Scaling. Use One-Hot Encoding for nominal variables (like 'Store_Location') while being mindful of the dummy variable trap. Then, apply Standardization (Z-score) or Min-Max scaling to your continuous variables like 'Total_Spend' and 'Age'. This ensures that the model doesn't give undue weight to features simply because they have larger numerical ranges.",
+     "step_title": "Encode and scale data",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Integrate your new features into your final model pipeline and re-evaluate the performance. Update your notebook to include a section on 'Ethical Considerations'—specifically addressing potential biases in your data (like selection bias) and how they might affect your recommendations. Ensure your code is clean, commented, and includes the final model evaluation metrics (accuracy, precision/recall, or RMSE) that we established in the previous stage.",
+     "step_title": "Finalize the technical notebook",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "The final piece is the 3-page Executive PDF Report. This shouldn't just list numbers; it should tell a story. Use the 'Visual Storyboard' you created previously to explain current patterns, and then use your new model insights to provide concrete business recommendations. For example: 'Because our model identifies Recency as a top predictor, we recommend a re-engagement campaign for customers who haven't visited in 14 days.'",
+     "step_title": "Draft the Executive Report",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a ZIP file containing your final Jupyter Notebook (.ipynb) and your 3-page Executive Report (.pdf). Good work will show clear feature engineering steps, a model that outperforms the baseline, and an executive summary that links data insights directly to business ROI."
+     },
+     "step_body": "It's time to deliver. Combine your work into a single submission. This includes your fully documented Jupyter Notebook containing the enhanced features and final model results, alongside your 3-page Executive Report. Ensure your report translates complex data science concepts into actionable business advice for the GreenGrocer leadership team.",
+     "step_title": "Submit the GreenGrocer Portfolio",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a short reflection (3-5 sentences) on which stage of the project was most challenging and which you found most rewarding for the final result."
+     },
+     "step_body": "Congratulations on completing the GreenGrocer Analytics project! You've successfully navigated the path from a raw CSV to a defensible business strategy. As a final thought: which part of the process—data cleaning, EDA, modeling, or feature engineering—do you feel had the biggest impact on the final quality of your insights?",
+     "step_title": "Reflect on the journey",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "8d67048c-ebde-47c9-b462-cde253d22971",
+   "stage_title": "Feature Engineering and Final Synthesis",
+   "parent_project_id": "29c2871e-5f1e-4ac5-b275-fae2fbfd6fb5",
+   "stage_description": "Enhance your model using derived features like 'days since last purchase' and finalize your technical notebook with ethical considerations and future recommendations.",
+   "deliverable_increment": "The 'Final Project Portfolio' consisting of the enhanced Jupyter Notebook and the 3-page Executive PDF Report."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "29c2871e-5f1e-4ac5-b275-fae2fbfd6fb5",
+   "project_name": "The GreenGrocer Analytics Report",
+   "final_deliverable": "A comprehensive Data Science Portfolio Project containing a Jupyter Notebook (with documented code for cleaning, EDA, and modeling) and a 3-page Executive PDF Report including key visualizations and business recommendations.",
+   "project_description": "An end-to-end data science project where you act as a consultant for a retail grocery chain. You will take a raw dataset of customer transactions and store information, clean it, analyze buying patterns, and build a predictive model to forecast high-value customers, culminating in a comprehensive technical report and executive summary."
+  }
+ ],
+ "courseUuid": "bd1b47e5-2dd2-4044-a290-e77c904102e8"
+}

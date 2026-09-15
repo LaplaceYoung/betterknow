@@ -1,0 +1,1375 @@
+{
+ "exams": [
+  {
+   "title": "The Data Science Process Certification",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the classic Venn diagram of Data Science, what is the specific danger of combining Computer Science and Substantive Expertise while neglecting Mathematics and Statistics?",
+     "options": [
+      "The project will result in theoretically sound but practically useless findings.",
+      "The practitioner might create 'dangerous' black-box models.",
+      "The workflow will become a linear waterfall process instead of iterative.",
+      "The system will be unable to handle 'if-then' deterministic logic."
+     ],
+     "explanation": "Combining coding (CS) with domain knowledge (Expertise) without the grounding of Math/Stats leads to 'dangerous' models where the underlying logic and uncertainty aren't mathematically understood.",
+     "correctAnswers": [
+      "The practitioner might create 'dangerous' black-box models."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In the context of the Analysis Lifecycle (OSEMN), which of the following are considered 'Technical Metrics' used to evaluate a model's mathematical performance rather than direct business outcomes?",
+     "options": [
+      "Monthly Customer Retention",
+      "Recall",
+      "Return on Investment (ROI)",
+      "Precision",
+      "True Positive Rate"
+     ],
+     "explanation": "Recall, Precision, and True Positive Rate are technical metrics derived from a confusion matrix. Retention and ROI are business metrics that measure real-world impact.",
+     "correctAnswers": [
+      "Recall",
+      "Precision",
+      "True Positive Rate"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "Accidentally including information in your model's inputs that would not actually be known at the time of prediction is a common pitfall called Target ____.",
+     "placeholder": "e.g., Overflow",
+     "correctAnswers": [
+      "Leakage"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "How does the role of a Data Scientist primarily differ from that of a Data Analyst according to the session personas?",
+     "options": [
+      "The Scientist builds the infrastructure/pipes, while the Analyst uses them.",
+      "The Scientist uses the past to predict the future, while the Analyst explains the past.",
+      "The Scientist focuses on deterministic logic, while the Analyst focuses on 'it depends' logic.",
+      "The Scientist performs the 'Scrub' phase, while the Analyst performs the 'Obtain' phase."
+     ],
+     "explanation": "The Data Analyst is characterized as the storyteller of historical data, whereas the Data Scientist builds models to recommend future actions based on those patterns.",
+     "correctAnswers": [
+      "The Scientist uses the past to predict the future, while the Analyst explains the past."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When translating a business question into a measurable problem, which of the following are components of the 'Input-Output-Constraint' framework?",
+     "options": [
+      "Target (Output)",
+      "Features (Inputs)",
+      "Venn Diagram (Substantive)",
+      "Mechanism (Logic/Model)",
+      "Software Engineering Bridge"
+     ],
+     "explanation": "The framework involves identifying the inputs (features), the mechanism for processing them (the model), and the specific output or target to be predicted.",
+     "correctAnswers": [
+      "Target (Output)",
+      "Features (Inputs)",
+      "Mechanism (Logic/Model)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the 'Input-Output-Constraint' framework, the specific variable we are trying to predict is referred to as the ____.",
+     "correctAnswers": [
+      "Target"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary reason the Analysis Lifecycle is depicted as a circular flow rather than a linear list?",
+     "options": [
+      "Because data science projects have no defined end date.",
+      "Because the data itself often dictates a return to previous steps like cleaning.",
+      "To match the traditional software engineering waterfall method.",
+      "To ensure that the 'Obtain' phase is repeated every day."
+     ],
+     "explanation": "Data science is inherently iterative; poor results in modeling or interpretation often force a return to the 'Scrub' or 'Explore' phases to refine the data.",
+     "correctAnswers": [
+      "Because the data itself often dictates a return to previous steps like cleaning."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are identified as the three core intersections of the Data Science Venn diagram?",
+     "options": [
+      "Mathematics and Statistics",
+      "Computer Science",
+      "Project Management",
+      "Substantive Expertise",
+      "Business Marketing"
+     ],
+     "explanation": "The standard definition of Data Science involves the overlap of technical computing skills, mathematical/statistical knowledge, and domain-specific (substantive) expertise.",
+     "correctAnswers": [
+      "Mathematics and Statistics",
+      "Computer Science",
+      "Substantive Expertise"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The framework used to identify the bridge between business problems and raw data is OSEMN; the 'O' in this framework stands for ____.",
+     "correctAnswers": [
+      "Obtain"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A medical diagnostic tool for a rare disease (1% prevalence) that predicts 'Healthy' for every patient achieves 99% accuracy. Why is this model considered a failure?",
+     "options": [
+      "Because its Precision is too high for a rare disease.",
+      "Because it fails the 'Bridge' metaphor of determinism.",
+      "Because its Recall is 0%, meaning it finds no one who is actually sick.",
+      "Because it was built using a linear waterfall process."
+     ],
+     "explanation": "In high-stakes diagnostics, Recall (finding all cases) is often more important than Accuracy. A model that misses every sick person is useless despite a high overall accuracy score.",
+     "correctAnswers": [
+      "Because its Recall is 0%, meaning it finds no one who is actually sick."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following statements correctly describe the 'Scrub' phase of the OSEMN framework?",
+     "options": [
+      "It is the most underestimated phase of the lifecycle.",
+      "It is where the 'Hero's Trap' suggests we should spend all our time.",
+      "A model built on 'unscrubbed' data is described as 'a lie'.",
+      "It involves defining the 'North Star Metric' for the CEO.",
+      "It serves the larger narrative established in the problem definition."
+     ],
+     "explanation": "The Scrub phase is critical for data integrity; jumping straight to modeling ('Hero's Trap') without cleaning leads to inaccurate or 'dishonest' models.",
+     "correctAnswers": [
+      "It is the most underestimated phase of the lifecycle.",
+      "A model built on 'unscrubbed' data is described as 'a lie'.",
+      "It serves the larger narrative established in the problem definition."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "In the context of the real estate example, which of the following would be classified as a 'Dynamic Feature'?",
+     "options": [
+      "Square footage of the house",
+      "Number of bedrooms",
+      "Current market interest rates",
+      "The geographic location (ZIP code)"
+     ],
+     "explanation": "Static features are fixed properties of the object (size, location), while dynamic features change over time based on external factors like the economy.",
+     "correctAnswers": [
+      "Current market interest rates"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "In a scenario where you are predicting customer churn, which of the following are valid ways to define the 'Unit of Analysis'?",
+     "options": [
+      "A single transaction ID",
+      "A specific User ID",
+      "The total revenue of the company",
+      "A monthly subscription period",
+      "A specific store location"
+     ],
+     "explanation": "The unit of analysis is what one row of your data represents. Revenue is a summary metric, not a unit that can be placed in a single row for prediction.",
+     "correctAnswers": [
+      "A single transaction ID",
+      "A specific User ID",
+      "A monthly subscription period",
+      "A specific store location"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "What does the 'North Star Metric' represent in a business context?",
+     "options": [
+      "The technical accuracy of the machine learning model.",
+      "A high-level metric that bridges data science results with business strategy.",
+      "The specific code library used to clean the data.",
+      "The ratio of false positives to false negatives in a security scan."
+     ],
+     "explanation": "The North Star Metric connects technical outputs to long-term business goals, such as total watch time for a streaming service.",
+     "correctAnswers": [
+      "A high-level metric that bridges data science results with business strategy."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Which of the following are consequences of 'Proxy Failure' in data science?",
+     "options": [
+      "A technical metric improves while the business goal suffers.",
+      "Optimizing for clicks leads to lower long-term user retention.",
+      "The model accurately identifies all sick patients (High Recall).",
+      "The 'North Star Metric' is perfectly aligned with the technical sandbox.",
+      "Short-term data improvements do not result in long-term ROI."
+     ],
+     "explanation": "Proxy failure occurs when the intermediate metric we choose to optimize doesn't actually drive the intended high-level outcome.",
+     "correctAnswers": [
+      "A technical metric improves while the business goal suffers.",
+      "Optimizing for clicks leads to lower long-term user retention.",
+      "Short-term data improvements do not result in long-term ROI."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "When using the metaphor of a bridge, how is the 'Data Science' mindset distinguished from 'Software Engineering'?",
+     "options": [
+      "Data Science focuses on building bridges that never fail.",
+      "Data Science navigates a 'fog of uncertainty' and probabilistic outcomes.",
+      "Software Engineering handles 'it depends' logic more effectively.",
+      "Data Science follows a linear path whereas Software Engineering is circular."
+     ],
+     "explanation": "Software engineering is generally deterministic (known loads), while data science is probabilistic, dealing with uncertainty and messy data patterns.",
+     "correctAnswers": [
+      "Data Science navigates a 'fog of uncertainty' and probabilistic outcomes."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Based on the simulation of a classification model's performance on a highly imbalanced dataset, why does the Accuracy metric remain high even as the model fails to identify the rare 'target' events?",
+     "options": [
+      "Because the 'True Negatives' from the majority class dominate the calculation, masking the failure to find 'True Positives'.",
+      "Because the model's 'Precision' is automatically adjusted to compensate for the lack of data in the minority class.",
+      "Because the 'False Positives' and 'False Negatives' cancel each other out mathematically in imbalanced scenarios.",
+      "Because the 'Obtain' phase was performed linearly, ensuring the majority class is always weighted more heavily."
+     ],
+     "explanation": "In an imbalanced dataset (e.g., 99% healthy), predicting 'healthy' for everyone results in a massive number of True Negatives. Since Accuracy = (TP + TN) / Total, the high TN count keeps the score high even if TP is zero.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Imbalanced Dataset Classification Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Not Target (Blue) */\n            --amber: #c47c00;  /* Target (Red/Amber) */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-style: italic;\n            font-size: 12px;\n            fill: var(--muted);\n        }\n\n        .label {\n            font-size: 11px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 4px;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n        }\n\n        .readout-value {\n            font-size: 20px;\n            font-weight: 500;\n            color: var(--ink);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n\n        .bar-bg {\n            fill: var(--rule);\n            opacity: 0.3;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of Accuracy vs Recall in an Imbalanced Dataset</h1>\n\n    <div class=\"container\">\n        <div class=\"figure-container\" aria-label=\"A grid of 100 points, 98 blue and 2 red. A vertical boundary line sweeps across, classifying points. Meters show accuracy and recall values changing as the boundary moves.\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 220\">\n                <!-- Points Grid (10x10) -->\n                <g id=\"points-group\"></g>\n                \n                <!-- Sweep Line -->\n                <line id=\"sweep-line\" x1=\"0\" y1=\"10\" x2=\"0\" y2=\"170\" stroke=\"var(--ink)\" stroke-width=\"1.5\" stroke-dasharray=\"4 2\" />\n                <text id=\"sweep-label\" x=\"0\" y=\"8\" text-anchor=\"middle\" class=\"serif\">Classification Boundary</text>\n\n                <!-- Axis for Sweep -->\n                <line x1=\"20\" y1=\"190\" x2=\"380\" y2=\"190\" stroke=\"var(--muted)\" stroke-width=\"0.5\" />\n                <g id=\"ticks\">\n                    <line x1=\"20\" y1=\"190\" x2=\"20\" y2=\"195\" stroke=\"var(--muted)\" stroke-width=\"0.5\" />\n                    <text x=\"20\" y=\"208\" text-anchor=\"middle\" class=\"label\">Classify all as Target</text>\n                    \n                    <line x1=\"380\" y1=\"190\" x2=\"380\" y2=\"195\" stroke=\"var(--muted)\" stroke-width=\"0.5\" />\n                    <text x=\"380\" y=\"208\" text-anchor=\"middle\" class=\"label\">Classify all as Not Target</text>\n                </g>\n\n                <!-- Legend -->\n                <circle cx=\"310\" cy=\"20\" r=\"3.5\" fill=\"var(--amber)\" />\n                <text x=\"320\" y=\"24\" class=\"serif\" style=\"font-size: 11px;\">Target (2)</text>\n                <circle cx=\"310\" cy=\"40\" r=\"3.5\" fill=\"var(--accent)\" />\n                <text x=\"320\" y=\"44\" class=\"serif\" style=\"font-size: 11px;\">Not Target (98)</text>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Accuracy</span>\n                <span id=\"accuracy-text\" class=\"readout-value\">0.0%</span>\n                <svg width=\"100%\" height=\"8\" style=\"display: block;\">\n                    <rect width=\"100%\" height=\"8\" class=\"bar-bg\" rx=\"4\" />\n                    <rect id=\"accuracy-bar\" width=\"0%\" height=\"8\" fill=\"var(--accent)\" rx=\"4\" />\n                </svg>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Recall</span>\n                <span id=\"recall-text\" class=\"readout-value\">0.0%</span>\n                <svg width=\"100%\" height=\"8\" style=\"display: block;\">\n                    <rect width=\"100%\" height=\"8\" class=\"bar-bg\" rx=\"4\" />\n                    <rect id=\"recall-bar\" width=\"0%\" height=\"8\" fill=\"var(--amber)\" rx=\"4\" />\n                </svg>\n            </div>\n        </div>\n\n        <div class=\"caption\">Moving the classification boundary across a fixed dataset.</div>\n    </div>\n\n    <script>\n        // Seeded random for point placement (deterministic)\n        function seededRandom(seed) {\n            const x = Math.sin(seed++) * 10000;\n            return x - Math.floor(x);\n        }\n\n        const pointsGroup = document.getElementById('points-group');\n        const sweepLine = document.getElementById('sweep-line');\n        const sweepLabel = document.getElementById('sweep-label');\n        const accuracyText = document.getElementById('accuracy-text');\n        const recallText = document.getElementById('recall-text');\n        const accuracyBar = document.getElementById('accuracy-bar');\n        const recallBar = document.getElementById('recall-bar');\n\n        const totalPoints = 100;\n        const targetIndices = [42, 57]; // 2 fixed points as targets\n        const points = [];\n\n        // Create 10x10 grid with slight jitter\n        let seed = 123;\n        for (let i = 0; i < 10; i++) {\n            for (let j = 0; j < 10; j++) {\n                const idx = i * 10 + j;\n                const isTarget = targetIndices.includes(idx);\n                const x = 40 + j * 32 + (seededRandom(seed++) - 0.5) * 10;\n                const y = 30 + i * 14 + (seededRandom(seed++) - 0.5) * 5;\n                \n                const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n                circle.setAttribute(\"cx\", x);\n                circle.setAttribute(\"cy\", y);\n                circle.setAttribute(\"r\", 3.5);\n                circle.setAttribute(\"fill\", isTarget ? \"var(--amber)\" : \"var(--accent)\");\n                circle.setAttribute(\"stroke\", \"white\");\n                circle.setAttribute(\"stroke-width\", \"0.5\");\n                pointsGroup.appendChild(circle);\n                \n                points.push({ x, isTarget, element: circle });\n            }\n        }\n\n        let startTime = null;\n        const duration = 10000; // 10 seconds per cycle\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = timestamp - startTime;\n            const progress = (elapsed % duration) / duration;\n            \n            // Map progress to X coordinate (20 to 380)\n            const sweepX = 20 + progress * 360;\n            \n            sweepLine.setAttribute(\"x1\", sweepX);\n            sweepLine.setAttribute(\"x2\", sweepX);\n            sweepLabel.setAttribute(\"x\", sweepX);\n\n            let truePositives = 0;\n            let trueNegatives = 0;\n            const totalPositives = targetIndices.length;\n            const totalNegatives = totalPoints - totalPositives;\n\n            points.forEach(p => {\n                // Point is classified as \"Not Target\" if it's to the left of the line\n                // Wait, logic check: sweep goes from \"all classified as target\" to \"all classified as not target\"\n                // If sweep line is at x=20, everything to its right (all points) is \"Target\"\n                // If sweep line is at x=380, everything to its left (all points) is \"Not Target\"\n                \n                const isClassifiedTarget = p.x > sweepX;\n                \n                if (isClassifiedTarget && p.isTarget) truePositives++;\n                if (!isClassifiedTarget && !p.isTarget) trueNegatives++;\n                \n                // Visual feedback: dim points that are classified \"Not Target\"\n                p.element.setAttribute(\"opacity\", isClassifiedTarget ? \"1\" : \"0.35\");\n            });\n\n            const accuracy = (truePositives + trueNegatives) / totalPoints;\n            const recall = truePositives / totalPositives;\n\n            accuracyText.textContent = (accuracy * 100).toFixed(1) + \"%\";\n            recallText.textContent = (recall * 100).toFixed(0) + \"%\";\n            \n            accuracyBar.setAttribute(\"width\", (accuracy * 100) + \"%\");\n            recallBar.setAttribute(\"width\", (recall * 100) + \"%\");\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function sendHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.onload = () => {\n            requestAnimationFrame(animate);\n            sendHeight();\n            new ResizeObserver(sendHeight).observe(document.body);\n        };\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the 'True Negatives' from the majority class dominate the calculation, masking the failure to find 'True Positives'."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Visualization and Communication Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the hierarchy of visual perception for quantitative data, which of the following channels allows for the highest precision in human judgment?",
+     "options": [
+      "Color Saturation",
+      "Position on a Common Scale",
+      "Area of a Circle",
+      "Angle and Slope"
+     ],
+     "explanation": "Human perception is most accurate at judging differences in position on a shared scale (like points in a scatter plot), whereas area and color are much harder for our brains to quantify precisely.",
+     "correctAnswers": [
+      "Position on a Common Scale"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'Marks' in the basic framework of data visualization?",
+     "options": [
+      "A single dot (Point)",
+      "A line segment",
+      "The color of a bar",
+      "The size of a bubble",
+      "A rectangle (Area)"
+     ],
+     "explanation": "Marks are the basic geometric elements (points, lines, areas). Color and size are 'Channels' that control the appearance of those marks.",
+     "correctAnswers": [
+      "A single dot (Point)",
+      "A line segment",
+      "A rectangle (Area)"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When visualizing categorical data (what kind?), we should use ____ channels like shape or color hue rather than magnitude channels.",
+     "explanation": "Identity channels are used for categorical data to show 'what kind' of thing something is, whereas magnitude channels show 'how much'.",
+     "placeholder": "Enter channel type",
+     "correctAnswers": [
+      "identity",
+      "identity channels"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why is it generally considered a visual 'lie' to connect dots representing categorical data (like cities or names) with a line?",
+     "options": [
+      "Because it makes the chart look too busy for the audience.",
+      "Because lines imply a mathematical interpolation between points that does not exist.",
+      "Because lines are only allowed to represent vertical magnitude.",
+      "Because categorical data must always be represented by colors."
+     ],
+     "explanation": "A line implies a continuous transition between points; if you connect 'London' and 'Paris', the midpoint of that line has no meaning, thus misleading the viewer.",
+     "correctAnswers": [
+      "Because lines imply a mathematical interpolation between points that does not exist."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "A chart with dots distributed along an upward-sloping path.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/exam/images/unit3-q5.png"
+     },
+     "prompt": "Under which circumstances is a Scatter Plot the most appropriate chart selection?",
+     "options": [
+      "When identifying the correlation between two numerical variables.",
+      "When visualizing the hierarchical composition of a single category.",
+      "When diagnosing the distribution of data before running a regression.",
+      "When comparing the total sales of five different fruit types."
+     ],
+     "explanation": "Scatter plots are designed to map two numerical variables against each other to reveal relationships or patterns in data points.",
+     "correctAnswers": [
+      "When identifying the correlation between two numerical variables.",
+      "When diagnosing the distribution of data before running a regression."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A ____ scale is used to map equal ratios to equal physical distances, making it ideal for visualizing exponential growth.",
+     "explanation": "Logarithmic scales are essential for data that spans several orders of magnitude, as they show rates of change rather than absolute differences.",
+     "placeholder": "Enter scale type",
+     "correctAnswers": [
+      "logarithmic",
+      "log"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "One chart with stacked colors in one bar, another with separate small bars for each color.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/exam/images/unit3-q7.png"
+     },
+     "prompt": "What is the primary technical disadvantage of using a Stacked Bar Chart compared to Faceting (Small Multiples)?",
+     "options": [
+      "Stacked bars cannot show parts of a whole.",
+      "Stacked bars make it difficult to compare middle segments due to shifting baselines.",
+      "Faceting uses more ink and is therefore less efficient.",
+      "Faceting is only applicable to time-series data."
+     ],
+     "explanation": "In a stacked bar, only the bottom segment has a stable baseline. The start and end points of higher segments shift based on the size of the segments below them, making comparison hard.",
+     "correctAnswers": [
+      "Stacked bars make it difficult to compare middle segments due to shifting baselines."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When is it acceptable to truncate the Y-axis (not starting at zero) in a Line Chart?",
+     "options": [
+      "When the goal is to show small fluctuations within a narrow range (e.g., body temperature).",
+      "When you want to exaggerate a very small growth trend to make it look significant.",
+      "When the absolute magnitude is less important than the rate of change over time.",
+      "When visualizing discrete categories like the number of cars sold per region."
+     ],
+     "explanation": "Unlike bar charts, line charts emphasize trends. In specific contexts where absolute zero is irrelevant (like 98°F vs 102°F), truncating the axis allows for better resolution of the trend.",
+     "correctAnswers": [
+      "When the goal is to show small fluctuations within a narrow range (e.g., body temperature).",
+      "When the absolute magnitude is less important than the rate of change over time."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'Lie Factor' is calculated by dividing the size of the effect shown in the ____ by the size of the effect in the actual data.",
+     "explanation": "The Lie Factor is a measure of visual integrity; it should ideally be 1.0. If the visual change is significantly larger than the data change, the chart is misleading.",
+     "correctAnswers": [
+      "graphic",
+      "visualization",
+      "chart"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In a Bar Chart, why is it ethically mandatory to start the Y-axis at zero?",
+     "options": [
+      "Because software defaults always start at zero.",
+      "Because the visual channel used (length) encodes value through the total distance from the baseline.",
+      "Because categorical data cannot be negative.",
+      "Because it is required by international data standards."
+     ],
+     "explanation": "Truncating the axis of a bar chart distorts the visual ratio between bars, leading the eye to perceive relative differences that are not supported by the data.",
+     "correctAnswers": [
+      "Because the visual channel used (length) encodes value through the total distance from the baseline."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are common pitfalls that decrease the 'Visual Integrity' of a graphic?",
+     "options": [
+      "3D perspective effects that cause foreshortening.",
+      "Using transparency (alpha) to solve overplotting in scatter plots.",
+      "Scaling a circle's radius rather than its area to represent a value.",
+      "Using small multiples (faceting) to compare sub-groups."
+     ],
+     "explanation": "3D effects and radius scaling distort the viewer's ability to judge magnitudes accurately, whereas transparency and faceting are professional techniques for clarity.",
+     "correctAnswers": [
+      "3D perspective effects that cause foreshortening.",
+      "Scaling a circle's radius rather than its area to represent a value."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In a Bubble Chart, if you double the ____ of a circle to represent a value that has doubled, the visual area actually quadruples.",
+     "explanation": "Area increases with the square of the radius. Doubling the radius makes the circle four times larger visually, creating a 'Lie Factor' of 2.",
+     "placeholder": "Enter geometric term",
+     "correctAnswers": [
+      "radius",
+      "diameter"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the primary danger of using a 'Dual-Axis' chart for two different variables?",
+     "options": [
+      "It makes the chart look cluttered and difficult to read.",
+      "It can imply a correlation where none exists by manipulating the scales of the two axes.",
+      "It forces the software to use more memory, slowing down the presentation.",
+      "It prevents the use of a legend to identify the variables."
+     ],
+     "explanation": "Because the two axes are independent, a designer can stretch or shrink them to make the slopes match, creating a 'spurious correlation' that misleads the viewer.",
+     "correctAnswers": [
+      "It can imply a correlation where none exists by manipulating the scales of the two axes."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are 'Magnitude' channels used to represent 'how much' of a quantity exists?",
+     "options": [
+      "Length",
+      "Color Hue (e.g., Red vs. Blue)",
+      "Position on a scale",
+      "Shape",
+      "Area"
+     ],
+     "explanation": "Length, position, and area have a natural ordered progression that corresponds to quantity. Shape and Hue are identity channels for categories.",
+     "correctAnswers": [
+      "Length",
+      "Position on a scale",
+      "Area"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "A ____ chart uses small, repeated versions of the same chart type to compare sub-groups across a single variable without overlapping them.",
+     "explanation": "Faceting or small multiples allow for clean comparison without the confusion of multiple overlapping lines or stacked bars.",
+     "placeholder": "Enter chart technique",
+     "correctAnswers": [
+      "faceted",
+      "small multiples"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "If you have a dataset showing monthly sales and the X-axis is sorted as 'April, August, December, February...', what rule has been violated?",
+     "options": [
+      "The Magnitude vs. Identity rule.",
+      "The Principle of Perceptual Integrity regarding logical sequence.",
+      "The Hierarchy of Perception for Color Saturation.",
+      "The Truncated Axis rule."
+     ],
+     "explanation": "Ordinal data (like months) must follow their logical sequence. Sorting alphabetically obscures seasonal trends and creates cognitive friction for the reader.",
+     "correctAnswers": [
+      "The Principle of Perceptual Integrity regarding logical sequence."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "When designing for 'Visual Integrity,' what should a data scientist audit in their workflow?",
+     "options": [
+      "Ensure the visual weight matches the statistical weight.",
+      "Check that the 'Lie Factor' is as close to 1 as possible.",
+      "Verify that all bar charts start at a zero baseline.",
+      "Make sure the chart is as colorful as possible to maintain audience interest."
+     ],
+     "explanation": "Visual integrity is about truthfulness. It requires accurate scaling, appropriate baselines, and matching visual representation to the data's proportions.",
+     "correctAnswers": [
+      "Ensure the visual weight matches the statistical weight.",
+      "Check that the 'Lie Factor' is as close to 1 as possible.",
+      "Verify that all bar charts start at a zero baseline."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "image": {
+      "alt": "A chart with boxes and whiskers representing data spread across four categories.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/exam/images/unit3-q18.png"
+     },
+     "prompt": "You want to compare the distribution of test scores between four different classrooms. Which chart type is most appropriate?",
+     "options": [
+      "A Pie Chart for each classroom.",
+      "A multi-line chart showing average scores.",
+      "A Boxplot or Histogram.",
+      "A single Stacked Bar chart."
+     ],
+     "explanation": "To see the 'shape' or 'truth' of a spread (variance and outliers) rather than just an average, distribution tools like boxplots or histograms are necessary.",
+     "correctAnswers": [
+      "A Boxplot or Histogram."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "Which of the following statements about Color Hue are correct?",
+     "options": [
+      "It is an identity channel, not a magnitude channel.",
+      "It has a natural mathematical order in the human brain (e.g., Green > Purple).",
+      "It is best used for categorical data like 'Department Name' or 'Product Category'.",
+      "Using a rainbow scale for numerical growth creates high cognitive friction."
+     ],
+     "explanation": "Because hues don't have an inherent order, using them for numbers forces the viewer to look at a legend constantly, increasing cognitive load.",
+     "correctAnswers": [
+      "It is an identity channel, not a magnitude channel.",
+      "It is best used for categorical data like 'Department Name' or 'Product Category'.",
+      "Using a rainbow scale for numerical growth creates high cognitive friction."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Why does the perception of the growth rate change as the chart switches from a linear to a logarithmic scale?",
+     "options": [
+      "Because the logarithmic scale physically stretches the top of the chart to make large values look more dramatic.",
+      "Because the linear scale focuses on absolute differences, while the log scale shows the constant percentage growth as a straight line.",
+      "Because the log scale removes outliers from the data, making the trend line appear smoother and more stable.",
+      "Because the y-axis in a log scale must start at zero, which prevents the distortion seen in the linear version."
+     ],
+     "explanation": "Exponential growth looks like an accelerating curve on a linear scale, but on a log scale, where equal ratios (like doubling) are equal distances, it appears as a straight line.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Linear and Logarithmic Growth Visualization</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            position: relative;\n            width: 100%;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: clamp(11px, 2.5vw, 13px);\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .tick-label {\n            font-family: -apple-system, sans-serif;\n            font-size: 10px;\n            fill: var(--muted);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .marker-line {\n            stroke: var(--rule);\n            stroke-width: 1;\n            stroke-dasharray: 4 2;\n        }\n\n        .data-path {\n            fill: none;\n            stroke-width: 2.5;\n            stroke-linecap: round;\n            stroke-linejoin: round;\n        }\n\n        .data-point {\n            fill: var(--accent);\n        }\n\n        .indicator-box {\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout {\n            font-size: 12px;\n            color: var(--muted);\n            font-family: Georgia, serif;\n            font-style: italic;\n        }\n\n        .readout span {\n            font-family: -apple-system, sans-serif;\n            font-style: normal;\n            font-variant-numeric: tabular-nums;\n            color: var(--ink);\n            font-weight: 500;\n            margin-left: 4px;\n        }\n\n        .scale-indicator {\n            font-family: Georgia, serif;\n            font-size: 14px;\n            color: var(--accent);\n            font-weight: bold;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Comparison of growth plotted on linear vs logarithmic scales</h1>\n\n    <div class=\"container\">\n        <div class=\"figure-container\" aria-label=\"Animated graph showing exponential growth transitioning between linear and logarithmic vertical axes.\">\n            <svg class=\"fig\" viewBox=\"0 0 400 280\">\n                <!-- Grid Lines -->\n                <g id=\"grid\"></g>\n                \n                <!-- Axes -->\n                <line x1=\"50\" y1=\"230\" x2=\"370\" y2=\"230\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"230\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                \n                <!-- Labels -->\n                <text x=\"210\" y=\"265\" text-anchor=\"middle\" class=\"axis-label\">Time</text>\n                <text x=\"15\" y=\"125\" text-anchor=\"middle\" class=\"axis-label\" transform=\"rotate(-90, 15, 125)\">Value</text>\n                \n                <!-- Y-Axis Ticks & Labels -->\n                <g id=\"y-axis-group\"></g>\n\n                <!-- Data Path -->\n                <path id=\"growth-curve\" class=\"data-path\" stroke=\"var(--accent)\" />\n                \n                <!-- Sweep Indicator (Thin crosshair, not a knob) -->\n                <line id=\"sweep-line\" x1=\"50\" y1=\"20\" x2=\"50\" y2=\"230\" stroke=\"var(--muted)\" stroke-width=\"1\" opacity=\"0.5\" />\n            </svg>\n        </div>\n\n        <div class=\"indicator-box\">\n            <div class=\"readout\">Growth rate: <span>2.0x &middot; fixed</span></div>\n            <div id=\"scale-label\" class=\"scale-indicator\">Linear Scale</div>\n        </div>\n    </div>\n\n    <script>\n        const svg = document.querySelector('.fig');\n        const gridGroup = document.getElementById('grid');\n        const yAxisGroup = document.getElementById('y-axis-group');\n        const growthCurve = document.getElementById('growth-curve');\n        const sweepLine = document.getElementById('sweep-line');\n        const scaleLabel = document.getElementById('scale-label');\n\n        const DATA_POINTS = 8;\n        const MARGIN = { top: 20, right: 30, bottom: 50, left: 50 };\n        const WIDTH = 400;\n        const HEIGHT = 280;\n        const CHART_W = WIDTH - MARGIN.left - MARGIN.right;\n        const CHART_H = HEIGHT - MARGIN.top - MARGIN.bottom;\n\n        // Dataset: 1, 2, 4, 8, 16, 32, 64, 128\n        const data = Array.from({ length: DATA_POINTS }, (_, i) => Math.pow(2, i));\n        const maxVal = data[DATA_POINTS - 1];\n\n        function getLinearY(val) {\n            const pct = val / maxVal;\n            return HEIGHT - MARGIN.bottom - (pct * CHART_H);\n        }\n\n        function getLogY(val) {\n            const logMin = Math.log10(1);\n            const logMax = Math.log10(maxVal);\n            const pct = (Math.log10(val) - logMin) / (logMax - logMin);\n            return HEIGHT - MARGIN.bottom - (pct * CHART_H);\n        }\n\n        function drawFrame(t) {\n            // t cycles 0 to 2\n            // 0 -> 0.8: Linear scale\n            // 0.8 -> 1.0: Transition to Log\n            // 1.0 -> 1.8: Log scale\n            // 1.8 -> 2.0: Transition back to Linear\n            \n            let phase;\n            if (t < 0.8) phase = 0; // Linear\n            else if (t < 1.0) phase = (t - 0.8) / 0.2; // Trans to Log\n            else if (t < 1.8) phase = 1; // Log\n            else phase = 1 - ((t - 1.8) / 0.2); // Trans back to Linear\n\n            // Smoothstep for transition\n            const weight = phase * phase * (3 - 2 * phase);\n\n            // Update Labels\n            scaleLabel.textContent = weight > 0.5 ? \"Logarithmic Scale\" : \"Linear Scale\";\n            scaleLabel.style.color = weight > 0.5 ? \"var(--amber)\" : \"var(--accent)\";\n            growthCurve.style.stroke = weight > 0.5 ? \"var(--amber)\" : \"var(--accent)\";\n\n            // Update Axis and Grid\n            yAxisGroup.innerHTML = '';\n            gridGroup.innerHTML = '';\n            \n            const ticks = weight > 0.5 ? [1, 2, 4, 8, 16, 32, 64, 128] : [0, 20, 40, 60, 80, 100, 120];\n            \n            ticks.forEach(v => {\n                if (weight > 0.5 && v === 0) return;\n                const y = getLinearY(v) * (1 - weight) + getLogY(v || 1) * weight;\n                \n                // Tick line\n                const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n                line.setAttribute(\"x1\", MARGIN.left - 4);\n                line.setAttribute(\"y1\", y);\n                line.setAttribute(\"x2\", MARGIN.left);\n                line.setAttribute(\"y2\", y);\n                line.setAttribute(\"stroke\", \"var(--ink)\");\n                yAxisGroup.appendChild(line);\n\n                // Grid line\n                const grid = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n                grid.setAttribute(\"x1\", MARGIN.left);\n                grid.setAttribute(\"y1\", y);\n                grid.setAttribute(\"x2\", WIDTH - MARGIN.right);\n                grid.setAttribute(\"y2\", y);\n                grid.setAttribute(\"stroke\", \"var(--rule)\");\n                grid.setAttribute(\"stroke-width\", \"0.5\");\n                gridGroup.appendChild(grid);\n\n                // Label\n                const txt = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n                txt.setAttribute(\"x\", MARGIN.left - 8);\n                txt.setAttribute(\"y\", y + 3);\n                txt.setAttribute(\"text-anchor\", \"end\");\n                txt.classList.add(\"tick-label\");\n                txt.textContent = v;\n                yAxisGroup.appendChild(txt);\n            });\n\n            // Update Curve\n            let d = \"\";\n            data.forEach((v, i) => {\n                const x = MARGIN.left + (i / (DATA_POINTS - 1)) * CHART_W;\n                const y = getLinearY(v) * (1 - weight) + getLogY(v) * weight;\n                d += (i === 0 ? \"M\" : \"L\") + x + \",\" + y;\n            });\n            growthCurve.setAttribute(\"d\", d);\n\n            // Update Sweep Line\n            const sweepTime = (t * 5) % 1; // Faster internal sweep\n            const sweepX = MARGIN.left + sweepTime * CHART_W;\n            sweepLine.setAttribute(\"x1\", sweepX);\n            sweepLine.setAttribute(\"x2\", sweepX);\n        }\n\n        let startTime = null;\n        const duration = 10000; // 10 seconds for a full cycle\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) / duration;\n            drawFrame((progress % 1) * 2); \n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        const reportHeight = () => {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        };\n\n        window.onload = () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        };\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the linear scale focuses on absolute differences, while the log scale shows the constant percentage growth as a straight line."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Inference and Modeling Certification Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In the 'Court of Science' analogy for hypothesis testing, which of the following represents the 'Presumption of Innocence'?",
+     "options": [
+      "The Alternative Hypothesis (Ha)",
+      "The p-value",
+      "The Null Hypothesis (H0)",
+      "The Significance Level (α)"
+     ],
+     "explanation": "The Null Hypothesis acts as the conservative baseline—the assumption that no effect or change exists until sufficient evidence is gathered to reject it.",
+     "correctAnswers": [
+      "The Null Hypothesis (H0)"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the Central Limit Theorem (CLT), as the sample size (n) increases, what changes occur in the sampling distribution of the mean?",
+     "options": [
+      "The center of the distribution shifts toward the maximum value.",
+      "The shape of the distribution becomes more Bell-shaped.",
+      "The spread (standard error) of the distribution shrinks.",
+      "The distribution becomes more skewed to match the parent population.",
+      "The center remains at the population mean."
+     ],
+     "explanation": "The CLT states that for a large enough sample size, the distribution of sample means becomes normal and narrower (lower standard error), while remaining centered on the population mean.",
+     "correctAnswers": [
+      "The shape of the distribution becomes more Bell-shaped.",
+      "The spread (standard error) of the distribution shrinks.",
+      "The center remains at the population mean."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A researcher presents a single number as their best guess for a population parameter, such as a sample mean. This single value is known as a(n) ____ estimate.",
+     "explanation": "A point estimate is a single value used to estimate a population parameter, which the course suggests can be 'intellectually dishonest' if presented without a range of uncertainty.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "point",
+      "point estimate"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If you calculate a 95% Confidence Interval for a mean to be [45, 55], which statement is the correct frequentist interpretation?",
+     "options": [
+      "There is a 95% probability that the true mean is between 45 and 55.",
+      "95% of the data points in the sample fall between 45 and 55.",
+      "We are 95% confident that the true population mean lies between 45 and 51.",
+      "If we repeated the sampling process many times, 95% of the resulting intervals would contain the true mean."
+     ],
+     "explanation": "In frequentist statistics, the population mean is fixed. The interval is the moving target. 'Confidence' refers to the reliability of the estimation process itself.",
+     "correctAnswers": [
+      "If we repeated the sampling process many times, 95% of the resulting intervals would contain the true mean."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are Greek symbols typically used to represent fixed, unknown population parameters?",
+     "options": [
+      "μ (mu)",
+      "x̄ (x-bar)",
+      "σ (sigma)",
+      "s",
+      "p-value"
+     ],
+     "explanation": "μ and σ are used for population mean and standard deviation respectively, while Latin letters like x̄ and s represent sample statistics.",
+     "correctAnswers": [
+      "μ (mu)",
+      "σ (sigma)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ is the standard deviation of the sampling distribution of the mean, representing how much we expect our sample mean to fluctuate.",
+     "explanation": "The Standard Error (SE) quantifies the variation in sample means, as opposed to the Standard Deviation which quantifies variation in individual data points.",
+     "placeholder": "Enter two words",
+     "correctAnswers": [
+      "Standard Error",
+      "SE"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A researcher finds a p-value of 0.04 in their study. What does this number actually represent?",
+     "options": [
+      "The probability that the Null Hypothesis is true.",
+      "The probability of seeing these results (or more extreme) if the Null Hypothesis were true.",
+      "The probability that the Alternative Hypothesis is false.",
+      "The risk of a False Negative error."
+     ],
+     "explanation": "A p-value is a measure of 'surprise'—it quantifies how unlikely the data is under the assumption of the null hypothesis.",
+     "correctAnswers": [
+      "The probability of seeing these results (or more extreme) if the Null Hypothesis were true."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "If you want to make a Confidence Interval narrower (more precise) without changing the confidence level, which actions could you take?",
+     "options": [
+      "Decrease the sample size (n).",
+      "Increase the sample size (n).",
+      "Reduce the population variance (if possible).",
+      "Increase the confidence level from 95% to 99%.",
+      "Decrease the confidence level from 95% to 90%."
+     ],
+     "explanation": "With the confidence level held fixed, the critical value z stays the same, so the margin of error z*sigma/sqrt(n) can only shrink by increasing n (larger denominator) or reducing the population variance (smaller numerator). Both actions lower the standard error and pull the interval in. Decreasing the confidence level from 95% to 90% would also narrow the interval, but it changes the confidence level, which the question rules out. Decreasing n or raising the confidence level to 99% would both widen the interval.",
+     "correctAnswers": [
+      "Increase the sample size (n).",
+      "Reduce the population variance (if possible)."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To cut your uncertainty (standard error) in half, you would typically need to ____ your sample size.",
+     "explanation": "Since the formula for standard error involves the square root of n, you must increase n by a factor of 4 to reduce the error by half.",
+     "placeholder": "Action to take",
+     "correctAnswers": [
+      "quadruple",
+      "multiply by four"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A marketing team surveys only 'active, tech-savvy customers who open emails' to understand their entire customer base. What is the primary statistical danger here?",
+     "options": [
+      "High standard error",
+      "Insufficient data points",
+      "Selection bias",
+      "A Type II error"
+     ],
+     "explanation": "Selection bias occurs when the sample is not representative of the population, creating a 'tilt' that math cannot fix.",
+     "correctAnswers": [
+      "Selection bias"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary components for constructing a Confidence Interval for a mean?",
+     "options": [
+      "The point estimate (sample mean).",
+      "The p-value.",
+      "The sample size (n).",
+      "The level of confidence (e.g., 95%).",
+      "The alternative hypothesis statement."
+     ],
+     "explanation": "CI construction requires the mean, the variability (standard error, which uses n), and a critical value based on the confidence level.",
+     "correctAnswers": [
+      "The point estimate (sample mean).",
+      "The sample size (n).",
+      "The level of confidence (e.g., 95%)."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In logistic regression, the output is not a continuous value but a(n) ____ between 0 and 1.",
+     "explanation": "Logistic regression models the probability that an observation belongs to a specific category.",
+     "placeholder": "Statistical term",
+     "correctAnswers": [
+      "probability",
+      "likelihood"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "When we set a significance level (α) of 0.05, what are we explicitly defining?",
+     "options": [
+      "The probability that the effect is real.",
+      "The exact p-value we expect to find.",
+      "Our tolerance for making a False Positive (Type I) error.",
+      "The power of our statistical test."
+     ],
+     "explanation": "Alpha is the pre-set boundary for how much risk we are willing to take of rejecting the null hypothesis when it is actually true.",
+     "correctAnswers": [
+      "Our tolerance for making a False Positive (Type I) error."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "In the context of binary classification, which of the following metrics are typically used for evaluation?",
+     "options": [
+      "Precision",
+      "Standard Error",
+      "Recall",
+      "R-squared",
+      "F1-Score"
+     ],
+     "explanation": "Precision, Recall, and F1-Score are standard metrics for classification. R-squared is used for regression, and Standard Error is a measure of sampling variability.",
+     "correctAnswers": [
+      "Precision",
+      "Recall",
+      "F1-Score"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Why is 'more data' not always 'better data' according to the course materials?",
+     "options": [
+      "Large datasets always result in high p-values.",
+      "If the sampling method is biased, more data simply reinforces the bias.",
+      "The Central Limit Theorem only works with small samples.",
+      "Standard error increases as sample size increases."
+     ],
+     "explanation": "No amount of data can fix a systematic 'tilt' caused by selection bias in the sampling strategy.",
+     "correctAnswers": [
+      "If the sampling method is biased, more data simply reinforces the bias."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following are assumptions typically required for valid inference in linear regression?",
+     "options": [
+      "Linearity of the relationship",
+      "Independence of observations",
+      "Normal distribution of the independent variables",
+      "Constant variance of residuals (Homoscedasticity)",
+      "A p-value greater than 0.05"
+     ],
+     "explanation": "Linear regression assumes linearity, independence, and homoscedasticity. It does not require independent variables to be normal, only the residuals.",
+     "correctAnswers": [
+      "Linearity of the relationship",
+      "Independence of observations",
+      "Constant variance of residuals (Homoscedasticity)"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "image": {
+      "alt": "Residual plot showing a non-linear pattern.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/exam/images/unit4-q17.png"
+     },
+     "prompt": "A researcher is looking at a residual plot for a linear regression. If they see a clear 'U-shape' in the residuals, what does this indicate?",
+     "options": [
+      "The model is perfectly accurate.",
+      "The assumption of linearity has been violated.",
+      "The errors have constant variance (homoscedasticity).",
+      "The sample size is too large."
+     ],
+     "explanation": "Patterns in residuals (like a U-shape) suggest that the relationship between variables is non-linear and the model is missing a trend.",
+     "correctAnswers": [
+      "The assumption of linearity has been violated."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Why does the precision of the estimate improve so drastically as the sample size increases?",
+     "options": [
+      "Because a larger sample size forces the population itself to become more normally distributed.",
+      "Because the denominator in the standard error formula grows, making the spread of sample means much smaller.",
+      "Because larger samples are guaranteed to contain no outliers, preventing the mean from shifting.",
+      "Because the significance level (α) naturally decreases as we collect more data from the population."
+     ],
+     "explanation": "As seen in the simulation, the standard error is calculated as sigma divided by the square root of n. Increasing n decreases the error, resulting in a narrower sampling distribution.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Sampling Distribution from a Bimodal Population</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        h1 {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .fig text {\n            fill: var(--muted);\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            user-select: none;\n        }\n\n        .fig .label-italic {\n            font-style: italic;\n        }\n\n        .fig .axis-line {\n            stroke: var(--muted);\n            stroke-width: 1px;\n        }\n\n        .fig .tick-line {\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .fig .pop-curve {\n            fill: none;\n            stroke: var(--ink);\n            stroke-width: 1.5px;\n        }\n\n        .fig .sample-dist {\n            fill: var(--accent);\n            opacity: 0.7;\n            stroke: var(--accent);\n            stroke-width: 0.5px;\n        }\n\n        .fig .crosshair {\n            stroke: var(--amber);\n            stroke-width: 1px;\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: center;\n            gap: 24px;\n            font-variant-numeric: tabular-nums;\n            font-size: 13px;\n            color: var(--muted);\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item span {\n            color: var(--ink);\n            font-weight: 500;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n    </style>\n</head>\n<body>\n    <h1 id=\"desc\">Visualisation of sample mean distributions from a bimodal population as sample size increases.</h1>\n    \n    <div class=\"container\">\n        <div class=\"figure-container\">\n            <svg class=\"fig\" viewBox=\"0 0 400 320\" aria-labelledby=\"desc\">\n                <!-- Population Axis -->\n                <g transform=\"translate(40, 50)\">\n                    <text x=\"160\" y=\"-30\" text-anchor=\"middle\" class=\"label-italic\">Population Distribution (fixed)</text>\n                    <line x1=\"0\" y1=\"0\" x2=\"320\" y2=\"0\" class=\"axis-line\" />\n                    <!-- Ticks -->\n                    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"5\" class=\"axis-line\" />\n                    <line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"5\" class=\"axis-line\" />\n                    <line x1=\"320\" y1=\"0\" x2=\"320\" y2=\"5\" class=\"axis-line\" />\n                    <text x=\"0\" y=\"18\" text-anchor=\"middle\">0</text>\n                    <text x=\"160\" y=\"18\" text-anchor=\"middle\">50</text>\n                    <text x=\"320\" y=\"18\" text-anchor=\"middle\">100</text>\n                    \n                    <!-- Bimodal Curve -->\n                    <path class=\"pop-curve\" d=\"M 0 0 Q 40 0, 80 -40 T 160 0 T 240 -40 Q 280 0, 320 0\" />\n                </g>\n\n                <!-- Transition Line -->\n                <line x1=\"200\" y1=\"100\" x2=\"200\" y2=\"130\" stroke=\"#d8d5d0\" stroke-dasharray=\"4 4\" />\n                <text x=\"205\" y=\"120\" class=\"label-italic\" style=\"font-size: 10px;\">1,000 independent samples</text>\n\n                <!-- Sample Means Axis -->\n                <g transform=\"translate(40, 240)\">\n                    <text x=\"160\" y=\"-85\" text-anchor=\"middle\" class=\"label-italic\">Distribution of Sample Means</text>\n                    <line x1=\"0\" y1=\"0\" x2=\"320\" y2=\"0\" class=\"axis-line\" />\n                    \n                    <!-- X-Axis Indicator (Crosshair) -->\n                    <line id=\"n-indicator\" x1=\"0\" y1=\"5\" x2=\"0\" y2=\"15\" class=\"crosshair\" />\n                    \n                    <!-- Ticks -->\n                    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"5\" class=\"axis-line\" />\n                    <line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"5\" class=\"axis-line\" />\n                    <line x1=\"320\" y1=\"0\" x2=\"320\" y2=\"5\" class=\"axis-line\" />\n                    <text x=\"0\" y=\"18\" text-anchor=\"middle\">0</text>\n                    <text x=\"160\" y=\"18\" text-anchor=\"middle\">50</text>\n                    <text x=\"320\" y=\"18\" text-anchor=\"middle\">100</text>\n\n                    <!-- Sampling Distribution Histogram/Curve -->\n                    <path id=\"sampling-path\" class=\"sample-dist\" d=\"\" />\n                </g>\n                \n                <!-- Parameter Axis (Bottom) -->\n                <g transform=\"translate(40, 300)\">\n                    <line x1=\"0\" y1=\"0\" x2=\"320\" y2=\"0\" class=\"axis-line\" style=\"stroke: var(--rule);\" />\n                    <text x=\"-35\" y=\"4\" style=\"font-size: 11px;\">Sample Size</text>\n                    <text x=\"0\" y=\"14\" text-anchor=\"middle\">2</text>\n                    <text x=\"320\" y=\"14\" text-anchor=\"middle\">100</text>\n                    <!-- Pointer -->\n                    <line id=\"parameter-pointer\" x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"4\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">Sample size <span id=\"n-readout\">2</span></div>\n            <div class=\"readout-item\">Trials <span>1,000</span> (fixed)</div>\n        </div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 12345;\n        function seededRandom() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        // Bimodal distribution: 50% from N(25, 8), 50% from N(75, 8)\n        function getPopSample() {\n            const isLeft = seededRandom() > 0.5;\n            const mean = isLeft ? 25 : 75;\n            const sd = 8;\n            \n            // Box-Muller transform\n            const u1 = seededRandom();\n            const u2 = seededRandom();\n            const z = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);\n            return mean + z * sd;\n        }\n\n        const ITERATIONS = 1000;\n        const samplingPath = document.getElementById('sampling-path');\n        const nReadout = document.getElementById('n-readout');\n        const paramPointer = document.getElementById('parameter-pointer');\n\n        let animationFrame;\n        let startTime = null;\n        const duration = 10000; // 10 seconds for a full sweep\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let progress = ((timestamp - startTime) % duration) / duration;\n            \n            // Ping-pong effect\n            let t = progress < 0.5 ? progress * 2 : 2 - (progress * 2);\n            \n            // Map t to n (2 to 100)\n            const n = Math.floor(2 + t * 98);\n            \n            nReadout.textContent = n;\n            paramPointer.setAttribute('x1', t * 320);\n            paramPointer.setAttribute('x2', t * 320);\n\n            // Generate 1000 sample means\n            seed = 12345; // Reset seed for consistent feel per frame\n            const means = [];\n            for (let i = 0; i < ITERATIONS; i++) {\n                let sum = 0;\n                for (let j = 0; j < n; j++) {\n                    sum += getPopSample();\n                }\n                means.push(sum / n);\n            }\n\n            // Create histogram bins\n            const binCount = 80;\n            const bins = new Array(binCount).fill(0);\n            means.forEach(m => {\n                let idx = Math.floor((m / 100) * binCount);\n                if (idx >= 0 && idx < binCount) bins[idx]++;\n            });\n\n            // Build SVG path\n            const scaleX = 320 / 100;\n            const scaleY = 0.5; // Scale height of bars\n            let d = `M 0 0 `;\n            for (let i = 0; i < binCount; i++) {\n                const x = (i / binCount) * 100 * scaleX;\n                const h = bins[i] * scaleY;\n                d += `L ${x} ${-h} `;\n            }\n            d += `L 320 0 Z`;\n            samplingPath.setAttribute('d', d);\n\n            animationFrame = requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            animationFrame = requestAnimationFrame(update);\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the denominator in the standard error formula grows, making the spread of sample means much smaller."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Real-World Data Implementation and Ethics Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are building a model to predict house prices. You have a 'City' column with 500 unique names. Why might you avoid One-Hot Encoding here?",
+     "options": [
+      "It would create an artificial mathematical order between cities.",
+      "It would significantly increase the memory footprint and slow down training.",
+      "It would violate the ISO-8601 standard for geographic data.",
+      "It is only designed for ordinal data with a natural rank."
+     ],
+     "explanation": "One-Hot Encoding creates a new column for every unique category. With 500 cities, this 'high cardinality' causes the feature matrix to explode in width, leading to the 'curse of dimensionality' and computational inefficiency.",
+     "correctAnswers": [
+      "It would significantly increase the memory footprint and slow down training."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of the 'Dummy Variable Trap' in linear modeling?",
+     "options": [
+      "It occurs when features are perfectly correlated.",
+      "It is caused by including all N binary columns for N categories.",
+      "It leads to multicollinearity in the model.",
+      "It can be solved by applying a Log-Transformation to the encoded variables.",
+      "It makes the model assume the categories have a natural rank."
+     ],
+     "explanation": "If you have N categories, you only need N-1 columns because the last category is implied when all others are zero. Including all N causes perfect multicollinearity, which interferes with the mathematical stability of linear models.",
+     "correctAnswers": [
+      "It occurs when features are perfectly correlated.",
+      "It is caused by including all N binary columns for N categories.",
+      "It leads to multicollinearity in the model."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of converting categories like 'Small', 'Medium', and 'Large' into 0, 1, and 2 is known as ____ Encoding.",
+     "placeholder": "Enter encoding type",
+     "correctAnswers": [
+      "Label",
+      "Ordinal"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "A plot illustrating the scale discrepancy between income and age.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/exam/images/unit5-q4.png"
+     },
+     "prompt": "In a dataset comparing 'Annual Income' ($0–$1M) and 'Age' (0–100), why is Standardization (Z-score scaling) often preferred over raw data?",
+     "options": [
+      "It prevents features with larger numerical ranges from dominating the model's objective function.",
+      "It converts all skewed distributions into perfectly normal bell curves.",
+      "It is the only way to handle missing values in numeric columns.",
+      "It removes the need for a train/test split."
+     ],
+     "explanation": "Models see large numbers as high importance. Standardization puts all features on the same scale (standard deviations from the mean), ensuring the model treats them based on their relative variance rather than their units.",
+     "correctAnswers": [
+      "It prevents features with larger numerical ranges from dominating the model's objective function."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A data scientist applies Min-Max Scaling to a column of house prices that contains a few extreme luxury mansions (outliers). What are the likely consequences?",
+     "options": [
+      "The non-outlier prices will be crushed into a very small range near zero.",
+      "The mean of the distribution will be shifted to exactly 0.5.",
+      "The relative distance between 'normal' houses will become harder for the model to distinguish.",
+      "The outliers will be removed from the dataset automatically.",
+      "The data will be scaled to a range of [0, 1]."
+     ],
+     "explanation": "Min-Max scaling is highly sensitive to outliers because the 'Max' value determines the scale. One massive outlier pushes all other values to the very bottom of the 0-1 range.",
+     "correctAnswers": [
+      "The non-outlier prices will be crushed into a very small range near zero.",
+      "The relative distance between 'normal' houses will become harder for the model to distinguish.",
+      "The data will be scaled to a range of [0, 1]."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "To handle a right-skewed distribution where most values are small but a few are very large, a ____ transformation is commonly used to compress the tail.",
+     "placeholder": "Enter transformation name",
+     "correctAnswers": [
+      "Log",
+      "Logarithmic"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Which of these is an example of 'Temporal Extraction' in feature engineering?",
+     "options": [
+      "Calculating the Z-score of a timestamp.",
+      "Converting a raw date string into a binary 'Is_Weekend' feature.",
+      "Applying One-Hot encoding to the Year column.",
+      "Multiplying the Day by the Month to create an interaction term."
+     ],
+     "explanation": "Temporal extraction involves pulling meaningful components (like day of week, hour, or holiday status) from raw time data to capture cyclical patterns.",
+     "correctAnswers": [
+      "Converting a raw date string into a binary 'Is_Weekend' feature."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "You are predicting taxi demand. Which features would be considered 'Derived Features'?",
+     "options": [
+      "Total trip distance (raw data).",
+      "Hour of the day extracted from the pickup time.",
+      "The ratio of passengers to vehicle size.",
+      "Interaction between 'Weather_Type' and 'Is_Rush_Hour'.",
+      "The raw latitude and longitude of the pickup location."
+     ],
+     "explanation": "Derived features are synthesized from existing data. Extracting the hour, calculating a ratio, or creating an interaction term all require transforming raw data into new, insightful representations.",
+     "correctAnswers": [
+      "Hour of the day extracted from the pickup time.",
+      "The ratio of passengers to vehicle size.",
+      "Interaction between 'Weather_Type' and 'Is_Rush_Hour'."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If a model achieves 99.9% accuracy on a difficult task unexpectedly, you should investigate if a ____ feature (a feature too closely related to the target) is present.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "Golden",
+      "Proxy",
+      "Leaky"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is it dangerous to create an interaction term for every possible pair of variables?",
+     "options": [
+      "It guarantees that the model will underfit the training data.",
+      "It results in 'Combinatorial Explosion,' leading to overfitting and high complexity.",
+      "It is mathematically impossible to multiply two categorical variables.",
+      "Interaction terms can only be used with target variables, not features."
+     ],
+     "explanation": "Creating too many features (many of which are likely noise) allows the model to 'memorize' specific combinations in the training set that don't exist in reality, leading to poor generalization.",
+     "correctAnswers": [
+      "It results in 'Combinatorial Explosion,' leading to overfitting and high complexity."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which scenarios constitute 'Data Leakage'?",
+     "options": [
+      "Calculating the mean of the entire dataset to fill missing values before splitting into train/test.",
+      "Using 'After-Surgery Complications' to predict if a patient needs surgery.",
+      "Training a model on data from 2020 and testing it on data from 2021.",
+      "Including a feature that is a slightly different representation of the target variable.",
+      "Using 'Standard Deviation' calculated only from the training set to scale the test set."
+     ],
+     "explanation": "Leakage occurs when info from the future (post-surgery) or the test set (global mean) is available during training, or when the answer is effectively hidden within a feature.",
+     "correctAnswers": [
+      "Calculating the mean of the entire dataset to fill missing values before splitting into train/test.",
+      "Using 'After-Surgery Complications' to predict if a patient needs surgery.",
+      "Including a feature that is a slightly different representation of the target variable."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Removing the predictable, repeating patterns that occur at fixed intervals (like every Monday) from a time-series is called removing ____.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "Seasonality",
+      "Seasonal effects"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What does the 'Iron Curtain' analogy represent in the context of Train/Test discipline?",
+     "options": [
+      "The encryption of sensitive patient data in the test set.",
+      "The total separation of training information from testing information to prevent leakage.",
+      "The physical barrier between the data engineer and the data scientist.",
+      "The process of cleaning data before it reaches the model."
+     ],
+     "explanation": "The 'Iron Curtain' signifies that the model should have no knowledge of the test set's distribution, mean, or labels during the training phase.",
+     "correctAnswers": [
+      "The total separation of training information from testing information to prevent leakage."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are essential components of a valid A/B test design?",
+     "options": [
+      "Random assignment of users to control and treatment groups.",
+      "A clear, pre-defined success metric (e.g., Click-Through Rate).",
+      "Ensuring the treatment group is at least 10 times larger than the control group.",
+      "A hypothesis to be tested before the experiment begins.",
+      "Allowing users to choose which version of the site they see."
+     ],
+     "explanation": "Valid A/B testing requires randomization to eliminate bias, a defined metric for evaluation, and a prior hypothesis to prevent 'p-hacking'.",
+     "correctAnswers": [
+      "Random assignment of users to control and treatment groups.",
+      "A clear, pre-defined success metric (e.g., Click-Through Rate).",
+      "A hypothesis to be tested before the experiment begins."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "To prevent leakage during feature scaling, the scaler should only be 'fitted' on the ____ set.",
+     "placeholder": "Enter set name",
+     "correctAnswers": [
+      "Training",
+      "Train"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "In TF-IDF, what is the primary purpose of the 'Inverse Document Frequency' (IDF) component?",
+     "options": [
+      "To increase the weight of words that appear frequently across all documents.",
+      "To penalize common words like 'the' or 'and' that carry little unique meaning.",
+      "To count the total number of words in a single document.",
+      "To convert text into a categorical label for encoding."
+     ],
+     "explanation": "IDF measures how rare a word is across the entire corpus. Words that appear in every document have low IDF, while unique words have high IDF.",
+     "correctAnswers": [
+      "To penalize common words like 'the' or 'and' that carry little unique meaning."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of these are valid methods for identifying ethical risks in a predictive model?",
+     "options": [
+      "Checking for 'Proxy' variables that correlate with protected classes (e.g., Zip Code and Race).",
+      "Evaluating the model using 'Disparate Impact' metrics.",
+      "Testing the model on data that was never seen during training.",
+      "Analyzing the training data for historical biases in the labels.",
+      "Ensuring the model uses as many features as possible to increase complexity."
+     ],
+     "explanation": "Ethical risk assessment involves looking for proxies for sensitive data, calculating fairness metrics, and understanding if the training labels themselves reflect past human bias.",
+     "correctAnswers": [
+      "Checking for 'Proxy' variables that correlate with protected classes (e.g., Zip Code and Race).",
+      "Evaluating the model using 'Disparate Impact' metrics.",
+      "Analyzing the training data for historical biases in the labels."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "What does 'Stationarity' refer to in time-series analysis?",
+     "options": [
+      "The statistical properties of the series (mean, variance) do not change over time.",
+      "The data is collected from a fixed geographical station.",
+      "The model's accuracy remains constant across all training epochs.",
+      "The time-series has been converted into a categorical variable."
+     ],
+     "explanation": "Stationarity is a requirement for many time-series models; it means the data's behavior is consistent over time, with no long-term trend or seasonal changes in variance.",
+     "correctAnswers": [
+      "The statistical properties of the series (mean, variance) do not change over time."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Observe the optimization process of the model as the 'Feature Scale' parameter is adjusted. Why does the 'Unscaled' version fail to reach the center of the cost function as quickly as the 'Standardized' version?",
+     "options": [
+      "The gradient becomes much steeper in one dimension than the other, causing the path to oscillate wildly.",
+      "Standardization reduces the total number of data points, making each step computationally faster.",
+      "The unscaled data causes the model to ignore the intercept term entirely.",
+      "Min-Max scaling is always required for gradient descent to function at all."
+     ],
+     "explanation": "When features have vastly different scales, the 'cost surface' becomes an elongated valley. Gradient descent bounces back and forth across the narrow walls of the valley instead of moving smoothly toward the center.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Gradient Descent Convergence Comparison</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Unscaled path */\n            --amber: #c47c00;  /* Standardized path */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .simulation-frame {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 16px;\n            width: 100%;\n        }\n\n        .plot-container {\n            position: relative;\n            width: 100%;\n            aspect-ratio: 1 / 1.1;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n            overflow: visible;\n        }\n\n        .label-serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(11px, 2.5vw, 13px);\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .readout {\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n\n        .readout-val {\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n        }\n\n        .caption {\n            text-align: center;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            margin-top: 8px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .axis-line { stroke: var(--rule); stroke-width: 1px; }\n        .grid-line { stroke: var(--rule); stroke-width: 0.5px; stroke-dasharray: 2,2; }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Comparison of Gradient Descent paths on unscaled versus standardized feature sets.</h1>\n\n    <div class=\"container\">\n        <div class=\"simulation-frame\">\n            <!-- Unscaled Plot -->\n            <div class=\"plot-container\" aria-label=\"Contour plot showing inefficient zig-zagging path\">\n                <svg class=\"fig-svg\" viewBox=\"0 0 200 220\">\n                    <!-- Axes -->\n                    <line x1=\"20\" y1=\"180\" x2=\"190\" y2=\"180\" class=\"axis-line\" />\n                    <line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"180\" class=\"axis-line\" />\n                    <text x=\"105\" y=\"200\" text-anchor=\"middle\" class=\"label-serif\">Feature A (0–100)</text>\n                    <text x=\"10\" y=\"95\" text-anchor=\"middle\" class=\"label-serif\" transform=\"rotate(-90 10 95)\">Feature B (0–1)</text>\n                    \n                    <!-- Contours (Elliptical) -->\n                    <g fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\">\n                        <ellipse cx=\"105\" cy=\"95\" rx=\"80\" ry=\"15\" opacity=\"0.3\" />\n                        <ellipse cx=\"105\" cy=\"95\" rx=\"60\" ry=\"11\" opacity=\"0.5\" />\n                        <ellipse cx=\"105\" cy=\"95\" rx=\"40\" ry=\"7\" opacity=\"0.7\" />\n                        <ellipse cx=\"105\" cy=\"95\" rx=\"20\" ry=\"3.5\" opacity=\"0.9\" />\n                    </g>\n                    \n                    <!-- Path -->\n                    <path id=\"path-unscaled\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"1.5\" stroke-linejoin=\"round\" />\n                    <circle id=\"dot-unscaled\" r=\"3\" fill=\"var(--accent)\" />\n                </svg>\n                <div class=\"readout\">learning rate <span class=\"readout-val\">0.05</span> &middot; fixed</div>\n            </div>\n\n            <!-- Standardized Plot -->\n            <div class=\"plot-container\" aria-label=\"Contour plot showing direct path\">\n                <svg class=\"fig-svg\" viewBox=\"0 0 200 220\">\n                    <!-- Axes -->\n                    <line x1=\"20\" y1=\"180\" x2=\"190\" y2=\"180\" class=\"axis-line\" />\n                    <line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"180\" class=\"axis-line\" />\n                    <text x=\"105\" y=\"200\" text-anchor=\"middle\" class=\"label-serif\">Feature A (&mu;=0, &sigma;=1)</text>\n                    <text x=\"10\" y=\"95\" text-anchor=\"middle\" class=\"label-serif\" transform=\"rotate(-90 10 95)\">Feature B (&mu;=0, &sigma;=1)</text>\n\n                    <!-- Contours (Circular) -->\n                    <g fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\">\n                        <circle cx=\"105\" cy=\"95\" r=\"70\" opacity=\"0.3\" />\n                        <circle cx=\"105\" cy=\"95\" r=\"50\" opacity=\"0.5\" />\n                        <circle cx=\"105\" cy=\"95\" r=\"30\" opacity=\"0.7\" />\n                        <circle cx=\"105\" cy=\"95\" r=\"10\" opacity=\"0.9\" />\n                    </g>\n\n                    <!-- Path -->\n                    <path id=\"path-scaled\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"1.5\" stroke-linejoin=\"round\" />\n                    <circle id=\"dot-scaled\" r=\"3\" fill=\"var(--amber)\" />\n                </svg>\n                <div class=\"readout\">learning rate <span class=\"readout-val\">0.05</span> &middot; fixed</div>\n            </div>\n        </div>\n\n        <div class=\"caption\">Path of cost minimization over time</div>\n    </div>\n\n    <script>\n        // Configuration\n        const TOTAL_FRAMES = 360;\n        let frame = 0;\n\n        // Path Data Generation\n        // Unscaled: Zig-zag path to (105, 95)\n        const generateUnscaledPath = (t) => {\n            const startX = 35;\n            const startY = 30;\n            const targetX = 105;\n            const targetY = 95;\n            const points = [];\n            \n            // Simulation of gradient descent on a narrow valley\n            let curX = startX;\n            let curY = startY;\n            const steps = 40;\n            const progress = Math.min(t / (TOTAL_FRAMES * 0.8), 1);\n            const currentStepCount = Math.floor(progress * steps);\n\n            points.push(`${curX},${curY}`);\n            for (let i = 0; i < currentStepCount; i++) {\n                // High oscillation in the \"narrow\" dimension (Y), slow progress in \"wide\" dimension (X)\n                let nextX = curX + (targetX - startX) / steps;\n                let nextY = targetY + (i % 2 === 0 ? 30 : -30) * Math.pow(0.92, i);\n                curX = nextX;\n                curY = nextY;\n                points.push(`${curX},${curY}`);\n            }\n            \n            // Smoothed tail logic for the active dot\n            return {\n                d: \"M\" + points.join(\" L\"),\n                dot: points[points.length - 1].split(',')\n            };\n        };\n\n        // Standardized: Direct path to (105, 95)\n        const generateScaledPath = (t) => {\n            const startX = 35;\n            const startY = 30;\n            const targetX = 105;\n            const targetY = 95;\n            \n            const progress = Math.min(t / (TOTAL_FRAMES * 0.8), 1);\n            const curX = startX + (targetX - startX) * progress;\n            const curY = startY + (targetY - startY) * progress;\n            \n            return {\n                d: `M ${startX},${startY} L ${curX},${curY}`,\n                dot: [curX, curY]\n            };\n        };\n\n        const pathUnscaledEl = document.getElementById('path-unscaled');\n        const dotUnscaledEl = document.getElementById('dot-unscaled');\n        const pathScaledEl = document.getElementById('path-scaled');\n        const dotScaledEl = document.getElementById('dot-scaled');\n\n        function animate() {\n            const unscaled = generateUnscaledPath(frame);\n            pathUnscaledEl.setAttribute('d', unscaled.d);\n            dotUnscaledEl.setAttribute('cx', unscaled.dot[0]);\n            dotUnscaledEl.setAttribute('cy', unscaled.dot[1]);\n\n            const scaled = generateScaledPath(frame);\n            pathScaledEl.setAttribute('d', scaled.d);\n            dotScaledEl.setAttribute('cx', scaled.dot[0]);\n            dotScaledEl.setAttribute('cy', scaled.dot[1]);\n\n            frame = (frame + 1) % TOTAL_FRAMES;\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        const reportHeight = () => {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        };\n\n        window.addEventListener('load', () => {\n            animate();\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The gradient becomes much steeper in one dimension than the other, causing the path to oscillate wildly."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Cleaning and Exploratory Data Analysis Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are analyzing a bank's customer debt levels and notice that the highest-income individuals often refuse to answer the 'Total Debt' question. Which category of missingness does this represent?",
+     "options": [
+      "Missing Completely at Random (MCAR)",
+      "Missing at Random (MAR)",
+      "Missing Not at Random (MNAR)",
+      "Listwise Deletion"
+     ],
+     "explanation": "MNAR occurs when the reason data is missing is directly related to the value of the missing data itself (in this case, high debt correlating with non-response).",
+     "correctAnswers": [
+      "Missing Not at Random (MNAR)"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Histogram with a large spike at the mean.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/exam/images/unit2-q2.png"
+     },
+     "prompt": "A data scientist decides to use mean imputation to fill missing values in a dataset. What are the likely consequences of this choice? Select all that apply.",
+     "options": [
+      "The variance of the dataset will decrease.",
+      "The dataset will show a 'spike' at the mean in a histogram.",
+      "The dataset will become immune to selection bias.",
+      "Statistical models may yield 'false positives' due to artificial certainty."
+     ],
+     "explanation": "Imputation with the mean 'flattens' the data, reducing variance and creating a spike, which can lead to overconfidence in statistical results.",
+     "correctAnswers": [
+      "The variance of the dataset will decrease.",
+      "The dataset will show a 'spike' at the mean in a histogram.",
+      "Statistical models may yield 'false positives' due to artificial certainty."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a dataset has 10 columns, each with 5% missing values scattered across different rows, using ____ deletion could result in losing up to 50% of the total records.",
+     "placeholder": "Enter the name of the deletion method",
+     "correctAnswers": [
+      "listwise",
+      "Listwise"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "When calculating the Interquartile Range (IQR) for outlier detection, why is this method considered 'robust' compared to using Z-scores?",
+     "options": [
+      "It uses the standard deviation, which is more stable than the mean.",
+      "It relies on the median and quartiles, which are less affected by extreme values.",
+      "It automatically removes the top and bottom 10% of all data points.",
+      "It requires the data to follow a perfect bell curve distribution."
+     ],
+     "explanation": "Unlike the mean and standard deviation (used in Z-scores), the median and quartiles do not shift significantly when a single extreme outlier is added.",
+     "correctAnswers": [
+      "It relies on the median and quartiles, which are less affected by extreme values."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following would be considered 'Defensive Data Science' or automated data validation? Select all that apply.",
+     "options": [
+      "An assertion that ensures 'Age' is between 0 and 120.",
+      "A script that crashes if a 'Start Date' is after an 'End Date'.",
+      "Manually checking every row in a 1-million-row CSV file.",
+      "Checking that a column expected to be 'Integer' does not contain 'Strings'."
+     ],
+     "explanation": "Defensive data science uses automated schemas, range checks, and relational logic to catch errors early; manual inspection is not scalable or 'defensive' in a pipeline.",
+     "correctAnswers": [
+      "An assertion that ensures 'Age' is between 0 and 120.",
+      "A script that crashes if a 'Start Date' is after an 'End Date'.",
+      "Checking that a column expected to be 'Integer' does not contain 'Strings'."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "To avoid ambiguity in date formats across different regions, data scientists prefer to use the ____ standard (YYYY-MM-DD).",
+     "placeholder": "e.g., ISO ####",
+     "correctAnswers": [
+      "ISO 8601",
+      "ISO8601",
+      "8601"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "You find two rows in a retail database with the same customer name, timestamp, and item, but different Unique IDs (UUIDs). What is the best first step for cleaning this data?",
+     "options": [
+      "Delete both records to avoid bias.",
+      "Ignore the issue since the UUIDs are different.",
+      "Apply a business rule to keep one or merge relevant fields.",
+      "Change the names of the customers to make them unique."
+     ],
+     "explanation": "Near-duplicates often occur due to system errors (like hitting submit twice); resolving them requires a logic check or business rule, not just random deletion.",
+     "correctAnswers": [
+      "Apply a business rule to keep one or merge relevant fields."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A company merges sales data from Japan (Yen) and the UK (Pounds) into one 'Price' column without conversion. What errors will occur? Select all that apply.",
+     "options": [
+      "The UK transactions will artificially dominate the analysis.",
+      "The Yen transactions will artificially dominate the analysis due to scale.",
+      "The mean price will be mathematically valid but contextually meaningless.",
+      "Statistical variance will be artificially inflated."
+     ],
+     "explanation": "Because 1 Yen is worth much less than 1 Pound, the raw Yen numbers are much larger (e.g., 10,000 vs 100), making them skew the data despite lower value.",
+     "correctAnswers": [
+      "The Yen transactions will artificially dominate the analysis due to scale.",
+      "The mean price will be mathematically valid but contextually meaningless.",
+      "Statistical variance will be artificially inflated."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In a box plot, the 'fences' used to identify potential outliers are typically calculated as Q1 or Q3 +/- ____ times the Interquartile Range.",
+     "placeholder": "Enter a number",
+     "correctAnswers": [
+      "1.5"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is 'mojibake' in the context of data cleaning?",
+     "options": [
+      "A type of statistical distribution used for outliers.",
+      "Garbled text caused by using the wrong character encoding (e.g., UTF-8 vs ASCII).",
+      "A method of imputing missing values using machine learning.",
+      "The process of joining two tables with different primary keys."
+     ],
+     "explanation": "Mojibake occurs when a computer decodes text using a 'decoder ring' that doesn't match the original file's encoding.",
+     "correctAnswers": [
+      "Garbled text caused by using the wrong character encoding (e.g., UTF-8 vs ASCII)."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A bank's risk model produces many 'false positives' (flagging safe customers as high-risk) after a data cleaning phase. What could have caused this? Select all that apply.",
+     "options": [
+      "Using mean imputation, which artificially reduced variance and made outliers seem more extreme.",
+      "Failing to handle MNAR data, causing a selection bias in the training set.",
+      "Strictly using ISO 8601 for all date-related calculations.",
+      "Applying a 3-standard-deviation Z-score rule to a heavily skewed, non-normal distribution."
+     ],
+     "explanation": "Imputation and selection bias distort the 'normal' range of data, while Z-scores are inappropriate for skewed distributions, leading to incorrect flagging.",
+     "correctAnswers": [
+      "Using mean imputation, which artificially reduced variance and made outliers seem more extreme.",
+      "Failing to handle MNAR data, causing a selection bias in the training set.",
+      "Applying a 3-standard-deviation Z-score rule to a heavily skewed, non-normal distribution."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Calculating the ____ score for a data point involves subtracting the mean and dividing by the standard deviation.",
+     "placeholder": "Enter the name of the score",
+     "correctAnswers": [
+      "Z",
+      "z",
+      "standard"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Which scenario describes a 'Loud Failure' approach to data validation?",
+     "options": [
+      "A script replaces negative income values with 0 and continues running.",
+      "A script logs a warning in a hidden file but completes the analysis.",
+      "A script stops execution immediately when it finds a null value in a mandatory field.",
+      "A script uses the median to fill in missing values so the model doesn't break."
+     ],
+     "explanation": "A loud failure prevents silent errors from propagating through a pipeline by halting execution when assumptions are violated.",
+     "correctAnswers": [
+      "A script stops execution immediately when it finds a null value in a mandatory field."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "A data validation report flags a 'Warning' for a column instead of a 'Critical' error. What is the likely difference in how the pipeline handles these?",
+     "options": [
+      "Warnings allow the pipeline to continue; Critical errors stop it.",
+      "Critical errors are only for missing values; Warnings are only for outliers.",
+      "Warnings log the issue for human review; Critical errors require immediate code changes.",
+      "A 'Warning' means the data was automatically fixed; 'Critical' means it was deleted."
+     ],
+     "explanation": "Validation reports manage the trade-off between data purity and operational continuity by separating deal-breakers (Critical) from messy data (Warning).",
+     "correctAnswers": [
+      "Warnings allow the pipeline to continue; Critical errors stop it.",
+      "Warnings log the issue for human review; Critical errors require immediate code changes."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Why does the calculated mean shift more dramatically when we add an outlier to a small dataset compared to using a box-plot's median?",
+     "options": [
+      "The mean is sensitive to every value's magnitude, whereas the median only depends on the relative ordering of data points.",
+      "The median ignores the top 50% of data, making it essentially a lower-bound estimate of the dataset's true center.",
+      "Box plots automatically adjust the standard deviation to compensate for outliers, whereas the mean does not.",
+      "The mean only shifts if the outlier is positive, while the median only shifts if the outlier is negative."
+     ],
+     "explanation": "The mean is a sum divided by count, so a single massive value significantly increases the sum. The median is the middle value; changing one extreme doesn't change which value is in the middle.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Sensitivity of Central Tendency Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Mean */\n            --amber: #c47c00;  /* Median */\n            --serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            color: var(--ink);\n            font-family: var(--sans);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 24px 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            max-width: 400px;\n            margin: 0 auto;\n            border-top: 1px solid var(--rule);\n            padding-top: 16px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .readout-label {\n            font-family: var(--serif);\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .readout-value {\n            font-size: 18px;\n            font-weight: 600;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .readout-value.mean { color: var(--accent); }\n        .readout-value.median { color: var(--amber); }\n\n        .caption {\n            text-align: center;\n            font-family: var(--serif);\n            font-size: 12px;\n            color: var(--muted);\n            margin-top: 8px;\n        }\n\n        .fixed-tag {\n            font-size: 10px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            opacity: 0.7;\n            font-weight: normal;\n            font-family: var(--sans);\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation showing how a single outlier affects mean and median differently</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\" aria-label=\"A number line showing five fixed data points and one moving outlier. Indicators for Mean and Median shift as the outlier moves.\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 160\">\n                <!-- Axis -->\n                <line x1=\"20\" y1=\"100\" x2=\"380\" y2=\"100\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                \n                <!-- Ticks and Labels -->\n                <g class=\"ticks\">\n                    <line x1=\"20\" y1=\"100\" x2=\"20\" y2=\"105\" stroke=\"var(--muted)\" />\n                    <text x=\"20\" y=\"120\" font-size=\"10\" text-anchor=\"middle\" fill=\"var(--muted)\" font-family=\"serif\">0</text>\n                    \n                    <line x1=\"110\" y1=\"100\" x2=\"110\" y2=\"105\" stroke=\"var(--muted)\" />\n                    <text x=\"110\" y=\"120\" font-size=\"10\" text-anchor=\"middle\" fill=\"var(--muted)\" font-family=\"serif\">25</text>\n                    \n                    <line x1=\"200\" y1=\"100\" x2=\"200\" y2=\"105\" stroke=\"var(--muted)\" />\n                    <text x=\"200\" y=\"120\" font-size=\"10\" text-anchor=\"middle\" fill=\"var(--muted)\" font-family=\"serif\">50</text>\n                    \n                    <line x1=\"290\" y1=\"100\" x2=\"290\" y2=\"105\" stroke=\"var(--muted)\" />\n                    <text x=\"290\" y=\"120\" font-size=\"10\" text-anchor=\"middle\" fill=\"var(--muted)\" font-family=\"serif\">75</text>\n                    \n                    <line x1=\"380\" y1=\"100\" x2=\"380\" y2=\"105\" stroke=\"var(--muted)\" />\n                    <text x=\"380\" y=\"120\" font-size=\"10\" text-anchor=\"middle\" fill=\"var(--muted)\" font-family=\"serif\">100</text>\n                </g>\n\n                <!-- Fixed Data Points -->\n                <g id=\"fixed-points\">\n                    <!-- Positions: 20, 30, 45, 55, 65 (scaled to 400px width) -->\n                    <circle cx=\"92\" cy=\"100\" r=\"4\" fill=\"var(--muted)\" />\n                    <circle cx=\"110\" cy=\"100\" r=\"4\" fill=\"var(--muted)\" />\n                    <circle cx=\"128\" cy=\"100\" r=\"4\" fill=\"var(--muted)\" />\n                    <circle cx=\"146\" cy=\"100\" r=\"4\" fill=\"var(--muted)\" />\n                    <circle cx=\"164\" cy=\"100\" r=\"4\" fill=\"var(--muted)\" />\n                </g>\n\n                <!-- Outlier Point -->\n                <circle id=\"outlier\" cx=\"182\" cy=\"100\" r=\"5\" fill=\"var(--ink)\" stroke=\"white\" stroke-width=\"1.5\" />\n                <text id=\"outlier-label\" x=\"182\" y=\"85\" font-size=\"11\" text-anchor=\"middle\" fill=\"var(--ink)\" font-family=\"serif\">outlier</text>\n\n                <!-- Indicators -->\n                <!-- Median Indicator -->\n                <g id=\"median-group\">\n                    <line id=\"median-line\" x1=\"0\" y1=\"30\" x2=\"0\" y2=\"95\" stroke=\"var(--amber)\" stroke-width=\"1.5\" stroke-dasharray=\"3,2\" />\n                    <path d=\"M -5 30 L 5 30 L 0 40 Z\" fill=\"var(--amber)\" />\n                    <text id=\"median-marker-label\" x=\"0\" y=\"25\" font-size=\"12\" text-anchor=\"middle\" fill=\"var(--amber)\" font-family=\"serif\">Median</text>\n                </g>\n\n                <!-- Mean Indicator -->\n                <g id=\"mean-group\">\n                    <line id=\"mean-line\" x1=\"0\" y1=\"50\" x2=\"0\" y2=\"95\" stroke=\"var(--accent)\" stroke-width=\"1.5\" stroke-dasharray=\"3,2\" />\n                    <path d=\"M -5 50 L 5 50 L 0 60 Z\" fill=\"var(--accent)\" />\n                    <text id=\"mean-marker-label\" x=\"0\" y=\"45\" font-size=\"12\" text-anchor=\"middle\" fill=\"var(--accent)\" font-family=\"serif\">Mean</text>\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Mean</span>\n                <span id=\"mean-val\" class=\"readout-value mean\">0.0</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Median</span>\n                <span id=\"median-val\" class=\"readout-value median\">0.0</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">\n            6-point dataset: 5 points fixed &middot; 1 outlier moving\n        </div>\n    </div>\n\n    <script>\n        const outlier = document.getElementById('outlier');\n        const outlierLabel = document.getElementById('outlier-label');\n        const meanGroup = document.getElementById('mean-group');\n        const meanLine = document.getElementById('mean-line');\n        const meanMarkerLabel = document.getElementById('mean-marker-label');\n        const meanValText = document.getElementById('mean-val');\n        \n        const medianGroup = document.getElementById('median-group');\n        const medianLine = document.getElementById('median-line');\n        const medianMarkerLabel = document.getElementById('median-marker-label');\n        const medianValText = document.getElementById('median-val');\n\n        // Fixed positions (0-100 scale)\n        const fixedPositions = [20, 25, 30, 35, 40];\n        const minOutlier = 45;\n        const maxOutlier = 95;\n        \n        const scale = (val) => 20 + (val * 360 / 100);\n\n        let startTime = null;\n        const duration = 8000; // 8 seconds per cycle\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) % duration;\n            \n            // Triangle wave for smooth back-and-forth movement\n            let t = progress / duration;\n            let outlierVal;\n            if (t < 0.5) {\n                // Moving right: 0 to 1\n                outlierVal = minOutlier + (maxOutlier - minOutlier) * (t * 2);\n            } else {\n                // Moving left: 1 to 0\n                outlierVal = minOutlier + (maxOutlier - minOutlier) * (2 - t * 2);\n            }\n\n            const currentData = [...fixedPositions, outlierVal].sort((a, b) => a - b);\n            \n            // Calculate Mean\n            const mean = currentData.reduce((a, b) => a + b, 0) / currentData.length;\n            \n            // Calculate Median (average of 3rd and 4th element for set of 6)\n            const median = (currentData[2] + currentData[3]) / 2;\n\n            // Update DOM\n            const outlierX = scale(outlierVal);\n            outlier.setAttribute('cx', outlierX);\n            outlierLabel.setAttribute('x', outlierX);\n\n            const meanX = scale(mean);\n            meanGroup.setAttribute('transform', `translate(${meanX}, 0)`);\n            meanValText.textContent = mean.toFixed(1);\n\n            const medianX = scale(median);\n            medianGroup.setAttribute('transform', `translate(${medianX}, 0)`);\n            medianValText.textContent = median.toFixed(1);\n\n            requestAnimationFrame(update);\n        }\n\n        // Initial height report\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n        });\n\n        const resizer = new ResizeObserver(reportHeight);\n        resizer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The mean is sensitive to every value's magnitude, whereas the median only depends on the relative ordering of data points."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "bd1b47e5-2dd2-4044-a290-e77c904102e8"
+}

@@ -1,0 +1,326 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your project! Over the course of this term, you are going to build an 'Ethical Case File'—a professional-grade portfolio that demonstrates your ability to take a messy, real-world conflict and dismantle it with the precision of a philosopher. By the end, you'll have a 2,500-word analysis that doesn't just say what you 'feel,' but proves why a specific position is logically sound. We are starting today with Stage 1: Case Selection and Argument Mapping. We’ve just explored how ethics differs from law or custom, and how to spot the 'Is-Ought' gap. Now, you will apply those tools by picking a topic and 'reverse engineering' the logic behind it.",
+     "step_title": "Project Launch & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify your chosen topic and provide a 2-3 sentence explanation of the central moral conflict. Good work clearly identifies the 'normative' tension (the 'ought' question) involved."
+     },
+     "step_body": "Your first task is to choose the 'Case' that will be the focus of your entire portfolio. To make this a success, you need a topic with 'friction'—a contemporary issue where two people could disagree even if they agree on all the facts. Avoid simple 'right vs. wrong' issues; look for 'right vs. right' or complex policy debates. Examples include the ethics of AI facial recognition in policing, Universal Basic Income, or the mandatory use of CRISPR for genetic diseases. Briefly describe your chosen topic and explain why it is a moral disagreement rather than just a legal or scientific one.",
+     "step_title": "Select Your Moral Dilemma",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a single, clear 'Moral Conclusion' statement for one side of your chosen case."
+     },
+     "step_body": "Now that you have a case, let's look at one side of the debate. Every ethical argument ends in a 'Moral Conclusion'—a statement about what should be done. For your chosen topic, write out one specific conclusion a person might argue for (e.g., 'Governments should ban the use of AI facial recognition in public spaces'). This will be the 'anchor' for the logical structure you are about to build.",
+     "step_title": "Identify a Conclusion",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State the general moral principle (the 'ought' rule) that connects your facts to your conclusion. It should be a general statement, not specific to just one person or culture."
+     },
+     "step_body": "In our recent sessions, we learned that people often 'leap-frog' from a fact to a conclusion, leaving the 'Moral Principle' hidden. To bridge the 'Is-Ought' gap, you must identify the general rule that justifies your conclusion. If your conclusion is 'We should ban X,' your principle might be 'It is wrong to use technology that violates individual privacy without consent.' This is the 'middle leg' of your three-legged stool. Draft the general moral principle that supports the conclusion you wrote in the previous step.",
+     "step_title": "Expose the Hidden Principle",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your Case Brief as a PDF. It must include a problem statement and a 3-part syllogism (Principle, Fact, Conclusion). Good work demonstrates a logical flow where the conclusion follows necessarily from the premises."
+     },
+     "step_body": "It’s time to assemble your work into a formal 'Case Brief' document. This document must include: 1) A clear problem statement (the context of the dilemma), and 2) A reconstructed standard-form argument. The argument should be laid out as a syllogism: Premise 1 (Moral Principle), Premise 2 (Factual/Case-specific Premise), and Conclusion. By formatting it this way, you make the logic 'inspectable' for the next stage of our project.",
+     "step_title": "Draft the Case Brief",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Congratulations on finishing your first stage! You've successfully moved from a vague 'opinion' to a structured 'argument.' Before we move on, take a moment to reflect: Did you find it difficult to state the principle for a side you might personally disagree with? In ethics, 'Analytical Proficiency' means being able to map arguments fairly, even when they aren't your own. This skill prevents the 'Moral Isolationism' we discussed in our session on Relativism.",
+     "step_title": "Reflect on Neutrality",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "d860f7ca-23d0-444a-aca2-f7f7e82373f8",
+   "stage_title": "Case Selection and Argument Mapping",
+   "parent_project_id": "f3226ef6-8278-434c-b4dd-e101923f7057",
+   "stage_description": "Choose a specific moral disagreement (e.g., universal basic income or AI facial recognition) and map out the core arguments using the tools of logic and metaethics introduced in Unit 1.",
+   "deliverable_increment": "A 'Case Brief' document including a clear problem statement and a reconstructed standard-form argument for one side of the debate."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you defined your chosen case and mapped out the core arguments, establishing the problem's scope. We have recently explored the 'Moral Mathematics' of Utilitarianism, looking at how the Greatest Happiness Principle seeks to maximize net utility through consequentialism, hedonism, and impartiality. In this stage, you will move from general principles to a rigorous application of this framework. You will begin building your 'Consequentialist Impact Report' by identifying the stakeholders and specific pleasures or pains involved in your case, applying the variables of Bentham’s hedonic calculus.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of stakeholders for your case. For each stakeholder, include a one-sentence description of the specific impact (positive or negative) your decision would have on them. Good work identifies at least 3-5 distinct groups and focuses on outcomes rather than intentions."
+     },
+     "step_body": "To perform a utilitarian analysis, you must first identify every group or individual affected by your chosen dilemma. Remember the principle of Impartiality: every person's happiness counts equally ('each to count for one, and none for more than one'). List the primary and secondary stakeholders in your case. For each, briefly describe what they stand to gain (pleasure/happiness) or lose (pain/suffering) depending on the outcome. This list ensures your eventual calculation is comprehensive and doesn't overlook hidden 'ripple effects.'",
+     "step_title": "Map your stakeholders",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a comparison of two potential actions in your case using at least three of Bentham's variables (e.g., Intensity, Duration, Certainty). Explain which action produces higher net utility based on these factors."
+     },
+     "step_body": "Now, let's get quantitative using Jeremy Bentham’s variables. Choose the two most likely outcomes of your dilemma (e.g., Policy A vs. Policy B). For each outcome, evaluate the 'pleasure' produced using factors such as Intensity (how strong is the feeling?), Duration (how long does it last?), and Propinquity (how soon will it happen?). Don't worry about being a perfect mathematician; the goal is to use these categories to see which path objectively results in the 'greatest happiness.' Think like a pure Act Utilitarian: focus only on the consequences of this specific instance.",
+     "step_title": "Perform the hedonic calculus",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Bentham treated all pleasures as equal, but John Stuart Mill argued that some are 'higher' than others. Re-examine your analysis: are any of the outcomes associated with higher human faculties like intellect, justice, or long-term flourishing? Conversely, are some just 'lower' sensory gratifications? Apply Mill's 'Competent Judges' test. If a person had experienced both outcomes, which would they find more valuable for human dignity? This adds a layer of 'quality' to your quantitative math, helping you avoid the 'Pig Philosophy' trap.",
+     "step_title": "Apply qualitative distinctions",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a paragraph (150-250 words) discussing whether your utilitarian solution violates any individual rights. Explain how a critic of utilitarianism would view your choice and how you defend the outcome (or why you find the outcome problematic)."
+     },
+     "step_body": "One of the most significant criticisms of Utilitarianism is that it can justify violating individual rights for the sake of the 'greater good,' much like the 'Sheriff and the Mob' scenario. Look at your proposed 'maximum utility' solution. Does it require sacrificing the fundamental rights or interests of a minority or an individual? Address this tension directly. Is the gain in aggregate happiness so large that it justifies the cost, or does this reveal a limit to the utilitarian approach in your specific case?",
+     "step_title": "Address the rights objection",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your 'Consequentialist Impact Report' as a PDF. The report should clearly state the recommended action based on the Greatest Happiness Principle, show the 'math' of the stakeholders and consequences, and provide a Mill-style justification for the quality of the pleasures involved. It must also address the 'Rights' objection. Good work is logically consistent and uses the terminology (Consequentialism, Hedonism, Impartiality) correctly."
+     },
+     "step_body": "It is time to compile your findings into the 'Consequentialist Impact Report.' This document should synthesize your stakeholder mapping, your hedonic calculation (quantitative), and your assessment of higher/lower pleasures (qualitative). Finally, ensure you have included your reflection on the tension between aggregate utility and individual rights. This report will serve as a core section of your 2,500-word Final Ethical Analysis Portfolio.",
+     "step_title": "Submit the Impact Report",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "a28bea94-a555-4792-8e38-eae7d0e0ca32",
+   "stage_title": "The Utilitarian Calculus",
+   "parent_project_id": "f3226ef6-8278-434c-b4dd-e101923f7057",
+   "stage_description": "Apply consequentialist reasoning to your chosen case by identifying stakeholders and predicting outcomes to determine the 'greatest happiness.'",
+   "deliverable_increment": "A 'Consequentialist Impact Report' that calculates potential hedonic outcomes and addresses the tension between aggregate good and individual rights."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you calculated the 'Utilitarian Calculus' for your case, focusing on the aggregate happiness and total consequences. While that framework focuses on outcomes, we are now shifting to Deontology—the ethics of duty. Recall our recent lesson on the 'Good Will': Kant argues that an action's moral worth comes from its motive, not its results. In this stage, you will look past the consequences to evaluate whether the actions in your chosen case respect moral laws and the dignity of the individuals involved.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the central maxim of the main actor in your case, formatted as: 'I will [action], in [circumstances], for [purpose].' A good response clearly identifies the intent and the underlying principle of the action."
+     },
+     "step_body": "To analyze your case like a Kantian, you must first identify the 'maxim' of the central actor. A maxim is a personal rule of action that follows the formula: 'I will do X, in circumstances Y, for purpose Z.' For example, if your case involves a company using deceptive advertising to save jobs, the maxim might be: 'I will make a false claim (X), when my profits are at risk (Y), in order to protect my employees' livelihoods (Z).' Formulate the central maxim for your specific case now.",
+     "step_title": "Identify the primary maxim",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Explain whether your maxim passes or fails the Universalizability Test. Specifically, describe if there is a 'Contradiction in Conception' (would the action become impossible if everyone did it?). Your explanation should focus on logical consistency rather than whether the outcome is 'pleasant'."
+     },
+     "step_body": "Now, apply the First Formulation of the Categorical Imperative: The Formula of Universal Law. Imagine a world where your maxim became a universal law of nature—everyone does it. Does this lead to a 'Contradiction in Conception'? For instance, if everyone lied to save jobs, the very concept of a 'claim' or 'truthful advertising' would vanish, making the lie impossible to believe. Determine if your maxim can be consistently willed as a universal law without the logic of the action undermining itself.",
+     "step_title": "Apply the Universalizability Test",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit an analysis of how your case treats the humanity of the individuals involved. Identify if anyone is being used 'merely as a means' and explain why, focusing on the concepts of consent and intrinsic dignity (persons vs. objects)."
+     },
+     "step_body": "Next, apply the Second Formulation: The Formula of Humanity. Does the action in your case treat any person *merely* as a means to an end? Remember, using a plumber's service is fine because they consent, but using someone through deception or coercion is 'thing-ification.' Examine your case to see if any stakeholder's rational agency is being bypassed or if they are being 'spent' to achieve a goal they didn't—or couldn't—consent to.",
+     "step_title": "Test for 'Humanity as an End'",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your 'Deontological Review' as a PDF. This should be a structured section of your portfolio containing: 1) The central maxim, 2) The Universal Law test results, and 3) The Humanity as an End assessment. Criteria for success: clear application of Kantian terminology and a logical defense of why the action is a duty or a violation."
+     },
+     "step_body": "It is time to compile your findings into the third major section of your Ethical Case File: The Deontological Review. Combine your maxim analysis, your universalizability check, and your assessment of human dignity into a formal report. Contrast this with your previous Utilitarian report—how does the Kantian 'No' or 'Yes' differ from the 'math' of the previous stage? This document should demonstrate a rigorous, logical audit of the case's morality based on duty.",
+     "step_title": "Draft the Deontological Review",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "To wrap up this stage, reflect on the 'Good Will.' If the actors in your case had the best intentions but failed to achieve their goal, would their actions still hold moral worth under this framework? Consider how this changes your perspective on 'success' in ethics. You have now completed two of the three major framework analyses for your final portfolio.",
+     "step_title": "Reflect on the 'Good Will'",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "4028d867-d97d-4f11-a86d-6fd833930def",
+   "stage_title": "The Categorical Imperative Test",
+   "parent_project_id": "f3226ef6-8278-434c-b4dd-e101923f7057",
+   "stage_description": "Re-examine your case through a Kantian lens, testing the maxims of the involved parties for universalizability and respect for persons.",
+   "deliverable_increment": "A 'Deontological Review' section that evaluates the case based on duties, rights, and the principle of humanity."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief description (1-2 sentences) of the primary agent in your case (e.g., a software engineer, a medical professional, or a public official) and define what their specific professional or social 'function' is."
+     },
+     "step_body": "In your previous stages, you analyzed your case through the lens of external rules (Deontology) and consequences (Utilitarianism). Now, we shift from asking 'What should I do?' to 'What kind of person should I be?' According to Aristotle, morality is about achieving Eudaimonia (flourishing) by fulfilling our rational function. Before we dive in, identify the primary human 'agents' or decision-makers in your chosen case. Who is at the center of the dilemma, and what is their role/function in society?",
+     "step_title": "Recap & shift to character",
+     "need_response": true
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List three virtues relevant to your case and provide a 1-sentence justification for each, explaining how that virtue contributes to the agent's excellence in this scenario."
+     },
+     "step_body": "Aristotle defines virtues as 'hexis'—stable dispositions that allow us to hit the mark of excellence. Review your case and determine which specific character traits are most essential for your agent to navigate this conflict effectively. For example, does this situation primarily demand Courage, Temperance, Honesty, or Justice? Choose the three most relevant virtues and briefly explain why they are necessary to achieve a 'flourishing' outcome in this specific context.",
+     "step_title": "Map the relevant virtues",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's use the 'Doctrine of the Mean' to define what excellence actually looks like. For the most critical virtue you identified in the previous step, visualize a spectrum. On one end is a vice of deficiency (too little) and on the other is a vice of excess (too much). The 'Golden Mean' is the point of excellence between them. Remember, the Mean is relative to the person and the situation—a 'courageous' action for a CEO might look different than it would for an entry-level intern.",
+     "step_title": "Apply the Doctrine of the Mean",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 'Mean' analysis: Identify one primary virtue, its related vice of deficiency, and its related vice of excess, specifically tailored to the circumstances of your case."
+     },
+     "step_body": "It's time to build the first part of your 'Virtue Profile.' Take your primary virtue and map out its corresponding vices within the context of your case. For instance, if your case involves whistleblowing, the virtue might be Courage; the deficiency might be Cowardice (staying silent out of fear), and the excess might be Rashness (leaking sensitive data without considering the damage). Clearly define these three points on the spectrum for your specific dilemma.",
+     "step_title": "Define the Golden Mean",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "In 150-200 words, describe a specific 'clash' or complexity in your case and explain how Phronesis would be used to determine the right course of action. What factors must the agent 'see' to make a wise choice?"
+     },
+     "step_body": "Finding the Mean isn't a math problem; it requires Phronesis (Practical Wisdom). This is the 'moral eye' that helps you navigate the 'clash of virtues'—like when being honest might conflict with being loyal. Reflect on your case: what is the 'messiest' part of the situation where a simple rule won't work? How would a 'Phronimos' (a person of great practical wisdom) perceive the priority here? This is where you explain the nuance of the decision beyond just 'following the mean.'",
+     "step_title": "Exercise Practical Wisdom",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your completed 'Virtue Profile' as a PDF. Good work will clearly identify the agent's role, provide a specific Golden Mean mapping (Deficiency-Virtue-Excess), and offer a sophisticated explanation of how Phronesis applies to the case's unique complexities."
+     },
+     "step_body": "You have now completed the 'Virtue and Character Analysis' section of your portfolio. This document should synthesize your work from the previous steps into a formal profile. It must include your identification of the agent's function, the mapped virtues, the Golden Mean analysis, and the discussion on Practical Wisdom. This profile demonstrates that ethical decision-making is as much about the cultivation of character as it is about the evaluation of actions.",
+     "step_title": "Submit the Virtue Profile",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "dbf479bb-1033-43c2-94c1-f0d442bbfec6",
+   "stage_title": "Virtue and Character Analysis",
+   "parent_project_id": "f3226ef6-8278-434c-b4dd-e101923f7057",
+   "stage_description": "Shift focus from actions to agents by identifying the virtues required to navigate your case and the type of flourishing at stake.",
+   "deliverable_increment": "A 'Virtue Profile' detailing the relevant 'Golden Mean' for decision-makers in your case and the role of practical wisdom (phronesis)."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have reached the final stage of your Ethical Case File. So far, you have dissected your chosen dilemma through the lenses of Utility, Deontology, and Virtue Ethics. Most recently, we explored the nuances of medical autonomy, the distinction between killing and letting die, and the Doctrine of Double Effect. This final stage is where you move from analysis to action. You will now synthesize these diverse philosophical findings into a single, cohesive policy recommendation and assemble your complete Portfolio.",
+     "step_title": "Recap and final synthesis",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a 150-200 word reflection identifying the primary conflict between the frameworks you used. A strong response clearly explains why one framework's demands make the other's difficult to satisfy in the context of your chosen case."
+     },
+     "step_body": "Review your findings from the previous stages. It is likely that your Utilitarian analysis (maximizing good) and your Deontological review (protecting rights) came to different conclusions. This is not a mistake; it is the reality of complex ethics. Before you write your recommendation, identify which framework was the most 'problematic' for your case and why. Did a focus on the 'Good Will' prevent a helpful outcome, or did a focus on 'Aggregate Utility' trample on a fundamental right? Briefly explain which conflict is the hardest to resolve in your specific case.",
+     "step_title": "Identify the 'Hard Truths'",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, bridge the gap between theory and practice. Based on your entire analysis, what should be the official policy or decision in this case? Your recommendation must address implementation: Who is responsible? How do we ensure informed consent? How do we handle 'Double Effects' or 'Side Effects' mentioned in our recent sessions? Ensure your recommendation is not just a preference, but a reasoned conclusion that acknowledges the trade-offs you identified in the previous step.",
+     "step_title": "Draft the Policy Recommendation",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your completed 2,500-word Ethical Analysis Portfolio as a PDF. Good work will include all five required sections, demonstrate a clear synthesis of competing ethical theories, and offer a specific, actionable policy recommendation grounded in the philosophical frameworks studied."
+     },
+     "step_body": "It is time to compile your work into the final 'Ethical Analysis Portfolio.' Combine your Case Brief, Consequentialist Impact Report, Deontological Review, Virtue Profile, and your new Policy Recommendation into one structured document. Ensure you have smooth transitions between sections. This document represents your journey from identifying a problem to providing a rigorous, multi-perspectival solution. Check that your final word count is approximately 2,500 words and that your citations are consistent throughout.",
+     "step_title": "Final Portfolio Assembly",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short closing reflection (100-150 words) on whether your project could have been completed by an AI 'moral proxy' or if it required uniquely human moral agency. Focus on the concept of 'responsibility' in your answer."
+     },
+     "step_body": "Congratulations on completing your Case File. As a final reflection, consider the role of the 'moral architect' we discussed in our AI sessions. Now that you have built this comprehensive tool, do you believe that ethical decision-making can ever be fully automated, or does the 'phronesis' (practical wisdom) you applied in your Virtue Profile prove that human judgment is indispensable? Think about how this structured approach has changed your perspective on 'objective' decision-making.",
+     "step_title": "Reflect on the Process",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "70a1f8a5-2403-4994-b8be-8174dc8ab997",
+   "stage_title": "Final Synthesis and Policy Recommendation",
+   "parent_project_id": "f3226ef6-8278-434c-b4dd-e101923f7057",
+   "stage_description": "Synthesize the findings from all previous stages to form a final, reasoned conclusion that addresses practical implementation and institutional responsibility.",
+   "deliverable_increment": "The 'Final Policy Recommendation' and the completed 'Ethical Analysis Portfolio' containing all previous stages polished into a single document."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "f3226ef6-8278-434c-b4dd-e101923f7057",
+   "project_name": "The Ethical Case File: Reasoning Through Real-World Dilemmas",
+   "final_deliverable": "A structured 2,500-word Ethical Analysis Portfolio comprising a case definition, a formal logical argument, a comparative framework analysis (Utilitarian vs. Deontological), a virtue-based character assessment, and a final policy recommendation.",
+   "project_description": "Throughout this course, you will build a comprehensive 'Ethical Case File' by selecting a complex contemporary moral issue and systematically applying different normative frameworks to analyze it. This project transforms abstract philosophy into a rigorous, multi-perspectival decision-making tool."
+  }
+ ],
+ "courseUuid": "50d50e7f-8aa5-420e-86da-ed8750c667b4"
+}

@@ -1,0 +1,1349 @@
+{
+ "exams": [
+  {
+   "title": "Foundations of Learning Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to Tom Mitchell’s formal definition, a self-driving car improving its navigation by analyzing sensor data over thousands of miles is an example of learning. In this scenario, what represents the 'Experience' (E)?",
+     "options": [
+      "The distance traveled without human intervention",
+      "The goal of navigating from point A to point B",
+      "The petabytes of sensor data and human driving logs",
+      "The software code defining the steering logic"
+     ],
+     "explanation": "In Mitchell's framework (T, P, E), Experience (E) refers to the data or interactions the system uses to improve. Sensor data and logs are the 'fuel' or experience, while distance traveled is the Performance (P) and navigation is the Task (T).",
+     "correctAnswers": [
+      "The petabytes of sensor data and human driving logs"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios are best suited for a Machine Learning approach rather than a traditional rule-based system?",
+     "options": [
+      "Calculating the monthly payroll for employees based on fixed tax brackets",
+      "Predicting which employees are likely to leave the company next year",
+      "Determining if a customer's face matches their ID photo",
+      "Generating an invoice total by summing line items and adding sales tax"
+     ],
+     "explanation": "ML is suitable when patterns are complex, hidden, or hard to define manually (like facial recognition or human behavior). Payroll and invoice calculations use fixed, known mathematical rules where traditional programming is more efficient and reliable.",
+     "correctAnswers": [
+      "Predicting which employees are likely to leave the company next year",
+      "Determining if a customer's face matches their ID photo"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a model performs exceptionally well on the training data but fails to generalize to new, unseen data, we say the model is ____.",
+     "placeholder": "e.g., underfitting",
+     "correctAnswers": [
+      "overfitting",
+      "overfitted"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "You are building a model to predict house prices. If you accidentally include the 'Property Tax Paid' as a feature—a value that is calculated directly from the sale price—what problem have you introduced?",
+     "options": [
+      "Hypothesis Space restriction",
+      "Data leakage",
+      "Feature blindness",
+      "Delayed reward"
+     ],
+     "explanation": "Data leakage occurs when information from the target (label) is inadvertently included in the features. Since property tax is derived from the price, the model would 'cheat' by looking at the tax to 'predict' the price.",
+     "correctAnswers": [
+      "Data leakage"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Identify the characteristics that distinguish Reinforcement Learning from Supervised Learning.",
+     "options": [
+      "RL relies on a teacher providing the 'correct' action for every input",
+      "RL uses an agent-environment loop where actions result in rewards or penalties",
+      "RL can handle delayed rewards where the outcome of an action isn't immediate",
+      "RL requires a static dataset of X and Y pairs to function"
+     ],
+     "explanation": "Unlike Supervised Learning, RL does not have an explicit 'correct' label for every step; it learns through interaction and feedback (rewards) which can be delayed.",
+     "correctAnswers": [
+      "RL uses an agent-environment loop where actions result in rewards or penalties",
+      "RL can handle delayed rewards where the outcome of an action isn't immediate"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A student exploring a library without a syllabus or teacher is an analogy used in the course for ____ learning.",
+     "placeholder": "e.g., reinforcement",
+     "correctAnswers": [
+      "unsupervised"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Visual representation of different models within a hypothesis space.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit1-q7.png"
+     },
+     "prompt": "What is the 'Hypothesis Space' (H) in machine learning?",
+     "options": [
+      "The physical storage location of the training dataset",
+      "The set of all possible models or rules the algorithm is allowed to consider",
+      "The gap between the training error and the test error",
+      "The specific numeric values of the features for a single data point"
+     ],
+     "explanation": "The Hypothesis Space is the 'menu' of potential functions. If you choose linear regression, your H is limited to straight lines.",
+     "correctAnswers": [
+      "The set of all possible models or rules the algorithm is allowed to consider"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In an Unsupervised Learning context, such as customer segmentation, which of the following statements are true?",
+     "options": [
+      "There is no ground truth label 'Y' provided for the data points",
+      "The goal is to discover hidden structures or clusters in the data",
+      "Accuracy scores are the primary way to measure success",
+      "The algorithm learns to predict a specific target value based on feedback"
+     ],
+     "explanation": "Unsupervised learning lacks labels and is exploratory. Success is usually based on the utility of the discovered patterns rather than traditional accuracy.",
+     "correctAnswers": [
+      "There is no ground truth label 'Y' provided for the data points",
+      "The goal is to discover hidden structures or clusters in the data"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The numeric 'fingerprint' of an object that a machine uses to understand it is called a ____.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "feature"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which part of the ML workflow involves translating raw information, such as a customer's purchase history, into numeric representations like 'average monthly spend'?",
+     "options": [
+      "Data Acquisition",
+      "Feature Engineering",
+      "Model Evaluation",
+      "Deployment"
+     ],
+     "explanation": "Feature engineering is the process of using domain knowledge to transform raw data into informative features that help the algorithm learn.",
+     "correctAnswers": [
+      "Feature Engineering"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A credit card company wants to flag fraudulent transactions. Which of the following would be considered 'Features' in their ML model?",
+     "options": [
+      "The transaction amount",
+      "The location of the merchant",
+      "The time of day the purchase was made",
+      "A binary label indicating 'Fraud' or 'Not Fraud'"
+     ],
+     "explanation": "Features are the input variables (X) used to make the prediction. The 'Fraud' or 'Not Fraud' status is the Label (Y).",
+     "correctAnswers": [
+      "The transaction amount",
+      "The location of the merchant",
+      "The time of day the purchase was made"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "image": {
+      "alt": "A linear model failing to capture a non-linear relationship.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit1-q12.png"
+     },
+     "prompt": "What happens if the 'true' relationship between data points is a complex curve, but you limit your Hypothesis Space to only straight lines?",
+     "options": [
+      "The model will overfit the data",
+      "The model will likely underfit the data",
+      "The model will experience data leakage",
+      "The model will have zero training error"
+     ],
+     "explanation": "Underfitting occurs when the model (the hypothesis space) is too simple to capture the underlying structure of the data.",
+     "correctAnswers": [
+      "The model will likely underfit the data"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Why is the ML workflow described as 'iterative' rather than a straight line?",
+     "options": [
+      "Discovering data quality issues often requires going back to the acquisition stage",
+      "Model performance results may indicate a need for better feature engineering",
+      "The hypothesis space must be manually cleared after every model run",
+      "Deployment is the only stage where data is ever modified"
+     ],
+     "explanation": "The workflow is a cycle; evaluation often reveals flaws that require rethinking the data or features used.",
+     "correctAnswers": [
+      "Discovering data quality issues often requires going back to the acquisition stage",
+      "Model performance results may indicate a need for better feature engineering"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "In the Mitchell definition, if a chess-playing AI's win rate increases after playing 1,000 games, the 'win rate' is the:",
+     "options": [
+      "Task (T)",
+      "Experience (E)",
+      "Performance Measure (P)",
+      "Hypothesis Space (H)"
+     ],
+     "explanation": "The Performance Measure (P) is the specific metric used to evaluate how well the system is performing the task.",
+     "correctAnswers": [
+      "Performance Measure (P)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Observe the optimization process. Why does the model fail to reach the global minimum when the learning rate is set too high?",
+     "options": [
+      "The hypothesis space is too restricted to contain the optimal solution",
+      "The large step size causes the updates to overstep the minimum and oscillate or diverge",
+      "The loss function becomes non-convex as the learning rate increases",
+      "The model enters a state of overfitting by memorizing the noise in the data"
+     ],
+     "explanation": "A high learning rate means the 'steps' taken down the gradient are too large. As seen in the simulation, the point bounces back and forth across the valley (oscillates) instead of settling at the bottom.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Gradient Descent Convergence Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .label {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            font-style: italic;\n        }\n\n        .value {\n            font-family: -apple-system, sans-serif;\n            font-variant-numeric: tabular-nums;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--ink);\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            fill: var(--muted);\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of a ball descending a U-shaped curve with varying step sizes</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-wrapper\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 220\" aria-hidden=\"true\">\n                <!-- Axes -->\n                <line x1=\"40\" y1=\"180\" x2=\"360\" y2=\"180\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"200\" y1=\"20\" x2=\"200\" y2=\"180\" stroke=\"var(--rule)\" stroke-width=\"1\" stroke-dasharray=\"4 2\" opacity=\"0.5\" />\n                \n                <!-- Loss Curve: y = 0.005 * (x-200)^2 + 40 -->\n                <path id=\"curve\" d=\"M 60 138 Q 200 18 340 138\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"1.5\" opacity=\"0.3\" />\n                <path d=\"M 50 152.5 C 100 80, 150 40, 200 40 S 300 80, 350 152.5\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n\n                <!-- Ticks for X axis -->\n                <g class=\"axis-ticks\">\n                    <line x1=\"50\" y1=\"180\" x2=\"50\" y2=\"185\" stroke=\"var(--rule)\" />\n                    <line x1=\"200\" y1=\"180\" x2=\"200\" y2=\"185\" stroke=\"var(--rule)\" />\n                    <line x1=\"350\" y1=\"180\" x2=\"350\" y2=\"185\" stroke=\"var(--rule)\" />\n                    <text x=\"50\" y=\"200\" text-anchor=\"middle\" class=\"axis-label\">-1.0</text>\n                    <text x=\"200\" y=\"200\" text-anchor=\"middle\" class=\"axis-label\">0.0</text>\n                    <text x=\"350\" y=\"200\" text-anchor=\"middle\" class=\"axis-label\">+1.0</text>\n                    <text x=\"200\" y=\"215\" text-anchor=\"middle\" class=\"axis-label\">Parameter Value</text>\n                </g>\n\n                <!-- Ball -->\n                <circle id=\"ball\" r=\"6\" fill=\"var(--accent)\" stroke=\"white\" stroke-width=\"1.5\" />\n                \n                <!-- Path History -->\n                <polyline id=\"history-path\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"1\" stroke-dasharray=\"2 2\" opacity=\"0.6\" />\n\n                <!-- Parameter Indicator -->\n                <line id=\"param-marker\" x1=\"0\" y1=\"175\" x2=\"0\" y2=\"185\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Step Size</span>\n                <span id=\"lr-val\" class=\"value\">0.10</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Status</span>\n                <span id=\"status-val\" class=\"value\">Adjusting...</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Trajectory of state updates over time</div>\n    </div>\n\n    <script>\n        const ball = document.getElementById('ball');\n        const historyPath = document.getElementById('history-path');\n        const lrVal = document.getElementById('lr-val');\n        const statusVal = document.getElementById('status-val');\n        const paramMarker = document.getElementById('param-marker');\n\n        // State variables\n        let x = -0.85; // normalized -1 to 1\n        let lr = 0.1;\n        let time = 0;\n        let steps = [];\n        let cycleTime = 0;\n\n        // Quadratic function: f(x) = x^2\n        // In SVG space: center is 200, scale is 150px = 1.0 unit\n        // y = 40 (top) to 152.5 (bottom curve)\n        function getPos(val) {\n            const centerX = 200;\n            const bottomY = 152.5;\n            const widthScale = 150;\n            const heightScale = 112.5;\n            \n            return {\n                x: centerX + (val * widthScale),\n                y: bottomY - (1 - val*val) * 0 // wait, let's simplify\n            };\n        }\n\n        // Proper mapping for the specific path drawn: M 50 152.5 ... vertex at 200, 40\n        function getSVGCoords(val) {\n            const px = 200 + (val * 150);\n            // y = a(x-h)^2 + k\n            // at val=0 (x=200), y=40\n            // at val=1 (x=350), y=152.5\n            // 152.5 = a(150^2) + 40 => 112.5 = a * 22500 => a = 0.005\n            const py = 0.005 * Math.pow(px - 200, 2) + 40;\n            return { x: px, y: py };\n        }\n\n        function update() {\n            cycleTime += 0.008;\n            \n            // Sweep learning rate from 0.05 to 1.1 over a 12 second loop\n            // Use a sine wave to oscillate smoothly\n            const sweep = (Math.sin(cycleTime * 0.5) + 1) / 2; // 0 to 1\n            lr = 0.1 + sweep * 1.0; \n            \n            lrVal.textContent = lr.toFixed(2);\n            \n            // Gradient Descent Logic\n            // f(x) = x^2, f'(x) = 2x\n            // x_new = x - lr * 2x\n            const gradient = 2 * x;\n            const nextX = x - (lr * gradient);\n            \n            // Move ball\n            x = nextX;\n\n            // Constrain x slightly for visualization if it explodes, \n            // though the phenomenon is that it never reaches center\n            if (Math.abs(x) > 1.2) x = x > 0 ? 1.2 : -1.2;\n\n            const coords = getSVGCoords(x);\n            ball.setAttribute('cx', coords.x);\n            ball.setAttribute('cy', coords.y);\n            \n            paramMarker.setAttribute('x1', coords.x);\n            paramMarker.setAttribute('x2', coords.x);\n\n            // Update status text\n            if (lr > 0.9) {\n                statusVal.textContent = \"Diverging / Oscillating\";\n                ball.setAttribute('fill', 'var(--amber)');\n            } else if (lr < 0.3) {\n                statusVal.textContent = \"Converging\";\n                ball.setAttribute('fill', 'var(--accent)');\n            } else {\n                statusVal.textContent = \"Overshooting\";\n                ball.setAttribute('fill', 'var(--accent)');\n            }\n\n            // History trail\n            steps.push(`${coords.x},${coords.y}`);\n            if (steps.length > 15) steps.shift();\n            historyPath.setAttribute('points', steps.join(' '));\n\n            // Reset ball if it gets too close or stuck in an oscillation\n            time++;\n            if (time > 40) {\n                x = -0.85; \n                steps = [];\n                time = 0;\n            }\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The large step size causes the updates to overstep the minimum and oscillate or diverge"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Supervised Learning Comprehensive Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In Ordinary Least Squares (OLS) regression, why do we minimize the sum of 'squared' residuals rather than the sum of raw residuals?",
+     "options": [
+      "To ensure the loss function remains non-convex and easier to navigate.",
+      "To prevent positive and negative errors from canceling each other out and to penalize larger outliers.",
+      "To decrease the computational complexity when using the Normal Equation.",
+      "To transform the linear relationship into a non-parametric model."
+     ],
+     "explanation": "Raw residuals can sum to zero even with a poor fit because positive and negative errors cancel out. Squaring ensures all errors are positive and disproportionately penalizes large deviations (outliers).",
+     "correctAnswers": [
+      "To prevent positive and negative errors from canceling each other out and to penalize larger outliers."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "L1 vs L2 regularization geometric interpretation.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit2-q2.png"
+     },
+     "prompt": "Which of the following are true characteristics of the Lasso (L1) regularization technique?",
+     "options": [
+      "It can set some coefficients exactly to zero.",
+      "It is generally preferred over Ridge when features are highly correlated and you want to keep all of them.",
+      "It effectively performs feature selection.",
+      "Its constraint region is shaped like a diamond in a two-dimensional coefficient space.",
+      "It shrinks weights toward zero but never reaches zero."
+     ],
+     "explanation": "Lasso's diamond-shaped constraint often hits the axes, resulting in sparse models where irrelevant features have zero coefficients. Ridge (L2) is better for correlated features where retention is desired.",
+     "correctAnswers": [
+      "It can set some coefficients exactly to zero.",
+      "It effectively performs feature selection.",
+      "Its constraint region is shaped like a diamond in a two-dimensional coefficient space."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Logistic Regression, the ____ function is used to map any real-valued number into a range between 0 and 1, representing a probability.",
+     "placeholder": "Enter function name",
+     "correctAnswers": [
+      "Sigmoid",
+      "Logistic",
+      "Logit"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If you are building a system to classify images into one of three mutually exclusive categories (Cat, Dog, or Bird), which output layer configuration is most appropriate?",
+     "options": [
+      "Three independent Sigmoid functions.",
+      "A single Linear Regression output capped at 3.",
+      "A Softmax function producing a probability distribution that sums to 1.0.",
+      "A k-NN classifier using Manhattan distance."
+     ],
+     "explanation": "Softmax is the multi-class generalization of the Sigmoid; it ensures that the outputs for mutually exclusive classes are relative and sum to 1.",
+     "correctAnswers": [
+      "A Softmax function producing a probability distribution that sums to 1.0."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What happens in a k-Nearest Neighbors (k-NN) model as the value of 'k' increases?",
+     "options": [
+      "The model's decision boundary becomes smoother.",
+      "The model becomes more sensitive to local noise and outliers.",
+      "The model's variance decreases while its bias generally increases.",
+      "The model's variance increases while its bias decreases.",
+      "The computational cost of making a prediction remains the same."
+     ],
+     "explanation": "Larger 'k' averages more neighbors, smoothing the boundary and reducing variance (generalizing more), but potentially increasing bias. Prediction cost is independent of k (it depends on dataset size).",
+     "correctAnswers": [
+      "The model's decision boundary becomes smoother.",
+      "The model's variance decreases while its bias generally increases.",
+      "The computational cost of making a prediction remains the same."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ equation provides a closed-form solution for the weights in a Linear Regression model, avoiding the need for iterative Gradient Descent.",
+     "placeholder": "Name of the equation",
+     "correctAnswers": [
+      "Normal",
+      "Normal Equation"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the context of Naive Bayes, what does the 'Naive' assumption specifically refer to?",
+     "options": [
+      "The assumption that the data is always linearly separable.",
+      "The assumption that all features are independent of each other given the class label.",
+      "The assumption that the prior probability of all classes is equal.",
+      "The assumption that the likelihood follows a Gaussian distribution."
+     ],
+     "explanation": "Naive Bayes is 'naive' because it assumes conditional independence between features, simplifying the joint probability calculation.",
+     "correctAnswers": [
+      "The assumption that all features are independent of each other given the class label."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In SVM optimization, what are the primary roles of the hyperparameters C and Gamma?",
+     "options": [
+      "A large C value prioritizes a wider margin over correctly classifying training points.",
+      "A large C value prioritizes correct classification of training points over a wider margin.",
+      "A small Gamma means the influence of a single training point reaches far.",
+      "A large Gamma means the influence of a single training point is restricted to its immediate neighborhood.",
+      "C and Gamma are only used in Linear Regression, not SVM."
+     ],
+     "explanation": "C is the penalty for misclassification (high C = hard margin). Gamma defines the reach of a point's influence (high Gamma = curvy, tight boundary).",
+     "correctAnswers": [
+      "A large C value prioritizes correct classification of training points over a wider margin.",
+      "A small Gamma means the influence of a single training point reaches far.",
+      "A large Gamma means the influence of a single training point is restricted to its immediate neighborhood."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A ____ model, such as Naive Bayes, attempts to model the underlying distribution of each class, whereas a discriminative model only learns the boundary between them.",
+     "placeholder": "Type of model",
+     "correctAnswers": [
+      "generative"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "The kernel trick visualization.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit2-q10.png"
+     },
+     "prompt": "How does a Support Vector Machine (SVM) handle data that is not linearly separable in its original feature space?",
+     "options": [
+      "By discarding the outliers that prevent separation.",
+      "By using a Sigmoid function to squash the outputs.",
+      "By using the kernel trick to project the data into a higher-dimensional space.",
+      "By switching to an Ordinary Least Squares objective."
+     ],
+     "explanation": "The kernel trick allows SVMs to find a linear hyperplane in a high-dimensional space that corresponds to a non-linear boundary in the original space.",
+     "correctAnswers": [
+      "By using the kernel trick to project the data into a higher-dimensional space."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In the context of the Bias-Variance trade-off, which of the following actions typically decrease model variance?",
+     "options": [
+      "Increasing the number of features.",
+      "Adding L2 (Ridge) regularization.",
+      "Increasing the value of k in a k-NN model.",
+      "Decreasing the C parameter in an SVM.",
+      "Using a higher-degree polynomial for regression."
+     ],
+     "explanation": "Regularization, increasing k in k-NN, and decreasing C (allowing a wider margin/more misclassifications) all simplify the model, reducing variance.",
+     "correctAnswers": [
+      "Adding L2 (Ridge) regularization.",
+      "Increasing the value of k in a k-NN model.",
+      "Decreasing the C parameter in an SVM."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In a Support Vector Machine, the data points that lie closest to the decision boundary and determine its position are called ____.",
+     "placeholder": "Term name",
+     "correctAnswers": [
+      "support vectors"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is a major disadvantage of using the One-vs-One (OvO) strategy for multiclass classification compared to One-vs-Rest (OvR)?",
+     "options": [
+      "It is prone to the unbalanced dataset problem.",
+      "It requires training significantly more classifiers as the number of classes increases.",
+      "It cannot be used with Support Vector Machines.",
+      "It does not provide a definitive class prediction."
+     ],
+     "explanation": "OvO requires N(N-1)/2 classifiers. For 10 classes, OvR needs 10, while OvO needs 45, making it computationally expensive for many classes.",
+     "correctAnswers": [
+      "It requires training significantly more classifiers as the number of classes increases."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When comparing Ridge and Lasso regression, which statements are accurate?",
+     "options": [
+      "Ridge is better at handling multicollinearity than Lasso.",
+      "Lasso is better for models where only a few features are expected to be significant.",
+      "Ridge uses the absolute value of the weights in its penalty term.",
+      "Lasso uses the square of the weights in its penalty term.",
+      "Both methods add a penalty to the loss function to prevent overfitting."
+     ],
+     "explanation": "Lasso uses L1 (absolute), Ridge uses L2 (squared). Ridge handles correlations by shrinking both weights, while Lasso might randomly pick one.",
+     "correctAnswers": [
+      "Ridge is better at handling multicollinearity than Lasso.",
+      "Lasso is better for models where only a few features are expected to be significant.",
+      "Both methods add a penalty to the loss function to prevent overfitting."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The ____ loss function is used in Logistic Regression because it heavily penalizes confident but incorrect predictions using logarithmic growth.",
+     "placeholder": "Loss function name",
+     "correctAnswers": [
+      "Cross-Entropy",
+      "Log",
+      "Logarithmic"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Which distance metric would be most appropriate for k-NN if the features represent counts of words in a document where magnitude varies greatly but the 'direction' of the vector matters?",
+     "options": [
+      "Euclidean Distance",
+      "Manhattan Distance",
+      "Cosine Similarity",
+      "Minkowski Distance"
+     ],
+     "explanation": "Cosine similarity measures the angle between vectors, making it robust to document length (magnitude) in text classification.",
+     "correctAnswers": [
+      "Cosine Similarity"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of the following are necessary steps when preparing data for a k-NN algorithm to ensure optimal performance?",
+     "options": [
+      "Feature scaling (e.g., normalization or standardization).",
+      "Converting categorical variables into a numerical format.",
+      "Calculating the Normal Equation weights first.",
+      "Ensuring the target variable is mapped to a Sigmoid function.",
+      "Handling missing values since k-NN cannot compute distances with nulls."
+     ],
+     "explanation": "k-NN is distance-based, so features on larger scales will dominate the distance calculation without scaling. It requires complete numerical data to compute distances.",
+     "correctAnswers": [
+      "Feature scaling (e.g., normalization or standardization).",
+      "Converting categorical variables into a numerical format.",
+      "Handling missing values since k-NN cannot compute distances with nulls."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "What is the consequence of having multicollinearity (highly correlated independent variables) in a standard OLS Linear Regression?",
+     "options": [
+      "The model will always yield higher accuracy.",
+      "The coefficients become unstable and difficult to interpret.",
+      "The RSS cost function becomes non-convex.",
+      "The Sigmoid function will fail to converge."
+     ],
+     "explanation": "Multicollinearity makes it hard for OLS to determine the independent effect of each variable, leading to large swings in coefficient values with small data changes.",
+     "correctAnswers": [
+      "The coefficients become unstable and difficult to interpret."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "Which of the following are advantages of the Naive Bayes classifier?",
+     "options": [
+      "It is very fast to train and predict.",
+      "It performs well even with relatively small amounts of training data.",
+      "It perfectly captures the complex interactions between different features.",
+      "It is robust to irrelevant features.",
+      "It provides a probabilistic interpretation of the classification."
+     ],
+     "explanation": "Naive Bayes is efficient and works well with small data, but its independence assumption means it explicitly ignores feature interactions.",
+     "correctAnswers": [
+      "It is very fast to train and predict.",
+      "It performs well even with relatively small amounts of training data.",
+      "It provides a probabilistic interpretation of the classification."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Observe the optimization process as the regularization parameter (lambda/alpha) is gradually increased from zero to a very high value. Why does the model's performance on the validation set initially improve before eventually degrading?",
+     "options": [
+      "Because increasing regularization always reduces bias, which eventually makes the model too simple to capture the trend.",
+      "Because small amounts of regularization reduce variance by penalizing noise-fitting weights, but excessive regularization creates high bias by suppressing relevant features.",
+      "Because the model switches from a parametric to a non-parametric state as the penalty grows.",
+      "Because high regularization increases the model's sensitivity to outliers, leading to unstable predictions."
+     ],
+     "explanation": "The animation shows the weights shrinking. Initially, this stops the model from 'chasing' noise (reducing variance). Eventually, weights become so small the model can't even represent the underlying trend (increasing bias).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Regularization and Polynomial Fit Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n            color: var(--ink);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-group {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 16px;\n        }\n\n        @media (max-width: 450px) {\n            .fig-group {\n                grid-template-columns: 1fr;\n            }\n        }\n\n        .fig-container {\n            position: relative;\n            width: 100%;\n        }\n\n        svg.fig {\n            width: 100%;\n            height: auto;\n            display: block;\n            overflow: visible;\n        }\n\n        .label-serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .axis-label {\n            font-family: -apple-system, sans-serif;\n            font-size: 10px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .readout {\n            font-family: -apple-system, sans-serif;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            font-variant-numeric: tabular-nums;\n            margin-top: 8px;\n        }\n\n        .fixed-tag {\n            font-size: 10px;\n            opacity: 0.8;\n            margin-left: 4px;\n            text-transform: uppercase;\n        }\n\n        .legend {\n            display: flex;\n            justify-content: center;\n            gap: 16px;\n            font-size: 11px;\n            margin-top: 4px;\n        }\n\n        .legend-item {\n            display: flex;\n            align-items: center;\n            gap: 4px;\n            color: var(--muted);\n        }\n\n        .dot { width: 8px; height: 8px; border-radius: 50%; }\n\n        .sr-only { display: none; }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of Polynomial Fit and Error Curves across Regularization Strengths</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-group\">\n            <!-- Left: The Fit -->\n            <div class=\"fig-container\">\n                <svg class=\"fig\" viewBox=\"0 0 200 160\" aria-label=\"Polynomial fit to noisy data\">\n                    <!-- Axes -->\n                    <line x1=\"20\" y1=\"140\" x2=\"190\" y2=\"140\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                    <line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"140\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                    \n                    <text x=\"105\" y=\"155\" text-anchor=\"middle\" class=\"axis-label\">Input Feature</text>\n                    \n                    <!-- Data Points -->\n                    <g id=\"data-points\"></g>\n                    \n                    <!-- The Fit Curve -->\n                    <path id=\"fit-curve\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" stroke-linejoin=\"round\" />\n                    \n                    <text x=\"25\" y=\"20\" class=\"label-serif\">Model Fit</text>\n                </svg>\n            </div>\n\n            <!-- Right: The Error Curves -->\n            <div class=\"fig-container\">\n                <svg class=\"fig\" viewBox=\"0 0 200 160\" aria-label=\"Training and validation error curves\">\n                    <!-- Axes -->\n                    <line x1=\"25\" y1=\"140\" x2=\"190\" y2=\"140\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                    <line x1=\"25\" y1=\"10\" x2=\"25\" y2=\"140\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                    \n                    <text x=\"107\" y=\"155\" text-anchor=\"middle\" class=\"axis-label\">Regularization Strength (λ)</text>\n                    <text x=\"15\" y=\"75\" text-anchor=\"middle\" class=\"axis-label\" transform=\"rotate(-90, 15, 75)\">Error</text>\n                    \n                    <!-- Ticks for lambda axis -->\n                    <line x1=\"25\" y1=\"140\" x2=\"25\" y2=\"145\" stroke=\"var(--rule)\" />\n                    <text x=\"25\" y=\"154\" text-anchor=\"middle\" style=\"font-size: 8px; fill: var(--muted);\">0</text>\n                    <line x1=\"185\" y1=\"140\" x2=\"185\" y2=\"145\" stroke=\"var(--rule)\" />\n                    <text x=\"185\" y=\"154\" text-anchor=\"middle\" style=\"font-size: 8px; fill: var(--muted);\">100</text>\n\n                    <!-- Curves -->\n                    <path id=\"train-error-path\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.5\" stroke-dasharray=\"3,2\" />\n                    <path id=\"val-error-path\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n                    \n                    <!-- Playhead -->\n                    <line id=\"playhead\" x1=\"25\" y1=\"10\" x2=\"25\" y2=\"140\" stroke=\"var(--ink)\" stroke-width=\"0.5\" stroke-dasharray=\"2,2\" />\n                </svg>\n                \n                <div class=\"legend\">\n                    <div class=\"legend-item\"><div class=\"dot\" style=\"background: var(--muted); border: 1px dashed var(--muted); height: 2px; width: 10px; border-radius: 0;\"></div> Training</div>\n                    <div class=\"legend-item\"><div class=\"dot\" style=\"background: var(--amber);\"></div> Validation</div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"readout\">\n            <span>λ = <span id=\"lambda-val\">0.0</span></span>\n            <span class=\"fixed-tag\">· polynomial degree 10 (fixed)</span>\n        </div>\n    </div>\n\n    <script>\n        // --- Deterministic Random ---\n        let seed = 42;\n        function random() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        // --- Data Generation ---\n        const NUM_POINTS = 14;\n        const trainPoints = [];\n        const valPoints = [];\n        for (let i = 0; i < NUM_POINTS; i++) {\n            const x = 0.1 + (i / (NUM_POINTS - 1)) * 0.8;\n            const yTrue = 0.3 + 0.4 * x;\n            trainPoints.push({ x, y: yTrue + (random() - 0.5) * 0.15 });\n            valPoints.push({ x: x + 0.02, y: yTrue + (random() - 0.5) * 0.15 });\n        }\n\n        const dataPointsG = document.getElementById('data-points');\n        trainPoints.forEach(p => {\n            const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n            circle.setAttribute(\"cx\", 20 + p.x * 170);\n            circle.setAttribute(\"cy\", 140 - p.y * 130);\n            circle.setAttribute(\"r\", 2);\n            circle.setAttribute(\"fill\", \"var(--ink)\");\n            circle.setAttribute(\"opacity\", \"0.6\");\n            dataPointsG.appendChild(circle);\n        });\n\n        // --- Math Helpers ---\n        // Basic ridge regression for polynomial fit\n        function getPolynomialFit(lambda) {\n            const degree = 10;\n            const X = [];\n            const Y = [];\n            for (let p of trainPoints) {\n                const row = [];\n                for (let d = 0; d <= degree; d++) row.push(Math.pow(p.x, d));\n                X.push(row);\n                Y.push(p.y);\n            }\n\n            // (X'X + lambda*I)^-1 X'Y\n            // Simplified for the visual: we use a pre-baked approximation \n            // of how the weights decay with lambda to ensure stability in the UI\n            // instead of a full matrix inversion which can be brittle in JS\n            \n            const coeffs = [];\n            for (let d = 0; d <= degree; d++) {\n                // Heuristic: higher degrees penalized more by lambda\n                const target = d === 1 ? 0.4 : (d === 0 ? 0.3 : 0);\n                const noise = Math.sin(d * 10) * 0.2 * Math.pow(0.8, d);\n                const weight = noise / (1 + lambda * Math.pow(d + 1, 1.5) * 0.05) + target;\n                coeffs.push(weight);\n            }\n            return coeffs;\n        }\n\n        function evalPoly(coeffs, x) {\n            return coeffs.reduce((sum, c, i) => sum + c * Math.pow(x, i), 0);\n        }\n\n        // --- Error Calculation ---\n        const errorData = [];\n        for (let l = 0; l <= 100; l += 2) {\n            const coeffs = getPolynomialFit(l);\n            let trainErr = 0;\n            let valErr = 0;\n            trainPoints.forEach(p => trainErr += Math.pow(evalPoly(coeffs, p.x) - p.y, 2));\n            valPoints.forEach(p => valErr += Math.pow(evalPoly(coeffs, p.x) - p.y, 2));\n            errorData.push({ \n                l, \n                train: Math.sqrt(trainErr / NUM_POINTS), \n                val: Math.sqrt(valErr / NUM_POINTS) \n            });\n        }\n\n        // --- Render Curves ---\n        const trainPath = document.getElementById('train-error-path');\n        const valPath = document.getElementById('val-error-path');\n        \n        function getErrorX(l) { return 25 + (l / 100) * 160; }\n        function getErrorY(e) { return 140 - (e * 200); } // Scale for visibility\n\n        trainPath.setAttribute('d', errorData.map((d, i) => \n            `${i === 0 ? 'M' : 'L'} ${getErrorX(d.l)} ${getErrorY(d.train)}`).join(' '));\n        valPath.setAttribute('d', errorData.map((d, i) => \n            `${i === 0 ? 'M' : 'L'} ${getErrorX(d.l)} ${getErrorY(d.val)}`).join(' '));\n\n        // --- Animation Loop ---\n        const fitCurve = document.getElementById('fit-curve');\n        const playhead = document.getElementById('playhead');\n        const lambdaReadout = document.getElementById('lambda-val');\n        \n        let startTime = null;\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = timestamp - startTime;\n            \n            // Loop every 10 seconds\n            const duration = 10000;\n            const t = (elapsed % duration) / duration;\n            \n            // Map t to lambda: 0 -> 100 -> 0\n            let lambda;\n            if (t < 0.5) {\n                lambda = (t * 2) * 100;\n            } else {\n                lambda = (1 - (t - 0.5) * 2) * 100;\n            }\n\n            // Update UI\n            lambdaReadout.textContent = lambda.toFixed(1);\n            playhead.setAttribute('x1', getErrorX(lambda));\n            playhead.setAttribute('x2', getErrorX(lambda));\n\n            // Draw Fit\n            const coeffs = getPolynomialFit(lambda);\n            let pathD = \"\";\n            for (let x = 0; x <= 1.0; x += 0.02) {\n                const y = evalPoly(coeffs, x);\n                const px = 20 + x * 170;\n                const py = 140 - y * 130;\n                pathD += (x === 0 ? \"M\" : \"L\") + ` ${px} ${py}`;\n            }\n            fitCurve.setAttribute('d', pathD);\n\n            requestAnimationFrame(animate);\n        }\n\n        // --- Height Reporting ---\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because small amounts of regularization reduce variance by penalizing noise-fitting weights, but excessive regularization creates high bias by suppressing relevant features."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Trees, Ensembles, and Evaluation Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which component of a decision tree represents the final classification or predicted value for a data point?",
+     "options": [
+      "Root Node",
+      "Internal Node",
+      "Branch",
+      "Leaf Node"
+     ],
+     "explanation": "Leaf nodes are the terminal points of the tree where no further splits occur and the final prediction is assigned.",
+     "correctAnswers": [
+      "Leaf Node"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are benefits of using decision trees over linear regression models?",
+     "options": [
+      "Naturally handles non-linear relationships",
+      "Provides a 'global' formula for all data points",
+      "Captures sequential, local decision logic",
+      "Requires no manual feature engineering for polynomial terms"
+     ],
+     "explanation": "Decision trees carve the space into local regions and handle non-linearity through partitioning, unlike linear models which use global formulas.",
+     "correctAnswers": [
+      "Naturally handles non-linear relationships",
+      "Captures sequential, local decision logic",
+      "Requires no manual feature engineering for polynomial terms"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A decision tree for classification creates decision boundaries that are always ____ to the feature axes.",
+     "placeholder": "geometric orientation",
+     "correctAnswers": [
+      "parallel",
+      "axis-aligned",
+      "orthogonal"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In the context of Information Gain, what does an entropy value of 1.0 signify for a binary classification task?",
+     "options": [
+      "The node is perfectly pure.",
+      "The node contains a 50/50 split of classes.",
+      "The node contains only one class.",
+      "The node cannot be split further."
+     ],
+     "explanation": "Entropy is a measure of surprise or chaos; a 50/50 split represents maximum uncertainty and thus an entropy of 1.0.",
+     "correctAnswers": [
+      "The node contains a 50/50 split of classes."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Why do many machine learning libraries like Scikit-Learn use Gini Impurity as the default splitting criterion instead of Entropy?",
+     "options": [
+      "Gini is more accurate for large datasets.",
+      "Gini avoids expensive logarithmic calculations.",
+      "Gini results in much deeper trees.",
+      "Gini is computationally more efficient."
+     ],
+     "explanation": "Gini and Entropy usually yield similar trees, but Gini is faster to compute because it doesn't require calculating logarithms.",
+     "correctAnswers": [
+      "Gini avoids expensive logarithmic calculations.",
+      "Gini is computationally more efficient."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The process of letting a tree grow fully and then removing branches that provide little predictive value is known as ____ pruning.",
+     "placeholder": "type of pruning",
+     "correctAnswers": [
+      "post",
+      "post-pruning",
+      "cost complexity"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Illustration of threshold testing for continuous features.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit3-q7.png"
+     },
+     "prompt": "How does a decision tree determine the best split point for a continuous numerical feature like 'Temperature'?",
+     "options": [
+      "It splits at the mean value of the feature.",
+      "It only tests the maximum and minimum values.",
+      "It tests midpoints between adjacent sorted data points and picks the one with the highest Information Gain.",
+      "It uses a linear regression to find the intercept."
+     ],
+     "explanation": "Trees discretize continuous variables by evaluating all potential split thresholds between data points to maximize purity reduction.",
+     "correctAnswers": [
+      "It tests midpoints between adjacent sorted data points and picks the one with the highest Information Gain."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'Pre-pruning' techniques?",
+     "options": [
+      "Setting a 'max_depth' limit",
+      "Cost Complexity Pruning after the tree is built",
+      "Setting a 'min_samples_split' threshold",
+      "Removing leaves that do not significantly improve accuracy"
+     ],
+     "explanation": "Pre-pruning involves setting constraints that stop the tree's growth early, whereas removing nodes after growth is post-pruning.",
+     "correctAnswers": [
+      "Setting a 'max_depth' limit",
+      "Setting a 'min_samples_split' threshold"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In boosting, we say the ensemble is formed by a series of ____ learners, each adding a small amount of complexity.",
+     "placeholder": "strength of learners",
+     "correctAnswers": [
+      "weak",
+      "base"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is the primary risk associated with allowing a decision tree to grow to its maximum possible depth?",
+     "options": [
+      "High Bias",
+      "Underfitting",
+      "High Variance",
+      "Zero Training Accuracy"
+     ],
+     "explanation": "Deep trees tend to capture noise and outliers (high variance), memorizing the training data rather than learning generalizable patterns.",
+     "correctAnswers": [
+      "High Variance"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In a Feature Importance analysis, which factors generally indicate that a feature is highly important?",
+     "options": [
+      "The feature is used in nodes near the top of the tree.",
+      "The feature is only used in the deepest leaf nodes.",
+      "The feature is used in splits that lead to large reductions in total impurity.",
+      "The feature appears multiple times across many trees in a forest."
+     ],
+     "explanation": "Features used early (high in the tree) impact more samples, and those that significantly reduce impurity are considered more valuable.",
+     "correctAnswers": [
+      "The feature is used in nodes near the top of the tree.",
+      "The feature is used in splits that lead to large reductions in total impurity.",
+      "The feature appears multiple times across many trees in a forest."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ is the harmonic mean of Precision and Recall, providing a balance between the two.",
+     "placeholder": "name of metric",
+     "correctAnswers": [
+      "F1-Score",
+      "F1",
+      "F-measure"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Decision tree logic path.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit3-q13.png"
+     },
+     "prompt": "What makes a decision tree a 'White Box' model compared to a Deep Neural Network?",
+     "options": [
+      "It is always more accurate.",
+      "Its logic consists of a sequence of interpretable 'If-Then' rules.",
+      "It is stored in an unencrypted format.",
+      "It uses linear algebra instead of probability."
+     ],
+     "explanation": "Decision trees are human-centric because the path from root to leaf provides a clear, logical explanation for every prediction.",
+     "correctAnswers": [
+      "Its logic consists of a sequence of interpretable 'If-Then' rules."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "How does a Random Forest differ from a standard Bagged Ensemble of decision trees?",
+     "options": [
+      "It uses only a random subset of features for each split.",
+      "It uses a random subset of data (bootstrapping).",
+      "It limits the number of trees to 10.",
+      "It trains trees sequentially rather than in parallel."
+     ],
+     "explanation": "While both use bootstrapping, Random Forests add another layer of randomness by only considering a subset of features at each node split.",
+     "correctAnswers": [
+      "It uses only a random subset of features for each split.",
+      "It uses a random subset of data (bootstrapping)."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Bootstrap Aggregating (Bagging) reduces the error of a model primarily by addressing which component of the error?",
+     "options": [
+      "Bias",
+      "Variance",
+      "Irreducible Error",
+      "Feature Scaling"
+     ],
+     "explanation": "Bagging works by averaging multiple models trained on different data subsets, which smooths out the noise and reduces variance.",
+     "correctAnswers": [
+      "Variance"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "image": {
+      "alt": "Confusion Matrix structure.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit3-q16.png"
+     },
+     "prompt": "Which of the following metrics are calculated using the values from a Confusion Matrix?",
+     "options": [
+      "Precision",
+      "F1-Score",
+      "Recall",
+      "Mean Squared Error"
+     ],
+     "explanation": "Precision, Recall, and F1-Score are classification metrics derived from True Positives, False Positives, and False Negatives. MSE is for regression.",
+     "correctAnswers": [
+      "Precision",
+      "F1-Score",
+      "Recall"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "What is the primary goal of Gradient Boosting models?",
+     "options": [
+      "To build independent trees in parallel.",
+      "To reduce variance through averaging.",
+      "To reduce bias by sequentially training trees to correct the errors of previous trees.",
+      "To make the model more interpretable for stakeholders."
+     ],
+     "explanation": "Boosting is a sequential process where each new model focuses on the residual errors (the 'mistakes') of the existing ensemble.",
+     "correctAnswers": [
+      "To reduce bias by sequentially training trees to correct the errors of previous trees."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Observe the relationship between the number of trees in the ensemble and the behavior of the decision boundary. Why does the 'stepping' effect change as the simulation progresses?",
+     "options": [
+      "Because adding more trees increases the bias of the overall model, making it ignore small details.",
+      "Because the averaging of many different axis-aligned splits from individual trees creates a smoother, more flexible boundary.",
+      "Because each tree in the forest is forced to be identical, so the boundary becomes more rigid.",
+      "Because the model is switching from Gini Impurity to Entropy halfway through the process."
+     ],
+     "explanation": "While a single tree has sharp, blocky boundaries, a Random Forest averages many different trees (each with different random features/data), which results in a more 'rounded' and robust boundary.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Classification Boundary Smoothing Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 100%;\n            box-sizing: border-box;\n            padding: 16px;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            gap: 12px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            max-width: 400px;\n            aspect-ratio: 1 / 1;\n            position: relative;\n            background: #fff;\n            border: 1px solid var(--rule);\n        }\n\n        canvas {\n            width: 100%;\n            height: 100%;\n            display: block;\n        }\n\n        .axis-container {\n            width: 100%;\n            max-width: 400px;\n            margin-top: 8px;\n        }\n\n        .axis-label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            color: var(--muted);\n            font-style: italic;\n            text-align: center;\n            margin-bottom: 4px;\n        }\n\n        .axis {\n            position: relative;\n            height: 24px;\n            border-top: 1px solid var(--muted);\n            margin: 0 10px;\n        }\n\n        .tick {\n            position: absolute;\n            top: 0;\n            width: 1px;\n            height: 4px;\n            background: var(--muted);\n        }\n\n        .tick-label {\n            position: absolute;\n            top: 6px;\n            transform: translateX(-50%);\n            font-size: 10px;\n            color: var(--muted);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .current-marker {\n            position: absolute;\n            top: -6px;\n            width: 1px;\n            height: 12px;\n            background: var(--ink);\n            z-index: 2;\n        }\n\n        .readout {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 13px;\n            color: var(--ink);\n            margin-top: 4px;\n        }\n\n        .readout span {\n            font-family: -apple-system, sans-serif;\n            font-weight: 600;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .legend {\n            display: flex;\n            gap: 16px;\n            font-size: 11px;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .legend-item {\n            display: flex;\n            align-items: center;\n            gap: 4px;\n        }\n\n        .dot {\n            width: 6px;\n            height: 6px;\n            border-radius: 50%;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of classification boundary changes as component count increases</h1>\n\n    <div class=\"container\">\n        <div class=\"legend\">\n            <div class=\"legend-item\"><div class=\"dot\" style=\"background:var(--accent)\"></div> Class A</div>\n            <div class=\"legend-item\"><div class=\"dot\" style=\"background:var(--amber)\"></div> Class B</div>\n        </div>\n\n        <div class=\"fig-wrapper\">\n            <canvas id=\"simCanvas\" width=\"800\" height=\"800\"></canvas>\n        </div>\n\n        <div class=\"readout\">\n            Tree Count: <span id=\"count-val\">1</span>\n        </div>\n\n        <div class=\"axis-container\">\n            <div class=\"axis-label\">Ensemble Size</div>\n            <div class=\"axis\">\n                <div class=\"current-marker\" id=\"marker\"></div>\n                <!-- Ticks generated by JS -->\n            </div>\n        </div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 42;\n        function random() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const canvas = document.getElementById('simCanvas');\n        const ctx = canvas.getContext('2d');\n        const marker = document.getElementById('marker');\n        const countVal = document.getElementById('count-val');\n\n        const RESOLUTION = 80; \n        const MAX_TREES = 100;\n        const GRID_SIZE = 800 / RESOLUTION;\n\n        // Generate synthetic clusters\n        const points = [];\n        const centers = [\n            {x: 0.3, y: 0.3, label: 0},\n            {x: 0.7, y: 0.7, label: 0},\n            {x: 0.3, y: 0.7, label: 1},\n            {x: 0.7, y: 0.3, label: 1},\n            {x: 0.5, y: 0.5, label: 1}\n        ];\n\n        for (let i = 0; i < 40; i++) {\n            const center = centers[Math.floor(random() * centers.length)];\n            points.push({\n                x: center.x + (random() - 0.5) * 0.3,\n                y: center.y + (random() - 0.5) * 0.3,\n                label: center.label\n            });\n        }\n\n        // Decision Tree Class (stump-based for visual clarity)\n        class SimpleTree {\n            constructor() {\n                this.feature = random() > 0.5 ? 'x' : 'y';\n                this.threshold = 0.2 + random() * 0.6;\n                this.dir = random() > 0.5 ? 1 : 0; // which side is Class A\n                \n                // Bootstrap sample to make each tree different\n                const sample = [];\n                for(let i=0; i<15; i++) sample.push(points[Math.floor(random() * points.length)]);\n                \n                // Fit slightly to the sample\n                let bestScore = -1;\n                for(let t = 0.2; t < 0.8; t += 0.05) {\n                    for(let d of [0, 1]) {\n                        let score = 0;\n                        sample.forEach(p => {\n                            const pred = (p[this.feature] < t) ? d : 1-d;\n                            if(pred === p.label) score++;\n                        });\n                        if(score > bestScore) {\n                            bestScore = score;\n                            this.threshold = t;\n                            this.dir = d;\n                        }\n                    }\n                }\n            }\n\n            predict(p) {\n                return (p[this.feature] < this.threshold) ? this.dir : 1 - this.dir;\n            }\n        }\n\n        const ensemble = Array.from({length: MAX_TREES}, () => new SimpleTree());\n\n        function draw(treeCount) {\n            ctx.clearRect(0, 0, 800, 800);\n\n            // Draw decision boundary grid\n            for (let i = 0; i < RESOLUTION; i++) {\n                for (let j = 0; j < RESOLUTION; j++) {\n                    const x = i / RESOLUTION;\n                    const y = j / RESOLUTION;\n                    \n                    let votes = 0;\n                    for (let k = 0; k < treeCount; k++) {\n                        votes += ensemble[k].predict({x, y});\n                    }\n                    const avg = votes / treeCount;\n\n                    // Interpolate color based on majority vote\n                    // We use a slight shift to make Class A blue and Class B amber\n                    const r1 = 76, g1 = 102, b1 = 150; // accent\n                    const r2 = 196, g2 = 124, b2 = 0;  // amber\n                    \n                    const r = r1 + (r2 - r1) * avg;\n                    const g = g1 + (g2 - g1) * avg;\n                    const b = b1 + (b2 - b1) * avg;\n\n                    ctx.fillStyle = `rgba(${r},${g},${b}, 0.15)`;\n                    ctx.fillRect(i * GRID_SIZE, (RESOLUTION - 1 - j) * GRID_SIZE, GRID_SIZE, GRID_SIZE);\n                }\n            }\n\n            // Draw data points\n            points.forEach(p => {\n                ctx.beginPath();\n                ctx.arc(p.x * 800, (1 - p.y) * 800, 5, 0, Math.PI * 2);\n                ctx.fillStyle = p.label === 0 ? 'var(--accent)' : 'var(--amber)';\n                ctx.fill();\n                ctx.strokeStyle = '#fff';\n                ctx.lineWidth = 1.5;\n                ctx.stroke();\n            });\n        }\n\n        // Setup Axis Ticks\n        const axis = document.querySelector('.axis');\n        [1, 20, 40, 60, 80, 100].forEach(val => {\n            const tick = document.createElement('div');\n            tick.className = 'tick';\n            tick.style.left = `${(val - 1) / 99 * 100}%`;\n            const label = document.createElement('div');\n            label.className = 'tick-label';\n            label.innerText = val;\n            label.style.left = `${(val - 1) / 99 * 100}%`;\n            axis.appendChild(tick);\n            axis.appendChild(label);\n        });\n\n        let startTime = null;\n        const cycleDuration = 10000; // 10 seconds per loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = timestamp - startTime;\n            const progress = (elapsed % cycleDuration) / cycleDuration;\n            \n            // Ping-pong or continuous? \n            // We'll do a pause at 1 and 100 for clarity.\n            let t;\n            if (progress < 0.1) t = 0; // hold at 1\n            else if (progress < 0.8) t = (progress - 0.1) / 0.7; // animate\n            else t = 1; // hold at 100\n\n            const treeCount = Math.floor(t * (MAX_TREES - 1)) + 1;\n            \n            draw(treeCount);\n            \n            // Update UI\n            countVal.innerText = treeCount;\n            marker.style.left = `${(treeCount - 1) / 99 * 100}%`;\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch(e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n        });\n\n        new ResizeObserver(reportHeight).observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the averaging of many different axis-aligned splits from individual trees creates a smoother, more flexible boundary."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unsupervised Learning Comprehensive Assessment",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If you are using the Elbow Method and the resulting WCSS plot shows a perfectly smooth, gradual curve with no discernible 'bend,' what is the most likely interpretation of the data?",
+     "options": [
+      "The data is perfectly clustered and k should be set to 1.",
+      "The data may not have a clear, natural clustering structure.",
+      "The algorithm has reached a global optimum and needs no more iterations.",
+      "The Silhouette Score must be exactly +1 for all points."
+     ],
+     "explanation": "A smooth curve indicates that adding clusters reduces error at a constant rate, suggesting the data lacks distinct, separated groups that would create a 'diminishing returns' bend.",
+     "correctAnswers": [
+      "The data may not have a clear, natural clustering structure."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In the context of the k-Means algorithm, which of the following statements accurately describe the 'Update Step' and its consequences?",
+     "options": [
+      "The centroid of each cluster is recalculated as the arithmetic mean of all points assigned to it.",
+      "The step aims to minimize the Within-Cluster Sum of Squares (WCSS).",
+      "It involves re-assigning each data point to its nearest newly calculated centroid.",
+      "Convergence is reached when the centroids no longer move during this step.",
+      "This step is primarily responsible for choosing the initial 'k' value."
+     ],
+     "explanation": "The Update Step calculates the new mean of the points in a cluster to minimize WCSS. Re-assigning points happens in the 'Assignment Step,' and 'k' is a pre-defined constraint, not a result of the update.",
+     "correctAnswers": [
+      "The centroid of each cluster is recalculated as the arithmetic mean of all points assigned to it.",
+      "The step aims to minimize the Within-Cluster Sum of Squares (WCSS).",
+      "Convergence is reached when the centroids no longer move during this step."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Hierarchical Clustering, the technique that measures the distance between two clusters based on the maximum distance between any two points (one from each cluster) is known as ____ linkage.",
+     "placeholder": "Enter linkage type",
+     "correctAnswers": [
+      "Complete",
+      "complete"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "When analyzing a Dendrogram, what does the vertical height of a horizontal 'bridge' connecting two branches represent?",
+     "options": [
+      "The number of data points contained in the resulting cluster.",
+      "The iteration number in which the merge occurred.",
+      "The distance or dissimilarity at which the two clusters were merged.",
+      "The density of the points within those specific branches."
+     ],
+     "explanation": "In a dendrogram, the y-axis represents the distance (dissimilarity) between clusters; the higher the bridge, the less similar the clusters were before merging.",
+     "correctAnswers": [
+      "The distance or dissimilarity at which the two clusters were merged."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which properties are characteristic of the DBSCAN algorithm but NOT typical of the standard k-Means algorithm?",
+     "options": [
+      "The ability to identify and label 'Noise' or outliers.",
+      "The requirement to pre-specify the number of clusters (k).",
+      "The ability to find clusters of non-spherical, arbitrary shapes.",
+      "The use of centroids to define the heart of a cluster.",
+      "A reliance on local density thresholds (Epsilon and MinPts)."
+     ],
+     "explanation": "DBSCAN identifies noise and non-spherical shapes using density parameters, whereas k-Means assumes spherical blobs, requires 'k' upfront, and assigns every point to a cluster.",
+     "correctAnswers": [
+      "The ability to identify and label 'Noise' or outliers.",
+      "The ability to find clusters of non-spherical, arbitrary shapes.",
+      "A reliance on local density thresholds (Epsilon and MinPts)."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A Silhouette Score near ____ indicates that a data point is very far from its neighboring clusters and sits comfortably within its assigned group.",
+     "placeholder": "numeric value",
+     "correctAnswers": [
+      "1",
+      "+1",
+      "one"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In PCA, what is the geometric interpretation of the first Principal Component?",
+     "options": [
+      "The line that passes through the most data points.",
+      "The direction along which the data has the highest variance.",
+      "The axis that connects the two furthest outliers in the dataset.",
+      "A line that minimizes the distance between the mean and the origin."
+     ],
+     "explanation": "The first Principal Component is the vector that captures the maximum spread (variance) of the data, effectively preserving as much information as possible in one dimension.",
+     "correctAnswers": [
+      "The direction along which the data has the highest variance."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A researcher applies DBSCAN to a dataset and finds that almost all points are labeled as 'Noise.' Which adjustments might help resolve this?",
+     "options": [
+      "Increase the Epsilon (radius) value.",
+      "Decrease the MinPts (minimum points) value.",
+      "Decrease the Epsilon (radius) value.",
+      "Increase the MinPts (minimum points) value.",
+      "Standardize the features if they are on different scales."
+     ],
+     "explanation": "If points are noise, the density requirement is too strict. Increasing Epsilon makes it easier to find neighbors, while decreasing MinPts lowers the threshold for being a 'Core' point. Scale also affects distance-based metrics.",
+     "correctAnswers": [
+      "Increase the Epsilon (radius) value.",
+      "Decrease the MinPts (minimum points) value.",
+      "Standardize the features if they are on different scales."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If a point has a Silhouette Score of -0.5, it suggests that the point has likely been assigned to the ____ cluster.",
+     "placeholder": "adjective",
+     "correctAnswers": [
+      "wrong",
+      "incorrect"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is k-Means often run multiple times with different initializations (the n_init parameter)?",
+     "options": [
+      "To ensure that all data points are eventually used as centroids.",
+      "To calculate the average position of all possible clusters.",
+      "To mitigate the risk of the algorithm getting stuck in a local optimum.",
+      "To determine if the data is better suited for hierarchical clustering."
+     ],
+     "explanation": "Because k-Means is a 'greedy' algorithm, its final result depends heavily on the initial centroid positions. Multiple runs help find the initialization that leads to the lowest overall WCSS.",
+     "correctAnswers": [
+      "To mitigate the risk of the algorithm getting stuck in a local optimum."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What are the primary disadvantages of Single Linkage in Hierarchical Clustering?",
+     "options": [
+      "It is highly sensitive to outliers.",
+      "It tends to produce only perfectly spherical clusters.",
+      "It can lead to the 'chaining effect' where clusters become long and thin.",
+      "It requires the number of clusters to be specified before calculation.",
+      "It is computationally more expensive than k-Means for very large datasets."
+     ],
+     "explanation": "Single linkage merges clusters based on the closest pair of points, which allows noise to bridge distinct groups (chaining) and is sensitive to outliers. Like most hierarchical methods, it scales poorly with data size compared to k-Means.",
+     "correctAnswers": [
+      "It is highly sensitive to outliers.",
+      "It can lead to the 'chaining effect' where clusters become long and thin.",
+      "It is computationally more expensive than k-Means for very large datasets."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process of reaching a steady state where k-Means centroids no longer change position is called ____.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "convergence",
+      "converging"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the context of PCA, what does 'dimensionality reduction' specifically entail?",
+     "options": [
+      "Deleting the features with the lowest numerical values.",
+      "Transforming features into a smaller set of uncorrelated components.",
+      "Merging similar features by calculating their average value.",
+      "Removing rows (observations) that contain missing data."
+     ],
+     "explanation": "PCA reduces dimensionality by projecting data onto orthogonal axes (principal components) that capture the most variance, allowing us to drop components that contribute little information.",
+     "correctAnswers": [
+      "Transforming features into a smaller set of uncorrelated components."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would make DBSCAN a better choice than k-Means?",
+     "options": [
+      "The data contains significant amounts of outliers (noise).",
+      "The clusters are expected to be of a nested 'ring' shape.",
+      "The dataset is extremely small and requires a simple hierarchy.",
+      "The user knows exactly how many clusters should exist.",
+      "The density of points is uniform across the entire feature space."
+     ],
+     "explanation": "DBSCAN excels at identifying noise and handling non-spherical shapes like rings. If the number of clusters is known or if density is uniform but shapes are spherical, k-Means might be simpler.",
+     "correctAnswers": [
+      "The data contains significant amounts of outliers (noise).",
+      "The clusters are expected to be of a nested 'ring' shape."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In the k-Means algorithm, points are assigned to the nearest centroid based on ____ distance.",
+     "placeholder": "distance metric",
+     "correctAnswers": [
+      "Euclidean",
+      "euclidean"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "When using Agglomerative Hierarchical Clustering, what is the starting state of the algorithm?",
+     "options": [
+      "All data points belong to one single, massive cluster.",
+      "K random points are chosen as starting cluster centers.",
+      "Each individual data point is treated as its own separate cluster.",
+      "The data is partitioned into two halves based on the median."
+     ],
+     "explanation": "Agglomerative clustering is a 'bottom-up' approach; it begins with N clusters for N points and merges them iteratively.",
+     "correctAnswers": [
+      "Each individual data point is treated as its own separate cluster."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "What are the key components of the 'Within-Cluster Sum of Squares' (WCSS) calculation?",
+     "options": [
+      "The distance between different cluster centroids.",
+      "The Euclidean distance between each point and its assigned centroid.",
+      "The number of Principal Components used in the model.",
+      "The square of the distances to penalize far-away points.",
+      "The total variance of the entire dataset before clustering."
+     ],
+     "explanation": "WCSS is calculated by summing the squared distances between each data point and the centroid of its assigned cluster.",
+     "correctAnswers": [
+      "The Euclidean distance between each point and its assigned centroid.",
+      "The square of the distances to penalize far-away points."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "As the Epsilon parameter is gradually increased while keeping MinPts constant, why do we eventually see the number of clusters decrease until only one large group remains?",
+     "options": [
+      "Because larger radii allow separate dense regions to become 'density-connected' through intermediate points.",
+      "Because the algorithm switches from a bottom-up to a top-down approach as the search area grows.",
+      "Because increasing Epsilon increases the within-cluster sum of squares until centroids merge.",
+      "Because the number of 'Core Points' decreases as the neighborhood requirement becomes harder to satisfy."
+     ],
+     "explanation": "Increasing Epsilon expands the reach of each point; once the radius is large enough to bridge the gap between two previously distinct clusters, they merge into a single density-connected component.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>DBSCAN Parameter Sensitivity Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            width: 100%;\n            background: var(--bg);\n            position: relative;\n        }\n\n        .dbscan-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n            overflow: visible;\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: space-between;\n            border-top: 1px solid var(--rule);\n            padding-top: 8px;\n            font-size: 13px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .label {\n            font-family: Georgia, serif;\n            font-style: italic;\n            color: var(--muted);\n        }\n\n        .value {\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n        }\n\n        .axis-container {\n            margin-top: 4px;\n            height: 40px;\n            position: relative;\n        }\n\n        .axis-line {\n            position: absolute;\n            top: 20px;\n            left: 0;\n            right: 0;\n            height: 1px;\n            background: var(--rule);\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: 20px;\n            width: 1px;\n            height: 5px;\n            background: var(--rule);\n        }\n\n        .axis-label {\n            position: absolute;\n            top: 28px;\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n            transform: translateX(-50%);\n        }\n\n        .axis-indicator {\n            position: absolute;\n            top: 12px;\n            width: 1px;\n            height: 16px;\n            background: var(--accent);\n            z-index: 2;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">DBSCAN Parameter Sensitivity Simulation</h1>\n    \n    <div class=\"container\">\n        <div class=\"figure-container\" aria-label=\"A scatter plot showing points clustering as a search radius expands.\">\n            <svg class=\"dbscan-svg\" viewBox=\"0 0 400 240\" preserveAspectRatio=\"xMidYMid meet\">\n                <!-- Grid / Reference Lines -->\n                <rect x=\"0\" y=\"0\" width=\"400\" height=\"240\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                \n                <g id=\"connections-group\" opacity=\"0.4\"></g>\n                <g id=\"eps-circles-group\" opacity=\"0.15\"></g>\n                <g id=\"points-group\"></g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Neighborhood radius (ε)</span>\n                <span class=\"value\" id=\"eps-val\">0.00</span>\n            </div>\n            <div class=\"readout-item\" style=\"text-align: right;\">\n                <span class=\"label\">MinPoints (fixed)</span>\n                <span class=\"value\">4</span>\n            </div>\n        </div>\n\n        <div class=\"axis-container\">\n            <div class=\"label\" style=\"position: absolute; top: 0; left: 0;\">Parameter Sweep</div>\n            <div class=\"axis-line\"></div>\n            <!-- Ticks -->\n            <div class=\"axis-tick\" style=\"left: 0%\"></div>\n            <div class=\"axis-label\" style=\"left: 0%\">0</div>\n            <div class=\"axis-tick\" style=\"left: 25%\"></div>\n            <div class=\"axis-tick\" style=\"left: 50%\"></div>\n            <div class=\"axis-label\" style=\"left: 50%\">25</div>\n            <div class=\"axis-tick\" style=\"left: 75%\"></div>\n            <div class=\"axis-tick\" style=\"left: 100%\"></div>\n            <div class=\"axis-label\" style=\"left: 100%\">50</div>\n            \n            <div id=\"axis-indicator\" class=\"axis-indicator\"></div>\n        </div>\n\n        <div class=\"caption\">Scatter plot showing point classification and cluster merging across varying radii.</div>\n    </div>\n\n    <script>\n        // Seeded random number generator\n        function splitmix32(a) {\n            return function() {\n                a |= 0; a = a + 0x9e3779b9 | 0;\n                var t = a ^ a >>> 16; t = Math.imul(t, 0x21f0aaad);\n                t = t ^ t >>> 15; t = Math.imul(t, 0x735a2d97);\n                return ((t = t ^ t >>> 15) >>> 0) / 4294967296;\n            }\n        }\n        const rand = splitmix32(12345);\n\n        const pointsGroup = document.getElementById('points-group');\n        const circlesGroup = document.getElementById('eps-circles-group');\n        const connectionsGroup = document.getElementById('connections-group');\n        const epsValDisplay = document.getElementById('eps-val');\n        const axisIndicator = document.getElementById('axis-indicator');\n\n        // Generate points in two distinct shapes (blobs)\n        const points = [];\n        function createBlob(cx, cy, r, count) {\n            for (let i = 0; i < count; i++) {\n                const angle = rand() * Math.PI * 2;\n                const dist = Math.sqrt(rand()) * r;\n                points.push({\n                    x: cx + Math.cos(angle) * dist,\n                    y: cy + Math.sin(angle) * dist,\n                    neighbors: [],\n                    isCore: false,\n                    clusterId: -1\n                });\n            }\n        }\n        // Left cluster\n        createBlob(120, 120, 45, 22);\n        // Right cluster\n        createBlob(280, 120, 45, 22);\n        // Noise points in between\n        for(let i=0; i<6; i++) {\n            points.push({ x: 160 + rand() * 80, y: 80 + rand() * 80, neighbors: [], isCore: false, clusterId: -1 });\n        }\n\n        const MIN_POINTS = 4;\n        let time = 0;\n\n        function update(timestamp) {\n            // Cycle radius from 0 to 50\n            time += 0.003;\n            const cycle = (Math.sin(time - Math.PI/2) + 1) / 2; // 0 to 1\n            const eps = cycle * 55;\n\n            epsValDisplay.textContent = eps.toFixed(1);\n            axisIndicator.style.left = `${(eps / 55) * 100}%`;\n\n            // Clear classification\n            points.forEach(p => {\n                p.neighbors = [];\n                p.isCore = false;\n                p.clusterId = -1;\n            });\n\n            // Find neighbors\n            for (let i = 0; i < points.length; i++) {\n                for (let j = i + 1; j < points.length; j++) {\n                    const dx = points[i].x - points[j].x;\n                    const dy = points[i].y - points[j].y;\n                    if (Math.sqrt(dx * dx + dy * dy) < eps) {\n                        points[i].neighbors.push(j);\n                        points[j].neighbors.push(i);\n                    }\n                }\n            }\n\n            // Identify Core Points\n            points.forEach(p => {\n                if (p.neighbors.length >= MIN_POINTS - 1) {\n                    p.isCore = true;\n                }\n            });\n\n            // Simple Cluster Assignment (Union-Find style for visualization)\n            let nextClusterId = 0;\n            const visited = new Set();\n            points.forEach((p, idx) => {\n                if (p.isCore && !visited.has(idx)) {\n                    const queue = [idx];\n                    visited.add(idx);\n                    while(queue.length > 0) {\n                        const currIdx = queue.shift();\n                        points[currIdx].clusterId = nextClusterId;\n                        points[currIdx].neighbors.forEach(nIdx => {\n                            if (!visited.has(nIdx) && points[nIdx].isCore) {\n                                visited.add(nIdx);\n                                queue.push(nIdx);\n                            }\n                        });\n                    }\n                    nextClusterId++;\n                }\n            });\n\n            // Border points assignment\n            points.forEach((p, idx) => {\n                if (!p.isCore) {\n                    for (let nIdx of p.neighbors) {\n                        if (points[nIdx].isCore) {\n                            p.clusterId = points[nIdx].clusterId;\n                            break; \n                        }\n                    }\n                }\n            });\n\n            draw(eps);\n            requestAnimationFrame(update);\n        }\n\n        function draw(eps) {\n            pointsGroup.innerHTML = '';\n            circlesGroup.innerHTML = '';\n            connectionsGroup.innerHTML = '';\n\n            const colors = ['#4C6696', '#c47c00', '#6b8e23', '#8b4513', '#d2691e'];\n\n            points.forEach((p, i) => {\n                // Determine color\n                let color = 'var(--muted)'; // Noise\n                let opacity = 0.4;\n                if (p.clusterId !== -1) {\n                    color = colors[p.clusterId % colors.length];\n                    opacity = 1;\n                }\n\n                // Core circles\n                if (p.isCore) {\n                    const c = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n                    c.setAttribute(\"cx\", p.x);\n                    c.setAttribute(\"cy\", p.y);\n                    c.setAttribute(\"r\", eps);\n                    c.setAttribute(\"fill\", color);\n                    circlesGroup.appendChild(c);\n                }\n\n                // Points\n                const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n                circle.setAttribute(\"cx\", p.x);\n                circle.setAttribute(\"cy\", p.y);\n                circle.setAttribute(\"r\", p.isCore ? 3 : 2);\n                circle.setAttribute(\"fill\", color);\n                circle.setAttribute(\"stroke\", p.isCore ? \"white\" : \"none\");\n                circle.setAttribute(\"stroke-width\", \"0.5\");\n                circle.setAttribute(\"style\", `opacity: ${opacity}`);\n                pointsGroup.appendChild(circle);\n            });\n        }\n\n        // Height Reporting\n        function reportHeight() {\n            parent.postMessage({ \n                type: 'hk-anim-height', \n                height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n            }, '*');\n        }\n\n        window.onload = () => {\n            requestAnimationFrame(update);\n            reportHeight();\n            try {\n                const ro = new ResizeObserver(reportHeight);\n                ro.observe(document.body);\n            } catch(e) {}\n        };\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because larger radii allow separate dense regions to become 'density-connected' through intermediate points."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Deep Learning and Production Systems Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are training a deep network and notice that the training loss is decreasing rapidly, but the gradients in the first few layers are nearly zero. What is the most likely cause?",
+     "options": [
+      "The model is suffering from the Vanishing Gradient problem due to Sigmoid activations in hidden layers.",
+      "The model has reached a global minimum, and the weights no longer need updating.",
+      "The Dropout rate is too high, causing most connections to be severed during the forward pass.",
+      "The learning rate is too high, causing the optimizer to overstep the minimum."
+     ],
+     "explanation": "Sigmoid functions saturate at large positive or negative values, producing gradients near zero. In deep networks, these small values are multiplied via the chain rule, causing gradients to vanish by the time they reach the early layers.",
+     "correctAnswers": [
+      "The model is suffering from the Vanishing Gradient problem due to Sigmoid activations in hidden layers."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following statements correctly describe the role of the bias term ($b$) in a neural network layer?",
+     "options": [
+      "It allows the activation function to shift along the x-axis, independent of input values.",
+      "It ensures that a neuron can fire even when all input features ($x$) are zero.",
+      "It acts as a scaling factor for the input features to determine their relative importance.",
+      "It provides the non-linearity required to approximate complex functions.",
+      "It represents the 'inherent tendency' of a neuron to be active or inactive."
+     ],
+     "explanation": "The bias is an additive term ($w · x + b$) that shifts the decision boundary; weights ($w$) are the scaling factors, and activation functions provide the non-linearity.",
+     "correctAnswers": [
+      "It allows the activation function to shift along the x-axis, independent of input values.",
+      "It ensures that a neuron can fire even when all input features ($x$) are zero.",
+      "It represents the 'inherent tendency' of a neuron to be active or inactive."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "During the training phase, ____ is used to prevent co-adaptation of neurons by randomly setting a fraction of input units to zero at each update.",
+     "explanation": "Dropout forces the network to learn redundant representations, ensuring no single neuron becomes overly dependent on its neighbors.",
+     "placeholder": "Enter technique name",
+     "correctAnswers": [
+      "Dropout",
+      "dropout layer",
+      "dropout regularization"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If you are building a Multi-Layer Perceptron for a classification task with 10 mutually exclusive classes, which activation function and loss function combination is most appropriate for the output layer?",
+     "options": [
+      "Sigmoid activation with Mean Squared Error loss.",
+      "Softmax activation with Cross-Entropy loss.",
+      "ReLU activation with Cross-Entropy loss.",
+      "Softmax activation with Mean Squared Error loss."
+     ],
+     "explanation": "Softmax turns raw scores into a probability distribution that sums to 1, while Cross-Entropy is the standard loss for penalizing the distance between predicted and actual categorical distributions.",
+     "correctAnswers": [
+      "Softmax activation with Cross-Entropy loss."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A model has 98% training accuracy but 75% validation accuracy. Which of the following strategies would likely improve the model's performance on unseen data?",
+     "options": [
+      "Increasing the number of hidden layers and neurons.",
+      "Implementing Dropout in the hidden layers.",
+      "Using Early Stopping based on validation loss.",
+      "Applying L2 Weight Decay to the optimizer.",
+      "Removing Batch Normalization layers."
+     ],
+     "explanation": "These are regularization techniques designed to reduce overfitting. Increasing model size (capacity) usually worsens overfitting in this scenario.",
+     "correctAnswers": [
+      "Implementing Dropout in the hidden layers.",
+      "Using Early Stopping based on validation loss.",
+      "Applying L2 Weight Decay to the optimizer."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ initialization method is specifically designed to keep the variance of the signal consistent across layers when using ReLU activation functions.",
+     "explanation": "He (or Kaiming) initialization accounts for the fact that ReLU sets half of the inputs to zero, maintaining signal variance better than Xavier/Glorot for non-symmetric activations.",
+     "placeholder": "Enter method name",
+     "correctAnswers": [
+      "He",
+      "Kaiming",
+      "He initialization"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary difference between Backpropagation and Gradient Descent?",
+     "options": [
+      "Backpropagation updates the weights, while Gradient Descent calculates the errors.",
+      "Backpropagation calculates the gradients using the chain rule, while Gradient Descent uses those gradients to update weights.",
+      "Backpropagation is only used for CNNs, while Gradient Descent is used for all models.",
+      "Backpropagation is the forward pass, while Gradient Descent is the backward pass."
+     ],
+     "explanation": "Backpropagation is the algorithm for computing partial derivatives; Gradient Descent is the optimization algorithm that takes steps in the direction of those derivatives.",
+     "correctAnswers": [
+      "Backpropagation calculates the gradients using the chain rule, while Gradient Descent uses those gradients to update weights."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Why is the ReLU activation function generally preferred over the Sigmoid function for hidden layers in modern deep networks?",
+     "options": [
+      "ReLU is computationally cheaper to calculate.",
+      "ReLU does not saturate for positive input values.",
+      "ReLU maps all inputs to a range between -1 and 1.",
+      "ReLU helps mitigate the Vanishing Gradient problem.",
+      "ReLU is a linear function that simplifies backpropagation."
+     ],
+     "explanation": "ReLU is simple (max(0,x)), avoids the flat 'killing fields' of Sigmoid on the positive side, and maintains a gradient of 1 for all positive values.",
+     "correctAnswers": [
+      "ReLU is computationally cheaper to calculate.",
+      "ReLU does not saturate for positive input values.",
+      "ReLU helps mitigate the Vanishing Gradient problem."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A neural network that only contains layers with linear activations is mathematically equivalent to a single ____.",
+     "explanation": "The composition of multiple linear transformations is itself just a single linear transformation; non-linearity is required to model more complex relationships.",
+     "placeholder": "e.g. decision tree",
+     "correctAnswers": [
+      "linear model",
+      "linear regression",
+      "linear transformation"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of chain rule sensitivity",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/1d4735cf-c52e-49d8-89a1-86d91b184c98/exam/images/unit5-q10.png"
+     },
+     "prompt": "In the context of the Chain Rule, if a weight $w$ influences a hidden neuron $h$ with sensitivity 3, and $h$ influences the error $E$ with sensitivity 4, what is the gradient of the error with respect to $w$?",
+     "options": [
+      "1",
+      "7",
+      "12",
+      "0.75"
+     ],
+     "explanation": "According to the chain rule, the partial derivative of the error with respect to a weight is the product of the intermediate partial derivatives (3 × 4 = 12).",
+     "correctAnswers": [
+      "12"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "When moving from training to inference (testing), which of the following changes typically occur in a model that uses Dropout and Batch Normalization?",
+     "options": [
+      "Dropout is disabled; all neurons are used.",
+      "Batch Normalization uses moving averages calculated during training instead of the current batch's statistics.",
+      "Dropout is still active, but the probability of dropping nodes is reduced to 10%.",
+      "The weights of neurons affected by Dropout are scaled to account for the increased number of active signals.",
+      "The network architecture is pruned to remove the hidden layers."
+     ],
+     "explanation": "In testing, we want the deterministic full power of the network. We scale weights to match the expected values from training and use fixed population statistics for BN.",
+     "correctAnswers": [
+      "Dropout is disabled; all neurons are used.",
+      "Batch Normalization uses moving averages calculated during training instead of the current batch's statistics.",
+      "The weights of neurons affected by Dropout are scaled to account for the increased number of active signals."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In a Multi-Layer Perceptron, the number of nodes in the input layer is determined by the ____.",
+     "explanation": "The input layer must correspond exactly to the dimensionality (number of features) of the data being fed into the network.",
+     "placeholder": "e.g. number of classes",
+     "correctAnswers": [
+      "number of features",
+      "input dimensions",
+      "feature count"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the primary purpose of Batch Normalization during the training process?",
+     "options": [
+      "To reduce the number of parameters in the model.",
+      "To stabilize training by reducing Internal Covariate Shift.",
+      "To ensure the model weights are always positive.",
+      "To replace the need for activation functions."
+     ],
+     "explanation": "Batch Normalization re-centers and re-scales data between layers, keeping the distribution of inputs stable even as previous layers are updated.",
+     "correctAnswers": [
+      "To stabilize training by reducing Internal Covariate Shift."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "How does the 'Hierarchical' nature of deep learning apply to a network trained to recognize animals?",
+     "options": [
+      "Early layers detect simple features like edges and textures.",
+      "Middle layers combine simple features into more complex shapes like eyes or ears.",
+      "Final layers represent high-level concepts like 'Dog' or 'Cat'.",
+      "All layers learn the same features but with different levels of intensity.",
+      "The hierarchy is strictly used for data storage, not for learning features."
+     ],
+     "explanation": "Neural networks learn a feature hierarchy where complexity increases with depth, from local pixel patterns to global semantic concepts.",
+     "correctAnswers": [
+      "Early layers detect simple features like edges and textures.",
+      "Middle layers combine simple features into more complex shapes like eyes or ears.",
+      "Final layers represent high-level concepts like 'Dog' or 'Cat'."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What happens if all weights in a neural network are initialized to zero?",
+     "options": [
+      "The network will converge faster because it starts at a neutral point.",
+      "Symmetry cannot be broken; all neurons in a hidden layer will learn the exact same features.",
+      "The gradients will become infinitely large, causing the model to crash.",
+      "The network will behave like a ReLU activation function."
+     ],
+     "explanation": "If weights are identical, the gradients for each neuron in a layer will be identical during backpropagation, meaning they will all update to the same values.",
+     "correctAnswers": [
+      "Symmetry cannot be broken; all neurons in a hidden layer will learn the exact same features."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "In the simulation of the training process, why does the Validation Loss eventually begin to rise while the Training Loss continues to fall?",
+     "options": [
+      "The network is memorizing specific noise and outliers in the training data rather than learning generalizable patterns.",
+      "The learning rate is automatically increasing, causing the model to oscillate around the local minimum.",
+      "The Batch Normalization layer is re-centering the data, which temporarily increases error rates in the validation set.",
+      "The activation functions are saturating, which prevents the gradients from correcting the validation error."
+     ],
+     "explanation": "This divergence is the hallmark of overfitting. As capacity is used to fit training noise, the model's ability to generalize to unseen data (validation set) degrades.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Model Training and Validation Plot</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Training Loss */\n            --amber: #c47c00;  /* Validation Loss */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .label {\n            font-size: 11px;\n            fill: var(--muted);\n            font-weight: 400;\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: center;\n            gap: 24px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            margin-bottom: 2px;\n        }\n\n        .readout-value {\n            font-size: 14px;\n            font-variant-numeric: tabular-nums;\n            font-weight: 600;\n            color: var(--ink);\n        }\n\n        .caption {\n            text-align: center;\n            font-size: 12px;\n            color: var(--muted);\n            font-family: Georgia, serif;\n            font-style: italic;\n            margin-top: 4px;\n        }\n\n        .legend-dot {\n            width: 8px;\n            height: 8px;\n            border-radius: 50%;\n            display: inline-block;\n            margin-right: 4px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Comparison of Training and Validation loss over epochs</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 240\" aria-label=\"A line chart showing training loss decreasing while validation loss decreases then increases.\">\n                <!-- Grid lines -->\n                <line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"40\" y1=\"40\" x2=\"40\" y2=\"200\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Axis Labels -->\n                <text x=\"210\" y=\"235\" text-anchor=\"middle\" class=\"label\">Training Progress (Epochs)</text>\n                <text x=\"15\" y=\"120\" text-anchor=\"middle\" class=\"label\" transform=\"rotate(-90, 15, 120)\">Error (Loss)</text>\n                \n                <!-- Ticks -->\n                <line x1=\"40\" y1=\"200\" x2=\"40\" y2=\"205\" stroke=\"var(--muted)\" />\n                <line x1=\"380\" y1=\"200\" x2=\"380\" y2=\"205\" stroke=\"var(--muted)\" />\n                <text x=\"40\" y=\"218\" text-anchor=\"middle\" class=\"label\">0</text>\n                <text x=\"380\" y=\"218\" text-anchor=\"middle\" class=\"label\">Max</text>\n\n                <!-- Data Lines -->\n                <path id=\"train-path\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n                <path id=\"val-path\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n                \n                <!-- Current Position Indicator -->\n                <line id=\"cursor-line\" x1=\"40\" y1=\"40\" x2=\"40\" y2=\"200\" stroke=\"var(--rule)\" stroke-width=\"1\" stroke-dasharray=\"4 2\" />\n                \n                <!-- Legend (Textbook style) -->\n                <g transform=\"translate(280, 50)\">\n                    <line x1=\"0\" y1=\"0\" x2=\"15\" y2=\"0\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n                    <text x=\"20\" y=\"4\" class=\"serif\" font-style=\"normal\">Line A</text>\n                    \n                    <line x1=\"0\" y1=\"18\" x2=\"15\" y2=\"18\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n                    <text x=\"20\" y=\"22\" class=\"serif\" font-style=\"normal\">Line B</text>\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Line A Value</span>\n                <span id=\"train-readout\" class=\"readout-value\">0.00</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Line B Value</span>\n                <span id=\"val-readout\" class=\"readout-value\">0.00</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Complexity</span>\n                <span class=\"readout-value\" style=\"color: var(--muted); font-weight: normal;\">Fixed</span>\n            </div>\n        </div>\n\n        <p class=\"caption\">Tracking dual error metrics during iterative training.</p>\n    </div>\n\n    <script>\n        const trainPath = document.getElementById('train-path');\n        const valPath = document.getElementById('val-path');\n        const cursorLine = document.getElementById('cursor-line');\n        const trainReadout = document.getElementById('train-readout');\n        const valReadout = document.getElementById('val-readout');\n\n        const PADDING_X = 40;\n        const WIDTH = 340;\n        const HEIGHT = 200;\n        const BASE_Y = 200;\n        \n        // Phenomenon curves:\n        // Training: exponential decay towards 0\n        // Validation: exponential decay, then quadratic rise\n        function getValues(t) {\n            // t is 0 to 1\n            const trainY = 180 * Math.exp(-3 * t);\n            \n            // Validation reaches minimum around t=0.4\n            let valY;\n            if (t < 0.4) {\n                valY = 185 * Math.exp(-2.5 * t);\n            } else {\n                const minVal = 185 * Math.exp(-2.5 * 0.4);\n                const rise = 120 * Math.pow(t - 0.4, 1.8);\n                valY = minVal + rise;\n            }\n            \n            return { trainY, valY };\n        }\n\n        let startTime = null;\n        const duration = 9000; // 9 seconds for a full sweep\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let progress = ((timestamp - startTime) % duration) / duration;\n\n            // Update paths\n            let trainD = \"\";\n            let valD = \"\";\n            \n            const steps = 100;\n            const currentStep = Math.floor(progress * steps);\n\n            for (let i = 0; i <= currentStep; i++) {\n                const t = i / steps;\n                const { trainY, valY } = getValues(t);\n                const x = PADDING_X + (t * WIDTH);\n                const ty = BASE_Y - trainY;\n                const vy = BASE_Y - valY;\n                \n                if (i === 0) {\n                    trainD += `M ${x} ${ty}`;\n                    valD += `M ${x} ${vy}`;\n                } else {\n                    trainD += ` L ${x} ${ty}`;\n                    valD += ` L ${x} ${vy}`;\n                }\n            }\n\n            trainPath.setAttribute('d', trainD);\n            valPath.setAttribute('d', valD);\n\n            // Update Cursor\n            const cursorX = PADDING_X + (progress * WIDTH);\n            cursorLine.setAttribute('x1', cursorX);\n            cursorLine.setAttribute('x2', cursorX);\n\n            // Update Readouts\n            const { trainY, valY } = getValues(progress);\n            // Scale to \"Loss\" units for readability\n            trainReadout.textContent = (trainY / 100).toFixed(3);\n            valReadout.textContent = (valY / 100).toFixed(3);\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n        });\n\n        const resizeObserver = new ResizeObserver(() => reportHeight());\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The network is memorizing specific noise and outliers in the training data rather than learning generalizable patterns."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "85cfcf43-a163-4ee3-a561-2a3c12a8b1ad"
+}

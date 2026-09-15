@@ -1,0 +1,327 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first major project step! Over the course of this term, you will transform a spark of curiosity into a polished, 1,500-word scholarly research paper. You won't just be 'writing a report'; you’ll be entering a centuries-old conversation, moving through the same professional workflow scholars use—from initial inquiry and evidence synthesis to rigorous peer-standard revision. To start, let's look back at our lesson on the 'Iceberg Problem.' You recently learned that a great research topic isn't just a broad subject like 'AI' or 'Climate Change'; it’s a specific, jagged edge beneath the surface. In this stage, you are going to find your own 'jagged edge' by narrowing a broad interest into a specific, answerable research question and a formal proposal.",
+     "step_title": "Project kick-off & orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your narrowed topic. It should move beyond a broad category (e.g., 'Education') into a specific intersection of variables (e.g., 'The impact of gamified learning apps on literacy rates in rural primary schools')."
+     },
+     "step_body": "Before you can write, you must filter. Take a broad topic you are interested in and apply the filters of Time, Place, and Perspective. For example, if you are interested in 'Social Media,' narrow it down: 'TikTok's algorithmic feed' (Perspective) + 'secondary school students' (Place/Group) + 'during homework' (Time/Context). This moves you from a general noun to a specific area of intervention. Think about where you can find a 'gap' in the conversation—a place where people disagree or where more information is needed. What is the specific, narrowed-down topic you want to explore?",
+     "step_title": "Narrow your focus",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your primary Research Question. Good work will be specific, researchable, and require an evidenced argument rather than a simple factual answer."
+     },
+     "step_body": "Now, turn that narrowed topic into a formal Research Question (RQ). A strong RQ must pass the 'So What?' test: it should be complex enough that the answer isn't a simple 'yes' or 'no,' and significant enough to matter to an academic audience. Avoid 'dead-end' questions that only require a fact-check. Instead, use 'How' or 'To what extent' to ensure your paper will require an argument. Ensure your question is 'open'—meaning there is room for debate. For instance, instead of asking 'Is social media bad?', ask 'How do Instagram’s photo-editing filters correlate with body dysmorphia among adolescent girls?'",
+     "step_title": "Draft the research question",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type a short paragraph (100-150 words) identifying your intended audience and explaining why this research is significant. I will look for a professional tone and a clear 'So What?' justification."
+     },
+     "step_body": "Academic writing is a 'social action'—a handshake between you and a specific audience. Who are you writing for? Are they policy makers, educators, or scientists? Once you identify them, justify your inquiry. Why does your research question matter to them right now? This is where you apply the 'Academic Register' we discussed. Avoid emotional language ('it's a tragedy that...') and instead use precise, objective terms to explain the scholarly or practical significance of finding an answer to your question.",
+     "step_title": "Define audience and significance",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your formal Research Proposal (approx. 300 words). It must include your Research Question, a description of your target audience, and a clear statement of the project's significance. Criteria: Clarity of the question, appropriateness of the academic register, and specificity of the research focus."
+     },
+     "step_body": "It's time to consolidate your work into a formal Research Proposal and Outlining Document. This document acts as your 'roadmap' and your promise to the reader. Combine your research question, your identified audience, and a 300-word proposal that outlines your intended line of inquiry. Remember the 'Rhetorical Shift': you are not just summarizing what others have said, but explaining how you will use evidence to solve a problem or fill a gap. This is the first tangible piece of your final 1,500-word paper.",
+     "step_title": "Submit the formal proposal",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "As you finish this stage, reflect on the 'Identity' shift we discussed in class. Moving away from 'I feel' or 'I believe' can feel strange, as if you are losing your voice. However, by using the academic register, you are actually gaining authority. Think of this proposal as your professional 'coat.' You’ve set the foundation for your 1,500-word journey. In the next stage, we will begin the hunt for peer-reviewed sources to start answering the question you've posed today.",
+     "step_title": "Reflect on the 'Academic Voice'",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "cdd87c17-a535-4bfa-a253-fbda451469f6",
+   "stage_title": "Research Question and Project Proposal",
+   "parent_project_id": "820534d4-7999-4e56-9a90-7b7d461c1db9",
+   "stage_description": "Define a narrow research topic and transform it into a viable research question. Create a 300-word proposal that outlines your intended audience and the significance of the inquiry.",
+   "deliverable_increment": "A formal Research Proposal and Outlining Document."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous unit, you solidified your research question and built a project proposal. You also explored the 'imaginary critic' technique, learning that academic writing is a conversation, not a monologue. Now, it's time to move from curiosity to commitment. In this stage, you will transform your broad research interest into a laser-focused, arguable thesis and a structural map of your logic using the Toulmin model. This 'Thesis Contract' will serve as the engine for your entire 1,500-word paper.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a one-sentence 'Purpose Statement' following the [X] because [Y] template. Good work identifies a specific, debatable stance (X) and provides a clear logical justification (Y) rather than just naming a broad subject."
+     },
+     "step_body": "Before crafting a polished sentence, we need to find your 'North Star.' Use the 'In this paper, I am arguing [X] because [Y]' template to bridge the gap between your topic and a specific intervention. Avoid simply stating a topic (e.g., 'I am writing about digital privacy'); instead, state your stance and a primary reason. This is a diagnostic tool to ensure you aren't just writing an encyclopedia entry, but are actually participating in a scholarly debate.",
+     "step_title": "Draft your 'Purpose Statement'",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Take your purpose statement and subject it to the 'So What?' test. Imagine a skeptical reader asking why your argument matters to your field. Is your claim a 'settled fact' that everyone agrees on, or is it a 'dynamic debate'? To make your thesis truly arguable, ensure that a reasonable person could disagree with you. Refine your statement by adding specific stakes—explain the tension, contradiction, or gap in understanding you are attempting to resolve.",
+     "step_title": "Apply the 'So What?' test",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your current draft thesis statement followed by three bulleted 'Reason' clauses (sub-claims). Each sub-claim should be a distinct logical pillar that directly supports the main thesis."
+     },
+     "step_body": "Using the 'Thesis because Reason' formula, break your main argument into at least three distinct sub-claims. These reasons will eventually become the topic sentences of your body paragraphs. Ensure each reason passes the 'Umbrella Test': it must be smaller than the main thesis but broader than a single piece of data. This hierarchy of logic forms the 'logical architecture' of your paper, proving that your central claim is supported by a systematic evidence-based structure.",
+     "step_title": "Map your claims and reasons",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "A strong argument anticipates resistance. Using the Toulmin model, identify a major 'Counterargument' (the Skeptical Audience) and your 'Rebuttal.' Think back to the 'Triangle of Tension'—what is the biggest leap of faith you are asking your reader to take? By naming this objection now, you take control of the narrative and build your credibility (ethos). Decide where you might concede a point ('While it is true that...') and where you will stand your ground ('Nonetheless...').",
+     "step_title": "Integrate the 'Imaginary Critic'",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your detailed Argument Map and Draft Thesis Statement as a PDF. Your submission must include: 1) A clear, arguable thesis statement. 2) At least three logical sub-claims. 3) One counterargument and a corresponding rebuttal. Good work demonstrates a logical flow where all parts support the central thesis."
+     },
+     "step_body": "It is time to finalize your deliverable for this stage. Combine your work into a formal Argument Map. This should include your refined, complex Thesis Statement, your primary logical Claims (the 'becausals'), and at least one significant Counterargument with a planned Rebuttal. This map is the blueprint you will follow as you begin drafting your full paper, ensuring you never lose sight of your 'Thesis Contract' with the reader.",
+     "step_title": "Submit Argument Map and Thesis",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "feb0e810-fd23-45bc-ae02-b76b630820f3",
+   "stage_title": "Argument Map and Thesis Statement",
+   "parent_project_id": "820534d4-7999-4e56-9a90-7b7d461c1db9",
+   "stage_description": "Develop a complex, arguable thesis statement and map out your argument using the Toulmin model, specifically identifying your primary claims, warrants, and potential counterarguments.",
+   "deliverable_increment": "A detailed Argument Map and a Draft Thesis Statement."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already laid the groundwork for your research paper by developing a focused research question and a detailed argument map. Now it is time to transition from planning to drafting. In this stage, you will build the 'structural backbone' of your paper—roughly 800 words comprising your introduction and your first three major body paragraphs. This isn't about perfection; it is about establishing a logical flow and ensuring every paragraph has a clear argumentative heartbeat.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a draft of your introduction. I will look for a clear 'gap' statement (Move 2) and a thesis (Move 3) that logically fills that gap."
+     },
+     "step_body": "Using the CARS (Create a Research Space) model, draft your introduction. Start by establishing your territory (Move 1) to show why your topic matters. Then, identify the 'gap' or niche (Move 2)—the specific problem or unanswered question your paper addresses. Finally, occupy that niche (Move 3) by stating your thesis. Remember, your introduction should feel like a pitch, not just a general summary of the topic.",
+     "step_title": "Draft your CARS introduction",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State your chosen organizational pattern (e.g., thematic, chronological) and provide a one-sentence justification for why this structure suits your specific argument."
+     },
+     "step_body": "Before writing the full paragraphs, decide on the organizational pattern for your first three body sections. Will you use a chronological approach to show development, a thematic approach to group your evidence by category, or a comparative 'lens' structure? Your choice should be a strategic decision that best supports your thesis. Briefly explain which structure you are choosing and why it is the most effective way to lead the reader toward your conclusion.",
+     "step_title": "Outline your body structure",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the three topic sentences for your first three body paragraphs. Each must make a clear claim rather than just describing a topic."
+     },
+     "step_body": "Now, draft the topic sentences for your first three body paragraphs. Avoid 'labels' (e.g., 'This paragraph discusses X'). Instead, write 'mini-theses' that make an argumentative claim (e.g., 'X is the primary driver of Y because...'). Use the formula: [Topic] + [Limiting Focus] + [Argumentative Claim]. These sentences should act as a bridge between your main thesis and the specific evidence you are about to present.",
+     "step_title": "Craft mini-thesis topic sentences",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Expand your topic sentences into full paragraphs. As you write, maintain 'paragraph unity' by ensuring every sentence orbits that single 'center of gravity'—the topic sentence. If an idea starts to drift, save it for a different paragraph. Use 'old-to-new' information principles: start sentences with information familiar to the reader and end them with the new, complex information you want to emphasize.",
+     "step_title": "Develop your body paragraphs",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your 800-word structural draft as a PDF. Good work will demonstrate a CARS-aligned introduction, three distinct body paragraphs with argumentative topic sentences, and a logical progression of ideas between sections."
+     },
+     "step_body": "Review your work. You should now have an introduction and three body paragraphs totaling approximately 800 words. Check that your transitions between paragraphs feel like a logical journey rather than a list of unrelated facts. Does the end of one paragraph set the stage for the next? Once you are satisfied with the structural integrity of your draft, upload it for feedback.",
+     "step_title": "Submit the structural draft",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "72c5a337-ac6f-44ad-9452-8faa7d7f9efd",
+   "stage_title": "The First Draft: Structural Backbone",
+   "parent_project_id": "820534d4-7999-4e56-9a90-7b7d461c1db9",
+   "stage_description": "Write the introduction and three main body paragraphs, focusing on topic sentences and logical flow between ideas using 'old-to-new' information principles.",
+   "deliverable_increment": "The initial 800-word structural draft of the paper."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built a strong structural backbone for your paper and explored how citation acts as a 'map' for the Great Conversation of academia. Now, it's time to move beyond your initial draft by bringing in outside voices. In this stage, you will transform your 800-word draft into a more authoritative work by finding and integrating four peer-reviewed sources. You'll move from keyword searching to strategic discovery, ensuring your claims are backed by the weight of scholarly expertise rather than just personal opinion.",
+     "step_title": "Recap & orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the exact search string you plan to use in a scholarly database (like Google Scholar or JSTOR) and list two 'Subject Headings' or descriptors you found in an initial search that might lead to more relevant papers."
+     },
+     "step_body": "To find high-quality evidence, you must move beyond casual Googling. Using Boolean operators (AND, OR, NOT), construct a precise search string based on your research question. Remember the 'Venn diagram' logic: use AND to find the intersection of your main topics (e.g., 'Gen Z' AND 'Social Media') and OR to include synonyms (e.g., 'Adolescents' OR 'Teens'). Aim for a query that is specific enough to filter out noise but broad enough to give you a range of scholarly perspectives.",
+     "step_title": "Construct a search query",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List the titles and authors of the four peer-reviewed sources you have selected. For one of these sources, write a 3-sentence justification explaining why it is highly credible and relevant based on your 'lateral reading' of its authority and purpose."
+     },
+     "step_body": "Not all sources are created equal. As you find potential articles, apply the CRAAP test (Currency, Relevance, Authority, Accuracy, Purpose). Pay special attention to the 'Knowledge Pyramid'—you are looking for the apex: peer-reviewed scholarly sources. Practice 'lateral reading' by looking outside the article itself to check the authors' affiliations and the journal's reputation. Ensure you are selecting sources that serve as strong 'conversational partners' for your specific thesis.",
+     "step_title": "Evaluate for credibility",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, weave these sources into your draft. Avoid 'quote dropping'—every piece of evidence should be introduced with a signal phrase (e.g., 'According to Smith...') and followed by your own analysis. Use a mix of direct quotes for unique phrasing and paraphrasing for general ideas. Think of these authors as guests at your dinner party; you are facilitating the conversation between their data and your original arguments. Ensure you are applying the disciplinary logic we discussed, such as emphasizing the date in APA if your topic relies on current data.",
+     "step_title": "Integrate source evidence",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your revised draft as a PDF. It must include: 1) Integrated evidence from at least four peer-reviewed sources with proper in-text citations. 2) A complete, correctly formatted Reference List or Works Cited page. Success is measured by the seamless transition between your voice and the scholarly evidence, and the technical accuracy of your citation formatting."
+     },
+     "step_body": "It is time to finalize this stage's deliverable. Incorporate your four sources into your structural draft, expanding your work and strengthening your claims. Check your in-text citations for accuracy against your chosen style guide (APA or MLA). Finally, create a 'References' or 'Works Cited' page. A perfect list shows the reader the exact path you took through the research landscape, allowing them to follow your footsteps.",
+     "step_title": "Submit revised draft and references",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a short reflection (100-150 words) on how integrating these specific sources changed the 'ethos' or authority of your paper. Mention one specific instance where a source helped you refine or pivot your original argument."
+     },
+     "step_body": "Take a moment to look at your updated paper compared to your first draft. By adding these citations, you have moved from offering an opinion to making a scholarly claim. How did the process of 'lateral reading' change your perspective on your own research question? Did you find any sources that challenged your initial assumptions? Reflecting on how these new voices changed your draft will help you prepare for the final polishing stage.",
+     "step_title": "Reflect on your authority",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "f192c8dc-f1a5-475d-bc23-dc3aa22ff790",
+   "stage_title": "Source Integration and Citation",
+   "parent_project_id": "820534d4-7999-4e56-9a90-7b7d461c1db9",
+   "stage_description": "Locate four peer-reviewed sources and integrate them into your draft using various techniques including quoting, paraphrasing, and synthesis, while applying correct APA/MLA citations.",
+   "deliverable_increment": "A revised draft with integrated evidence and a complete Reference List."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Congratulations on reaching the final stage of your research project! In the previous stages, you've built a solid structural draft and integrated your scholarly evidence. You've also explored the 'Academic Conversation' and learned how to position your work within existing literature. Now, we shift from building the 'house' to ensuring its architectural integrity. This stage focuses on 'Global Revision'—looking at your paper through a telescope rather than a microscope to ensure your argument is cohesive and your final contribution is clear. You will also draft an abstract to introduce your findings to the scholarly world.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a summary of your reverse outline findings. Identify one specific paragraph that you realized needed to be moved, split, or deleted to improve the logical flow of your argument."
+     },
+     "step_body": "To evaluate your paper's 'Global Logic,' you must see the skeleton beneath the prose. Number every paragraph in your current draft. In a separate document, write one punchy sentence for each paragraph that captures its primary claim or purpose. If a paragraph has two claims, it’s a 'structural fracture' and needs to be split; if it has none, it might be filler. Look at this new list of claims: does the sequence flow logically? Are there any 'logical leaps' where a claim appears without supporting data from the previous point?",
+     "step_title": "Perform a reverse outline",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, apply the 'Big Three' filters to your draft: Unity, Development, and Coherence. Check for Unity by ensuring every section leads back to your central thesis. Assess Development by confirming each point is supported by the synthesis of sources you practiced in the literature review session. Finally, strengthen Coherence by refining the transitions between paragraphs. Remember the 'sunken cost fallacy'—be brave enough to 'kill your darlings' if a paragraph no longer serves the overall message of the final 1,500-word paper.",
+     "step_title": "Execute global revisions",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your draft 200-word abstract. It should be a single paragraph that captures the problem, the evidence used, and your central conclusion."
+     },
+     "step_body": "A scholarly abstract is a 200-word standalone summary that tells a reader why your research matters and what you found. It should concisely state your research problem, your methodology (how you approached the topic), your key arguments, and your final conclusion. Think of this as the 'hook' for the academic circle you are entering. Ensure it reflects the final state of your paper after your global revisions.",
+     "step_title": "Draft the formal abstract",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "With the structure sound, it is time for the final polish. Use the 'Diagnostic Read-Aloud' technique: read your entire paper out loud to catch awkward phrasing or 'noun-heavy' sentences that your eyes might skip. Perform a 'Systematic Hunt' for technical errors—do one pass specifically for comma usage, one for subject-verb agreement, and one final pass to ensure every in-text citation has a corresponding 'handshake' in your Reference List. Technical precision is a signal of your scholarly rigor.",
+     "step_title": "Refine and proofread",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your final 1,500-word research paper and abstract as a single PDF. Good work will demonstrate a cohesive Toulmin-based argument, seamless synthesis of peer-reviewed sources, and flawless academic formatting."
+     },
+     "step_body": "It is time to submit the culmination of your hard work. Your final deliverable must be a polished 1,500-word research paper. Ensure it includes: a title page, your 200-word abstract, the full body of the paper with integrated citations, and the complete Reference List. This document should represent your absolute best scholarly effort, showing a clear 'gap' you've filled in the academic conversation.",
+     "step_title": "Submit your final paper",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "97f71897-5ab1-4eba-b61b-37f771a9fc29",
+   "stage_title": "Final Revision and Abstract",
+   "parent_project_id": "820534d4-7999-4e56-9a90-7b7d461c1db9",
+   "stage_description": "Perform a global revision via reverse outlining and write a formal 200-word abstract that summarizes your findings and argument for a scholarly audience.",
+   "deliverable_increment": "The final 1,500-word Research Paper and Abstract."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "820534d4-7999-4e56-9a90-7b7d461c1db9",
+   "project_name": "The Scholarly Research Paper",
+   "final_deliverable": "A complete, formatted 1,500-word academic research paper including an abstract, an arguable thesis supported by evidence and counterarguments, integrated scholarly citations, and a full reference list.",
+   "project_description": "Throughout this course, you will research, draft, and polish a 1,500-word academic research paper on a topic of your choice. You will progress through the entire scholarly workflow: from developing a research question and a Toulmin-based argument to synthesizing peer-reviewed sources and applying advanced revision techniques."
+  }
+ ],
+ "courseUuid": "b34da568-7691-4f2f-94c1-672e028f4c21"
+}

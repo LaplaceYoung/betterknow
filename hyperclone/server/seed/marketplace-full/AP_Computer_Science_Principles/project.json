@@ -1,0 +1,391 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your AP CSP Prep Portfolio project! Over the course of this project, you will build the 'Eco-Tracker'—a sophisticated Python-based simulation tool that tracks carbon footprints and models environmental impacts. This isn't just a coding exercise; it’s a full professional portfolio including a narrated demo video, data infographics, and a written response document designed to ace the AP Create Performance Task. Today, we start at the very beginning: the Design Proposal. Reflecting on our recent lessons about Program Purpose and Function, you’ll define exactly what your Eco-Tracker will do for its users and how it serves as a meaningful computing innovation.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type out your program's Purpose (the human goal) and three specific Functions (technical actions). Good work clearly distinguishes between the 'Why' and the 'How' and includes at least one function that involves tracking data over time."
+     },
+     "step_body": "Every great program starts with a clear 'Why' and 'How.' Recall from our whiteboard sessions that the 'Purpose' is the human problem you are solving, while the 'Function' is the technical behavior of the code. For your Eco-Tracker, what is the specific environmental problem it addresses? Will it help students reduce cafeteria waste, or help families track home electricity use? Once you have the purpose, list three core functions (the 'What') your program will execute—such as 'calculates carbon offset based on tree planting' or 'stores a list of weekly emissions.'",
+     "step_title": "Define Purpose and Function",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List your target audience and at least two pairs of 'Pain Point -> Program Requirement.' Each requirement should be a specific, testable feature your program will include."
+     },
+     "step_body": "We don't build software for ourselves; we build it for the world! Think about who will use your Eco-Tracker. Are they busy homeowners, students, or perhaps city planners? Identify two 'User Pain Points' (e.g., 'I don't know which daily habits hurt the planet most') and translate them into specific 'Program Requirements' (e.g., 'The program must provide a ranked list of high-impact activities'). This ensures your tool is actually useful and accessible to your target audience.",
+     "step_title": "Identify User Needs",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Briefly describe: 1) What data your List will store, and 2) A procedure that uses a parameter to process that list. Your description must show how the procedure uses a loop (iteration) or a conditional (selection) to fulfill its task."
+     },
+     "step_body": "To score high on the AP Create Performance Task, your program must include specific technical 'non-negotiables': a List (to manage complexity) and a Procedure with a Parameter (including sequencing, selection, and iteration). In your Eco-Tracker, what will your list store? (e.g., daily CO2 values, a list of eco-friendly tips). What will your main algorithm do with that list? Don't write the code yet—just describe the logic in plain English or pseudocode.",
+     "step_title": "Plan for AP CSP Technicals",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'proposal.md' file. It must include: the Program Purpose, a list of Functions, User Requirements, and a clear description of the List and Procedure you plan to implement. Ensure the document is neatly formatted and addresses all AP Create Task criteria discussed."
+     },
+     "step_body": "Now it's time to consolidate your work into your first official deliverable: 'proposal.md'. This document serves as your roadmap for the entire development cycle. It should combine your Purpose/Function, User Requirements, and your Technical Plan for the list and procedure. Having this organized now will make the actual coding phase much smoother and ensure you hit every requirement of the AP rubric.",
+     "step_title": "Submit the Design Proposal",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work! You have successfully laid the foundation for your Eco-Tracker. By defining your requirements and technical targets first, you've avoided the most common mistake students make: coding a project that looks good but fails the AP rubric. In the next stage, we will move from planning to action as we begin sketching the User Interface and setting up our Python environment.",
+     "step_title": "Stage Wrap-up",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "d3a7e70e-f7f9-4c1a-9598-933c82bb4277",
+   "stage_title": "Project Design Proposal and Create Task Planner",
+   "parent_project_id": "e3c6323b-e35d-4af3-9c7b-a3ce3fec4c3b",
+   "stage_description": "Define the purpose, scope, and user requirements for your Eco-Tracker program. You will draft a development plan, mock up the user interface, and establish a checklist matching the AP Create Performance Task criteria to ensure your proposed program is highly suited for the exam.",
+   "deliverable_increment": "A markdown design document (proposal.md) detailing the program's intended function, user input methods, structured list usage, and algorithmic requirements."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In our previous sessions, we explored how data is collected from the physical world through sensors and logs, and how metadata helps us understand the context of that data. You also mastered the foundations of bits, bytes, and binary representation. Now, it is time to apply these concepts to the first major piece of your Eco-Tracker portfolio: the Environmental Data Analysis Report. In this stage, you will move from raw numbers to meaningful insights by cleaning a dataset and creating a visualization that will eventually inform how your 'Eco-Tracker' program processes environmental metrics.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief description of your chosen dataset (the source and what it measures) and list one action you took to clean the data (e.g., 'removed rows with missing CO2 values')."
+     },
+     "step_body": "Every great analysis begins with reliable data. For your Eco-Tracker project, you need to work with an open-source greenhouse gas emissions dataset. Start by identifying a CSV file that contains historical emissions data (many are available on sites like Kaggle or Our World in Data). Once you have your data, perform 'data cleaning': look for any missing values (NaN) or clear outliers that might skew your results. Remove these rows or fill them with an average value to ensure your future program calculations are accurate. Briefly describe the source of your data and one specific step you took to clean it.",
+     "step_title": "Select and clean your dataset",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a metadata evaluation paragraph. Good work identifies at least three pieces of metadata (such as author, date, and units) and explains why this context is important for the reliability of your report."
+     },
+     "step_body": "Recall our discussion on metadata—the 'data about data.' Before you build your chart, you must understand the constraints of your source. Look at the file properties or the documentation provided by the data source. Who collected this data? What is the unit of measurement (e.g., metric tons vs. kilograms)? When was it last updated? This context is vital because if the units are wrong, your Eco-Tracker program will provide incorrect feedback to users. Draft a short paragraph evaluating this metadata.",
+     "step_title": "Identify your metadata",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot or image of your custom visualization chart. It should clearly display an environmental trend with a title and properly labeled X and Y axes."
+     },
+     "step_body": "Now, transform your cleaned CSV data into a visual story. Using a tool of your choice (Excel, Google Sheets, or a Python library like Matplotlib if you are feeling adventurous), generate a chart that shows a clear trend, such as 'Global CO2 Emissions over the last 20 years' or 'Emissions by Sector.' Ensure your chart includes a title, labeled axes, and a legend. This visual will be a core component of your final digital data analysis report.",
+     "step_title": "Create your visualization",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your final 'data_report.pdf'. The report must include: (1) a brief summary of the cleaned dataset, (2) the visualization chart, and (3) the metadata evaluation paragraph. High-quality reports demonstrate a clear link between the data source and the resulting chart."
+     },
+     "step_body": "It is time to finalize the 'Environmental Data Analysis and Visualization Report.' Combine your cleaned data summary, your metadata evaluation, and your visualization chart into a single document. Review your work: does the visualization match the cleaned data? Does the report explain any limitations you found in the metadata? This document serves as the research foundation for the algorithms you will later write in your 'eco_tracker.py' program.",
+     "step_title": "Assemble and submit your report",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type a short reflection (2-3 sentences) on how understanding the context/metadata of your file changed your interpretation of the raw data."
+     },
+     "step_body": "Great work completing your report! As a final reflection for this stage, think back to our lesson on data abstraction. We learned that the same bits can represent numbers, text, or colors depending on context. In the report you just created, how did 'context' change how you viewed the raw numbers in your CSV? For example, did knowing the 'units' (metadata) change how you interpreted the scale of the emissions? Knowing how to interpret bits is what makes a programmer a scientist.",
+     "step_title": "Reflect on data abstraction",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "28ebf5da-9584-4197-9480-4da7dab34270",
+   "stage_title": "Environmental Data Analysis and Visualization Report",
+   "parent_project_id": "e3c6323b-e35d-4af3-9c7b-a3ce3fec4c3b",
+   "stage_description": "Analyze an open-source dataset on greenhouse gas emissions. Clean the dataset of missing values, generate an informative data visualization, and write an analysis explaining the trends and limitations of the metadata.",
+   "deliverable_increment": "A digital report (data_report.pdf) containing your cleaned CSV data, a custom visualization chart, and a metadata evaluation paragraph."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you designed your 'Eco-Tracker' proposal and analyzed the environmental data that will power your simulation. Now, it's time to transition from planning to programming. You've recently learned about the fundamental building blocks of algorithms: sequencing, selection, and iteration. In this stage, you will implement these concepts to create the 'brain' of your tracker—the core logic that calculates a user's footprint based on their inputs.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "Every program starts with receiving data. Based on your Session 3.1.2 and 3.1.3 knowledge, start your Python file by initializing the variables you'll need for tracking (like 'total_emissions') and use input() statements to collect data from the user. For example, ask how many miles they drove or how many meat-based meals they ate this week. Remember to convert these inputs into numbers (integers or floats) so you can perform math on them later!",
+     "step_title": "Set up variables and inputs",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short code snippet (Python or pseudocode) showing an if-else statement and a one-sentence explanation of why that logical branch is important for an environmental tracker."
+     },
+     "step_body": "Now, apply 'selection' (if-statements) to make your program smart. Think about a specific environmental threshold from your data report. If a user's input exceeds a certain limit, your program should prepare a specific warning message. Write a short snippet of pseudocode or Python code that shows an if-else structure based on one of your user inputs. Why did you choose this specific threshold?",
+     "step_title": "Draft your selection logic",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "To make your Eco-Tracker robust, you need a loop (iteration). Use a loop to allow the user to enter multiple data points (like several days of activity) or to iterate through a list of common emission factors you've predefined. This prevents you from writing the same code over and over. In your Python file, ensure you have at least one 'for' or 'while' loop that processes a collection of data to update your 'total_emissions' variable.",
+     "step_title": "Implement the iteration loop",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'eco_tracker_v1.py' file. Good work will show a clear sequence of instructions, at least one functional loop, and conditional logic (if-statements) that changes the output based on user data."
+     },
+     "step_body": "It is time to combine your sequence of inputs, your conditional logic, and your loops into a single functional script. Your code should run from top to bottom, take at least three different inputs, use a loop for calculation, and provide a final output summary to the user. Ensure your variables are clearly named and you've included comments to explain what each section of your algorithm is doing.",
+     "step_title": "Finalize and submit eco_tracker_v1.py",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Take a moment to look back at your code. How did the sequence (the order of your lines) impact the final calculation? If you moved your 'total_emissions' print statement to the top of the file before the inputs, what would happen? This understanding of chronological execution is vital for the AP CSP Create Task.",
+     "step_title": "Reflect on algorithmic flow",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "33b966ee-7d31-4f70-90f5-52faff03eb5c",
+   "stage_title": "Eco-Tracker Core Algorithm and Control Structures",
+   "parent_project_id": "e3c6323b-e35d-4af3-9c7b-a3ce3fec4c3b",
+   "stage_description": "Implement the core programmatic logic of your tracker program in Python. You will write code that processes user selections, uses conditionals to evaluate impacts, and utilizes loops to iterate over emissions lists to determine total output.",
+   "deliverable_increment": "A draft Python file (eco_tracker_v1.py) with functional control structures, loops, and conditional statements."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Great work on the previous stages! You've already established the core logic of your Eco-Tracker with control structures and a solid data report. In this stage, we are moving from simple scripts to professional, modular code. We will apply the 'Data Abstraction' and 'Procedural Abstraction' concepts you just learned. Instead of managing individual variables for every carbon metric, you will use lists to group related data and custom functions (procedures) to handle complex simulations, such as predicting environmental impacts over a five-year period. This is a critical requirement for the AP CSP Create Performance Task.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the names of your two lists and a brief explanation (2-3 sentences) of how you will ensure that the value at index 1 of your 'metrics' list always corresponds to the category at index 1 of your 'categories' list."
+     },
+     "step_body": "To avoid the 'variable explosion' we discussed in lecture, let's refactor your tracking system. Identify at least three environmental categories you are tracking (e.g., 'Transportation', 'Diet', 'Energy'). Instead of using separate variables like `trans_score1`, `trans_score2`, create a list named `impact_categories` to store the names and another list named `user_metrics` to store the corresponding values. This demonstrates data abstraction by managing a collection of data under one name. List these categories and explain how you will use their index positions to link the category name to the user's input value.",
+     "step_title": "Implement data abstraction",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a code snippet of your function definition (in Python or AP-style Pseudocode). It must include a function name, at least two parameters, a loop for the 5-year calculation, and a return statement."
+     },
+     "step_body": "Now, let's focus on procedural abstraction. You need to create a function—a procedure—that handles the 'Future Impact' simulation. This function should take at least two parameters: the current `carbon_score` and a `growth_rate`. Inside the function, use a loop to simulate 5 years of impact. By defining this as a function, you hide the complexity of the math from the rest of your program. Draft the header and the logic for this function. Ensure it uses the parameters provided and returns a final value representing the total 5-year footprint.",
+     "step_title": "Draft the simulation procedure",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Real environmental data involves uncertainty. Within your simulation function, integrate a randomization element. Use a random number generator to slightly vary the impact each year (e.g., a 'random weather factor'). This makes your simulation more realistic and demonstrates higher-level algorithmic thinking. Update your function logic to include this 'random' factor within the loop, ensuring the final return value reflects these randomized fluctuations.",
+     "step_title": "Add randomization logic",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your updated 'eco_tracker.py'. Good work should include: (1) At least one list used to manage program data, (2) A custom procedure with at least one parameter that is used in the procedure, and (3) An algorithm within that procedure that uses a loop and a random element to calculate the simulation result."
+     },
+     "step_body": "It's time to bring it all together. Integrate your new lists and your simulation function into your `eco_tracker.py` file. Replace your old sequential code with calls to your new function. Make sure your program takes user input, stores it in the lists you created, and then passes those values as arguments into your simulation procedure. This refactored code is much more modular and scalable—key traits of a high-scoring Create Task project.",
+     "step_title": "Integrate and submit",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a brief reflection (3-5 sentences) explaining the benefit of procedural abstraction in your specific program, focusing on ease of maintenance or code readability."
+     },
+     "step_body": "As a final step, reflect on how using a procedure made your code easier to manage. If you had to change the simulation from a 5-year model to a 10-year model, how does having a centralized function make that change simpler compared to having the math written out line-by-line in the main part of your program? This type of reflection helps you prepare for the written response portion of the AP Exam.",
+     "step_title": "Reflect on abstraction",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "0ed5aec0-a601-4d0b-b4fb-cce09e4be2b5",
+   "stage_title": "Implementing Procedural Abstraction and Simulations",
+   "parent_project_id": "e3c6323b-e35d-4af3-9c7b-a3ce3fec4c3b",
+   "stage_description": "Refactor your Python code to integrate lists and custom-built procedures with parameters. You will create a randomized simulation helper function that models future environmental impacts based on user choices over five-year intervals.",
+   "deliverable_increment": "An updated script (eco_tracker.py) containing structured lists, parameterized procedures with return values, and a randomized simulation engine."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In previous sessions, we explored the physical reality of the internet—from fiber-optic cables to radio waves—and how data is broken into packets to avoid clogging the network. You have already built the 'Eco-Tracker' logic, which currently runs locally on your machine. However, for a real-world application, your footprint data would need to be stored in a cloud database or compared against global benchmarks via a server. This stage is about mapping that journey: from your keyboard and code, through the layers of abstraction, across the physical internet infrastructure, and to a remote server.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe in 2-3 sentences what the Operating System must do with your Eco-Tracker's data before it can be sent over a physical network. Focus on its role as an intermediary between software and hardware. Good work identifies specific OS tasks like memory management or device driver communication."
+     },
+     "step_body": "Before a packet ever hits a wire, it must travel through the layers of abstraction on your own device. Recall Session 4.1.2: your high-level Python code is interpreted into binary, which then triggers logic gates in the CPU. When your Eco-Tracker sends data, the application makes a request to the Operating System (OS). The OS acts as the traffic cop, managing the hardware (like your Network Interface Card) to prepare the transmission. Start your diagram by sketching a 'User Device' block that shows these layers: Application (Eco-Tracker), OS, and Hardware.",
+     "step_title": "Trace the local abstraction",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Computers don't navigate by names like 'eco-server.org'; they use IP addresses. Your diagram needs to show the logical handshake. First, your computer contacts a DNS (Domain Name System) server to find the IP address of the destination. Once found, it initiates a TCP (Transmission Control Protocol) handshake to ensure a reliable connection. On your draft, add a 'DNS Server' and a 'Cloud Server' node, and draw the initial arrows showing this lookup and the 'SYN-ACK' connection process.",
+     "step_title": "Map the DNS and IP handshake",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, focus on the 'middle' of your map: the physical internet. As we learned in Session 4.2.2, your footprint data is broken into standardized packets. These packets don't all follow the same path! Draw multiple routers between your home and the cloud server. Label the physical mediums connecting them—use fiber-optic lines for the backbone and perhaps radio waves (Wi-Fi) for the 'last mile' at your house. Show at least three packets of Eco-Tracker data traveling different paths to reach the same destination.",
+     "step_title": "Illustrate packet routing",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "List the four main protocols you included in your diagram (HTTP, TCP, IP, and a physical layer like Ethernet or Fiber) and briefly explain the specific job each one does for your Eco-Tracker program. High-quality responses clearly distinguish between 'reliability' (TCP) and 'addressing' (IP)."
+     },
+     "step_body": "To make your diagram a professional AP CSP artifact, you must label the protocols used at each step. Where does HTTP/HTTPS happen (the request for the footprint report)? Where does IP (Internet Protocol) handle the addressing? Where does TCP ensure no packets were lost during the stormy mountain route? Add a 'Legend' or specific call-out boxes to your diagram that explain these protocol roles.",
+     "step_title": "Define the protocol stack",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload your final 'internet_flow.png' network diagram. The diagram must include: (1) labeled layers of abstraction on the host, (2) the DNS lookup process, (3) a multi-path packet route through at least two routers, and (4) labeled protocols (HTTP, TCP, IP). The visual should be clear, organized, and use numbered steps."
+     },
+     "step_body": "Review your 'internet_flow.png'. It should clearly show the journey of a Carbon Footprint data packet from your Eco-Tracker UI, through your local OS, out via a router, through the DNS lookup, across multiple physical paths (routers/fiber), and arriving at a Cloud Server to be reassembled. Ensure all paths are numbered to show the sequence of events. This diagram proves you understand how the 'magical cloud' is actually a series of physical and logical layers working in harmony.",
+     "step_title": "Finalize and submit the map",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "89ca4f41-3bfa-4053-b083-be883b553df9",
+   "stage_title": "Internet Infrastructure and Packet Routing Mapping Diagram",
+   "parent_project_id": "e3c6323b-e35d-4af3-9c7b-a3ce3fec4c3b",
+   "stage_description": "Map how your Eco-Tracker program would communicate with cloud servers. Draw a logical infrastructure map detailing DNS lookup, IP addressing, TCP handshakes, packet routing, and HTTP request-response actions.",
+   "deliverable_increment": "A high-resolution network diagram (internet_flow.png) showing physical infrastructure and numbered steps of the network protocols."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have come a long way from a simple design proposal to a fully functional Eco-Tracker simulation with complex algorithms and network diagrams! In this final stage, you will wrap up your AP CSP Portfolio by creating a video demonstration of your 'Eco-Tracker' and writing the formal responses required for the Create Performance Task. We will also look at the ethical side of your innovation, drawing on what we learned about digital footprints and the unintended consequences of tracking data.",
+     "step_title": "Recap and final sprint",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your 1-minute video demonstration (MP4 or similar). Good work shows the program successfully running, handling user input, and displaying calculated results without errors."
+     },
+     "step_body": "An essential part of the AP CSP Create Task is the video demonstration. Your goal is to show your program running from start to finish. Ensure your video captures the program's purpose (tracking carbon footprints), user input (like selecting lifestyle habits), and at least one significant output (the simulated environmental result). The video must be approximately 1 minute long. As you record, make sure the text in your terminal or UI is legible, as this proves your code actually works as intended.",
+     "step_title": "Record your program in action",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief written description of one List and one Procedure used in your code. Explain how each makes your program more efficient or organized. Success is measured by your ability to clearly link the code structure to its specific function in the Eco-Tracker."
+     },
+     "step_body": "Now, let's tackle the 'Written Responses' portion. You need to identify two specific parts of your 'eco_tracker.py' code: a List (Data Abstraction) and a Procedure (Procedural Abstraction). For the list, explain how it manages complexity—what would your code look like if you didn't have that list? For the procedure, describe its functionality and how the parameters contribute to the overall program. This documentation ensures you can explain the 'why' behind your 'how'.",
+     "step_title": "Document your abstractions",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Ethical Impact Statement. It should identify one clear benefit, one potential unintended harmful effect, and an analysis of how the tool impacts different demographic or socioeconomic groups."
+     },
+     "step_body": "Every computing innovation has a human impact. Reflecting on our lessons about digital footprints and the trade-offs of tracking, consider the ethics of your Eco-Tracker. While it helps users improve the environment (a benefit), what are the risks if this personal lifestyle data were leaked or used for targeted advertising? Draft a statement (2-3 paragraphs) analyzing the 'Law of Unintended Consequences' as it applies to your tool. Consider how it might affect different socioeconomic groups—for instance, does the tracker assume everyone has the financial means to switch to 'green' products?",
+     "step_title": "Draft the ethical statement",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your final 'create_responses.pdf'. This should contain your written responses for data/procedural abstraction (with code snippets) and your ethical impact statement."
+     },
+     "step_body": "To complete this stage, you must compile your written responses and your ethical statement into a single, professional document. Use the AP CSP template format if available. Ensure you include screenshots of the specific code segments (the list and the procedure) you discussed in the previous steps. This document, alongside your video and the final version of your Python code, completes your portfolio.",
+     "step_title": "Assemble the final PDF",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Congratulations! You have successfully built a computing innovation from the ground up, analyzed its network requirements, visualized its data, and evaluated its societal impact. You now have a complete AP CSP Portfolio. Take a moment to review your 'eco_tracker.py' one last time to ensure your comments are clear before you archive everything for your final submission. You’re ready to show the world—and the College Board—what you’ve built!",
+     "step_title": "Project wrap-up",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "54d76a3b-7df2-462f-bc80-60edff049add",
+   "stage_title": "Final Create Task Responses and Ethical Impact Statement",
+   "parent_project_id": "e3c6323b-e35d-4af3-9c7b-a3ce3fec4c3b",
+   "stage_description": "Create a narrated video showing your program in action. Write formal mock AP Create Task responses documenting your data and procedural abstraction, and draft an ethical impact review on digital tracking and data privacy.",
+   "deliverable_increment": "A 1-minute MP4 video demonstration, a complete written response document (create_responses.pdf) conforming to AP CSP templates, and a developer ethical statement."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "e3c6323b-e35d-4af3-9c7b-a3ce3fec4c3b",
+   "project_name": "AP CSP Prep Portfolio: Eco-Tracker Program and Digital Artifacts",
+   "final_deliverable": "A comprehensive ZIP archive containing: (1) 'eco_tracker.py' program code with comments showing modular functions, algorithms, and data structures; (2) A 1-minute narrated video demonstrating program execution; (3) A written AP CSP Create Task preparation document outlining procedural and data abstraction; (4) A digital data analysis report with custom infographics; and (5) A network protocol mapping diagram.",
+   "project_description": "Throughout this course, you will build a complete AP Computer Science Principles portfolio. You will design, develop, and document a complete, interactive Python/Pseudocode simulation tool ('Eco-Tracker') that tracks individual carbon footprint metrics and tests environmental scenarios. Alongside this program, you will construct physical and logical network diagrams, design visual data representations, and draft a complete set of written responses matching the College Board AP CSP Create Performance Task requirements."
+  }
+ ],
+ "courseUuid": "86044f35-876e-48ee-a77c-c433835050c1"
+}

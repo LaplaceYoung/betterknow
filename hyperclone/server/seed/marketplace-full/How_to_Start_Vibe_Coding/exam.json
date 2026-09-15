@@ -1,0 +1,1356 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Assessment: Vibe Coding Mindset and Environment Setup",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to Andrej Karpathy's concept of 'Vibe Coding', what is the primary medium of creation for the developer?",
+     "options": [
+      "Manual syntax and memory management",
+      "Natural language and strategic intent",
+      "Visual drag-and-drop block coding",
+      "Compiling binary code directly"
+     ],
+     "explanation": "Vibe coding shifts the medium from rigid syntax (like semicolons) to natural language, where the creator acts as a director rather than a manual typewriter.",
+     "correctAnswers": [
+      "Natural language and strategic intent"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are components of the 'Vibe Coding' workflow as described in the course materials?",
+     "options": [
+      "Strategic Intent",
+      "Manual Syntax Parsing",
+      "AI Generation",
+      "System Evaluation",
+      "Manual Memory Management"
+     ],
+     "explanation": "The vibe coding workflow replaces manual syntax parsing and memory management with high-level intent, AI generation, and critical evaluation of the results.",
+     "correctAnswers": [
+      "Strategic Intent",
+      "AI Generation",
+      "System Evaluation"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the context of automation, ____ vibe coding occurs when an AI agent attempts to build an entire application without any human oversight, often leading to hallucination loops.",
+     "placeholder": "Type the level of automation",
+     "correctAnswers": [
+      "Full",
+      "full"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary risk of adopting a 'Full Vibe Coding' approach without a human feedback loop?",
+     "options": [
+      "The code will be too simple for professional use",
+      "The AI may enter recursive hallucination loops",
+      "The development process becomes too slow",
+      "The AI will refuse to generate multi-file structures"
+     ],
+     "explanation": "Without human steering, AI agents often write overly complex code to patch minor bugs, leading to a loop of errors and hallucinations.",
+     "correctAnswers": [
+      "The AI may enter recursive hallucination loops"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which tasks are identified as 'AI Superpowers' because they rely on highly standardized patterns found in open-source data?",
+     "options": [
+      "Generating UI boilerplates",
+      "Optimizing complex, custom database queries",
+      "Creating standard CSS styling",
+      "Writing basic database schemas",
+      "Implementing unique, high-security payment routing"
+     ],
+     "explanation": "AI excels at standardized tasks like UI, CSS, and basic schemas because it has seen millions of these patterns; custom or complex logic is part of the 'Steering Zone'.",
+     "correctAnswers": [
+      "Generating UI boilerplates",
+      "Creating standard CSS styling",
+      "Writing basic database schemas"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Modern AI models are optimized for ____ rather than truth, which can lead beginners into a false sense of security.",
+     "placeholder": "Enter the quality AI is optimized for",
+     "correctAnswers": [
+      "plausibility"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What does the term 'context drift' refer to in AI-assisted development?",
+     "options": [
+      "The AI forgetting the human's preferred coding language",
+      "The AI losing track of the overall application architecture",
+      "The shift from a local setup to a cloud setup",
+      "The time it takes for a prompt to be processed"
+     ],
+     "explanation": "Context drift happens when an AI makes too many assumptions across a distributed project, leading to architectural inconsistencies.",
+     "correctAnswers": [
+      "The AI losing track of the overall application architecture"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Identify the three critical checkpoints where a human must intervene in the vibe coding loop.",
+     "options": [
+      "Intent Check",
+      "Syntax Compilation Check",
+      "Signature Check",
+      "Runtime Check",
+      "Hardware Compatibility Check"
+     ],
+     "explanation": "The framework establishes Intent (goals), Signature (validity of tools), and Runtime (execution) as the three pillars of human oversight.",
+     "correctAnswers": [
+      "Intent Check",
+      "Signature Check",
+      "Runtime Check"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The primary advantage of an AI-native IDE like Cursor over a cloud sandbox is its ability to ____ the entire local file system for better context.",
+     "placeholder": "Action the AI performs on files",
+     "correctAnswers": [
+      "index"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In the human checkpoint framework, what is the purpose of the 'Signature Check'?",
+     "options": [
+      "To verify the human's identity for security",
+      "To ensure the AI's generated plan matches the project goals",
+      "To confirm that suggested libraries and external tools actually exist",
+      "To check if the code runs without runtime errors"
+     ],
+     "explanation": "The Signature Check is specifically used to spot hallucinations like non-existent API endpoints or libraries before attempting to run the code.",
+     "correctAnswers": [
+      "To confirm that suggested libraries and external tools actually exist"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What are the primary disadvantages or 'trade-offs' of using a local environment like Cursor or VS Code?",
+     "options": [
+      "Heavy cognitive load due to configuration errors",
+      "Inability to index the local file system",
+      "Potential 'installation paralysis' for beginners",
+      "Monthly subscription costs for the software itself",
+      "Responsibility for managing Node.js or terminal variables"
+     ],
+     "explanation": "Local environments require the user to troubleshoot setup issues and manage software dependencies, which can be overwhelming for beginners.",
+     "correctAnswers": [
+      "Heavy cognitive load due to configuration errors",
+      "Potential 'installation paralysis' for beginners",
+      "Responsibility for managing Node.js or terminal variables"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In the house-building metaphor, the traditional programmer is the bricklayer, while the vibe coder is the ____ directing an automated crew.",
+     "placeholder": "Role of the vibe coder",
+     "correctAnswers": [
+      "architect"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "An AI generates code using a method called 'Emailer.sendWithAutoRetry()'. If this method does not exist in any library, this is an example of:",
+     "options": [
+      "Recursive logic",
+      "A syntax error",
+      "A confident hallucination",
+      "A runtime optimization"
+     ],
+     "explanation": "AI models often generate plausible-sounding but non-existent functions based on statistical probability.",
+     "correctAnswers": [
+      "A confident hallucination"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When acting as an 'Editor-in-Chief' of AI-generated code, what is the human responsible for?",
+     "options": [
+      "Writing every semicolon by hand",
+      "Factual accuracy of the application",
+      "Overall quality of the output",
+      "Steering the AI with precise constraints",
+      "Compiling the AI's neural network"
+     ],
+     "explanation": "The human 'owns' the result, ensuring it is accurate and high-quality, even if they didn't write the raw code.",
+     "correctAnswers": [
+      "Factual accuracy of the application",
+      "Overall quality of the output",
+      "Steering the AI with precise constraints"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Which environment is described as a 'fully furnished apartment' because it requires zero setup for a developer?",
+     "options": [
+      "A Local Engine Room",
+      "VS Code",
+      "A Cloud Sandbox (e.g., Replit)",
+      "A custom carpentry workshop"
+     ],
+     "explanation": "Cloud sandboxes like Replit provide an integrated environment (editor, server, browser) immediately in the browser with no installation needed.",
+     "correctAnswers": [
+      "A Cloud Sandbox (e.g., Replit)"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following are reasons why a developer might choose a Cloud Sandbox over a local IDE?",
+     "options": [
+      "Eliminating installation paralysis",
+      "Speed-to-value for rapid prototyping",
+      "Lower cost for long-term production use",
+      "Ease of sharing a live preview link",
+      "Access to the user's full local file system"
+     ],
+     "explanation": "Cloud sandboxes prioritize speed and accessibility, though they may have higher long-term costs and less local system access.",
+     "correctAnswers": [
+      "Eliminating installation paralysis",
+      "Speed-to-value for rapid prototyping",
+      "Ease of sharing a live preview link"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "Which project scenario is best suited for a local development environment?",
+     "options": [
+      "A quick interactive calculator to show an investor",
+      "A personal website using a standard template",
+      "A highly secure application processing private local files",
+      "A simple landing page for a hobbyist project"
+     ],
+     "explanation": "Local environments are preferred for security and privacy when handling local data, whereas cloud sandboxes are better for quick sharing and standard templates.",
+     "correctAnswers": [
+      "A highly secure application processing private local files"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "A developer needs to fix a 'hallucinated' function call in their project. Move the code block through the correct Human Checkpoint Framework sequence to validate the fix.",
+     "options": [
+      "Intent Check -> Signature Check -> Runtime Check",
+      "Runtime Check -> Intent Check -> Signature Check",
+      "Signature Check -> Runtime Check -> Intent Check",
+      "Intent Check -> Runtime Check -> Signature Check"
+     ],
+     "explanation": "The correct logical order is first ensuring the intent is right, then verifying the external signatures/APIs exist, and finally executing the code to check for runtime errors.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Human Checkpoint Framework</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      --shadow: 0 2px 6px rgba(0,0,0,0.06);\n      --shadow-active: 0 8px 16px rgba(76,102,150,0.15);\n      --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: var(--font-sans);\n      margin: 0;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: flex-start;\n      min-height: 100vh;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Code Snippet Block */\n    .code-snippet {\n      background: #272822;\n      color: #f8f8f2;\n      border-radius: 8px;\n      padding: 8px 12px;\n      font-family: Consolas, Monaco, \"Andale Mono\", \"Ubuntu Mono\", monospace;\n      font-size: clamp(11px, 2.5vw, 13px);\n      box-shadow: var(--shadow);\n      position: relative;\n      border-left: 4px solid var(--accent);\n    }\n    .code-snippet .keyword { color: #f92672; }\n    .code-snippet .function { color: #a6e22e; }\n    .code-snippet .comment { color: #75715e; }\n\n    /* Slots Area */\n    .slots-container {\n      display: grid;\n      grid-template-columns: repeat(3, 1fr);\n      gap: 10px;\n      margin-top: 4px;\n    }\n\n    .slot-wrapper {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n    }\n\n    .slot-label {\n      font-size: 11px;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      text-align: center;\n      font-weight: 600;\n    }\n\n    .slot {\n      height: 48px;\n      background: var(--stage);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n      transition: background 0.2s, border-color 0.2s;\n    }\n\n    .slot.drag-over {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n    }\n\n    /* Draggable Pills Tray */\n    .pills-tray {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 10px;\n      padding: 10px;\n      margin-top: 4px;\n      box-shadow: var(--shadow);\n    }\n\n    /* Draggable Pill */\n    .pill {\n      height: 38px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 6px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: clamp(12px, 2.8vw, 13px);\n      font-weight: 500;\n      color: var(--fg);\n      cursor: grab;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n      touch-action: none;\n      position: relative;\n      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;\n    }\n\n    .pill:hover {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n    }\n\n    .pill.dragging {\n      cursor: grabbing;\n      position: fixed;\n      z-index: 1000;\n      width: 130px; /* lock width when dragging */\n      pointer-events: none;\n      box-shadow: var(--shadow-active);\n      transform: scale(1.05);\n      border-color: var(--accent-strong);\n      background: var(--surface);\n    }\n\n    .pill.placed {\n      width: 100% !important;\n      height: 100%;\n      border-color: var(--accent);\n      background: var(--surface);\n      box-shadow: none;\n    }\n\n    .pill.placed:hover {\n      background: var(--accent-soft);\n    }\n\n    .hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: 4px;\n    }\n\n    /* Connection lines flow simulation */\n    .flow-indicator {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      gap: 16px;\n      margin-top: 2px;\n    }\n    .flow-dot {\n      width: 6px;\n      height: 6px;\n      border-radius: 50%;\n      background: var(--border);\n      transition: background 0.3s;\n    }\n    .flow-dot.active {\n      background: var(--accent);\n      box-shadow: 0 0 6px var(--accent);\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Checkpoint Sequencer</h1>\n\n  <div class=\"widget-container\">\n    <!-- Code Snippet Metaphor -->\n    <div class=\"code-snippet\">\n      <span class=\"comment\">// Human Checkpoint Validation Pipeline</span><br>\n      <span class=\"keyword\">const</span> validatedFix = <span class=\"function\">processPipeline</span>(codePatch);\n    </div>\n\n    <!-- 3 Step Slots -->\n    <div class=\"slots-container\">\n      <div class=\"slot-wrapper\">\n        <div class=\"slot-label\">Step 1</div>\n        <div class=\"slot\" data-step=\"1\"></div>\n      </div>\n      <div class=\"slot-wrapper\">\n        <div class=\"slot-label\">Step 2</div>\n        <div class=\"slot\" data-step=\"2\"></div>\n      </div>\n      <div class=\"slot-wrapper\">\n        <div class=\"slot-label\">Step 3</div>\n        <div class=\"slot\" data-step=\"3\"></div>\n      </div>\n    </div>\n\n    <!-- Active State Visual Feedback Dots -->\n    <div class=\"flow-indicator\">\n      <div class=\"flow-dot\" id=\"dot-1\"></div>\n      <div class=\"flow-dot\" id=\"dot-2\"></div>\n      <div class=\"flow-dot\" id=\"dot-3\"></div>\n    </div>\n\n    <!-- Draggable Pill Source Tray -->\n    <div class=\"pills-tray\" id=\"tray\">\n      <div class=\"pill\" draggable=\"true\" data-label=\"Intent Check\">Intent Check</div>\n      <div class=\"pill\" draggable=\"true\" data-label=\"Signature Check\">Signature Check</div>\n      <div class=\"pill\" draggable=\"true\" data-label=\"Runtime Check\">Runtime Check</div>\n      <div class=\"pill\" draggable=\"true\" data-label=\"Final Deployment\">Final Deployment</div>\n    </div>\n\n    <div class=\"hint\">Drag labels into the steps to sequence the validation framework</div>\n  </div>\n\n  <script>\n    // State management\n    const state = {\n      1: null, // label in step 1\n      2: null, // label in step 2\n      3: null  // label in step 3\n    };\n\n    let activeDragEl = null;\n    let dragOffset = { x: 0, y: 0 };\n    let initialParent = null;\n    let isLocked = false;\n\n    const pills = document.querySelectorAll('.pill');\n    const slots = document.querySelectorAll('.slot');\n    const tray = document.getElementById('tray');\n    const dots = [\n      document.getElementById('dot-1'),\n      document.getElementById('dot-2'),\n      document.getElementById('dot-3')\n    ];\n\n    // Initialize Pointer events for all pills\n    pills.forEach(pill => {\n      pill.addEventListener('pointerdown', onPointerDown);\n    });\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      e.preventDefault();\n      \n      activeDragEl = e.currentTarget;\n      initialParent = activeDragEl.parentElement;\n      \n      const rect = activeDragEl.getBoundingClientRect();\n      dragOffset.x = e.clientX - rect.left;\n      dragOffset.y = e.clientY - rect.top;\n\n      // Put into dragging styling\n      activeDragEl.classList.add('dragging');\n      activeDragEl.style.width = rect.width + 'px';\n      activeDragEl.style.left = (e.clientX - dragOffset.x) + 'px';\n      activeDragEl.style.top = (e.clientY - dragOffset.y) + 'px';\n      \n      activeDragEl.setPointerCapture(e.pointerId);\n      activeDragEl.addEventListener('pointermove', onPointerMove);\n      activeDragEl.addEventListener('pointerup', onPointerUp);\n    }\n\n    function onPointerMove(e) {\n      if (!activeDragEl) return;\n      \n      const x = e.clientX - dragOffset.x;\n      const y = e.clientY - dragOffset.y;\n      \n      activeDragEl.style.left = x + 'px';\n      activeDragEl.style.top = y + 'px';\n\n      // Check hover states\n      slots.forEach(slot => {\n        const rect = slot.getBoundingClientRect();\n        if (e.clientX >= rect.left && e.clientX <= rect.right &&\n            e.clientY >= rect.top && e.clientY <= rect.bottom) {\n          slot.classList.add('drag-over');\n        } else {\n          slot.classList.remove('drag-over');\n        }\n      });\n    }\n\n    function onPointerUp(e) {\n      if (!activeDragEl) return;\n      \n      activeDragEl.removeEventListener('pointermove', onPointerMove);\n      activeDragEl.removeEventListener('pointerup', onPointerUp);\n      \n      // Hit test target slots\n      let droppedInSlot = null;\n      slots.forEach(slot => {\n        slot.classList.remove('drag-over');\n        const rect = slot.getBoundingClientRect();\n        if (e.clientX >= rect.left && e.clientX <= rect.right &&\n            e.clientY >= rect.top && e.clientY <= rect.bottom) {\n          droppedInSlot = slot;\n        }\n      });\n\n      if (droppedInSlot) {\n        const stepNum = droppedInSlot.getAttribute('data-step');\n        \n        // If there was already a pill in this slot, return it to the tray\n        const existingPill = droppedInSlot.querySelector('.pill');\n        if (existingPill) {\n          existingPill.classList.remove('placed');\n          tray.appendChild(existingPill);\n        }\n\n        // Clean previous slot binding if this pill was moved from another slot\n        if (initialParent && initialParent.classList.contains('slot')) {\n          const prevStep = initialParent.getAttribute('data-step');\n          state[prevStep] = null;\n        }\n\n        // Place pill in new slot\n        activeDragEl.classList.add('placed');\n        droppedInSlot.appendChild(activeDragEl);\n        state[stepNum] = activeDragEl.getAttribute('data-label');\n      } else {\n        // Returned to tray or dropped outside\n        activeDragEl.classList.remove('placed');\n        tray.appendChild(activeDragEl);\n        \n        if (initialParent && initialParent.classList.contains('slot')) {\n          const prevStep = initialParent.getAttribute('data-step');\n          state[prevStep] = null;\n        }\n      }\n\n      // Reset inline styles applied during drag\n      activeDragEl.classList.remove('dragging');\n      activeDragEl.style.left = '';\n      activeDragEl.style.top = '';\n      activeDragEl.style.width = '';\n      \n      activeDragEl = null;\n\n      updateUI();\n      checkAnswer();\n    }\n\n    function updateUI() {\n      // Light up flow dots depending on active slots\n      dots.forEach((dot, idx) => {\n        if (state[idx + 1]) {\n          dot.classList.add('active');\n        } else {\n          dot.classList.remove('active');\n        }\n      });\n    }\n\n    function checkAnswer() {\n      // Check if all 3 slots are filled\n      if (state[1] && state[2] && state[3]) {\n        const sequenceStr = `${state[1]} -> ${state[2]} -> ${state[3]}`;\n        \n        // Report matching sequence option\n        parent.postMessage({\n          type: 'hk-practice-answer',\n          value: sequenceStr\n        }, '*');\n      }\n    }\n\n    // Lock interaction support\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.body.style.pointerEvents = 'none';\n        pills.forEach(pill => pill.style.cursor = 'default');\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Intent Check -> Signature Check -> Runtime Check"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Assessment: Designing and Planning with AI",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the course materials, what is the 'absolute first superpower' a developer must develop in the world of vibe coding?",
+     "options": [
+      "Mastering JavaScript syntax",
+      "Choosing the right battle (problem localization)",
+      "Integrating third-party APIs",
+      "Writing complex database schemas"
+     ],
+     "explanation": "Session 2.1.1 emphasizes that success is decided before coding begins by choosing a clear, localized problem rather than trying to build 'The Everything App.'",
+     "correctAnswers": [
+      "Choosing the right battle (problem localization)"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are the three required components of a 'perfect single-sentence problem statement' as taught in Session 2.1.1?",
+     "options": [
+      "The specific user",
+      "The technical database requirements",
+      "The exact moment of friction",
+      "The negative impact of that friction",
+      "The estimated development timeline"
+     ],
+     "explanation": "A strong problem statement focuses on human friction (Who, When, and the resulting Pain) rather than technical implementation details like databases or timelines.",
+     "correctAnswers": [
+      "The specific user",
+      "The exact moment of friction",
+      "The negative impact of that friction"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the User Story framework, the '____' is considered the most critical element because it helps the AI understand underlying motivation for better UI suggestions.",
+     "explanation": "The 'Why' provides the emotional or practical payoff, allowing the AI to infer design needs that aren't explicitly stated in the technical requirements.",
+     "placeholder": "Enter the component name",
+     "correctAnswers": [
+      "Why"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why does Session 2.1.3 advocate for 'aggressively pruning' features like user authentication and payment processing from a V1 MVP?",
+     "options": [
+      "They are too expensive to implement",
+      "They lead to structural overload, AI hallucinations, and broken code",
+      "The AI does not know how to write security-related code",
+      "Most users do not want to create accounts for web apps"
+     ],
+     "explanation": "Overloading the first prompt with complex features like security and payments increases the cognitive load and likely causes the AI to generate unreliable code.",
+     "correctAnswers": [
+      "They lead to structural overload, AI hallucinations, and broken code"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "The three pillars of a project description prompt.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/84021e0f-31d3-4080-81e0-45e8484f67c0/exam/images/unit2-q5.png"
+     },
+     "prompt": "According to the 'Anatomy of a Project Description,' which of the following are the three core pillars of a clean prompt?",
+     "options": [
+      "Core Purpose",
+      "User Experience (UX) Flow",
+      "Visual/Structural Layout",
+      "Monetization Strategy",
+      "Backend Infrastructure"
+     ],
+     "explanation": "These three pillars act as a blueprint, ensuring the AI writes modular code without making incorrect assumptions about the application's intent or structure.",
+     "correctAnswers": [
+      "Core Purpose",
+      "User Experience (UX) Flow",
+      "Visual/Structural Layout"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'V1 Definition Test' states that if a feature cannot be explained using 'If I click X, Y happens' without using technical words like ____, it does not belong in V1.",
+     "explanation": "V1 should focus on pure functional logic and interaction rather than infrastructure-heavy technical requirements.",
+     "placeholder": "Enter one of the forbidden technical words",
+     "correctAnswers": [
+      "database",
+      "account",
+      "security"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary risk of using a vague prompt like 'Make a calculator'?",
+     "options": [
+      "The AI will refuse to generate any code",
+      "The AI will charge more for the request",
+      "The AI falls back on statistical averages, producing generic or ugly output",
+      "The code will be written in a language your browser cannot read"
+     ],
+     "explanation": "Without specific constraints, the AI uses its training data to provide a bare-bones solution that likely doesn't match your vision.",
+     "correctAnswers": [
+      "The AI falls back on statistical averages, producing generic or ugly output"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Components of the Project Sandbox context.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/84021e0f-31d3-4080-81e0-45e8484f67c0/exam/images/unit2-q8.png"
+     },
+     "prompt": "When establishing a 'Project Sandbox' (Context) for the AI, which elements should be included in the preamble?",
+     "options": [
+      "The Tech Stack (tools)",
+      "The File Tree (existing assets)",
+      "Environment Limitations",
+      "The personal biography of the developer",
+      "Marketing slogans for the launch"
+     ],
+     "explanation": "Providing context on tools, files, and limits prevents the AI from suggesting incompatible libraries or impossible architectures.",
+     "correctAnswers": [
+      "The Tech Stack (tools)",
+      "The File Tree (existing assets)",
+      "Environment Limitations"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "According to the unit material, the size of the problem you attempt to solve is ____ proportional to your likelihood of finishing it.",
+     "explanation": "The larger the problem (The Everything App), the more likely the project will fail due to complexity and scope creep.",
+     "placeholder": "Enter the relationship type",
+     "correctAnswers": [
+      "inversely"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "How does providing a clear 'Why' in a user story affect the AI's code generation?",
+     "options": [
+      "It increases the processing speed of the LLM",
+      "It allows the AI to suggest better UI layouts and workflows based on motivation",
+      "It forces the AI to use more complex Python libraries",
+      "It serves as a legal disclaimer for the generated code"
+     ],
+     "explanation": "Understanding the 'Why' (the payoff) gives the AI a 'North Star' for making design decisions that benefit the end user.",
+     "correctAnswers": [
+      "It allows the AI to suggest better UI layouts and workflows based on motivation"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'localized friction' suitable for a first AI project?",
+     "options": [
+      "Tracking daily stretching intervals during meetings",
+      "Building a global social network for musicians",
+      "Logging plant watering dates to avoid overwatering",
+      "Designing a full-scale e-commerce platform with global shipping",
+      "A button that saves a water intake tally to local storage"
+     ],
+     "explanation": "Localized friction involves small, manageable tasks that solve a specific problem without requiring massive infrastructure.",
+     "correctAnswers": [
+      "Tracking daily stretching intervals during meetings",
+      "Logging plant watering dates to avoid overwatering",
+      "A button that saves a water intake tally to local storage"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The mindset shift for vibe coding requires the user to transition from a 'syntax writer' to an '____ of intent'.",
+     "explanation": "When using AI, the human role is to design the logical blueprint and intent, while the AI handles the specific syntax.",
+     "placeholder": "Enter the role",
+     "correctAnswers": [
+      "architect"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the 'Memory Horizon' concept in Session 2.2.2 referring to?",
+     "options": [
+      "The amount of RAM the user's computer has",
+      "The AI's tendency to forget project context without explicit prompts",
+      "The time it takes for a student to learn to code",
+      "The storage limit of a local database"
+     ],
+     "explanation": "AI models behave like they have 'amnesia' regarding your specific setup unless you consistently provide context about your files and stack.",
+     "correctAnswers": [
+      "The AI's tendency to forget project context without explicit prompts"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why is using half-understood programming jargon or pseudo-code considered an anti-pattern for vibe coders?",
+     "options": [
+      "It can confuse the AI's logical processing",
+      "It makes the prompt too short",
+      "It often leads to the AI misinterpreting the actual intent",
+      "It is illegal under most software licenses",
+      "Plain English is often more precise for communicating intent"
+     ],
+     "explanation": "Vibe coding relies on clear natural language. Using jargon incorrectly creates a 'broken telephone' effect between the user and the AI.",
+     "correctAnswers": [
+      "It can confuse the AI's logical processing",
+      "It often leads to the AI misinterpreting the actual intent",
+      "Plain English is often more precise for communicating intent"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In the comparison of the passenger and the driver, a driver told 'Take me somewhere cool' is confused. This illustrates that without ____, the AI will make assumptions to fill in the blanks.",
+     "explanation": "Explicit direction is required to prevent the AI from making guesses that lead to generic or buggy code.",
+     "placeholder": "What is needed?",
+     "correctAnswers": [
+      "explicit direction"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "In the 'Prompt Upgrade' workshop, what was the suggested way to specify buttons for a budgeting calculator?",
+     "options": [
+      "Request the AI use 'Standard Input Elements'",
+      "Ask for 'Large, accessible buttons for arithmetic operations'",
+      "Provide a list of CSS hex codes for every button",
+      "Tell the AI to 'make it look like a real calculator'"
+     ],
+     "explanation": "Specific descriptors for size and accessibility constrain the AI's creative choices to match the intended user experience.",
+     "correctAnswers": [
+      "Ask for 'Large, accessible buttons for arithmetic operations'"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "What are the characteristics of a successful 'V1 Win'?",
+     "options": [
+      "It solves the core problem flawlessly",
+      "It is generated in a single or few predictable passes",
+      "It includes a fully functional SQL database",
+      "It builds momentum for the creator",
+      "It features professional-grade encryption"
+     ],
+     "explanation": "A V1 win focuses on simplicity and functionality to ensure the project actually works and encourages further development.",
+     "correctAnswers": [
+      "It solves the core problem flawlessly",
+      "It is generated in a single or few predictable passes",
+      "It builds momentum for the creator"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "Which of these components should be avoided in a V1 MVP to keep the code footprint small?",
+     "options": [
+      "Local browser storage",
+      "A single-tap action button",
+      "Image processing via external APIs",
+      "Real-time input history display"
+     ],
+     "explanation": "External APIs and complex processing (like disease identification in the plant example) are too advanced for a V1 MVP.",
+     "correctAnswers": [
+      "Image processing via external APIs"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "You are building a 'Plant Care Tracker' V1. Use the 'MVP Prioritizer' to select the correct feature set for your initial AI prompt.",
+     "options": [
+      "Watering Checklist",
+      "AI Disease Scanner",
+      "Community Chat Forum",
+      "Push Notification System"
+     ],
+     "explanation": "A watering checklist represents the 'Core Value Proposition' without external API dependencies, making it a viable V1 target.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>MVP Prioritizer</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      --shadow: rgba(0, 0, 0, 0.06);\n      --shadow-active: rgba(0, 0, 0, 0.12);\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      height: 100vh;\n      max-height: 360px;\n      justify-content: center;\n    }\n\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 2px;\n    }\n\n    .workspace {\n      display: grid;\n      grid-template-columns: 1.2fr 1fr;\n      gap: 16px;\n      align-items: center;\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 16px;\n      height: 270px;\n      position: relative;\n    }\n\n    /* Pyramid styling */\n    .pyramid {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 6px;\n      width: 100%;\n    }\n\n    .pyramid-tier {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      border-radius: 6px;\n      color: var(--muted-fg);\n      font-weight: 600;\n      font-size: 11px;\n      letter-spacing: 0.05em;\n      text-transform: uppercase;\n      box-shadow: 0 1px 3px var(--shadow);\n      transition: all 0.2s ease;\n    }\n\n    .tier-future {\n      width: 120px;\n      height: 40px;\n      background: #e9e7e2;\n      clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);\n      padding-top: 6px;\n    }\n\n    .tier-nice {\n      width: 180px;\n      height: 44px;\n      background: #dfded9;\n      clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);\n      padding-top: 4px;\n    }\n\n    .tier-core {\n      width: 240px;\n      height: 80px;\n      background: #d4d2cc;\n      border: 2px solid transparent;\n      border-radius: 8px;\n      position: relative;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: flex-start;\n      padding-top: 6px;\n    }\n\n    .tier-core-label {\n      font-size: 11px;\n      margin-bottom: 4px;\n      color: #555;\n    }\n\n    .drop-zone {\n      width: 210px;\n      height: 44px;\n      border: 2px dashed #999;\n      border-radius: 6px;\n      background: rgba(255, 255, 255, 0.4);\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: all 0.2s ease;\n      position: relative;\n    }\n\n    .drop-zone.drag-over {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      transform: scale(1.02);\n    }\n\n    .drop-zone.occupied {\n      border-style: solid;\n      border-color: var(--accent);\n      background: var(--surface);\n    }\n\n    /* Features Drawer styling */\n    .features-list {\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n      width: 100%;\n      height: 100%;\n      justify-content: center;\n      position: relative;\n    }\n\n    .feature-card-slot {\n      width: 100%;\n      height: 44px;\n      border: 1px dashed var(--border);\n      border-radius: 8px;\n      background: rgba(255, 255, 255, 0.2);\n      position: relative;\n    }\n\n    .feature-card {\n      width: 100%;\n      height: 44px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 0 10px;\n      display: flex;\n      align-items: center;\n      gap: 8px;\n      cursor: grab;\n      font-size: 12.5px;\n      font-weight: 500;\n      box-shadow: 0 2px 4px var(--shadow);\n      touch-action: none;\n      position: absolute;\n      top: 0;\n      left: 0;\n      z-index: 10;\n    }\n\n    .feature-card:focus-visible {\n      outline: 2px solid var(--accent);\n    }\n\n    .feature-card.dragging {\n      cursor: grabbing;\n      box-shadow: 0 8px 16px var(--shadow-active);\n      z-index: 100;\n      border-color: var(--accent);\n    }\n\n    .feature-card.snapped {\n      position: relative;\n      top: auto;\n      left: auto;\n      box-shadow: none;\n      border-color: transparent;\n      background: transparent;\n      width: 100%;\n      height: 100%;\n      padding: 0 8px;\n    }\n\n    .drag-handle {\n      display: flex;\n      align-items: center;\n      color: var(--muted-fg);\n      flex-shrink: 0;\n    }\n\n    .feature-text {\n      flex-grow: 1;\n      white-space: nowrap;\n      overflow: hidden;\n      text-overflow: ellipsis;\n    }\n\n    @media (prefers-reduced-motion: reduce) {\n      .feature-card, .drop-zone, .pyramid-tier {\n        transition: none !important;\n      }\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">MVP Feature Prioritizer - Drag the single Core feature to the base of the pyramid</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"action-hint\">Drag your selected Core MVP feature to the base of the pyramid</div>\n\n    <div class=\"workspace\">\n      <!-- Pyramid Stack -->\n      <div class=\"pyramid\">\n        <div class=\"pyramid-tier tier-future\">Future</div>\n        <div class=\"pyramid-tier tier-nice\">Nice-to-Have</div>\n        <div class=\"pyramid-tier tier-core\">\n          <div class=\"tier-core-label\">Core (Base)</div>\n          <div class=\"drop-zone\" id=\"core-drop-zone\" role=\"region\" aria-label=\"Core feature drop zone\"></div>\n        </div>\n      </div>\n\n      <!-- Feature Drawer -->\n      <div class=\"features-list\" id=\"features-container\">\n        <!-- Slots with cards inside -->\n        <div class=\"feature-card-slot\" data-index=\"0\">\n          <div class=\"feature-card\" draggable=\"true\" data-option=\"Watering Checklist\" id=\"card-0\" tabindex=\"0\" role=\"button\" aria-grabbed=\"false\">\n            <span class=\"drag-handle\">\n              <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><circle cx=\"9\" cy=\"5\" r=\"1\"/><circle cx=\"9\" cy=\"12\" r=\"1\"/><circle cx=\"9\" cy=\"19\" r=\"1\"/><circle cx=\"15\" cy=\"5\" r=\"1\"/><circle cx=\"15\" cy=\"12\" r=\"1\"/><circle cx=\"15\" cy=\"19\" r=\"1\"/></svg>\n            </span>\n            <span class=\"feature-text\">Watering Checklist</span>\n          </div>\n        </div>\n\n        <div class=\"feature-card-slot\" data-index=\"1\">\n          <div class=\"feature-card\" draggable=\"true\" data-option=\"AI Disease Scanner\" id=\"card-1\" tabindex=\"0\" role=\"button\" aria-grabbed=\"false\">\n            <span class=\"drag-handle\">\n              <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><circle cx=\"9\" cy=\"5\" r=\"1\"/><circle cx=\"9\" cy=\"12\" r=\"1\"/><circle cx=\"9\" cy=\"19\" r=\"1\"/><circle cx=\"15\" cy=\"5\" r=\"1\"/><circle cx=\"15\" cy=\"12\" r=\"1\"/><circle cx=\"15\" cy=\"19\" r=\"1\"/></svg>\n            </span>\n            <span class=\"feature-text\">AI Disease Scanner</span>\n          </div>\n        </div>\n\n        <div class=\"feature-card-slot\" data-index=\"2\">\n          <div class=\"feature-card\" draggable=\"true\" data-option=\"Community Chat Forum\" id=\"card-2\" tabindex=\"0\" role=\"button\" aria-grabbed=\"false\">\n            <span class=\"drag-handle\">\n              <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><circle cx=\"9\" cy=\"5\" r=\"1\"/><circle cx=\"9\" cy=\"12\" r=\"1\"/><circle cx=\"9\" cy=\"19\" r=\"1\"/><circle cx=\"15\" cy=\"5\" r=\"1\"/><circle cx=\"15\" cy=\"12\" r=\"1\"/><circle cx=\"15\" cy=\"19\" r=\"1\"/></svg>\n            </span>\n            <span class=\"feature-text\">Community Chat Forum</span>\n          </div>\n        </div>\n\n        <div class=\"feature-card-slot\" data-index=\"3\">\n          <div class=\"feature-card\" draggable=\"true\" data-option=\"Push Notification System\" id=\"card-3\" tabindex=\"0\" role=\"button\" aria-grabbed=\"false\">\n            <span class=\"drag-handle\">\n              <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><circle cx=\"9\" cy=\"5\" r=\"1\"/><circle cx=\"9\" cy=\"12\" r=\"1\"/><circle cx=\"9\" cy=\"19\" r=\"1\"/><circle cx=\"15\" cy=\"5\" r=\"1\"/><circle cx=\"15\" cy=\"12\" r=\"1\"/><circle cx=\"15\" cy=\"19\" r=\"1\"/></svg>\n            </span>\n            <span class=\"feature-text\">Push Notification System</span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // State management\n    let activeCard = null;\n    let placedCard = null;\n    let isLocked = false;\n\n    const dropZone = document.getElementById('core-drop-zone');\n    const cards = document.querySelectorAll('.feature-card');\n    const workspace = document.querySelector('.workspace');\n\n    // Drag-offset tracking variables\n    let startX = 0, startY = 0;\n    let cardStartX = 0, cardStartY = 0;\n\n    // Report height on load and changes\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Initialize Card Positions to their home slots\n    function resetCardToHome(card) {\n      card.classList.remove('snapped');\n      card.style.transform = 'translate3d(0px, 0px, 0px)';\n      card.style.position = 'absolute';\n      const slot = card.closest('.feature-card-slot');\n      if (slot) {\n        slot.appendChild(card);\n      }\n    }\n\n    // Attach Pointer events for precise and leap-free dragging\n    cards.forEach(card => {\n      card.addEventListener('pointerdown', function(e) {\n        if (isLocked) return;\n        e.preventDefault();\n        card.setPointerCapture(e.pointerId);\n\n        activeCard = card;\n        card.classList.add('dragging');\n        card.setAttribute('aria-grabbed', 'true');\n\n        // Calculate initial relative transform position of the card\n        const transform = window.getComputedStyle(card).transform;\n        let tx = 0, ty = 0;\n        if (transform && transform !== 'none') {\n          const matrix = transform.match(/matrix.*\\((.+)\\)/);\n          if (matrix) {\n            const values = matrix[1].split(', ');\n            tx = parseFloat(values[4]) || 0;\n            ty = parseFloat(values[5]) || 0;\n          }\n        }\n\n        // Store the starting positions of pointer and card to preserve offset perfectly\n        startX = e.clientX;\n        startY = e.clientY;\n        cardStartX = tx;\n        cardStartY = ty;\n\n        // If it was placed in the drop zone, free up the zone temporarily\n        if (placedCard === card) {\n          placedCard = null;\n          dropZone.classList.remove('occupied');\n          dropZone.innerHTML = '';\n        }\n      });\n\n      card.addEventListener('pointermove', function(e) {\n        if (!activeCard || activeCard !== card || isLocked) return;\n\n        const dx = e.clientX - startX;\n        const dy = e.clientY - startY;\n\n        card.style.transform = `translate3d(${cardStartX + dx}px, ${cardStartY + dy}px, 0px)`;\n\n        // Simple Hit Testing\n        const zoneRect = dropZone.getBoundingClientRect();\n        const cardRect = card.getBoundingClientRect();\n\n        // Check overlap\n        const isOverlapping = !(cardRect.right < zoneRect.left || \n                                cardRect.left > zoneRect.right || \n                                cardRect.bottom < zoneRect.top || \n                                cardRect.top > zoneRect.bottom);\n\n        if (isOverlapping) {\n          dropZone.classList.add('drag-over');\n        } else {\n          dropZone.classList.remove('drag-over');\n        }\n      });\n\n      card.addEventListener('pointerup', function(e) {\n        if (!activeCard || activeCard !== card || isLocked) return;\n        card.releasePointerCapture(e.pointerId);\n\n        activeCard = false;\n        card.classList.remove('dragging');\n        card.setAttribute('aria-grabbed', 'false');\n\n        // Check if dropped within Zone\n        const zoneRect = dropZone.getBoundingClientRect();\n        const cardRect = card.getBoundingClientRect();\n        const isOverlapping = !(cardRect.right < zoneRect.left || \n                                cardRect.left > zoneRect.right || \n                                cardRect.bottom < zoneRect.top || \n                                cardRect.top > zoneRect.bottom);\n\n        dropZone.classList.remove('drag-over');\n\n        if (isOverlapping) {\n          // If there was already a card in the drop zone, send it home\n          if (placedCard && placedCard !== card) {\n            resetCardToHome(placedCard);\n          }\n\n          // Snap into Drop Zone\n          placedCard = card;\n          dropZone.classList.add('occupied');\n          card.classList.add('snapped');\n          card.style.transform = 'none';\n          card.style.position = 'relative';\n          dropZone.appendChild(card);\n\n          // Report Option Selected\n          const selectedOption = card.getAttribute('data-option');\n          parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n        } else {\n          resetCardToHome(card);\n        }\n      });\n\n      // Keyboard support\n      card.addEventListener('keydown', function(e) {\n        if (isLocked) return;\n        if (e.key === ' ' || e.key === 'Enter') {\n          e.preventDefault();\n          // Toggle placement of selected card to the core zone\n          if (placedCard === card) {\n            resetCardToHome(card);\n            placedCard = null;\n            dropZone.classList.remove('occupied');\n          } else {\n            if (placedCard) {\n              resetCardToHome(placedCard);\n            }\n            placedCard = card;\n            dropZone.classList.add('occupied');\n            card.classList.add('snapped');\n            card.style.transform = 'none';\n            card.style.position = 'relative';\n            dropZone.appendChild(card);\n\n            const selectedOption = card.getAttribute('data-option');\n            parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n          }\n        }\n      });\n    });\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.querySelectorAll('.feature-card').forEach(card => {\n          card.style.pointerEvents = 'none';\n          card.style.cursor = 'default';\n          card.setAttribute('tabindex', '-1');\n        });\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Watering Checklist"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Assessment: Assembling and Understanding Code Foundations",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "When generating a starter application with an AI, what is the main purpose of the 'Skeletal Prompt' technique?",
+     "options": [
+      "To force the AI to use complex backend frameworks immediately",
+      "To establish a digital 'filing cabinet' with clear, lightweight structural boundaries",
+      "To generate a large amount of 'Lorem Ipsum' placeholder text",
+      "To automatically deploy the application to a cloud server"
+     ],
+     "explanation": "A Skeletal Prompt ensures the AI creates a clean, minimal foundation (like a single index.html or a simple 3-file structure) without adding unnecessary bloat or complex external dependencies.",
+     "correctAnswers": [
+      "To establish a digital 'filing cabinet' with clear, lightweight structural boundaries"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are benefits of using 'Single-Page Application' (SPA) logic for a starter project as discussed in the unit?",
+     "options": [
+      "It avoids the need for the user to walk through a 'new front door' (reload) for every interaction",
+      "It updates internal 'rooms' or views instantly",
+      "It requires a heavy Node.js server to function properly",
+      "It allows the app to feel like a single, cohesive house rather than separate, heavy pages"
+     ],
+     "explanation": "SPAs are described as digital houses where views update instantly without full page reloads, providing a smoother experience. The material specifically warns against using heavy servers early on.",
+     "correctAnswers": [
+      "It avoids the need for the user to walk through a 'new front door' (reload) for every interaction",
+      "It updates internal 'rooms' or views instantly",
+      "It allows the app to feel like a single, cohesive house rather than separate, heavy pages"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of defining spatial relationships and boxes in an interface before adding content is known as the ____ wire-up.",
+     "explanation": "The 'wireframe wire-up' is the conceptual metaphor used to help creators understand that code structure is simply a nested set of boxes and spatial relationships.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "wireframe"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of unstructured versus structured code layout.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/84021e0f-31d3-4080-81e0-45e8484f67c0/exam/images/unit3-q4.png"
+     },
+     "prompt": "Why is it discouraged to ask an AI to 'build a dashboard' without first defining layout zones?",
+     "options": [
+      "The AI will refuse to write any code at all",
+      "It prevents the AI from using any CSS styling",
+      "It forces the AI to make assumptions, often resulting in messy, unstructured code",
+      "Dashboards cannot be built using vanilla JavaScript"
+     ],
+     "explanation": "Without specific layout zones (like header, sidebar, feed), the AI lacks a spatial roadmap and produces 'code spaghetti' based on its own guesses.",
+     "correctAnswers": [
+      "It forces the AI to make assumptions, often resulting in messy, unstructured code"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What should a 'Directed Content Prompt' include to ensure high-quality output for page sections?",
+     "options": [
+      "A request for 'Lorem Ipsum' to fill space",
+      "The specific tone and length of the text",
+      "The exact placement within the layout zones",
+      "Semantic headers like H1 or H2 to act as structural anchors"
+     ],
+     "explanation": "Directed Content Prompts use semantic anchors and specific placement instructions to prevent the AI from generating unstructured 'div soup' or generic placeholder text.",
+     "correctAnswers": [
+      "The specific tone and length of the text",
+      "The exact placement within the layout zones",
+      "Semantic headers like H1 or H2 to act as structural anchors"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When asking an AI for styling, the lesson recommends defining a ____ color for active elements like buttons or links.",
+     "explanation": "Defining a primary background and a specific accent color helps guide the AI toward a cohesive and intentional visual design system.",
+     "placeholder": "Color type",
+     "correctAnswers": [
+      "accent"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "According to the course, what is the danger of using 'Lorem Ipsum' during the initial build?",
+     "options": [
+      "It makes the application run slower in the browser",
+      "It prevents the AI from being able to apply CSS styles",
+      "It makes it harder to evaluate if the application 'vibe' and purpose feel right",
+      "It is a deprecated web standard that modern browsers don't support"
+     ],
+     "explanation": "Realistic, domain-specific text helps the creator and AI verify if the interface is actually meeting its functional goals, whereas generic text feels abstract.",
+     "correctAnswers": [
+      "It makes it harder to evaluate if the application 'vibe' and purpose feel right"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "To avoid 'vague styling prompts,' which constraints should you provide to the AI assistant?",
+     "options": [
+      "The specific design system to use (e.g., Tailwind-style)",
+      "Maximum content widths (e.g., 1200px)",
+      "A request for the AI to 'surprise me' with the layout",
+      "Clear hover states and transition effects for buttons"
+     ],
+     "explanation": "Vague prompts lead to unpredictable results; specific constraints like widths, design systems, and hover interactions produce stable, professional CSS.",
+     "correctAnswers": [
+      "The specific design system to use (e.g., Tailwind-style)",
+      "Maximum content widths (e.g., 1200px)",
+      "Clear hover states and transition effects for buttons"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'dependency trap' occurs when the AI suggests importing complex third-party ____ too early in the project.",
+     "explanation": "Importing complex libraries or frameworks (like React) too early can introduce build-tool requirements that complicate the learning process and environment setup.",
+     "placeholder": "e.g., libraries",
+     "correctAnswers": [
+      "libraries"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "A layout diagram showing container relationships.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/84021e0f-31d3-4080-81e0-45e8484f67c0/exam/images/unit3-q10.png"
+     },
+     "prompt": "In the context of 'Vibe Coding,' what does it mean to treat styling as a grid of containers?",
+     "options": [
+      "Every element must be exactly the same size",
+      "Styling is about defining how boxes align, stack, and relate to each other spatially",
+      "You must draw a physical grid on your computer monitor",
+      "It refers to using a database to store CSS values"
+     ],
+     "explanation": "Visual styling is built upon the structural layout; understanding how 'boxes' (containers) behave allows the creator to direct the AI more effectively.",
+     "correctAnswers": [
+      "Styling is about defining how boxes align, stack, and relate to each other spatially"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are parts of the 'physical house' metaphor for software components?",
+     "options": [
+      "Root folder as the foundation",
+      "index.html as the walls",
+      "Config file as the utility meters",
+      "JavaScript as the furniture"
+     ],
+     "explanation": "The lesson specifically maps root folders to foundations, HTML to walls/structure, and config files to utility hookups to demystify technical files.",
+     "correctAnswers": [
+      "Root folder as the foundation",
+      "index.html as the walls",
+      "Config file as the utility meters"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "To prevent the AI from generating unnecessary build tools, you should specify the use of ____ CDN links for external libraries.",
+     "explanation": "CDN links allow you to include external styles or features without needing a complex local build environment or installation process.",
+     "placeholder": "Adjective",
+     "correctAnswers": [
+      "simple"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "When the teacher asks students to identify 'instruction clutter,' what are they looking for?",
+     "options": [
+      "Code that has too many comments",
+      "A prompt that mixes design, features, and structure in a chaotic way",
+      "A folder structure with too many files",
+      "An interface that uses more than three colors"
+     ],
+     "explanation": "Cluttered instructions confuse the AI. Clean prompts separate structural needs from content and aesthetic styles for better results.",
+     "correctAnswers": [
+      "A prompt that mixes design, features, and structure in a chaotic way"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "image": {
+      "alt": "Webpage layout zones diagram.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/84021e0f-31d3-4080-81e0-45e8484f67c0/exam/images/unit3-q14.png"
+     },
+     "prompt": "Which of the following are examples of 'layout zones' mentioned in the unit material?",
+     "options": [
+      "Global Header",
+      "Side-by-side dashboard",
+      "Bottom status bar",
+      "Background Database"
+     ],
+     "explanation": "The unit focuses on visual zones (header, dashboard, status bar) that a user can see and define spatially in their layout instructions.",
+     "correctAnswers": [
+      "Global Header",
+      "Side-by-side dashboard",
+      "Bottom status bar"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Adjust the application's layout to be responsive for a mobile device.",
+     "options": [
+      "Horizontal Layout",
+      "Grid Layout",
+      "Stacked Layout",
+      "Hidden Sidebar"
+     ],
+     "explanation": "Responsive design typically involves moving from a horizontal multi-column layout to a single vertical 'Stacked Layout' at the mobile breakpoint.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Responsive Layout Practice</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n    }\n    \n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      height: 360px;\n      justify-content: space-between;\n    }\n\n    /* Stage Area containing Mock Browser */\n    .stage {\n      width: 100%;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      height: 220px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n      overflow: hidden;\n    }\n\n    /* Device Mockup */\n    .mock-browser {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      box-shadow: 0 4px 12px rgba(0,0,0,0.04);\n      display: flex;\n      flex-direction: column;\n      overflow: hidden;\n      transition: width 0.3s cubic-bezier(.34,1.56,.64,1);\n      height: 180px;\n    }\n\n    .browser-bar {\n      height: 18px;\n      background: #f0ede6;\n      border-bottom: 1px solid var(--border);\n      display: flex;\n      align-items: center;\n      padding: 0 8px;\n      gap: 4px;\n    }\n\n    .browser-dot {\n      width: 5px;\n      height: 5px;\n      border-radius: 50%;\n      background: #d1cfc9;\n    }\n\n    .browser-content {\n      padding: 10px;\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n      flex: 1;\n      font-size: 10px;\n      box-sizing: border-box;\n      overflow: hidden;\n    }\n\n    /* Shared Mock Components */\n    .mock-header {\n      height: 20px;\n      background: #e9e7e0;\n      border-radius: 4px;\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      padding: 0 8px;\n    }\n\n    .mock-logo {\n      width: 32px;\n      height: 8px;\n      background: var(--accent);\n      border-radius: 2px;\n    }\n\n    .mock-nav {\n      display: flex;\n      gap: 6px;\n    }\n\n    .mock-nav-item {\n      width: 16px;\n      height: 6px;\n      background: #cbd5e1;\n      border-radius: 1px;\n    }\n\n    .mock-hamburger {\n      display: none;\n      width: 10px;\n      height: 8px;\n      flex-direction: column;\n      justify-content: space-between;\n    }\n\n    .mock-hamburger span {\n      display: block;\n      height: 2px;\n      background: var(--fg);\n      width: 100%;\n      border-radius: 1px;\n    }\n\n    .mock-body {\n      display: flex;\n      gap: 6px;\n      flex: 1;\n      overflow: hidden;\n    }\n\n    /* Content block visuals */\n    .block-main, .block-side, .block-card {\n      padding: 6px;\n      box-sizing: border-box;\n      border-radius: 4px;\n    }\n\n    .block-main {\n      background: #eef2f6;\n      border: 1px dashed #cbd5e1;\n      flex: 1;\n    }\n\n    .block-side {\n      background: #fef3c7;\n      border: 1px dashed #fcd34d;\n    }\n\n    .block-card {\n      background: #ecfdf5;\n      border: 1px dashed #a7f3d0;\n      display: flex;\n      flex-direction: column;\n      justify-content: center;\n    }\n\n    .wireframe-title {\n      height: 6px;\n      background: rgba(0,0,0,0.12);\n      border-radius: 2px;\n      width: 50%;\n      margin-bottom: 4px;\n    }\n\n    .wireframe-text {\n      height: 4px;\n      background: rgba(0,0,0,0.07);\n      border-radius: 1px;\n      width: 80%;\n    }\n\n    /* State Layout Reflows */\n    .layout-horizontal .mock-browser { width: 92%; }\n    .layout-horizontal .block-side { width: 22%; }\n    \n    .layout-grid .mock-browser { width: 78%; }\n    \n    .layout-hidden-sidebar .mock-browser { width: 62%; }\n    .layout-hidden-sidebar .mock-nav { display: none; }\n    .layout-hidden-sidebar .mock-hamburger { display: flex; }\n    \n    .layout-stacked .mock-browser { width: 42%; }\n    .layout-stacked .mock-nav { display: none; }\n    .layout-stacked .mock-hamburger { display: flex; }\n    .layout-stacked .mock-body { flex-direction: column; overflow-y: auto; }\n    .layout-stacked .block-side { height: 26px; }\n    .layout-stacked .block-main { height: 50px; }\n\n    /* Interactive Controls Area */\n    .controls-container {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 6px;\n    }\n\n    .slider-wrapper {\n      position: relative;\n      margin: 10px 12px 4px 12px;\n      height: 28px;\n    }\n\n    .slider-track {\n      position: absolute;\n      top: 10px;\n      left: 0;\n      right: 0;\n      height: 8px;\n      background: #e2e2e2;\n      border-radius: 4px;\n      cursor: pointer;\n    }\n\n    .slider-progress {\n      position: absolute;\n      top: 10px;\n      left: 0;\n      height: 8px;\n      background: var(--accent);\n      border-radius: 4px;\n      width: 0%;\n      transition: width 0.2s ease;\n    }\n\n    .slider-handle {\n      position: absolute;\n      top: 14px;\n      left: 0%;\n      transform: translate(-50%, -50%);\n      width: 22px;\n      height: 22px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 3px solid var(--accent);\n      box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n      cursor: grab;\n      touch-action: none;\n      transition: left 0.2s cubic-bezier(.34,1.56,.64,1);\n      z-index: 2;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: translate(-50%, -50%) scale(1.1);\n    }\n\n    .slider-labels {\n      display: flex;\n      justify-content: space-between;\n      margin-top: 2px;\n    }\n\n    .slider-label {\n      flex: 1;\n      text-align: center;\n      font-size: clamp(10px, 3vw, 11px);\n      font-weight: 500;\n      color: var(--muted-fg);\n      cursor: pointer;\n      transition: color 0.2s, font-weight 0.2s;\n      user-select: none;\n    }\n\n    .slider-label:first-child { text-align: left; }\n    .slider-label:last-child { text-align: right; }\n\n    .slider-label.active {\n      color: var(--accent);\n      font-weight: bold;\n    }\n\n    .action-hint {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-bottom: 2px;\n    }\n\n    /* Disabled state */\n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Responsive Layout Device Frame</h1>\n\n  <div class=\"widget-container\" id=\"widget\">\n    \n    <!-- Visual Screen Stage -->\n    <div class=\"stage\">\n      <div class=\"mock-browser\" id=\"browserFrame\">\n        <div class=\"browser-bar\">\n          <div class=\"browser-dot\"></div>\n          <div class=\"browser-dot\"></div>\n          <div class=\"browser-dot\"></div>\n        </div>\n        <div class=\"browser-content\" id=\"browserContent\">\n          \n          <!-- Mock Header -->\n          <div class=\"mock-header\">\n            <div class=\"mock-logo\"></div>\n            <div class=\"mock-nav\">\n              <div class=\"mock-nav-item\"></div>\n              <div class=\"mock-nav-item\"></div>\n              <div class=\"mock-nav-item\"></div>\n            </div>\n            <div class=\"mock-hamburger\">\n              <span></span>\n              <span></span>\n              <span></span>\n            </div>\n          </div>\n\n          <!-- Dynamic Layout Body -->\n          <div class=\"mock-body\" id=\"layoutBody\">\n            <!-- Dynamic elements will be injected here depending on layout -->\n          </div>\n\n        </div>\n      </div>\n    </div>\n\n    <!-- Interactive Tuning Controls -->\n    <div class=\"controls-container\">\n      <div class=\"slider-wrapper\" id=\"sliderWrapper\">\n        <div class=\"slider-track\" id=\"sliderTrack\"></div>\n        <div class=\"slider-progress\" id=\"sliderProgress\"></div>\n        <div class=\"slider-handle\" id=\"sliderHandle\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"0\" aria-label=\"Device Width Layout\" tabindex=\"0\"></div>\n      </div>\n\n      <div class=\"slider-labels\">\n        <span class=\"slider-label active\" data-index=\"0\">Horizontal</span>\n        <span class=\"slider-label\" data-index=\"1\">Grid</span>\n        <span class=\"slider-label\" data-index=\"2\">Hidden Sidebar</span>\n        <span class=\"slider-label\" data-index=\"3\">Stacked</span>\n      </div>\n\n      <div class=\"action-hint\">Drag the slider to test layout reflows for different devices.</div>\n    </div>\n\n  </div>\n\n  <script>\n    const OPTIONS = [\n      \"Horizontal Layout\",\n      \"Grid Layout\",\n      \"Hidden Sidebar\",\n      \"Stacked Layout\"\n    ];\n\n    const CLASSES = [\n      \"layout-horizontal\",\n      \"layout-grid\",\n      \"layout-hidden-sidebar\",\n      \"layout-stacked\"\n    ];\n\n    let currentStep = 0;\n    let isDragging = false;\n    let isLocked = false;\n\n    const widget = document.getElementById('widget');\n    const browserFrame = document.getElementById('browserFrame');\n    const layoutBody = document.getElementById('layoutBody');\n    const sliderWrapper = document.getElementById('sliderWrapper');\n    const sliderTrack = document.getElementById('sliderTrack');\n    const sliderProgress = document.getElementById('sliderProgress');\n    const sliderHandle = document.getElementById('sliderHandle');\n    const labels = document.querySelectorAll('.slider-label');\n\n    // Layout templates\n    const templates = {\n      0: `\n        <div class=\"block-side\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div></div>\n        <div class=\"block-main\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div><div class=\"wireframe-text\" style=\"width:60%; margin-top:4px;\"></div></div>\n        <div class=\"block-side\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div></div>\n      `,\n      1: `\n        <div class=\"block-card\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div></div>\n        <div class=\"block-card\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div></div>\n        <div class=\"block-card\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div></div>\n        <div class=\"block-card\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div></div>\n      `,\n      2: `\n        <div class=\"block-main\" style=\"width: 100%;\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div><div class=\"wireframe-text\" style=\"width:70%; margin-top:4px;\"></div></div>\n      `,\n      3: `\n        <div class=\"block-main\"><div class=\"wireframe-title\"></div><div class=\"wireframe-text\"></div></div>\n        <div class=\"block-side\"><div class=\"wireframe-title\"></div></div>\n        <div class=\"block-side\"><div class=\"wireframe-title\"></div></div>\n      `\n    };\n\n    function updateLayout(step) {\n      currentStep = step;\n\n      // Update classes\n      CLASSES.forEach((cls, i) => {\n        if (i === step) {\n          browserFrame.classList.add(cls);\n          labels[i].classList.add('active');\n        } else {\n          browserFrame.classList.remove(cls);\n          labels[i].classList.remove('active');\n        }\n      });\n\n      // Update inner mock structure\n      layoutBody.innerHTML = templates[step];\n\n      // Update slider handle visual & progress\n      const percent = (step / 3) * 100;\n      sliderHandle.style.left = `${percent}%`;\n      sliderProgress.style.width = `${percent}%`;\n      sliderHandle.setAttribute('aria-valuenow', step);\n\n      // Report current state\n      parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[step] }, '*');\n    }\n\n    // Interactive Slider dragging logic\n    function getStepFromPointer(e) {\n      const rect = sliderTrack.getBoundingClientRect();\n      const pointerX = e.clientX - rect.left;\n      const ratio = Math.max(0, Math.min(1, pointerX / rect.width));\n      return Math.round(ratio * 3);\n    }\n\n    function handlePointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      sliderHandle.style.transition = 'none';\n      sliderProgress.style.transition = 'none';\n      sliderHandle.setPointerCapture(e.pointerId);\n      \n      const step = getStepFromPointer(e);\n      if (step !== currentStep) {\n        updateLayout(step);\n      }\n    }\n\n    function handlePointerMove(e) {\n      if (!isDragging || isLocked) return;\n      const step = getStepFromPointer(e);\n      if (step !== currentStep) {\n        updateLayout(step);\n      }\n    }\n\n    function handlePointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      sliderHandle.style.transition = '';\n      sliderProgress.style.transition = '';\n    }\n\n    sliderWrapper.addEventListener('pointerdown', handlePointerDown);\n    sliderWrapper.addEventListener('pointermove', handlePointerMove);\n    window.addEventListener('pointerup', handlePointerUp);\n\n    // Click direct labels\n    labels.forEach((label) => {\n      label.addEventListener('click', (e) => {\n        if (isLocked) return;\n        const step = parseInt(e.target.getAttribute('data-index'));\n        updateLayout(step);\n      });\n    });\n\n    // Keyboard controls\n    sliderHandle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      let targetStep = currentStep;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        targetStep = Math.min(3, currentStep + 1);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        targetStep = Math.max(0, currentStep - 1);\n      }\n      if (targetStep !== currentStep) {\n        updateLayout(targetStep);\n      }\n    });\n\n    // Initial load layout set\n    updateLayout(0);\n\n    // Height and Lock Listeners\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        widget.classList.add('disabled');\n        sliderHandle.removeAttribute('tabindex');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Stacked Layout"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Assessment: Safe Vibe Coding and Rigorous Debugging",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You notice your app's UI looks beautiful and features an unrequested dark mode, but the core 'Delete Task' button you specified in your MVP goals is missing. This is an example of:",
+     "options": [
+      "Feature Drift",
+      "Functional Parity",
+      "Requirement Validation",
+      "The Mirage of Completeness"
+     ],
+     "explanation": "Feature Drift occurs when AI models add unrequested aesthetic features while neglecting the core structural requirements defined in the initial spec.",
+     "correctAnswers": [
+      "Feature Drift"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are columns in the 'MVP Alignment Matrix' used to audit an application's progress?",
+     "options": [
+      "Target Requirement",
+      "Actual Behavior",
+      "Gap Status",
+      "AI Prompt History",
+      "Visual Vibe Score"
+     ],
+     "explanation": "The MVP Alignment Matrix uses three specific columns to track what was requested versus what was delivered: Target Requirement, Actual Behavior, and Gap Status.",
+     "correctAnswers": [
+      "Target Requirement",
+      "Actual Behavior",
+      "Gap Status"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In software testing, the standard, ideal path where a user completes a journey without any errors is known as the ____.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "Happy Path"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Example of a boundary value error in a shopping cart.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/84021e0f-31d3-4080-81e0-45e8484f67c0/exam/images/unit4-q4.png"
+     },
+     "prompt": "If an online store allows a user to enter a quantity of '-5' and calculates a negative total, which category of disruptive input is being exploited?",
+     "options": [
+      "Type Mismatch",
+      "Empty or Null Input",
+      "Boundary and Extreme Values",
+      "Logic Injection"
+     ],
+     "explanation": "Entering negative numbers or zero where positive integers are expected is a test of boundary and extreme values.",
+     "correctAnswers": [
+      "Boundary and Extreme Values"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When auditing an app for mobile responsiveness using browser developer tools, which specific visual bugs should you look for?",
+     "options": [
+      "The Spillover (text clipping)",
+      "The Squish (unclickable buttons)",
+      "The Stack-Up (overlapping elements)",
+      "The Code Bloat (excessive CSS lines)",
+      "The Ghost Script (unused variables)"
+     ],
+     "explanation": "These three represent the primary layout failures identifiable through visual inspection on different viewport sizes.",
+     "correctAnswers": [
+      "The Spillover (text clipping)",
+      "The Squish (unclickable buttons)",
+      "The Stack-Up (overlapping elements)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When a layout fails on mobile, the most common indicator visible to the user is a ____ scrollbar.",
+     "placeholder": "horizontal or vertical?",
+     "correctAnswers": [
+      "horizontal"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why is it important to document the 'Actual Result' even if it just feels 'vibe-y' or slightly laggy?",
+     "options": [
+      "Minor lags can escalate into critical failures under high network loads",
+      "It helps the AI determine the color palette of the app",
+      "Subjective feelings are more important than console errors",
+      "It prevents the developer from having to write a prompt"
+     ],
+     "explanation": "Small visual glitches or delays are often symptoms of underlying logic issues that break completely in different environments.",
+     "correctAnswers": [
+      "Minor lags can escalate into critical failures under high network loads"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What are the primary goals of a 'Defensive Prompt' when fixing input vulnerabilities with an AI?",
+     "options": [
+      "Validate the input to prevent processing of bad data",
+      "Display a helpful, friendly error message to the user",
+      "Ignore the error silently to keep the UI clean",
+      "Ask the AI to rewrite the entire application from scratch",
+      "Ensure the app doesn't crash or display 'NaN'"
+     ],
+     "explanation": "Defensive prompts should focus on validation, user feedback, and stability rather than silent failures or total rewrites.",
+     "correctAnswers": [
+      "Validate the input to prevent processing of bad data",
+      "Display a helpful, friendly error message to the user",
+      "Ensure the app doesn't crash or display 'NaN'"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To test your application on various screen sizes without owning multiple devices, you should use the ____ simulation mode in your browser.",
+     "placeholder": "device",
+     "correctAnswers": [
+      "device"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In the 'Mirage of Completeness' analogy, what does the 'flashy mansion with a missing staircase' represent?",
+     "options": [
+      "A highly secure application",
+      "An AI-delivered app that looks good but has broken core logic",
+      "A perfectly built MVP",
+      "A backend server without a frontend"
+     ],
+     "explanation": "AI models often generate polished UIs (the mansion) while forgetting critical functional pathways (the staircase).",
+     "correctAnswers": [
+      "An AI-delivered app that looks good but has broken core logic"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which steps are involved in performing a 'Structured User Flow' audit?",
+     "options": [
+      "Mapping out a user journey without looking at code",
+      "Recording 'Expected' vs 'Actual' results in a grid",
+      "Randomly clicking buttons to see what happens",
+      "Evaluating response times and visual transitions",
+      "Scanning the source code for syntax errors"
+     ],
+     "explanation": "Structured auditing focuses on the user experience and documented outcomes rather than code inspection or random clicking.",
+     "correctAnswers": [
+      "Mapping out a user journey without looking at code",
+      "Recording 'Expected' vs 'Actual' results in a grid",
+      "Evaluating response times and visual transitions"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The 'Input Filter' analogy describes ____ as a polite security guard checking credentials before data enters the logic engine.",
+     "placeholder": "validation",
+     "correctAnswers": [
+      "validation"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "When you find a way to break your app using 'Wild Path' inputs, you should consider this a:",
+     "options": [
+      "Failure of your coding skills",
+      "Sign that the AI model is useless",
+      "Major victory in the testing process",
+      "Reason to delete the project"
+     ],
+     "explanation": "Finding bugs is the goal of testing; it allows you to identify and fix vulnerabilities before users encounter them.",
+     "correctAnswers": [
+      "Major victory in the testing process"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When reproducing a problem, what information is essential to document?",
+     "options": [
+      "The exact navigation pathway taken",
+      "The specific keys pressed or data entered",
+      "The developer's mood during the crash",
+      "The browser and environment details",
+      "The original prompt used to build the feature"
+     ],
+     "explanation": "Reliable reproduction requires a scientific record of the environment and the sequence of actions that triggered the error.",
+     "correctAnswers": [
+      "The exact navigation pathway taken",
+      "The specific keys pressed or data entered",
+      "The browser and environment details"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "When a text element expands beyond its container and is cut off on a mobile screen, this is called the ____.",
+     "placeholder": "Spillover",
+     "correctAnswers": [
+      "Spillover"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the primary danger of 'Scope Creep by Proxy' in AI-assisted development?",
+     "options": [
+      "The app becomes too cheap to host",
+      "The AI adds complex, unrequested features that introduce new bugs",
+      "The developer has to write too much manual code",
+      "The app's colors become inconsistent"
+     ],
+     "explanation": "Scope Creep by Proxy happens when AI adds features you didn't ask for, which can complicate the codebase and hide flaws in core requirements.",
+     "correctAnswers": [
+      "The AI adds complex, unrequested features that introduce new bugs"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Why should you avoid immediately prompting the AI with 'it's broken, fix it' when you find a bug?",
+     "options": [
+      "It can lead to bloated or messy code workarounds",
+      "The AI might introduce 'fix' code that breaks other features",
+      "AI models are physically unable to understand that phrase",
+      "You haven't yet isolated the specific cause for the AI to target",
+      "It costs more tokens than a descriptive prompt"
+     ],
+     "explanation": "Vague prompts lead to vague solutions. Isolating the problem first ensures the AI applies a 'surgical' and clean fix.",
+     "correctAnswers": [
+      "It can lead to bloated or messy code workarounds",
+      "The AI might introduce 'fix' code that breaks other features",
+      "You haven't yet isolated the specific cause for the AI to target"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Investigate why the 'Submit' button on this mobile layout is unresponsive.",
+     "options": [
+      "The button is overlapping a transparent div (The Stack-Up)",
+      "The button has shrunk too small to be clicked (The Squish)",
+      "The text has overflowed the button boundary (The Spillover)",
+      "The layout has a horizontal scrollbar preventing access"
+     ],
+     "explanation": "In mobile viewports, elements often lose their 'tap target' size due to lack of space, making them physically impossible to interact with.",
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Mobile Button Bug Simulator</title>`\n  `<style>`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #888888;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f5f8fc;`\n      `--accent-strong: #3a4f78;`\n      `--danger: #ff6b6b;`\n      `--success: #51cf66;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `margin: 0;`\n      `padding: 0;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;`\n      `color: var(--fg);`\n      `overflow: hidden;`\n    `}`\n\n    `.widget-container {`\n      `width: 100%;`\n      `max-width: 100%;`\n      `box-sizing: border-box;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `align-items: center;`\n      `gap: 12px;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `/* Phone Stage Container */`\n    `.stage {`\n      `width: 100%;`\n      `background: var(--stage);`\n      `border-radius: 12px;`\n      `height: 190px;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `position: relative;`\n      `border: 1px solid var(--border);`\n    `}`\n\n    `/* Phone Simulator Wrapper */`\n    `.phone-wrapper {`\n      `position: relative;`\n      `height: 160px;`\n      `min-width: 120px;`\n      `max-width: 290px;`\n      `width: 220px; /* Initial */`\n      `background: var(--surface);`\n      `border-radius: 16px;`\n      `box-shadow: 0 4px 12px rgba(0,0,0,0.08);`\n      `border: 4px solid #2d2d2d;`\n      `box-sizing: border-box;`\n      `display: flex;`\n      `flex-direction: column;`\n      `overflow: hidden;`\n      `transition: width 0.1s ease;`\n    `}`\n\n    `/* Phone Top bar */`\n    `.phone-header {`\n      `height: 16px;`\n      `background: #2d2d2d;`\n      `display: flex;`\n      `justify-content: center;`\n      `align-items: center;`\n      `position: relative;`\n    `}`\n    `.phone-speaker {`\n      `width: 30px;`\n      `height: 4px;`\n      `background: #555;`\n      `border-radius: 2px;`\n    `}`\n\n    `/* Phone Screen content */`\n    `.phone-screen {`\n      `flex: 1;`\n      `padding: 8px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 6px;`\n      `position: relative;`\n      `background: #fff;`\n      `box-sizing: border-box;`\n    `}`\n\n    `.phone-screen.overflow-scroll {`\n      `overflow-x: scroll;`\n    `}`\n\n    `/* Mock Input Fields */`\n    `.mock-input {`\n      `height: 16px;`\n      `border-radius: 4px;`\n      `background: #f0f0f0;`\n      `border: 1px solid #e0e0e0;`\n      `width: 80%;`\n    `}`\n\n    `/* Responsive Bug Submit Button Container */`\n    `.form-footer {`\n      `margin-top: auto;`\n      `position: relative;`\n      `display: flex;`\n      `align-items: center;`\n      `height: 32px;`\n    `}`\n\n    `.submit-btn {`\n      `background: var(--accent);`\n      `color: white;`\n      `border: none;`\n      `border-radius: 4px;`\n      `font-size: 11px;`\n      `font-weight: 600;`\n      `cursor: pointer;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `white-space: nowrap;`\n      `box-sizing: border-box;`\n      `height: 24px;`\n      `padding: 0 8px;`\n    `}`\n\n    `/* Overlay Div for Stack-Up Bug */`\n    `.transparent-overlay {`\n      `position: absolute;`\n      `top: 0;`\n      `left: 0;`\n      `right: 0;`\n      `bottom: 0;`\n      `background: rgba(255, 107, 107, 0.15);`\n      `border: 1px dashed var(--danger);`\n      `display: none;`\n      `z-index: 99;`\n      `pointer-events: auto;`\n      `border-radius: 4px;`\n      `align-items: center;`\n      `justify-content: center;`\n      `font-size: 9px;`\n      `color: var(--danger);`\n      `font-weight: bold;`\n    `}`\n\n    `/* Resize Handle */`\n    `.resize-handle {`\n      `position: absolute;`\n      `right: -14px;`\n      `top: 50%;`\n      `transform: translateY(-50%);`\n      `width: 24px;`\n      `height: 48px;`\n      `background: #2d2d2d;`\n      `border-radius: 0 8px 8px 0;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `cursor: ew-resize;`\n      `user-select: none;`\n      `touch-action: none;`\n      `box-shadow: 2px 2px 5px rgba(0,0,0,0.15);`\n      `z-index: 10;`\n    `}`\n    `.resize-handle::after {`\n      `content: \"\";`\n      `width: 2px;`\n      `height: 16px;`\n      `background: #666;`\n      `border-left: 3px double #666;`\n    `}`\n\n    `/* Feedback Toast inside Phone */`\n    `.feedback-toast {`\n      `position: absolute;`\n      `bottom: 8px;`\n      `left: 50%;`\n      `transform: translateX(-50%) translateY(20px);`\n      `background: rgba(0,0,0,0.8);`\n      `color: #fff;`\n      `padding: 4px 8px;`\n      `border-radius: 4px;`\n      `font-size: 10px;`\n      `pointer-events: none;`\n      `opacity: 0;`\n      `transition: all 0.2s;`\n      `z-index: 100;`\n      `white-space: nowrap;`\n    `}`\n    `.feedback-toast.show {`\n      `opacity: 1;`\n      `transform: translateX(-50%) translateY(0);`\n    `}`\n\n    `/* Option Selector Container */`\n    `.selector-container {`\n      `width: 100%;`\n      `background: var(--surface);`\n      `border-radius: 8px;`\n      `border: 1px solid var(--border);`\n      `padding: 8px;`\n      `box-sizing: border-box;`\n    `}`\n\n    `.selector-label {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `margin-bottom: 8px;`\n      `text-align: center;`\n      `text-transform: uppercase;`\n      `letter-spacing: 0.5px;`\n    `}`\n\n    `.options-list {`\n      `display: grid;`\n      `grid-template-columns: repeat(2, 1fr);`\n      `gap: 6px;`\n    `}`\n\n    `.option-card {`\n      `background: var(--bg);`\n      `border: 1px solid var(--border);`\n      `border-radius: 6px;`\n      `padding: 8px;`\n      `font-size: 11px;`\n      `font-weight: 500;`\n      `cursor: pointer;`\n      `transition: all 0.2s ease;`\n      `display: flex;`\n      `align-items: center;`\n      `gap: 6px;`\n      `text-align: left;`\n    `}`\n\n    `.option-card:hover {`\n      `border-color: var(--accent);`\n      `background: var(--accent-soft);`\n    `}`\n\n    `.option-card.active {`\n      `border-color: var(--accent);`\n      `background: var(--accent-soft);`\n      `box-shadow: 0 0 0 2px var(--accent-soft);`\n    `}`\n\n    `.radio-dot {`\n      `width: 12px;`\n      `height: 12px;`\n      `border-radius: 50%;`\n      `border: 1.5px solid var(--border);`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `flex-shrink: 0;`\n    `}`\n    `.option-card.active .radio-dot {`\n      `border-color: var(--accent);`\n    `}`\n    `.option-card.active .radio-dot::after {`\n      `content: \"\";`\n      `width: 6px;`\n      `height: 6px;`\n      `border-radius: 50%;`\n      `background: var(--accent);`\n    `}`\n\n    `/* Helper/Instruction prompt */`\n    `.action-hint {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"sr-only\">Interactive Mobile Responsive Bug Simulator</h1>`\n\n  `<div class=\"widget-container\">`\n    `<!-- Interactive Stage -->`\n    `<div class=\"stage\">`\n      `<div class=\"phone-wrapper\" id=\"phone\">`\n        `<div class=\"phone-header\">`\n          `<div class=\"phone-speaker\"></div>`\n        `</div>`\n        `<div class=\"phone-screen\" id=\"phoneScreen\">`\n          `<div style=\"font-size: 10px; font-weight: bold; margin-bottom: 4px; color: #555;\">Mock Form</div>`\n          `<div class=\"mock-input\"></div>`\n          `<div class=\"mock-input\" style=\"width: 65%;\"></div>`\n          `<div class=\"form-footer\" id=\"formFooter\">`\n            `<button class=\"submit-btn\" id=\"submitBtn\">Submit</button>`\n            `<div class=\"transparent-overlay\" id=\"overlapOverlay\">Transparent Block</div>`\n          `</div>`\n          `<div class=\"feedback-toast\" id=\"toast\">Clicked Submit!</div>`\n        `</div>`\n        `<div class=\"resize-handle\" id=\"resizeHandle\" aria-label=\"Drag to resize phone screen width\"></div>`\n      `</div>`\n    `</div>`\n\n    `<div class=\"action-hint\">`\n      `↔️ Drag the phone's right edge to test responsiveness in narrow widths!`\n    `</div>`\n\n    `<!-- Interactive Options -->`\n    `<div class=\"selector-container\">`\n      `<div class=\"selector-label\">Select Bug Scenario & Try Clicking \"Submit\"</div>`\n      `<div class=\"options-list\" role=\"radiogroup\" aria-label=\"Layout Bug Scenarios\">`\n        `<div class=\"option-card\" data-index=\"0\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">`\n          `<span class=\"radio-dot\"></span>`\n          `<span>The button is overlapping a transparent div (The Stack-Up)</span>`\n        `</div>`\n        `<div class=\"option-card\" data-index=\"1\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">`\n          `<span class=\"radio-dot\"></span>`\n          `<span>The button has shrunk too small to be clicked (The Squish)</span>`\n        `</div>`\n        `<div class=\"option-card\" data-index=\"2\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">`\n          `<span class=\"radio-dot\"></span>`\n          `<span>The text has overflowed the button boundary (The Spillover)</span>`\n        `</div>`\n        `<div class=\"option-card\" data-index=\"3\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">`\n          `<span class=\"radio-dot\"></span>`\n          `<span>The layout has a horizontal scrollbar preventing access</span>`\n        `</div>`\n      `</div>`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `const OPTIONS = [`\n      `\"The button is overlapping a transparent div (The Stack-Up)\",`\n      `\"The button has shrunk too small to be clicked (The Squish)\",`\n      `\"The text has overflowed the button boundary (The Spillover)\",`\n      `\"The layout has a horizontal scrollbar preventing access\"`\n    `];`\n\n    `let selectedIdx = -1;`\n    `let isLocked = false;`\n\n    `// DOM elements`\n    `const phone = document.getElementById('phone');`\n    `const phoneScreen = document.getElementById('phoneScreen');`\n    `const submitBtn = document.getElementById('submitBtn');`\n    `const overlapOverlay = document.getElementById('overlapOverlay');`\n    `const resizeHandle = document.getElementById('resizeHandle');`\n    `const toast = document.getElementById('toast');`\n    `const optionCards = document.querySelectorAll('.option-card');`\n\n    `// Layout Resize Logic`\n    `let isDraggingWidth = false;`\n    `let startWidth = 220;`\n    `let startX = 0;`\n\n    `resizeHandle.addEventListener('pointerdown', (e) => {`\n      `if (isLocked) return;`\n      `isDraggingWidth = true;`\n      `startX = e.clientX;`\n      `startWidth = phone.offsetWidth;`\n      `resizeHandle.setPointerCapture(e.pointerId);`\n      `e.preventDefault();`\n    `});`\n\n    `resizeHandle.addEventListener('pointermove', (e) => {`\n      `if (!isDraggingWidth) return;`\n      `const deltaX = e.clientX - startX;`\n      `let targetWidth = startWidth + deltaX;`\n      `targetWidth = Math.max(120, Math.min(290, targetWidth));`\n      `phone.style.width = targetWidth + 'px';`\n      `updateLayoutState(targetWidth);`\n      `reportHeight();`\n    `});`\n\n    `resizeHandle.addEventListener('pointerup', () => {`\n      `isDraggingWidth = false;`\n    `});`\n\n    `// Click Tester on Form Elements`\n    `submitBtn.addEventListener('click', (e) => {`\n      `if (selectedIdx === 1 && phone.offsetWidth < 150) {`\n        `// The Squish - virtually impossible to click if too small`\n        `showToast(\"Missed! Target is too squished.\");`\n        `return;`\n      `}`\n      `if (selectedIdx === 2 && phone.offsetWidth < 150) {`\n        `// The Spillover - button itself is tiny, clicked text might miss if clicked outside the narrow boundary`\n        `showToast(\"Clicked empty space! Text spilled out.\");`\n        `return;`\n      `}`\n      `showToast(\"Success: Click registered!\");`\n    `});`\n\n    `overlapOverlay.addEventListener('click', () => {`\n      `showToast(\"Blocked! Click intercepted by overlay.\");`\n    `});`\n\n    `function showToast(msg) {`\n      `toast.textContent = msg;`\n      `toast.classList.add('show');`\n      `setTimeout(() => toast.classList.remove('show'), 2000);`\n    `}`\n\n    `// Dynamic Layout State application`\n    `function updateLayoutState(width) {`\n      `const isNarrow = width < 150;`\n      `phoneScreen.className = 'phone-screen';`\n      `submitBtn.style = '';`\n      `overlapOverlay.style.display = 'none';`\n\n      `if (selectedIdx === 0) {`\n        `// The Stack-Up`\n        `if (isNarrow) {`\n          `overlapOverlay.style.display = 'flex';`\n        `}`\n      `} else if (selectedIdx === 1) {`\n        `// The Squish`\n        `if (isNarrow) {`\n          `submitBtn.style.width = '10px';`\n          `submitBtn.style.padding = '0';`\n          `submitBtn.style.overflow = 'hidden';`\n        `}`\n      `} else if (selectedIdx === 2) {`\n        `// The Spillover`\n        `if (isNarrow) {`\n          `submitBtn.style.width = '12px';`\n          `submitBtn.style.padding = '0';`\n          `submitBtn.style.overflow = 'visible';`\n          `submitBtn.style.position = 'relative';`\n        `}`\n      `} else if (selectedIdx === 3) {`\n        `// The Scrollbar`\n        `if (isNarrow) {`\n          `phoneScreen.className = 'phone-screen overflow-scroll';`\n          `submitBtn.style.minWidth = '240px';`\n        `}`\n      `}`\n    `}`\n\n    `// Selector logic`\n    `optionCards.forEach(card => {`\n      `card.addEventListener('click', () => {`\n        `if (isLocked) return;`\n        `const idx = parseInt(card.getAttribute('data-index'));`\n        `selectOption(idx);`\n      `});`\n\n      `card.addEventListener('keydown', (e) => {`\n        `if (isLocked) return;`\n        `if (e.key === ' ' || e.key === 'Enter') {`\n          `e.preventDefault();`\n          `const idx = parseInt(card.getAttribute('data-index'));`\n          `selectOption(idx);`\n        `}`\n      `});`\n    `});`\n\n    `function selectOption(idx) {`\n      `selectedIdx = idx;`\n      `optionCards.forEach((card, i) => {`\n        `const active = i === idx;`\n        `card.classList.toggle('active', active);`\n        `card.setAttribute('aria-checked', active ? 'true' : 'false');`\n      `});`\n\n      `updateLayoutState(phone.offsetWidth);`\n\n      `// Report selection`\n      `try {`\n        `parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[idx] }, '*');`\n      `} catch (e) {}`\n    `}`\n\n    `// Lock Support`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `isLocked = true;`\n        `document.body.style.pointerEvents = 'none';`\n      `}`\n    `});`\n\n    `// Height reporting`\n    `function reportHeight() {`\n      `try {`\n        `parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');`\n      `} catch (e) {}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `reportHeight();`\n      `// Soft initial pulse to first option`\n      `optionCards[0].style.transform = 'scale(1.02)';`\n      `setTimeout(() => optionCards[0].style.transform = '', 300);`\n    `});`\n\n    `new ResizeObserver(reportHeight).observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "The button has shrunk too small to be clicked (The Squish)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Assessment: Deploying, Versioning, and Maintaining Applications",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are building a complex new feature but aren't sure if the AI's code will break your existing project. What is the safest visual model to follow according to the course material?",
+     "options": [
+      "Create a 'mega-commit' after the feature is finished and tested",
+      "Create an experimental branch to isolate the new code from the main timeline",
+      "Keep the project uninitialized to prevent tracking bad code",
+      "Undo changes manually using Ctrl+Z repeatedly until the app works again"
+     ],
+     "explanation": "Branching creates a 'parallel universe' or sandbox where experimental leaps can be made without risking the stable 'main' branch.",
+     "correctAnswers": [
+      "Create an experimental branch to isolate the new code from the main timeline"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the initialization of a repository (repo)?",
+     "options": [
+      "It transforms a passive folder into an active environment with a 'flight recorder'.",
+      "It requires an active internet connection to GitHub to function.",
+      "It creates a hidden folder called .git to store the project history.",
+      "It automatically saves every change you make to the cloud.",
+      "It allows the system to identify 'untracked' files inside the folder."
+     ],
+     "explanation": "Initialization is a local process that sets up tracking via the .git folder; it does not require the internet or cloud syncing by default.",
+     "correctAnswers": [
+      "It transforms a passive folder into an active environment with a 'flight recorder'.",
+      "It creates a hidden folder called .git to store the project history.",
+      "It allows the system to identify 'untracked' files inside the folder."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To transform a standard folder into a Git repository locally, you would use the command 'git ____'.",
+     "placeholder": "command",
+     "correctAnswers": [
+      "init"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary danger of the 'mega-commit' in vibe coding?",
+     "options": [
+      "It makes the repository folder size too large for local storage.",
+      "It forces you to roll back multiple unrelated working features if only one part fails.",
+      "It prevents the AI from being able to read your code history.",
+      "It automatically publishes your experimental code to the live server."
+     ],
+     "explanation": "If unrelated changes (like styling and logic) are in one commit, you cannot revert a bug in the logic without also losing the styling work.",
+     "correctAnswers": [
+      "It forces you to roll back multiple unrelated working features if only one part fails."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When writing a semantic commit message, which prefixes are recommended for better organization?",
+     "options": [
+      "feat: for new features",
+      "fix: for bug corrections",
+      "update: for any general change",
+      "save: for daily progress",
+      "style: for visual layout adjustments"
+     ],
+     "explanation": "The material specifically highlights 'feat:' and 'fix:' as standard semantic prefixes to create a clear index for humans and AI.",
+     "correctAnswers": [
+      "feat: for new features",
+      "fix: for bug corrections"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When a file is newly created in an initialized repository but not yet added to a commit, it is marked as ____.",
+     "placeholder": "status",
+     "correctAnswers": [
+      "untracked"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "The three-stage Git workflow diagram.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/84021e0f-31d3-4080-81e0-45e8484f67c0/exam/images/unit5-q7.png"
+     },
+     "prompt": "Which zone acts as the 'packing box' where you prepare specific files before they are permanently saved to the repository?",
+     "options": [
+      "Working Directory",
+      "Staging Area",
+      "Main Branch",
+      "Live Hosting Server"
+     ],
+     "explanation": "The Staging Area is the middle ground where you choose which changes to include in your next commit 'parcel'.",
+     "correctAnswers": [
+      "Staging Area"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What are the benefits of using a version control 'timeline' as discussed in the sessions?",
+     "options": [
+      "It provides a guaranteed recovery point if AI-generated code crashes the app.",
+      "It automatically gathers user feedback from the internet.",
+      "It allows learners to experiment with 'creative leaps' safely.",
+      "It removes the need for human developers to write any code.",
+      "It acts as a 'time machine' to warp back to previous save states."
+     ],
+     "explanation": "The timeline visualization emphasizes safety, recovery, and the freedom to experiment without permanent consequences.",
+     "correctAnswers": [
+      "It provides a guaranteed recovery point if AI-generated code crashes the app.",
+      "It allows learners to experiment with 'creative leaps' safely.",
+      "It acts as a 'time machine' to warp back to previous save states."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The strategy of using Git to feel safe while letting an AI generate experimental code is referred to in the course as ____ coding.",
+     "placeholder": "style name",
+     "correctAnswers": [
+      "vibe"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why should a 'vibe coder' check their active branch status before prompting an AI assistant?",
+     "options": [
+      "To ensure the AI is using the latest version of the cloud repository",
+      "To avoid making accidental experimental changes on the stable main branch",
+      "To verify that the local repository has an active internet connection",
+      "To trigger an automatic commit before the AI generates new code"
+     ],
+     "explanation": "If you are not on your experimental branch, the AI's generated code will overwrite your stable production code on the main branch.",
+     "correctAnswers": [
+      "To avoid making accidental experimental changes on the stable main branch"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which actions are part of the 'two-step dance' of saving a commit?",
+     "options": [
+      "Initializing the repository",
+      "Staging the precise files that belong to the change",
+      "Committing the staged files with a clear message",
+      "Publishing the code to a live hosting platform",
+      "Creating a new branch for every single line of code"
+     ],
+     "explanation": "Committing is described as a two-step process: moving changes to the Staging Area (packing) and then to the Repository (shipping).",
+     "correctAnswers": [
+      "Staging the precise files that belong to the change",
+      "Committing the staged files with a clear message"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "In the analogy of the 'messy desk,' which Git component represents the 'shipped parcel'?",
+     "options": [
+      "The Working Directory",
+      "The Staging Area",
+      "The Repository",
+      "The Experimental Branch"
+     ],
+     "explanation": "The Repository is the final destination for staged changes, representing the completed and logged history of the project.",
+     "correctAnswers": [
+      "The Repository"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "According to the course, what should a high-quality commit message include?",
+     "options": [
+      "A short, active-verb summary of the change.",
+      "A complete list of every character modified.",
+      "A brief explanation of *why* the change was made.",
+      "A semantic prefix like 'feat:' or 'fix:'.",
+      "The name of the AI assistant that generated the code."
+     ],
+     "explanation": "Good commits are semantic and document intent ('why') rather than just the 'what'.",
+     "correctAnswers": [
+      "A short, active-verb summary of the change.",
+      "A brief explanation of *why* the change was made.",
+      "A semantic prefix like 'feat:' or 'fix:'."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "What happens visually in your workspace when you switch from an experimental branch back to the main branch?",
+     "options": [
+      "The experimental code is automatically merged into the main branch.",
+      "The experimental changes disappear, and the app restores to its stable state.",
+      "The project folder is deleted to make room for the main branch.",
+      "A notification is sent to the AI to stop generating code."
+     ],
+     "explanation": "Switching branches acts like a portal, swapping the files in your folder to match the selected point in history.",
+     "correctAnswers": [
+      "The experimental changes disappear, and the app restores to its stable state."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Why is it important to learn the 'Why' of version control before learning specific commands?",
+     "options": [
+      "To build a strong visual intuition of history as a timeline.",
+      "To reduce the paralyzing fear of breaking working code.",
+      "Because terminal commands are no longer used in modern development.",
+      "To understand that version control is a safety net for experimentation.",
+      "To ensure the student knows how to fix hardware issues."
+     ],
+     "explanation": "The course focuses on conceptual whiteboard sessions to build confidence before introducing technical syntax.",
+     "correctAnswers": [
+      "To build a strong visual intuition of history as a timeline.",
+      "To reduce the paralyzing fear of breaking working code.",
+      "To understand that version control is a safety net for experimentation."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "How does a 'micro-commit' strategy help when building a multi-part feature?",
+     "options": [
+      "It allows you to save your work every 30 seconds automatically.",
+      "It ensures that you only commit when a specific task works and the app doesn't crash.",
+      "It prevents the .git folder from becoming too complex.",
+      "It makes the deployment to the live server much faster."
+     ],
+     "explanation": "Micro-commits focus on discrete, functional states, making it easier to identify exactly where a problem might have been introduced.",
+     "correctAnswers": [
+      "It ensures that you only commit when a specific task works and the app doesn't crash."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Once an experiment on a branch is successful, what are the possible next steps?",
+     "options": [
+      "The branch can be merged back into the main timeline.",
+      "The branch must be deleted immediately to save space.",
+      "The code can be deployed to a live hosting platform.",
+      "The branch can be discarded if the experiment was actually a failure.",
+      "The main branch should be deleted to favor the experimental one."
+     ],
+     "explanation": "Branches are flexible; they can be integrated into the main project if successful or thrown away if the experiment fails.",
+     "correctAnswers": [
+      "The branch can be merged back into the main timeline.",
+      "The branch can be discarded if the experiment was actually a failure."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "The project is currently at Commit C (Broken). You need to restore the project to the last stable state, Commit B.",
+     "options": [
+      "Delete the .git folder and restart",
+      "Merge the broken code into the Main branch",
+      "Move the HEAD pointer back to Commit B",
+      "Create a new branch from Commit C"
+     ],
+     "explanation": "Returning to an earlier version is like moving a record player needle (the HEAD pointer) back to a previous track (Commit B) where the app was stable.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Git Reset Manipulative</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #707070;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      \n      --color-stable: #2e7d32;\n      --color-stable-bg: #e8f5e9;\n      --color-broken: #c62828;\n      --color-broken-bg: #ffebee;\n      \n      --transition-settings: 200ms cubic-bezier(.34,1.56,.64,1);\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      user-select: none;\n      -webkit-user-select: none;\n      overflow: hidden;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 580px;\n      margin: 0 auto;\n      padding: 12px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Screen Reader Only */\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Monitor Preview Card */\n    .preview-card {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 10px 14px;\n      display: flex;\n      align-items: center;\n      gap: 12px;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n      transition: background-color 200ms ease, border-color 200ms ease;\n    }\n    \n    .status-indicator {\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--muted-fg);\n      flex-shrink: 0;\n      transition: background-color 200ms ease;\n    }\n    \n    .preview-text {\n      flex-grow: 1;\n      font-size: 13px;\n      font-weight: 500;\n    }\n\n    .preview-text code {\n      font-family: monospace;\n      font-size: 12px;\n      background: rgba(0,0,0,0.05);\n      padding: 2px 4px;\n      border-radius: 3px;\n    }\n\n    /* Interactive Workspace Stage */\n    .workspace {\n      position: relative;\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      height: 190px;\n      touch-action: none;\n      overflow: hidden;\n    }\n\n    /* Git Timeline & Nodes */\n    .git-track {\n      position: absolute;\n      top: 90px;\n      left: 30px;\n      right: 30px;\n      height: 4px;\n      background: #d0ceca;\n      border-radius: 2px;\n    }\n\n    .commit-node {\n      position: absolute;\n      top: 72px;\n      width: 40px;\n      height: 40px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 3px solid #d0ceca;\n      box-sizing: border-box;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-weight: bold;\n      font-size: 14px;\n      z-index: 1;\n      transform: translateX(-50%);\n    }\n\n    .commit-node.stable {\n      border-color: var(--color-stable);\n      color: var(--color-stable);\n    }\n\n    .commit-node.broken {\n      border-color: var(--color-broken);\n      color: var(--color-broken);\n      animation: pulse-red 2s infinite;\n    }\n\n    @keyframes pulse-red {\n      0% { box-shadow: 0 0 0 0 rgba(198, 40, 40, 0.4); }\n      70% { box-shadow: 0 0 0 8px rgba(198, 40, 40, 0); }\n      100% { box-shadow: 0 0 0 0 rgba(198, 40, 40, 0); }\n    }\n\n    .commit-label {\n      position: absolute;\n      bottom: -22px;\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    /* Target Dropzones */\n    .dropzone {\n      position: absolute;\n      border: 2px dashed #b5b2ad;\n      border-radius: 8px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      box-sizing: border-box;\n      background: rgba(255, 255, 255, 0.3);\n      transition: background-color var(--transition-settings), border-color var(--transition-settings), transform var(--transition-settings);\n      cursor: pointer;\n    }\n\n    .dropzone-label {\n      font-size: 11px;\n      font-weight: 600;\n      text-align: center;\n      color: #605d58;\n      padding: 4px;\n      pointer-events: none;\n    }\n\n    /* Position Zones smartly around the stage */\n    #zone-b {\n      left: 140px;\n      top: 52px;\n      width: 80px;\n      height: 80px;\n      border-radius: 50%;\n      transform: translateX(-50%);\n    }\n\n    #zone-branch {\n      left: 280px;\n      top: 15px;\n      width: 130px;\n      height: 52px;\n    }\n\n    #zone-merge {\n      left: 410px;\n      top: 75px;\n      width: 140px;\n      height: 52px;\n    }\n\n    #zone-trash {\n      left: 30px;\n      top: 125px;\n      width: 140px;\n      height: 52px;\n    }\n\n    /* Hover & Active States for Dropzones */\n    .dropzone.hovered {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      transform: scale(1.03);\n    }\n\n    .dropzone.active-choice {\n      border-color: var(--accent);\n      border-style: solid;\n      background: var(--accent-soft);\n      box-shadow: 0 0 0 3px rgba(76, 102, 150, 0.15);\n    }\n\n    /* Draggable HEAD Needle Pointer */\n    #head-pointer {\n      position: absolute;\n      width: 44px;\n      height: 54px;\n      z-index: 10;\n      cursor: grab;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));\n      touch-action: none;\n      outline: none;\n    }\n\n    #head-pointer:active {\n      cursor: grabbing;\n    }\n\n    #head-pointer:focus-visible {\n      filter: drop-shadow(0 0 0 3px rgba(76, 102, 150, 0.5)) drop-shadow(0 3px 5px rgba(0,0,0,0.2));\n    }\n\n    .needle-tag {\n      background: var(--accent);\n      color: white;\n      font-size: 10px;\n      font-weight: bold;\n      padding: 2px 6px;\n      border-radius: 4px;\n      letter-spacing: 0.5px;\n      pointer-events: none;\n    }\n\n    .needle-line {\n      width: 2px;\n      height: 24px;\n      background: var(--accent);\n      pointer-events: none;\n    }\n\n    .needle-point {\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--accent);\n      margin-top: -3px;\n      pointer-events: none;\n    }\n\n    /* Action Instruction Hint */\n    .action-hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      font-weight: 500;\n    }\n\n    /* Lock Mode style */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Git Pointer Interactive Exercise - Restore Commit B</h1>\n\n  <div id=\"widget-container\">\n    <!-- Live Git Status Monitor -->\n    <div class=\"preview-card\" id=\"status-card\">\n      <div class=\"status-indicator\" id=\"status-dot\"></div>\n      <div class=\"preview-text\" id=\"status-desc\">Grab and drag the HEAD pointer to choose your action.</div>\n    </div>\n\n    <!-- Workspace Stage -->\n    <div class=\"workspace\" id=\"workspace-stage\">\n      \n      <!-- Static Git Track Line -->\n      <div class=\"git-track\"></div>\n\n      <!-- Commit Nodes -->\n      <div class=\"commit-node stable\" style=\"left: 60px;\">\n        A\n        <div class=\"commit-label\">Stable</div>\n      </div>\n      \n      <div class=\"commit-node stable\" style=\"left: 140px;\">\n        B\n        <div class=\"commit-label\">Stable</div>\n      </div>\n      \n      <div class=\"commit-node broken\" style=\"left: 280px;\">\n        C\n        <div class=\"commit-label\" style=\"color: var(--color-broken);\">Broken</div>\n      </div>\n\n      <!-- Drag & Drop target zones mapping directly to options -->\n      <div class=\"dropzone\" id=\"zone-b\" data-option=\"Move the HEAD pointer back to Commit B\" aria-label=\"Drop zone to move HEAD pointer to B\">\n        <span class=\"dropzone-label\">Move<br>HEAD<br>to B</span>\n      </div>\n\n      <div class=\"dropzone\" id=\"zone-branch\" data-option=\"Create a new branch from Commit C\" aria-label=\"Drop zone to create new branch from C\">\n        <span class=\"dropzone-label\">+ New Branch from C</span>\n      </div>\n\n      <div class=\"dropzone\" id=\"zone-merge\" data-option=\"Merge the broken code into the Main branch\" aria-label=\"Drop zone to merge C into Main\">\n        <span class=\"dropzone-label\">Merge C into Main</span>\n      </div>\n\n      <div class=\"dropzone\" id=\"zone-trash\" data-option=\"Delete the .git folder and restart\" aria-label=\"Drop zone to delete git repository\">\n        <span class=\"dropzone-label\">🗑️ Delete .git</span>\n      </div>\n\n      <!-- Draggable HEAD pointer -->\n      <div id=\"head-pointer\" tabindex=\"0\" role=\"slider\" aria-label=\"HEAD pointer\" aria-valuenow=\"C\">\n        <div class=\"needle-tag\">HEAD</div>\n        <div class=\"needle-line\"></div>\n        <div class=\"needle-point\"></div>\n      </div>\n\n    </div>\n\n    <!-- User Tip -->\n    <div class=\"action-hint\">\n      Drag the HEAD pointer tag to choose your Git recovery strategy.\n    </div>\n  </div>\n\n  <script>\n    // Config & Options mapping\n    const OPT_RESET_B = \"Move the HEAD pointer back to Commit B\";\n    const OPT_NEW_BRANCH = \"Create a new branch from Commit C\";\n    const OPT_MERGE = \"Merge the broken code into the Main branch\";\n    const OPT_DELETE_GIT = \"Delete the .git folder and restart\";\n\n    // Setup DOM elements\n    const workspace = document.getElementById('workspace-stage');\n    const pointer = document.getElementById('head-pointer');\n    const statusCard = document.getElementById('status-card');\n    const statusDot = document.getElementById('status-dot');\n    const statusDesc = document.getElementById('status-desc');\n    \n    const dropzones = [\n      { el: document.getElementById('zone-b'), x: 140, y: 52, option: OPT_RESET_B },\n      { el: document.getElementById('zone-branch'), x: 345, y: 15, option: OPT_NEW_BRANCH },\n      { el: document.getElementById('zone-merge'), x: 480, y: 75, option: OPT_MERGE },\n      { el: document.getElementById('zone-trash'), x: 100, y: 125, option: OPT_DELETE_GIT }\n    ];\n\n    // Pointer state tracking\n    let isDragging = false;\n    let dragStartX = 0;\n    let dragStartY = 0;\n    let startX = 280; // Starts at Commit C (X coordinate)\n    let startY = 40;  // Starts hovering above Commit C (Y coordinate)\n    let pointerX = startX;\n    let pointerY = startY;\n    let activeOption = null;\n    let isLocked = false;\n\n    // Set initial position of the pointer\n    updatePointerPosition(pointerX, pointerY, false);\n    updatePreview(null);\n\n    // Coordinate conversion helper\n    function getWorkspaceCoords(e) {\n      const rect = workspace.getBoundingClientRect();\n      const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;\n      const clientY = e.clientY || (e.touches && e.touches[0].clientY) || 0;\n      return {\n        x: clientX - rect.left,\n        y: clientY - rect.top\n      };\n    }\n\n    // Drag event handlers\n    pointer.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      pointer.setPointerCapture(e.pointerId);\n      \n      const coords = getWorkspaceCoords(e);\n      dragStartX = coords.x - pointerX;\n      dragStartY = coords.y - pointerY;\n      \n      pointer.style.transition = 'none';\n      e.preventDefault();\n    });\n\n    window.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      const coords = getWorkspaceCoords(e);\n      \n      // Clamp coordinates to workspace boundaries\n      const rect = workspace.getBoundingClientRect();\n      let targetX = coords.x - dragStartX;\n      let targetY = coords.y - dragStartY;\n      \n      pointerX = Math.max(10, Math.min(rect.width - 10, targetX));\n      pointerY = Math.max(5, Math.min(rect.height - 45, targetY));\n      \n      updatePointerPosition(pointerX, pointerY, false);\n      checkDropzones(pointerX, pointerY);\n    });\n\n    window.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      snapToClosestZone();\n    });\n\n    // Check distance to all dropzones while dragging\n    function checkDropzones(x, y) {\n      let closestZone = null;\n      let minDistance = 75; // Active radius limit\n\n      dropzones.forEach(zone => {\n        zone.el.classList.remove('hovered');\n        const dx = x - zone.x;\n        const dy = y - zone.y;\n        const dist = Math.sqrt(dx * dx + dy * dy);\n        \n        if (dist < minDistance) {\n          minDistance = dist;\n          closestZone = zone;\n        }\n      });\n\n      if (closestZone) {\n        closestZone.el.classList.add('hovered');\n        updatePreview(closestZone.option);\n      } else {\n        updatePreview(null);\n      }\n    }\n\n    // Snap to the closest zone on drag release\n    function snapToClosestZone() {\n      let closestZone = null;\n      let minDistance = Infinity;\n\n      dropzones.forEach(zone => {\n        const dx = pointerX - zone.x;\n        const dy = pointerY - zone.y;\n        const dist = Math.sqrt(dx*dx + dy*dy);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestZone = zone;\n        }\n      });\n\n      if (closestZone) {\n        pointerX = closestZone.x;\n        pointerY = closestZone.y;\n        \n        dropzones.forEach(z => z.el.classList.remove('active-choice', 'hovered'));\n        closestZone.el.classList.add('active-choice');\n        \n        updatePointerPosition(pointerX, pointerY, true);\n        selectOption(closestZone.option);\n      } else {\n        // Return to start position at Commit C if dropped in empty space\n        pointerX = startX;\n        pointerY = startY;\n        updatePointerPosition(startX, startY, true);\n        selectOption(null);\n      }\n    }\n\n    function updatePointerPosition(x, y, animate) {\n      pointer.style.transition = animate ? 'transform var(--transition-settings)' : 'none';\n      // Adjust offset so the point of the needle tag points directly to (x, y)\n      pointer.style.transform = `translate(${x - 22}px, ${y - 48}px)`;\n    }\n\n    function selectOption(option) {\n      if (activeOption !== option) {\n        activeOption = option;\n        updatePreview(option);\n        if (option) {\n          try {\n            parent.postMessage({ type: 'hk-practice-answer', value: option }, '*');\n          } catch(e) {}\n        }\n      }\n    }\n\n    // Interactive Preview Engine\n    function updatePreview(option) {\n      if (!option) {\n        statusCard.style.backgroundColor = 'var(--surface)';\n        statusDot.style.backgroundColor = 'var(--color-broken)';\n        statusDesc.innerHTML = 'HEAD is at <code>Commit C</code> (Broken). Choose a recovery action.';\n        return;\n      }\n\n      switch (option) {\n        case OPT_RESET_B:\n          statusCard.style.backgroundColor = 'var(--color-stable-bg)';\n          statusDot.style.backgroundColor = 'var(--color-stable)';\n          statusDesc.innerHTML = '<strong>Green State:</strong> HEAD moved back to <code>Commit B</code>. Code base restored to stable.';\n          break;\n        case OPT_NEW_BRANCH:\n          statusCard.style.backgroundColor = 'var(--accent-soft)';\n          statusDot.style.backgroundColor = 'var(--accent)';\n          statusDesc.innerHTML = '<strong>Isolated State:</strong> Created branch from <code>Commit C</code>. Broken state preserved in new path.';\n          break;\n        case OPT_MERGE:\n          statusCard.style.backgroundColor = 'var(--color-broken-bg)';\n          statusDot.style.backgroundColor = 'var(--color-broken)';\n          statusDesc.innerHTML = '<strong>Broken Merge:</strong> Attempted to merge <code>Commit C</code> into Main. Build failed.';\n          break;\n        case OPT_DELETE_GIT:\n          statusCard.style.backgroundColor = 'var(--stage)';\n          statusDot.style.backgroundColor = '#555';\n          statusDesc.innerHTML = '<strong>Nuked:</strong> Wiped git history completely. All commit records and branch history lost.';\n          break;\n      }\n    }\n\n    // Keyboard Accessibility Support\n    let focusedIndex = 0;\n    pointer.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        focusedIndex = (focusedIndex + 1) % dropzones.length;\n        triggerKeyboardSelection(focusedIndex);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        focusedIndex = (focusedIndex - 1 + dropzones.length) % dropzones.length;\n        triggerKeyboardSelection(focusedIndex);\n      }\n    });\n\n    function triggerKeyboardSelection(index) {\n      const targetZone = dropzones[index];\n      pointerX = targetZone.x;\n      pointerY = targetZone.y;\n      \n      dropzones.forEach(z => z.el.classList.remove('active-choice'));\n      targetZone.el.classList.add('active-choice');\n      \n      updatePointerPosition(pointerX, pointerY, true);\n      selectOption(targetZone.option);\n    }\n\n    // Lock Support\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        pointer.classList.add('locked');\n        pointer.setAttribute('tabindex', '-1');\n        dropzones.forEach(z => z.el.classList.add('locked'));\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        parent.postMessage({\n          type: 'hk-anim-height',\n          height: Math.ceil(document.documentElement.getBoundingClientRect().height)\n        }, '*');\n      } catch(e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    window.addEventListener('resize', reportHeight);\n    if (window.ResizeObserver) {\n      new ResizeObserver(reportHeight).observe(document.body);\n    }\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Move the HEAD pointer back to Commit B"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "d57d1807-f1f1-48b2-8418-c89ae577b9fa"
+}

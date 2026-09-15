@@ -1,0 +1,1798 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Examination: Chemistry of Life",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following explains why carbon is the primary element found in all biological macromolecules?",
+     "options": [
+      "It forms ionic bonds that are easily broken in water.",
+      "It can form four stable covalent bonds, allowing for complex branching.",
+      "It is the most electronegative element in the CHNOPS group.",
+      "It is more abundant in the Earth's crust than silicon."
+     ],
+     "explanation": "Carbon's tetravalence allows it to form four covalent bonds, providing the structural flexibility to create chains, rings, and complex 3D shapes essential for life.",
+     "correctAnswers": [
+      "It can form four stable covalent bonds, allowing for complex branching."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram of a lake in winter with floating ice insulating liquid water below.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit1-q2.png"
+     },
+     "prompt": "A researcher is studying a lake that does not freeze solid in winter despite air temperatures remaining below 0°C for months. Which properties of water contribute to this phenomenon?",
+     "options": [
+      "High specific heat capacity",
+      "Decreased density of ice compared to liquid water",
+      "High heat of vaporization",
+      "Adhesion to the lake bed",
+      "Thermal insulation by floating ice"
+     ],
+     "explanation": "High specific heat allows water to resist temperature changes; lower density of ice ensures it floats, creating an insulating layer that protects the liquid water below.",
+     "correctAnswers": [
+      "High specific heat capacity",
+      "Decreased density of ice compared to liquid water",
+      "Thermal insulation by floating ice"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of linking monomer units together to form a polymer involves a chemical reaction called ____ synthesis.",
+     "explanation": "Dehydration synthesis (or condensation) removes a water molecule to create a new covalent bond between monomers.",
+     "placeholder": "Reaction type",
+     "correctAnswers": [
+      "dehydration",
+      "condensation"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Polarity diagram of a water molecule showing partial charges.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit1-q4.png"
+     },
+     "prompt": "How does the electronegativity of oxygen affect the structure of a water molecule?",
+     "options": [
+      "It causes electrons to be shared equally between oxygen and hydrogen.",
+      "It results in a linear molecular shape that cancels out charges.",
+      "It creates partial negative charges on the oxygen and partial positive charges on the hydrogens.",
+      "It promotes the formation of ionic bonds between water molecules."
+     ],
+     "explanation": "Oxygen is highly electronegative and pulls shared electrons closer to its nucleus, creating a dipole with partial charges.",
+     "correctAnswers": [
+      "It creates partial negative charges on the oxygen and partial positive charges on the hydrogens."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following biological molecules are considered true polymers?",
+     "options": [
+      "DNA",
+      "Enzymes",
+      "Triglycerides",
+      "Starch",
+      "Phospholipids"
+     ],
+     "explanation": "DNA (nucleic acid), enzymes (protein), and starch (carbohydrate) consist of repeating modular monomers; lipids like triglycerides do not form long chains of repeating units.",
+     "correctAnswers": [
+      "DNA",
+      "Enzymes",
+      "Starch"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a water molecule, the bond between the oxygen atom and a hydrogen atom is a(n) ____ covalent bond.",
+     "explanation": "Because oxygen and hydrogen have different electronegativities, they share electrons unequally, forming a polar covalent bond.",
+     "placeholder": "type of bond",
+     "correctAnswers": [
+      "polar"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary reason why ionic bonds are considered 'weak' in the context of biological systems?",
+     "options": [
+      "They involve the complete transfer of electrons.",
+      "They are easily disrupted by the polar environment of the cell's cytosol.",
+      "They require more energy to break than covalent bonds.",
+      "They only occur between Carbon and Hydrogen."
+     ],
+     "explanation": "While strong in dry crystals, ionic bonds dissociate in water because the polar water molecules surround and shield the ions.",
+     "correctAnswers": [
+      "They are easily disrupted by the polar environment of the cell's cytosol."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which elements are correctly matched with the macromolecules they are primarily found in?",
+     "options": [
+      "Nitrogen: Proteins and Nucleic Acids",
+      "Phosphorus: Nucleic Acids and Phospholipids",
+      "Sulfur: Carbohydrates",
+      "Carbon: All macromolecules",
+      "Oxygen: Lipids and Proteins"
+     ],
+     "explanation": "Sulfur is found in certain amino acids (proteins) but not typically in carbohydrates; the others are correctly mapped.",
+     "correctAnswers": [
+      "Nitrogen: Proteins and Nucleic Acids",
+      "Phosphorus: Nucleic Acids and Phospholipids",
+      "Carbon: All macromolecules",
+      "Oxygen: Lipids and Proteins"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'CHNOPS' element most commonly used to stabilize the tertiary structure of proteins through disulfide bridges is ____.",
+     "explanation": "Sulfur atoms in cysteine residues form covalent disulfide bridges that stabilize protein folding.",
+     "placeholder": "Element name",
+     "correctAnswers": [
+      "Sulfur",
+      "S"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Evaporative cooling is a vital thermoregulatory mechanism. Which chemical property of water is most responsible for this?",
+     "options": [
+      "High specific heat",
+      "High heat of vaporization",
+      "Adhesive properties",
+      "Surface tension"
+     ],
+     "explanation": "High heat of vaporization means it takes significant energy to break hydrogen bonds to turn liquid to gas, carrying heat away from the surface.",
+     "correctAnswers": [
+      "High heat of vaporization"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which statements accurately describe hydrogen bonding?",
+     "options": [
+      "It is an intramolecular force holding a single water molecule together.",
+      "It occurs between a partial positive hydrogen and a partial negative atom like oxygen.",
+      "It is responsible for the cohesive properties of water.",
+      "It is stronger than a covalent bond.",
+      "It allows for the dynamic unzipping of DNA strands."
+     ],
+     "explanation": "Hydrogen bonds are intermolecular (between molecules), relatively weak, and essential for water cohesion and DNA replication.",
+     "correctAnswers": [
+      "It occurs between a partial positive hydrogen and a partial negative atom like oxygen.",
+      "It is responsible for the cohesive properties of water.",
+      "It allows for the dynamic unzipping of DNA strands."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A molecule that has both a partial positive end and a partial negative end is described as a(n) ____ molecule.",
+     "explanation": "Polarity refers to the uneven distribution of charge across a molecule.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "polar",
+      "dipole"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a cell were treated with a chemical that prevented the formation of phosphodiester bonds, which process would be most directly inhibited?",
+     "options": [
+      "The linking of amino acids to form polypeptides.",
+      "The assembly of nucleotides into DNA or RNA strands.",
+      "The formation of triglycerides from glycerol and fatty acids.",
+      "The storage of glucose as glycogen."
+     ],
+     "explanation": "Phosphodiester bonds are the specific covalent links that connect the sugar-phosphate backbone of nucleic acid polymers.",
+     "correctAnswers": [
+      "The assembly of nucleotides into DNA or RNA strands."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the monomer-polymer pairs that are correctly matched.",
+     "options": [
+      "Monosaccharide : Polysaccharide",
+      "Amino acid : Polypeptide",
+      "Glycerol : Lipid",
+      "Nucleotide : Nucleic acid",
+      "Fatty acid : Protein"
+     ],
+     "explanation": "Carbohydrates, proteins, and nucleic acids follow a monomer-polymer structure, whereas lipids do not.",
+     "correctAnswers": [
+      "Monosaccharide : Polysaccharide",
+      "Amino acid : Polypeptide",
+      "Nucleotide : Nucleic acid"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "Water moves from the roots to the leaves of a plant through the xylem primarily because of ____, which allows water molecules to stick to each other.",
+     "explanation": "Cohesion is the attraction between like molecules, specifically water molecules in this context.",
+     "placeholder": "property name",
+     "correctAnswers": [
+      "cohesion"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "image": {
+      "alt": "Molecular view of liquid water versus ice lattice.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit1-q16.png"
+     },
+     "prompt": "Why does ice float on liquid water?",
+     "options": [
+      "Hydrogen bonds break more frequently in ice than in liquid water.",
+      "The molecules in ice are more tightly packed than in liquid water.",
+      "Molecules in ice lock into a crystalline lattice that increases volume.",
+      "Ice contains fewer hydrogen bonds than liquid water."
+     ],
+     "explanation": "As water freezes, molecules form a stable lattice where they are spaced further apart, making ice less dense than liquid water.",
+     "correctAnswers": [
+      "Molecules in ice lock into a crystalline lattice that increases volume."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "What happens during a hydrolysis reaction?",
+     "options": [
+      "A water molecule is consumed.",
+      "A covalent bond between monomers is broken.",
+      "Energy is typically released.",
+      "A water molecule is produced.",
+      "Monomers are joined together."
+     ],
+     "explanation": "Hydrolysis uses water to break bonds, reversing the process of dehydration synthesis.",
+     "correctAnswers": [
+      "A water molecule is consumed.",
+      "A covalent bond between monomers is broken.",
+      "Energy is typically released."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "Which property of water allows a water strider (insect) to walk on the surface of a pond?",
+     "options": [
+      "Adhesion",
+      "High specific heat",
+      "Surface tension",
+      "Low density of ice"
+     ],
+     "explanation": "Surface tension, a result of the collective strength of hydrogen bonds (cohesion) at the surface, creates a film-like quality.",
+     "correctAnswers": [
+      "Surface tension"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "Why is the high specific heat of water important for life?",
+     "options": [
+      "It prevents rapid temperature changes in aquatic environments.",
+      "It allows organisms to maintain stable internal body temperatures.",
+      "It enables ice to sink to the bottom of the ocean.",
+      "It causes water to evaporate very quickly.",
+      "It buffers global climates by absorbing solar heat."
+     ],
+     "explanation": "Specific heat measures resistance to temperature change, providing thermal stability at both the organismal and planetary levels.",
+     "correctAnswers": [
+      "It prevents rapid temperature changes in aquatic environments.",
+      "It allows organisms to maintain stable internal body temperatures.",
+      "It buffers global climates by absorbing solar heat."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "single",
+     "prompt": "The element Phosphorus is fundamentally required for which of the following cellular components?",
+     "options": [
+      "The primary sequence of every protein.",
+      "The hydrophilic heads of the plasma membrane.",
+      "The ring structure of all carbohydrates.",
+      "The disulfide bridges in enzymes."
+     ],
+     "explanation": "Phosphorus is found in phosphate groups, which make up the backbone of DNA and the heads of phospholipids in membranes.",
+     "correctAnswers": [
+      "The hydrophilic heads of the plasma membrane."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Examination: Cell Structure, Function, and Energetics",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of a small and large sphere showing how the ratio of surface area to volume decreases as size increases.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit2-q1.png"
+     },
+     "prompt": "If a spherical cell increases its radius from 2 micrometers to 10 micrometers, what is the resulting change in its surface-area-to-volume ratio?",
+     "options": [
+      "The ratio increases from 0.3 to 1.5",
+      "The ratio decreases from 1.5 to 0.3",
+      "The ratio remains constant at 0.6",
+      "The ratio increases fivefold because the radius increased fivefold"
+     ],
+     "explanation": "For a sphere, SA/V = 3/r. At r=2, 3/2 = 1.5. At r=10, 3/10 = 0.3. This demonstrates that as cells grow, they lose relative surface area for exchange.",
+     "correctAnswers": [
+      "The ratio decreases from 1.5 to 0.3"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are universal features found in every single living cell, whether prokaryotic or eukaryotic?",
+     "options": [
+      "Plasma membrane",
+      "Ribosomes",
+      "Mitochondria",
+      "Cytosol",
+      "Nuclear envelope"
+     ],
+     "explanation": "All cells share a plasma membrane, cytosol, chromosomes (genetic material), and ribosomes. Mitochondria and nuclear envelopes are specific to eukaryotic cells.",
+     "correctAnswers": [
+      "Plasma membrane",
+      "Ribosomes",
+      "Cytosol"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the eukaryotic protein secretion pathway, proteins are modified and sorted in the ____ before being sent to their final destination.",
+     "explanation": "The Golgi apparatus acts as the cell's shipping and logistics hub, adding molecular tags like glycosylation to proteins arriving from the ER.",
+     "placeholder": "Enter organelle name",
+     "correctAnswers": [
+      "Golgi apparatus",
+      "Golgi",
+      "Golgi body"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why are lysosomes an ideal example of the importance of cellular compartmentalization?",
+     "options": [
+      "They allow for the synthesis of ATP in a neutral environment",
+      "They maintain an acidic pH to activate hydrolytic enzymes while protecting the neutral cytosol",
+      "They prevent ribosomes from translating the wrong mRNA sequences",
+      "They allow prokaryotes to store genetic information without a nucleus"
+     ],
+     "explanation": "Lysosomes maintain a pH of 4.5-5.0. If they leak, the neutral pH of the cytosol (7.2) inactivates the enzymes, preventing self-digestion.",
+     "correctAnswers": [
+      "They maintain an acidic pH to activate hydrolytic enzymes while protecting the neutral cytosol"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Different cell shapes that maximize surface area relative to volume.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit2-q5.png"
+     },
+     "prompt": "Which structural modifications allow specialized cells to overcome the physical constraints of the surface-area-to-volume ratio?",
+     "options": [
+      "Highly folded microvilli in intestinal cells",
+      "Long, thin axons in neurons",
+      "Flattened shapes in epithelial cells",
+      "Spherical rounding of the cell body",
+      "Reduction of membrane-bound transport proteins"
+     ],
+     "explanation": "Folding, elongating, or flattening a cell increases its surface area relative to its volume, facilitating more efficient nutrient and waste exchange.",
+     "correctAnswers": [
+      "Highly folded microvilli in intestinal cells",
+      "Long, thin axons in neurons",
+      "Flattened shapes in epithelial cells"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The prokaryotic region where the circular DNA is located, which lacks a surrounding membrane, is called the ____.",
+     "explanation": "Prokaryotes do not have a nucleus; instead, their DNA is concentrated in a non-membrane-bound region called the nucleoid.",
+     "placeholder": "Enter region name",
+     "correctAnswers": [
+      "nucleoid"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Which of the following is a key structural difference between prokaryotic and eukaryotic genetic material?",
+     "options": [
+      "Prokaryotes use RNA as their primary genetic blueprint",
+      "Eukaryotes have circular chromosomes, while prokaryotes have linear ones",
+      "Prokaryotes have a single circular chromosome, while eukaryotes have multiple linear chromosomes",
+      "Prokaryotes wrap their DNA in a double-membrane nuclear envelope"
+     ],
+     "explanation": "Prokaryotic DNA is typically found in one circular chromosome in the nucleoid; eukaryotes possess linear chromosomes housed within a nucleus.",
+     "correctAnswers": [
+      "Prokaryotes have a single circular chromosome, while eukaryotes have multiple linear chromosomes"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "If a mutation causes a cell to lose the ability to produce functional motor proteins, which cellular processes would be directly inhibited?",
+     "options": [
+      "Movement of transport vesicles from the ER to the Golgi",
+      "Movement of chromosomes during cell division",
+      "Passive diffusion of oxygen across the plasma membrane",
+      "The acidity level of the lysosome",
+      "Movement of secretory vesicles toward the plasma membrane"
+     ],
+     "explanation": "Motor proteins actively 'walk' vesicles and chromosomes along microtubule tracks. Diffusion and proton pumping do not rely on motor protein movement.",
+     "correctAnswers": [
+      "Movement of transport vesicles from the ER to the Golgi",
+      "Movement of chromosomes during cell division",
+      "Movement of secretory vesicles toward the plasma membrane"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "According to the Endosymbiotic Theory, mitochondria and chloroplasts were once ____ that were engulfed by a larger host cell.",
+     "explanation": "The theory suggests that these organelles originated as independent prokaryotes that entered a symbiotic relationship with a host cell.",
+     "placeholder": "Enter cell type",
+     "correctAnswers": [
+      "prokaryotes",
+      "bacteria",
+      "free-living bacteria"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of Golgi polarity showing cis and trans faces.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit2-q10.png"
+     },
+     "prompt": "How does the 'cis' face of the Golgi apparatus differ from the 'trans' face?",
+     "options": [
+      "The cis face is the shipping dock, while the trans face is the receiving dock",
+      "The cis face receives vesicles from the ER, while the trans face ships them to other destinations",
+      "The cis face contains hydrolytic enzymes, while the trans face contains ribosomes",
+      "The cis face is located near the plasma membrane, while the trans face is near the nucleus"
+     ],
+     "explanation": "The Golgi has polarity: the 'cis' face is oriented toward the ER to receive materials, and the 'trans' face is oriented away to ship them out.",
+     "correctAnswers": [
+      "The cis face receives vesicles from the ER, while the trans face ships them to other destinations"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why are ribosomes not considered 'membrane-bound organelles'?",
+     "options": [
+      "They are found in both prokaryotes and eukaryotes",
+      "They are composed of RNA and proteins, not phospholipid bilayers",
+      "They are only active when floating freely in the cytosol",
+      "They do not have an internal lumen separated by a membrane",
+      "They are smaller than mitochondria"
+     ],
+     "explanation": "Ribosomes are supramolecular complexes of rRNA and protein. Because they lack a phospholipid membrane, they can exist in prokaryotes.",
+     "correctAnswers": [
+      "They are found in both prokaryotes and eukaryotes",
+      "They are composed of RNA and proteins, not phospholipid bilayers",
+      "They do not have an internal lumen separated by a membrane"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If a cell's radius increases, the volume increases by a factor of the ____ of the radius.",
+     "explanation": "Volume is proportional to r^3, meaning a small increase in radius leads to a much larger increase in internal volume.",
+     "placeholder": "Enter mathematical term",
+     "correctAnswers": [
+      "cube",
+      "third power"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What would happen to the efficiency of a cell if its volume doubled but its surface area stayed the same?",
+     "options": [
+      "Efficiency would increase because there is more space for reactions",
+      "Efficiency would decrease because the plasma membrane could not supply the metabolic demand",
+      "Efficiency would remain the same because volume does not affect diffusion",
+      "The cell would divide immediately to reduce its volume"
+     ],
+     "explanation": "A decrease in the SA/V ratio means there is less membrane available to transport the nutrients required for the larger volume of cytoplasm.",
+     "correctAnswers": [
+      "Efficiency would decrease because the plasma membrane could not supply the metabolic demand"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of how internal membranes create unique microenvironments in a cell?",
+     "options": [
+      "The low pH inside a lysosome",
+      "The high concentration of H+ ions in the mitochondrial intermembrane space",
+      "The presence of digestive enzymes in the cytosol",
+      "The separation of transcription in the nucleus from translation in the cytoplasm",
+      "The circular shape of prokaryotic DNA"
+     ],
+     "explanation": "Internal membranes allow for compartmentalization of pH, ion gradients, and specific metabolic processes like RNA processing.",
+     "correctAnswers": [
+      "The low pH inside a lysosome",
+      "The high concentration of H+ ions in the mitochondrial intermembrane space",
+      "The separation of transcription in the nucleus from translation in the cytoplasm"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the primary function of the Smooth Endoplasmic Reticulum (SER)?",
+     "options": [
+      "Synthesis of proteins for secretion",
+      "Synthesis of lipids and detoxification of toxins",
+      "Modification of glycoproteins",
+      "Generation of ATP through oxidative phosphorylation"
+     ],
+     "explanation": "Unlike the Rough ER which handles proteins, the Smooth ER is responsible for lipid synthesis and detoxifying chemicals.",
+     "correctAnswers": [
+      "Synthesis of lipids and detoxification of toxins"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which factors contribute to the high efficiency of metabolic reactions in eukaryotes compared to prokaryotes?",
+     "options": [
+      "Concentration of enzymes and substrates in specific organelles",
+      "The larger overall size of the eukaryotic cell",
+      "Separation of incompatible biochemical pathways",
+      "Maintenance of specific pH levels for different enzymes",
+      "The presence of circular DNA"
+     ],
+     "explanation": "Compartmentalization increases efficiency by concentrating reactants and creating optimized environments for specific reactions.",
+     "correctAnswers": [
+      "Concentration of enzymes and substrates in specific organelles",
+      "Separation of incompatible biochemical pathways",
+      "Maintenance of specific pH levels for different enzymes"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "Which organelle is responsible for the hydrolysis of macromolecules and damaged organelles?",
+     "options": [
+      "Mitochondria",
+      "Ribosome",
+      "Lysosome",
+      "Peroxisome"
+     ],
+     "explanation": "Lysosomes contain hydrolytic enzymes that break down waste, a process called autophagy when it involves the cell's own components.",
+     "correctAnswers": [
+      "Lysosome"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "Which of the following would be found in a eukaryotic plant cell but NOT a typical animal cell?",
+     "options": [
+      "Chloroplasts",
+      "Large central vacuole",
+      "Mitochondria",
+      "Cell wall",
+      "Ribosomes"
+     ],
+     "explanation": "Plant cells have cell walls, chloroplasts, and large vacuoles. Both plant and animal cells have mitochondria and ribosomes.",
+     "correctAnswers": [
+      "Chloroplasts",
+      "Large central vacuole",
+      "Cell wall"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of a nuclear pore complex.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit2-q19.png"
+     },
+     "prompt": "How does mRNA exit the nucleus to reach the ribosomes?",
+     "options": [
+      "Through simple diffusion across the phospholipid bilayer",
+      "Through protein-lined nuclear pores",
+      "Via transport vesicles pinching off the nuclear envelope",
+      "By attaching to motor proteins that walk across the envelope"
+     ],
+     "explanation": "The nuclear envelope is a double membrane perforated by nuclear pores which regulate the entry and exit of large molecules like mRNA.",
+     "correctAnswers": [
+      "Through protein-lined nuclear pores"
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Simulate the cellular protein production and export process. Move the cargo through the correct sequence of compartments to ensure successful secretion from the cell.",
+     "options": [
+      "Nucleus -> Golgi -> ER -> Plasma Membrane",
+      "Rough ER -> Transport Vesicle -> Golgi -> Secretory Vesicle",
+      "Ribosome -> Lysosome -> Golgi -> Nucleus",
+      "Smooth ER -> Golgi -> Mitochondria -> Plasma Membrane"
+     ],
+     "explanation": "Proteins for secretion are synthesized in the Rough ER, transported via vesicles to the Golgi for modification, and then moved via secretory vesicles to the membrane.",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Cellular Export Pathway Simulator</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --glow: #ff9800;\n      --glow-soft: rgba(255, 152, 0, 0.2);\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 640px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .stage {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      position: relative;\n      overflow: hidden;\n      aspect-ratio: 540 / 270;\n      width: 100%;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Interactive Port styling */\n    .port-rect {\n      fill: var(--surface);\n      stroke: var(--border);\n      stroke-width: 1.5;\n      rx: 8;\n      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n      cursor: pointer;\n    }\n\n    .port-group:focus {\n      outline: none;\n    }\n    \n    .port-group:focus-visible .port-rect {\n      stroke: var(--accent);\n      stroke-width: 2.5;\n      filter: drop-shadow(0 0 4px var(--accent-soft));\n    }\n\n    .port-group:hover .port-rect {\n      stroke: var(--accent-strong);\n      fill: #fdfdfd;\n    }\n\n    .port-group.active .port-rect {\n      fill: var(--accent-soft);\n      stroke: var(--accent);\n      stroke-width: 2;\n    }\n\n    .port-text {\n      font-size: 11px;\n      font-weight: 500;\n      fill: var(--fg);\n      pointer-events: none;\n      transition: fill 0.2s;\n    }\n\n    .port-group.active .port-text {\n      fill: var(--accent-strong);\n      font-weight: 600;\n    }\n\n    /* Organelle visual styling */\n    .organelle {\n      stroke-width: 1.5;\n      fill-opacity: 0.15;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n    }\n    .organelle-label {\n      font-size: 9px;\n      fill: var(--muted-fg);\n      font-weight: bold;\n      pointer-events: none;\n    }\n\n    /* Pathway Trace Lines */\n    .path-trace {\n      fill: none;\n      stroke-width: 3;\n      stroke-dasharray: 6 4;\n      opacity: 0.15;\n      transition: opacity 0.3s, stroke-dashoffset 2s linear;\n    }\n\n    .path-trace.active {\n      opacity: 0.9;\n      stroke-dashoffset: -40;\n      animation: flow 4s linear infinite;\n    }\n\n    @keyframes flow {\n      to {\n        stroke-dashoffset: -40;\n      }\n    }\n\n    /* Draggable Cargo */\n    .cargo-handle {\n      cursor: grab;\n      touch-action: none;\n    }\n\n    .cargo-handle:active {\n      cursor: grabbing;\n    }\n\n    .cargo-glow {\n      fill: var(--glow);\n      filter: drop-shadow(0 0 6px var(--glow));\n      transition: transform 0.1s ease-out;\n    }\n\n    .cargo-pulse {\n      animation: pulse 2s infinite ease-in-out;\n    }\n\n    @keyframes pulse {\n      0%, 100% { r: 10; opacity: 0.3; }\n      50% { r: 16; opacity: 0.15; }\n    }\n\n    .action-hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: 2px;\n    }\n\n    /* Read-only / Locked State */\n    .locked {\n      pointer-events: none !important;\n    }\n    .locked .cargo-handle {\n      cursor: default;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Cell Export Pathway Simulator</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 540 270\" id=\"cell-svg\">\n        <defs>\n          <!-- Cargo glowing gradient -->\n          <radialGradient id=\"cargoGrad\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n            <stop offset=\"0%\" stop-color=\"#fffbdf\" />\n            <stop offset=\"40%\" stop-color=\"#ffa726\" />\n            <stop offset=\"100%\" stop-color=\"#f57c00\" />\n          </radialGradient>\n        </defs>\n\n        <!-- CELL BACKGROUND MEMBRANE (Left boundary arc) -->\n        <path d=\"M 180,0 A 270,270 0 0,0 180,270\" fill=\"#f8f6f0\" stroke=\"#d5d0c5\" stroke-width=\"3\" />\n        <text x=\"10\" y=\"20\" class=\"organelle-label\" style=\"fill: #a29b8c;\">CELL CYTOPLASM</text>\n\n        <!-- ORGANELLES (Stylized Schematic Background Elements) -->\n        <!-- Nucleus -->\n        <circle cx=\"20\" cy=\"135\" r=\"45\" class=\"organelle\" fill=\"#4a90e2\" stroke=\"#357abd\" />\n        <text x=\"15\" y=\"138\" class=\"organelle-label\" style=\"fill: #357abd;\">NUCLEUS</text>\n\n        <!-- Rough ER (Wavy pathways) -->\n        <path d=\"M 65,95 Q 85,90 90,110 T 75,140 T 95,160\" class=\"organelle\" fill=\"none\" stroke=\"#e06666\" stroke-width=\"5\" />\n        <circle cx=\"75\" cy=\"100\" r=\"1.5\" fill=\"#e06666\" />\n        <circle cx=\"85\" cy=\"115\" r=\"1.5\" fill=\"#e06666\" />\n        <circle cx=\"80\" cy=\"135\" r=\"1.5\" fill=\"#e06666\" />\n        <text x=\"75\" y=\"80\" class=\"organelle-label\" style=\"fill: #cc0000;\">ROUGH ER</text>\n\n        <!-- Smooth ER -->\n        <path d=\"M 45,55 Q 60,40 80,45 T 70,70\" class=\"organelle\" fill=\"none\" stroke=\"#8e7cc3\" stroke-width=\"4\" />\n        <text x=\"60\" y=\"32\" class=\"organelle-label\" style=\"fill: #674ea7;\">SMOOTH ER</text>\n\n        <!-- Golgi Apparatus -->\n        <path d=\"M 120,110 C 135,115 135,145 120,150 M 130,105 C 148,112 148,148 130,155 M 140,110 C 155,115 155,145 140,150\" class=\"organelle\" fill=\"none\" stroke=\"#6aa84f\" stroke-width=\"4\" />\n        <text x=\"120\" y=\"98\" class=\"organelle-label\" style=\"fill: #38761d;\">GOLGI</text>\n\n        <!-- Lysosome / Mitochondria / Vesicles -->\n        <ellipse cx=\"105\" cy=\"195\" rx=\"14\" ry=\"8\" class=\"organelle\" fill=\"#f1c232\" stroke=\"#bf9000\" />\n        <text x=\"95\" y=\"212\" class=\"organelle-label\" style=\"fill: #b45f06;\">MITO</text>\n\n        <circle cx=\"110\" cy=\"50\" r=\"10\" class=\"organelle\" fill=\"#e69138\" stroke=\"#b45f06\" />\n        <text x=\"95\" y=\"35\" class=\"organelle-label\" style=\"fill: #b45f06;\">LYSOSOME</text>\n\n        <!-- PATHWAYS VISUAL TRACES (Drawn back from ports to starting positions) -->\n        <!-- Path 1: Nucleus -> Golgi -> ER -> Plasma Membrane -->\n        <path id=\"trace-0\" d=\"M 20,135 Q 130,130 135,130 T 80,120 T 235,50\" class=\"path-trace\" stroke=\"#4a90e2\" />\n        \n        <!-- Path 2: Rough ER -> Transport Vesicle -> Golgi -> Secretory Vesicle -->\n        <path id=\"trace-1\" d=\"M 80,125 Q 105,120 110,130 T 135,130 T 155,130 T 235,110\" class=\"path-trace\" stroke=\"#e06666\" />\n        \n        <!-- Path 3: Ribosome -> Lysosome -> Golgi -> Nucleus -->\n        <path id=\"trace-2\" d=\"M 80,100 Q 110,50 110,50 T 135,130 T 20,135 T 235,170\" class=\"path-trace\" stroke=\"#f1c232\" />\n        \n        <!-- Path 4: Smooth ER -> Golgi -> Mitochondria -> Plasma Membrane -->\n        <path id=\"trace-3\" d=\"M 70,50 Q 135,130 135,130 T 105,195 T 235,230\" class=\"path-trace\" stroke=\"#8e7cc3\" />\n\n\n        <!-- INTERACTIVE DESTINATION PORTS (Right Side Options) -->\n        <!-- Port 1 -->\n        <g class=\"port-group\" id=\"port-0\" tabindex=\"0\" aria-label=\"Option 1: Nucleus to Golgi to ER to Plasma Membrane\">\n          <rect x=\"230\" y=\"20\" width=\"295\" height=\"50\" class=\"port-rect\" />\n          <text x=\"245\" y=\"49\" class=\"port-text\">Nucleus → Golgi → ER → Plasma Membrane</text>\n        </g>\n\n        <!-- Port 2 -->\n        <g class=\"port-group\" id=\"port-1\" tabindex=\"0\" aria-label=\"Option 2: Rough ER to Transport Vesicle to Golgi to Secretory Vesicle\">\n          <rect x=\"230\" y=\"80\" width=\"295\" height=\"50\" class=\"port-rect\" />\n          <text x=\"245\" y=\"109\" class=\"port-text\">Rough ER → Vesicle → Golgi → Secretion</text>\n        </g>\n\n        <!-- Port 3 -->\n        <g class=\"port-group\" id=\"port-2\" tabindex=\"0\" aria-label=\"Option 3: Ribosome to Lysosome to Golgi to Nucleus\">\n          <rect x=\"230\" y=\"140\" width=\"295\" height=\"50\" class=\"port-rect\" />\n          <text x=\"245\" y=\"169\" class=\"port-text\">Ribosome → Lysosome → Golgi → Nucleus</text>\n        </g>\n\n        <!-- Port 4 -->\n        <g class=\"port-group\" id=\"port-3\" tabindex=\"0\" aria-label=\"Option 4: Smooth ER to Golgi to Mitochondria to Plasma Membrane\">\n          <rect x=\"230\" y=\"200\" width=\"295\" height=\"50\" class=\"port-rect\" />\n          <text x=\"245\" y=\"229\" class=\"port-text\">Smooth ER → Golgi → Mito → Membrane</text>\n        </g>\n\n\n        <!-- THE DRAGGABLE PROTEIN CARGO -->\n        <g id=\"cargo-group\" class=\"cargo-handle\" transform=\"translate(100, 135)\">\n          <!-- Pulse layer -->\n          <circle cx=\"0\" cy=\"0\" r=\"12\" class=\"cargo-glow cargo-pulse\" />\n          <!-- Core cargo circle -->\n          <circle cx=\"0\" cy=\"0\" r=\"10\" fill=\"url(#cargoGrad)\" filter=\"drop-shadow(0 2px 4px rgba(0,0,0,0.2))\" />\n          <text x=\"0\" y=\"3\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#fff\" style=\"pointer-events:none;\">P</text>\n        </g>\n      </svg>\n    </div>\n\n    <div class=\"action-hint\" id=\"hint-text\">\n      Drag the glowing protein cargo [P] into an export pathway option\n    </div>\n  </div>\n\n  <script>\n    // State management\n    const options = [\n      \"Nucleus -> Golgi -> ER -> Plasma Membrane\",\n      \"Rough ER -> Transport Vesicle -> Golgi -> Secretory Vesicle\",\n      \"Ribosome -> Lysosome -> Golgi -> Nucleus\",\n      \"Smooth ER -> Golgi -> Mitochondria -> Plasma Membrane\"\n    ];\n\n    let selectedIndex = -1;\n    let isLocked = false;\n\n    // SVG elements\n    const svg = document.getElementById('cell-svg');\n    const cargo = document.getElementById('cargo-group');\n    const ports = [\n      document.getElementById('port-0'),\n      document.getElementById('port-1'),\n      document.getElementById('port-2'),\n      document.getElementById('port-3')\n    ];\n    const traces = [\n      document.getElementById('trace-0'),\n      document.getElementById('trace-1'),\n      document.getElementById('trace-2'),\n      document.getElementById('trace-3')\n    ];\n\n    // Cargo Default Start Coordinate\n    const defaultX = 100;\n    const defaultY = 135;\n    let currentX = defaultX;\n    let currentY = defaultY;\n\n    // Port Drop Centers (Where the cargo snaps)\n    const portSnapPoints = [\n      { x: 245, y: 45 },\n      { x: 245, y: 105 },\n      { x: 245, y: 165 },\n      { x: 245, y: 225 }\n    ];\n\n    // Setup initial position\n    setCargoPosition(currentX, currentY);\n\n    // Coordinate conversion helper\n    function getSVGCoords(e) {\n      const rect = svg.getBoundingClientRect();\n      const clientX = e.clientX || (e.touches && e.touches[0].clientX);\n      const clientY = e.clientY || (e.touches && e.touches[0].clientY);\n      \n      // Map screen coordinates directly to SVG viewBox (540x270)\n      const x = ((clientX - rect.left) / rect.width) * 540;\n      const y = ((clientY - rect.top) / rect.height) * 270;\n      return { x, y };\n    }\n\n    function setCargoPosition(x, y) {\n      cargo.setAttribute('transform', `translate(${x}, ${y})`);\n    }\n\n    // Dragging Logic\n    let isDragging = false;\n    let dragOffset = { x: 0, y: 0 };\n\n    cargo.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      cargo.setPointerCapture(e.pointerId);\n      \n      const mouseCoords = getSVGCoords(e);\n      dragOffset.x = mouseCoords.x - currentX;\n      dragOffset.y = mouseCoords.y - currentY;\n      \n      e.preventDefault();\n    });\n\n    svg.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      \n      const mouseCoords = getSVGCoords(e);\n      currentX = Math.max(10, Math.min(530, mouseCoords.x - dragOffset.x));\n      currentY = Math.max(10, Math.min(260, mouseCoords.y - dragOffset.y));\n      \n      setCargoPosition(currentX, currentY);\n      \n      // Real-time hover detection for visual helper\n      checkHoverZones(currentX, currentY);\n    });\n\n    svg.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      cargo.releasePointerCapture(e.pointerId);\n      \n      snapToClosestPort();\n    });\n\n    // Check which zone is hovered during drag\n    function checkHoverZones(x, y) {\n      ports.forEach((port, idx) => {\n        const snap = portSnapPoints[idx];\n        const dist = Math.hypot(x - snap.x, y - snap.y);\n        // If close to the receptor dock, highlight it live\n        if (dist < 45) {\n          port.classList.add('active');\n        } else if (idx !== selectedIndex) {\n          port.classList.remove('active');\n        }\n      });\n    }\n\n    // Snap cargo to the closest port if within range, otherwise return home\n    function snapToClosestPort() {\n      let closestIdx = -1;\n      let minDist = 75; // Snapping radius\n\n      portSnapPoints.forEach((snap, idx) => {\n        const dist = Math.hypot(currentX - snap.x, currentY - snap.y);\n        if (dist < minDist) {\n          minDist = dist;\n          closestIdx = idx;\n        }\n      });\n\n      if (closestIdx !== -1) {\n        selectOption(closestIdx);\n      } else {\n        // Return to start or keep current option\n        if (selectedIndex !== -1) {\n          selectOption(selectedIndex);\n        } else {\n          animateTo(defaultX, defaultY);\n        }\n      }\n    }\n\n    function selectOption(index) {\n      selectedIndex = index;\n      const snap = portSnapPoints[index];\n      animateTo(snap.x, snap.y);\n\n      // Update active visuals\n      ports.forEach((port, idx) => {\n        if (idx === index) {\n          port.classList.add('active');\n          traces[idx].classList.add('active');\n        } else {\n          port.classList.remove('active');\n          traces[idx].classList.remove('active');\n        }\n      });\n\n      // Report answer\n      try {\n        parent.postMessage({\n          type: 'hk-practice-answer',\n          value: options[index]\n        }, '*');\n      } catch (e) {\n        console.error(\"Failed to post answer:\", e);\n      }\n    }\n\n    // Gentle linear interpolation animation for snapping\n    function animateTo(targetX, targetY) {\n      const startX = currentX;\n      const startY = currentY;\n      const startTime = performance.now();\n      const duration = 200; // ms\n\n      function step(now) {\n        const progress = Math.min(1, (now - startTime) / duration);\n        // Ease out quadratic\n        const ease = progress * (2 - progress);\n        \n        currentX = startX + (targetX - startX) * ease;\n        currentY = startY + (targetY - startY) * ease;\n        \n        setCargoPosition(currentX, currentY);\n        \n        if (progress < 1) {\n          requestAnimationFrame(step);\n        }\n      }\n      requestAnimationFrame(step);\n    }\n\n    // Accessible Click / Keyboard support\n    ports.forEach((port, idx) => {\n      // Click directly on a port to auto-route the cargo\n      port.addEventListener('click', () => {\n        if (isLocked) return;\n        selectOption(idx);\n      });\n\n      port.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          selectOption(idx);\n        }\n      });\n    });\n\n    // Handle Lock state\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('widget-container').classList.add('locked');\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        parent.postMessage({\n          type: 'hk-anim-height',\n          height: Math.ceil(document.documentElement.getBoundingClientRect().height)\n        }, '*');\n      } catch (err) {\n        console.warn(\"Height report failed\", err);\n      }\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Rough ER -> Transport Vesicle -> Golgi -> Secretory Vesicle"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Examination: Cell Communication and the Cell Cycle",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following describes the function of plasmodesmata in plant cells during signaling?",
+     "options": [
+      "They act as open channels allowing direct cytoplasmic flow between adjacent cells.",
+      "They serve as extracellular docking sites for long-distance endocrine hormones.",
+      "They are gated protein channels that only open in response to electrical impulses.",
+      "They facilitate the secretion of ligands into the local interstitial fluid."
+     ],
+     "explanation": "Plasmodesmata are channels between plant cell walls that allow small molecules to pass directly from one cell's cytoplasm to another, which is a form of signaling by direct contact.",
+     "correctAnswers": [
+      "They act as open channels allowing direct cytoplasmic flow between adjacent cells."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which characteristics are shared by both G protein-coupled receptors (GPCRs) and Receptor Tyrosine Kinases (RTKs)?",
+     "options": [
+      "They are embedded within the plasma membrane.",
+      "They require the binding of an extracellular ligand to activate.",
+      "They must form dimers to become functionally active.",
+      "They trigger intracellular signal transduction cascades.",
+      "They directly catalyze the conversion of ATP into cAMP."
+     ],
+     "explanation": "Both GPCRs and RTKs are membrane receptors that initiate cascades upon ligand binding; however, only RTKs require dimerization, and neither directly catalyzes cAMP (that is adenylyl cyclase).",
+     "correctAnswers": [
+      "They are embedded within the plasma membrane.",
+      "They require the binding of an extracellular ligand to activate.",
+      "They trigger intracellular signal transduction cascades."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a phosphorylation cascade, the enzymes responsible for removing phosphate groups from proteins to turn off the signal are called ____.",
+     "explanation": "While kinases add phosphate groups to activate proteins, phosphatases remove them, acting as the 'off switch' for the pathway.",
+     "placeholder": "Enzyme name",
+     "correctAnswers": [
+      "protein phosphatases",
+      "phosphatases"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "How does the endocrine system ensure that a hormone circulating throughout the body only affects specific organs?",
+     "options": [
+      "Hormones are only released near the specific organs they target.",
+      "Only target cells possess the specific receptors for that hormone.",
+      "The bloodstream filters hormones so they only reach specific tissues.",
+      "Target cells use electrical signals to attract the correct hormones."
+     ],
+     "explanation": "Hormones are broadcast systemically, but biological specificity is achieved because only cells with the matching receptor protein can respond.",
+     "correctAnswers": [
+      "Only target cells possess the specific receptors for that hormone."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are considered second messengers in cellular signaling pathways?",
+     "options": [
+      "Epinephrine",
+      "Cyclic AMP (cAMP)",
+      "Calcium ions (Ca2+)",
+      "G protein-coupled receptor",
+      "Inositol triphosphate (IP3)"
+     ],
+     "explanation": "Second messengers are small, non-protein molecules or ions like cAMP, Ca2+, and IP3 that spread signals within the cytoplasm; Epinephrine is a first messenger (ligand).",
+     "correctAnswers": [
+      "Cyclic AMP (cAMP)",
+      "Calcium ions (Ca2+)",
+      "Inositol triphosphate (IP3)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A mutation that prevents a G protein from performing its inherent GTPase activity would result in the G protein being ____.",
+     "explanation": "GTPase activity hydrolyzes GTP back to GDP to turn the G protein off; if this fails, the protein remains in the active 'on' state indefinitely.",
+     "placeholder": "Active/Inactive state",
+     "correctAnswers": [
+      "permanently active",
+      "always on",
+      "constantly active"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Diagram showing GPCR activation and the GDP-GTP exchange on a G protein.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit3-q7.png"
+     },
+     "prompt": "What occurs immediately after a ligand binds to a G protein-coupled receptor?",
+     "options": [
+      "The receptor phosphorylates its own tyrosine residues.",
+      "The G protein exchanges GDP for GTP.",
+      "Adenylyl cyclase converts ATP into cAMP.",
+      "The ligand enters the cell to activate a transcription factor."
+     ],
+     "explanation": "Ligand binding causes a conformational change in the GPCR, which triggers the associated G protein to release GDP and bind a new molecule of GTP.",
+     "correctAnswers": [
+      "The G protein exchanges GDP for GTP."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Flowchart of a negative feedback loop component system.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit3-q8.png"
+     },
+     "prompt": "In the context of homeostatic feedback loops, which of the following are typical components of a negative feedback system?",
+     "options": [
+      "A sensor that detects a stimulus.",
+      "A control center that processes information.",
+      "An effector that produces a response.",
+      "A mechanism that amplifies the initial stimulus.",
+      "A set point that the system strives to maintain."
+     ],
+     "explanation": "Negative feedback works to return a variable to a set point, involving sensors, control centers, and effectors; amplifying the stimulus is a characteristic of positive feedback.",
+     "correctAnswers": [
+      "A sensor that detects a stimulus.",
+      "A control center that processes information.",
+      "An effector that produces a response.",
+      "A set point that the system strives to maintain."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "During the S phase of the cell cycle, the cell performs ____, ensuring that both daughter cells receive a complete set of genetic information.",
+     "explanation": "The S (Synthesis) phase is dedicated to replicating the DNA so that the total genetic material is doubled before division.",
+     "placeholder": "Cellular process",
+     "correctAnswers": [
+      "DNA replication",
+      "DNA synthesis",
+      "genome duplication"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why can steroid hormones like testosterone cross the plasma membrane easily while protein hormones cannot?",
+     "options": [
+      "Steroid hormones are smaller than protein hormones.",
+      "Steroid hormones are nonpolar and lipid-soluble.",
+      "The membrane contains specific protein channels for all steroids.",
+      "Protein hormones are pushed out by the cell's internal pressure."
+     ],
+     "explanation": "The interior of the lipid bilayer is hydrophobic; therefore, nonpolar molecules like steroids can diffuse through it, whereas polar/large protein hormones require membrane receptors.",
+     "correctAnswers": [
+      "Steroid hormones are nonpolar and lipid-soluble."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which events occur specifically during the M phase (mitosis and cytokinesis) of the cell cycle?",
+     "options": [
+      "DNA replication occurs.",
+      "Sister chromatids are separated.",
+      "The nuclear envelope breaks down.",
+      "The cell grows significantly in size (G1).",
+      "The cytoplasm is divided into two daughter cells."
+     ],
+     "explanation": "Separation of chromatids and nuclear breakdown occur in mitosis, while cytokinesis divides the cytoplasm. DNA replication and growth occur during Interphase (S and G1).",
+     "correctAnswers": [
+      "Sister chromatids are separated.",
+      "The nuclear envelope breaks down.",
+      "The cytoplasm is divided into two daughter cells."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The specialized region where two sister chromatids are joined together is called the ____.",
+     "explanation": "The centromere is the DNA sequence that acts as the attachment point for sister chromatids and the site for kinetochore assembly.",
+     "placeholder": "Anatomical term",
+     "correctAnswers": [
+      "centromere"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "The 'amplification' of a signal during transduction is best described as:",
+     "options": [
+      "The movement of a ligand from the extracellular fluid to the nucleus.",
+      "The increase in the number of activated molecules at each subsequent step of a cascade.",
+      "The strengthening of a signal by increasing the amount of ligand secreted.",
+      "The process of turning off multiple pathways simultaneously."
+     ],
+     "explanation": "Amplification occurs when one enzyme at a higher level of the cascade activates many enzymes at the next level, leading to a massive cellular response from a single ligand.",
+     "correctAnswers": [
+      "The increase in the number of activated molecules at each subsequent step of a cascade."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of cancer cells?",
+     "options": [
+      "They ignore density-dependent inhibition.",
+      "They require an external surface for attachment (anchorage dependence).",
+      "They bypass cell cycle checkpoints.",
+      "They stop dividing when growth factors are depleted.",
+      "They may secrete their own growth factors."
+     ],
+     "explanation": "Cancer cells lack density-dependent inhibition and anchorage dependence, bypass checkpoints, and often provide their own growth signals to divide uncontrollably.",
+     "correctAnswers": [
+      "They ignore density-dependent inhibition.",
+      "They bypass cell cycle checkpoints.",
+      "They may secrete their own growth factors."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The process by which a signal on a cell's surface is converted into a specific cellular response through a series of steps is called a signal ____ pathway.",
+     "explanation": "Signal transduction is the entire process of converting an extracellular signal into a specific intracellular action.",
+     "placeholder": "Path name",
+     "correctAnswers": [
+      "transduction"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the primary role of the G1 checkpoint?",
+     "options": [
+      "To ensure all chromosomes are attached to the spindle fibers.",
+      "To confirm that DNA replication has been completed accurately.",
+      "To assess if environmental conditions and cell size are adequate for division.",
+      "To trigger the immediate breakdown of the nuclear envelope."
+     ],
+     "explanation": "The G1 checkpoint (the restriction point) determines if the cell should proceed to the S phase based on size, nutrients, and growth factors.",
+     "correctAnswers": [
+      "To assess if environmental conditions and cell size are adequate for division."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of positive feedback loops?",
+     "options": [
+      "Blood clotting where platelets release chemicals to attract more platelets.",
+      "Regulation of body temperature via sweating.",
+      "Insulin release in response to high blood sugar.",
+      "Oxytocin release during childbirth to increase uterine contractions.",
+      "Ethylene gas causing fruit to ripen, which triggers more ethylene production."
+     ],
+     "explanation": "Positive feedback loops amplify a response (clotting, contractions, ripening), whereas temperature and blood sugar regulation are negative feedback loops.",
+     "correctAnswers": [
+      "Blood clotting where platelets release chemicals to attract more platelets.",
+      "Oxytocin release during childbirth to increase uterine contractions.",
+      "Ethylene gas causing fruit to ripen, which triggers more ethylene production."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Interact with the cell cycle controller. Adjust the levels of Cyclin and observe the activation of the Mitosis-Promoting Factor (MPF). Based on your interaction, which state allows the cell to pass the G2 checkpoint and enter mitosis?",
+     "options": [
+      "Low Cyclin concentration, inactive CDK",
+      "High Cyclin concentration, Cyclin-CDK complex (MPF) formed",
+      "High Cyclin concentration, monomeric CDK only",
+      "Cyclin degraded, active Phosphatase present"
+     ],
+     "explanation": "Entry into mitosis requires the accumulation of cyclin to bind with CDK, forming the active MPF complex that triggers the G2 to M transition.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Cell Cycle Controller</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --color-cdk: #8E7CC3;\n      --color-cyclin: #3D85C6;\n      --color-gate-red: #E06666;\n      --color-gate-green: #6AA84F;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 580px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      position: relative;\n      overflow: hidden;\n      aspect-ratio: 1.8 / 1;\n      width: 100%;\n      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Slider / Tuning Control */\n    .controls-container {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 14px 16px;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n    }\n\n    .slider-track-container {\n      position: relative;\n      height: 40px;\n      display: flex;\n      align-items: center;\n      cursor: pointer;\n      touch-action: none;\n    }\n\n    .slider-line {\n      position: absolute;\n      left: 12px;\n      right: 12px;\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n      z-index: 1;\n    }\n\n    .slider-line-fill {\n      position: absolute;\n      left: 12px;\n      height: 6px;\n      background: var(--accent);\n      border-radius: 3px;\n      z-index: 2;\n      width: 0%;\n      transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n    }\n\n    .slider-steps {\n      position: absolute;\n      left: 12px;\n      right: 12px;\n      display: flex;\n      justify-content: space-between;\n      z-index: 3;\n    }\n\n    .slider-step-dot {\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: #ffffff;\n      border: 2px solid var(--border);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.1);\n      transition: all 0.2s;\n    }\n\n    .slider-step-dot.active {\n      border-color: var(--accent);\n      background: var(--accent);\n      transform: scale(1.2);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background: #ffffff;\n      border: 2.5px solid var(--accent);\n      box-shadow: 0 2px 6px rgba(0,0,0,0.2);\n      z-index: 4;\n      cursor: grab;\n      top: 50%;\n      transform: translate(-50%, -50%);\n      transition: left 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.1s;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: translate(-50%, -50%) scale(1.15);\n      border-color: var(--accent-strong);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 3px;\n    }\n\n    /* Labels below slider */\n    .labels-container {\n      display: flex;\n      justify-content: space-between;\n      font-size: 11px;\n      color: var(--muted-fg);\n      text-align: center;\n      padding: 0 4px;\n    }\n\n    .label-item {\n      width: 22%;\n      line-height: 1.2;\n      transition: color 0.2s, font-weight 0.2s;\n    }\n\n    .label-item.active {\n      color: var(--accent-strong);\n      font-weight: 600;\n    }\n\n    /* Action Hint */\n    .action-hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: -2px;\n    }\n\n    /* SVG Animation specific classes */\n    .protein {\n      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;\n    }\n\n    .gate-wing {\n      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);\n      transform-origin: right center;\n    }\n\n    .gate-glow {\n      transition: fill 0.4s ease, filter 0.4s ease;\n    }\n\n    .cell-state-bg {\n      transition: fill 0.6s ease;\n    }\n\n    /* Disabled state for locked interaction */\n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Cell Cycle Checkpoint Simulator - Adjust Cyclin to Activate MPF</h1>\n\n  <div class=\"widget-container\">\n    <!-- Active Stage -->\n    <div class=\"stage\" id=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 500 260\" xmlns=\"http://www.w3.org/2000/svg\">\n        <!-- Definitions for filters -->\n        <defs>\n          <filter id=\"glow-active\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\">\n            <feGaussianBlur stdDeviation=\"3\" result=\"blur\" />\n            <feComposite in=\"SourceGraphic\" in2=\"blur\" operator=\"over\" />\n          </filter>\n        </defs>\n\n        <!-- Split Screen Divider Backgrounds -->\n        <!-- Left: Cytoplasm (Cyclin & CDK reservoir) -->\n        <rect x=\"0\" y=\"0\" width=\"320\" height=\"260\" fill=\"#f4f2ee\" />\n        <!-- Right: Cell Gate (G2/M Checkpoint) -->\n        <rect x=\"320\" y=\"0\" width=\"180\" height=\"260\" class=\"cell-state-bg\" id=\"rightBg\" fill=\"#fcfbf9\" />\n        <line x1=\"320\" y1=\"0\" x2=\"320\" y2=\"260\" stroke=\"#e2e2e2\" stroke-width=\"2\" stroke-dasharray=\"4 4\" />\n\n        <!-- Labels in the scene -->\n        <text x=\"15\" y=\"22\" font-size=\"10\" font-weight=\"700\" fill=\"#888888\" letter-spacing=\"1\">CYTOPLASM (CDK RESERVOIR)</text>\n        <text x=\"335\" y=\"22\" font-size=\"10\" font-weight=\"700\" fill=\"#888888\" letter-spacing=\"1\">G2 CHECKPOINT GATE</text>\n\n        <!-- STATIONARY CDK PROTEINS (3 units) -->\n        <!-- CDK 1 (Top Left) -->\n        <g class=\"protein\" id=\"cdk1\" transform=\"translate(60, 60)\">\n          <path d=\"M 0,-15 A 20,20 0 1,1 -15,10 L -5,10 A 10,10 0 0,0 5,-5 L 5,-15 Z\" fill=\"var(--color-cdk)\" stroke=\"#7463A7\" stroke-width=\"2\" />\n          <text x=\"-25\" y=\"-5\" font-size=\"9\" fill=\"#ffffff\" font-weight=\"600\">CDK</text>\n        </g>\n        \n        <!-- CDK 2 (Middle Left) -->\n        <g class=\"protein\" id=\"cdk2\" transform=\"translate(70, 135)\">\n          <path d=\"M 0,-15 A 20,20 0 1,1 -15,10 L -5,10 A 10,10 0 0,0 5,-5 L 5,-15 Z\" fill=\"var(--color-cdk)\" stroke=\"#7463A7\" stroke-width=\"2\" />\n          <text x=\"-25\" y=\"-5\" font-size=\"9\" fill=\"#ffffff\" font-weight=\"600\">CDK</text>\n        </g>\n\n        <!-- CDK 3 (Bottom Left) -->\n        <g class=\"protein\" id=\"cdk3\" transform=\"translate(60, 205)\">\n          <path d=\"M 0,-15 A 20,20 0 1,1 -15,10 L -5,10 A 10,10 0 0,0 5,-5 L 5,-15 Z\" fill=\"var(--color-cdk)\" stroke=\"#7463A7\" stroke-width=\"2\" />\n          <text x=\"-25\" y=\"-5\" font-size=\"9\" fill=\"#ffffff\" font-weight=\"600\">CDK</text>\n        </g>\n\n        <!-- DYNAMIC CYCLIN MOLECULES (Will float, snap, or degrade) -->\n        <!-- Cyclin 1 -->\n        <g class=\"protein\" id=\"cyclin1\">\n          <path d=\"M -5,-5 A 10,10 0 0,1 5,10 L -15,10 Z\" fill=\"var(--color-cyclin)\" stroke=\"#2D6293\" stroke-width=\"1.5\" />\n          <text x=\"-12\" y=\"2\" font-size=\"8\" fill=\"#ffffff\">Cyc</text>\n        </g>\n        \n        <!-- Cyclin 2 -->\n        <g class=\"protein\" id=\"cyclin2\">\n          <path d=\"M -5,-5 A 10,10 0 0,1 5,10 L -15,10 Z\" fill=\"var(--color-cyclin)\" stroke=\"#2D6293\" stroke-width=\"1.5\" />\n          <text x=\"-12\" y=\"2\" font-size=\"8\" fill=\"#ffffff\">Cyc</text>\n        </g>\n\n        <!-- Cyclin 3 -->\n        <g class=\"protein\" id=\"cyclin3\">\n          <path d=\"M -5,-5 A 10,10 0 0,1 5,10 L -15,10 Z\" fill=\"var(--color-cyclin)\" stroke=\"#2D6293\" stroke-width=\"1.5\" />\n          <text x=\"-12\" y=\"2\" font-size=\"8\" fill=\"#ffffff\">Cyc</text>\n        </g>\n\n        <!-- Extra Floating Cycs for \"High Cyclin\" representation -->\n        <g class=\"protein\" id=\"cyclinExtra1\">\n          <path d=\"M -5,-5 A 10,10 0 0,1 5,10 L -15,10 Z\" fill=\"var(--color-cyclin)\" opacity=\"0.6\" stroke=\"#2D6293\" stroke-dasharray=\"1\" />\n        </g>\n        <g class=\"protein\" id=\"cyclinExtra2\">\n          <path d=\"M -5,-5 A 10,10 0 0,1 5,10 L -15,10 Z\" fill=\"var(--color-cyclin)\" opacity=\"0.6\" stroke=\"#2D6293\" stroke-dasharray=\"1\" />\n        </g>\n\n        <!-- Phosphatase Molecule (Active in state 4) -->\n        <g class=\"protein\" id=\"phosphatase\" opacity=\"0\" transform=\"translate(140, 135)\">\n          <polygon points=\"0,-12 12,10 -12,10\" fill=\"#E69138\" stroke=\"#B45F06\" stroke-width=\"1.5\" />\n          <text x=\"-6\" y=\"6\" font-size=\"8\" fill=\"#ffffff\" font-weight=\"bold\">P</text>\n        </g>\n\n        <!-- CELL GATE / G2 CHECKPOINT GRAPHICS -->\n        <!-- Inside Cell / Mitosis Representation -->\n        <g id=\"mitosisScene\" opacity=\"0\" transform=\"translate(410, 130)\" style=\"transition: opacity 0.5s;\">\n          <circle cx=\"0\" cy=\"0\" r=\"30\" fill=\"#E8F1E5\" stroke=\"var(--color-gate-green)\" stroke-width=\"2\" />\n          <!-- Condensed Chromosomes (Prophase) -->\n          <path d=\"M -10,-10 L 10,10 M -10,10 L 10,-10\" stroke=\"#274E13\" stroke-width=\"4\" stroke-linecap=\"round\" />\n          <path d=\"M -15,0 L 15,0\" stroke=\"#274E13\" stroke-width=\"2\" opacity=\"0.4\" />\n          <text x=\"0\" y=\"42\" font-size=\"10\" font-weight=\"bold\" fill=\"#274E13\" text-anchor=\"middle\">PROPHASE ENTERED</text>\n        </g>\n\n        <!-- Locked Gate Representation (Red/Closed) -->\n        <g id=\"lockedScene\" opacity=\"1\" transform=\"translate(410, 130)\" style=\"transition: opacity 0.5s;\">\n          <circle cx=\"0\" cy=\"0\" r=\"30\" fill=\"#FCE5CD\" stroke=\"var(--color-gate-red)\" stroke-width=\"2\" />\n          <rect x=\"-10\" y=\"-12\" width=\"20\" height=\"18\" rx=\"2\" fill=\"none\" stroke=\"#A61C00\" stroke-width=\"3\" />\n          <path d=\"M -6,-12 L -6,-18 A 6,6 0 0,1 6,-18 L 6,-12\" fill=\"none\" stroke=\"#A61C00\" stroke-width=\"3\" />\n          <text x=\"0\" y=\"42\" font-size=\"10\" font-weight=\"bold\" fill=\"#A61C00\" text-anchor=\"middle\">CELL BLOCKED</text>\n        </g>\n\n        <!-- Physical Gate Barriers -->\n        <g id=\"gateBarrier\">\n          <!-- Top Gate Leaf -->\n          <line id=\"gateTop\" x1=\"320\" y1=\"20\" x2=\"320\" y2=\"105\" stroke=\"var(--color-gate-red)\" stroke-width=\"8\" stroke-linecap=\"round\" class=\"gate-wing\" />\n          <!-- Bottom Gate Leaf -->\n          <line id=\"gateBottom\" x1=\"320\" y1=\"240\" x2=\"320\" y2=\"155\" stroke=\"var(--color-gate-red)\" stroke-width=\"8\" stroke-linecap=\"round\" class=\"gate-wing\" />\n          <!-- Gate Light indicator -->\n          <circle id=\"gateLight\" cx=\"320\" cy=\"130\" r=\"12\" fill=\"var(--color-gate-red)\" class=\"gate-glow\" />\n        </g>\n      </svg>\n    </div>\n\n    <!-- Tuning Interface -->\n    <div class=\"controls-container\" id=\"controls\">\n      <div class=\"slider-track-container\" id=\"sliderTrack\">\n        <div class=\"slider-line\"></div>\n        <div class=\"slider-line-fill\" id=\"lineFill\"></div>\n        <div class=\"slider-steps\">\n          <div class=\"slider-step-dot active\"></div>\n          <div class=\"slider-step-dot\"></div>\n          <div class=\"slider-step-dot\"></div>\n          <div class=\"slider-step-dot\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"sliderHandle\" role=\"slider\" aria-valuemin=\"1\" aria-valuemax=\"4\" aria-valuenow=\"1\" aria-label=\"Cell Cycle State Controller\" tabindex=\"0\"></div>\n      </div>\n      \n      <div class=\"labels-container\">\n        <div class=\"label-item active\" id=\"lbl-0\">Low Cyclin<br>Inactive CDK</div>\n        <div class=\"label-item\" id=\"lbl-1\">High Cyclin<br>Monomeric CDK</div>\n        <div class=\"label-item\" id=\"lbl-2\">High Cyclin<br>MPF Formed</div>\n        <div class=\"label-item\" id=\"lbl-3\">Cyclin Degraded<br>Phosphatase Active</div>\n      </div>\n    </div>\n\n    <!-- Interaction Instructions -->\n    <div class=\"action-hint\">\n      Drag or use arrow keys to tune cyclin level & observe G2 checkpoint\n    </div>\n  </div>\n\n  <script>\n    // State mappings\n    const OPTIONS = [\n      \"Low Cyclin concentration, inactive CDK\",\n      \"High Cyclin concentration, monomeric CDK only\",\n      \"High Cyclin concentration, Cyclin-CDK complex (MPF) formed\",\n      \"Cyclin degraded, active Phosphatase present\"\n    ];\n\n    let currentStateIndex = 0;\n    let isLocked = false;\n\n    // Elements\n    const sliderTrack = document.getElementById('sliderTrack');\n    const sliderHandle = document.getElementById('sliderHandle');\n    const lineFill = document.getElementById('lineFill');\n    const dots = document.querySelectorAll('.slider-step-dot');\n    const labels = document.querySelectorAll('.label-item');\n\n    // SVG elements to animate\n    const cyclin1 = document.getElementById('cyclin1');\n    const cyclin2 = document.getElementById('cyclin2');\n    const cyclin3 = document.getElementById('cyclin3');\n    const cyclinExtra1 = document.getElementById('cyclinExtra1');\n    const cyclinExtra2 = document.getElementById('cyclinExtra2');\n    const phosphatase = document.getElementById('phosphatase');\n    \n    const rightBg = document.getElementById('rightBg');\n    const mitosisScene = document.getElementById('mitosisScene');\n    const lockedScene = document.getElementById('lockedScene');\n    const gateTop = document.getElementById('gateTop');\n    const gateBottom = document.getElementById('gateBottom');\n    const gateLight = document.getElementById('gateLight');\n\n    // State positions dictionary for molecules\n    const moleculeStates = [\n      // State 0: Low Cyclin\n      {\n        cyc1: { x: 190, y: 50, opacity: 1 },\n        cyc2: { x: 200, y: 190, opacity: 0 },\n        cyc3: { x: 230, y: 120, opacity: 0 },\n        extra1: { x: 250, y: 40, opacity: 0 },\n        extra2: { x: 150, y: 220, opacity: 0 },\n        phos: { opacity: 0, scale: 0.2 },\n        gate: { open: false, color: 'var(--color-gate-red)' }\n      },\n      // State 1: High Cyclin, monomeric CDK (high levels but separate)\n      {\n        cyc1: { x: 190, y: 60, opacity: 1 },\n        cyc2: { x: 170, y: 130, opacity: 1 },\n        cyc3: { x: 180, y: 200, opacity: 1 },\n        extra1: { x: 260, y: 70, opacity: 0.7 },\n        extra2: { x: 250, y: 170, opacity: 0.7 },\n        phos: { opacity: 0, scale: 0.2 },\n        gate: { open: false, color: 'var(--color-gate-red)' }\n      },\n      // State 2: High Cyclin, MPF Formed (perfectly docked)\n      {\n        cyc1: { x: 67, y: 65, opacity: 1 }, // Perfect pocket dock\n        cyc2: { x: 77, y: 140, opacity: 1 },\n        cyc3: { x: 67, y: 210, opacity: 1 },\n        extra1: { x: 260, y: 50, opacity: 0.4 },\n        extra2: { x: 240, y: 210, opacity: 0.4 },\n        phos: { opacity: 0, scale: 0.2 },\n        gate: { open: true, color: 'var(--color-gate-green)' }\n      },\n      // State 3: Cyclin degraded, active Phosphatase present\n      {\n        cyc1: { x: 120, y: 80, opacity: 0 }, // Degraded / dissolved\n        cyc2: { x: 130, y: 150, opacity: 0 },\n        cyc3: { x: 110, y: 210, opacity: 0 },\n        extra1: { x: 240, y: 60, opacity: 0 },\n        extra2: { x: 230, y: 190, opacity: 0 },\n        phos: { opacity: 1, scale: 1 },\n        gate: { open: false, color: 'var(--color-gate-red)' }\n      }\n    ];\n\n    function updateVisuals(index) {\n      const state = moleculeStates[index];\n\n      // Update Slider handle & line fill\n      const percent = (index / 3) * 100;\n      sliderHandle.style.left = `calc(${percent}% + ${12 - (percent * 0.24)}px)`;\n      lineFill.style.width = `calc(${percent}% + ${12 - (percent * 0.24)}px)`;\n      sliderHandle.setAttribute('aria-valuenow', index + 1);\n\n      // Update dots and text labels\n      dots.forEach((dot, idx) => {\n        if (idx === index) dot.classList.add('active');\n        else dot.classList.remove('active');\n      });\n      labels.forEach((lbl, idx) => {\n        if (idx === index) lbl.classList.add('active');\n        else lbl.classList.remove('active');\n      });\n\n      // Animate dynamic molecules in SVG\n      cyclin1.setAttribute('transform', `translate(${state.cyc1.x}, ${state.cyc1.y})`);\n      cyclin1.style.opacity = state.cyc1.opacity;\n\n      cyclin2.setAttribute('transform', `translate(${state.cyc2.x}, ${state.cyc2.y})`);\n      cyclin2.style.opacity = state.cyc2.opacity;\n\n      cyclin3.setAttribute('transform', `translate(${state.cyc3.x}, ${state.cyc3.y})`);\n      cyclin3.style.opacity = state.cyc3.opacity;\n\n      cyclinExtra1.setAttribute('transform', `translate(${state.extra1.x}, ${state.extra1.y})`);\n      cyclinExtra1.style.opacity = state.extra1.opacity;\n\n      cyclinExtra2.setAttribute('transform', `translate(${state.extra2.x}, ${state.extra2.y})`);\n      cyclinExtra2.style.opacity = state.extra2.opacity;\n\n      phosphatase.style.opacity = state.phos.opacity;\n      phosphatase.setAttribute('transform', `translate(160, 130) scale(${state.phos.scale})`);\n\n      // Gate opening mechanism\n      if (state.gate.open) {\n        gateTop.setAttribute('transform', 'rotate(-75, 320, 20)');\n        gateBottom.setAttribute('transform', 'rotate(75, 320, 240)');\n        gateLight.setAttribute('fill', 'var(--color-gate-green)');\n        gateLight.setAttribute('filter', 'url(#glow-active)');\n        \n        rightBg.setAttribute('fill', '#f5fcf2');\n        mitosisScene.style.opacity = '1';\n        lockedScene.style.opacity = '0';\n      } else {\n        gateTop.setAttribute('transform', 'rotate(0, 320, 20)');\n        gateBottom.setAttribute('transform', 'rotate(0, 320, 240)');\n        gateLight.setAttribute('fill', 'var(--color-gate-red)');\n        gateLight.removeAttribute('filter');\n\n        rightBg.setAttribute('fill', '#fcfbf9');\n        mitosisScene.style.opacity = '0';\n        lockedScene.style.opacity = '1';\n      }\n    }\n\n    function setIndex(index) {\n      if (index < 0 || index > 3 || isLocked) return;\n      currentStateIndex = index;\n      updateVisuals(currentStateIndex);\n\n      // Report current answer selection to host\n      parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[currentStateIndex] }, '*');\n    }\n\n    // Slider Drag & Touch controls\n    let isDragging = false;\n\n    function handlePointer(e) {\n      if (isLocked) return;\n      const rect = sliderTrack.getBoundingClientRect();\n      const trackWidth = rect.width - 24; // offset for padding\n      let relativeX = e.clientX - rect.left - 12;\n      if (relativeX < 0) relativeX = 0;\n      if (relativeX > trackWidth) relativeX = trackWidth;\n      \n      const ratio = relativeX / trackWidth;\n      const step = Math.min(3, Math.max(0, Math.round(ratio * 3)));\n      if (step !== currentStateIndex) {\n        setIndex(step);\n      }\n    }\n\n    sliderTrack.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      sliderTrack.setPointerCapture(e.pointerId);\n      handlePointer(e);\n    });\n\n    sliderTrack.addEventListener('pointermove', (e) => {\n      if (isDragging) handlePointer(e);\n    });\n\n    sliderTrack.addEventListener('pointerup', (e) => {\n      isDragging = false;\n    });\n\n    // Keyboard support\n    sliderHandle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        e.preventDefault();\n        setIndex(Math.min(3, currentStateIndex + 1));\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        e.preventDefault();\n        setIndex(Math.max(0, currentStateIndex - 1));\n      }\n    });\n\n    // Handle height reporting and lock protocol\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('controls').classList.add('disabled');\n        document.getElementById('stage').classList.add('disabled');\n      }\n    });\n\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    // Observers and initial load triggers\n    window.addEventListener('load', () => {\n      // First state rendering setup\n      updateVisuals(0);\n      reportHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "High Cyclin concentration, Cyclin-CDK complex (MPF) formed"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Examination: Heredity and Gene Expression",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During Meiosis I, which specific event is responsible for the transition from a diploid state to a haploid state?",
+     "options": [
+      "The splitting of centromeres and separation of sister chromatids",
+      "The separation of homologous chromosomes during Anaphase I",
+      "The replication of DNA during the interphase between Meiosis I and II",
+      "The alignment of individual chromosomes single-file at the metaphase plate"
+     ],
+     "explanation": "Meiosis I is the reduction division. By pulling homologous pairs to opposite poles while keeping sister chromatids together, the cell effectively halves the number of centromeres (and thus chromosomes) per nucleus.",
+     "correctAnswers": [
+      "The separation of homologous chromosomes during Anaphase I"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following processes contribute directly to the genetic variation seen in the offspring of sexually reproducing eukaryotes?",
+     "options": [
+      "Crossing over between non-sister chromatids of homologous chromosomes",
+      "Independent assortment of chromosomes at the metaphase plate",
+      "Random fusion of genetically unique gametes during fertilization",
+      "The replication of DNA during S-phase of the cell cycle",
+      "The separation of sister chromatids during mitosis"
+     ],
+     "explanation": "Recombination, independent assortment, and random fertilization are the three pillars of sexual variation. DNA replication and mitosis generally produce identical copies and do not create diversity.",
+     "correctAnswers": [
+      "Crossing over between non-sister chromatids of homologous chromosomes",
+      "Independent assortment of chromosomes at the metaphase plate",
+      "Random fusion of genetically unique gametes during fertilization"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a cross between two individuals with the genotype AaBb, the probability of producing an offspring with the genotype aabb is ____.",
+     "placeholder": "Enter a fraction or decimal",
+     "correctAnswers": [
+      "1/16",
+      "0.0625",
+      "6.25%"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A researcher performs a Chi-Square test on F2 phenotypic data. If the calculated Chi-Square value is 7.82 and the critical value for p=0.05 is 3.84, what should the researcher conclude?",
+     "options": [
+      "Accept the null hypothesis; the data fits the expected Mendelian ratio.",
+      "Reject the null hypothesis; the observed deviation is likely due to chance.",
+      "Reject the null hypothesis; the observed deviation is statistically significant.",
+      "The experiment is invalid because the Chi-Square value cannot exceed the critical value."
+     ],
+     "explanation": "When the calculated value exceeds the critical value, the difference between observed and expected data is too large to be attributed to random chance, suggesting a non-Mendelian factor or linkage.",
+     "correctAnswers": [
+      "Reject the null hypothesis; the observed deviation is statistically significant."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which statements correctly describe the relationship between alleles and molecular biology?",
+     "options": [
+      "Alleles are variations in the nucleotide sequence of a gene at a specific locus.",
+      "A recessive allele always produces a toxic protein that inhibits the dominant one.",
+      "Dominant alleles are usually those that code for a functional protein product.",
+      "A heterozygous genotype (Aa) results in the expression of the dominant phenotype because the dominant allele 'destroys' the recessive DNA.",
+      "Phenotypes are the macroscopic result of the underlying protein activity dictated by alleles."
+     ],
+     "explanation": "Alleles are DNA variations. Dominance is usually functional (one working copy is enough), while recessive alleles often represent a loss of function. Dominant alleles do not physically destroy recessive DNA.",
+     "correctAnswers": [
+      "Alleles are variations in the nucleotide sequence of a gene at a specific locus.",
+      "Dominant alleles are usually those that code for a functional protein product.",
+      "Phenotypes are the macroscopic result of the underlying protein activity dictated by alleles."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The process where a single gene affects multiple, seemingly unrelated phenotypic traits is known as ____.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "pleiotropy",
+      "pleiotropic inheritance"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In humans (2n=46), how many chromosomes and chromatids are present in a single cell during Prophase I?",
+     "options": [
+      "23 chromosomes, 46 chromatids",
+      "46 chromosomes, 46 chromatids",
+      "46 chromosomes, 92 chromatids",
+      "92 chromosomes, 92 chromatids"
+     ],
+     "explanation": "In Prophase I, DNA has already been replicated (92 chromatids), but the chromosomes are still counted by their 46 centromeres.",
+     "correctAnswers": [
+      "46 chromosomes, 92 chromatids"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Molecular diagram of the DNA replication fork.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit4-q8.png"
+     },
+     "prompt": "Identify the features of DNA replication that ensure high fidelity and efficiency.",
+     "options": [
+      "DNA Polymerase III adds nucleotides in the 5' to 3' direction.",
+      "Topoisomerase relieves torsional strain ahead of the replication fork.",
+      "Okazaki fragments are formed on the leading strand to speed up synthesis.",
+      "Ligase joins the sugar-phosphate backbones of DNA fragments.",
+      "RNA primase is not required for eukaryotic replication."
+     ],
+     "explanation": "Leading strands are synthesized continuously, not in Okazaki fragments. RNA primase is required to start all DNA synthesis. Topoisomerase and Ligase are essential for structural integrity during and after replication.",
+     "correctAnswers": [
+      "DNA Polymerase III adds nucleotides in the 5' to 3' direction.",
+      "Topoisomerase relieves torsional strain ahead of the replication fork.",
+      "Ligase joins the sugar-phosphate backbones of DNA fragments."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The mathematical formula for the number of possible gamete combinations due to independent assortment is ____, where n is the haploid number.",
+     "placeholder": "e.g., x^y",
+     "correctAnswers": [
+      "2^n",
+      "2^N"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A testcross is performed between a dihybrid (AaBb) and a homozygous recessive (aabb). If the genes are NOT linked, what phenotypic ratio is expected in the offspring?",
+     "options": [
+      "9:3:3:1",
+      "1:1:1:1",
+      "3:1",
+      "1:2:1"
+     ],
+     "explanation": "In a testcross of an unlinked dihybrid, the phenotypic ratio of the offspring mirrors the gametic ratio of the dihybrid parent (AB, Ab, aB, ab), which is 1:1:1:1.",
+     "correctAnswers": [
+      "1:1:1:1"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are differences between prokaryotic and eukaryotic gene expression?",
+     "options": [
+      "Prokaryotes perform transcription and translation simultaneously in the cytoplasm.",
+      "Eukaryotes undergo extensive mRNA processing, including splicing and poly-A tail addition.",
+      "Prokaryotes use operons to regulate multiple genes with a single promoter.",
+      "Eukaryotes use RNA polymerase while prokaryotes use DNA polymerase for transcription.",
+      "Only eukaryotes use the genetic code to translate triplets into amino acids."
+     ],
+     "explanation": "Both use RNA polymerase for transcription and share the same universal genetic code. The lack of a nuclear membrane in prokaryotes allows for coupled transcription-translation.",
+     "correctAnswers": [
+      "Prokaryotes perform transcription and translation simultaneously in the cytoplasm.",
+      "Eukaryotes undergo extensive mRNA processing, including splicing and poly-A tail addition.",
+      "Prokaryotes use operons to regulate multiple genes with a single promoter."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process by which bacterial cells take up foreign DNA from their environment is called ____.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "transformation"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Human pedigree chart showing trait transmission.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit4-q13.png"
+     },
+     "prompt": "If a trait skips generations and affects males and females equally, what is the most likely mode of inheritance?",
+     "options": [
+      "Autosomal dominant",
+      "Autosomal recessive",
+      "X-linked recessive",
+      "Mitochondrial"
+     ],
+     "explanation": "Recessive traits can 'skip' generations when carried by heterozygotes. If it affects sexes equally, it is likely autosomal rather than sex-linked.",
+     "correctAnswers": [
+      "Autosomal recessive"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following mutations would likely have the most significant impact on the resulting protein structure?",
+     "options": [
+      "A silent mutation in the third position of a codon",
+      "A single nucleotide insertion near the start of the coding sequence",
+      "A nonsense mutation occurring near the beginning of the gene",
+      "A missense mutation replacing one non-polar amino acid with another non-polar one",
+      "A deletion of three nucleotides (one full codon) in the middle of the gene"
+     ],
+     "explanation": "Insertions cause frameshifts that change every subsequent amino acid. Nonsense mutations create premature stop codons. Both are devastating if they occur early in the sequence.",
+     "correctAnswers": [
+      "A single nucleotide insertion near the start of the coding sequence",
+      "A nonsense mutation occurring near the beginning of the gene"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "Regulatory components of the lac operon.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit4-q15.png"
+     },
+     "prompt": "In the lac operon, what happens when lactose is present but glucose is absent?",
+     "options": [
+      "The repressor binds the operator, blocking transcription.",
+      "cAMP levels are high, CAP activates the promoter, and the repressor is inactivated.",
+      "The operon is 'off' because glucose is required as an inducer.",
+      "RNA polymerase is physically unable to bind regardless of the repressor state."
+     ],
+     "explanation": "Lactose (allolactose) removes the repressor, and low glucose increases cAMP, which allows CAP to help RNA polymerase bind, leading to high transcription levels.",
+     "correctAnswers": [
+      "cAMP levels are high, CAP activates the promoter, and the repressor is inactivated."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following are essential components needed for a standard PCR (Polymerase Chain Reaction)?",
+     "options": [
+      "Taq DNA polymerase",
+      "RNA spliceosomes",
+      "Deoxynucleotides (dNTPs)",
+      "Specific DNA primers",
+      "Reverse transcriptase"
+     ],
+     "explanation": "PCR requires a heat-stable polymerase (Taq), building blocks (dNTPs), and primers to define the target sequence. Spliceosomes and reverse transcriptase are not part of standard DNA amplification.",
+     "correctAnswers": [
+      "Taq DNA polymerase",
+      "Deoxynucleotides (dNTPs)",
+      "Specific DNA primers"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "What is the purpose of the 'Stop' codon in translation?",
+     "options": [
+      "It codes for a special 'stop' amino acid that terminates the chain.",
+      "It binds a release factor protein that hydrolyzes the bond between the tRNA and the polypeptide.",
+      "It causes the mRNA to degrade instantly.",
+      "It signals the RNA polymerase to fall off the DNA template."
+     ],
+     "explanation": "Stop codons do not code for amino acids; instead, they are recognized by release factors that trigger the disassembly of the translation complex.",
+     "correctAnswers": [
+      "It binds a release factor protein that hydrolyzes the bond between the tRNA and the polypeptide."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "Select all statements that accurately describe epigenetic regulation.",
+     "options": [
+      "DNA methylation generally reduces gene expression by tightening chromatin.",
+      "Epigenetic changes involve permanent alterations to the DNA base sequence.",
+      "Histone acetylation typically promotes transcription by loosening DNA-histone binding.",
+      "Epigenetic marks can be influenced by environmental factors.",
+      "Epigenetic regulation occurs only in prokaryotic organisms."
+     ],
+     "explanation": "Epigenetics involves modifications to the DNA or histones (like methyl/acetyl groups) without changing the sequence itself. These changes are crucial for eukaryotic gene regulation.",
+     "correctAnswers": [
+      "DNA methylation generally reduces gene expression by tightening chromatin.",
+      "Histone acetylation typically promotes transcription by loosening DNA-histone binding.",
+      "Epigenetic marks can be influenced by environmental factors."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Model the alignment of chromosomes in a cell (2n=4) during Metaphase I to demonstrate independent assortment.",
+     "options": [
+      "Two pairs of homologous chromosomes aligned side-by-side with random parental orientation",
+      "Four individual chromosomes aligned single-file along the metaphase plate",
+      "Two pairs of homologous chromosomes fused into a single tetrad at one pole",
+      "Eight sister chromatids clustered at the center without pairing"
+     ],
+     "explanation": "Independent assortment occurs when homologous pairs (tetrads) align at the equator. The orientation of one pair is independent of others, leading to different possible combinations of maternal and paternal DNA in gametes.",
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Metaphase Alignment Simulator</title>`\n  `<style>`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #888888;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f5f8fc;`\n      `--accent-strong: #3a4f78;`\n      `--maternal: #4A90E2;`\n      `--paternal: #E05B5B;`\n      `--fiber: #cbd5e1;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `margin: 0;`\n      `padding: 0;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;`\n      `color: var(--fg);`\n      `-webkit-user-select: none;`\n      `user-select: none;`\n      `overflow: hidden;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `.widget-container {`\n      `width: 100%;`\n      `max-width: 480px;`\n      `margin: 0 auto;`\n      `padding: 12px;`\n      `box-sizing: border-box;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 12px;`\n    `}`\n\n    `.stage-container {`\n      `background: var(--stage);`\n      `border-radius: 12px;`\n      `border: 1px solid var(--border);`\n      `position: relative;`\n      `width: 100%;`\n      `overflow: hidden;`\n      `aspect-ratio: 16 / 9;`\n    `}`\n\n    `.stage-svg {`\n      `width: 100%;`\n      `height: 100%;`\n      `display: block;`\n    `}`\n\n    `/* Spindle fibers & cell parts */`\n    `.cell-outline {`\n      `stroke: #e4e0d8;`\n      `stroke-width: 3;`\n      `fill: #fdfdfc;`\n    `}`\n\n    `.metaphase-plate {`\n      `stroke: #d0cbc0;`\n      `stroke-width: 1.5;`\n      `stroke-dasharray: 4 4;`\n    `}`\n\n    `.spindle-fiber {`\n      `stroke: var(--fiber);`\n      `stroke-width: 1.2;`\n      `fill: none;`\n      `transition: d 0.4s cubic-bezier(0.25, 1, 0.5, 1);`\n    `}`\n\n    `.centrosome {`\n      `fill: #a1a8b5;`\n    `}`\n\n    `/* Chromosome Visuals */`\n    `.chr {`\n      `transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);`\n    `}`\n\n    `.chromatid-left, .chromatid-right {`\n      `stroke-width: 4.5;`\n      `stroke-linecap: round;`\n      `fill: none;`\n      `transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), d 0.4s cubic-bezier(0.25, 1, 0.5, 1);`\n    `}`\n\n    `.maternal { stroke: var(--maternal); }`\n    `.paternal { stroke: var(--paternal); }`\n\n    `.centromere {`\n      `fill: #ffffff;`\n      `stroke: #333333;`\n      `stroke-width: 1;`\n      `transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);`\n    `}`\n\n    `/* Interactive Slider Controls */`\n    `.controls {`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 8px;`\n      `background: var(--surface);`\n      `padding: 12px;`\n      `border-radius: 12px;`\n      `border: 1px solid var(--border);`\n    `}`\n\n    `.slider-wrapper {`\n      `position: relative;`\n      `width: 100%;`\n      `padding: 8px 0;`\n    `}`\n\n    `input[type=\"range\"] {`\n      `-webkit-appearance: none;`\n      `appearance: none;`\n      `width: 100%;`\n      `background: transparent;`\n      `margin: 0;`\n      `cursor: pointer;`\n    `}`\n\n    `input[type=\"range\"]:focus {`\n      `outline: none;`\n    `}`\n\n    `/* Track */`\n    `input[type=\"range\"]::-webkit-slider-runnable-track {`\n      `width: 100%;`\n      `height: 8px;`\n      `background: var(--border);`\n      `border-radius: 4px;`\n    `}`\n\n    `input[type=\"range\"]::-moz-range-track {`\n      `width: 100%;`\n      `height: 8px;`\n      `background: var(--border);`\n      `border-radius: 4px;`\n    `}`\n\n    `/* Thumb */`\n    `input[type=\"range\"]::-webkit-slider-thumb {`\n      `-webkit-appearance: none;`\n      `appearance: none;`\n      `margin-top: -6px;`\n      `height: 20px;`\n      `width: 20px;`\n      `border-radius: 50%;`\n      `background: var(--accent);`\n      `box-shadow: 0 2px 4px rgba(0,0,0,0.15);`\n      `transition: background-color 0.15s, transform 0.15s;`\n    `}`\n\n    `input[type=\"range\"]::-moz-range-thumb {`\n      `height: 20px;`\n      `width: 20px;`\n      `border: none;`\n      `border-radius: 50%;`\n      `background: var(--accent);`\n      `box-shadow: 0 2px 4px rgba(0,0,0,0.15);`\n      `transition: background-color 0.15s, transform 0.15s;`\n    `}`\n\n    `input[type=\"range\"]::-webkit-slider-thumb:hover {`\n      `background: var(--accent-strong);`\n      `transform: scale(1.1);`\n    `}`\n\n    `input[type=\"range\"]::-moz-range-thumb:hover {`\n      `background: var(--accent-strong);`\n      `transform: scale(1.1);`\n    `}`\n\n    `/* State labels */`\n    `.state-labels {`\n      `display: grid;`\n      `grid-template-columns: repeat(4, 1fr);`\n      `gap: 4px;`\n      `text-align: center;`\n    `}`\n\n    `.label-btn {`\n      `background: none;`\n      `border: none;`\n      `color: var(--muted-fg);`\n      `font-size: clamp(10px, 2.5vw, 11px);`\n      `font-weight: 500;`\n      `cursor: pointer;`\n      `padding: 4px;`\n      `border-radius: 6px;`\n      `transition: background 0.2s, color 0.2s;`\n      `line-height: 1.2;`\n    `}`\n\n    `.label-btn.active {`\n      `color: var(--accent-strong);`\n      `background: var(--accent-soft);`\n      `font-weight: 600;`\n    `}`\n\n    `.action-hint {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n      `margin-top: -2px;`\n    `}`\n\n    `.disabled-overlay {`\n      `display: none;`\n      `position: absolute;`\n      `top: 0; left: 0; right: 0; bottom: 0;`\n      `z-index: 10;`\n      `cursor: not-allowed;`\n    `}`\n\n    `.locked .disabled-overlay {`\n      `display: block;`\n    `}`\n    `.locked input[type=\"range\"] {`\n      `pointer-events: none;`\n      `opacity: 0.6;`\n    `}`\n    `.locked .label-btn {`\n      `pointer-events: none;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"sr-only\">Interactive Chromosome Alignment Configurator</h1>`\n\n  `<div class=\"widget-container\" id=\"widget\">`\n    `<div class=\"stage-container\">`\n      `<div class=\"disabled-overlay\"></div>`\n      `<svg class=\"stage-svg\" viewBox=\"0 0 320 180\" xmlns=\"http://www.w3.org/2000/svg\">`\n        `<!-- Cell Membrane and Metaphase Plate -->`\n        `<ellipse cx=\"160\" cy=\"90\" rx=\"145\" ry=\"80\" class=\"cell-outline\" />`\n        `<line x1=\"160\" y1=\"10\" x2=\"160\" y2=\"170\" class=\"metaphase-plate\" />`\n\n        `<!-- Centrosomes (Poles) -->`\n        `<circle cx=\"25\" cy=\"90\" r=\"4\" class=\"centrosome\" />`\n        `<circle cx=\"295\" cy=\"90\" r=\"4\" class=\"centrosome\" />`\n\n        `<!-- Spindle Fibers (Dynamically updated via JS) -->`\n        `<path id=\"fiber-left-1\" class=\"spindle-fiber\" d=\"\" />`\n        `<path id=\"fiber-left-2\" class=\"spindle-fiber\" d=\"\" />`\n        `<path id=\"fiber-left-3\" class=\"spindle-fiber\" d=\"\" />`\n        `<path id=\"fiber-left-4\" class=\"spindle-fiber\" d=\"\" />`\n        `<path id=\"fiber-right-1\" class=\"spindle-fiber\" d=\"\" />`\n        `<path id=\"fiber-right-2\" class=\"spindle-fiber\" d=\"\" />`\n        `<path id=\"fiber-right-3\" class=\"spindle-fiber\" d=\"\" />`\n        `<path id=\"fiber-right-4\" class=\"spindle-fiber\" d=\"\" />`\n\n        `<!-- Chromosomes Group -->`\n        `<!-- Each chromosome consists of a centromere and two sister chromatids -->`\n        `<!-- Chromosome 1: Large Maternal (Blue) -->`\n        `<g id=\"chr1\" class=\"chr\">`\n          `<path class=\"chromatid-left maternal\" d=\"M -2 -14 C -6 -7, -6 7, -2 14\" />`\n          `<path class=\"chromatid-right maternal\" d=\"M 2 -14 C 6 -7, 6 7, 2 14\" />`\n          `<circle class=\"centromere\" cx=\"0\" cy=\"0\" r=\"3\" />`\n        `</g>`\n\n        `<!-- Chromosome 2: Large Paternal (Red) -->`\n        `<g id=\"chr2\" class=\"chr\">`\n          `<path class=\"chromatid-left paternal\" d=\"M -2 -14 C -6 -7, -6 7, -2 14\" />`\n          `<path class=\"chromatid-right paternal\" d=\"M 2 -14 C 6 -7, 6 7, 2 14\" />`\n          `<circle class=\"centromere\" cx=\"0\" cy=\"0\" r=\"3\" />`\n        `</g>`\n\n        `<!-- Chromosome 3: Small Maternal (Blue) -->`\n        `<g id=\"chr3\" class=\"chr\">`\n          `<path class=\"chromatid-left maternal\" d=\"M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9\" />`\n          `<path class=\"chromatid-right maternal\" d=\"M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9\" />`\n          `<circle class=\"centromere\" cx=\"0\" cy=\"0\" r=\"2.5\" />`\n        `</g>`\n\n        `<!-- Chromosome 4: Small Paternal (Red) -->`\n        `<g id=\"chr4\" class=\"chr\">`\n          `<path class=\"chromatid-left paternal\" d=\"M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9\" />`\n          `<path class=\"chromatid-right paternal\" d=\"M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9\" />`\n          `<circle class=\"centromere\" cx=\"0\" cy=\"0\" r=\"2.5\" />`\n        `</g>`\n      `</svg>`\n    `</div>`\n\n    `<div class=\"controls\">`\n      `<div class=\"slider-wrapper\">`\n        `<input type=\"range\" id=\"stateSlider\" min=\"0\" max=\"3\" step=\"1\" value=\"0\" aria-label=\"Select Metaphase Configuration\">`\n      `</div>`\n      `<div class=\"state-labels\">`\n        `<button class=\"label-btn active\" onclick=\"setStep(0)\">Homologous Pairs</button>`\n        `<button class=\"label-btn\" onclick=\"setStep(1)\">Single File</button>`\n        `<button class=\"label-btn\" onclick=\"setStep(2)\">Fused Tetrad</button>`\n        `<button class=\"label-btn\" onclick=\"setStep(3)\">Unpaired Clusters</button>`\n      `</div>`\n    `</div>`\n\n    `<div class=\"action-hint\">`\n      `Drag the slider or click options to configure chromosome alignment.`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `// The strict list of answer options`\n    `const OPTIONS = [`\n      `\"Two pairs of homologous chromosomes aligned side-by-side with random parental orientation\",`\n      `\"Four individual chromosomes aligned single-file along the metaphase plate\",`\n      `\"Two pairs of homologous chromosomes fused into a single tetrad at one pole\",`\n      `\"Eight sister chromatids clustered at the center without pairing\"`\n    `];`\n\n    `const stateSlider = document.getElementById('stateSlider');`\n    `const labelButtons = document.querySelectorAll('.label-btn');`\n    `const widget = document.getElementById('widget');`\n\n    `// Chromosome layout coordinates & configurations for each step`\n    `const configs = [`\n      `{`\n        `// Step 0: Side-by-side homologous alignment (Metaphase I)`\n        `chr1: { tx: 142, ty: 60, r: 0, s: 1, cL: 'M -2 -14 C -6 -7, -6 7, -2 14', cR: 'M 2 -14 C 6 -7, 6 7, 2 14' },`\n        `chr2: { tx: 178, ty: 60, r: 0, s: 1, cL: 'M -2 -14 C -6 -7, -6 7, -2 14', cR: 'M 2 -14 C 6 -7, 6 7, 2 14' },`\n        `chr3: { tx: 144, ty: 120, r: 0, s: 1, cL: 'M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9', cR: 'M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9' },`\n        `chr4: { tx: 176, ty: 120, r: 0, s: 1, cL: 'M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9', cR: 'M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9' },`\n        `fibers: {`\n          `L1: 'M 25 90 Q 80 75, 142 60', R1: 'M 295 90 Q 240 75, 178 60',`\n          `L2: '', R2: '',`\n          `L3: 'M 25 90 Q 80 105, 144 120', R3: 'M 295 90 Q 240 105, 176 120',`\n          `L4: '', R4: ''`\n        `}`\n      `},`\n      `{`\n        `// Step 1: Single file alignment (Mitosis / Metaphase II style)`\n        `chr1: { tx: 160, ty: 40, r: 90, s: 1, cL: 'M -2 -14 C -6 -7, -6 7, -2 14', cR: 'M 2 -14 C 6 -7, 6 7, 2 14' },`\n        `chr2: { tx: 160, ty: 73, r: 90, s: 1, cL: 'M -2 -14 C -6 -7, -6 7, -2 14', cR: 'M 2 -14 C 6 -7, 6 7, 2 14' },`\n        `chr3: { tx: 160, ty: 107, r: 90, s: 1, cL: 'M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9', cR: 'M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9' },`\n        `chr4: { tx: 160, ty: 140, r: 90, s: 1, cL: 'M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9', cR: 'M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9' },`\n        `fibers: {`\n          `L1: 'M 25 90 Q 90 65, 160 40', R1: 'M 295 90 Q 230 65, 160 40',`\n          `L2: 'M 25 90 Q 90 81, 160 73', R2: 'M 295 90 Q 230 81, 160 73',`\n          `L3: 'M 25 90 Q 90 98, 160 107', R3: 'M 295 90 Q 230 98, 160 107',`\n          `L4: 'M 25 90 Q 90 115, 160 140', R4: 'M 295 90 Q 230 115, 160 140'`\n        `}`\n      `},`\n      `{`\n        `// Step 2: Fused at one pole (Abnormal tetrad fusion)`\n        `chr1: { tx: 50, ty: 75, r: 45, s: 1, cL: 'M -2 -14 C -6 -7, -6 7, -2 14', cR: 'M 2 -14 C 6 -7, 6 7, 2 14' },`\n        `chr2: { tx: 55, ty: 85, r: -30, s: 1, cL: 'M -2 -14 C -6 -7, -6 7, -2 14', cR: 'M 2 -14 C 6 -7, 6 7, 2 14' },`\n        `chr3: { tx: 52, ty: 95, r: 15, s: 1, cL: 'M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9', cR: 'M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9' },`\n        `chr4: { tx: 58, ty: 105, r: -60, s: 1, cL: 'M -1.5 -9 C -4.5 -4.5, -4.5 4.5, -1.5 9', cR: 'M 1.5 -9 C 4.5 -4.5, 4.5 4.5, 1.5 9' },`\n        `fibers: {`\n          `L1: 'M 25 90 L 50 75', R1: '',`\n          `L2: 'M 25 90 L 55 85', R2: '',`\n          `L3: 'M 25 90 L 52 95', R3: '',`\n          `L4: 'M 25 90 L 58 105', R4: ''`\n        `}`\n      `},`\n      `{`\n        `// Step 3: Unpaired individual chromatids scattered/clustered (No centromeres / sister cohesion)`\n        `chr1: { tx: 135, ty: 65, r: -15, s: 1, cL: 'M -6 -14 Q -12 0, -6 14', cR: 'M 6 -14 Q 12 0, 6 14' },`\n        `chr2: { tx: 185, ty: 75, r: 40, s: 1, cL: 'M -5 -14 Q -10 0, -5 14', cR: 'M 5 -14 Q 10 0, 5 14' },`\n        `chr3: { tx: 140, ty: 115, r: 75, s: 1, cL: 'M -4 -9 Q -8 0, -4 9', cR: 'M 4 -9 Q 8 0, 4 9' },`\n        `chr4: { tx: 180, ty: 110, r: -45, s: 1, cL: 'M -4 -9 Q -8 0, -4 9', cR: 'M 4 -9 Q 8 0, 4 9' },`\n        `fibers: {`\n          `L1: '', R1: '',`\n          `L2: '', R2: '',`\n          `L3: '', R3: '',`\n          `L4: '', R4: ''`\n        `}`\n      `}`\n    `];`\n\n    `let currentStep = 0;`\n    `let hasCommitted = false;`\n\n    `function updateVisuals(step) {`\n      `const config = configs[step];`\n      `const duration = 400;`\n\n      `// Apply transforms to each chromosome`\n      `for (let i = 1; i <= 4; i++) {`\n        `const chrData = config[\\`chr\\${i}\\`];`\n        `const group = document.getElementById(\\`chr\\${i}\\`);`\n        `group.setAttribute('transform', \\`translate(\\${chrData.tx}, \\${chrData.ty}) rotate(\\${chrData.r}) scale(\\${chrData.s})\\`);`\n        `group.querySelector('.chromatid-left').setAttribute('d', chrData.cL);`\n        `group.querySelector('.chromatid-right').setAttribute('d', chrData.cR);`\n        `// Fade out centromere center for State 3 (unpaired clusters)`\n        `group.querySelector('.centromere').style.opacity = step === 3 ? '0' : '1';`\n      `}`\n\n      `// Update spindle fibers`\n      `document.getElementById('fiber-left-1').setAttribute('d', config.fibers.L1);`\n      `document.getElementById('fiber-left-2').setAttribute('d', config.fibers.L2);`\n      `document.getElementById('fiber-left-3').setAttribute('d', config.fibers.L3);`\n      `document.getElementById('fiber-left-4').setAttribute('d', config.fibers.L4);`\n      `document.getElementById('fiber-right-1').setAttribute('d', config.fibers.R1);`\n      `document.getElementById('fiber-right-2').setAttribute('d', config.fibers.R2);`\n      `document.getElementById('fiber-right-3').setAttribute('d', config.fibers.R3);`\n      `document.getElementById('fiber-right-4').setAttribute('d', config.fibers.R4);`\n\n      `// Update active UI classes`\n      `labelButtons.forEach((btn, idx) => {`\n        `btn.classList.toggle('active', idx === step);`\n      `});`\n    `}`\n\n    `function setStep(step) {`\n      `currentStep = step;`\n      `stateSlider.value = step;`\n      `updateVisuals(step);`\n      `hasCommitted = true;`\n      `reportAnswer();`\n    `}`\n\n    `stateSlider.addEventListener('input', (e) => {`\n      `setStep(parseInt(e.target.value, 10));`\n    `});`\n\n    `// Answer Reporting`\n    `function reportAnswer() {`\n      `if (!hasCommitted) return;`\n      `const currentOption = OPTIONS[currentStep];`\n      `try {`\n        `parent.postMessage({ type: 'hk-practice-answer', value: currentOption }, '*');`\n      `} catch (e) {`\n        `console.error(\"Failed to post message\", e);`\n      `}`\n    `}`\n\n    `// Lock Support`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `widget.classList.add('locked');`\n      `}`\n    `});`\n\n    `// Height Reporting`\n    `function sendHeight() {`\n      `try {`\n        `const height = Math.ceil(document.documentElement.getBoundingClientRect().height);`\n        `parent.postMessage({ type: 'hk-anim-height', height: height }, '*');`\n      `} catch (e) {`\n        `console.error(e);`\n      `}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `updateVisuals(0);`\n      `sendHeight();`\n    `});`\n\n    `const resizeObserver = new ResizeObserver(() => {`\n      `sendHeight();`\n    `});`\n    `resizeObserver.observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "Two pairs of homologous chromosomes aligned side-by-side with random parental orientation"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Examination: Natural Selection and Evolution",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A researcher discovers that a population of finches on an island has experienced a significant shift in beak depth following a decade of severe drought. Which of the following is the most accurate biological explanation for this change?",
+     "options": [
+      "The finches developed deeper beaks because they needed them to crack harder seeds during the drought.",
+      "Individual finches with shallower beaks gradually grew larger beaks to adapt to the changing food source.",
+      "Finches with pre-existing deeper beaks survived and reproduced more successfully, passing those traits to offspring.",
+      "The drought caused a high rate of mutations specifically for beak size to ensure the species' survival."
+     ],
+     "explanation": "Natural selection acts on pre-existing variation. It does not 'create' traits based on need (Lamarckian thinking), nor does environmental stress cause specific directed mutations; rather, it filters the existing population for the most advantageous phenotypes.",
+     "correctAnswers": [
+      "Finches with pre-existing deeper beaks survived and reproduced more successfully, passing those traits to offspring."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios demonstrate high evolutionary fitness as defined in biological terms? Select all that apply.",
+     "options": [
+      "A physically weak salmon that survives long enough to fertilize thousands of eggs.",
+      "A sterile mule that is stronger and faster than both its horse and donkey parents.",
+      "A small, drab bird that successfully raises four broods of chicks in its lifetime.",
+      "A dominant male lion that dies young after siring dozens of surviving cubs.",
+      "A long-lived tortoise that lives for 150 years but never finds a mate."
+     ],
+     "explanation": "Biological fitness is strictly measured by reproductive success and the contribution to the next generation's gene pool. Longevity, physical strength, or speed are only relevant if they lead to the production of viable offspring; sterile or non-reproducing individuals have zero evolutionary fitness.",
+     "correctAnswers": [
+      "A physically weak salmon that survives long enough to fertilize thousands of eggs.",
+      "A small, drab bird that successfully raises four broods of chicks in its lifetime.",
+      "A dominant male lion that dies young after siring dozens of surviving cubs."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The similarity in the bone structure of a human arm, a whale's flipper, and a bat's wing is an example of ____ structures, which indicate descent from a common ancestor.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "homologous",
+      "homology"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What does the 'q' represent in the Hardy-Weinberg equation (p + q = 1)?",
+     "options": [
+      "The frequency of the dominant allele",
+      "The frequency of the recessive allele",
+      "The frequency of the homozygous recessive phenotype",
+      "The frequency of the heterozygous genotype"
+     ],
+     "explanation": "In Hardy-Weinberg notation, p represents the frequency of the dominant allele and q represents the frequency of the recessive allele. Their sum must equal 1 (100% of the alleles in the gene pool).",
+     "correctAnswers": [
+      "The frequency of the recessive allele"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A population is found to be in Hardy-Weinberg Equilibrium. Which of the following conditions must be true for this population? Select all that apply.",
+     "options": [
+      "No mutations are occurring.",
+      "Mating is occurring randomly.",
+      "The population size is very small.",
+      "Significant gene flow is occurring with neighboring populations.",
+      "Natural selection is not acting on the trait in question."
+     ],
+     "explanation": "Hardy-Weinberg Equilibrium requires five conditions: no mutation, random mating, no natural selection, extremely large population size (to minimize genetic drift), and no gene flow.",
+     "correctAnswers": [
+      "No mutations are occurring.",
+      "Mating is occurring randomly.",
+      "Natural selection is not acting on the trait in question."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If the frequency of the homozygous recessive genotype (q²) in a population is 0.09, the frequency of the recessive allele (q) is ____.",
+     "placeholder": "0.0",
+     "correctAnswers": [
+      "0.3",
+      "0.30",
+      ".3"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of two unrelated gliding mammals showing similar body shapes.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit5-q7.png"
+     },
+     "prompt": "Sugar gliders (marsupials in Australia) and flying squirrels (placentals in North America) both have gliding membranes but are not closely related. This is an example of:",
+     "options": [
+      "Divergent evolution",
+      "Convergent evolution",
+      "Homologous structures",
+      "Common ancestry"
+     ],
+     "explanation": "Convergent evolution occurs when unrelated species evolve similar traits (analogous structures) independently because they are adapting to similar environments or ecological niches.",
+     "correctAnswers": [
+      "Convergent evolution"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following provide evidence for the common ancestry of all life on Earth? Select all that apply.",
+     "options": [
+      "The universal nature of the genetic code (DNA/RNA).",
+      "Shared metabolic pathways like glycolysis.",
+      "The use of ATP as the primary energy currency.",
+      "All organisms requiring oxygen for respiration.",
+      "The presence of hair in all vertebrate species."
+     ],
+     "explanation": "Molecular evidence such as the universal genetic code, ATP usage, and glycolysis are found across all domains of life, indicating a single common ancestor. Not all organisms require oxygen (anaerobes), and hair is specific to mammals.",
+     "correctAnswers": [
+      "The universal nature of the genetic code (DNA/RNA).",
+      "Shared metabolic pathways like glycolysis.",
+      "The use of ATP as the primary energy currency."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "Speciation that occurs when a population is divided by a geographic barrier, such as a mountain range or ocean, is called ____ speciation.",
+     "placeholder": "type of speciation",
+     "correctAnswers": [
+      "allopatric"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Phylogenetic tree diagram highlighting a branching node.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit5-q10.png"
+     },
+     "prompt": "In a phylogenetic tree, what does a 'node' (branching point) represent?",
+     "options": [
+      "The extinction of a species",
+      "The most recent common ancestor of the descendant lineages",
+      "A specific mutation that occurred in an individual",
+      "The chronological age of the fossil record"
+     ],
+     "explanation": "Nodes represent the point in evolutionary history where a single lineage split into two or more distinct descendant lineages, marking their most recent common ancestor.",
+     "correctAnswers": [
+      "The most recent common ancestor of the descendant lineages"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following factors are likely to result in a change in allele frequencies in a small population? Select all that apply.",
+     "options": [
+      "Genetic drift",
+      "Non-random mating",
+      "A large influx of immigrants from a different population",
+      "A stable environment with no selection",
+      "A bottleneck event"
+     ],
+     "explanation": "Small populations are highly susceptible to genetic drift and bottlenecks. Gene flow (immigration) and non-random mating also disrupt Hardy-Weinberg equilibrium by changing how alleles are distributed or present.",
+     "correctAnswers": [
+      "Genetic drift",
+      "Non-random mating",
+      "A large influx of immigrants from a different population",
+      "A bottleneck event"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process where unrelated species evolve similar traits due to similar selective pressures is known as ____ evolution.",
+     "placeholder": "type of evolution",
+     "correctAnswers": [
+      "convergent"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Which mechanism of reproductive isolation is 'post-zygotic'?",
+     "options": [
+      "Temporal isolation (breeding at different times)",
+      "Behavioral isolation (different mating calls)",
+      "Hybrid sterility (offspring cannot reproduce)",
+      "Mechanical isolation (incompatible reproductive organs)"
+     ],
+     "explanation": "Post-zygotic barriers occur after fertilization has taken place. Hybrid sterility (like in mules) allows an offspring to be born but prevents that offspring from passing on genes.",
+     "correctAnswers": [
+      "Hybrid sterility (offspring cannot reproduce)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the conditions that would likely lead to sympatric speciation. Select all that apply.",
+     "options": [
+      "Polyploidy in plants.",
+      "A physical barrier like a new river forming.",
+      "Sexual selection for different traits within the same area.",
+      "Habitat differentiation within a single geographic region.",
+      "Total extinction of the parent population."
+     ],
+     "explanation": "Sympatric speciation occurs without geographic isolation. It is often driven by polyploidy (chromosomal changes), sexual selection, or subsets of a population utilizing different micro-habitats in the same area.",
+     "correctAnswers": [
+      "Polyploidy in plants.",
+      "Sexual selection for different traits within the same area.",
+      "Habitat differentiation within a single geographic region."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In the Hardy-Weinberg equation, the term ____ represents the frequency of the homozygous dominant genotype.",
+     "placeholder": "expression",
+     "correctAnswers": [
+      "p^2",
+      "p2",
+      "p squared"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "image": {
+      "alt": "Graph of disruptive selection showing two peaks at the extremes.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit5-q16.png"
+     },
+     "prompt": "In a population of flowers, individuals with intermediate petal lengths are selected against, while those with very long or very short petals have higher fitness. This is an example of:",
+     "options": [
+      "Directional selection",
+      "Stabilizing selection",
+      "Disruptive selection",
+      "Artificial selection"
+     ],
+     "explanation": "Disruptive selection favors both extremes of a phenotypic range over intermediate phenotypes, often leading to increased variation and potentially speciation.",
+     "correctAnswers": [
+      "Disruptive selection"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "image": {
+      "alt": "Cladogram of vertebrates with derived characters.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit5-q17.png"
+     },
+     "prompt": "When constructing a cladogram, which of the following are used to determine relationships? Select all that apply.",
+     "options": [
+      "Shared derived characters",
+      "DNA sequence similarity",
+      "The current geographic proximity of species",
+      "Analogous structures resulting from convergence",
+      "Protein amino acid sequences"
+     ],
+     "explanation": "Cladograms are built using homologous traits—specifically shared derived characters—and molecular data (DNA/Proteins). Analogous structures and simple geographic proximity can be misleading due to convergent evolution and migration.",
+     "correctAnswers": [
+      "Shared derived characters",
+      "DNA sequence similarity",
+      "Protein amino acid sequences"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Adjust the population parameters to demonstrate how a sudden environmental shift leads to a bottleneck effect.",
+     "options": [
+      "High genetic diversity maintained after the event",
+      "Loss of rare alleles and reduced genetic variation",
+      "Immediate speciation into two distinct groups",
+      "Increased mutation rate to compensate for population loss"
+     ],
+     "explanation": "A bottleneck effect occurs when a population size is drastically reduced by a non-selective event (like a disaster). This leads to a random loss of alleles, significantly reducing the genetic diversity of the surviving population compared to the original.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Bottleneck Effect Simulation</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 10px;\n    }\n\n    /* Animation Stage */\n    .stage-container {\n      position: relative;\n      width: 100%;\n      max-width: 480px;\n      height: 190px;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      overflow: hidden;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Control Panel */\n    .controls {\n      width: 100%;\n      max-width: 480px;\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n      align-items: center;\n    }\n\n    .action-hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n    }\n\n    /* Interactive Slider */\n    .slider-container {\n      position: relative;\n      width: 90%;\n      height: 48px;\n      display: flex;\n      align-items: center;\n      touch-action: none;\n    }\n\n    .slider-track {\n      position: absolute;\n      left: 0;\n      right: 0;\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n    }\n\n    .slider-ticks {\n      position: absolute;\n      left: 0;\n      right: 0;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .tick {\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--border);\n      transform: translateY(-2px);\n      transition: background 0.2s;\n    }\n\n    .tick.active {\n      background: var(--accent);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 3px solid var(--accent);\n      box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n      cursor: grab;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transform: translateX(-12px);\n      transition: transform 0.1s ease, border-color 0.2s;\n      z-index: 10;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: translateX(-12px) scale(1.1);\n      border-color: var(--accent-strong);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    /* Option Label Card */\n    .option-card {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border: 1.5px solid var(--accent);\n      border-radius: 8px;\n      padding: 10px 14px;\n      box-sizing: border-box;\n      text-align: center;\n      font-weight: 600;\n      font-size: 13px;\n      color: var(--accent-strong);\n      box-shadow: 0 2px 8px rgba(76, 102, 150, 0.08);\n      min-height: 48px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: border-color 0.2s, background-color 0.2s;\n    }\n\n    /* Glow effect for mutator */\n    .mutator-glow {\n      filter: drop-shadow(0 0 4px #ff00ff);\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Bottleneck Effect Demonstration - Choose a scenario to see the genetic outcome</h1>\n\n  <div id=\"widget-container\">\n    <!-- Visual Stage -->\n    <div class=\"stage-container\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 190\">\n        <!-- Definitions -->\n        <defs>\n          <linearGradient id=\"flask-grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n            <stop offset=\"0%\" stop-color=\"#ffffff\" stop-opacity=\"0.2\"/>\n            <stop offset=\"100%\" stop-color=\"#ffffff\" stop-opacity=\"0.05\"/>\n          </linearGradient>\n          <filter id=\"glow\">\n            <feGaussianBlur stdDeviation=\"2\" result=\"coloredBlur\"/>\n            <feMerge>\n              <feMergeNode in=\"coloredBlur\"/>\n              <feMergeNode in=\"SourceGraphic\"/>\n            </feMerge>\n          </filter>\n        </defs>\n\n        <!-- Background grid/pattern (subtle) -->\n        <g opacity=\"0.15\">\n          <line x1=\"0\" y1=\"95\" x2=\"400\" y2=\"95\" stroke=\"#1f1f1f\" stroke-dasharray=\"4\"/>\n          <line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"190\" stroke=\"#1f1f1f\" stroke-dasharray=\"4\"/>\n        </g>\n\n        <!-- Upper Container (Source Flask) -->\n        <g id=\"flask-group\">\n          <!-- Main body of the upper jar -->\n          <path d=\"M 150 15 L 250 15 C 270 15, 280 40, 270 65 L 230 110 L 170 110 L 130 65 C 120 40, 130 15, 150 15 Z\" fill=\"url(#flask-grad)\" stroke=\"#bdc3c7\" stroke-width=\"2\"/>\n          <rect x=\"170\" y=\"110\" width=\"60\" height=\"15\" fill=\"none\" stroke=\"#bdc3c7\" stroke-width=\"2\" />\n        </g>\n\n        <!-- Middle Filter / Neck Area (Changes visually based on active state) -->\n        <!-- Wide Neck / Normal Filter -->\n        <g id=\"filter-normal\" opacity=\"0\">\n          <path d=\"M 170 125 L 230 125 L 230 145 L 170 145 Z\" fill=\"#e2e2e2\" opacity=\"0.3\"/>\n          <line x1=\"170\" y1=\"135\" x2=\"230\" y2=\"135\" stroke=\"#bdc3c7\" stroke-width=\"2\" stroke-dasharray=\"2 2\"/>\n        </g>\n        \n        <!-- Narrow Bottleneck -->\n        <g id=\"filter-narrow\" opacity=\"0\">\n          <path d=\"M 170 125 L 230 125 L 205 145 L 195 145 Z\" fill=\"#e2e2e2\" opacity=\"0.5\"/>\n          <line x1=\"195\" y1=\"145\" x2=\"205\" y2=\"145\" stroke=\"#e74c3c\" stroke-width=\"3\"/>\n        </g>\n\n        <!-- Speciation Splitter -->\n        <g id=\"filter-split\" opacity=\"0\">\n          <path d=\"M 190 125 L 210 125 L 235 150 L 165 150 Z\" fill=\"none\" stroke=\"#bdc3c7\" stroke-width=\"2\"/>\n          <path d=\"M 198 125 L 198 135 L 155 150 M 202 125 L 202 135 L 245 150\" fill=\"none\" stroke=\"#4C6696\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n        </g>\n\n        <!-- Mutation Glow Filter -->\n        <g id=\"filter-mutate\" opacity=\"0\">\n          <rect x=\"170\" y=\"125\" width=\"60\" height=\"15\" fill=\"#f1c40f\" opacity=\"0.2\" filter=\"url(#glow)\"/>\n          <line x1=\"170\" y1=\"132\" x2=\"230\" y2=\"132\" stroke=\"#f1c40f\" stroke-width=\"3\" stroke-dasharray=\"3 1\" filter=\"url(#glow)\"/>\n        </g>\n\n        <!-- Bottom Bottles -->\n        <!-- Center Single Bottle -->\n        <g id=\"bottom-bottle-single\" opacity=\"1\">\n          <path d=\"M 180 150 L 220 150 L 235 165 L 235 185 L 165 185 L 165 165 Z\" fill=\"none\" stroke=\"#95a5a6\" stroke-width=\"2\"/>\n        </g>\n\n        <!-- Dual Speciation Bottles -->\n        <g id=\"bottom-bottle-dual\" opacity=\"0\">\n          <!-- Left Bottle -->\n          <path d=\"M 130 150 L 160 150 L 170 162 L 170 185 L 120 185 L 120 162 Z\" fill=\"none\" stroke=\"#95a5a6\" stroke-width=\"2\"/>\n          <!-- Right Bottle -->\n          <path d=\"M 240 150 L 270 150 L 280 162 L 280 185 L 230 185 L 230 162 Z\" fill=\"none\" stroke=\"#95a5a6\" stroke-width=\"2\"/>\n        </g>\n\n        <!-- Render Container for Animated Beads -->\n        <g id=\"beads-layer\"></g>\n      </svg>\n    </div>\n\n    <!-- Live Option Card feedback -->\n    <div class=\"option-card\" id=\"option-feedback\">\n      <!-- To be populated dynamically -->\n    </div>\n\n    <!-- Draggable Timeline / Slider Control -->\n    <div class=\"controls\">\n      <div class=\"slider-container\" id=\"slider-box\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"0\" tabindex=\"0\" aria-label=\"Select Bottleneck Scenario\">\n        <div class=\"slider-track\"></div>\n        <div class=\"slider-ticks\" id=\"slider-ticks\">\n          <div class=\"tick active\"></div>\n          <div class=\"tick\"></div>\n          <div class=\"tick\"></div>\n          <div class=\"tick\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"slider-handle\"></div>\n      </div>\n      <p class=\"action-hint\">Drag the slider to alter the bottleneck mechanism</p>\n    </div>\n  </div>\n\n  <script>\n    // Exact Option Strings required by contract\n    const OPTIONS = [\n      \"High genetic diversity maintained after the event\",\n      \"Loss of rare alleles and reduced genetic variation\",\n      \"Immediate speciation into two distinct groups\",\n      \"Increased mutation rate to compensate for population loss\"\n    ];\n\n    // Bead color definitions\n    const COLORS = {\n      RED: '#e74c3c',\n      BLUE: '#3498db',\n      GREEN: '#2ecc71',\n      YELLOW: '#f1c40f',\n      PURPLE: '#9b59b6',\n      MUTATED: '#ff007f' // Neon Pink\n    };\n    const ALL_COLORS = [COLORS.RED, COLORS.BLUE, COLORS.GREEN, COLORS.YELLOW, COLORS.PURPLE];\n\n    // State Variables\n    let currentIdx = -1; \n    let isLocked = false;\n    let beads = [];\n    let animationFrameId = null;\n\n    // DOM References\n    const sliderBox = document.getElementById('slider-box');\n    const sliderHandle = document.getElementById('slider-handle');\n    const ticks = document.querySelectorAll('.tick');\n    const optionFeedback = document.getElementById('option-feedback');\n    const beadsLayer = document.getElementById('beads-layer');\n\n    // Visual Filter Scenarios\n    const filterNormal = document.getElementById('filter-normal');\n    const filterNarrow = document.getElementById('filter-narrow');\n    const filterSplit = document.getElementById('filter-split');\n    const filterMutate = document.getElementById('filter-mutate');\n    const bottleSingle = document.getElementById('bottom-bottle-single');\n    const bottleDual = document.getElementById('bottom-bottle-dual');\n\n    // Setup initial beads layout in the upper flask\n    function initBeadsPool() {\n      beads = [];\n      // Generate 60 beads packed in the upper flask\n      // Flask center at X: 200, Y: 60\n      for (let i = 0; i < 60; i++) {\n        const color = ALL_COLORS[i % ALL_COLORS.length];\n        // Distribute within flask shape roughly\n        const angle = Math.random() * Math.PI * 2;\n        const dist = Math.random() * 32;\n        const x = 200 + Math.cos(angle) * dist;\n        const y = 55 + Math.sin(angle) * dist * 0.7;\n        \n        beads.push({\n          id: i,\n          originX: x,\n          originY: y,\n          x: x,\n          y: y,\n          color: color,\n          originalColor: color,\n          vx: 0,\n          vy: 0,\n          status: 'pool', // 'pool', 'falling', 'landed'\n          delay: Math.random() * 20,\n          targetBottle: 'center' // 'center', 'left', 'right'\n        });\n      }\n      renderBeads();\n    }\n\n    function renderBeads() {\n      let html = '';\n      beads.forEach(bead => {\n        html += `<circle cx=\"${bead.x}\" cy=\"${bead.y}\" r=\"3.5\" fill=\"${bead.color}\" stroke=\"#ffffff\" stroke-width=\"0.5\" />`;\n      });\n      beadsLayer.innerHTML = html;\n    }\n\n    // Interactive Bead physics / pour animation\n    function triggerPourAnimation(scenarioIdx) {\n      if (animationFrameId) cancelAnimationFrame(animationFrameId);\n      \n      // Reset beads to top flask\n      beads.forEach(bead => {\n        bead.x = bead.originX;\n        bead.y = bead.originY;\n        bead.vx = 0;\n        bead.vy = 0;\n        bead.color = bead.originalColor;\n        bead.status = 'pool';\n        bead.targetBottle = 'center';\n      });\n\n      // Assign targets and specific behaviors based on scenario\n      if (scenarioIdx === 0) {\n        // High diversity - almost all fall down safely\n        beads.forEach((bead, idx) => {\n          if (idx < 25) { // Pour a decent bunch\n            bead.status = 'wait';\n            bead.delay = idx * 2.5;\n          }\n        });\n      } else if (scenarioIdx === 1) {\n        // Bottleneck - only RED beads (or mostly 1 color) pass\n        let passedCount = 0;\n        beads.forEach((bead, idx) => {\n          if (bead.originalColor === COLORS.RED && passedCount < 6) {\n            bead.status = 'wait';\n            bead.delay = passedCount * 8;\n            passedCount++;\n          }\n        });\n      } else if (scenarioIdx === 2) {\n        // Speciation - Split beads to left and right bottles based on color split\n        let leftCount = 0;\n        let rightCount = 0;\n        beads.forEach((bead, idx) => {\n          if (idx < 24) {\n            bead.status = 'wait';\n            bead.delay = idx * 3;\n            if (idx % 2 === 0) {\n              bead.targetBottle = 'left';\n              leftCount++;\n            } else {\n              bead.targetBottle = 'right';\n              rightCount++;\n            }\n          }\n        });\n      } else if (scenarioIdx === 3) {\n        // Mutation - Beads turn green/blue to MUTATED mid-air\n        beads.forEach((bead, idx) => {\n          if (idx < 15) {\n            bead.status = 'wait';\n            bead.delay = idx * 4;\n          }\n        });\n      }\n\n      function update() {\n        let activeAnimations = false;\n\n        beads.forEach(bead => {\n          if (bead.status === 'wait') {\n            bead.delay -= 1;\n            if (bead.delay <= 0) {\n              bead.status = 'falling';\n              bead.vx = (Math.random() - 0.5) * 0.8;\n              bead.vy = 1.5;\n            }\n            activeAnimations = true;\n          } else if (bead.status === 'falling') {\n            activeAnimations = true;\n            bead.x += bead.vx;\n            bead.y += bead.vy;\n            bead.vy += 0.15; // gravity\n\n            // Mid-air modification filters\n            if (scenarioIdx === 3 && bead.y > 125 && bead.y < 140) {\n              bead.color = COLORS.MUTATED; // Trigger mutation change mid-air\n            }\n\n            // Path diversion for Speciation\n            if (scenarioIdx === 2 && bead.y > 125 && bead.y < 148) {\n              if (bead.targetBottle === 'left') {\n                bead.vx = -1.6;\n              } else {\n                bead.vx = 1.6;\n              }\n            }\n\n            // Floor check / Settle in bottles\n            let landY = 178 + (Math.random() * 5);\n            let minX = 168, maxX = 232;\n\n            if (scenarioIdx === 2) {\n              if (bead.targetBottle === 'left') {\n                minX = 124; maxX = 166;\n              } else {\n                minX = 234; maxX = 276;\n              }\n            }\n\n            if (bead.y >= landY) {\n              bead.y = landY;\n              bead.vy = 0;\n              bead.vx = 0;\n              bead.status = 'landed';\n              // Keep it within bottle boundaries\n              bead.x = Math.max(minX, Math.min(maxX, bead.x));\n            }\n          } else if (bead.status === 'landed') {\n            // Gently pile them up slightly\n            beads.forEach(other => {\n              if (other.status === 'landed' && other.id !== bead.id) {\n                const dx = bead.x - other.x;\n                const dy = bead.y - other.y;\n                const dist = Math.sqrt(dx * dx + dy * dy);\n                if (dist < 6) {\n                  const angle = Math.atan2(dy, dx);\n                  bead.x += Math.cos(angle) * 0.5;\n                  bead.y += Math.sin(angle) * 0.2; // flatter pile\n                }\n              }\n            });\n            // Final bounds check\n            let minX = 168, maxX = 232;\n            if (scenarioIdx === 2) {\n              if (bead.targetBottle === 'left') {\n                minX = 124; maxX = 166;\n              } else {\n                minX = 234; maxX = 276;\n              }\n            }\n            bead.x = Math.max(minX, Math.min(maxX, bead.x));\n          }\n        });\n\n        renderBeads();\n        if (activeAnimations) {\n          animationFrameId = requestAnimationFrame(update);\n        }\n      }\n\n      update();\n    }\n\n    // Set Slider Position & update stage\n    function selectScenario(idx, userInitiated = false) {\n      if (idx < 0 || idx > 3 || idx === currentIdx) return;\n      currentIdx = idx;\n\n      // Update Slider DOM\n      const percent = (idx / 3) * 100;\n      sliderHandle.style.left = `${percent}%`;\n      sliderBox.setAttribute('aria-valuenow', idx);\n\n      ticks.forEach((tick, tIdx) => {\n        if (tIdx <= idx) {\n          tick.classList.add('active');\n        } else {\n          tick.classList.remove('active');\n        }\n      });\n\n      // Update Option Feedback Text\n      optionFeedback.textContent = OPTIONS[idx];\n\n      // Update Filter / Neck visibility\n      filterNormal.setAttribute('opacity', idx === 0 ? '1' : '0');\n      filterNarrow.setAttribute('opacity', idx === 1 ? '1' : '0');\n      filterSplit.setAttribute('opacity', idx === 2 ? '1' : '0');\n      filterMutate.setAttribute('opacity', idx === 3 ? '1' : '0');\n\n      // Update Bottle style\n      bottleSingle.setAttribute('opacity', idx === 2 ? '0' : '1');\n      bottleDual.setAttribute('opacity', idx === 2 ? '1' : '0');\n\n      // Pour simulation\n      triggerPourAnimation(idx);\n\n      // Report answer to Parent platform\n      if (userInitiated) {\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[idx] }, '*');\n        } catch (e) {\n          console.error(\"Failed to post message\", e);\n        }\n      }\n    }\n\n    // Pointer Drag implementation preserving offsets\n    let isDragging = false;\n    let startX = 0;\n    let startLeft = 0;\n\n    function handlePointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      sliderHandle.setPointerCapture(e.pointerId);\n      \n      const rect = sliderBox.getBoundingClientRect();\n      const handleRect = sliderHandle.getBoundingClientRect();\n      \n      // Calculate current position percent\n      const currentPercent = parseFloat(sliderHandle.style.left) || 0;\n      startX = e.clientX;\n      startLeft = (currentPercent / 100) * rect.width;\n      \n      e.preventDefault();\n    }\n\n    function handlePointerMove(e) {\n      if (!isDragging || isLocked) return;\n      const rect = sliderBox.getBoundingClientRect();\n      const deltaX = e.clientX - startX;\n      let newLeft = startLeft + deltaX;\n      \n      // Constraints\n      newLeft = Math.max(0, Math.min(rect.width, newLeft));\n      const percent = (newLeft / rect.width) * 100;\n      sliderHandle.style.left = `${percent}%`;\n\n      // Find closest discrete index\n      const closestIdx = Math.round((newLeft / rect.width) * 3);\n      if (closestIdx !== currentIdx) {\n        selectScenario(closestIdx, true);\n      }\n    }\n\n    function handlePointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      // Snap to final nearest spot perfectly\n      selectScenario(currentIdx, true);\n    }\n\n    // Keyboard controls\n    function handleKeyDown(e) {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        selectScenario(Math.min(3, currentIdx + 1), true);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        selectScenario(Math.max(0, currentIdx - 1), true);\n      }\n    }\n\n    // Event Bindings\n    sliderHandle.addEventListener('pointerdown', handlePointerDown);\n    sliderHandle.addEventListener('pointermove', handlePointerMove);\n    sliderHandle.addEventListener('pointerup', handlePointerUp);\n    sliderHandle.addEventListener('pointercancel', handlePointerUp);\n    sliderBox.addEventListener('keydown', handleKeyDown);\n\n    // Support direct click on track\n    sliderBox.addEventListener('pointerdown', function(e) {\n      if (isLocked || e.target === sliderHandle) return;\n      const rect = sliderBox.getBoundingClientRect();\n      const clickX = e.clientX - rect.left;\n      const closestIdx = Math.round((clickX / rect.width) * 3);\n      selectScenario(Math.max(0, Math.min(3, closestIdx)), true);\n    });\n\n    // Parent messaging support\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        sliderHandle.style.pointerEvents = 'none';\n        sliderBox.style.pointerEvents = 'none';\n        sliderHandle.style.cursor = 'default';\n      }\n    });\n\n    // Height report utility\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {\n        console.warn(err);\n      }\n    }\n\n    // Init onload\n    window.addEventListener('load', () => {\n      initBeadsPool();\n      // Default initial state (option 1: Loss of variation / bottleneck is often the standard starting concept)\n      selectScenario(1, false); \n      reportHeight();\n      \n      // Watch for dynamic size changes\n      if (window.ResizeObserver) {\n        new ResizeObserver(reportHeight).observe(document.body);\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Loss of rare alleles and reduced genetic variation"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 6 Examination: Ecology",
+   "unitId": "unit6",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following scenarios best describes a study at the ecosystem level of ecological organization?",
+     "options": [
+      "Tracing the lineage and genetic mutations of a single sea otter over several generations.",
+      "Measuring the change in birth rates among a group of kelp-dwelling urchins during a mating season.",
+      "Analyzing how nitrogen runoff from nearby farms affects both the algal blooms and the dissolved oxygen levels in a coastal bay.",
+      "Observing the predatory behavior of killer whales as they hunt different species of seals across the Pacific Ocean."
+     ],
+     "explanation": "The ecosystem level must include both biotic factors (algal blooms) and abiotic factors (nitrogen runoff and dissolved oxygen). Genetic mutations focus on populations/individuals, birth rates focus on populations, and predation focuses on communities.",
+     "correctAnswers": [
+      "Analyzing how nitrogen runoff from nearby farms affects both the algal blooms and the dissolved oxygen levels in a coastal bay."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A population of rodents is experiencing growth according to the logistic model. Which of the following conditions must be true as the population size (N) approaches the carrying capacity (K)?",
+     "options": [
+      "The term ((K - N) / K) approaches a value of zero.",
+      "The per capita growth rate (r) becomes negative, causing a massive die-off.",
+      "The absolute number of individuals added per unit time (dN/dt) decreases.",
+      "Environmental resistance is increasing relative to the biotic potential.",
+      "The population begins to exhibit a J-shaped growth curve."
+     ],
+     "explanation": "In logistic growth, as N approaches K, the growth rate slows down because resources become limited (environmental resistance), and the math term for remaining resources approaches zero. The rate r is the intrinsic capacity and is usually treated as a constant; the die-off only happens if N exceeds K.",
+     "correctAnswers": [
+      "The term ((K - N) / K) approaches a value of zero.",
+      "The absolute number of individuals added per unit time (dN/dt) decreases.",
+      "Environmental resistance is increasing relative to the biotic potential."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the exponential growth equation dN/dt = rN, the variable 'r' represents the ____ per capita growth rate.",
+     "explanation": "The 'r' variable is defined as the intrinsic per capita growth rate, calculated as the birth rate minus the death rate (b - d).",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "intrinsic",
+      "net"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A sudden, severe late-spring frost kills 80% of the seedlings in a forest, regardless of whether the seedlings were tightly packed or widely spaced. This is an example of:",
+     "options": [
+      "A density-dependent regulator.",
+      "A density-independent factor.",
+      "An alteration of the carrying capacity (K).",
+      "K-selection reproductive strategy."
+     ],
+     "explanation": "Weather events like frost are density-independent because they affect the population regardless of its density. It does not necessarily change the environment's long-term carrying capacity, but it does reduce the current population size (N).",
+     "correctAnswers": [
+      "A density-independent factor."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following characteristics are typical of an r-selected species?",
+     "options": [
+      "Extensive parental care for each offspring.",
+      "Early sexual maturity and rapid development.",
+      "A Type III survivorship curve.",
+      "Population sizes that hover consistently near the carrying capacity.",
+      "Production of a large number of offspring."
+     ],
+     "explanation": "r-strategists maximize growth rate in unstable environments, leading to many offspring and high early-life mortality (Type III curve). Parental care and K-proximity are traits of K-selected species.",
+     "correctAnswers": [
+      "Early sexual maturity and rapid development.",
+      "A Type III survivorship curve.",
+      "Production of a large number of offspring."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A ____ survivorship curve is characterized by a constant mortality rate throughout the organism's entire life span, often seen in birds or small mammals.",
+     "explanation": "Type II curves show a linear decline on a semi-log plot, representing a constant probability of death regardless of age.",
+     "placeholder": "Type I, II, or III?",
+     "correctAnswers": [
+      "Type II",
+      "Type 2"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Graph of logistic growth curve showing the inflection point at half of carrying capacity.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit6-q7.png"
+     },
+     "prompt": "If a researcher is studying the 'inflection point' of a logistic growth curve, what are they observing?",
+     "options": [
+      "The moment the population has reached its carrying capacity.",
+      "The transition from accelerating growth to decelerating growth.",
+      "The point where the death rate first exceeds the birth rate.",
+      "The absolute beginning of the lag phase in a J-curve."
+     ],
+     "explanation": "The inflection point in an S-curve occurs at K/2, marking the point where the rate of growth is at its maximum before it begins to slow down due to resource limitation.",
+     "correctAnswers": [
+      "The transition from accelerating growth to decelerating growth."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following would likely result in a permanent decrease in an environment's carrying capacity (K) for a specific herbivore population?",
+     "options": [
+      "A seasonal wildfire that clears old brush and promotes new growth.",
+      "The construction of a highway that fragments the habitat.",
+      "A temporary drought lasting one summer.",
+      "The introduction of an invasive plant species that outcompetes the herbivore's primary food source.",
+      "A volcanic eruption that covers the entire foraging area in thick, permanent lava rock."
+     ],
+     "explanation": "Carrying capacity is about the environment's ability to sustain life long-term. Fragmenting habitat, destroying food sources, or permanently covering soil in rock all reduce the resources available, lowering K. Seasonal fires or temporary droughts are often temporary shocks to N, not K.",
+     "correctAnswers": [
+      "The construction of a highway that fragments the habitat.",
+      "The introduction of an invasive plant species that outcompetes the herbivore's primary food source.",
+      "A volcanic eruption that covers the entire foraging area in thick, permanent lava rock."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The total number of individuals of the same species in a defined area at a specific time is referred to as the ____.",
+     "explanation": "A population is defined by species, space, and time.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "population",
+      "population size"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In the hierarchy of ecological organization, which level is the first to include both all the different species in an area and their physical, non-living environment?",
+     "options": [
+      "Population",
+      "Community",
+      "Ecosystem",
+      "Biome"
+     ],
+     "explanation": "A population is one species; a community is multiple species; an ecosystem is the first level to incorporate abiotic (non-living) factors alongside the community.",
+     "correctAnswers": [
+      "Ecosystem"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Identify the factors that are typically considered 'abiotic' in a marine ecosystem.",
+     "options": [
+      "Phytoplankton density",
+      "Water salinity",
+      "Hydrostatic pressure",
+      "Symbiotic bacteria in coral",
+      "Dissolved oxygen concentration"
+     ],
+     "explanation": "Abiotic factors are non-living physical or chemical parts of the environment. Phytoplankton and bacteria are living (biotic) organisms.",
+     "correctAnswers": [
+      "Water salinity",
+      "Hydrostatic pressure",
+      "Dissolved oxygen concentration"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When a population size exceeds its carrying capacity, it is often followed by a ____, where the population size drops rapidly due to resource exhaustion.",
+     "explanation": "Exceeding K leads to an 'overshoot' which is almost always followed by a 'dieback' or population 'crash' as the environment can no longer support the numbers.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "dieback",
+      "crash",
+      "overshoot"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why is the exponential growth model (J-shaped) usually unsustainable in nature?",
+     "options": [
+      "Because the growth rate (r) always becomes zero after two generations.",
+      "Because populations always run out of resources eventually, leading to environmental resistance.",
+      "Because natural selection only favors species that follow the S-shaped curve.",
+      "Because predators always evolve faster than their prey."
+     ],
+     "explanation": "Exponential growth assumes unlimited resources. In reality, factors like food, space, and waste accumulation eventually limit growth, shifting the curve to a logistic model.",
+     "correctAnswers": [
+      "Because populations always run out of resources eventually, leading to environmental resistance."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of density-dependent regulation?",
+     "options": [
+      "A contagious respiratory virus spreading through a herd of elk.",
+      "Competition between two bird species for the same nesting cavities.",
+      "A flash flood drowning a colony of ground-nesting ants.",
+      "Toxic waste buildup in a crowded bacterial culture.",
+      "An earthquake destroying a coastal cliff habitat."
+     ],
+     "explanation": "Density-dependent factors increase in intensity as the population grows more crowded. Disease, competition, and waste accumulation all worsen at high densities. Floods and earthquakes affect populations regardless of density.",
+     "correctAnswers": [
+      "A contagious respiratory virus spreading through a herd of elk.",
+      "Competition between two bird species for the same nesting cavities.",
+      "Toxic waste buildup in a crowded bacterial culture."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "Graph of three survivorship curves showing the sharp initial drop of Type III.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/15f85274-21e3-4a49-880d-c00bed342c5c/exam/images/unit6-q15.png"
+     },
+     "prompt": "An oak tree produces thousands of acorns, but only a few survive to become mature trees. This is most characteristic of which survivorship curve?",
+     "options": [
+      "Type I",
+      "Type II",
+      "Type III",
+      "Type IV"
+     ],
+     "explanation": "Type III curves represent species with high initial mortality for offspring, but much lower mortality rates for those that reach adulthood.",
+     "correctAnswers": [
+      "Type III"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "A biologist is studying a population of whales. Which of the following data points would be essential for calculating the intrinsic growth rate (r)?",
+     "options": [
+      "The number of calves born per female per year.",
+      "The total amount of krill available in the feeding grounds.",
+      "The number of whales dying due to age or predation per year.",
+      "The average swimming speed of the adult whales.",
+      "The total population size (N)."
+     ],
+     "explanation": "The intrinsic growth rate r is derived from birth rates (b) and death rates (d). While N is needed for dN/dt, it is not needed to calculate r itself.",
+     "correctAnswers": [
+      "The number of calves born per female per year.",
+      "The number of whales dying due to age or predation per year."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the population size (N) of the deer in the forest to find the point where the population is adding the most individuals per unit of time (the maximum growth rate) according to the logistic growth model.",
+     "options": [
+      "N is very close to 0",
+      "N is equal to K/2",
+      "N is equal to K",
+      "N is slightly greater than K"
+     ],
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Logistic Population Growth Practice</title>`\n  `<style>`\n    `/* Warm, clean practice UI tokens */`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #666666;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f0f4f8;`\n      `--accent-strong: #3a4f78;`\n      `--forest-green: #5a7d5a;`\n      `--forest-light: #e8efe8;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `margin: 0;`\n      `padding: 0;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;`\n      `color: var(--fg);`\n      `overflow: hidden;`\n      `user-select: none;`\n      `-webkit-user-select: none;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `#widget-container {`\n      `width: 100%;`\n      `max-width: 480px;`\n      `margin: 0 auto;`\n      `box-sizing: border-box;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 10px;`\n    `}`\n\n    `/* Animated stage */`\n    `.stage {`\n      `position: relative;`\n      `background: var(--stage);`\n      `border-radius: 12px;`\n      `border: 1px solid var(--border);`\n      `height: 160px;`\n      `overflow: hidden;`\n      `display: flex;`\n      `gap: 8px;`\n      `padding: 8px;`\n      `box-sizing: border-box;`\n    `}`\n\n    `.forest-view {`\n      `flex: 1;`\n      `background: var(--forest-light);`\n      `border-radius: 8px;`\n      `position: relative;`\n      `overflow: hidden;`\n      `border: 1px solid rgba(0,0,0,0.05);`\n    `}`\n\n    `/* Decorative trees background */`\n    `.bg-tree {`\n      `position: absolute;`\n      `bottom: 0;`\n      `fill: #cbdccb;`\n      `opacity: 0.7;`\n    `}`\n\n    `.deer-container {`\n      `position: absolute;`\n      `width: 100%;`\n      `height: 100%;`\n      `top: 0;`\n      `left: 0;`\n    `}`\n\n    `.deer {`\n      `position: absolute;`\n      `width: 24px;`\n      `height: 24px;`\n      `transition: opacity 250ms ease, transform 250ms cubic-bezier(.34,1.56,.64,1);`\n      `opacity: 0;`\n      `transform: scale(0.5) translateY(10px);`\n    `}`\n\n    `.deer.visible {`\n      `opacity: 1;`\n      `transform: scale(1) translateY(0);`\n    `}`\n\n    `/* Gauge Styles */`\n    `.gauge-view {`\n      `width: 110px;`\n      `background: var(--surface);`\n      `border-radius: 8px;`\n      `border: 1px solid var(--border);`\n      `display: flex;`\n      `flex-direction: column;`\n      `align-items: center;`\n      `justify-content: center;`\n      `padding: 6px;`\n      `box-sizing: border-box;`\n    `}`\n\n    `.gauge-title {`\n      `font-size: 10px;`\n      `font-weight: bold;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n      `margin-bottom: 2px;`\n    `}`\n\n    `.gauge-svg {`\n      `width: 90px;`\n      `height: 65px;`\n    `}`\n\n    `.gauge-needle {`\n      `transform-origin: 45px 55px;`\n      `transition: transform 150ms cubic-bezier(.4,0,.2,1);`\n    `}`\n\n    `/* Controls & Readouts */`\n    `.controls {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 12px;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 8px;`\n    `}`\n\n    `.slider-header {`\n      `display: flex;`\n      `justify-content: space-between;`\n      `font-size: 13px;`\n      `font-weight: 600;`\n    `}`\n\n    `.slider-container {`\n      `position: relative;`\n      `height: 24px;`\n      `display: flex;`\n      `align-items: center;`\n    `}`\n\n    `input[type=\"range\"] {`\n      `-webkit-appearance: none;`\n      `width: 100%;`\n      `height: 6px;`\n      `background: var(--stage);`\n      `border-radius: 3px;`\n      `outline: none;`\n      `margin: 0;`\n    `}`\n\n    `input[type=\"range\"]::-webkit-slider-thumb {`\n      `-webkit-appearance: none;`\n      `width: 20px;`\n      `height: 20px;`\n      `border-radius: 50%;`\n      `background: var(--accent);`\n      `border: 2px solid var(--surface);`\n      `box-shadow: 0 2px 4px rgba(0,0,0,0.15);`\n      `cursor: grab;`\n      `transition: background 150ms, transform 100ms;`\n    `}`\n\n    `input[type=\"range\"]::-webkit-slider-thumb:active {`\n      `cursor: grabbing;`\n      `background: var(--accent-strong);`\n      `transform: scale(1.1);`\n    `}`\n\n    `.slider-marks {`\n      `display: flex;`\n      `justify-content: space-between;`\n      `font-size: 10px;`\n      `color: var(--muted-fg);`\n      `padding: 0 4px;`\n    `}`\n\n    `/* Option Feedback Zone */`\n    `.feedback-zone {`\n      `text-align: center;`\n      `min-height: 28px;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `border-radius: 8px;`\n      `font-size: 12px;`\n      `font-weight: 500;`\n      `background: var(--stage);`\n      `border: 1px dashed var(--border);`\n      `transition: all 150ms ease;`\n    `}`\n\n    `.feedback-zone.active {`\n      `background: var(--accent-soft);`\n      `border-color: var(--accent);`\n      `color: var(--accent-strong);`\n    `}`\n\n    `.hint-text {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n      `margin-top: -2px;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"sr-only\">Interactive Logistic Growth Forest Metaphor</h1>`\n\n  `<div id=\"widget-container\">`\n    `<!-- STAGE: Forest & Gauge -->`\n    `<div class=\"stage\">`\n      `<!-- Forest Scene -->`\n      `<div class=\"forest-view\">`\n        `<!-- Static SVG background trees -->`\n        `<svg class=\"bg-tree\" viewBox=\"0 0 100 100\" style=\"left: 5%; width: 40px; height: 40px;\">`\n          `<polygon points=\"50,10 20,80 80,80\" />`\n          `<polygon points=\"50,30 25,85 75,85\" />`\n        `</svg>`\n        `<svg class=\"bg-tree\" viewBox=\"0 0 100 100\" style=\"right: 8%; width: 50px; height: 50px;\">`\n          `<polygon points=\"50,5 15,80 85,80\" />`\n          `<polygon points=\"50,25 20,85 80,85\" />`\n        `</svg>`\n        `<svg class=\"bg-tree\" viewBox=\"0 0 100 100\" style=\"left: 40%; width: 35px; height: 35px; opacity: 0.5;\">`\n          `<polygon points=\"50,15 25,80 75,80\" />`\n        `</svg>`\n\n        `<!-- Deer layer -->`\n        `<div class=\"deer-container\" id=\"deer-layer\"></div>`\n      `</div>`\n\n      `<!-- Live Gauge -->`\n      `<div class=\"gauge-view\">`\n        `<div class=\"gauge-title\">Growth Velocity<br>(dN/dt)</div>`\n        `<svg class=\"gauge-svg\" viewBox=\"0 0 90 60\">`\n          `<!-- Arc path -->`\n          `<path d=\"M 15 55 A 35 35 0 0 1 75 55\" fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"6\" stroke-linecap=\"round\"/>`\n          `<!-- Positive section highlight -->`\n          `<path d=\"M 45 20 A 35 35 0 0 1 75 55\" fill=\"none\" stroke=\"#a3c2a3\" stroke-width=\"6\" stroke-linecap=\"round\"/>`\n          `<!-- Center point indicator -->`\n          `<circle cx=\"45\" cy=\"55\" r=\"3\" fill=\"#666\"/>`\n          `<!-- Markers -->`\n          `<text x=\"12\" y=\"59\" font-size=\"7\" fill=\"#888\" text-anchor=\"middle\">Decline</text>`\n          `<text x=\"32\" y=\"48\" font-size=\"7\" fill=\"#888\" text-anchor=\"middle\">0</text>`\n          `<text x=\"45\" y=\"14\" font-size=\"7\" fill=\"#5a7d5a\" font-weight=\"bold\" text-anchor=\"middle\">Max</text>`\n          `<text x=\"78\" y=\"59\" font-size=\"7\" fill=\"#888\" text-anchor=\"middle\">0</text>`\n          `<!-- Needle -->`\n          `<g class=\"gauge-needle\" id=\"needle\">`\n            `<line x1=\"45\" y1=\"55\" x2=\"45\" y2=\"18\" stroke=\"#e06666\" stroke-width=\"3\" stroke-linecap=\"round\"/>`\n            `<circle cx=\"45\" cy=\"55\" r=\"5\" fill=\"#e06666\"/>`\n          `</g>`\n        `</svg>`\n      `</div>`\n    `</div>`\n\n    `<!-- CONTROLS -->`\n    `<div class=\"controls\">`\n      `<div class=\"slider-header\">`\n        `<span>Population Size (N)</span>`\n        `<span id=\"n-readout\" style=\"font-variant-numeric: tabular-nums; color: var(--accent); font-weight: bold;\">0</span>`\n      `</div>`\n      `<div class=\"slider-container\">`\n        `<input type=\"range\" id=\"n-slider\" min=\"0\" max=\"120\" value=\"0\" aria-label=\"Deer Population Size\">`\n      `</div>`\n      `<div class=\"slider-marks\">`\n        `<span>0</span>`\n        `<span style=\"margin-left: 20px;\">K/2 (50)</span>`\n        `<span>K (100)</span>`\n        `<span>120</span>`\n      `</div>`\n    `</div>`\n\n    `<!-- LIVE DECISION FEEDBACK -->`\n    `<div class=\"feedback-zone\" id=\"feedback-box\">`\n      `Drag the slider to investigate growth velocity`\n    `</div>`\n\n    `<div class=\"hint-text\">`\n      `← Drag the slider to observe and select your target population state →`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `// Deer SVG templates`\n    `const DEER_SVG = \\``\n      `<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">`\n        `<ellipse cx=\"11\" cy=\"14\" rx=\"6\" ry=\"4\" fill=\"#a07855\"/>`\n        `<circle cx=\"16\" cy=\"9\" r=\"3\" fill=\"#a07855\"/>`\n        `<rect x=\"7\" y=\"16\" width=\"1.5\" height=\"6\" rx=\"0.5\" fill=\"#8b6540\"/>`\n        `<rect x=\"13\" y=\"16\" width=\"1.5\" height=\"6\" rx=\"0.5\" fill=\"#8b6540\"/>`\n        `<rect x=\"9\" y=\"16\" width=\"1.5\" height=\"6\" rx=\"0.5\" fill=\"#a07855\"/>`\n        `<rect x=\"11\" y=\"16\" width=\"1.5\" height=\"6\" rx=\"0.5\" fill=\"#a07855\"/>`\n        `<!-- Antlers -->`\n        `<path d=\"M 15 7 L 13 4 M 17 7 L 19 4 M 14 5 L 12 5\" stroke=\"#8b6540\" stroke-width=\"1\" stroke-linecap=\"round\"/>`\n        `<circle cx=\"17.5\" cy=\"8.5\" r=\"1\" fill=\"#fff\"/>`\n        `<circle cx=\"17.5\" cy=\"8.5\" r=\"0.5\" fill=\"#000\"/>`\n      `</svg>`\n    `\\`;`\n\n    `// Build deer grid in the forest stage`\n    `const deerLayer = document.getElementById('deer-layer');`\n    `const totalDeerPossible = 24;`\n    `const deerPositions = [];`\n\n    `// Generate organic coordinates`\n    `for (let i = 0; i < totalDeerPossible; i++) {`\n      `const row = Math.floor(i / 6);`\n      `const col = i % 6;`\n      `const left = 5 + col * 15 + Math.random() * 5;`\n      `const top = 30 + row * 18 + Math.random() * 8;`\n      `deerPositions.push({ left, top });`\n    `}`\n\n    `// Sort back to front to preserve overlap look`\n    `deerPositions.sort((a, b) => a.top - b.top);`\n\n    `deerPositions.forEach((pos, idx) => {`\n      `const deerDiv = document.createElement('div');`\n      `deerDiv.className = 'deer';`\n      `deerDiv.style.left = pos.left + '%';`\n      `deerDiv.style.top = pos.top + '%';`\n      `deerDiv.innerHTML = DEER_SVG;`\n      `deerLayer.appendChild(deerDiv);`\n    `});`\n\n    `const deerElements = document.querySelectorAll('.deer');`\n    `const slider = document.getElementById('n-slider');`\n    `const readout = document.getElementById('n-readout');`\n    `const needle = document.getElementById('needle');`\n    `const feedbackBox = document.getElementById('feedback-box');`\n\n    `// Define Option mappings`\n    `const OPTIONS = {`\n      `VERY_CLOSE_0: \"N is very close to 0\",`\n      `EQUAL_HALF_K: \"N is equal to K/2\",`\n      `EQUAL_K: \"N is equal to K\",`\n      `GREATER_K: \"N is slightly greater than K\"`\n    `};`\n\n    `let lastReportedValue = null;`\n\n    `function updateSimulation(N) {`\n      `readout.textContent = N;`\n\n      `// 1. Update Deer visibility`\n      `// Scale N mapped directly to deer visible (max deer at N >= 110)`\n      `const activeDeerCount = Math.min(totalDeerPossible, Math.ceil((N / 120) * totalDeerPossible));`\n      `deerElements.forEach((el, index) => {`\n        `if (index < activeDeerCount) {`\n          `el.classList.add('visible');`\n        `} else {`\n          `el.classList.remove('visible');`\n        `}`\n      `});`\n\n      `// 2. Compute Logistic growth: dN/dt = r * N * (1 - N/K)`\n      `// Peak is at N = 50 (K/2). At N=100 (K), growth is 0. Beyond 100, negative.`\n      `const K = 100;`\n      `const growth = N * (K - N); // Unscaled parabola`\n      `// Max growth at N=50 is 2500.`\n      `// We map growth to gauge rotation angle.`\n      `// Angle maps: 0 growth = -30 deg (downward-leftish), Max (2500) = 60 deg (upward-rightish), Decline = -80 deg`\n      `let angle = -30 + (growth / 2500) * 90;`\n      `needle.style.transform = \\`rotate(\\${angle}deg)\\`;`\n\n      `// 3. Determine selected state & corresponding option`\n      `let currentOption = null;`\n      `if (N <= 20) {`\n        `currentOption = OPTIONS.VERY_CLOSE_0;`\n      `} else if (N >= 40 && N <= 60) {`\n        `currentOption = OPTIONS.EQUAL_HALF_K;`\n      `} else if (N >= 90 && N <= 104) {`\n        `currentOption = OPTIONS.EQUAL_K;`\n      `} else if (N >= 105) {`\n        `currentOption = OPTIONS.GREATER_K;`\n      `}`\n\n      `// Update state feedback label`\n      `if (currentOption) {`\n        `feedbackBox.textContent = \\`Selected State: \"\\${currentOption}\"\\`;`\n        `feedbackBox.classList.add('active');`\n        `if (lastReportedValue !== currentOption) {`\n          `lastReportedValue = currentOption;`\n          `parent.postMessage({ type: 'hk-practice-answer', value: currentOption }, '*');`\n        `}`\n      `} else {`\n        `feedbackBox.textContent = \"Keep sliding to align with a specific state...\";`\n        `feedbackBox.classList.remove('active');`\n      `}`\n    `}`\n\n    `// Slider Listeners`\n    `slider.addEventListener('input', (e) => {`\n      `updateSimulation(parseInt(e.target.value, 10));`\n    `});`\n\n    `// Keyboard Navigation Support`\n    `slider.addEventListener('keydown', (e) => {`\n      `let val = parseInt(slider.value, 10);`\n      `if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {`\n        `slider.value = Math.min(120, val + 1);`\n      `} else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {`\n        `slider.value = Math.max(0, val - 1);`\n      `}`\n      `updateSimulation(parseInt(slider.value, 10));`\n    `});`\n\n    `// Lock Support`\n    `window.addEventListener('message', (e) => {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `slider.disabled = true;`\n        `slider.style.pointerEvents = 'none';`\n        `document.getElementById('widget-container').style.opacity = '0.85';`\n      `}`\n    `});`\n\n    `// Height Reporting`\n    `function sendHeight() {`\n      `try {`\n        `const height = Math.ceil(document.documentElement.getBoundingClientRect().height);`\n        `parent.postMessage({ type: 'hk-anim-height', height: height }, '*');`\n      `} catch (err) {}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `updateSimulation(0);`\n      `sendHeight();`\n    `});`\n\n    `const observer = new ResizeObserver(() => {`\n      `sendHeight();`\n    `});`\n    `observer.observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "N is equal to K/2"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "c93d78cc-deaf-493e-b1f8-0f5b384f1632"
+}

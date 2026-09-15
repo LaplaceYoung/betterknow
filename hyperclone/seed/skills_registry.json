@@ -1,0 +1,75 @@
+{
+  "source": "assets/prompts/skills_fingerprints.md",
+  "captured": "2026-09-03",
+  "skills": [
+    {
+      "name": "conceptExplanation",
+      "trigger": "User asks to teach/explain a concept (e.g. eigenvalue).",
+      "questionAxes": [
+        "knowledge level",
+        "explanation style: simple, standard, step-by-step, comprehensive",
+        "focus: geometric intuition, definition/calculation, applications, pitfalls"
+      ],
+      "toolChain": [
+        "ask_questions",
+        "search_and_summarize_web",
+        "content_planner",
+        "generate_content"
+      ]
+    },
+    {
+      "name": "systematicLearning",
+      "trigger": "Deep Learn session or structured class-like learning without a concrete deadline.",
+      "questionAxes": [
+        "direct plan output; no clarification axis observed"
+      ],
+      "toolChain": [
+        "search_and_summarize_web",
+        "create_deep_learn_session"
+      ]
+    },
+    {
+      "name": "whiteboardSession",
+      "trigger": "mode is board_session or user explicitly asks for a whiteboard lesson/session.",
+      "questionAxes": [],
+      "toolChain": [
+        "search_and_summarize_web",
+        "create_board_session"
+      ]
+    },
+    {
+      "name": "cheatsheetGeneration",
+      "trigger": "User explicitly asks for a PDF cheatsheet from uploaded/in-context material.",
+      "questionAxes": [],
+      "toolChain": [
+        "search_files"
+      ]
+    },
+    {
+      "name": "planTasks",
+      "trigger": "User asks for a future plan, especially a time-bound exam/study plan.",
+      "questionAxes": [
+        "exam scope",
+        "weekly available time",
+        "target"
+      ],
+      "toolChain": [
+        "ask_questions",
+        "generate_main_tasks"
+      ]
+    },
+    {
+      "name": "documentReading",
+      "trigger": "User attaches a document and asks to summarize, read, or closely guide through it.",
+      "questionAxes": [
+        "concise summary",
+        "detailed summary",
+        "guided close reading"
+      ],
+      "toolChain": [
+        "read_content",
+        "generate_content"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the first stage of your project! Over the next few units, you will build a high-performance E-Commerce Backend Data Engine—a production-grade system capable of managing users, processing orders, and generating complex business intelligence reports. You'll progress from the initial blueprinting to advanced performance tuning and data integrity. \n\nBefore we dive in, let’s recap our recent sessions. We’ve seen how flat files and 'universal tables' fail at scale due to update, insertion, and deletion anomalies. We've also explored the mathematical foundation of the Relational Model, where data is treated as a set of unique, atomic tuples. Today, you start turning those theories into a physical reality by designing the core schema for our platform's Users, Products, and Orders.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a list of attributes for three tables: Users, Products, and Orders. Ensure each attribute is atomic and logically belongs to that specific entity. Criteria: No multi-valued attributes (like 'item_list') and clear separation of concerns (e.g., customer address belongs in Users, not Orders)."
+     },
+     "step_body": "Every robust database starts with a clear understanding of its entities. For our e-commerce platform, we need to store information about customers, the items we sell, and the transactions that connect them. \n\nThinking back to the 'Universal Order Table' disaster from our lectures, we need to keep these concepts separate to avoid data debt. Start by listing the essential attributes for three specific entities: Users (the people buying), Products (the catalog items), and Orders (the transaction record). Remember the rule of Atomicity: every attribute must represent a single, indivisible value (e.g., don't combine 'First Name' and 'Last Name' into one field, and definitely don't put a list of items inside an Order row). List out your proposed attributes for these three tables.",
+     "step_title": "Identify Entities and Attributes",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Specify the Primary Key for each table and identify the Foreign Keys needed to link Orders to Users and Orders to Products. Criteria: Each table must have a unique identifier, and relationships must be established through foreign key references."
+     },
+     "step_body": "Now that we have our attributes, we must ensure every record is unique and properly connected. As we discussed in 'Tables, Rows, and Columns,' a database cannot distinguish between two identical rows without a Primary Key. Furthermore, to relate an Order to a User without duplicating the User's entire address, we use Foreign Keys. \n\nAssign a Primary Key to each of your three tables (typically an ID). Then, determine how you will link them. For example, how does the 'Orders' table know which 'User' placed it without storing the user's name? Sketch out the relationships: which table's ID will act as a 'pointer' inside another table?",
+     "step_title": "Define Primary and Foreign Keys",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It is time to translate your logical design into code. You will write a Data Definition Language (DDL) script using the `CREATE TABLE` command. This is where you enforce the 'Domain Integrity' we discussed—choosing the right data types (like INT, VARCHAR, or DECIMAL) for your columns.\n\nEnsure you include constraints: `PRIMARY KEY` for IDs, `NOT NULL` for required data, and `FOREIGN KEY` to maintain the relationships you defined in the previous step. This script is the foundation of your entire project deliverable.",
+     "step_title": "Draft the SQL DDL Script",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit a single .sql file containing the CREATE TABLE statements for Users, Products, and Orders. Criteria: The script must include Primary Keys, Foreign Keys, and appropriate data types/constraints. The schema must demonstrate 3NF normalization."
+     },
+     "step_body": "Review your SQL script one last time. Does it follow Third Normal Form (3NF)? This means no repeating groups (1NF), every non-key column depends on the whole primary key (2NF), and no non-key column depends on another non-key column (3NF). \n\nBy ensuring your schema is normalized, you are protecting your e-commerce platform from the corruption and anomalies we studied. Once you are confident that your `CREATE TABLE` statements are syntactically correct and logically sound, upload your `.sql` file.",
+     "step_title": "Submit the Normalized Schema",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work! You've just laid the cornerstone of a professional data engine. By moving away from a flat 'spreadsheet' mentality and into a structured relational schema, you've ensured that as our e-commerce platform grows to millions of users, our data will remain consistent and manageable. In the next stage, we will expand this schema to handle complex multi-item orders and start writing the queries that bring this data to life.",
+     "step_title": "Stage Reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "fff2c949-816d-4101-8ef2-744569da73cb",
+   "stage_title": "Normalized Database Schema Design",
+   "parent_project_id": "809e4144-c7f3-4c48-ac31-ba90a6f2af3d",
+   "stage_description": "Translate business requirements into a 3NF normalized schema for users, products, and orders. Create the Entity-Relationship diagram and the SQL DDL script to initialize the tables.",
+   "deliverable_increment": "An SQL schema file containing CREATE TABLE statements with primary keys, foreign keys, and unique constraints."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous unit, you built the foundation: a normalized schema with tables for Customers, Products, and Orders. You also mastered individual row operations like filtering with WHERE, sorting with ORDER BY, and basic aggregations like SUM and COUNT. Now, we move from viewing individual records to generating high-level business intelligence. In this stage, you will combine your schema with advanced grouping and multi-table joins to build the engine's reporting layer.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the SQL query used to generate monthly revenue. Your query should demonstrate the correct use of an aggregate function and a GROUP BY clause. Good work will correctly group the results by a time period and provide a clear 'Total Revenue' alias for the calculation."
+     },
+     "step_body": "To analyze trends, you need to collapse thousands of orders into monthly summaries. Using the `Orders` table, write a query that calculates the total revenue for every month. You will need to use `GROUP BY` on the order date (hint: use a function like strftime or DATE_TRUNC depending on your SQL dialect to extract the month) and use `SUM` on the order total. This calculation is the horizontal-then-vertical math we discussed—multiplying price by quantity first, then summing the results.",
+     "step_title": "Calculate monthly revenue",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Raw numbers are useful, but business leaders need to know *who* is buying. It's time to use JOINs. Write a query that connects your `Customers` and `Orders` tables. Your goal is to produce a report showing the customer's full name and their total lifetime spend. Remember the 'Identity Crisis' of aggregation: if you want to see the customer's name alongside their total spend, you must include the name in your GROUP BY clause.",
+     "step_title": "Link customers to sales",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the SQL query that uses a JOIN, GROUP BY, and a HAVING clause to find high-spending customers. Criteria for success: the query must correctly join two tables and use HAVING (not WHERE) to filter the aggregate sum."
+     },
+     "step_body": "Sometimes we only care about 'Power Users.' Modify your previous customer spend query to only return customers who have spent more than $500 in total. Recall that the `WHERE` clause filters individual rows before they are grouped, while the `HAVING` clause filters the results *after* the aggregation has occurred. This is critical for isolating high-value segments in your data engine.",
+     "step_title": "Filter groups with HAVING",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "As your reports get more complex, your SQL can become hard to read. Common Table Expressions (CTEs) allow you to define a temporary result set that you can reference within a larger query. Take your monthly revenue logic and wrap it in a `WITH` statement. Then, in the main query, select from that CTE to calculate the month-over-month growth. This modular approach makes your backend code maintainable and professional.",
+     "step_title": "Simplify with CTEs",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a .sql file containing your collection of analytical reports. The file should include at least three distinct reports using JOINs, aggregations, and CTEs. Good work will feature properly aliased columns, consistent indentation, and logical use of grouping."
+     },
+     "step_body": "You have now moved from raw data to actionable insights. For the final task of this stage, compile your queries into a clean SQL file. This file should include: 1) Monthly Revenue Trends, 2) Top Selling Product Categories, and 3) Customer Lifetime Value reports. Use comments (--) to label each report. This library will be a core part of your final project deliverable, showcasing your ability to handle complex relational logic.",
+     "step_title": "Submit the reporting library",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "7201bb79-47bc-4421-a0e6-9222ce7ad76b",
+   "stage_title": "Complex Sales Reporting",
+   "parent_project_id": "809e4144-c7f3-4c48-ac31-ba90a6f2af3d",
+   "stage_description": "Write advanced SQL queries to analyze sales performance, including multi-table joins to link customers to products and aggregations to calculate monthly revenue trends.",
+   "deliverable_increment": "A collection of SQL query files implementing analytical reports using JOINs, GROUP BY, and CTEs."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In previous stages, you built the foundation of your E-Commerce engine by designing a normalized schema and creating complex sales reports using JOINs and CTEs. Now that you have a working structure, it is time to add 'Advanced Data Logic.' We are moving from simple retrieval to sophisticated analysis. In this stage, you will implement Window Functions to rank customers and calculate running totals, and you will package this logic into 'Views' to make your data accessible to others without them needing to see the underlying SQL complexity.",
+     "step_title": "Recap and Orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a snippet of your SQL query using the RANK() function. Your submission should show the customer ID, their total spending, and their rank. Criteria: Correct use of the OVER clause and DESC ordering."
+     },
+     "step_body": "To identify your best customers, you need more than just a list of sales. You need to rank them. Start by writing a query that calculates the total spend per customer. Once you have that, apply the `RANK()` function over the entire dataset, ordered by the total spend in descending order. This is your first look at 'Windowing'—calculating a position relative to others without collapsing the rows into a single group. Does your ranking handle ties correctly?",
+     "step_title": "Draft the Ranking Logic",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the SQL query used to generate a running total of sales. Criteria: Must include SUM(...) OVER (ORDER BY ...) and demonstrate an understanding of how windows accumulate values."
+     },
+     "step_body": "Management wants to see how revenue accumulates over time. Using the `SUM()` function with the `OVER()` clause, create a query that shows every individual transaction alongside a 'Running Total' of all sales up to that point. Remember to use `ORDER BY` inside your `OVER` clause to tell SQL the sequence in which the total should accumulate. This allows you to see the growth of your platform transaction-by-transaction.",
+     "step_title": "Calculate Running Totals",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Complex queries are hard for application developers to remember. To solve this, you will use 'Views.' A View is a saved query that acts like a virtual table. Take the logic you just built for 'Customer Rankings' and wrap it in a `CREATE VIEW` statement named `v_customer_loyalty_ranks`. This way, anyone can simply `SELECT * FROM v_customer_loyalty_ranks` to get the latest rankings without rewriting the window functions.",
+     "step_title": "Encapsulate Logic in Views",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a .sql file containing the CREATE VIEW statements for your customer rankings and daily sales running totals. Criteria: The script must execute without errors, use appropriate window functions (RANK and SUM OVER), and use clear naming conventions for the views."
+     },
+     "step_body": "Now, combine your work into a final script for this stage. This script should include the creation of two views: one for the Customer Rankings you drafted and another for a 'Daily Sales Summary' that includes a running total of revenue. These scripts represent the analytical 'brain' of your e-commerce engine, allowing the business to make data-driven decisions about loyalty programs and inventory timing.",
+     "step_title": "Submit Advanced Analytical Scripts",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (2-3 sentences) of why window functions are calculated late in the query execution and how you would filter a view based on a rank. Criteria: Accurate description of SQL logical processing order."
+     },
+     "step_body": "You’ve successfully moved business logic into the database. Think about the 'Order of Operations' we discussed. Window functions are processed after the WHERE clause. How might this affect your views if you try to filter by a rank? Reflect on why we cannot use a window function result directly in a WHERE clause of the same query level.",
+     "step_title": "Reflect on Performance",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "ee1e6349-c32b-4c70-b44a-0bcb8be0e206",
+   "stage_title": "Advanced Data Logic and Window Functions",
+   "parent_project_id": "809e4144-c7f3-4c48-ac31-ba90a6f2af3d",
+   "stage_description": "Implement business logic within the database using Window Functions for customer ranking and Views for simplified access to common sales summaries.",
+   "deliverable_increment": "SQL scripts creating Views and advanced analytical queries using RANK() and running totals for customer behavior analysis."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you successfully designed a normalized schema and wrote complex analytical reports. However, as data scales, even the most elegant SQL can become slow. In our recent sessions, we explored how the database engine uses EXPLAIN ANALYZE to map out query plans and how B-Trees act as maps to avoid expensive full table scans. This stage is about moving from writing code that works to writing code that performs. You will identify bottlenecks in your existing e-commerce engine and implement targeted indexing strategies to resolve them.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the EXPLAIN ANALYZE output for one of your complex queries. Briefly describe which part of the plan looks like the bottleneck (e.g., a Seq Scan on a large table or a high-cost Nested Loop)."
+     },
+     "step_body": "Before we can optimize, we must measure. Look back at your 'Complex Sales Reporting' and 'Advanced Data Logic' scripts. Choose two queries that perform heavy JOINs or filter across large tables (like Orders or OrderItems). Run 'EXPLAIN ANALYZE' followed by your query. Look at the output for 'Seq Scan' (Sequential Scan) and high 'cost' or 'actual time' values. Note which tables are being scanned entirely and which join operations are the most expensive.",
+     "step_title": "Identify slow queries",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State which column(s) you plan to index and why. Explain your reasoning based on the query predicates (the WHERE/JOIN conditions) you identified in the previous step."
+     },
+     "step_body": "Now that you found a bottleneck, let's design a solution. Based on the columns used in your JOIN conditions and WHERE clauses, decide which index type is best. Should you use a simple B-Tree on a foreign key? Or would a Composite Index (e.g., on 'customer_id' and 'order_date') be more effective because of the 'Left-to-Right' rule? Remember the concept of selectivity—index columns that help the database ignore the largest chunk of data possible.",
+     "step_title": "Hypothesize an index",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Execute your CREATE INDEX statements. Once the indexes are built, run the exact same EXPLAIN ANALYZE command you used in the first step. You are looking for the 'Index Scan' or 'Index Only Scan' to replace the 'Seq Scan'. Pay close attention to the 'actual time'—did the query speed up? If not, consider if your composite index column order needs to be swapped to match the query's prefix requirements.",
+     "step_title": "Implement and re-test",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF report containing: 1) The original slow query and its EXPLAIN ANALYZE output. 2) The CREATE INDEX DDL you wrote. 3) The new EXPLAIN ANALYZE output showing the improved execution plan and reduced timing. Good work shows a clear transition from Sequential Scans to Index-based lookups."
+     },
+     "step_body": "It's time to document your findings. A professional backend engineer doesn't just 'add indexes'; they prove the impact. Prepare your final report for this stage. This document must show the 'Before' query plan, the SQL command used to create the index, and the 'After' query plan showing the performance gain. This comparison is the tangible evidence of your optimization work.",
+     "step_title": "Submit the optimization report",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great job optimizing those reads! As a final thought, reflect on the trade-offs we discussed. Every index you just added makes SELECT queries faster but adds a small 'write penalty' to INSERTs and UPDATEs because the B-Tree must split and rebalance. In a high-traffic e-commerce environment, how would you decide when a table has 'too many' indexes? Consider this as you move forward to the final stage of the project.",
+     "step_title": "Reflection on overhead",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "68ce52ae-50f2-434e-9795-304e663b7d92",
+   "stage_title": "Performance Tuning and Indexing",
+   "parent_project_id": "809e4144-c7f3-4c48-ac31-ba90a6f2af3d",
+   "stage_description": "Analyze slow-running queries using EXPLAIN ANALYZE, then implement B-Tree and composite indexes to optimize search and join performance.",
+   "deliverable_increment": "An optimization report comparing query execution plans before and after adding specific indexes."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you've optimized your schema with indexes and built complex reports using window functions. However, high-traffic e-commerce systems don't just read data; they process sensitive updates like inventory changes. Recall the ACID properties from our session: your database isn't just a container, it's a gatekeeper. In this stage, you'll move from single queries to 'transactional scripts'—grouping multiple updates into a single 'all-or-nothing' bubble to ensure that if a checkout fails, your inventory levels don't get corrupted.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a short explanation (2-3 sentences) describing the database's behavior during a partial failure and name the relevant ACID property. Good work correctly identifies the 'all-or-nothing' outcome and the Atomicity property."
+     },
+     "step_body": "Before writing SQL, we must define the business rules for our transaction. Imagine a customer checking out with 3 units of 'Wireless Headphones'. To maintain consistency, we must: 1) Check if stock is sufficient, 2) Deduct the stock from the Products table, and 3) Create a record in the Orders table. Briefly describe what should happen to the database state if step 2 succeeds but step 3 fails due to a system crash. Which specific ACID property handles this recovery?",
+     "step_title": "Define the checkout logic",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's start the script. Open a new SQL file. Use the 'BEGIN' (or 'START TRANSACTION') command to enter the 'Draft State.' Following this, write an UPDATE statement to reduce the 'stock_quantity' for a specific product ID and an INSERT statement to add a row to your 'orders' table. Do not include a COMMIT yet. At this stage, your changes are in 'purgatory'—they are visible to your session but haven't been permanently sealed to the master ledger.",
+     "step_title": "Draft the BEGIN and update block",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "A robust transaction needs a way to bail out if things go wrong. Using the syntax appropriate for your SQL dialect (like a TRY...CATCH block or an IF check on stock levels), add a condition that triggers a 'ROLLBACK' if the stock would drop below zero. This ensures the 'Consistency' pillar: the database rejects any state that violates your business rules. Once the logic is sound, finish the successful path with a 'COMMIT' to finalize the 'handshake' with the disk.",
+     "step_title": "Implement error handling logic",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your .sql file containing the transaction script. A successful submission must include BEGIN/COMMIT/ROLLBACK commands and logic that prevents inventory from reaching a negative value."
+     },
+     "step_body": "It's time to submit your transactional inventory script. Ensure your code includes the initiation (BEGIN), the data modification (UPDATE and INSERT), the conditional logic to prevent overselling, and the finalization (COMMIT/ROLLBACK). This script is a critical part of your final deliverable, ensuring that your e-commerce engine can handle concurrent checkouts without data corruption.",
+     "step_title": "Submit the Transactional Script",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief justification for your chosen Isolation Level. Good work identifies the trade-off between strict data accuracy (Serializable) and system performance (Read Committed)."
+     },
+     "step_body": "Great work. Your script now handles individual failures, but what about concurrency? If two people buy the last item at the exact same millisecond, the 'Isolation' level of your database determines if they see each other's uncommitted changes. Based on the 'Isolation Levels' session, would you recommend 'Read Committed' or 'Serializable' for this checkout process if you wanted to absolutely guarantee no two people can claim the same stock unit? Explain the trade-off you're making.",
+     "step_title": "Reflect on Isolation",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "0c977abe-000c-4142-ae1f-74932d9b179d",
+   "stage_title": "Transactional Inventory Management",
+   "parent_project_id": "809e4144-c7f3-4c48-ac31-ba90a6f2af3d",
+   "stage_description": "Develop a robust checkout transaction script that ensures atomic updates to inventory and order status, preventing overselling via ACID properties.",
+   "deliverable_increment": "A transactional SQL script using BEGIN, COMMIT, and ROLLBACK to manage multi-step inventory deductions."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "809e4144-c7f3-4c48-ac31-ba90a6f2af3d",
+   "project_name": "E-Commerce Backend Data Engine",
+   "final_deliverable": "A complete SQL schema file (DDL), a library of complex analytical queries and stored procedures, an indexing strategy report with execution plan benchmarks, and a transaction-safe inventory management script.",
+   "project_description": "Build a robust relational backend for a high-traffic e-commerce platform, evolving from initial schema design and complex reporting to performance tuning and transactional integrity."
+  }
+ ],
+ "courseUuid": "c94f24d2-e674-44df-abc3-9b322eb969dd"
+}

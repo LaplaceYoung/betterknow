@@ -1,0 +1,444 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first major project! Throughout this course, you will be building a comprehensive Numerical and Analytical Calculus Modeling Suite in Python. You are going to create a professional-grade toolkit that simulates a variable-mass rocket's journey—from its aerodynamic design and fuel consumption to its trajectory through the atmosphere and the geometry of its engine. \n\nToday, we start at the beginning: the atmosphere. Before we can launch a rocket, we must understand the environment it travels through. In this stage, you will apply your knowledge of limits and continuity to model atmospheric density. You'll ensure your model is physically realistic by analyzing its behavior as altitude approaches infinity and by ensuring a smooth, continuous transition between different atmospheric layers. Let's start by establishing our mathematical foundations.",
+     "step_title": "Project Launch: The Rocket Modeling Suite",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief explanation (2-3 sentences) identifying the boundary altitude and why a piecewise model is necessary for physical accuracy. Criteria: Correctly identifies 11km as the boundary and mentions that atmospheric behavior changes significantly at different layers."
+     },
+     "step_body": "To model the atmosphere, we use piecewise functions because air density $(\\rho)$ behaves differently in the troposphere than in the upper atmosphere. Let's define a simplified density function $\\rho(h)$ where $h$ is altitude in kilometers:\n\n1. For $0 \\le h < 11$ km (Troposphere): $\\rho(h) = 1.225 \\cdot (1 - 0.0225h)^{4.256}$\n2. For $h \\ge 11$ km (Upper Layers): $\\rho(h) = 0.364 \\cdot e^{-0.157(h-11)}$\n\nYour first task is to set up a Python script (or worksheet) that implements this function. In your own words, explain why we use a piecewise function here instead of a single linear equation, and identify the specific altitude where we need to check for a 'jump' or 'hole' in the data.",
+     "step_title": "Define the Atmospheric Model",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the calculated values for the left-hand and right-hand limits at h=11 and state whether the function is continuous. Criteria: Values should be approximately 0.364; answer should confirm if they match."
+     },
+     "step_body": "Recall our session on continuity: for the rocket to experience smooth flight, the density function must be continuous at the transition point ($h = 11$). \n\nMathematically, this means the limit as $h$ approaches 11 from the left must equal the limit as $h$ approaches 11 from the right, and both must equal the function value $\\rho(11)$. \n\nCalculate (or use code to evaluate) the left-hand limit $\\lim_{h \\to 11^-} \\rho(h)$ and the right-hand limit $\\lim_{h \\to 11^+} \\rho(h)$. Are they equal? If there is a small gap, explain how that might affect a simulation of a rocket moving through that point.",
+     "step_title": "Analyze the Boundary Continuity",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the limit value as h approaches infinity and a brief interpretation of what this means for space travel. Criteria: Limit should be 0; interpretation should mention the vacuum of space or the thinning of air."
+     },
+     "step_body": "As the rocket travels away from Earth, we need to know what happens to the density as altitude $(h)$ approaches infinity. This is a horizontal asymptote analysis.\n\nLook at the 'Upper Layers' part of your function: $\\rho(h) = 0.364 \\cdot e^{-0.157(h-11)}$. Calculate $\\lim_{h \\to \\infty} \\rho(h)$. \n\nIn Python, you can simulate this by plugging in very large values (like 1,000, 10,000, and 100,000) and observing the trend in a table, or by using symbolic math libraries like 'SymPy'. What is the physical meaning of this limit for our rocket?",
+     "step_title": "Determine the Terminal Limit",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your Python script (.py) or completed worksheet (.pdf). Criteria: Must include the piecewise function implementation, the limit checks at h=11, and the limit evaluation as h goes to infinity."
+     },
+     "step_body": "It's time to package your work. Ensure your script or worksheet clearly defines the functions, shows the limit evaluations at the boundary, and includes the evaluation at infinity. This 'Atmospheric Boundary Analyzer' will be the foundation for calculating air resistance (drag) in the next stage of the project.\n\nReview your code for comments or your worksheet for clear headings. Ensure that anyone reading your work can see the 'neighborhood' behavior of the density near 11km and at extreme altitudes.",
+     "step_title": "Finalize and Submit the Analyzer",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "ac770075-19e9-4bdf-bd97-96846cd8ae0a",
+   "stage_title": "Atmospheric Boundary and Terminal Velocity Limit Analyzer",
+   "parent_project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "stage_description": "Define and analyze the functional limits of atmospheric density and gravity at extreme altitudes. You will write the mathematical model and code functions that compute limits of density as altitude approaches infinity, identifying vertical and horizontal asymptotes to establish the rocket's operational envelope.",
+   "deliverable_increment": "An interactive python script (or analytical worksheet) containing the atmospheric boundary functions, limit evaluations at infinity, and continuous piecewise functions ensuring smooth density transitions."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you defined the atmospheric boundaries and analyzed the limits of density to ensure your rocket simulation wouldn't 'break' at high altitudes. Now, we turn our attention to the physical rocket itself. To minimize drag, a rocket's nose cone must follow a specific geometric profile. In this stage, you will move from static positions to dynamic rates of change by calculating the derivatives of various nose-cone curves. This allows us to find the exact slope (gradient) at any point, which is essential for calculating aerodynamic resistance.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify the inner function u(x) and the outer function f(u). A good response correctly isolates the nested expression within the square root to simplify the differentiation process."
+     },
+     "step_body": "Before we differentiate, we need a mathematical model of the nose cone. A common aerodynamic shape is the 'parabolic' or 'power' series nose cone. Let's start with a composite function that represents a rounded ogive shape: f(x) = (R / L) * sqrt(L^2 - (L - x)^2), where R is the radius and L is the length. Before calculating the full derivative, identify the 'inner' and 'outer' layers of this function as if you were preparing to apply the Chain Rule. How would you define the inner function u(x) to make this easier to derive?",
+     "step_title": "Define the nose-cone geometry",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the resulting derivative formula f'(x). It should correctly account for the Chain Rule application on the nested terms and be simplified for calculation."
+     },
+     "step_body": "Now, apply the differentiation rules (Power, Chain, and Constant Multiple rules) to find the derivative function f'(x). This function represents the 'slope' of the rocket's surface at any distance x from the tip. If you are using Python, you can use the SymPy library to perform symbolic differentiation, or you can derive it manually on paper. This derivative is the mathematical engine that tells us how 'steep' the air must climb over the rocket's skin.",
+     "step_title": "Calculate the gradient function",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "With your derivative function ready, it's time to generate data for our flight model. You need to calculate the instantaneous rate of change at 50 distinct coordinate points along the length of the nose cone (from x = 0 to x = L). In your code or worksheet, create a loop or a range that evaluates f'(x) at these 50 increments. This collection of slopes is your 'Gradient Lookup Table,' which the physics engine will use later to determine drag forces at specific points on the hull.",
+     "step_title": "Build the gradient lookup table",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your Python script (.py) or a detailed PDF containing your derived formula and the table of 50 gradient points. Success is defined by correct derivative logic and a complete list of 50 coordinate-slope pairs."
+     },
+     "step_body": "Finalize your work by organizing your derivative-calculating script and the resulting table. Ensure your script outputs the x-coordinate alongside its corresponding slope f'(x). This deliverable proves that you can translate a geometric shape into a series of aerodynamic vectors. Check that your slopes at the very tip (x=0) and the base (x=L) make sense—is the slope infinite at a sharp tip or zero at a flat base?",
+     "step_title": "Submit your derivative script",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (2-3 sentences) linking the derivative value (slope) to the physical concept of aerodynamic drag. A good answer identifies that steeper slopes create more frontal resistance."
+     },
+     "step_body": "As a final check, pick one point from your table and consider the tangent line at that point. If you were to draw a line with the slope you calculated, it should 'graze' the rocket's surface perfectly. How does the magnitude of the slope relate to the potential drag? Briefly explain why a steeper gradient might be less efficient for high-speed flight compared to a shallower one.",
+     "step_title": "Reflect on tangency",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "ebabbb89-a162-469b-bf73-71b685b9f96f",
+   "stage_title": "Aerodynamic Nose-Cone Gradient Calculator",
+   "parent_project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "stage_description": "Calculate derivatives of complex nose-cone curves using product, quotient, and chain rules to determine the exact gradient profile of the rocket's body. You will write differentiation algorithms that output tangent slopes at any given point along the nose-cone shape to assess aerodynamic efficiency.",
+   "deliverable_increment": "A derivative-calculating script and gradient lookup table modeling the slope at 50 distinct coordinate points along the physical rocket's outer shell."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome back! In our previous stages, we established the physical boundaries of our atmosphere and the aerodynamic gradient of our rocket's shell. Now, we are ready to analyze the flight itself. This stage focuses on the 'Flight Path Optimization and Local Linearization Engine.' We will take the theoretical concepts of first and second derivatives to find the rocket's peak altitude and approximate its behavior during the most intense moments of the ascent. This is a critical addition to your modeling suite, as it allows us to predict performance without running a full simulation for every millisecond.",
+     "step_title": "Recap and Project Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the derived functions for v(t) and a(t), the correct units for all three functions, and a brief explanation of why the derivative's units must be a ratio of the output and input units."
+     },
+     "step_body": "Before we can optimize, we need a mathematical model for our rocket's vertical position over time, s(t). For this project, assume a test flight model where s(t) = -2t³ + 36t² + 120t for t in the interval [0, 20] seconds. To begin, find the velocity function v(t) and the acceleration function a(t) using the power rule. Then, identify the units for s(t), v(t), and a(t) assuming position is in meters and time is in seconds. Why is it important to use 'meters per second' rather than just 'meters' for the first derivative?",
+     "step_title": "Define Your Position Function",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the time t (in seconds) where the rocket reaches its maximum altitude and the value of that maximum altitude (in meters). Show your evaluation of the endpoints vs. the critical point."
+     },
+     "step_body": "To find the maximum altitude (the absolute maximum), we use the Candidates Test. This involves finding critical points where v(t) = 0 and evaluating the position s(t) at those points as well as at the endpoints of our interval (t=0 and t=20). Solve for the time 't' where the rocket stops ascending and calculate the altitude at that exact moment. Compare this to the altitude at the endpoints to confirm your peak.",
+     "step_title": "Apply the Candidates Test",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State your chosen timestamp, the calculated signs of v(t) and a(t) at that moment, and a definitive statement (e.g., 'The rocket is slowing down because...') based on the interaction of those signs."
+     },
+     "step_body": "In a real-time flight engine, knowing if the rocket is 'speeding up' or 'slowing down' is vital for structural safety. Using your v(t) and a(t) functions, choose a specific timestamp (e.g., t = 10 seconds). Check the sign of both velocity and acceleration at this point. Based on our lecture logic—where speed increases only if the signs match—determine the rocket's state at your chosen time.",
+     "step_title": "Analyze Speeding Up vs. Slowing Down",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your linear approximation formula L(t). It should include the numerical values for the position and velocity at your chosen center point 'a'."
+     },
+     "step_body": "Calculating complex cubic functions in real-time can be computationally expensive. Instead, we use Local Linearization (the Tangent Line Approximation). Identify the time 't' when the rocket reaches its maximum velocity—this occurs at the inflection point where a(t) = 0. Build a linear equation L(t) = s(a) + v(a)(t - a) centered at this point. This line will approximate the rocket's position for small intervals around that high-speed moment.",
+     "step_title": "Create the Linearization Formula",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF document or a code script containing: 1) The proof of the maximum altitude using the Candidates Test, 2) The sign analysis for speed, and 3) The linearization formula. Criteria for success: correct derivation of derivatives, accurate calculation of critical points, and clear justification of results using calculus terminology."
+     },
+     "step_body": "Now, compile your findings into a single 'Optimization Module' for your suite. This should include the logic for finding the absolute maximum altitude and the formula for local linearization. Ensure your logic reflects the concave down nature of the rocket's peak (where s''(t) < 0). This module will serve as the mathematical brain for your flight controller.",
+     "step_title": "Final Submission: Optimization Module",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "ffaf5b65-3a23-4b76-a7ac-62aa70000f60",
+   "stage_title": "Flight Path Optimization and Local Linearization Engine",
+   "parent_project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "stage_description": "Apply optimization techniques to determine the exact peak altitude (using the Candidates Test) and use local linearization to approximate the rocket's position around its highest velocity point. You will design algorithms to analyze concave inflection points of rocket descent.",
+   "deliverable_increment": "An optimization module that computes critical points, absolute extrema for maximum altitude, and local linearization formulas for real-time trajectory approximation."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You've previously calculated the rocket's atmospheric limits and optimized its aerodynamic profile. Now, we must address the engine. In our previous sessions, we explored how the area under a velocity curve represents total distance. In this stage, we apply that same logic to fuel consumption. Since we cannot measure continuous fuel flow perfectly, we rely on discrete data points from engine test fires. Our goal is to transform these static thrust and rate-of-change snapshots into a calculation of the total fuel consumed during the ascent using numerical integration.",
+     "step_title": "Orient to fuel consumption",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short explanation of why the uniform Trapezoidal Rule formula fails for non-uniform intervals. Good work will mention that the standard formula assumes a constant width (delta x), whereas our experimental time steps vary."
+     },
+     "step_body": "To build our integrator, we first need a way to handle experimental data where time intervals might not be perfectly uniform. In your preferred environment (Python or a structured worksheet), define a data set representing time (t) in seconds and fuel consumption rate (dm/dt) in kg/s. For your initial test, use these coordinates: (0, 0.5), (2, 0.8), (5, 1.2), (7, 1.1), and (10, 0.9). Notice the gaps between time points are 2, 3, 2, and 3 seconds respectively. Briefly explain why we cannot use the 'standard' simplified Trapezoidal Rule formula on this specific data set.",
+     "step_title": "Design the data structure",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated total fuel consumption using the Left Riemann Sum for the provided data: (0, 0.5), (2, 0.8), (5, 1.2), (7, 1.1), (10, 0.9). Show your calculation: (2*0.5) + (3*0.8) + (2*1.2) + (3*1.1)."
+     },
+     "step_body": "Now, let's build the logic for Left, Right, and Midpoint Riemann sums. For the non-uniform data provided, you must calculate the width of each specific subinterval ($t_{i+1} - t_i$) and multiply it by the appropriate height. For the Left sum, use the consumption rate at the start of the interval; for the Right sum, use the end. Since we don't have a continuous function for MRAM on this discrete data, explain how you would approximate a 'midpoint' value if you only had the boundary data points.",
+     "step_title": "Implement Riemann Sum methods",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "The Trapezoidal Rule usually provides a better fit by connecting data points with slanted lines rather than flat blocks. For each subinterval, calculate the area as $[(f(t_i) + f(t_{i+1})) / 2] * \\text{width}$. This effectively averages the left and right heights for every segment. This is the core of your integration module. Implement this calculation for our test data and compare it to your Riemann results.",
+     "step_title": "Construct the Trapezoidal engine",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your completed numerical integration module (Python script or detailed worksheet). It must include: 1) Calculations for Left, Right, and Trapezoidal sums based on the provided non-uniform data, 2) The final 'total fuel consumed' result for each, and 3) A brief reflection on which method is most appropriate for fluctuating engine data."
+     },
+     "step_body": "Finalize your Numerical Integration Module. It should be able to take an array of time points and an array of fuel rates and output the total fuel spent using at least the Left, Right, and Trapezoidal methods. In your final step, consider the 'concavity' of our data: the fuel rate rises then falls. Reflect on which method likely provided the most conservative (lowest) estimate of fuel use and why.",
+     "step_title": "Analyze error and submit module",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "cb6df198-2c7d-4a3f-80e2-3ddb2ed87c93",
+   "stage_title": "Engine Thrust and Fuel Consumption Numerical Integrator",
+   "parent_project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "stage_description": "Apply Riemann sums (left, right, midpoint) and the trapezoidal rule to approximate fuel consumption rates and net impulse over time from discrete engine test fire data points.",
+   "deliverable_increment": "A numerical integration module that imports experimental discrete thrust-time data and outputs total fuel spent using multiple numerical methods with calculated error bounds."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the integration engine stage! Previously, you built a numerical integrator to handle discrete thrust data. While that was powerful for experimental data, real engineering often relies on analytical models where we have a continuous function for acceleration. In this stage, you will move from 'approximating with boxes' to 'solving with precision.' You will build a tool that uses the Fundamental Theorem of Calculus to find exact expressions for velocity and position, allowing our rocket simulation to achieve perfect accuracy under ideal conditions.",
+     "step_title": "Orient and Recap",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief written outline of the steps required to solve an Initial Value Problem for position. Your response should correctly identify the order of integration and where/how the constants of integration (C) are resolved using initial conditions."
+     },
+     "step_body": "To build an automated solver, we first need to define the mathematical pipeline. If our rocket's acceleration is defined by a function a(t), we know that velocity v(t) is the antiderivative of a(t), and position s(t) is the antiderivative of v(t). However, as we learned in our session on Initial-Value Problems, every integration step introduces a constant 'C'. For our rocket, these constants aren't just numbers—they represent the 'Initial Velocity' (v0) and 'Initial Position' (s0). Before you code, write out the symbolic steps you would take to find a specific position function s(t) if you are given acceleration a(t), an initial velocity v(0), and an initial height s(0).",
+     "step_title": "Map the Analytical Workflow",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's translate that math into a Python module. Using a library like SymPy for symbolic math (or a structured set of power-rule logic if you are building from scratch), create a function that takes an acceleration expression, a time variable, and initial conditions as inputs. Your code should compute the indefinite integral, solve for the constant C using the provided initial condition, and return the particular solution. Start by testing this logic on a standard constant-acceleration model: a(t) = -9.8 (gravity only).",
+     "step_title": "Draft the Integration Engine",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Real rockets lose mass as they burn fuel, making the acceleration function more complex than a simple constant. A common model for rocket acceleration is a(t) = T / (m0 - rt), where T is thrust, m0 is initial mass, and r is the burn rate. This involves the natural log antiderivative (1/x rule) we discussed in our lecture. Update your engine to handle these transcendental functions and ensure it includes the absolute value bars or domain restrictions necessary to keep the natural log valid.",
+     "step_title": "Handle Variable Mass Integrals",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code for your analytical solver along with the resulting functions for v(t) and s(t) for the test case provided (a(t) = 5t^2 + 2t). Your work will be evaluated on the correct application of the power rule for integration and the correct determination of the constant of integration based on the initial conditions."
+     },
+     "step_body": "It is time to finalize your 'Exact Net Change and Accumulation Solver.' Your deliverable must be able to take an analytical acceleration function and return the precise velocity and position functions. To demonstrate its success, use your solver to find the exact velocity function v(t) for a rocket with an acceleration a(t) = 5t^2 + 2t, assuming an initial velocity of v(0) = 0. Then, calculate the exact net change in position (displacement) between t=0 and t=10 seconds.",
+     "step_title": "Submit the Analytical Solver",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a short reflection (3-5 sentences) comparing your analytical solver to the numerical (Riemann) methods used previously. Mention at least one strength and one limitation of the analytical approach."
+     },
+     "step_body": "As a final check, remember the symmetry of calculus: the derivative of your result should return you exactly to your starting point. Take your newly found position function s(t) and differentiate it twice. Does it match your original acceleration function? Reflection on this 'reconstruction' process is what differentiates an engineer from a calculator. Think about how this analytical method compares to the Riemann sums we used in the last stage—specifically, in what scenario would the analytical engine fail where the numerical integrator would succeed?",
+     "step_title": "Verify with Symmetry",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "da74d5d7-48f3-48e9-b902-6ff27cf04ca3",
+   "stage_title": "Exact Net Change and Accumulation Solver",
+   "parent_project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "stage_description": "Leverage the Fundamental Theorem of Calculus and analytical substitution techniques to calculate the exact distance traveled and velocity achieved by integrating the analytical thrust function.",
+   "deliverable_increment": "An analytical integration engine that computes exact values of position and velocity functions from acceleration formulas using anti-derivatives and initial conditions."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you calculated the exact net change in position and velocity by integrating acceleration functions. However, real-world rocket trajectories are often governed by differential equations where the rate of change (acceleration or velocity) depends on the current state of the system—such as air resistance, which increases as the rocket speeds up. In this stage, you will move from static integration to dynamic modeling by building a script that visualizes these rates of change as slope fields and solves the underlying separable differential equations to predict landing times.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Submit a screenshot or photo of your initial slope field sketch. Ensure that the horizontal segments (where the slope is zero) are clearly visible at the predicted terminal velocity, as this demonstrates your understanding of equilibrium in differential equations."
+     },
+     "step_body": "A slope field is a visual map of a differential equation, showing the 'flow' of a system at every point (t, v). Before we solve the math, we need to see the physics. Your first task is to set up a coordinate grid where the horizontal axis is time (t) and the vertical axis is velocity (v). For the differential equation dv/dt = g - (k/m)v, where g is gravity and (k/m) is a drag coefficient, calculate the slope at 10-15 distinct points. Notice how the slopes flatten out as velocity increases—this is the visual representation of terminal velocity. Create a rough sketch or a simple plot of these mini-tangent lines to see the 'currents' of the rocket's descent.",
+     "step_title": "Map the direction field",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the separated form of the equation (before integration) and your general solution for v(t) including the constant C. Explain why we cannot simply subtract the velocity term to separate the variables."
+     },
+     "step_body": "Now that we have a visual map, let's find the exact algebraic solution using the separation of variables. Take the rocket drag equation dv/dt = g - (k/m)v. Your goal is to move all 'v' terms and the 'dv' differential to the left side, and all 't' terms and 'dt' to the right side. Be careful: remember the lesson from the whiteboard—you must use division to isolate the velocity terms, as subtraction will not allow you to integrate. Once separated, integrate both sides. Don't forget the constant of integration (C) at the moment of integration, as it will later be transformed when you solve for v.",
+     "step_title": "Separate and integrate",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "A general solution represents every possible flight path, but we need the one that matches your rocket. Use the initial condition v(0) = 0 (assuming the rocket starts its descent from a momentary halt at apogee). Substitute these values into your general solution to solve for the specific value of C. This transforms your family of curves into a single 'Particular Solution' curve. Once you have this function, trace it onto your slope field from step 2. The curve should follow the 'flow' of the tangent lines perfectly, never crossing them at sharp angles.",
+     "step_title": "Solve for the particular trajectory",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your finalized Python script (.py) or computational document. The deliverable must include the rendered plot showing both the slope field and the solution curve, along with the calculated landing time. Good work will show a smooth curve that matches the direction of the underlying slope field segments."
+     },
+     "step_body": "Integrate your work into a Python script (or a detailed computational worksheet). This script should: 1) Define the differential equation for velocity with drag, 2) Use a plotting library like Matplotlib to render the slope field, and 3) Overlay the particular solution curve you derived. Finally, use your particular solution to calculate the 'Landing Time'—the value of t when the rocket's position (the integral of your velocity function) returns to zero or hits the target displacement.",
+     "step_title": "Finalize the solver script",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short reflection (3-5 sentences). Describe the concavity of the velocity curve and explain how the slope field visually confirms the existence of a terminal velocity (where dv/dt = 0)."
+     },
+     "step_body": "Look closely at your rendered plot. As t increases, what happens to the concavity of your velocity curve? Relate this back to the physics of the rocket: how does the slope field explain why the rocket eventually stops accelerating and reaches a constant terminal velocity? Write a brief reflection on how the visual slope field helped you verify your algebraic solution.",
+     "step_title": "Analyze concavity and terminal velocity",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "c3205b9c-caad-40e3-b20c-a8f993b7ef28",
+   "stage_title": "Trajectory Slope Field and Drag Separation Equation Solver",
+   "parent_project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "stage_description": "Construct and visualize slope fields for variable-mass differential equations modeling atmospheric drag. Solve these separable differential equations analytically using initial conditions to predict the landing time.",
+   "deliverable_increment": "A differential equation solver script that renders trajectory slope fields and calculates analytical solution curves representing velocity under drag forces."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome back to the suite. You've already solved for the rocket's limits, gradients, and trajectory. Now, we need to turn those 2D curves into a 3D physical object. This stage focuses on the engine nozzle—a critical component where mass and volume dictate flight efficiency. You'll apply the concept of 'slicing' we explored in previous sessions, moving from 2D area accumulation to 3D volume integration. Our goal is to determine the exact material volume and weight distribution of the nozzle by rotating its profile around a central axis.",
+     "step_title": "Recap and Orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify if you will use the Disc or Washer method and provide a 1-2 sentence justification based on whether the region is adjacent to or separated from the axis of rotation."
+     },
+     "step_body": "To begin, we need the mathematical boundary of the nozzle. For our model, assume the inner wall is defined by the function f(x) = 0.5 + 0.1x^2 and the outer casing is g(x) = 0.7 + 0.1x^2, on the interval from x = 0 to x = 3 (representing the length of the nozzle). On your own, sketch this region in 2D. Before we calculate volume, identify the geometric method needed: will we be using the Disc Method (solid core) or the Washer Method (hollow center) to find the volume of the material itself? Briefly explain your choice based on the functions provided.",
+     "step_title": "Define the Nozzle Profile",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the LaTeX or plain-text representation of your definite integral (e.g., Integral from a to b of Pi * [...]). Ensure you have correctly placed the square on the functions."
+     },
+     "step_body": "Now, let's translate that geometry into calculus. Recall that the volume of a solid of revolution is the integral of the cross-sectional area. Since we are rotating around the x-axis, the area of a slice at any point x is A(x) = π[Outer Radius]^2 - π[Inner Radius]^2. Using the functions f(x) and g(x) from the previous step, write out the full definite integral expression, including the limits of integration, that represents the volume of the nozzle casing.",
+     "step_title": "Set Up the Volume Integral",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated total volume, the total mass, and the average cross-sectional area. Show the basic arithmetic steps you used to reach these numbers."
+     },
+     "step_body": "With your integral set up, it's time to solve. Calculate the exact numerical volume (in cubic units). Once you have the volume, we can find the mass distribution. If the nozzle is constructed from a lightweight alloy with a density of 2.7 units of mass per cubic unit, multiply your volume by this density to find the total mass. Also, calculate the 'average cross-sectional area' of the nozzle by dividing the total volume by the length of the interval (b - a). This gives us a sense of the material thickness across the component.",
+     "step_title": "Calculate Volume and Mass",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF document containing your finalized math, the setup for the Washer Method, and the resulting mass and volume calculations. Good work will show a clear logical progression from the 2D functions to the 3D physical totals."
+     },
+     "step_body": "Finalize this component of the suite by formalizing your calculations into a 'Geometry Engine' deliverable. This should be a document or script that clearly defines the nozzle functions, the integration setup, and the resulting physical properties (volume and mass). Ensure your work accounts for the 'leveling out' principle we discussed—where the average value represents the constant thickness if the nozzle were reshaped into a uniform cylinder.",
+     "step_title": "Final Submission: Geometry Module",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work. You've successfully moved from 2D modeling to 3D physical realization. Think about how changing the density or the curvature of the outer shell would impact the rocket's flight. If you increased the thickness of the nozzle to withstand higher heat, how would the integral setup change, and what would be the cost to your total mass budget? You're now ready to move toward modeling the 3D volume of the entire rocket body.",
+     "step_title": "Reflect on Material Impact",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit6",
+   "stage_id": "e9bb3a3a-cf9c-4622-b61e-a3bca5e125f3",
+   "stage_title": "Engine Nozzle Solid of Revolution Volume Calculator",
+   "parent_project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "stage_description": "Calculate the physical volume and mass distribution of the rocket's engine nozzle. You will use the disc and washer methods to integrate the 3D solid generated by rotating the boundary curves of the nozzle profile.",
+   "deliverable_increment": "A 3D geometry engine module that calculates exact physical volume, material displacement, and weight distribution of the rocket engine nozzle using washers/discs integration."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "2156847b-a33e-4ad5-b96c-66dc5dbbb496",
+   "project_name": "Numerical and Analytical Calculus Modeling Suite",
+   "final_deliverable": "A comprehensive Python code repository (or detailed computational design document) containing a limit solver for atmospheric density, an analytical rocket nose-cone shape optimizer, numerical Riemann sum/trapezoidal integrators for engine thrust profile, a separable differential equation trajectory solver, and a 3D solid-of-revolution engine nozzle volume calculator.",
+   "project_description": "Throughout this course, you will build and code a cohesive Calculus Modeling Suite in Python (or use structured worksheets if coding is not preferred). This suite simulates and solves real-world dynamic physical systems—specifically, a variable-mass model rockets ascending through a varying atmosphere. You will write code and analytical reports to compute limits, model optimal aerodynamic nose-cone profiles using derivatives, approximate fuel consumption using Riemann sums and integrals, map direction fields of the rocket's trajectory, and compute the volume and mass distribution of the physical rocket."
+  }
+ ],
+ "courseUuid": "7d17a4e0-ca4c-4c7f-9051-4421d0ed7c8e"
+}

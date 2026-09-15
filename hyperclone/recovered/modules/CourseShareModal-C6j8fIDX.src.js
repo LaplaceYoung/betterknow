@@ -1,0 +1,348 @@
+import { b as e, r as s, j as r, g as a, c as o, A as t } from "./index-TjoB2Buo.js";
+const n = [{
+  key: "linkedin",
+  label: "LinkedIn",
+  icon: "/components/shareModal/linkedin.svg",
+  href: e => `https://www.linkedin.com/sharing/share-offsite/?url=${e}`
+}, {
+  key: "x",
+  label: "X",
+  icon: "/components/shareModal/X.svg",
+  href: (e, s) => `https://twitter.com/intent/tweet?url=${e}&text=${s}`
+}, {
+  key: "reddit",
+  label: "Reddit",
+  icon: "/components/shareModal/reddit_icon.svg",
+  href: (e, s) => `https://www.reddit.com/submit?url=${e}&title=${s}`
+}];
+const i = ({
+  isOpen: i,
+  onClose: c,
+  course: l,
+  lessonCount: h,
+  subject: d
+}) => {
+  const {
+    t: u
+  } = e();
+  const [p, x] = s.useState(false);
+  const [m, j] = s.useState("link");
+  const [k, w] = s.useState({
+    rx: 0,
+    ry: 0
+  });
+  const [v, y] = s.useState(false);
+  const [b, f] = s.useState(null);
+  const [N, g] = s.useState(false);
+  const C = s.useRef(null);
+  const L = s.useRef(null);
+  const S = `${window.location.origin}/share/course/${encodeURIComponent(l.id)}`;
+  const T = u("share.learnCourseOnHyperknow", {
+    title: l.title
+  });
+  s.useEffect(() => {
+    if (!i) {
+      return;
+    }
+    const e = e => {
+      if (e.key === "Escape") {
+        c();
+      }
+    };
+    document.addEventListener("keydown", e);
+    return () => document.removeEventListener("keydown", e);
+  }, [i, c]);
+  s.useEffect(() => {
+    if (!i) {
+      x(false);
+      g(false);
+      if (C.current) {
+        window.clearTimeout(C.current);
+        C.current = null;
+      }
+    }
+  }, [i]);
+  s.useEffect(() => () => {
+    if (C.current) {
+      window.clearTimeout(C.current);
+    }
+  }, []);
+  s.useEffect(() => {
+    if (N && !v && b) {
+      navigator.clipboard.writeText(S).then(() => {
+        x(true);
+        if (C.current) {
+          window.clearTimeout(C.current);
+        }
+        C.current = window.setTimeout(() => x(false), 2000);
+      }).catch(e => {}).finally(() => {
+        g(false);
+      });
+    }
+  }, [N, v, b, S]);
+  if (!i) {
+    return null;
+  }
+  return r.jsx("div", {
+    className: "course-share-overlay",
+    onClick: c,
+    children: r.jsxs("div", {
+      className: "course-share-modal",
+      onClick: e => e.stopPropagation(),
+      role: "dialog",
+      "aria-modal": "true",
+      "aria-label": "Share this course",
+      children: [r.jsx("div", {
+        className: "course-share-left",
+        children: r.jsx("div", {
+          ref: L,
+          className: "course-share-card",
+          style: {
+            transform: `perspective(700px) rotateX(${k.rx}deg) rotateY(${k.ry}deg)`
+          },
+          onMouseMove: e => {
+            const s = L.current;
+            if (!s) {
+              return;
+            }
+            const {
+              left: r,
+              top: a,
+              width: o,
+              height: t
+            } = s.getBoundingClientRect();
+            const n = (e.clientX - r) / o;
+            const i = (e.clientY - a) / t;
+            w({
+              rx: (0.5 - i) * 12,
+              ry: (n - 0.5) * 12
+            });
+          },
+          onMouseLeave: () => w({
+            rx: 0,
+            ry: 0
+          }),
+          children: r.jsx("img", {
+            src: l.coverImage,
+            alt: l.title,
+            className: "course-share-cover-img"
+          })
+        })
+      }), r.jsxs("div", {
+        className: "course-share-body",
+        children: [r.jsx("button", {
+          type: "button",
+          className: "course-share-close",
+          onClick: c,
+          "aria-label": "Close",
+          children: r.jsx("svg", {
+            width: "16",
+            height: "16",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            "aria-hidden": "true",
+            children: r.jsx("path", {
+              d: "M18 6L6 18M6 6L18 18",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              strokeLinecap: "round",
+              strokeLinejoin: "round"
+            })
+          })
+        }), r.jsxs("header", {
+          className: "course-share-head",
+          children: [r.jsx("h2", {
+            className: "course-share-title",
+            children: u("share.courseShareTitle")
+          }), r.jsx("p", {
+            className: "course-share-subtitle",
+            children: u("share.courseShareSubtitle")
+          })]
+        }), r.jsxs("div", {
+          className: "course-share-options",
+          children: [r.jsxs("button", {
+            type: "button",
+            className: "course-share-option" + (m === "private" ? " course-share-option--active" : ""),
+            onClick: () => j("private"),
+            children: [r.jsx("span", {
+              className: "course-share-option-icon",
+              children: r.jsxs("svg", {
+                width: "16",
+                height: "16",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "1.8",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                "aria-hidden": "true",
+                children: [r.jsx("rect", {
+                  x: "3",
+                  y: "11",
+                  width: "18",
+                  height: "11",
+                  rx: "2"
+                }), r.jsx("path", {
+                  d: "M7 11V7a5 5 0 0 1 10 0v4"
+                })]
+              })
+            }), r.jsxs("span", {
+              className: "course-share-option-text",
+              children: [r.jsx("span", {
+                className: "course-share-option-label",
+                children: u("share.private")
+              }), r.jsx("span", {
+                className: "course-share-option-desc",
+                children: u("share.privateDescCourse")
+              })]
+            }), r.jsx("span", {
+              className: "course-share-radio" + (m === "private" ? " course-share-radio--selected" : ""),
+              "aria-hidden": "true"
+            })]
+          }), r.jsxs("button", {
+            type: "button",
+            className: "course-share-option" + (m === "link" ? " course-share-option--active" : ""),
+            onClick: () => j("link"),
+            children: [r.jsx("span", {
+              className: "course-share-option-icon",
+              children: r.jsxs("svg", {
+                width: "16",
+                height: "16",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "1.8",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                "aria-hidden": "true",
+                children: [r.jsx("circle", {
+                  cx: "12",
+                  cy: "12",
+                  r: "10"
+                }), r.jsx("line", {
+                  x1: "2",
+                  y1: "12",
+                  x2: "22",
+                  y2: "12"
+                }), r.jsx("path", {
+                  d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                })]
+              })
+            }), r.jsxs("span", {
+              className: "course-share-option-text",
+              children: [r.jsx("span", {
+                className: "course-share-option-label",
+                children: u("share.createShareLink")
+              }), r.jsx("span", {
+                className: "course-share-option-desc",
+                children: u("share.createShareLinkDesc")
+              })]
+            }), r.jsx("span", {
+              className: "course-share-radio" + (m === "link" ? " course-share-radio--selected" : ""),
+              "aria-hidden": "true"
+            })]
+          })]
+        }), r.jsx("p", {
+          className: "course-share-note",
+          children: u("share.checkContentNote")
+        }), r.jsxs("div", {
+          className: "course-share-actions",
+          children: [r.jsxs("button", {
+            type: "button",
+            className: "course-share-action" + (p ? " is-copied" : ""),
+            onClick: async () => {
+              if (!b) {
+                g(true);
+                if (!v) {
+                  await (async () => {
+                    y(true);
+                    try {
+                      const e = a();
+                      const s = await fetch(o(t.ENDPOINTS.CREATE_SHARE_RECORD), {
+                        method: "POST",
+                        headers: {
+                          accept: "application/json",
+                          "Content-Type": "application/json",
+                          ...(e ? {
+                            Authorization: `Bearer ${e}`
+                          } : {})
+                        },
+                        body: JSON.stringify({
+                          type: "course",
+                          shared_object_id: l.id,
+                          shared_with: {
+                            share_to_everyone: true
+                          }
+                        })
+                      });
+                      const r = await s.json().catch(() => ({}));
+                      if (!s.ok || !(r == null ? undefined : r.success)) {
+                        return;
+                      }
+                      f(r.record_id);
+                    } catch (e) {} finally {
+                      y(false);
+                    }
+                  })();
+                }
+                return;
+              }
+              try {
+                await navigator.clipboard.writeText(S);
+                x(true);
+                if (C.current) {
+                  window.clearTimeout(C.current);
+                }
+                C.current = window.setTimeout(() => x(false), 2000);
+              } catch (e) {}
+            },
+            disabled: N,
+            "aria-label": "Copy link",
+            children: [r.jsx("span", {
+              className: "course-share-action-icon",
+              children: p ? r.jsx("svg", {
+                width: "20",
+                height: "20",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                "aria-hidden": "true",
+                children: r.jsx("path", {
+                  d: "M20 6L9 17L4 12",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
+                })
+              }) : r.jsx("img", {
+                src: "/components/shareModal/link.svg",
+                alt: ""
+              })
+            }), r.jsx("span", {
+              className: "course-share-action-label",
+              children: u(p ? "share.copied" : N ? "share.loading" : "share.copyLink")
+            })]
+          }), n.map(e => r.jsxs("button", {
+            type: "button",
+            className: "course-share-action",
+            onClick: () => (e => {
+              const s = e.href(encodeURIComponent(S), encodeURIComponent(T));
+              window.open(s, "_blank", "noopener,noreferrer");
+            })(e),
+            "aria-label": `Share on ${e.label}`,
+            children: [r.jsx("span", {
+              className: "course-share-action-icon",
+              children: r.jsx("img", {
+                src: e.icon,
+                alt: ""
+              })
+            }), r.jsx("span", {
+              className: "course-share-action-label",
+              children: e.label
+            })]
+          }, e.key))]
+        })]
+      })]
+    })
+  });
+};
+export { i as C };

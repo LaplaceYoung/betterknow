@@ -1,0 +1,1290 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Comprehensive Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following questions is fundamentally philosophical rather than empirical?",
+     "options": [
+      "How many neurons are in the human brain?",
+      "What is the statistical correlation between wealth and happiness?",
+      "Is justice an objective reality or a human convention?",
+      "How do different cultures define 'right' and 'wrong'?"
+     ],
+     "explanation": "While the other questions can be answered through data collection, sociology, or neuroscience, the nature of justice is a conceptual and fundamental question that investigates the framework of our values.",
+     "correctAnswers": [
+      "Is justice an objective reality or a human convention?"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which characteristics define a 'philosophical question' as discussed in the unit material?",
+     "options": [
+      "It is fundamental, lying at the root of other beliefs.",
+      "It is empirical, requiring laboratory testing to resolve.",
+      "It is open, lacking a single universally settled resolution.",
+      "It is conceptual, dealing with the relationships between ideas.",
+      "It is subjective, meaning any answer is as good as any other."
+     ],
+     "explanation": "Philosophical questions are fundamental, open, and conceptual. They are specifically contrasted with empirical questions and are not purely subjective, as some arguments are more logically rigorous than others.",
+     "correctAnswers": [
+      "It is fundamental, lying at the root of other beliefs.",
+      "It is open, lacking a single universally settled resolution.",
+      "It is conceptual, dealing with the relationships between ideas."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The state of productive puzzlement or conceptual roadblock that serves as the starting point for genuine philosophical investigation is known as ____.",
+     "placeholder": "Enter the Greek term",
+     "correctAnswers": [
+      "aporia"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In the context of philosophical doubt, what is the primary purpose of 'healthy skepticism'?",
+     "options": [
+      "To deny the existence of any external reality.",
+      "To demand proper credentials for our beliefs.",
+      "To prove that all sensory perception is a total illusion.",
+      "To adopt a posture of absolute nihilism."
+     ],
+     "explanation": "Healthy skepticism is a tool of precision used to ensure our beliefs are well-supported, rather than a move toward nihilism or total denial of reality.",
+     "correctAnswers": [
+      "To demand proper credentials for our beliefs."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "In a Socratic dialogue, what are the primary goals of introducing a counterexample?",
+     "options": [
+      "To humiliate the interlocutor in public.",
+      "To test the boundaries of a proposed definition.",
+      "To reach a more refined and resilient definition.",
+      "To prove that all truth is merely subjective.",
+      "To expose inconsistencies in a person's current reasoning."
+     ],
+     "explanation": "Socratic counterexamples are cooperative tools designed to move toward conceptual clarity by breaking down naive definitions and building stronger ones.",
+     "correctAnswers": [
+      "To test the boundaries of a proposed definition.",
+      "To reach a more refined and resilient definition.",
+      "To expose inconsistencies in a person's current reasoning."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A statement or assertion that has a 'truth-value' (it can be true or false) is known in logic as a ____.",
+     "placeholder": "Term for the building block of arguments",
+     "correctAnswers": [
+      "claim",
+      "proposition"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What does Daniel Dennett's term 'intuition pump' refer to?",
+     "options": [
+      "A logical fallacy that appeals to emotion.",
+      "A thought experiment designed to isolate specific conceptual variables.",
+      "An empirical test used in cognitive psychology.",
+      "A method for winning debates through rhetorical force."
+     ],
+     "explanation": "Intuition pumps are thought experiments that strip away 'noise' to reveal the underlying logic of our conceptual intuitions.",
+     "correctAnswers": [
+      "A thought experiment designed to isolate specific conceptual variables."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Identify the components that distinguish a formal 'argument' from a 'mere assertion'.",
+     "options": [
+      "An argument provides reasons (premises) for a belief.",
+      "An argument must be shouted to be effective.",
+      "An argument has a structured relationship between claims.",
+      "An argument aims to support a specific conclusion.",
+      "A mere assertion lacks any supporting evidence."
+     ],
+     "explanation": "In logic, arguments are defined by their structure (premises leading to a conclusion), whereas assertions are statements made without any supporting reasons.",
+     "correctAnswers": [
+      "An argument provides reasons (premises) for a belief.",
+      "An argument has a structured relationship between claims.",
+      "An argument aims to support a specific conclusion.",
+      "A mere assertion lacks any supporting evidence."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the Socratic loop, if a definition like 'Honesty is always telling the truth' is met with a case where a killer asks for a victim's location, the killer scenario acts as a ____.",
+     "placeholder": "Name the logical tool",
+     "correctAnswers": [
+      "counterexample",
+      "counter-example"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of a rigid, broken shield versus a flexible, adaptive one.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit1-q10.png"
+     },
+     "prompt": "How does the 'Argument Shield' of intellectual humility differ from dogmatic certainty?",
+     "options": [
+      "It is rigid and relies on absolute proof.",
+      "It is brittle and shatters under one counterexample.",
+      "It is adaptive and acknowledges its own limitations.",
+      "It is weak because it admits that it might be wrong."
+     ],
+     "explanation": "Intellectual humility creates a flexible and logically defensible framework by proactively mapping the boundaries of what one knows.",
+     "correctAnswers": [
+      "It is adaptive and acknowledges its own limitations."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'radical wonder' as described in the unit?",
+     "options": [
+      "Accepting a news report as absolute fact immediately.",
+      "Questioning if the 'self' remains the same over time.",
+      "Interrogating the conceptual framework of science.",
+      "Using unexamined habits of mind for daily tasks.",
+      "Turning a mundane observation of a smartphone into a question about the mind."
+     ],
+     "explanation": "Radical wonder involves destabilizing 'settled' answers and looking past unconscious assumptions to find deeper conceptual questions.",
+     "correctAnswers": [
+      "Questioning if the 'self' remains the same over time.",
+      "Interrogating the conceptual framework of science.",
+      "Turning a mundane observation of a smartphone into a question about the mind."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "According to the unit material, philosophy is not a competitor to empirical science, but an investigation into the ____ that science takes for granted.",
+     "placeholder": "Two-word phrase",
+     "correctAnswers": [
+      "conceptual frameworks",
+      "conceptual framework"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "When a student tries to 'escape' a thought experiment by suggesting a pragmatic real-world fix (e.g., 'just buy a new ship'), they are failing to recognize that thought experiments are:",
+     "options": [
+      "Engineering problems designed for efficiency.",
+      "Conceptual stress-tests for our definitions.",
+      "Scientific predictions of future events.",
+      "Historical accounts of actual occurrences."
+     ],
+     "explanation": "Thought experiments are meant to isolate conceptual variables; pragmatic 'workarounds' defeat the purpose of uncovering the logic of our intuitions.",
+     "correctAnswers": [
+      "Conceptual stress-tests for our definitions."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "What are the common pitfalls for students beginning the Socratic Method?",
+     "options": [
+      "Becoming too cooperative and agreeing with everything.",
+      "Abandoning definitions entirely for relativism ('it's all subjective').",
+      "Mistaking the method for an aggressive interrogation.",
+      "Thinking that 'aporia' means the investigation has failed.",
+      "Refining the definition too quickly."
+     ],
+     "explanation": "New students often mistake the breakdown of a definition (aporia) for failure or use it as an excuse to fall into relativism, rather than using it as a step toward a better definition.",
+     "correctAnswers": [
+      "Abandoning definitions entirely for relativism ('it's all subjective').",
+      "Mistaking the method for an aggressive interrogation.",
+      "Thinking that 'aporia' means the investigation has failed."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Using the Ship of Theseus thought experiment, demonstrate how an account of identity based on 'original physical material' differs from 'functional continuity.'",
+     "options": [
+      "The ship with 100% new planks is the original.",
+      "The ship reconstructed from the old rotted planks is the original.",
+      "Neither ship is the original ship.",
+      "Both ships are identically the same original ship."
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Theseus Ship Identity Practice</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #6e6e6e;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --gold: #d4af37;\n      --gold-soft: #fbf8eb;\n      --gold-strong: #aa8411;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .action-hint {\n      text-align: center;\n      font-size: 13px;\n      color: var(--muted-fg);\n      margin: 0;\n    }\n\n    /* Shipyard Stage */\n    .stage {\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      position: relative;\n      height: 280px;\n      overflow: hidden;\n    }\n\n    /* Docks background styling */\n    .sea {\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      height: 120px;\n      background: #e4edf5;\n      border-top: 2px dashed #cbdbe6;\n      z-index: 1;\n    }\n\n    .dock-container {\n      position: absolute;\n      top: 15px;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 16px;\n      padding: 0 16px;\n      z-index: 2;\n    }\n\n    .dock {\n      position: relative;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: flex-start;\n    }\n\n    .dock-label {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      padding: 4px 8px;\n      border-radius: 6px;\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--fg);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n      z-index: 10;\n      text-align: center;\n      pointer-events: none;\n    }\n\n    .ship-illustration {\n      width: 110px;\n      height: 70px;\n      margin-top: 8px;\n      pointer-events: none;\n    }\n\n    /* Target Zones */\n    .zones-grid {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 100%;\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      grid-template-rows: 1fr 1.1fr;\n      z-index: 5;\n      pointer-events: none;\n    }\n\n    .zone {\n      margin: 6px;\n      border: 2px dashed var(--border);\n      border-radius: 10px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: flex-end;\n      padding-bottom: 8px;\n      background: rgba(255, 255, 255, 0.4);\n      transition: all 0.2s ease;\n      pointer-events: auto;\n      cursor: pointer;\n    }\n\n    .zone::before {\n      content: attr(data-label);\n      font-size: 11px;\n      font-weight: bold;\n      color: var(--muted-fg);\n      text-align: center;\n      padding: 2px 6px;\n      background: rgba(255,255,255,0.85);\n      border-radius: 4px;\n      border: 1px solid var(--border);\n      box-shadow: 0 1px 2px rgba(0,0,0,0.03);\n    }\n\n    .zone.hovered {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n    }\n    .zone.hovered::before {\n      color: var(--accent-strong);\n      border-color: var(--accent);\n    }\n\n    .zone.active {\n      border-color: var(--gold-strong);\n      background: var(--gold-soft);\n      border-style: solid;\n    }\n    .zone.active::before {\n      color: var(--gold-strong);\n      border-color: var(--gold);\n      background: #fff;\n    }\n\n    /* Draggable Originality Seal */\n    .seal-source {\n      position: absolute;\n      left: 50%;\n      bottom: 20px;\n      transform: translateX(-50%);\n      width: 64px;\n      height: 64px;\n      z-index: 10;\n    }\n\n    .seal-pedestal {\n      position: absolute;\n      bottom: 12px;\n      left: 50%;\n      transform: translateX(-50%);\n      width: 76px;\n      height: 14px;\n      background: #d6cfc4;\n      border-radius: 50%;\n      border-bottom: 3px solid #bdae9c;\n      z-index: 3;\n    }\n\n    .draggable-seal {\n      position: absolute;\n      width: 60px;\n      height: 60px;\n      background: radial-gradient(circle, #ffe28a 0%, #e2b73c 100%);\n      border: 3px solid #fff;\n      border-radius: 50%;\n      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(255,255,255,0.4);\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      cursor: grab;\n      touch-action: none;\n      z-index: 12;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .draggable-seal:active {\n      cursor: grabbing;\n    }\n\n    .draggable-seal .label {\n      font-size: 8px;\n      font-weight: 800;\n      color: #705500;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      text-shadow: 0 1px 0 rgba(255,255,255,0.5);\n    }\n\n    .draggable-seal svg {\n      width: 22px;\n      height: 22px;\n      fill: #705500;\n      filter: drop-shadow(0 1px 0 rgba(255,255,255,0.5));\n    }\n\n    /* State modifier for locking */\n    .locked {\n      pointer-events: none !important;\n    }\n    .locked .draggable-seal {\n      cursor: default;\n      opacity: 0.9;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;\">\n    Theseus' Ship Identity Interactive Diagram\n  </h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\" id=\"stage\">\n      <div class=\"sea\"></div>\n      <div class=\"dock-container\">\n        <!-- Dock A: Functional Continuity -->\n        <div class=\"dock\">\n          <div class=\"dock-label\">Dock A: 100% New Planks</div>\n          <svg class=\"ship-illustration\" viewBox=\"0 0 120 80\">\n            <!-- Modern Ship (Clean, neat lines) -->\n            <path d=\"M10 45 L110 45 L95 65 L25 65 Z\" fill=\"#b0c4de\" stroke=\"#4C6696\" stroke-width=\"2\"/>\n            <rect x=\"35\" y=\"25\" width=\"45\" height=\"20\" fill=\"#eef3f7\" stroke=\"#4C6696\" stroke-width=\"2\" rx=\"2\"/>\n            <line x1=\"85\" y1=\"45\" x2=\"85\" y2=\"15\" stroke=\"#4C6696\" stroke-width=\"2\"/>\n            <polygon points=\"85,15 105,22 85,30\" fill=\"#ff6b6b\"/>\n            <!-- Planks detail -->\n            <line x1=\"20\" y1=\"52\" x2=\"100\" y2=\"52\" stroke=\"#fff\" stroke-dasharray=\"8 4\" stroke-width=\"1.5\" opacity=\"0.8\"/>\n            <line x1=\"23\" y1=\"58\" x2=\"97\" y2=\"58\" stroke=\"#fff\" stroke-dasharray=\"12 4\" stroke-width=\"1.5\" opacity=\"0.8\"/>\n          </svg>\n        </div>\n\n        <!-- Dock B: Material Identity -->\n        <div class=\"dock\">\n          <div class=\"dock-label\">Dock B: 100% Old Planks</div>\n          <svg class=\"ship-illustration\" viewBox=\"0 0 120 80\">\n            <!-- Reconstructed Ship (Rustic/rotted appearance) -->\n            <path d=\"M10 45 L110 45 L95 65 L25 65 Z\" fill=\"#8b7355\" stroke=\"#5a4a35\" stroke-width=\"2\"/>\n            <rect x=\"35\" y=\"25\" width=\"45\" height=\"20\" fill=\"#a0886a\" stroke=\"#5a4a35\" stroke-width=\"2\" rx=\"2\"/>\n            <line x1=\"85\" y1=\"45\" x2=\"85\" y2=\"15\" stroke=\"#5a4a35\" stroke-width=\"2\"/>\n            <polygon points=\"85,15 105,22 85,30\" fill=\"#c0392b\"/>\n            <!-- Rotted details -->\n            <circle cx=\"30\" cy=\"55\" r=\"2.5\" fill=\"#5a4a35\" opacity=\"0.6\"/>\n            <circle cx=\"75\" cy=\"60\" r=\"2\" fill=\"#5a4a35\" opacity=\"0.6\"/>\n            <line x1=\"18\" y1=\"53\" x2=\"102\" y2=\"53\" stroke=\"#4a3b2c\" stroke-dasharray=\"4 6\" stroke-width=\"2\" opacity=\"0.7\"/>\n            <line x1=\"24\" y1=\"59\" x2=\"96\" y2=\"59\" stroke=\"#4a3b2c\" stroke-dasharray=\"6 4\" stroke-width=\"1.5\" opacity=\"0.7\"/>\n          </svg>\n        </div>\n      </div>\n\n      <!-- Pedestal for the Seal when not placed -->\n      <div class=\"seal-pedestal\" id=\"pedestal\"></div>\n\n      <!-- Drag Targets mapped directly to the four options -->\n      <div class=\"zones-grid\">\n        <div class=\"zone\" id=\"zone-new\" data-label=\"Dock A is Original\" aria-label=\"The ship with 100% new planks is the original.\"></div>\n        <div class=\"zone\" id=\"zone-old\" data-label=\"Dock B is Original\" aria-label=\"The ship reconstructed from the old rotted planks is the original.\"></div>\n        <div class=\"zone\" id=\"zone-neither\" data-label=\"Neither is Original\" aria-label=\"Neither ship is the original ship.\"></div>\n        <div class=\"zone\" id=\"zone-both\" data-label=\"Both are Original\" aria-label=\"Both ships are identically the same original ship.\"></div>\n      </div>\n\n      <!-- Draggable Medallion -->\n      <div class=\"seal-source\" id=\"seal-container\">\n        <div class=\"draggable-seal\" id=\"seal\" tabindex=\"0\" role=\"slider\" aria-label=\"Original Ship Seal. Drag this seal to claim which ship is the true original.\" aria-valuetext=\"None selected\">\n          <svg viewBox=\"0 0 24 24\">\n            <path d=\"M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm1,14H11V12h2Zm0-5H11V7h2Z\"/>\n          </svg>\n          <span class=\"label\">Original</span>\n        </div>\n      </div>\n    </div>\n\n    <p class=\"action-hint\">Drag the golden \"Original\" seal to make your claim</p>\n  </div>\n\n  <script>\n    // Exact option strings mapped to zones\n    const OPTION_MAP = {\n      'zone-new': 'The ship with 100% new planks is the original.',\n      'zone-old': 'The ship reconstructed from the old rotted planks is the original.',\n      'zone-neither': 'Neither ship is the original ship.',\n      'zone-both': 'Both ships are identically the same original ship.'\n    };\n\n    const seal = document.getElementById('seal');\n    const sealContainer = document.getElementById('seal-container');\n    const pedestal = document.getElementById('pedestal');\n    const stage = document.getElementById('stage');\n    const zones = document.querySelectorAll('.zone');\n\n    let currentAnswer = null;\n    let isDragging = false;\n    let isLocked = false;\n    let startX, startY;\n    let sealStartX = 0, sealStartY = 0;\n    let activeZoneId = null;\n\n    // Report height on load and changes\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Coordinate helper\n    function getStageCoords(e) {\n      const rect = stage.getBoundingClientRect();\n      const clientX = e.clientX || (e.touches && e.touches[0].clientX);\n      const clientY = e.clientY || (e.touches && e.touches[0].clientY);\n      return {\n        x: clientX - rect.left,\n        y: clientY - rect.top\n      };\n    }\n\n    // Drag / Interaction handlers\n    seal.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      seal.setPointerCapture(e.pointerId);\n      \n      const coords = getStageCoords(e);\n      startX = coords.x;\n      startY = coords.y;\n\n      // Get current offset from style\n      const transform = seal.style.transform || 'translate(0px, 0px)';\n      const match = transform.match(/translate\\(([-\\d.]+)px,\\s*([-\\d.]+)px\\)/);\n      if (match) {\n        sealStartX = parseFloat(match[1]);\n        sealStartY = parseFloat(match[2]);\n      } else {\n        sealStartX = 0;\n        sealStartY = 0;\n      }\n      \n      seal.style.transition = 'none';\n      e.preventDefault();\n    });\n\n    seal.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      const coords = getStageCoords(e);\n      const dx = coords.x - startX;\n      const dy = coords.y - startY;\n\n      const newX = sealStartX + dx;\n      const newY = sealStartY + dy;\n\n      // Restrict seal inside stage bounds roughly\n      const stageRect = stage.getBoundingClientRect();\n      const boundedX = Math.max(-stageRect.width / 2 + 30, Math.min(stageRect.width / 2 - 30, newX));\n      const boundedY = Math.max(-stageRect.height + 40, Math.min(40, newY));\n\n      seal.style.transform = `translate(${boundedX}px, ${boundedY}px)`;\n\n      // Detect active drop zone\n      checkCollision();\n    });\n\n    seal.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      seal.releasePointerCapture(e.pointerId);\n      seal.style.transition = 'transform 0.2s cubic-bezier(.34,1.56,.64,1)';\n\n      snapToZone();\n    });\n\n    function checkCollision() {\n      const sealRect = seal.getBoundingClientRect();\n      const sealCenterX = sealRect.left + sealRect.width / 2;\n      const sealCenterY = sealRect.top + sealRect.height / 2;\n\n      let highestOverlap = 0;\n      let targetZone = null;\n\n      zones.forEach(zone => {\n        zone.classList.remove('hovered');\n        const rect = zone.getBoundingClientRect();\n        if (\n          sealCenterX >= rect.left &&\n          sealCenterX <= rect.right &&\n          sealCenterY >= rect.top &&\n          sealCenterY <= rect.bottom\n        ) {\n          targetZone = zone;\n        }\n      });\n\n      if (targetZone) {\n        targetZone.classList.add('hovered');\n      }\n    }\n\n    function snapToZone() {\n      const sealRect = seal.getBoundingClientRect();\n      const sealCenterX = sealRect.left + sealRect.width / 2;\n      const sealCenterY = sealRect.top + sealRect.height / 2;\n\n      let targetZone = null;\n\n      zones.forEach(zone => {\n        const rect = zone.getBoundingClientRect();\n        if (\n          sealCenterX >= rect.left &&\n          sealCenterX <= rect.right &&\n          sealCenterY >= rect.top &&\n          sealCenterY <= rect.bottom\n        ) {\n          targetZone = zone;\n        }\n        zone.classList.remove('hovered');\n        zone.classList.remove('active');\n      });\n\n      if (targetZone) {\n        targetZone.classList.add('active');\n        activeZoneId = targetZone.id;\n\n        // Position seal nicely inside the chosen zone\n        const stageRect = stage.getBoundingClientRect();\n        const zoneRect = targetZone.getBoundingClientRect();\n        const containerRect = sealContainer.getBoundingClientRect();\n\n        // Calculate offset from container's original position to target zone center\n        const targetX = (zoneRect.left + zoneRect.width / 2) - (containerRect.left + containerRect.width / 2);\n        const targetY = (zoneRect.top + zoneRect.height / 2 + 10) - (containerRect.top + containerRect.height / 2);\n\n        seal.style.transform = `translate(${targetX}px, ${targetY}px)`;\n        seal.setAttribute('aria-valuetext', targetZone.getAttribute('aria-label'));\n\n        // Report choice\n        const choice = OPTION_MAP[activeZoneId];\n        if (choice && choice !== currentAnswer) {\n          currentAnswer = choice;\n          parent.postMessage({ type: 'hk-practice-answer', value: choice }, '*');\n        }\n      } else {\n        // Snap back to pedestal\n        seal.style.transform = `translate(0px, 0px)`;\n        seal.setAttribute('aria-valuetext', 'None selected');\n        activeZoneId = null;\n      }\n    }\n\n    // Keyboard navigation accessibility\n    seal.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      const zoneIds = Object.keys(OPTION_MAP);\n      let currentIndex = zoneIds.indexOf(activeZoneId);\n\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        currentIndex = (currentIndex + 1) % zoneIds.length;\n        triggerKeyboardSelect(zoneIds[currentIndex]);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        currentIndex = (currentIndex - 1 + zoneIds.length) % zoneIds.length;\n        triggerKeyboardSelect(zoneIds[currentIndex]);\n      } else if (e.key === 'Escape' || e.key === 'Backspace') {\n        // Reset to pedestal\n        seal.style.transition = 'transform 0.2s ease';\n        seal.style.transform = `translate(0px, 0px)`;\n        zones.forEach(z => z.classList.remove('active'));\n        activeZoneId = null;\n        seal.setAttribute('aria-valuetext', 'None selected');\n      }\n    });\n\n    function triggerKeyboardSelect(zoneId) {\n      zones.forEach(z => z.classList.remove('active'));\n      const targetZone = document.getElementById(zoneId);\n      targetZone.classList.add('active');\n      activeZoneId = zoneId;\n\n      const zoneRect = targetZone.getBoundingClientRect();\n      const containerRect = sealContainer.getBoundingClientRect();\n      const targetX = (zoneRect.left + zoneRect.width / 2) - (containerRect.left + containerRect.width / 2);\n      const targetY = (zoneRect.top + zoneRect.height / 2 + 10) - (containerRect.top + containerRect.height / 2);\n\n      seal.style.transition = 'transform 0.2s ease';\n      seal.style.transform = `translate(${targetX}px, ${targetY}px)`;\n      seal.setAttribute('aria-valuetext', targetZone.getAttribute('aria-label'));\n\n      const choice = OPTION_MAP[activeZoneId];\n      if (choice && choice !== currentAnswer) {\n        currentAnswer = choice;\n        parent.postMessage({ type: 'hk-practice-answer', value: choice }, '*');\n      }\n    }\n\n    // Host lock control\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        stage.classList.add('locked');\n        seal.setAttribute('tabindex', '-1');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The ship reconstructed from the old rotted planks is the original."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Comprehensive Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the traditional tripartite (JTB) theory of knowledge, which condition is meant to specifically filter out 'lucky guesses'?",
+     "options": [
+      "Internal Mind",
+      "Justification",
+      "Truth",
+      "Subjective Belief"
+     ],
+     "explanation": "Justification is the epistemic anchor that provides rational grounds for a belief, preventing cases where a true belief is held merely by chance or coincidence.",
+     "correctAnswers": [
+      "Justification"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "A comparison diagram showing Global skepticism as broad doubt and Local skepticism as targeted inquiry.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit2-q2.png"
+     },
+     "prompt": "In the context of philosophical skepticism, what are the primary differences between Global and Local skepticism?",
+     "options": [
+      "Global skepticism questions the possibility of any knowledge, while local skepticism targets specific domains.",
+      "Local skepticism is often used as a tool for scientific inquiry and peer review.",
+      "Global skepticism accepts mathematical truths but doubts sensory experience.",
+      "Local skepticism assumes that absolute certainty is required for all beliefs.",
+      "Global skepticism suggests we cannot prove we are not in a dream or a simulation."
+     ],
+     "explanation": "Global skepticism is an all-encompassing challenge to knowledge (like the dream scenario), whereas local skepticism is a focused tool used in specific fields like science to demand empirical evidence.",
+     "correctAnswers": [
+      "Global skepticism questions the possibility of any knowledge, while local skepticism targets specific domains.",
+      "Local skepticism is often used as a tool for scientific inquiry and peer review.",
+      "Global skepticism suggests we cannot prove we are not in a dream or a simulation."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The view that we can have knowledge even if our beliefs could theoretically be false, rejecting the need for 100% certainty, is known as ____.",
+     "explanation": "Fallibilism is the rational compromise that allows for knowledge based on highly justified, resilient beliefs rather than impossible absolute certainty.",
+     "placeholder": "Enter the philosophical term",
+     "correctAnswers": [
+      "fallibilism",
+      "pragmatic fallibilism"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In Descartes' 'Three Waves of Doubt', why does he introduce the 'Evil Demon' hypothesis?",
+     "options": [
+      "To prove that God exists and would not deceive him.",
+      "To demonstrate that our senses are generally reliable in the physical world.",
+      "To cast doubt even on abstract conceptual truths like mathematics.",
+      "To explain why some people are more prone to hallucinations than others."
+     ],
+     "explanation": "While sensory doubt and the dream argument cover physical reality, the Evil Demon is needed to doubt even the most basic logical and mathematical deductions.",
+     "correctAnswers": [
+      "To cast doubt even on abstract conceptual truths like mathematics."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would the JTB model categorize as 'Knowledge'?",
+     "options": [
+      "A person believes it is raining because they see water falling outside, and it is actually raining.",
+      "A juror votes 'guilty' based on a coin flip, and the defendant is later proven guilty by DNA.",
+      "A scientist predicts a solar eclipse based on calculated orbital mechanics, and it occurs.",
+      "A fan believes their team will win because of a 'gut feeling', and the team wins.",
+      "A student knows 2+2=4 because they understand the principles of arithmetic, and the statement is true."
+     ],
+     "explanation": "These cases meet all three criteria: Belief (subjective acceptance), Truth (external reality), and Justification (sensory evidence, calculation, or logical understanding). The juror and sports fan lack justification.",
+     "correctAnswers": [
+      "A person believes it is raining because they see water falling outside, and it is actually raining.",
+      "A scientist predicts a solar eclipse based on calculated orbital mechanics, and it occurs.",
+      "A student knows 2+2=4 because they understand the principles of arithmetic, and the statement is true."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Descartes referred to the thinking self—the intellect or consciousness that survives radical doubt—as the ____.",
+     "explanation": "Descartes distinguishes 'res cogitans' (thinking thing) from 'res extensa' (extended/physical thing) during his meditations.",
+     "placeholder": "Latin or English term",
+     "correctAnswers": [
+      "res cogitans",
+      "thinking thing"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If a medical researcher requires triple-blind clinical trials before declaring a drug safe, which philosophical stance are they exhibiting?",
+     "options": [
+      "Global Skepticism",
+      "Naive Credulity",
+      "Local (Pragmatic) Skepticism",
+      "Infallibilism"
+     ],
+     "explanation": "The researcher is not denying the possibility of truth (global skepticism) but is tightening justification criteria for a specific domain.",
+     "correctAnswers": [
+      "Local (Pragmatic) Skepticism"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "A line graph showing the degree of certainty required for knowledge across different philosophical stances.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit2-q8.png"
+     },
+     "prompt": "What are the core components of the 'Certainty Spectrum' discussed in Session 2.1.4?",
+     "options": [
+      "Radical Skepticism (100% certainty requirement)",
+      "Pragmatic Fallibilism (high justification)",
+      "Naive Credulity (unfiltered belief)",
+      "Objective Relativism (no truth requirement)",
+      "Empirical Solipsism (only the self exists)"
+     ],
+     "explanation": "The spectrum moves from the extreme of demanding absolute certainty to the extreme of accepting everything, with fallibilism as the middle ground.",
+     "correctAnswers": [
+      "Radical Skepticism (100% certainty requirement)",
+      "Pragmatic Fallibilism (high justification)",
+      "Naive Credulity (unfiltered belief)"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the JTB model, the 'External Reality' bridge connects Belief to ____.",
+     "explanation": "While belief is internal and subjective, truth is the objective component that corresponds to external reality.",
+     "correctAnswers": [
+      "Truth"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "How does Descartes' 'Cogito' resolve the problem of the 'Evil Demon'?",
+     "options": [
+      "It proves the demon is actually a benevolent being.",
+      "It shows that even if one is being deceived, there must be a 'self' to be the victim of deception.",
+      "It proves that the physical world is not an illusion.",
+      "It demonstrates that the demon cannot manipulate mathematical logic."
+     ],
+     "explanation": "Deception requires a subject. The act of being deceived is a form of thinking, which confirms the existence of the thinker.",
+     "correctAnswers": [
+      "It shows that even if one is being deceived, there must be a 'self' to be the victim of deception."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why is the JTB model (Justified True Belief) considered 'tripartite'?",
+     "options": [
+      "It requires a subjective state (Belief).",
+      "It requires an objective state (Truth).",
+      "It requires a rational link (Justification).",
+      "It requires a physical observer (Body).",
+      "It requires a historical consensus (Tradition)."
+     ],
+     "explanation": "The three necessary parts are Belief, Truth, and Justification; without any one of these, the definition of knowledge is incomplete under this theory.",
+     "correctAnswers": [
+      "It requires a subjective state (Belief).",
+      "It requires an objective state (Truth).",
+      "It requires a rational link (Justification)."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The 'Brain-in-a-vat' scenario is an example of ____ skepticism.",
+     "explanation": "It is global skepticism because it challenges our knowledge of the entire external world, not just a specific part of it.",
+     "placeholder": "Type of skepticism",
+     "correctAnswers": [
+      "global",
+      "extreme",
+      "radical"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Which analogy is used to explain why we don't need absolute certainty to navigate the world in a fallibilist framework?",
+     "options": [
+      "The horizon analogy: we only need to see the path ahead.",
+      "The mirror analogy: reality reflects our beliefs.",
+      "The candle analogy: knowledge is a small light in a dark room.",
+      "The building analogy: we must destroy the foundation to rebuild."
+     ],
+     "explanation": "The horizon analogy illustrates that practical agency doesn't require seeing the entire world (absolute certainty) to move safely.",
+     "correctAnswers": [
+      "The horizon analogy: we only need to see the path ahead."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "What are characteristics of 'Res Cogitans' according to the sessions?",
+     "options": [
+      "It is a 'thinking thing'.",
+      "It is purely consciousness or intellect.",
+      "It is the physical brain and nervous system.",
+      "It is established as indubitable via the Cogito.",
+      "It can be manipulated by an Evil Demon to not exist."
+     ],
+     "explanation": "Res cogitans is the non-physical thinking self. It cannot be deceived into non-existence because the act of thinking proves its existence.",
+     "correctAnswers": [
+      "It is a 'thinking thing'.",
+      "It is purely consciousness or intellect.",
+      "It is established as indubitable via the Cogito."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the primary metaphor used for Descartes' methodological skepticism?",
+     "options": [
+      "A magnifying glass examining a flask.",
+      "A horizon seen while navigating a path.",
+      "Demolishing a house on a sandy foundation.",
+      "A bridge between the mind and reality."
+     ],
+     "explanation": "Descartes suggests knocking down the entire structure of belief to find one solid, indubitable truth to build upon.",
+     "correctAnswers": [
+      "Demolishing a house on a sandy foundation."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Using Descartes' method of radical doubt, navigate through the layers of skepticism to find the only point of absolute certainty.",
+     "options": [
+      "Sensory Data",
+      "Mathematical Truths",
+      "The Cogito",
+      "Physical Reality"
+     ],
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Descartes' Radical Doubt</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --gold: #d4af37;\n      --gold-soft: #fffdf0;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      max-height: 400px;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .stage-svg {\n      width: 100%;\n      max-width: 480px;\n      height: auto;\n      max-height: 280px;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      touch-action: none;\n    }\n\n    /* Bricks styling */\n    .brick {\n      cursor: pointer;\n      transition: transform 0.2s ease, filter 0.2s ease;\n    }\n    .brick-bg {\n      fill: #e0dbd3;\n      stroke: #b5ada3;\n      stroke-width: 2;\n      transition: fill 0.3s, stroke 0.3s;\n    }\n    .brick.active .brick-bg {\n      stroke: var(--accent);\n      stroke-width: 3;\n      fill: var(--accent-soft);\n    }\n    .brick.active.cogito-brick .brick-bg {\n      stroke: var(--gold);\n      fill: var(--gold-soft);\n    }\n    \n    .brick-text {\n      font-size: 11px;\n      font-weight: 600;\n      fill: #5a5449;\n      pointer-events: none;\n      text-anchor: middle;\n      transition: fill 0.3s;\n    }\n    .brick.active .brick-text {\n      fill: var(--accent-strong);\n    }\n    .brick.active.cogito-brick .brick-text {\n      fill: #8a6d1c;\n    }\n\n    /* Wrecking ball elements */\n    .anchor {\n      fill: #444;\n    }\n    .chain {\n      stroke: #555;\n      stroke-width: 2;\n      stroke-dasharray: 4, 3;\n    }\n    .ball-grab {\n      cursor: grab;\n    }\n    .ball-grab:active {\n      cursor: grabbing;\n    }\n    .ball {\n      fill: #333;\n      stroke: #222;\n      stroke-width: 2;\n      transition: transform 0.1s ease;\n    }\n    .ball-glow {\n      fill: none;\n      stroke: var(--accent);\n      stroke-width: 4;\n      opacity: 0;\n      transition: opacity 0.2s;\n    }\n    .dragging .ball-glow {\n      opacity: 0.4;\n    }\n\n    /* Instruction / Status */\n    .hint-text {\n      margin-top: 8px;\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      font-weight: 500;\n      min-height: 18px;\n    }\n\n    /* Animation effects */\n    @keyframes brick-shatter {\n      0% { transform: translate(0, 0) scale(1); }\n      20% { transform: translate(-3px, 2px) rotate(-1deg); }\n      40% { transform: translate(3px, -1px) rotate(1deg); }\n      60% { transform: translate(-2px, -2px) rotate(0deg); }\n      80% { transform: translate(2px, 1px) rotate(-0.5deg); }\n      100% { transform: translate(0, 0) scale(1); }\n    }\n    .shattering {\n      animation: brick-shatter 0.4s ease-in-out;\n    }\n\n    @keyframes gold-pulse {\n      0% { filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.4)); }\n      50% { filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.9)); }\n      100% { filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.4)); }\n    }\n    .pulse-gold {\n      animation: gold-pulse 0.6s ease-in-out infinite;\n    }\n\n    /* House styling */\n    .house-path {\n      fill: none;\n      stroke: #7c756b;\n      stroke-width: 2.5;\n      stroke-linejoin: round;\n      stroke-linecap: round;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Descartes' Method of Doubt Interactive Stage</h1>\n\n  <div class=\"widget-container\">\n    <svg class=\"stage-svg\" viewBox=\"0 0 400 240\" aria-label=\"A house supported by four foundational bricks. A wrecking ball hangs on the left.\">\n      <!-- House of Knowledge -->\n      <g id=\"house\" transform=\"translate(190, 10)\">\n        <path class=\"house-path\" d=\"M 20,60 L 50,30 L 80,60 Z\" /> <!-- Roof -->\n        <path class=\"house-path\" d=\"M 27,60 L 27,90 L 73,90 L 73,60\" /> <!-- Walls -->\n        <path class=\"house-path\" d=\"M 45,90 L 45,75 L 55,75 L 55,90\" /> <!-- Door -->\n        <text x=\"50\" y=\"20\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#7c756b\">HOUSE OF KNOWLEDGE</text>\n      </g>\n\n      <!-- Connection Lines from House to Foundation -->\n      <path d=\"M 217,100 L 217,110 M 263,100 L 263,110\" stroke=\"#b5ada3\" stroke-width=\"2\" stroke-dasharray=\"2,2\" />\n\n      <!-- Foundational Bricks Stack -->\n      <!-- Brick 1: Sensory Data -->\n      <g id=\"brick-sensory\" class=\"brick\" transform=\"translate(140, 110)\" role=\"button\" tabindex=\"0\" aria-label=\"Test Sensory Data foundation\">\n        <rect class=\"brick-bg\" width=\"220\" height=\"24\" rx=\"4\" />\n        <text class=\"brick-text\" x=\"110\" y=\"16\">SENSORY DATA (Senses)</text>\n      </g>\n\n      <!-- Brick 2: Physical Reality -->\n      <g id=\"brick-physical\" class=\"brick\" transform=\"translate(140, 140)\" role=\"button\" tabindex=\"0\" aria-label=\"Test Physical Reality foundation\">\n        <rect class=\"brick-bg\" width=\"220\" height=\"24\" rx=\"4\" />\n        <text class=\"brick-text\" x=\"110\" y=\"16\">PHYSICAL REALITY (External World)</text>\n      </g>\n\n      <!-- Brick 3: Mathematical Truths -->\n      <g id=\"brick-math\" class=\"brick\" transform=\"translate(140, 170)\" role=\"button\" tabindex=\"0\" aria-label=\"Test Mathematical Truths foundation\">\n        <rect class=\"brick-bg\" width=\"220\" height=\"24\" rx=\"4\" />\n        <text class=\"brick-text\" x=\"110\" y=\"16\">MATHEMATICAL TRUTHS (Reason)</text>\n      </g>\n\n      <!-- Brick 4: The Cogito -->\n      <g id=\"brick-cogito\" class=\"brick cogito-brick\" transform=\"translate(140, 200)\" role=\"button\" tabindex=\"0\" aria-label=\"Test The Cogito foundation\">\n        <rect class=\"brick-bg\" width=\"220\" height=\"24\" rx=\"4\" />\n        <text class=\"brick-text\" x=\"110\" y=\"16\">THE COGITO (I Think, I Exist)</text>\n      </g>\n\n      <!-- Wrecking Ball Mechanism -->\n      <!-- Anchor point of the rope -->\n      <circle class=\"anchor\" cx=\"60\" cy=\"20\" r=\"5\" />\n      \n      <!-- The Rope/Chain -->\n      <line id=\"chain\" class=\"chain\" x1=\"60\" y1=\"20\" x2=\"60\" y2=\"120\" />\n      \n      <!-- The Ball Group -->\n      <g id=\"ball-group\" class=\"ball-grab\" transform=\"translate(60, 120)\">\n        <circle class=\"ball-glow\" cx=\"0\" cy=\"0\" r=\"22\" />\n        <circle class=\"ball\" cx=\"0\" cy=\"0\" r=\"16\" />\n        <!-- Visual weight shine -->\n        <circle cx=\"-5\" cy=\"-5\" r=\"3\" fill=\"#fff\" opacity=\"0.3\" />\n      </g>\n    </svg>\n\n    <div class=\"hint-text\" id=\"status-hint\">Drag the wrecking ball to strike a foundation brick</div>\n  </div>\n\n  <script>\n    // State & Mapping\n    const optionsMap = {\n      'brick-sensory': 'Sensory Data',\n      'brick-physical': 'Physical Reality',\n      'brick-math': 'Mathematical Truths',\n      'brick-cogito': 'The Cogito'\n    };\n\n    let selectedOption = null;\n    let isLocked = false;\n\n    // DOM Elements\n    const svg = document.querySelector('.stage-svg');\n    const ballGroup = document.getElementById('ball-group');\n    const chain = document.getElementById('chain');\n    const bricks = document.querySelectorAll('.brick');\n    const statusHint = document.getElementById('status-hint');\n\n    // Anchor pivot\n    const anchorX = 60;\n    const anchorY = 20;\n    const ropeLength = 110; // resting length\n\n    // Current Ball Position (relative to SVG coordinate space)\n    let ballX = 60;\n    let ballY = 130;\n\n    // Dragging state\n    let isDragging = false;\n    let dragOffset = { x: 0, y: 0 };\n\n    // Initial position update\n    updateBallPosition(ballX, ballY);\n\n    // Setup Interaction\n    ballGroup.addEventListener('pointerdown', onPointerDown);\n    window.addEventListener('pointermove', onPointerMove);\n    window.addEventListener('pointerup', onPointerUp);\n\n    // Click/Tap directly on bricks to target them\n    bricks.forEach(brick => {\n      brick.addEventListener('click', () => {\n        if (isLocked) return;\n        const rect = brick.getBoundingClientRect();\n        // Target center of the clicked brick\n        const brickId = brick.id;\n        const targetY = brickId === 'brick-sensory' ? 122 :\n                        brickId === 'brick-physical' ? 152 :\n                        brickId === 'brick-math' ? 182 : 212;\n        animateBallTo(210, targetY, brick);\n      });\n\n      // Keyboard support\n      brick.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          brick.click();\n        }\n      });\n    });\n\n    // Convert screen coordinates to SVG coordinates\n    function getSVGCoords(e) {\n      const point = svg.createSVGPoint();\n      point.x = e.clientX;\n      point.y = e.clientY;\n      const svgMember = point.matrixTransform(svg.getScreenCTM().inverse());\n      return svgMember;\n    }\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      ballGroup.setPointerCapture(e.pointerId);\n      svg.classList.add('dragging');\n\n      const coords = getSVGCoords(e);\n      dragOffset.x = coords.x - ballX;\n      dragOffset.y = coords.y - ballY;\n      e.preventDefault();\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging || isLocked) return;\n      const coords = getSVGCoords(e);\n      \n      // Calculate target position minus offset to avoid jumps\n      let targetX = coords.x - dragOffset.x;\n      let targetY = coords.y - dragOffset.y;\n\n      // Constrain physics roughly to a realistic swing radius from anchor\n      const dx = targetX - anchorX;\n      const dy = targetY - anchorY;\n      const dist = Math.sqrt(dx * dx + dy * dy);\n      const maxRadius = 180;\n      \n      if (dist > maxRadius) {\n        targetX = anchorX + (dx / dist) * maxRadius;\n        targetY = anchorY + (dy / dist) * maxRadius;\n      }\n\n      // Keep within reasonable SVG bounds\n      targetX = Math.max(20, Math.min(380, targetX));\n      targetY = Math.max(40, Math.min(230, targetY));\n\n      updateBallPosition(targetX, targetY);\n      checkCollisions(targetX, targetY);\n    }\n\n    function onPointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      svg.classList.remove('dragging');\n\n      // Find closest brick to settle on\n      let closestBrick = null;\n      let minDistance = 9999;\n      let targetSnapY = 130;\n\n      bricks.forEach(brick => {\n        const brickId = brick.id;\n        const brickY = brickId === 'brick-sensory' ? 122 :\n                       brickId === 'brick-physical' ? 152 :\n                       brickId === 'brick-math' ? 182 : 212;\n        // We evaluate distance primarily based on vertical alignment with the brick stack\n        const distance = Math.sqrt(Math.pow(ballX - 220, 2) + Math.pow(ballY - brickY, 2));\n        if (distance < minDistance && distance < 80) {\n          minDistance = distance;\n          closestBrick = brick;\n          targetSnapY = brickY;\n        }\n      });\n\n      if (closestBrick) {\n        animateBallTo(220, targetSnapY, closestBrick);\n      } else {\n        // Swing back to resting position\n        animateBallTo(60, 130, null);\n      }\n    }\n\n    function updateBallPosition(x, y) {\n      ballX = x;\n      ballY = y;\n      ballGroup.setAttribute('transform', `translate(${x}, ${y})`);\n      chain.setAttribute('x2', x);\n      chain.setAttribute('y2', y);\n    }\n\n    function checkCollisions(x, y) {\n      // Live feedback during dragging\n      bricks.forEach(brick => {\n        const brickId = brick.id;\n        const brickY = brickId === 'brick-sensory' ? 122 :\n                       brickId === 'brick-physical' ? 152 :\n                       brickId === 'brick-math' ? 182 : 212;\n        const distance = Math.sqrt(Math.pow(x - 220, 2) + Math.pow(y - brickY, 2));\n        \n        if (distance < 45) {\n          brick.style.filter = \"brightness(1.1)\";\n        } else {\n          brick.style.filter = \"none\";\n        }\n      });\n    }\n\n    function animateBallTo(targetX, targetY, targetBrick) {\n      const startX = ballX;\n      const startY = ballY;\n      const duration = 250;\n      const startTime = performance.now();\n\n      function step(now) {\n        const elapsed = now - startTime;\n        const progress = Math.min(elapsed / duration, 1);\n        // Ease out back/elastic-ish transition\n        const ease = 1 - Math.pow(1 - progress, 3); \n        \n        const curX = startX + (targetX - startX) * ease;\n        const curY = startY + (targetY - startY) * ease;\n        \n        updateBallPosition(curX, curY);\n\n        if (progress < 1) {\n          requestAnimationFrame(step);\n        } else {\n          if (targetBrick) {\n            selectBrick(targetBrick);\n          }\n        }\n      }\n      requestAnimationFrame(step);\n    }\n\n    function selectBrick(brickElement) {\n      // Remove active state from all\n      bricks.forEach(b => {\n        b.classList.remove('active', 'shattering', 'pulse-gold');\n        b.style.filter = \"none\";\n      });\n\n      // Apply effect based on type\n      brickElement.classList.add('active');\n      \n      const optionVal = optionsMap[brickElement.id];\n      \n      if (brickElement.id === 'brick-cogito') {\n        brickElement.classList.add('pulse-gold');\n        statusHint.textContent = \"The Cogito resists! Absolute certainty is found.\";\n      } else {\n        brickElement.classList.add('shattering');\n        statusHint.textContent = `Doubt demolishes: ${optionVal}`;\n      }\n\n      // Report answer selection\n      if (selectedOption !== optionVal) {\n        selectedOption = optionVal;\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: optionVal }, '*');\n        } catch(e) {}\n      }\n    }\n\n    // Lock support\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        ballGroup.style.pointerEvents = 'none';\n        ballGroup.style.cursor = 'default';\n        bricks.forEach(b => b.style.pointerEvents = 'none');\n      }\n    });\n\n    // Height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch(e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The Cogito"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In the context of personal identity, what is the fundamental difference between qualitative and numerical identity?",
+     "options": [
+      "Qualitative identity refers to sharing identical properties, while numerical identity refers to being one and the same singular entity.",
+      "Qualitative identity is binary and all-or-nothing, while numerical identity measures personal growth.",
+      "Numerical identity requires identical physical traits, while qualitative identity requires psychological continuity.",
+      "They are synonymous terms used to describe the persistence of the soul over time."
+     ],
+     "explanation": "Numerical identity is about being the same individual thing (like one car getting a dent), whereas qualitative identity is about being exactly alike in properties (like two identical cars).",
+     "correctAnswers": [
+      "Qualitative identity refers to sharing identical properties, while numerical identity refers to being one and the same singular entity."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would likely lead a proponent of the Bodily Continuity Criterion to conclude that the original person has NOT survived?",
+     "options": [
+      "The original body is completely dematerialized and a perfect molecular replica is created elsewhere.",
+      "The person undergoes a radical personality change but remains in the same physical organism.",
+      "Every cell in the person's body is replaced naturally over seven years while maintaining biological organization.",
+      "The person's brain is removed and destroyed, leaving the body in a permanent vegetative state.",
+      "The person's consciousness is uploaded to a digital server and the physical body is cremated."
+     ],
+     "explanation": "Bodily continuity requires the continuous biological existence of the organism. Dematerialization (teleportation) and digital uploading break this physical chain, even if psychological data survives.",
+     "correctAnswers": [
+      "The original body is completely dematerialized and a perfect molecular replica is created elsewhere.",
+      "The person's consciousness is uploaded to a digital server and the physical body is cremated."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "John Locke's theory of identity distinguishes between the biological 'man' and the ____, which he defines as a thinking, intelligent being capable of reason and reflection.",
+     "explanation": "Locke uses the term 'person' specifically for the forensic and psychological entity that possesses consciousness and can be held morally accountable.",
+     "placeholder": "entity type",
+     "correctAnswers": [
+      "person",
+      "Person"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "How does the modern 'overlapping chains' model resolve Thomas Reid's Brave Officer Paradox?",
+     "options": [
+      "It rejects the law of transitivity in mathematical logic.",
+      "It replaces direct memory links with a transitive chain of psychological continuity.",
+      "It argues that the Old General and the Young Boy are qualitatively, but not numerically, identical.",
+      "It asserts that only the most recent memory link is valid for identity."
+     ],
+     "explanation": "By defining identity through a series of overlapping fibers (A knows B, B knows C), we can logically link A to C even if a direct memory connection no longer exists.",
+     "correctAnswers": [
+      "It replaces direct memory links with a transitive chain of psychological continuity."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "According to the Buddhist doctrine of Anatta (no-self), which of the following are among the five aggregates (Skandhas) that constitute the illusion of a 'self'?",
+     "options": [
+      "Physical form",
+      "The eternal soul (Atman)",
+      "Sensation",
+      "Mental formations",
+      "Unchanging consciousness"
+     ],
+     "explanation": "The Skandhas include form, sensation, perception, mental formations, and consciousness. However, consciousness in Buddhism is a shifting stream, not an 'unchanging' entity or an eternal soul.",
+     "correctAnswers": [
+      "Physical form",
+      "Sensation",
+      "Mental formations"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Thomas Reid used the case of a ____ to demonstrate a logical contradiction in Locke's memory-based theory of identity.",
+     "explanation": "The Brave Officer Paradox shows that Locke's theory violates the transitivity of identity.",
+     "placeholder": "historical figure type",
+     "correctAnswers": [
+      "Brave Officer",
+      "brave officer",
+      "Officer"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of the Teleporter Thought Experiment showing physical destruction and psychological replication.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit3-q7.png"
+     },
+     "prompt": "In Derek Parfit's Teleporter experiment, a person who believes they survive the reconstruction on Mars is prioritizing which criterion?",
+     "options": [
+      "The Bodily Continuity Criterion",
+      "The Psychological Continuity Criterion",
+      "The Brain Criterion",
+      "The Biological Organism Criterion"
+     ],
+     "explanation": "The teleporter destroys the physical body; survival in this case relies on the persistence of memories and mental states (psychological data).",
+     "correctAnswers": [
+      "The Psychological Continuity Criterion"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Why does the 'Brain Criterion' face difficulties when dealing with split-brain scenarios?",
+     "options": [
+      "It suggests that identity could branch into two separate people.",
+      "It fails to account for the physical weight of the brain.",
+      "It violates the principle that identity must be a one-to-one relationship.",
+      "It proves that consciousness is purely non-physical.",
+      "It creates a paradox where one person becomes two distinct centers of agency."
+     ],
+     "explanation": "Split-brain cases suggest that if identity is tied to the brain and the brain is divided, identity might branch, which contradicts the standard definition of numerical identity as a unique, non-branching relation.",
+     "correctAnswers": [
+      "It suggests that identity could branch into two separate people.",
+      "It violates the principle that identity must be a one-to-one relationship.",
+      "It creates a paradox where one person becomes two distinct centers of agency."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the Brain Transplant experiment, if we conclude the person goes where their memories and personality go, we are favoring the ____ criterion over the somatic view.",
+     "explanation": "Prioritizing the 'inner life' over the original physical shell is the hallmark of the Psychological Criterion.",
+     "placeholder": "type of criterion",
+     "correctAnswers": [
+      "Psychological",
+      "psychological"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "According to the Buddhist Process Model, the self is best described as:",
+     "options": [
+      "A permanent container of experiences.",
+      "A noun representing a soul-substance.",
+      "A verb representing a continuous, shifting process.",
+      "A combination of the physical body and an eternal spirit."
+     ],
+     "explanation": "Buddhism views the self as dynamic and conditioned (like a stream), rather than a static object or substance.",
+     "correctAnswers": [
+      "A verb representing a continuous, shifting process."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are characteristics of 'Numerical Identity' as discussed in the unit?",
+     "options": [
+      "It is a binary, all-or-nothing status.",
+      "It can be measured in degrees of similarity.",
+      "It refers to being the same singular entity over time.",
+      "It is primarily concerned with personality traits.",
+      "It remains constant despite qualitative changes."
+     ],
+     "explanation": "Numerical identity is an all-or-nothing metaphysical fact about being the same entity, regardless of how much one's appearance or personality (qualitative traits) changes.",
+     "correctAnswers": [
+      "It is a binary, all-or-nothing status.",
+      "It refers to being the same singular entity over time.",
+      "It remains constant despite qualitative changes."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The term ____ is used in Buddhist philosophy to describe the 'no-self' doctrine.",
+     "explanation": "Anatta is the Pali term for the doctrine that there is no permanent, unchanging self or soul.",
+     "placeholder": "Pali term",
+     "correctAnswers": [
+      "Anatta"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a criminal genuinely forgets their crime due to total amnesia, how would John Locke's strict definition of a 'person' view their responsibility?",
+     "options": [
+      "They are still the same person because the body is the same.",
+      "They are a different person and therefore not morally responsible for the act.",
+      "They are the same person because the 'man' is the same.",
+      "They should be punished to help them regain their memory."
+     ],
+     "explanation": "Locke's 'person' is defined by consciousness; if the 'bridge of consciousness' to the act is broken, the 'person' who committed the crime no longer exists to be punished.",
+     "correctAnswers": [
+      "They are a different person and therefore not morally responsible for the act."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "In the context of the 'Chariot' analogy, what happens to the concept of 'chariot' if the wheels and axle are removed?",
+     "options": [
+      "The 'chariot' ceases to exist because the parts are no longer arranged functionally.",
+      "The 'chariot' survives in the individual wheels.",
+      "The name 'chariot' no longer applies to the collection.",
+      "The 'essence' of the chariot moves to the chassis.",
+      "It demonstrates that 'chariot' was always just a conventional label."
+     ],
+     "explanation": "The analogy shows that 'chariot' (and 'self') is a nominal label dependent on the assembly of parts; without the assembly, the label loses its reference.",
+     "correctAnswers": [
+      "The 'chariot' ceases to exist because the parts are no longer arranged functionally.",
+      "The name 'chariot' no longer applies to the collection.",
+      "It demonstrates that 'chariot' was always just a conventional label."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "____ identity is the type of identity two distinct red sports cars share when they are identical in every feature.",
+     "explanation": "Qualitative identity refers to sharing the same properties, as opposed to numerical identity which refers to being the self-same object.",
+     "placeholder": "type of identity",
+     "correctAnswers": [
+      "Qualitative",
+      "qualitative"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the 'Somatic View' of personal identity?",
+     "options": [
+      "Identity is found in the soul.",
+      "Identity is found in the continuous biological organization of the body.",
+      "Identity is found in the stream of consciousness.",
+      "Identity is an illusion created by the brain."
+     ],
+     "explanation": "The somatic (bodily) view anchors identity in the persistence of the biological organism.",
+     "correctAnswers": [
+      "Identity is found in the continuous biological organization of the body."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "image": {
+      "alt": "Logic diagram illustrating the failure of transitivity in the Brave Officer Paradox.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit3-q17.png"
+     },
+     "prompt": "What are the primary targets of the 'Brave Officer Paradox'?",
+     "options": [
+      "Locke's reliance on direct memory as the sole criterion for identity.",
+      "The Buddhist concept of the five aggregates.",
+      "The logical principle of the transitivity of identity.",
+      "The Bodily Continuity Criterion.",
+      "The idea that identity can be based on a single, unbroken thread of consciousness."
+     ],
+     "explanation": "The paradox specifically targets the logical flaws in Locke's direct memory requirement, showing it fails to satisfy the transitivity required for numerical identity.",
+     "correctAnswers": [
+      "Locke's reliance on direct memory as the sole criterion for identity.",
+      "The idea that identity can be based on a single, unbroken thread of consciousness."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Using the analogy of King Milinda's Chariot, demonstrate why the 'self' is considered a nominal label rather than a substantial entity.",
+     "options": [
+      "The self is found in the axle, the core of the machine.",
+      "The self is the sum of the parts plus a hidden essence.",
+      "The self is a name for the functional arrangement of parts, not found in any single part.",
+      "The self exists only when the chariot is in motion."
+     ],
+     "explanation": "The Chariot analogy shows that 'chariot' is just a name for the collection of parts in a specific arrangement; similarly, 'self' is just a label for the aggregates.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>King Milinda's Chariot</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #666666;\n    --accent: #4C6696;\n    --accent-soft: #f5f8fc;\n    --accent-strong: #3a4f78;\n    --gold: #c5a059;\n    --gold-soft: #fdfaf2;\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    color: var(--fg);\n    user-select: none;\n    -webkit-user-select: none;\n    overflow: hidden;\n  }\n\n  .widget-container {\n    width: 100%;\n    max-width: 600px;\n    margin: 0 auto;\n    box-sizing: border-box;\n    padding: 12px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n  }\n\n  /* Instruction / Readout bar */\n  .instruction-bar {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-size: 12px;\n    color: var(--muted-fg);\n    border-bottom: 1px solid var(--border);\n    padding-bottom: 6px;\n  }\n\n  .status-text {\n    font-weight: 600;\n    color: var(--accent);\n    min-height: 16px;\n  }\n\n  /* Sandbox Area */\n  .sandbox {\n    position: relative;\n    height: 140px;\n    background: var(--stage);\n    border-radius: 8px;\n    border: 1px dashed var(--border);\n    overflow: hidden;\n  }\n\n  .blueprint {\n    position: absolute;\n    left: 170px;\n    top: 15px;\n    width: 180px;\n    height: 110px;\n    border: 2px dashed rgba(76,102,150,0.3);\n    border-radius: 6px;\n    background: rgba(255,255,255,0.6);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: background 0.3s;\n  }\n\n  .blueprint.active {\n    background: var(--accent-soft);\n    border-color: var(--accent);\n  }\n\n  .blueprint-label {\n    position: absolute;\n    bottom: 4px;\n    font-size: 9px;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    color: var(--muted-fg);\n    pointer-events: none;\n  }\n\n  /* Label that appears when fully assembled */\n  .chariot-label {\n    position: absolute;\n    top: 8px;\n    font-size: 16px;\n    font-weight: 800;\n    letter-spacing: 4px;\n    color: var(--accent-strong);\n    background: rgba(255, 255, 255, 0.9);\n    padding: 2px 10px;\n    border-radius: 12px;\n    box-shadow: 0 2px 6px rgba(0,0,0,0.08);\n    pointer-events: none;\n    opacity: 0;\n    transform: scale(0.8);\n    transition: all 0.3s cubic-bezier(.34,1.56,.64,1);\n    z-index: 10;\n  }\n\n  .chariot-label.visible {\n    opacity: 1;\n    transform: scale(1);\n  }\n\n  /* Parts Shelf */\n  .parts-shelf {\n    position: absolute;\n    left: 8px;\n    top: 8px;\n    bottom: 8px;\n    width: 140px;\n    background: rgba(255,255,255,0.8);\n    border-right: 1px solid var(--border);\n    border-radius: 6px;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    gap: 6px;\n    padding: 6px;\n    box-sizing: border-box;\n  }\n\n  /* Draggables */\n  .draggable-part {\n    position: absolute;\n    cursor: grab;\n    touch-action: none;\n    z-index: 5;\n    transition: transform 0.15s ease-out;\n  }\n\n  .draggable-part:active {\n    cursor: grabbing;\n    z-index: 100;\n    transition: none;\n  }\n\n  .part-visual {\n    width: 100%;\n    height: 100%;\n    pointer-events: none;\n  }\n\n  /* Tool Stand */\n  .tool-stand {\n    position: absolute;\n    right: 8px;\n    top: 8px;\n    bottom: 8px;\n    width: 60px;\n    background: rgba(255,255,255,0.8);\n    border-left: 1px solid var(--border);\n    border-radius: 6px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    gap: 4px;\n    box-sizing: border-box;\n  }\n\n  .tool-label {\n    font-size: 8px;\n    text-transform: uppercase;\n    color: var(--muted-fg);\n    pointer-events: none;\n  }\n\n  /* Options / Drop-zones */\n  .options-container {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 8px;\n  }\n\n  .option-card {\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 8px;\n    padding: 10px;\n    min-height: 52px;\n    display: flex;\n    gap: 8px;\n    align-items: center;\n    cursor: pointer;\n    position: relative;\n    transition: all 0.2s ease;\n  }\n\n  .option-card:hover {\n    border-color: var(--accent);\n    background: var(--accent-soft);\n  }\n\n  .option-card.selected {\n    border-color: var(--accent-strong);\n    background: var(--accent-soft);\n    box-shadow: 0 0 0 1px var(--accent-strong);\n  }\n\n  .option-text {\n    font-size: 11px;\n    line-height: 1.3;\n    color: var(--fg);\n    pointer-events: none;\n  }\n\n  /* Verdict Seal / Selection Marker */\n  .seal-slot {\n    width: 24px;\n    height: 24px;\n    border-radius: 50%;\n    border: 2px dashed var(--border);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n    background: var(--bg);\n    transition: all 0.2s;\n  }\n\n  .option-card.selected .seal-slot {\n    border-color: var(--gold);\n    background: var(--gold-soft);\n  }\n\n  .seal-icon {\n    width: 16px;\n    height: 16px;\n    fill: var(--gold);\n    opacity: 0;\n    transform: scale(0.5);\n    transition: all 0.2s cubic-bezier(.34,1.56,.64,1);\n  }\n\n  .option-card.selected .seal-icon {\n    opacity: 1;\n    transform: scale(1);\n  }\n\n  /* Scan feedback text effect */\n  .scan-effect {\n    position: absolute;\n    pointer-events: none;\n    font-size: 10px;\n    color: var(--gold);\n    font-weight: bold;\n    background: rgba(255,255,255,0.9);\n    padding: 2px 6px;\n    border-radius: 4px;\n    border: 1px solid var(--gold);\n    opacity: 0;\n    transition: opacity 0.2s;\n    z-index: 1000;\n  }\n\n  .scan-effect.active {\n    opacity: 1;\n  }\n\n  /* Locked overlay */\n  .locked-state {\n    pointer-events: none !important;\n  }\n</style>\n</head>\n<body>\n\n<h1 style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;\">\n  Interactive Chariot Analogy - Drag parts to build the chariot, use the magnifier to search for essence, then choose your conclusion.\n</h1>\n\n<div class=\"widget-container\" id=\"main-container\">\n  <!-- Instruction and live status -->\n  <div class=\"instruction-bar\">\n    <span>Drag parts to the blueprint. Search with magnifier.</span>\n    <span class=\"status-text\" id=\"status-display\">Disassembled</span>\n  </div>\n\n  <!-- Sandbox -->\n  <div class=\"sandbox\" id=\"sandbox\">\n    <!-- Blueprint Drop Zone -->\n    <div class=\"blueprint\" id=\"blueprint-zone\">\n      <span class=\"blueprint-label\">Blueprint</span>\n      <div class=\"chariot-label\" id=\"chariot-label\">CHARIOT</div>\n    </div>\n\n    <!-- Shelf for disassembled state (visual layout helpers, absolute positioned elements will go over this) -->\n    <div class=\"parts-shelf\">\n      <div style=\"border: 1px dashed var(--border); border-radius: 4px;\"></div>\n      <div style=\"border: 1px dashed var(--border); border-radius: 4px;\"></div>\n      <div style=\"border: 1px dashed var(--border); border-radius: 4px;\"></div>\n      <div style=\"border: 1px dashed var(--border); border-radius: 4px;\"></div>\n    </div>\n\n    <!-- Draggable Parts -->\n    <!-- Chassis -->\n    <div class=\"draggable-part\" id=\"part-chassis\" style=\"width: 50px; height: 30px; left: 18px; top: 16px;\" data-name=\"Chassis\" data-snap-x=\"235\" data-snap-y=\"55\">\n      <svg class=\"part-visual\" viewBox=\"0 0 50 30\">\n        <rect x=\"2\" y=\"5\" width=\"46\" height=\"20\" rx=\"3\" fill=\"#8B5A2B\" stroke=\"#5c3a1a\" stroke-width=\"2\"/>\n        <line x1=\"5\" y1=\"15\" x2=\"45\" y2=\"15\" stroke=\"#5c3a1a\" stroke-width=\"1\" stroke-dasharray=\"2,2\"/>\n      </svg>\n    </div>\n\n    <!-- Axle -->\n    <div class=\"draggable-part\" id=\"part-axle\" style=\"width: 54px; height: 14px; left: 82px; top: 24px;\" data-name=\"Axle\" data-snap-x=\"233\" data-snap-y=\"80\">\n      <svg class=\"part-visual\" viewBox=\"0 0 54 14\">\n        <rect x=\"4\" y=\"4\" width=\"46\" height=\"6\" rx=\"2\" fill=\"#D2B48C\" stroke=\"#8B5A2B\" stroke-width=\"1.5\"/>\n        <circle cx=\"4\" cy=\"7\" r=\"3\" fill=\"#5c3a1a\"/>\n        <circle cx=\"50\" cy=\"7\" r=\"3\" fill=\"#5c3a1a\"/>\n      </svg>\n    </div>\n\n    <!-- Wheels -->\n    <div class=\"draggable-part\" id=\"part-wheels\" style=\"width: 44px; height: 44px; left: 20px; top: 76px;\" data-name=\"Wheels\" data-snap-x=\"238\" data-snap-y=\"75\">\n      <svg class=\"part-visual\" viewBox=\"0 0 44 44\">\n        <circle cx=\"12\" cy=\"22\" r=\"10\" fill=\"none\" stroke=\"#5c3a1a\" stroke-width=\"3\"/>\n        <circle cx=\"12\" cy=\"22\" r=\"2\" fill=\"#5c3a1a\"/>\n        <circle cx=\"32\" cy=\"22\" r=\"10\" fill=\"none\" stroke=\"#5c3a1a\" stroke-width=\"3\"/>\n        <circle cx=\"32\" cy=\"22\" r=\"2\" fill=\"#5c3a1a\"/>\n        <line x1=\"12\" y1=\"22\" x2=\"32\" y2=\"22\" stroke=\"#5c3a1a\" stroke-width=\"2\"/>\n      </svg>\n    </div>\n\n    <!-- Pole -->\n    <div class=\"draggable-part\" id=\"part-pole\" style=\"width: 56px; height: 18px; left: 80px; top: 88px;\" data-name=\"Pole\" data-snap-x=\"190\" data-snap-y=\"62\">\n      <svg class=\"part-visual\" viewBox=\"0 0 56 18\">\n        <path d=\"M2,14 Q25,2 54,8\" fill=\"none\" stroke=\"#8B5A2B\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n      </svg>\n    </div>\n\n    <!-- Tool Stand / Magnifier -->\n    <div class=\"tool-stand\">\n      <span class=\"tool-label\">Search</span>\n      <div class=\"draggable-part\" id=\"part-scanner\" style=\"width: 36px; height: 36px; position: relative; cursor: grab;\" data-name=\"Scanner\">\n        <svg class=\"part-visual\" viewBox=\"0 0 36 36\">\n          <circle cx=\"15\" cy=\"15\" r=\"10\" fill=\"rgba(76,102,150,0.15)\" stroke=\"var(--accent)\" stroke-width=\"2\"/>\n          <line x1=\"22\" y1=\"22\" x2=\"32\" y2=\"32\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n          <circle cx=\"13\" cy=\"13\" r=\"3\" fill=\"#fff\" opacity=\"0.6\"/>\n        </svg>\n      </div>\n    </div>\n\n    <!-- Dynamic feedback label -->\n    <div class=\"scan-effect\" id=\"scan-feedback\">No essence found</div>\n  </div>\n\n  <!-- Options Grid -->\n  <div class=\"options-container\" id=\"options-grid\">\n    <div class=\"option-card\" data-option=\"The self is found in the axle, the core of the machine.\">\n      <div class=\"seal-slot\">\n        <svg class=\"seal-icon\" viewBox=\"0 0 24 24\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>\n      </div>\n      <span class=\"option-text\">The self is found in the axle, the core of the machine.</span>\n    </div>\n\n    <div class=\"option-card\" data-option=\"The self is the sum of the parts plus a hidden essence.\">\n      <div class=\"seal-slot\">\n        <svg class=\"seal-icon\" viewBox=\"0 0 24 24\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>\n      </div>\n      <span class=\"option-text\">The self is the sum of the parts plus a hidden essence.</span>\n    </div>\n\n    <div class=\"option-card\" data-option=\"The self is a name for the functional arrangement of parts, not found in any single part.\">\n      <div class=\"seal-slot\">\n        <svg class=\"seal-icon\" viewBox=\"0 0 24 24\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>\n      </div>\n      <span class=\"option-text\">The self is a name for the functional arrangement of parts, not found in any single part.</span>\n    </div>\n\n    <div class=\"option-card\" data-option=\"The self exists only when the chariot is in motion.\">\n      <div class=\"seal-slot\">\n        <svg class=\"seal-icon\" viewBox=\"0 0 24 24\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>\n      </div>\n      <span class=\"option-text\">The self exists only when the chariot is in motion.</span>\n    </div>\n  </div>\n</div>\n\n<script>\n  // Setup elements & coordinates\n  const sandbox = document.getElementById('sandbox');\n  const blueprintZone = document.getElementById('blueprint-zone');\n  const statusDisplay = document.getElementById('status-display');\n  const chariotLabel = document.getElementById('chariot-label');\n  const scanFeedback = document.getElementById('scan-feedback');\n  const optionCards = document.querySelectorAll('.option-card');\n\n  const initialPositions = {};\n  const snappedParts = { chassis: false, axle: false, wheels: false, pole: false };\n\n  // Track dragging state\n  let activeDragEl = null;\n  let startX = 0;\n  let startY = 0;\n  let startLeft = 0;\n  let startTop = 0;\n\n  // Initialize and save starting coordinates\n  const draggables = document.querySelectorAll('.draggable-part');\n  draggables.forEach(el => {\n    initialPositions[el.id] = {\n      left: parseFloat(el.style.left) || el.offsetLeft,\n      top: parseFloat(el.style.top) || el.offsetTop\n    };\n\n    el.addEventListener('pointerdown', onPointerDown);\n  });\n\n  function onPointerDown(e) {\n    if (document.body.classList.contains('locked-state')) return;\n    activeDragEl = e.currentTarget;\n    activeDragEl.setPointerCapture(e.pointerId);\n    e.preventDefault();\n\n    const rect = activeDragEl.getBoundingClientRect();\n    const sandboxRect = sandbox.getBoundingClientRect();\n\n    // Store starting mouse position\n    startX = e.clientX;\n    startY = e.clientY;\n\n    // Get exact current computed left/top relative to sandbox\n    startLeft = rect.left - sandboxRect.left;\n    startTop = rect.top - sandboxRect.top;\n\n    activeDragEl.style.transition = 'none';\n  }\n\n  window.addEventListener('pointermove', onPointerMove);\n  window.addEventListener('pointerup', onPointerUp);\n\n  function onPointerMove(e) {\n    if (!activeDragEl) return;\n\n    const dx = e.clientX - startX;\n    const dy = e.clientY - startY;\n\n    let newLeft = startLeft + dx;\n    let newTop = startTop + dy;\n\n    // Clamp inside sandbox boundaries\n    const sandboxRect = sandbox.getBoundingClientRect();\n    const elRect = activeDragEl.getBoundingClientRect();\n    newLeft = Math.max(0, Math.min(newLeft, sandboxRect.width - elRect.width));\n    newTop = Math.max(0, Math.min(newTop, sandboxRect.height - elRect.height));\n\n    activeDragEl.style.left = `${newLeft}px`;\n    activeDragEl.style.top = `${newTop}px`;\n\n    // Real-time scanner / search behavior\n    if (activeDragEl.id === 'part-scanner') {\n      checkScannerCollision(newLeft + elRect.width/2, newTop + elRect.height/2);\n    }\n  }\n\n  function onPointerUp(e) {\n    if (!activeDragEl) return;\n    const el = activeDragEl;\n    activeDragEl = null;\n\n    if (el.id === 'part-scanner') {\n      // Scanner returns to its dock\n      el.style.transition = 'all 0.3s cubic-bezier(.34,1.56,.64,1)';\n      el.style.left = '12px';\n      el.style.top = '36px';\n      scanFeedback.classList.remove('active');\n      return;\n    }\n\n    // Check if dropped near its blueprint snapping target\n    const snapX = parseFloat(el.getAttribute('data-snap-x'));\n    const snapY = parseFloat(el.getAttribute('data-snap-y'));\n    const currentLeft = parseFloat(el.style.left);\n    const currentTop = parseFloat(el.style.top);\n\n    const distance = Math.hypot(currentLeft - snapX, currentTop - snapY);\n    const partKey = el.id.replace('part-', '');\n\n    el.style.transition = 'all 0.2s cubic-bezier(.34,1.56,.64,1)';\n\n    if (distance < 40) {\n      // Snap to blueprint target position\n      el.style.left = `${snapX}px`;\n      el.style.top = `${snapY}px`;\n      snappedParts[partKey] = true;\n    } else {\n      // Snap back to home position\n      const home = initialPositions[el.id];\n      el.style.left = `${home.left}px`;\n      el.style.top = `${home.top}px`;\n      snappedParts[partKey] = false;\n    }\n\n    updateChariotState();\n  }\n\n  function checkScannerCollision(scanX, scanY) {\n    let hitSomething = false;\n    draggables.forEach(el => {\n      if (el.id === 'part-scanner') return;\n      const rect = el.getBoundingClientRect();\n      const sandboxRect = sandbox.getBoundingClientRect();\n      const elX = rect.left - sandboxRect.left + rect.width / 2;\n      const elY = rect.top - sandboxRect.top + rect.height / 2;\n\n      const dist = Math.hypot(scanX - elX, scanY - elY);\n      if (dist < 28) {\n        hitSomething = true;\n        scanFeedback.style.left = `${scanX - 50}px`;\n        scanFeedback.style.top = `${scanY - 35}px`;\n        scanFeedback.textContent = `Only ${el.getAttribute('data-name')} (No Essence)`;\n        scanFeedback.classList.add('active');\n      }\n    });\n\n    if (!hitSomething) {\n      scanFeedback.classList.remove('active');\n    }\n  }\n\n  function updateChariotState() {\n    const allSnapped = Object.values(snappedParts).every(v => v === true);\n    if (allSnapped) {\n      chariotLabel.classList.add('visible');\n      statusDisplay.textContent = 'Assembled: CHARIOT';\n      blueprintZone.classList.add('active');\n    } else {\n      chariotLabel.classList.remove('visible');\n      statusDisplay.textContent = 'Disassembled parts';\n      blueprintZone.classList.remove('active');\n    }\n  }\n\n  // Handle Option Clicks & Selection\n  optionCards.forEach(card => {\n    card.addEventListener('click', () => {\n      if (document.body.classList.contains('locked-state')) return;\n      optionCards.forEach(c => c.classList.remove('selected'));\n      card.classList.add('selected');\n\n      // Post Answer immediately to parent\n      const selectedOption = card.getAttribute('data-option');\n      parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n    });\n  });\n\n  // Host lock communication\n  window.addEventListener('message', function(e) {\n    if (e.data && e.data.type === 'hk-practice-lock') {\n      document.body.classList.add('locked-state');\n    }\n  });\n\n  // Report Height\n  function reportHeight() {\n    try {\n      const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n      parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n    } catch (e) {}\n  }\n\n  window.addEventListener('load', reportHeight);\n  const resizeObserver = new ResizeObserver(reportHeight);\n  resizeObserver.observe(document.body);\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The self is a name for the functional arrangement of parts, not found in any single part."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Comprehensive Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following statements represents a 'descriptive' claim rather than a 'normative' one?",
+     "options": [
+      "Human beings ought to protect endangered species.",
+      "Most cultures have established rules regarding property ownership.",
+      "It is morally wrong to lie, even if it results in a better outcome.",
+      "We should prioritize the needs of the many over the needs of the few."
+     ],
+     "explanation": "Descriptive claims describe facts about the world as it is, including sociological facts. Stating that cultures 'have' rules is a factual observation that can be empirically verified, whereas 'ought' and 'wrong' signal normative evaluations.",
+     "correctAnswers": [
+      "Most cultures have established rules regarding property ownership."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the critique of Cultural Relativism, which of the following are logical consequences of accepting that moral truth is entirely determined by societal consensus? Select all that apply.",
+     "options": [
+      "Moral progress becomes a conceptually impossible term, replaced only by 'change'.",
+      "Individuals can never be mistaken about their own culture's moral standards.",
+      "Social reformers, such as those fighting for civil rights, are logically incorrect for challenging status quo standards.",
+      "Societies are unable to criticize systemic atrocities in other cultures as being objectively 'wrong'."
+     ],
+     "explanation": "If truth is tied to consensus, any critique of the consensus (reformers) is technically 'wrong', comparison between cultures is impossible because there is no external standard, and 'progress' is impossible because it implies moving toward an objective 'better'.",
+     "correctAnswers": [
+      "Moral progress becomes a conceptually impossible term, replaced only by 'change'.",
+      "Social reformers, such as those fighting for civil rights, are logically incorrect for challenging status quo standards.",
+      "Societies are unable to criticize systemic atrocities in other cultures as being objectively 'wrong'."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "David Hume argued that writers often make a logical leap when they attempt to derive a(n) ____ from an 'is' without an explicit bridge principle.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "ought",
+      "normative claim",
+      "prescriptive claim"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram showing the difference between objectivism and absolutism.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit4-q4.png"
+     },
+     "prompt": "How does Moral Objectivism fundamentally differ from Moral Absolutism?",
+     "options": [
+      "Objectivism claims truth depends on the individual, while Absolutism depends on the culture.",
+      "Objectivism refers to the source of moral truth (mind-independent), while Absolutism refers to the exceptionless nature of rules.",
+      "Objectivism believes in the Categorical Imperative, whereas Absolutism focuses on the Utility Calculus.",
+      "There is no difference; the terms are synonymous in philosophical discourse."
+     ],
+     "explanation": "An objectivist believes moral truths are discovered and exist independently of opinion, but they can still believe those truths depend on context (non-absolute). Absolutism demands that rules like 'never lie' apply regardless of context.",
+     "correctAnswers": [
+      "Objectivism refers to the source of moral truth (mind-independent), while Absolutism refers to the exceptionless nature of rules."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When applying the Categorical Imperative (Universal Law Formulation) to the act of 'making a false promise to pay back a loan,' which of the following are steps or outcomes of the Kantian analysis?",
+     "options": [
+      "One must imagine a world where everyone makes false promises when they need money.",
+      "The action is wrong because the negative consequences for the banking system outweigh the individual's gain.",
+      "The maxim results in a logical contradiction because the institution of 'promising' would collapse.",
+      "The action is permissible if the person intended to use the money for a virtuous cause."
+     ],
+     "explanation": "Kant’s test focuses on whether a maxim can be universalized without contradiction. If everyone lied, the word 'promise' would lose its meaning, making the lie itself impossible to perform successfully.",
+     "correctAnswers": [
+      "One must imagine a world where everyone makes false promises when they need money.",
+      "The maxim results in a logical contradiction because the institution of 'promising' would collapse."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In Aristotelian ethics, the 'Golden Mean' for the virtue of courage would be the midpoint between the deficiency of cowardice and the excess of ____.",
+     "placeholder": "Enter the excess",
+     "correctAnswers": [
+      "rashness",
+      "recklessness"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the context of the 'Relativism-Tolerance Paradox,' why is the claim 'Everyone should be tolerant of other cultures' problematic for a strict relativist?",
+     "options": [
+      "Because tolerance is a modern invention that didn't exist in ancient cultures.",
+      "Because it asserts an objective, universal moral rule that applies to all, which relativism denies.",
+      "Because relativism usually encourages people to be intolerant of their own culture's mistakes.",
+      "Because most cultures already believe in tolerance, making the statement redundant."
+     ],
+     "explanation": "If a relativist says tolerance is objectively 'good' for everyone, they are no longer a relativist; they are making a universal normative claim that transcends cultural consensus.",
+     "correctAnswers": [
+      "Because it asserts an objective, universal moral rule that applies to all, which relativism denies."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are key features of Virtue Ethics that distinguish it from Deontology and Utilitarianism?",
+     "options": [
+      "It focuses on the character of the agent rather than specific rules or consequences.",
+      "It emphasizes the 'Golden Mean'—finding the balance between extremes of deficiency and excess.",
+      "It relies solely on a mathematical calculation of pleasure and pain.",
+      "It seeks to achieve 'Eudaimonia,' often translated as human flourishing or living well."
+     ],
+     "explanation": "Virtue ethics is agent-centered (character), utilizes the Golden Mean for practical wisdom, and aims for Eudaimonia. Utilitarianism is the one that uses mathematical calculations of pleasure.",
+     "correctAnswers": [
+      "It focuses on the character of the agent rather than specific rules or consequences.",
+      "It emphasizes the 'Golden Mean'—finding the balance between extremes of deficiency and excess.",
+      "It seeks to achieve 'Eudaimonia,' often translated as human flourishing or living well."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the Utilitarian framework, the ____ is the tool used to calculate the net balance of pleasure and pain resulting from an action.",
+     "placeholder": "Name the tool",
+     "correctAnswers": [
+      "hedonic calculus",
+      "utility calculus",
+      "felicific calculus"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What constitutes a 'true moral dilemma' as defined in this unit?",
+     "options": [
+      "A situation where an agent must choose between their personal desire and their moral duty.",
+      "A situation where an agent is bound by two conflicting moral requirements and cannot fulfill both.",
+      "A situation where the consequences of an action are difficult to predict with certainty.",
+      "A situation where an agent is tempted to do something they know is wrong."
+     ],
+     "explanation": "A true moral dilemma involves a conflict of duties (e.g., 'save a life' vs 'tell the truth'). Choosing between desire and duty is merely a test of willpower, not a structural ethical dilemma.",
+     "correctAnswers": [
+      "A situation where an agent is bound by two conflicting moral requirements and cannot fulfill both."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "How does Care Ethics challenge traditional ethical frameworks like Kantianism or Utilitarianism?",
+     "options": [
+      "It rejects the requirement of total impartiality, favoring those with whom we have special relationships.",
+      "It emphasizes emotional responsiveness and empathy over abstract rational principles.",
+      "It argues that ethics should be based strictly on a social contract between strangers.",
+      "It prioritizes the maintenance of relationships and the context of the situation."
+     ],
+     "explanation": "Care Ethics argues that traditional theories are too 'cold' and abstract, ignoring the moral importance of specific bonds (like parent-child) and the role of emotions in moral life.",
+     "correctAnswers": [
+      "It rejects the requirement of total impartiality, favoring those with whom we have special relationships.",
+      "It emphasizes emotional responsiveness and empathy over abstract rational principles.",
+      "It prioritizes the maintenance of relationships and the context of the situation."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "According to the Existentialist view of agency, what does it mean to say that 'existence precedes essence'?",
+     "options": [
+      "Humans are born with a predefined purpose determined by biology or a creator.",
+      "Humans first exist and then must define their own meaning and nature through their choices.",
+      "Our genetic makeup is the primary driver of our moral decisions.",
+      "The essence of morality was established by ancient civilizations before we existed."
+     ],
+     "explanation": "Existentialism posits that there is no 'blueprint' for being human; we are 'thrown' into existence and create our own essence through the radical freedom of our choices.",
+     "correctAnswers": [
+      "Humans first exist and then must define their own meaning and nature through their choices."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Which of the following comparisons between Confucian Ethics and Western Virtue Ethics are accurate?",
+     "options": [
+      "Both focus on the cultivation of character and habits over time.",
+      "Confucianism emphasizes 'Ren' (benevolence) and 'Li' (ritual), whereas Aristotle emphasizes 'Phronesis' (practical wisdom).",
+      "Confucianism is entirely individualistic, while Aristotle focuses only on the state.",
+      "Both systems view the community and social roles as essential to a good life."
+     ],
+     "explanation": "Both are virtue-based systems. Confucianism emphasizes social harmony through ritual and benevolence, while Aristotle emphasizes individual flourishing within the polis through practical wisdom.",
+     "correctAnswers": [
+      "Both focus on the cultivation of character and habits over time.",
+      "Confucianism emphasizes 'Ren' (benevolence) and 'Li' (ritual), whereas Aristotle emphasizes 'Phronesis' (practical wisdom).",
+      "Both systems view the community and social roles as essential to a good life."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "image": {
+      "alt": "Illustration of the Inquiring Murderer moral dilemma.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit4-q14.png"
+     },
+     "prompt": "A person is hiding a group of innocent people in their basement. A group of soldiers arrives and asks if anyone is hiding there. Under a strict interpretation of Kant's Categorical Imperative, what is the 'correct' action?",
+     "options": [
+      "Lie to the soldiers, because saving lives is a higher duty than telling the truth.",
+      "Tell the truth, because lying cannot be universalized and would be using the soldiers as a mere means.",
+      "Stay silent, as silence is not a lie and avoids the conflict.",
+      "Lie, but only if the person feels an emotional 'care' for the people in the basement."
+     ],
+     "explanation": "Kant famously argued (in 'On a Supposed Right to Lie because of Philanthropic Concerns') that one has a perfect duty not to lie, even to a murderer at the door, because the moral law is absolute.",
+     "correctAnswers": [
+      "Tell the truth, because lying cannot be universalized and would be using the soldiers as a mere means."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Which of the following are valid arguments for why human rights require an 'Objective Realist' foundation?",
+     "options": [
+      "If rights are just cultural agreements, a country can legally 'agree' to abolish them for its own citizens without moral error.",
+      "Universal rights imply a standard that exists even if no government currently recognizes it.",
+      "Realism ensures that rights can never be changed or updated over time.",
+      "Rights rooted in objective facts about suffering and flourishing provide a basis for international justice."
+     ],
+     "explanation": "Objectivism provides the 'moral teeth' for human rights. If rights were just conventions, they wouldn't have authority over a society that decided to ignore them. Realism allows us to say a law is 'unjust' by comparing it to a higher objective truth.",
+     "correctAnswers": [
+      "If rights are just cultural agreements, a country can legally 'agree' to abolish them for its own citizens without moral error.",
+      "Universal rights imply a standard that exists even if no government currently recognizes it.",
+      "Rights rooted in objective facts about suffering and flourishing provide a basis for international justice."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "A policy-maker is considering a law that would violate the privacy of a small minority to significantly increase the safety of the entire population. Use the 'Utility Scale' to determine the correct Utilitarian decision based on the Greatest Happiness Principle.",
+     "options": [
+      "Reject the law because it treats the minority as a mere means to an end.",
+      "Reject the law if the total 'units' of suffering caused to the minority exceed the total 'units' of happiness gained by the majority.",
+      "Approve the law because the number of people in the majority is higher, regardless of the intensity of the minority's suffering.",
+      "Approve the law only if the policy-maker would be willing to have their own privacy violated."
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Utility Calculus Balance Scale</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #6e6e6e;\n    --accent: #4C6696;\n    --accent-soft: #f5f8fc;\n    --accent-strong: #3a4f78;\n    \n    --danger: #c95d5d;\n    --success: #5ca380;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    color: var(--fg);\n    overflow: hidden;\n    user-select: none;\n    -webkit-user-select: none;\n  }\n\n  .widget-container {\n    width: 100%;\n    max-width: 600px;\n    margin: 0 auto;\n    padding: 12px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n  }\n\n  .stage {\n    background: var(--stage);\n    border-radius: 12px;\n    border: 1px solid var(--border);\n    padding: 8px;\n    position: relative;\n    height: 160px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n  }\n\n  .stage-svg {\n    width: 100%;\n    height: 120px;\n    display: block;\n  }\n\n  /* Sliders Row */\n  .sliders-row {\n    display: flex;\n    justify-content: space-between;\n    gap: 16px;\n    padding: 0 8px;\n  }\n\n  .slider-container {\n    flex: 1;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    font-size: 11px;\n    font-weight: 600;\n    color: var(--muted-fg);\n  }\n\n  .slider-container input {\n    flex: 1;\n    height: 4px;\n    -webkit-appearance: none;\n    appearance: none;\n    background: var(--border);\n    border-radius: 2px;\n    outline: none;\n  }\n\n  .slider-container input::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    width: 14px;\n    height: 14px;\n    border-radius: 50%;\n    background: var(--accent);\n    cursor: pointer;\n    border: 2px solid var(--surface);\n    box-shadow: 0 1px 3px rgba(0,0,0,0.15);\n  }\n\n  .slider-container.minority input::-webkit-slider-thumb {\n    background: var(--danger);\n  }\n  .slider-container.majority input::-webkit-slider-thumb {\n    background: var(--success);\n  }\n\n  /* Target Slot */\n  .slot-zone {\n    position: absolute;\n    bottom: 8px;\n    left: 50%;\n    transform: translateX(-50%);\n    width: 160px;\n    height: 32px;\n    border: 2px dashed var(--border);\n    border-radius: 6px;\n    background: rgba(255,255,255,0.6);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 11px;\n    color: var(--muted-fg);\n    transition: all 0.2s ease;\n  }\n\n  .slot-zone.active {\n    border-color: var(--accent);\n    background: var(--accent-soft);\n    color: var(--accent-strong);\n    border-style: solid;\n  }\n\n  /* Chips Options list */\n  .chips-container {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 8px;\n  }\n\n  .chip {\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 8px;\n    padding: 10px;\n    cursor: pointer;\n    font-size: 11.5px;\n    line-height: 1.3;\n    transition: all 0.2s cubic-bezier(.4,0,.2,1);\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    text-align: left;\n  }\n\n  .chip:hover {\n    border-color: var(--accent);\n    transform: translateY(-1px);\n    box-shadow: 0 2px 6px rgba(0,0,0,0.05);\n  }\n\n  .chip:focus-visible {\n    outline: 2px solid var(--accent);\n    outline-offset: 2px;\n  }\n\n  .chip.selected {\n    border-color: var(--accent);\n    background: var(--accent-soft);\n    box-shadow: 0 0 0 1px var(--accent);\n  }\n\n  .chip-indicator {\n    width: 12px;\n    height: 12px;\n    border-radius: 50%;\n    border: 1.5px solid var(--border);\n    display: inline-block;\n    flex-shrink: 0;\n    position: relative;\n  }\n\n  .chip.selected .chip-indicator {\n    border-color: var(--accent);\n    background: var(--accent);\n  }\n\n  .chip.selected .chip-indicator::after {\n    content: '';\n    position: absolute;\n    width: 4px;\n    height: 4px;\n    border-radius: 50%;\n    background: white;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n  }\n\n  .action-hint {\n    text-align: center;\n    font-size: 11px;\n    color: var(--muted-fg);\n    margin-top: 2px;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"sr-only\">Interactive Utility Calculus Scale - Select an ethical logic rule to apply to the scale</h1>\n\n<div class=\"widget-container\">\n  <!-- Interactive Stage -->\n  <div class=\"stage\">\n    <svg class=\"stage-svg\" viewBox=\"0 0 400 130\">\n      <!-- Fulcrum/Base -->\n      <polygon points=\"200,90 185,115 215,115\" fill=\"#888\" />\n      <rect x=\"150\" y=\"115\" width=\"100\" height=\"6\" rx=\"3\" fill=\"#666\" />\n      \n      <!-- Moving parts group (controlled by JS) -->\n      <g id=\"scale-beam\" style=\"transition: transform 0.4s cubic-bezier(.34,1.56,.64,1); transform-origin: 200px 70px;\">\n        <!-- The Main Beam -->\n        <line x1=\"100\" y1=\"70\" x2=\"300\" y2=\"70\" stroke=\"#555\" stroke-width=\"4\" stroke-linecap=\"round\" />\n        <circle cx=\"200\" cy=\"70\" r=\"5\" fill=\"#333\" />\n        \n        <!-- Left hanger strings & Pan -->\n        <g id=\"left-pan\" style=\"transition: transform 0.4s cubic-bezier(.34,1.56,.64,1); transform-origin: 100px 70px;\">\n          <line x1=\"100\" y1=\"70\" x2=\"80\" y2=\"105\" stroke=\"#888\" stroke-width=\"1.5\" />\n          <line x1=\"100\" y1=\"70\" x2=\"120\" y2=\"105\" stroke=\"#888\" stroke-width=\"1.5\" />\n          <path d=\"M 75,105 Q 100,115 125,105 Z\" fill=\"#c95d5d\" opacity=\"0.85\" />\n          <!-- Left weights visual -->\n          <g id=\"left-weights\"></g>\n        </g>\n\n        <!-- Right hanger strings & Pan -->\n        <g id=\"right-pan\" style=\"transition: transform 0.4s cubic-bezier(.34,1.56,.64,1); transform-origin: 300px 70px;\">\n          <line x1=\"300\" y1=\"70\" x2=\"280\" y2=\"105\" stroke=\"#888\" stroke-width=\"1.5\" />\n          <line x1=\"300\" y1=\"70\" x2=\"320\" y2=\"105\" stroke=\"#888\" stroke-width=\"1.5\" />\n          <path d=\"M 275,105 Q 300,115 325,105 Z\" fill=\"#5ca380\" opacity=\"0.85\" />\n          <!-- Right weights visual -->\n          <g id=\"right-weights\"></g>\n        </g>\n      </g>\n      \n      <!-- Label indicators over pans -->\n      <text x=\"100\" y=\"45\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#6e6e6e\">Minority Suffering</text>\n      <text x=\"300\" y=\"45\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#6e6e6e\">Majority Safety</text>\n\n      <!-- Central Decision Badge -->\n      <g id=\"decision-badge\" transform=\"translate(200, 25)\">\n        <rect x=\"-45\" y=\"-12\" width=\"90\" height=\"20\" rx=\"10\" fill=\"#e2e2e2\" id=\"badge-bg\" />\n        <text id=\"badge-text\" x=\"0\" y=\"2\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#666\">EVALUATING</text>\n      </g>\n    </svg>\n\n    <!-- Tiny Sliders nested inside the stage area at the bottom corners -->\n    <div class=\"sliders-row\">\n      <div class=\"slider-container minority\">\n        <span>Suffering:</span>\n        <input type=\"range\" id=\"slider-minority\" min=\"1\" max=\"10\" value=\"5\">\n        <span id=\"val-minority\" style=\"width: 12px; text-align: right;\">5</span>\n      </div>\n      <div class=\"slider-container majority\">\n        <span>Safety Gain:</span>\n        <input type=\"range\" id=\"slider-majority\" min=\"1\" max=\"10\" value=\"6\">\n        <span id=\"val-majority\" style=\"width: 12px; text-align: right;\">6</span>\n      </div>\n    </div>\n\n    <!-- Interactive Active Rule display slot inside the stage -->\n    <div class=\"slot-zone\" id=\"slot-zone\">\n      Slot active logic rule below\n    </div>\n  </div>\n\n  <!-- Interactive Rule Chips (The Options) -->\n  <div class=\"chips-container\" role=\"radiogroup\" aria-label=\"Utilitarian Logic Rules\">\n    <div class=\"chip\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\" data-index=\"0\" data-option=\"Reject the law because it treats the minority as a mere means to an end.\">\n      <span class=\"chip-indicator\"></span>\n      <span><strong>Deontology:</strong> Reject because it treats minority as a mere means to an end.</span>\n    </div>\n    \n    <div class=\"chip\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\" data-index=\"1\" data-option=\"Reject the law if the total 'units' of suffering caused to the minority exceed the total 'units' of happiness gained by the majority.\">\n      <span class=\"chip-indicator\"></span>\n      <span><strong>Utilitarian:</strong> Reject only if units of suffering exceed safety/happiness gains.</span>\n    </div>\n\n    <div class=\"chip\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\" data-index=\"2\" data-option=\"Approve the law because the number of people in the majority is higher, regardless of the intensity of the minority's suffering.\">\n      <span class=\"chip-indicator\"></span>\n      <span><strong>Pure Numbers:</strong> Approve because majority headcount is higher, ignoring intensity.</span>\n    </div>\n\n    <div class=\"chip\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\" data-index=\"3\" data-option=\"Approve the law only if the policy-maker would be willing to have their own privacy violated.\">\n      <span class=\"chip-indicator\"></span>\n      <span><strong>Role Reversal:</strong> Approve only if policy-maker accepts having own privacy violated.</span>\n    </div>\n  </div>\n\n  <div class=\"action-hint\">👆 Select an ethical framework to calibrate the scale's logic.</div>\n</div>\n\n<script>\n  // State variables\n  let selectedIndex = null;\n  let minorityVal = 5;\n  let majorityVal = 6;\n  let isLocked = false;\n\n  const options = [\n    \"Reject the law because it treats the minority as a mere means to an end.\",\n    \"Reject the law if the total 'units' of suffering caused to the minority exceed the total 'units' of happiness gained by the majority.\",\n    \"Approve the law because the number of people in the majority is higher, regardless of the intensity of the minority's suffering.\",\n    \"Approve the law only if the policy-maker would be willing to have their own privacy violated.\"\n  ];\n\n  // DOM Elements\n  const chips = document.querySelectorAll('.chip');\n  const slotZone = document.getElementById('slot-zone');\n  const sliderMinority = document.getElementById('slider-minority');\n  const sliderMajority = document.getElementById('slider-majority');\n  const valMinority = document.getElementById('val-minority');\n  const valMajority = document.getElementById('val-majority');\n  const scaleBeam = document.getElementById('scale-beam');\n  const leftPan = document.getElementById('left-pan');\n  const rightPan = document.getElementById('right-pan');\n  const leftWeightsGroup = document.getElementById('left-weights');\n  const rightWeightsGroup = document.getElementById('right-weights');\n  const badgeBg = document.getElementById('badge-bg');\n  const badgeText = document.getElementById('badge-text');\n\n  // Initialize\n  function init() {\n    setupEventListeners();\n    updateWeightsVisuals();\n    updateScalePhysics();\n    reportHeight();\n  }\n\n  function setupEventListeners() {\n    // Sliders\n    sliderMinority.addEventListener('input', (e) => {\n      minorityVal = parseInt(e.target.value);\n      valMinority.textContent = minorityVal;\n      updateWeightsVisuals();\n      updateScalePhysics();\n    });\n\n    sliderMajority.addEventListener('input', (e) => {\n      majorityVal = parseInt(e.target.value);\n      valMajority.textContent = majorityVal;\n      updateWeightsVisuals();\n      updateScalePhysics();\n    });\n\n    // Chips selection\n    chips.forEach((chip, index) => {\n      chip.addEventListener('click', () => selectOption(index));\n      chip.addEventListener('keydown', (e) => {\n        if (e.key === ' ' || e.key === 'Enter') {\n          e.preventDefault();\n          selectOption(index);\n        }\n      });\n    });\n\n    // Message Lock Listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.body.style.pointerEvents = 'none';\n      }\n    });\n\n    // Height report\n    window.addEventListener('load', reportHeight);\n    if (window.ResizeObserver) {\n      new ResizeObserver(reportHeight).observe(document.body);\n    }\n  }\n\n  function selectOption(index) {\n    if (isLocked) return;\n    selectedIndex = index;\n\n    chips.forEach((c, idx) => {\n      if (idx === index) {\n        c.classList.add('selected');\n        c.setAttribute('aria-checked', 'true');\n      } else {\n        c.classList.remove('selected');\n        c.setAttribute('aria-checked', 'false');\n      }\n    });\n\n    // Update active slot zone text\n    const shortNames = [\n      \"Deontology Active\",\n      \"Utilitarian Calc Active\",\n      \"Headcount Rule Active\",\n      \"Role Reversal Active\"\n    ];\n    slotZone.classList.add('active');\n    slotZone.innerHTML = `<strong>${shortNames[index]}</strong>`;\n\n    // Notify parent\n    try {\n      parent.postMessage({ type: 'hk-practice-answer', value: options[index] }, '*');\n    } catch(err) {}\n\n    updateScalePhysics();\n  }\n\n  function updateWeightsVisuals() {\n    // Generate weight circles on left pan (minority suffering)\n    leftWeightsGroup.innerHTML = '';\n    for (let i = 0; i < minorityVal; i++) {\n      const cx = 100 + (i % 3 - 1) * 8;\n      const cy = 100 - Math.floor(i / 3) * 6;\n      const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n      circle.setAttribute(\"cx\", cx);\n      circle.setAttribute(\"cy\", cy);\n      circle.setAttribute(\"r\", \"4\");\n      circle.setAttribute(\"fill\", \"var(--danger)\");\n      leftWeightsGroup.appendChild(circle);\n    }\n\n    // Generate weight circles on right pan (majority safety)\n    rightWeightsGroup.innerHTML = '';\n    for (let i = 0; i < majorityVal; i++) {\n      const cx = 300 + (i % 3 - 1) * 8;\n      const cy = 100 - Math.floor(i / 3) * 6;\n      const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n      circle.setAttribute(\"cx\", cx);\n      circle.setAttribute(\"cy\", cy);\n      circle.setAttribute(\"r\", \"4\");\n      circle.setAttribute(\"fill\", \"var(--success)\");\n      rightWeightsGroup.appendChild(circle);\n    }\n  }\n\n  function updateScalePhysics() {\n    let angle = 0; // Negative tilts left (reject), Positive tilts right (approve)\n    let decision = \"EVALUATING\";\n    let color = \"#e2e2e2\";\n    let textColor = \"#666\";\n\n    if (selectedIndex === null) {\n      // Default: show dynamic balance based purely on comparison\n      const balance = majorityVal - minorityVal;\n      angle = balance * 1.5;\n      decision = \"BALANCING\";\n    } else if (selectedIndex === 0) {\n      // Deontology: Reject the law because treating minority as mere means is forbidden.\n      // Locked in Reject state.\n      angle = -12;\n      decision = \"REJECT\";\n      color = \"rgba(201,93,93,0.15)\";\n      textColor = \"var(--danger)\";\n    } else if (selectedIndex === 1) {\n      // Utilitarian: Reject if suffering > safety gains.\n      if (minorityVal >= majorityVal) {\n        angle = -12;\n        decision = \"REJECT\";\n        color = \"rgba(201,93,93,0.15)\";\n        textColor = \"var(--danger)\";\n      } else {\n        angle = 12;\n        decision = \"APPROVE\";\n        color = \"rgba(92,163,128,0.15)\";\n        textColor = \"var(--success)\";\n      }\n    } else if (selectedIndex === 2) {\n      // Pure Numbers / Crude Majority: Approve because count is higher anyway.\n      angle = 12;\n      decision = \"APPROVE\";\n      color = \"rgba(92,163,128,0.15)\";\n      textColor = \"var(--success)\";\n    } else if (selectedIndex === 3) {\n      // Role Reversal / Golden Rule: Requires policy maker self-sacrifice test.\n      // Usually defaults to reject unless a rare balance is struck.\n      angle = -8;\n      decision = \"REJECT\";\n      color = \"rgba(201,93,93,0.15)\";\n      textColor = \"var(--danger)\";\n    }\n\n    // Limit maximum tilts\n    angle = Math.max(-15, Math.min(15, angle));\n\n    // Apply transforms\n    scaleBeam.style.transform = `rotate(${angle}deg)`;\n    leftPan.style.transform = `rotate(${-angle}deg)`;\n    rightPan.style.transform = `rotate(${-angle}deg)`;\n\n    // Update Decision Badge\n    badgeBg.setAttribute(\"fill\", color);\n    badgeText.setAttribute(\"fill\", textColor);\n    badgeText.textContent = decision;\n  }\n\n  function reportHeight() {\n    try {\n      parent.postMessage({\n        type: 'hk-anim-height',\n        height: Math.ceil(document.documentElement.getBoundingClientRect().height)\n      }, '*');\n    } catch(err) {}\n  }\n\n  init();\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Reject the law if the total 'units' of suffering caused to the minority exceed the total 'units' of happiness gained by the majority."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Comprehensive Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Max Weber identified three types of authority. Which type describes a system where obedience is owed to an office-holder based on legally enacted rules rather than the person themselves?",
+     "options": [
+      "Traditional Authority",
+      "Charismatic Authority",
+      "Rational-Legal Authority",
+      "Philosophical Anarchism"
+     ],
+     "explanation": "Rational-legal authority is the hallmark of modern democracies where power is vested in offices and legal procedures rather than individuals or ancient customs.",
+     "correctAnswers": [
+      "Rational-Legal Authority"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In the context of social contract theory, which of the following accurately contrast the views of Thomas Hobbes and John Locke?",
+     "options": [
+      "Hobbes views the state of nature as a 'war of all against all', while Locke sees it as governed by natural law.",
+      "Hobbes advocates for an irrevocable surrender of rights, while Locke views power as a conditional delegation.",
+      "Both theorists agree that the primary role of the state is to protect private property.",
+      "Locke argues for a right to revolution if the sovereign fails, whereas Hobbes prioritizes security above all."
+     ],
+     "explanation": "Locke emphasizes natural rights and the right to revolt, while Hobbes emphasizes absolute sovereign power to escape the chaos of the state of nature. Only Locke prioritizes property; Hobbes prioritizes life/security.",
+     "correctAnswers": [
+      "Hobbes views the state of nature as a 'war of all against all', while Locke sees it as governed by natural law.",
+      "Hobbes advocates for an irrevocable surrender of rights, while Locke views power as a conditional delegation.",
+      "Locke argues for a right to revolution if the sovereign fails, whereas Hobbes prioritizes security above all."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "Jean-Jacques Rousseau distinguishes between the 'Will of All', which is the sum of selfish desires, and the ____, which represents the common good of the collective.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "General Will"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "According to John Stuart Mill's 'Harm Principle', what is the only legitimate reason for the state to exercise power over a member of a civilized community against their will?",
+     "options": [
+      "To prevent them from offending the majority",
+      "To prevent harm to others",
+      "To ensure they achieve their 'positive' potential",
+      "To uphold traditional moral values"
+     ],
+     "explanation": "Mill's Harm Principle is a defense of negative liberty, stating that the state cannot interfere with self-regarding actions unless they cause demonstrable harm to others.",
+     "correctAnswers": [
+      "To prevent harm to others"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram of the Veil of Ignorance showing people making decisions without knowing their social status.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/ecee2054-7861-470c-8228-bcb03990a3de/exam/images/unit5-q5.png"
+     },
+     "prompt": "Which of the following are components of John Rawls's theory of justice as explored through the 'Veil of Ignorance'?",
+     "options": [
+      "The Difference Principle: inequalities must benefit the least advantaged.",
+      "The Entitlement Theory: justice is found in the history of transactions.",
+      "The Original Position: a hypothetical starting point of equality.",
+      "The prioritization of individual liberty over social and economic equality."
+     ],
+     "explanation": "Rawls uses the Original Position and the Difference Principle to define justice. The Entitlement Theory belongs to Nozick, and Rawls balances liberty with distributive equality.",
+     "correctAnswers": [
+      "The Difference Principle: inequalities must benefit the least advantaged.",
+      "The Original Position: a hypothetical starting point of equality."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Isaiah Berlin defines ____ liberty as the 'absence of obstacles, barriers, or constraints'—essentially, freedom from interference.",
+     "placeholder": "positive or negative?",
+     "correctAnswers": [
+      "negative",
+      "negative liberty"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Robert Nozick's 'Entitlement Theory' is fundamentally a 'historical' theory of justice. What does this mean?",
+     "options": [
+      "Justice depends on the final pattern of wealth distribution.",
+      "Justice is determined by whether the current distribution resulted from just acquisition and transfer.",
+      "Justice is achieved only when everyone has an equal historical share of resources.",
+      "The state must historically compensate all citizens for past inequalities."
+     ],
+     "explanation": "Nozick argues that if the chain of ownership (acquisition and transfer) is legitimate, the resulting distribution is just, regardless of the end pattern.",
+     "correctAnswers": [
+      "Justice is determined by whether the current distribution resulted from just acquisition and transfer."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What are the core objections raised by 'Philosophical Anarchism' regarding state authority?",
+     "options": [
+      "State authority is fundamentally incompatible with individual moral autonomy.",
+      "The state has a right to rule, but only if it is a direct democracy.",
+      "We have a moral duty to decide for ourselves what is right, which conflicts with blind obedience.",
+      "Compliance with the law should only be tactical or pragmatic, not a moral obligation."
+     ],
+     "explanation": "Philosophical anarchists like Robert Paul Wolff argue that the state's demand for obedience contradicts the individual's duty to act autonomously.",
+     "correctAnswers": [
+      "State authority is fundamentally incompatible with individual moral autonomy.",
+      "We have a moral duty to decide for ourselves what is right, which conflicts with blind obedience.",
+      "Compliance with the law should only be tactical or pragmatic, not a moral obligation."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "Thomas Hobbes called the absolute sovereign the ____, a massive entity that absorbs individual freedoms to guarantee collective security.",
+     "placeholder": "Name of the entity",
+     "correctAnswers": [
+      "Leviathan"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is the 'paradox' in Rousseau's social contract theory regarding the General Will?",
+     "options": [
+      "Citizens can be 'forced to be free' by obeying the collective good.",
+      "The state must be destroyed to achieve true freedom.",
+      "The Will of All is always more accurate than the General Will.",
+      "Property rights are the only way to ensure moral freedom."
+     ],
+     "explanation": "Rousseau argues that because the General Will represents our own higher rational interests, being compelled to follow it is actually a path to true moral freedom.",
+     "correctAnswers": [
+      "Citizens can be 'forced to be free' by obeying the collective good."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following would Robert Nozick consider a 'just' distribution of wealth?",
+     "options": [
+      "A distribution where everyone has exactly the same amount of money.",
+      "A distribution where a billionaire earned their wealth through voluntary, honest trades.",
+      "A distribution where the state takes from the rich to help the poor.",
+      "A distribution resulting from a gift given by a parent to a child."
+     ],
+     "explanation": "Nozick's Entitlement Theory focuses on 'Justice in Transfer' (voluntary trade) and 'Justice in Acquisition' (gifts/initial labor). Patterned equality or redistribution is unjust to him.",
+     "correctAnswers": [
+      "A distribution where a billionaire earned their wealth through voluntary, honest trades.",
+      "A distribution resulting from a gift given by a parent to a child."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The 'Right to ____' is the key feature of Locke's social contract that differentiates it from Hobbes's irrevocable surrender of power.",
+     "placeholder": "Action by citizens",
+     "correctAnswers": [
+      "Revolution",
+      "Revolt",
+      "Resistance"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the debate over motorcycle helmet laws, how would a strict advocate of 'Positive Liberty' likely view the mandate?",
+     "options": [
+      "As an unjust infringement on the 'freedom from' interference.",
+      "As a way to empower the individual's 'true self' to remain healthy and capable of self-realization.",
+      "As a violation of the Harm Principle since no one else is hurt.",
+      "As a waste of state resources that should be left to the market."
+     ],
+     "explanation": "Positive liberty focuses on the 'freedom to' achieve potential; mandates can be seen as helping individuals act in their own best long-term interest.",
+     "correctAnswers": [
+      "As a way to empower the individual's 'true self' to remain healthy and capable of self-realization."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why might a society choose a 'Rational-Legal' system over a 'Charismatic' system of authority?",
+     "options": [
+      "It provides stability that doesn't depend on a single person's life or health.",
+      "It ensures that power is based on personal heroism and vision.",
+      "It establishes clear, predictable rules that apply to everyone.",
+      "It allows for the transfer of power through constitutional procedures."
+     ],
+     "explanation": "Rational-legal authority is based on systems and offices, making it more stable and predictable than the personal, often volatile nature of charismatic leadership.",
+     "correctAnswers": [
+      "It provides stability that doesn't depend on a single person's life or health.",
+      "It establishes clear, predictable rules that apply to everyone.",
+      "It allows for the transfer of power through constitutional procedures."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What distinguishes 'Political Legitimacy' from 'Legal Validity'?",
+     "options": [
+      "Legitimacy is about power, while validity is about tradition.",
+      "Legitimacy is the moral justification for authority; validity is whether a rule was followed correctly.",
+      "They are exactly the same in a rational-legal system.",
+      "Validity is subjective, while legitimacy is always objective."
+     ],
+     "explanation": "A law can be legally valid (properly enacted) but illegitimate (morally unjustified), a key distinction in political philosophy.",
+     "correctAnswers": [
+      "Legitimacy is the moral justification for authority; validity is whether a rule was followed correctly."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Mill distinguishes between 'harm' and 'offense'. Which of the following would Mill likely categorize as 'harm' that justifies state intervention?",
+     "options": [
+      "Direct physical assault on a person.",
+      "Speech that causes someone to feel deeply insulted.",
+      "Theft of private property.",
+      "Violation of a person's contractual rights."
+     ],
+     "explanation": "Mill defines harm as a violation of rights or physical safety. Psychological offense or hurt feelings do not meet his threshold for state coercion.",
+     "correctAnswers": [
+      "Direct physical assault on a person.",
+      "Theft of private property.",
+      "Violation of a person's contractual rights."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "Under Locke's theory, why is the 'State of Nature' considered 'inconvenient' even though it is not a state of war?",
+     "options": [
+      "Because people are naturally evil.",
+      "Because there is no private property in the state of nature.",
+      "Because there are no impartial judges to settle disputes over natural rights.",
+      "Because individuals have no right to self-defense."
+     ],
+     "explanation": "Locke argued that without a central authority, everyone is their own judge, leading to bias and conflict in enforcing natural laws.",
+     "correctAnswers": [
+      "Because there are no impartial judges to settle disputes over natural rights."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "A society is debating how to distribute its limited healthcare resources. Use the interactive scene to demonstrate John Rawls's 'Difference Principle'.",
+     "options": [
+      "Distribute resources to maximize the total wealth of the elite.",
+      "Distribute resources equally to every citizen regardless of need.",
+      "Distribute resources such that the outcome benefits the least advantaged members of society.",
+      "Allow resources to be traded freely without any state intervention."
+     ],
+     "explanation": "Rawls's Difference Principle allows for inequalities only if they result in compensatory benefits for the least advantaged members of society.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Rawlsian Justice Scale</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      \n      --wealthy-color: #E2B65C;\n      --middle-color: #8CA0BA;\n      --vulnerable-color: #D98880;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Society Preview Stage */\n    .society-stage {\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n      position: relative;\n      border: 1px solid rgba(0,0,0,0.03);\n    }\n\n    .stage-title {\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.05em;\n      color: var(--muted-fg);\n      text-align: center;\n      font-weight: 600;\n    }\n\n    .distribution-bars {\n      display: flex;\n      justify-content: space-around;\n      align-items: flex-end;\n      height: 90px;\n      padding-bottom: 8px;\n      border-bottom: 2px solid #e8e5df;\n    }\n\n    .bar-group {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      width: 60px;\n      gap: 6px;\n    }\n\n    .bar-container {\n      width: 24px;\n      height: 70px;\n      background: rgba(0,0,0,0.04);\n      border-radius: 4px;\n      display: flex;\n      align-items: flex-end;\n      overflow: hidden;\n    }\n\n    .bar-fill {\n      width: 100%;\n      height: 30%; /* dynamic */\n      border-radius: 2px;\n      transition: height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s;\n    }\n\n    .bar-fill.wealthy { background: var(--wealthy-color); }\n    .bar-fill.middle { background: var(--middle-color); }\n    .bar-fill.vulnerable { background: var(--vulnerable-color); }\n\n    .bar-label {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--fg);\n    }\n\n    /* Interactive Zone Map */\n    .interaction-area {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n    }\n\n    .drop-zone {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 10px;\n      padding: 8px;\n      min-height: 54px;\n      display: flex;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center;\n      text-align: center;\n      cursor: pointer;\n      position: relative;\n      transition: all 0.2s ease;\n    }\n\n    .drop-zone:hover {\n      border-color: #ccc;\n      background: #fdfdfd;\n    }\n\n    .drop-zone.active {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      border-style: solid;\n      box-shadow: 0 2px 8px rgba(76, 102, 150, 0.08);\n    }\n\n    .drop-zone-title {\n      font-size: 11px;\n      font-weight: 700;\n      color: var(--fg);\n      margin-bottom: 2px;\n    }\n\n    .drop-zone-desc {\n      font-size: 9.5px;\n      color: var(--muted-fg);\n      line-height: 1.2;\n    }\n\n    /* Drag Key Area */\n    .drag-source-container {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding: 4px 0;\n      position: relative;\n    }\n\n    .instruction {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 2px;\n    }\n\n    /* Draggable Token */\n    .token {\n      width: 110px;\n      height: 28px;\n      background: var(--accent);\n      color: white;\n      border-radius: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      font-size: 11px;\n      font-weight: 700;\n      cursor: grab;\n      box-shadow: 0 3px 6px rgba(0,0,0,0.15);\n      position: absolute;\n      z-index: 10;\n      touch-action: none;\n      transition: transform 0.15s ease, box-shadow 0.15s ease;\n    }\n\n    .token:active {\n      cursor: grabbing;\n      transform: scale(1.05);\n      box-shadow: 0 5px 12px rgba(0,0,0,0.2);\n    }\n\n    .token svg {\n      width: 12px;\n      height: 12px;\n      fill: currentColor;\n    }\n\n    .placeholder-token {\n      width: 110px;\n      height: 28px;\n      border-radius: 20px;\n      border: 1px dashed var(--border);\n      background: transparent;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 10px;\n      color: #ccc;\n    }\n\n    /* Lock states */\n    .locked {\n      pointer-events: none !important;\n    }\n    .locked .token {\n      background: #888 !important;\n      box-shadow: none !important;\n      cursor: default;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Rawlsian Justice & Resource Distribution Practice Scene</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"instruction\">Drag the Resource Allocation Key into a distribution model:</div>\n\n    <!-- Interactive Stage (Visualizing Society) -->\n    <div class=\"society-stage\">\n      <div class=\"stage-title\">Resulting Social Distribution</div>\n      <div class=\"distribution-bars\">\n        <div class=\"bar-group\">\n          <div class=\"bar-container\">\n            <div id=\"bar-wealthy\" class=\"bar-fill wealthy\" style=\"height: 50%;\"></div>\n          </div>\n          <span class=\"bar-label\">Wealthy</span>\n        </div>\n        <div class=\"bar-group\">\n          <div class=\"bar-container\">\n            <div id=\"bar-middle\" class=\"bar-fill middle\" style=\"height: 50%;\"></div>\n          </div>\n          <span class=\"bar-label\">Middle</span>\n        </div>\n        <div class=\"bar-group\">\n          <div class=\"bar-container\">\n            <div id=\"bar-vulnerable\" class=\"bar-fill vulnerable\" style=\"height: 50%;\"></div>\n          </div>\n          <span class=\"bar-label\">Vulnerable</span>\n        </div>\n      </div>\n    </div>\n\n    <!-- Drag Source / Anchor Area -->\n    <div class=\"drag-source-container\" id=\"source-container\">\n      <div class=\"placeholder-token\">Place Key Here</div>\n      \n      <!-- Draggable Token -->\n      <div id=\"allocation-key\" class=\"token\" draggable=\"false\" role=\"button\" aria-label=\"Resource Allocation Key, drag to a policy slot below\" tabindex=\"0\">\n        <svg viewBox=\"0 0 24 24\">\n          <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z\"/>\n        </svg>\n        Allocation Key\n      </div>\n    </div>\n\n    <!-- 4 Policy Landing Zones -->\n    <div class=\"interaction-area\" id=\"zones-grid\">\n      <div class=\"drop-zone\" id=\"zone-elite\" data-option=\"Distribute resources to maximize the total wealth of the elite.\">\n        <div class=\"drop-zone-title\">Elite Focus</div>\n        <div class=\"drop-zone-desc\">Maximize top-tier outcomes</div>\n      </div>\n      <div class=\"drop-zone\" id=\"zone-equal\" data-option=\"Distribute resources equally to every citizen regardless of need.\">\n        <div class=\"drop-zone-title\">Equal Split</div>\n        <div class=\"drop-zone-desc\">Strictly uniform shares</div>\n      </div>\n      <div class=\"drop-zone\" id=\"zone-rawls\" data-option=\"Distribute resources such that the outcome benefits the least advantaged members of society.\">\n        <div class=\"drop-zone-title\">Difference Principle</div>\n        <div class=\"drop-zone-desc\">Maximize the societal floor</div>\n      </div>\n      <div class=\"drop-zone\" id=\"zone-market\" data-option=\"Allow resources to be traded freely without any state intervention.\">\n        <div class=\"drop-zone-title\">Free Market</div>\n        <div class=\"drop-zone-desc\">Unregulated exchange</div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // State\n    let selectedOption = null;\n    let isLocked = false;\n\n    // Elements\n    const key = document.getElementById('allocation-key');\n    const sourceContainer = document.getElementById('source-container');\n    const zones = document.querySelectorAll('.drop-zone');\n    const barWealthy = document.getElementById('bar-wealthy');\n    const barMiddle = document.getElementById('bar-middle');\n    const barVulnerable = document.getElementById('bar-vulnerable');\n\n    // Distributions for the visualizer\n    const distributions = {\n      'initial': { wealthy: 45, middle: 35, vulnerable: 20 },\n      'zone-elite': { wealthy: 95, middle: 25, vulnerable: 10 },\n      'zone-equal': { wealthy: 40, middle: 40, vulnerable: 40 },\n      'zone-rawls': { wealthy: 65, middle: 55, vulnerable: 45 },\n      'zone-market': { wealthy: 85, middle: 40, vulnerable: 15 }\n    };\n\n    function updateVisualizer(stateKey) {\n      const dist = distributions[stateKey];\n      barWealthy.style.height = dist.wealthy + '%';\n      barMiddle.style.height = dist.middle + '%';\n      barVulnerable.style.height = dist.vulnerable + '%';\n    }\n\n    // Set initial distribution visual\n    updateVisualizer('initial');\n\n    // Drag-and-drop state\n    let isDragging = false;\n    let startX = 0, startY = 0;\n    let currentX = 0, currentY = 0;\n    let currentTargetZone = null;\n\n    // Reset key back to its active container\n    function returnToCurrentContainer() {\n      key.style.transition = 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';\n      key.style.transform = 'translate(0px, 0px)';\n      currentX = 0;\n      currentY = 0;\n    }\n\n    // Move to specific target element smoothly\n    function snapToElement(targetEl) {\n      key.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)';\n      \n      const keyRect = key.getBoundingClientRect();\n      const targetRect = targetEl.getBoundingClientRect();\n      \n      // Calculate delta to center key inside targetEl\n      const deltaX = (targetRect.left + targetRect.width / 2) - (keyRect.left + keyRect.width / 2);\n      const deltaY = (targetRect.top + targetRect.height / 2) - (keyRect.top + keyRect.height / 2);\n      \n      currentX += deltaX;\n      currentY += deltaY;\n      \n      key.style.transform = `translate(${currentX}px, ${currentY}px)`;\n    }\n\n    // Pointer Events for Dragging\n    key.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      key.setPointerCapture(e.pointerId);\n      \n      startX = e.clientX;\n      startY = e.clientY;\n      key.style.transition = 'none';\n    });\n\n    key.addEventListener('pointermove', (e) => {\n      if (!isDragging) return;\n      \n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n      \n      key.style.transform = `translate(${currentX + dx}px, ${currentY + dy}px)`;\n\n      // Realtime Hit Test\n      const keyRect = key.getBoundingClientRect();\n      const keyCenterX = keyRect.left + keyRect.width / 2;\n      const keyCenterY = keyRect.top + keyRect.height / 2;\n\n      let activeZone = null;\n      zones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        if (\n          keyCenterX >= zoneRect.left &&\n          keyCenterX <= zoneRect.right &&\n          keyCenterY >= zoneRect.top &&\n          keyCenterY <= zoneRect.bottom\n        ) {\n          activeZone = zone;\n        }\n      });\n\n      if (activeZone !== currentTargetZone) {\n        if (currentTargetZone) currentTargetZone.classList.remove('active');\n        currentTargetZone = activeZone;\n        if (currentTargetZone) {\n          currentTargetZone.classList.add('active');\n          updateVisualizer(currentTargetZone.id);\n        } else {\n          updateVisualizer(selectedOption ? `zone-${selectedOption}` : 'initial');\n        }\n      }\n    });\n\n    key.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      key.releasePointerCapture(e.pointerId);\n\n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n      currentX += dx;\n      currentY += dy;\n\n      if (currentTargetZone) {\n        // Drop success\n        zones.forEach(z => z.classList.remove('active'));\n        currentTargetZone.classList.add('active');\n        snapToElement(currentTargetZone);\n        \n        const newOption = currentTargetZone.getAttribute('data-option');\n        if (selectedOption !== newOption) {\n          selectedOption = newOption;\n          // Report selection\n          parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n        }\n      } else {\n        // Drop failed / returned to center\n        zones.forEach(z => z.classList.remove('active'));\n        selectedOption = null;\n        updateVisualizer('initial');\n        returnToCurrentContainer();\n      }\n    });\n\n    // Make zones directly clickable/tappable as a fallback/accessible method\n    zones.forEach(zone => {\n      zone.addEventListener('click', () => {\n        if (isLocked) return;\n        zones.forEach(z => z.classList.remove('active'));\n        zone.classList.add('active');\n        currentTargetZone = zone;\n        \n        // Snap token to this zone\n        snapToElement(zone);\n        updateVisualizer(zone.id);\n\n        const newOption = zone.getAttribute('data-option');\n        if (selectedOption !== newOption) {\n          selectedOption = newOption;\n          parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');\n        }\n      });\n    });\n\n    // Keyboard Accessibility\n    key.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      let targetIndex = -1;\n      const zoneArray = Array.from(zones);\n\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        targetIndex = 0;\n      }\n\n      if (targetIndex !== -1) {\n        zoneArray[targetIndex].click();\n        zoneArray[targetIndex].focus();\n      }\n    });\n\n    // Handle iframe lock message\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('widget-container').classList.add('locked');\n      }\n    });\n\n    // Height calculation & reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    window.addEventListener('resize', reportHeight);\n    new ResizeObserver(reportHeight).observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Distribute resources such that the outcome benefits the least advantaged members of society."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "cc6e3f5d-3fc5-4175-8e3e-ad5be4685318"
+}

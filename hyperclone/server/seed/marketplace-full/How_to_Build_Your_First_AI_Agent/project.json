@@ -1,0 +1,375 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the first stage of your CustomerSupportAgent project! Over the course of this project, you will build a sophisticated, secure, and production-ready Python AI Agent. By the end, you'll have a fully functional codebase capable of fetching data, calculating refunds, and interacting with humans via a CLI—complete with safety gates and automated tests. Today, we start by laying the foundation. We are building the 'sandbox' where your agent will live. Before we write logic, we must ensure your development environment is isolated, your dependencies are version-controlled, and your API keys are hidden from the public eye. Let's begin by initializing your workspace.",
+     "step_title": "Project Kickoff & Environment",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the version number of the openai library you installed and a brief explanation (1-2 sentences) of why virtual environments are critical for agentic systems."
+     },
+     "step_body": "First, create a new directory for your project named 'support_agent_project'. Inside this folder, set up a Python virtual environment. This ensures that the packages we install for this agent don't interfere with your other projects. Once created, activate it. Now, create a requirements.txt file or simply use pip to install the following core libraries: 'openai' (for model access), 'python-dotenv' (to manage secrets), and 'pytest' (for our future testing). After installing, run 'pip freeze' to see your environment's state. Which version of the openai library did you install, and why is it important to use a virtual environment rather than your global Python installation?",
+     "step_title": "Initialize the Workspace",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "A professional agent project needs a clean layout to separate logic from configuration. Create the following structure in your project folder:\n\n1. A folder named 'data/' (for our mockup database).\n2. A folder named 'tests/' (for validation scripts).\n3. A .gitignore file to ensure we don't accidentally share sensitive files.\n4. A .env file to store your API keys.\n5. A main.py file which will eventually house our agent loop.\n\nOpen your .gitignore and add '.env', '__pycache__/', and 'venv/' to it. This is our first security gate.",
+     "step_title": "Structure the Directories",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code snippet showing how you used python-dotenv to load your environment variables and initialize your AI client."
+     },
+     "step_body": "Now, let's verify connectivity without exposing secrets. In your .env file, add your model provider's API key (e.g., OPENAI_API_KEY=your_key_here). Then, create a small script named 'test_connection.py'. This script should use python-dotenv to load the key and make a simple call to the model to ask 'Hello, are you ready?'. This confirms that your environment variables are being read correctly and your network can reach the model provider. If you get a response, your 'plumbing' is working! Paste the code snippet you used to load the .env variables and initialize the client below.",
+     "step_title": "Secure Your API Connection",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a file (PDF or Image) showing your project directory tree and the successful terminal output from your connection test. Success means the directory contains the specified folders/files and the script returned a message from the LLM."
+     },
+     "step_body": "You have successfully established a secure development sandbox. This structure will support everything from tool-calling to state management in the coming stages. To wrap up this stage, please upload a screenshot or a PDF showing your final directory structure (the file tree) and the output of your 'test_connection.py' script. This proves your workspace is ready for the agent logic we will write next.",
+     "step_title": "Submit Your Initialization",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "6b831552-6bc6-4e3c-b06c-ae65db9c2b4e",
+   "stage_title": "Project Initialization and Safe API Setup",
+   "parent_project_id": "9016653d-9e46-4297-ad8c-9beb2d2b49cf",
+   "stage_description": "Set up your Python virtual environment, install required packages (like python-dotenv and openai), structure your project directories, configure your environment variables to hide API keys securely, and verify connection to your model provider.",
+   "deliverable_increment": "A structured project directory containing main.py, .env, .gitignore, and a test script verifying successful model connectivity."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you initialized your project and secured your API connection. Now, we move from simple communication to 'tool use.' As we discussed in our whiteboard sessions, an agent doesn't run code itself; it uses a JSON schema contract to understand how to ask your Python environment to run specific functions. In this stage, you will build the 'tools.py' module which acts as the safe bridge between the model's intent and your system's data.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "To build a Support Agent, we need data to query. Instead of a live database, we'll start with a dictionary-based mockup. Create a new file named `tools.py`. Inside, define a variable `MOCK_DATABASE` containing a list of dictionaries. Each dictionary should represent an order with fields like `order_id`, `customer_id`, `product_name`, and `status` (e.g., 'shipped', 'delivered', 'pending'). This allows us to test our retrieval logic without external dependencies.",
+     "step_title": "Draft the mockup database",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, write the Python functions that will perform the actual work. You need two functions: `get_customer_orders(user_id: str)` which filters the mock database for matching records, and `calculate_refund(order_id: str)` which returns a fixed or calculated amount based on the order status. Remember the principle of 'least privilege' from our lecture: these functions should only perform specific, read-only or bounded tasks, never executing raw strings or shell commands.",
+     "step_title": "Implement retrieval functions",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the JSON schema definition for the `get_customer_orders` tool. It must follow the OpenAI-compatible tool format, including the 'type', 'function', 'name', 'description', and 'parameters' keys. Good work will feature a detailed description that explains when the model should call this tool."
+     },
+     "step_body": "The model needs to know your functions exist. For each function, you must draft a JSON schema. This schema must include the function name, a clear description of what it does, and a 'parameters' block defining the required arguments. Pay close attention to descriptions: if you need a specific date format or a strict 'order_id' string, say so explicitly in the description field to prevent the model from hallucinating wrong formats.",
+     "step_title": "Define the tool schemas",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your completed `tools.py` file. It should contain the `MOCK_DATABASE`, the two logic functions (`get_customer_orders` and `calculate_refund`), and a list of tool schemas. The schemas must correctly describe the parameters (like user_id and order_id) as required fields."
+     },
+     "step_body": "Combine your Python functions and your schema definitions into your `tools.py` file. A common pattern is to have a list called `TOOLS` at the bottom of the file that contains all your JSON schemas, while your Python functions are ready to be imported by your main agent loop later. Ensure that the function names in your Python code exactly match the 'name' field in your JSON schemas.",
+     "step_title": "Finalize tools.py",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a brief (2-3 sentence) reflection on why strict parameter typing and narrow tool scope are essential for a secure Customer Support Agent. Focus on how this prevents unauthorized database actions."
+     },
+     "step_body": "Before we move to the next stage where the agent actually calls these tools, let's think about the 'Human-in-the-Loop' concept. Why is it safer to provide a specific `calculate_refund` tool rather than a generic `update_database_record` tool? Consider the risks of 'indirect prompt injection' where a user might try to trick the agent into granting a larger refund than allowed.",
+     "step_title": "Reflect on security",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "75d7f4da-b868-485a-84a4-1a72c81ab73e",
+   "stage_title": "Defining Tools for Order and Refund Retrieval",
+   "parent_project_id": "9016653d-9e46-4297-ad8c-9beb2d2b49cf",
+   "stage_description": "Draft JSON schemas and matching execution functions representing the agent's available actions, specifically a tool to fetch customer purchase history and a tool to calculate and process order refunds.",
+   "deliverable_increment": "A tools.py module containing schema definitions and mock-database querying Python functions."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you successfully initialized your project and defined the core tools for your support agent in tools.py. However, as we discussed in the lectures, LLMs are naturally stateless. To build an agent that can handle complex, multi-turn customer support issues, we need a dedicated 'brain' to track the conversation history and the internal status of the agent's tasks. In this stage, you will implement memory.py to handle this state management, which will serve as the foundation for the agent's reasoning loop.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief description or a Python snippet of the data structure (e.g., a list of dictionaries or a class definition) you plan to use for your message history. Good work clearly identifies the roles ('user', 'assistant', 'tool') and includes a placeholder for message content."
+     },
+     "step_body": "A conversation is a sequence of turns between different roles: 'user', 'assistant', and 'tool'. Following the architectural pattern from our whiteboard session, start by defining a structure that will hold these messages. Instead of using a simple global list, you should plan for a class or a robust dictionary structure that allows you to append messages and retrieve them in a format compatible with LLM provider schemas. Think about how you will store the role of the sender and the content of the message. How will you ensure that 'tool' responses are correctly associated with the assistant's previous tool-call?",
+     "step_title": "Define the message history structure",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, create the memory.py file. Implement a class named `ConversationState` (or similar). This class should encapsulate the message list and provide helper methods like `add_message(role, content)` and `get_history()`. This encapsulation prevents accidental mutations elsewhere in your code and provides a single source of truth for the agent's context. Ensure your methods validate that the role provided is one of the accepted types to prevent API errors later.",
+     "step_title": "Implement the ConversationState class",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your updated memory.py code. Criteria for success: the module must contain a class or structure that tracks a list of message turns AND an internal state dictionary for tracking task-specific variables (like refund status)."
+     },
+     "step_body": "Beyond just the chat history, your agent needs to track its internal 'scratchpad'—things like whether a refund is currently 'pending_approval' or if an 'order_id' has already been validated. Update your memory module to include a 'metadata' or 'internal_state' dictionary. This will allow the agent to remember variables across loops even if those variables aren't directly sent back to the LLM in every turn.",
+     "step_title": "Add short-term execution tracking",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your final memory.py file. It should be a functional Python script defining your state management logic, ready to be imported into your main execution loop in the next stage."
+     },
+     "step_body": "Finalize your memory.py module. Ensure that it is well-documented with docstrings, as this will help the model understand the state structure when we eventually integrate it into the main agent loop. Verify that your state can be easily reset or cleared for a new session. This module is the 'short-term memory' that allows your agent to behave like a cohesive assistant rather than a series of disconnected prompts.",
+     "step_title": "Submit the memory module",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "f9fb74f4-b17f-4b34-b83b-ff8a0e4166a5",
+   "stage_title": "Implementing Memory and Session Management",
+   "parent_project_id": "9016653d-9e46-4297-ad8c-9beb2d2b49cf",
+   "stage_description": "Build an in-memory dictionary or local state manager that tracks the progress of the conversational turn, retains short-term message logs, and records the current status of refund requests.",
+   "deliverable_increment": "A memory.py module defining state schemas and utility functions to update and retrieve conversational logs and system status."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already built the individual components of your support agent: the API connection, the tool schemas for order management, and the memory structures for state tracking. Now, it is time to build the 'brain' of the system—the execution loop. This loop follows a Decide-Act-Observe pattern where the agent takes a goal, decides on a tool, executes it, and observes the result to determine its next move. This is the core logic that transforms static functions into an autonomous agent.",
+     "step_title": "Recap and agent loop orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation or a code snippet of your state initialization logic. Specifically, explain how you handle the initialization of the message history list to prevent state leakage across runs."
+     },
+     "step_body": "Before entering the loop, you must define a robust entry point that prepares the environment. Create a function in a new file named `agent_loop.py` that accepts a user goal string. This function should initialize a state dictionary containing the system prompt, the user's objective, an empty message history, and a step counter set to zero. Using a dictionary ensures a single source of truth that can be passed through each iteration of your loop. How do you plan to structure this state dictionary to ensure it remains clean and avoids 'leaking' memory between different agent runs?",
+     "step_title": "Initialize the agent state",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, add logic to invoke the LLM and parse its output. The model will return a response that either suggests a tool call (with JSON arguments) or provides a final answer. Use a regex or string manipulation utility to safely extract JSON from the model's response, as models often include conversational filler. You must branch your code logic here: if a tool is detected, move to execution; if a final answer is detected, set a completion flag to break the loop.",
+     "step_title": "Implement the decision parser",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "To execute actions safely, you need a way to map the model's requested 'tool_name' string to the actual Python functions you wrote in `tools.py`. Create a registry dictionary where keys are tool names and values are the function objects themselves. This creates a secure sandbox—the model can only call functions you have explicitly registered. In your loop, implement a check to see if the model's requested tool exists in this registry before trying to call it.",
+     "step_title": "Build the safe tool registry",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "When a tool is called, you must handle the execution and feedback. Before running the function, print a 'pre-execution log' showing which tool is being called and with what arguments. Then, use Python's **kwargs expansion to pass the model-generated arguments into your tool function. Finally, serialize the result (the output of the tool) into a string and append it back to your state's message history as an 'observation'. This allows the model to see the result of its action in the next iteration.",
+     "step_title": "Execute tools and capture logs",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your `agent_loop.py` file. Good work will demonstrate a clear while-loop structure, a functioning tool registry, robust parsing logic that can handle conversational text around JSON, and clear console logging for each step of the cycle."
+     },
+     "step_body": "It's time to put it all together. Your `agent_loop.py` should now contain a 'while' loop that continues until the model provides a final answer or a maximum step count (to prevent infinite loops) is reached. Within each iteration, the agent should Reason (call LLM), Act (parse and call tool), and Observe (append result to history). Ensure your code includes basic error handling for malformed JSON or failed tool calls.",
+     "step_title": "Submit the agent loop",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "c40aa212-f3f8-4a34-98ff-3f9ad76fd8e2",
+   "stage_title": "Assembling the Decide-Act-Observe Execution Loop",
+   "parent_project_id": "9016653d-9e46-4297-ad8c-9beb2d2b49cf",
+   "stage_description": "Write the core agent loop using flow engineering principles. The agent must parse the system prompt, parse tool arguments from model outputs, run tools dynamically, feed back the tool outcomes to the context window, and decide when to stop.",
+   "deliverable_increment": "An agent_loop.py module executing the cycle of reasoning, tool selection, outcome reporting, and termination conditions."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, we built a functional execution loop where the agent autonomously decides which tools to call. However, giving an AI direct power to modify databases or issue refunds without oversight is high-risk. This stage introduces a 'Human-in-the-Loop' (HITL) gate. We will modify the `agent_loop.py` to intercept sensitive actions, pause the loop, and wait for your manual approval in the terminal before proceeding. This ensures the agent acts as a controlled support agent rather than a rogue process.",
+     "step_title": "Orientation: The Human Gateway",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the names of the tools you've identified as 'sensitive' and a one-sentence justification for each."
+     },
+     "step_body": "Before we can build a gate, we need to decide which actions require it. In your current toolset, fetching order details is 'read-only' and safe, but calculating or issuing a refund is a 'state mutation' that costs money. Review your `tools.py` and identify the specific function names that should trigger a human pause. List these sensitive tool names and explain why they require a human checkpoint instead of being fully automated.",
+     "step_title": "Identify Sensitive Tools",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code snippet for your terminal approval prompt UI."
+     },
+     "step_body": "When the agent attempts to call a sensitive tool, we must present the user with a clear summary so they can make an informed decision. Draft a Python function or code snippet that takes the 'tool_name' and 'arguments' as input and prints a formatted request to the terminal. It should look professional, displaying the proposed action and the data being sent (e.g., Refund Amount: $50.00), and explicitly ask for a 'Y' to approve or 'N' to reject.",
+     "step_title": "Draft the Approval Prompt",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, integrate this into your `agent_loop.py`. Inside your execution cycle, right before a tool is invoked, add a conditional check. If the tool name matches your sensitive list, call your approval prompt and use `input()` to block the thread. If the user enters 'Y', proceed to the `Calling a Tool` phase. If the user enters 'N', skip the execution and instead append a message to the history informing the agent that the 'Action was denied by the supervisor.' This allows the agent to try a different approach instead of crashing.",
+     "step_title": "Implement the Interception Logic",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your terminal showing the active HITL gate pausing the agent's execution for a sensitive tool call."
+     },
+     "step_body": "Run your agent and trigger a scenario where a refund is necessary (e.g., 'My order #12345 was damaged, I want a refund'). Watch the terminal. The agent should pause and wait for your input. Test both paths: first, deny the request and see if the agent responds gracefully; then, run it again and approve the request to ensure the tool executes. Take a screenshot of your terminal showing the agent paused at the 'Approval Required' prompt.",
+     "step_title": "Test the Gateway",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short paragraph (3-5 sentences) describing how you would code the agent's ability to voluntarily ask for human help."
+     },
+     "step_body": "A great agent doesn't just ask for permission; it also asks for help when it's confused. Think about how you might extend this gateway to allow the agent to 'self-escalate.' If the agent encounters an ambiguous user request, how could we modify our system prompt or toolset to allow it to explicitly call a `request_human_guidance` tool? Briefly describe your strategy for implementing this 'escalation' pattern in the future.",
+     "step_title": "Reflect on Escalation",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "5f814adf-1937-4d64-85f6-94d2c1a13c4f",
+   "stage_title": "Integrating the Human-in-the-Loop Gateway",
+   "parent_project_id": "9016653d-9e46-4297-ad8c-9beb2d2b49cf",
+   "stage_description": "Incorporate a critical human gate within the action step. If the agent determines that a refund tool should be called, it must pause execution, ask for human console confirmation, and log the action.",
+   "deliverable_increment": "An interactive terminal approval workflow inside agent_loop.py that blocks execution until the user accepts or rejects sensitive actions."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the final development stage! Having built the agent's logic, memory, and human-in-the-loop gates, we must now move beyond 'vibe-based' testing. In this stage, you will build a robust, automated evaluation suite that moves away from deterministic string matching (which fails due to the non-deterministic nature of LLMs) and toward a 'Golden Dataset' approach. You'll be creating a structured test suite that evaluates not just what the agent says, but how it uses tools and handles edge cases.",
+     "step_title": "Orient to Evaluation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a JSON-formatted snippet or a text list outlining your 5 test scenarios. Each scenario must clearly state the input query and what the 'correct' agent behavior should be (which tools it should call and what the final answer should involve)."
+     },
+     "step_body": "A 'Golden Dataset' is a collection of diverse, repeatable test scenarios that represent the full operational envelope of your agent. You need to define at least 5 distinct test cases in a structured format (like a list of dictionaries). Each case should include a 'user_query', the 'expected_tool_calls' (to verify the logic path), and the 'target_outcome' (the ground truth result). Ensure you include at least one 'Happy Path' (standard refund), one 'Information Gap' (missing order ID), and one 'Out of Scope' request (e.g., asking for weather).",
+     "step_title": "Draft your Golden Dataset",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's focus on Evaluating Tool Selection. To prevent the 'Agentic Loop of Death' or redundant API calls, your test suite needs to compare the 'Actual Path' the agent took against your 'Golden Path'. In your test_suite.py, create a function that executes the agent loop with a test query and captures the sequence of tool names called. Use a simple comparison logic to ensure the agent calls the correct tools in the correct order without repeating the same call with identical arguments more than twice.",
+     "step_title": "Implement Sequence Alignment checks",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the text of your 'Judge System Prompt'. Good work will include a clear 1-5 rubric and instructions for the model to 'think' or 'reason' before outputting a final score."
+     },
+     "step_body": "Since agent responses are linguistically fluid, we use a more powerful model to 'grade' our agent's performance. You need to write a 'Judge Prompt' that takes three inputs: the User Query, the Agent's Final Response, and the Ground Truth. The prompt should instruct the judge to provide a 'Reasoning' string and a 'Score' from 1 to 5 based on a specific rubric (1: Failure/Hallucination, 5: Perfect Execution). This helps stabilize judgments and avoids bias based on the agent's tone.",
+     "step_title": "Design the LLM-as-a-Judge prompt",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "It is time to assemble everything into a functional script. Create `test_suite.py`. This script should loop through your Golden Dataset, run the `agent_loop` for each query, capture the output and tool logs, and then call your LLM-as-a-judge function to assign a score. For edge cases like prompt injections or invalid IDs, your test should assert that the agent correctly identifies the error or refuses the malicious request rather than executing a refund.",
+     "step_title": "Construct the Test Suite",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your `test_suite.py` file. It must include your test cases, the logic to run the agent loop programmatically, and the evaluation logic (sequence alignment or LLM-as-a-judge) that produces a pass/fail or numerical result."
+     },
+     "step_body": "Run your complete test suite against your CustomerSupportAgent. Ensure that your script outputs a summary of the runs, including the average score assigned by the judge and any tool-call failures. This file represents the quality assurance layer of your final deliverable, ensuring that any future changes to the agent's prompt or tools can be verified immediately against these benchmarks.",
+     "step_title": "Submit test_suite.py",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief reflection (3-5 sentences) identifying one area where your agent failed or scored low during testing, and describe the specific prompt or logic change you would implement to improve that score."
+     },
+     "step_body": "Great work! You've moved from manual testing to a professional evaluation pipeline. Take a look at your results: which test cases performed the worst? If your agent struggled with a specific edge case (like a prompt injection), what specific instruction would you add to your system prompt in `main.py` to fix it?",
+     "step_title": "Reflect on System Performance",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "bbeebedd-09c9-4689-98b7-85b4aaac0317",
+   "stage_title": "Writing Evaluations and Edge Case Tests",
+   "parent_project_id": "9016653d-9e46-4297-ad8c-9beb2d2b49cf",
+   "stage_description": "Develop assertions and diagnostic runs simulating user intents such as legitimate inquiries, invalid refund requests, and malicious prompt injections, assessing the agent's response accuracy, prompt resilience, and system parameters.",
+   "deliverable_increment": "A test_suite.py file containing automated integration test scenarios evaluating tool choice accuracy, edge cases, and safety limits."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "9016653d-9e46-4297-ad8c-9beb2d2b49cf",
+   "project_name": "Build a Controlled Support & Action Agent (CustomerSupportAgent)",
+   "final_deliverable": "A complete, functional, and sandboxed Python AI Agent codebase featuring an autonomous execution loop, tool schemas, state-tracking memory structures, a CLI-based human-in-the-loop approval gate, and an automated testing suite.",
+   "project_description": "You will design, build, test, and deploy a secure, single-purpose AI Support Agent that processes customer queries, fetches order details from a mockup database, calculates shipping refunds, handles conversational state, asks for explicit human-in-the-loop approval before executing refunds, and records audit logs."
+  }
+ ],
+ "courseUuid": "16dd706f-329c-4630-8260-85066b1e0f75"
+}

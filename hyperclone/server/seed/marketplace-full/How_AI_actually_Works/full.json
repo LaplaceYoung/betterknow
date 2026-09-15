@@ -1,0 +1,921 @@
+{
+ "courseUuid": "07857874-2e83-4b64-b4f8-46d93d655b62",
+ "created_at": "2026-09-03T07:41:18.564592+00:00",
+ "courseTitle": "How AI actually Works",
+ "courseDescription": "A beginner-friendly explanation of how artificial intelligence learns, generates answers, makes mistakes, and improves over time. This course demystifies the black box of AI using concrete, intuitive mental models, guiding learners from absolute basics to becoming deliberate, competent AI operators.",
+ "targetLearner": "Beginners seeking conceptual and intuitive understanding of artificial intelligence, language models, and practical AI usage, without complex mathematical formulas.",
+ "outputLanguage": "English",
+ "tags": [
+  "Artificial Intelligence",
+  "Machine Learning",
+  "Generative AI",
+  "Prompt Engineering"
+ ],
+ "projects": [
+  {
+   "project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+   "project_name": "The AI Behavior Logbook",
+   "project_description": "In this project, you will build a structured 'AI Behavior Logbook' to study, probe, and master LLMs. Through hands-on experiments, you will map out how an AI tokenizes language, how it makes probabilistic predictions, how fine-tuning alters its tone, why it hallucinates, and finally, how to engineer advanced prompts and evaluate different models for real-world tasks.",
+   "final_deliverable": "A comprehensive, multi-section markdown document ('AI_Behavior_Logbook.md') containing detailed records, calculations, and analysis of five structured hands-on experiments mapping tokenization, next-token prediction, hallucination boundaries, prompt engineering, and comparative model benchmarking."
+  }
+ ],
+ "ticketVariant": 1,
+ "coverImage": {
+  "filePath": "coverImages/cover-e703507be4.png",
+  "wideFilePath": "coverImages/cover_wide-75b29affed.png",
+  "style": "doodle",
+  "backgroundColor": "#E5EEDC"
+ },
+ "course": {
+  "from": "hyperknow"
+ },
+ "units": [
+  {
+   "unitId": "unit1",
+   "title": "What Artificial Intelligence Really Is",
+   "description": "Establish a clear conceptual baseline of AI. Distinguish rule-based systems from adaptive learning systems, map real-world data into structured mental models, and understand what 'AI models' actually do.",
+   "lectures": [
+    {
+     "lectureId": "unit1Lecture1",
+     "title": "Understanding AI",
+     "description": "Examine the fundamental nature of AI, comparing traditional software programming to machine learning and generative tools.",
+     "order": 1,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "7bbcb8cd-9873-4edb-bbf4-c4e3f3bc4aef",
+       "session_type": "whiteboard",
+       "title": "What Counts as Artificial Intelligence?",
+       "description": "Define AI in plain English and demystify the term by looking at the core goal: building systems that mimic human-like cognitive tasks.",
+       "sessionOutline": "Welcome to 'How AI Actually Works.' Today, we are stripping away the hype, the science fiction, and the marketing buzzwords to answer one fundamental question: What actually counts as Artificial Intelligence? As this is a concept-first public lecture, our goal is to build an intuitive, robust definition that doesn't rely on complex code, but instead focuses on the core cognitive tasks we are trying to replicate. We begin by addressing a common trap: the tendency to label any complex, impressive piece of software as 'AI.' To dismantle this, we must establish a clear boundary between static, rule-bound software automation and dynamic systems that mimic human-like cognitive tasks.\n\nLet's start our mental whiteboard by drawing a sharp line down the middle. On the left side, write 'Deterministic Automation.' On the right side, write 'Cognitive Mimicry.' Traditional software, no matter how sophisticated, belongs on the left. It operates like a highly detailed recipe book. If a programmer writes ten thousand 'if-then' rules to calculate taxes or format a document, the computer is simply executing explicit, rigid commands. It does not 'understand' context; it cannot handle unexpected scenarios that fall outside its pre-written rules. On the right side, we place Artificial Intelligence. True AI steps in when we want a computer to perform tasks that humans naturally do using intuition, perception, or reasoning—such as recognizing a face in a crowded photo, translating the subtle emotional tone of a letter, or making an informed guess based on incomplete data. The core difference lies in adaptability and the replication of these human-like cognitive processes.\n\nTo solidify this distinction, let's look at a concrete classroom exercise. Imagine we have three different software behaviors designed to handle customer emails. The first system scans incoming emails for the exact phrase 'REFUND REQUEST' and, if found, routes it to the billing department. The second system uses a pre-set list of fifty keywords to tag emails. The third system reads the entire message, detects if the customer is expressing frustration or sarcasm, summarizes their core complaint, and suggests a personalized response. The instructor should guide learners to realize that the first two are classic automation—they rely on rigid, exact matches. The third system, however, is performing cognitive mimicry. It is assessing sentiment and summarizing meaning, which are fundamentally human interpretive tasks. This exercise helps prevent the common misconception that 'fast' or 'efficient' automatically means 'intelligent.'\n\nWhen explaining this boundary, teachers must anticipate a major learner pitfall: the 'AI Effect,' which is the tendency to redefine AI as 'dull automation' once we understand how it works under the hood. To counter this, emphasize that the mechanism (which we will demystify in later sessions) doesn't change the nature of the task. If a system is dynamically processing unstructured real-world data and making decisions that previously required human judgment, it qualifies as AI. By establishing this clear definition early, we set a solid foundation for the rest of the course, ensuring students view AI not as a magical black box, but as a structured approach to solving complex, non-linear cognitive problems.",
+       "practice": {
+        "tasks": [
+         "Identify which of three software behaviors represents a classic AI system versus static software automation."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "c246b0c2-f205-4a2d-8556-37dfc03f1172",
+       "session_type": "whiteboard",
+       "title": "Rules, Machine Learning, and Generative AI",
+       "description": "Trace the evolution from explicit rule writing (if-then statements) to learning patterns (machine learning) and producing new content (generative AI).",
+       "sessionOutline": "To begin this session, the instructor should stand at the physical or virtual whiteboard and draw three vertical columns labeled 'Rule-Based', 'Machine Learning', and 'Generative AI'. This session is about helping learners visualize the tectonic shift in how we instruct computers to perform tasks. Start by drawing a simple flowchart in the first column: an arrow pointing from 'Input Data' to a box labeled 'Human-Written Rules (If-Then)', which points to 'Output'. Use the relatable example of building a spam filter. If a human has to write rules like 'if email contains \"free money\", then mark as spam,' explain how this quickly becomes an unmanageable mess as spammers change their spelling to 'fr33 m0n3y'. The core takeaway here is that traditional programming requires humans to fully comprehend and manually encode every single edge case, which fails when faced with the messy complexity of the real world.\n\nTransition to the second column, 'Machine Learning', by physically erasing the 'Human-Written Rules' box. In its place, draw a 'Pattern Finder' box. Explain that instead of writing the rules, we feed the system thousands of examples of both spam and non-spam emails and let the algorithm figure out the statistical patterns itself. Draw an arrow loop showing the algorithm adjusting its internal parameters until its predictions match the historical data. It is crucial to address a common misconception here: machine learning does not 'think' or understand language; it simply acts as a highly sophisticated statistical correlation engine. Use the visual of a slider or a dial on the board to show how the computer is just tuning mathematical values to minimize error.\n\nNow, move to the third column to introduce 'Generative AI' as the next evolutionary step. Draw a bridge from 'Machine Learning' to 'Generative AI'. Explain that while traditional machine learning is analytical—answering questions like 'Is this a picture of a dog?'—generative AI reverses this process to produce entirely new, synthetic data based on the patterns it has learned. Use a visual of a 'Probability Map' on the whiteboard, showing how a generative system predicts the most likely next word or pixel based on a massive matrix of prior examples. This is where you demystify the magic: show that generating a poem is fundamentally a series of highly calculated guesses about what word should logically follow the last, trained on vast human-written corpora.\n\nTo solidify this conceptual framework, run an interactive diagnostic exercise. Present three distinct scenarios on the board: a tax calculator that determines tax brackets based on government tables, a credit card fraud detection system that flags unusual spending deviations, and a chatbot drafting a personalized apology letter. Guide the learners to categorize these into the three columns. Explain that the tax calculator is purely rule-based, the fraud detector is machine learning, and the chatbot is generative. Watch out for the common pitfall where students label the tax calculator as AI because it 'does math'; remind them that without pattern discovery, it is simply automation.\n\nConclude the whiteboard session by drawing a nesting doll diagram: Artificial Intelligence is the outer doll, Machine Learning is the doll inside it, and Generative AI is the smallest doll at the core. This visual summary helps students walk away with a clean, structured hierarchy of these often-conflated terms, perfectly setting them up to explore how these systems manifest in their daily digital lives in the next session.",
+       "practice": {
+        "tasks": [
+         "Categorize a list of solutions as either Rule-Based, Machine Learning, or Generative AI."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 3,
+       "sessionId": "6137820c-578c-4a99-9d81-dab27dbbc6bb",
+       "session_type": "whiteboard",
+       "title": "AI in Everyday Life",
+       "description": "Discover behind-the-scenes algorithms driving recommendations, spam filters, and smartphone photography to see AI in action.",
+       "sessionOutline": "Begin the session by connecting the previous abstract concepts of machine learning and rule-based systems directly to the devices sitting in the students' pockets. The core goal of this session is to demystify how invisible AI systems shape daily experiences, turning the abstract idea of 'pattern recognition' into concrete systems like content feeds, mail filters, and smartphone cameras. On the physical or digital whiteboard, draw a simple outline of a smartphone with three main icons: a play button (recommendations), an envelope (spam filters), and a camera lens (computational photography). Explain that while these feel like magic, they are simply mathematical pattern matchers running in the background.\n\nFirst, tackle the recommendation engine. On the whiteboard, draw a simple matrix with users on one axis and movies or products on the other. Walk the students through how a platform like Netflix or Spotify doesn't actually 'know' their soul; instead, it looks for mathematical overlaps. If User A and User B share a 90% overlap in past watch history, the system predicts User A will like a movie User B loved but User A hasn't seen yet. Point out the common misconception here: people often think the AI has a human-like understanding of what makes a movie 'good.' In reality, it is simply projecting vectors into a space of shared user behaviors. Use the whiteboard to circle the overlapping nodes, showing how the algorithm fills in the blank spaces with high-probability recommendations.\n\nNext, shift to the email spam filter to demonstrate classification. Write a few email subject lines on the board, some legitimate ('Meeting moved to 3 PM') and some spam ('Double your income overnight! Click here!'). Explain how a machine learning model doesn't just look for isolated bad words like 'income' or 'click'—which a static rule-based system would do, resulting in many false positives. Instead, it looks at the probability distribution of entire word sequences and metadata structures. Draw a balance scale on the board: on one side are normal semantic relationships, and on the other are anomalous, urgent, or high-risk language clusters. Show how the AI dynamically tilts the scale based on millions of previously labeled spam and non-spam emails.\n\nThen, explore the magic of smartphone photography to illustrate predictive reconstruction. Draw a simplified diagram of a tiny camera sensor receiving a burst of slightly blurry, low-light raw images. Explain that when a user takes a photo, the phone actually takes a dozen rapid exposures and uses a deep learning model to predict what the scene *should* look like if it were perfectly lit and steady. Address the misconception that smartphone cameras are just passive glass lenses capturing reality; they are actually active 'painting engines' that fill in missing details, denoise dark areas, and sharpen faces by matching the sensor data with learned patterns of lighting and textures. On the board, draw a pixel grid and show how the AI 'fills in' the missing pixels based on surrounding color gradients and known structures of objects like skin, trees, or text.\n\nConclude the session with an interactive mapping exercise designed to test the students' ability to look past slick user interfaces and identify the raw predictive mechanisms underneath. Present three scenarios: a mapping app routing around sudden traffic, an e-commerce site dynamically pricing items, and a standard search bar autocomplete. Guide the students to map each scenario to its underlying AI engine—such as predictive regression for traffic flow or next-word probability sequence models for autocomplete. This exercise prevents the misconception that all AI is 'thinking' in the same way, helping students recognize that different daily tasks rely on highly specialized, narrow machine learning patterns.",
+       "practice": {
+        "tasks": [
+         "Map everyday digital tasks to their underlying AI-driven mechanisms."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    },
+    {
+     "lectureId": "unit1Lecture2",
+     "title": "Models and Patterns",
+     "description": "Deep dive into the core concept of an 'AI model' and explore how computers represent and extract features from raw data.",
+     "order": 2,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "7615a71c-b218-41d9-8e68-2eeb67ff7dc1",
+       "session_type": "whiteboard",
+       "title": "What Is an AI Model?",
+       "description": "Use a visual whiteboard mapping to show how physical real-world traits and data collapse into structured mathematical equations and representations.",
+       "sessionOutline": "To transition absolute beginners from viewing AI as magic to seeing it as a structured tool, we must first break down the abstract word 'model.' We begin the session by drawing a physical, real-world comparison on our virtual whiteboard. On one side, draw a traditional culinary recipe. It has static, human-written instructions (e.g., 'add 2 cups of flour for every cup of water'). On the other side, draw an empty mathematical box that represents our raw prediction framework. The key difference to highlight is agency: in a recipe, a human pre-determined the exact relationships of inputs and outputs. In an AI model, the computer is given raw data and must discover the recipe itself. This immediate distinction prevents the common misconception that AI runs on a pre-programmed set of rigid 'if-then' rules.\n\nNext, the whiteboard visualization shifts to show how physical reality collapses into structured mathematical representations, also known as 'features.' We use a concrete example, such as classifying a piece of fruit or predicting whether a house will sell. On the whiteboard, draw a real-world object like an apple. Underneath, draw arrows pointing to its core traits: its weight, its color hue, and its firmness. These are physical realities that humans easily observe. Draw a bracket grouping these traits and label them 'Features.' Show how these qualitative traits are transformed into a simple list of numbers, or a vector, like [150, 0.9, 8]. Explain to the students that a model cannot 'feel' or 'see' the apple; it can only process these numbers. This step is critical because it demystifies how real-world objects are digitized for mathematical consumption.\n\nWe then introduce the actual 'predictive equation' on the board as a simple balancing scale. Show a formula where the predicted outcome (e.g., sweetness) equals (Weight multiplied by some mystery multiplier 'A') plus (Color multiplied by some mystery multiplier 'B'). Label these multipliers as 'weights' or 'knobs.' This is the 'AI prediction model' in its simplest form. Explain that 'learning' is simply the process of finding the perfect numerical values for A and B so the scale balances correctly for every fruit we test. By keeping the math strictly to basic arithmetic, we lower the barrier to entry while maintaining technical accuracy. We address the trap of overcomplicating this: students often believe models use advanced calculus in real-time, but we must emphasize that at its heart, it is just weighted additions.\n\nFinally, we transition to a guided practice exercise to solidify this concept. Ask the students to imagine they are building a simple model to predict if an email is spam based on two features: 'number of exclamation marks' and 'contains the word free.' On their own sheets or conceptual whiteboards, have them map out what the features would look like as simple numbers and ask them to guess which feature should have a heavier 'weight' in a spam-detection formula. This exercise forces them to think like a model designer, bridging the gap between raw data representation and predictive logic before they progress to seeing how machines learn these boundaries automatically in the next session.",
+       "practice": {
+        "tasks": [
+         "Explain the analogy of a 'recipe model' versus an 'AI prediction model' using simple feature representations."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "54fd4385-da35-43fc-9c26-01752c763a07",
+       "session_type": "whiteboard",
+       "title": "Learning Patterns from Examples",
+       "description": "See how AI learns relationships between data points by looking at hundreds of examples to draw boundaries and make future decisions.",
+       "sessionOutline": "We begin this session by transitioning from our previous static concept of an AI model to the dynamic process of how these models actually acquire their patterns. Rather than using dense mathematical jargon, we will establish a highly visual metaphor: the 'spatial map of meaning.' Imagine a physical whiteboard representing a simple two-dimensional grid. The horizontal axis represents the 'positivity' of a word, and the vertical axis represents the 'energy' or 'intensity' of that word. The central goal here is to help learners realize that AI doesn't understand definitions; it understands positions and spatial relationships.\n\nTo make this concrete, the instructor will visually plot several anchoring examples on this grid. We'll place the word 'Ecstatic' in the far top-right quadrant (highly positive, high energy) and 'Serene' in the bottom-right quadrant (highly positive, low energy). Conversely, 'furious' goes to the top-left (highly negative, high energy). The magic happens when we ask the class: 'How does a machine know where to draw a line that separates positive sentiments from negative sentiments?' This introduces the concept of a 'decision boundary'—not as an abstract formula, but as a physical wall or dividing line that a computer draws to split different classes of data points.\n\nNow, we introduce the manual practice task to solidify this intuition. The instructor will present a scattered grid of unlabeled words on the whiteboard and ask students to mentally or physically draw their own boundary line. The pedagogical purpose of this exercise is to expose a classic learner misconception: that there is only one 'perfect' line. Students often struggle with ambiguous borderline words like 'surprised' or 'quiet.' By seeing how different students draw slightly different boundaries, learners will intuitively grasp the concept of 'classification margins' and why models can sometimes make errors on borderline cases.\n\nWe then transition to explaining how an AI algorithm automates this manual plotting process. Instead of a human deciding where the line goes, the algorithm looks at hundreds of pre-labeled examples. It starts with a random, terrible boundary line that misclassifies almost everything. The instructor will draw this deliberately bad line on the board (e.g., cutting right through the middle of the positive cluster). We will explain how the system calculates its 'error' for every misplaced point and uses that feedback to gently nudge and rotate the boundary line until the misclassifications are minimized. This sets a perfect conceptual foundation for Unit 3's deeper dive into training loops and weight adjustments.",
+       "practice": {
+        "tasks": [
+         "Manually plot a decision boundary line on a simple grid separating positive and negative sentiment words."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    }
+   ],
+   "projects": [],
+   "exams": [
+    {
+     "title": "Unit 1 Assessment: Core AI Foundations",
+     "goal": "Verify the learner's ability to distinguish AI paradigms and explain how physical data translates into mathematical representations.",
+     "sections": [
+      "Comprehensive evaluation of rule-based systems vs machine learning, and conceptual underpinnings of mathematical AI modeling."
+     ],
+     "successCriteria": [
+      "Accurately differentiate programmatic rules from trained models.",
+      "Explain features and basic pattern-learning concepts."
+     ],
+     "order": 3
+    }
+   ],
+   "learning_finished": false
+  },
+  {
+   "unitId": "unit2",
+   "title": "How AI Processes Language",
+   "description": "Learn the mechanics of Natural Language Processing. Explore tokenization, high-dimensional word vector spaces (embeddings), attention mechanisms, and next-token generation.",
+   "lectures": [
+    {
+     "lectureId": "unit2Lecture1",
+     "title": "From Words to Tokens",
+     "description": "Understand how raw human text is converted into numbers that computers can perform arithmetic on.",
+     "order": 1,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "c62d9dda-0c62-4334-850f-05830f3a2fcd",
+       "session_type": "whiteboard",
+       "title": "How AI Breaks Language into Tokens",
+       "description": "Look under the hood of text tokenization, understanding how words, syllables, and punctuation are sliced into atomic semantic pieces.",
+       "sessionOutline": "Begin the lecture by writing a simple, ordinary sentence on the physical or virtual whiteboard, such as 'Incredibly, it's working!' and asking the audience a deceptive question: 'How does a computer read this?' Explain that while humans see words, meanings, and emotions, computers only understand math. This establishes the critical transition from human text to mathematical coordinates. Introduce the concept of the 'token' as the universal currency of modern AI language processing. Explain that before any deep learning can occur, raw text must be chopped into standardized blocks. This middle-ground representation is essential because trying to memorize every unique word in human history is mathematically impossible, while processing text letter-by-letter is too slow and strips away semantic meaning.\n\nDraw three clean, horizontal lanes on the whiteboard to contrast different ways of breaking down our example sentence: character-level, word-level, and sub-word tokenization. Under the character-level lane, point out how splitting 'I-n-c-r-e-d-i-b-l-y' means each letter has zero inherent meaning, forcing the AI to work too hard to reconstruct basic ideas. Under the word-level lane, explain that treating 'Incredibly,' and 'Incredibly' (without a comma) as two completely different units blows up the AI's dictionary size unnecessarily. Now, draw vertical dotted lines through the final lane to show sub-word tokenization, slicing the sentence into: 'Incre', 'dibly', ',', ' it', \"'s\", ' work', and 'ing!'. This visualization demonstrates how AI balances efficiency and meaning, breaking complex or rare words into familiar roots and affixes while preserving punctuation as distinct tokens.\n\nAddress a very common learner misconception: that one token always equals exactly one word. To bust this myth, visually highlight the spaces preceding words on the whiteboard. Explain that tokenizers actually group spaces together with the words that follow them (e.g., ' work' instead of 'work'). Show how capitalizations and prefixes alter where the lines fall. Walk through a mock calculation to give students an intuitive rule of thumb: in standard English, 100 words typically translate to roughly 130 tokens, or about 75% of a word per token. This quick conversion rule helps learners build a solid mental model of token density before they ever write a line of code or design a prompt.\n\nTransition to a guided whiteboard practice activity. Write a new sentence on the board: 'This is an outstandingly fast system!' and invite learners to estimate the total token count and physically draw where they believe the boundary lines should be. Guide them through the reasoning: common words like 'This', 'is', 'an', and 'fast' will likely be single tokens, whereas 'outstandingly' will be sliced into sub-units like 'out', 'stand', 'ing', and 'ly' to save vocabulary space. Use this practice moment to reveal how this process ensures the AI never encounters an 'unknown' word, as even the rarest jargon can be broken down into familiar, byte-sized linguistic blocks.",
+       "practice": {
+        "tasks": [
+         "Estimate token counts and slice a sentence into tokens based on typical boundary rules."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "1b33ac22-cea6-48d0-a72e-ba483eb44374",
+       "session_type": "whiteboard",
+       "title": "Turning Language into Numbers",
+       "description": "Grasp how index numbers map to token lists, preparing raw text elements to enter an algebraic structure.",
+       "sessionOutline": "We begin by bridging the gap between physical word fragments (tokens) and numerical values. In the previous session, students learned how raw text is chopped up into tokens. Now, we must address the fundamental limitation of computers: machines cannot calculate with letters; they can only run calculations on numbers. The core concept to convey here is the \"Vocabulary Lookup Table\" or \"Tokenizer Dictionary.\" Use a virtual whiteboard to draw a simple two-column table. On the left, list a small set of mock tokens like 'the', 'cat', 'sat', 'on', 'mat', 'un', 'believ', 'able'. On the right, assign each an arbitrary unique integer starting from 0 (e.g., 'the' = 101, 'cat' = 102). This visual representation dispels the myth that AI possesses an innate semantic understanding of words at this stage; it simply treats them as lookup keys in a massive index database.\n\nNext, walk the students through the physical conversion process. Take a simple phrase like \"the cat sat\" and show how it translates directly into a sequence of numbers: [101, 102, 103]. Address a very common learner misconception here: many beginners assume that similar-sounding words or related concepts are automatically given sequential numbers (like 'cat' being 102 and 'dog' being 103). Emphasize that in a real model's vocabulary, these initial ID assignments are completely arbitrary and depend solely on the alphabetical or frequency-based order in which the tokenizer's vocabulary was built. The actual semantic relationship between words is established much later in the vector space, not during this initial ID lookup.\n\nIntroduce an interactive whiteboard practice task to cement this mapping logic. Provide a small, explicit dictionary of ten tokens and their corresponding numerical IDs, including a few sub-word prefixes and suffixes (e.g., 'play' = 50, 'ing' = 51). Present students with a sequence of IDs, such as [50, 51], and ask them to decode it back into the token sequence ('playing'). Then, reverse the process by asking them to encode \"playing\" using the index. This exercise serves to reveal whether learners understand how sub-word tokenization and index mapping work hand-in-hand to handle complex words.\n\nConclude the session by preparing the students for the next big transition: vector spaces. Explain that while these numerical IDs (like 101 or 102) successfully convert text into computer-readable data, they are still just categorical labels. A computer cannot do meaningful math on them yet—adding the ID for 'cat' (102) to the ID for 'mat' (105) does not yield a 'dog'. This sets up the perfect logical cliffhanger for the next lecture: how these raw index numbers are transformed into rich, multi-dimensional vectors that actually capture the meaning of language.",
+       "practice": {
+        "tasks": [
+         "Match simple token sequences to numeric token ID arrays using a mock vocabulary dictionary."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    },
+    {
+     "lectureId": "unit2Lecture2",
+     "title": "Meaning and Context",
+     "description": "Explore embeddings and context windows to understand how AI maps semantics and remembers conversation history.",
+     "order": 2,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "2c52010b-a9b0-451a-88b6-73dddaeb6614",
+       "session_type": "whiteboard",
+       "title": "Embeddings and Similarity",
+       "description": "Visualize spatial representations of vocabulary. Understand how semantic distance and directional coordinates mathematically map synonymous meanings.",
+       "sessionOutline": "We begin this session by addressing a fundamental mystery in natural language processing: how can a computer, which fundamentally only understands numbers, comprehend the meaning of words like 'king,' 'queen,' 'apple,' or 'orange'? To bridge this gap, we introduce the concept of 'semantic space' using a visual whiteboard analogy. The primary goal is to move students away from thinking of vocabulary as a flat dictionary list and instead visualize it as a multi-dimensional map where words with similar meanings are physically grouped close together.\n\nOn the whiteboard, the teacher should draw a simple two-dimensional coordinate system. The horizontal axis represents 'Royalty' (ranging from non-royal to royal), and the vertical axis represents 'Gender' (ranging from masculine to feminine). We start plotting points. 'Man' and 'Woman' are placed at opposite ends of the vertical axis but close together on the royalty axis (both low). Then, we plot 'King' and 'Queen'. By visualizing these four points, students can immediately see a geometric relationship: the arrow (or vector) pointing from 'Man' to 'King' is almost identical in length and direction to the arrow pointing from 'Woman' to 'Queen'. This visual demonstration is crucial because it introduces the concept of word embeddings—converting words into coordinates (vectors) where the spatial distance and direction capture real-world relationships and analogies.\n\nA common misconception students face here is assuming these axes are explicitly labeled 'Royalty' or 'Gender' inside a real AI model. The teacher must clarify that in actual LLMs, there are hundreds of dimensions, and these dimensions are learned automatically from vast amounts of text. They do not have neat, human-friendly names, but they work exactly the same way mathematically. To prevent confusion, the teacher should explain that whether we use 2 dimensions or 1536 dimensions, the core logic remains: distance equals semantic similarity.\n\nTo cement this understanding, the teacher transitions to an interactive whiteboard practice. The teacher draws several unlabeled clusters on a 2D graph and provides a list of words: 'banana', 'bicycle', 'apple', 'helicopter', 'orange', and 'car'. Students are guided to place these words onto the graph. The exercise is designed to reveal whether students understand that 'banana', 'apple', and 'orange' must form a tight sub-cluster due to their shared semantic features as fruits, while 'bicycle', 'helicopter', and 'car' form a separate transportation cluster. By actively mapping these points, students experience firsthand how semantic distance dynamically organizes vocabulary, setting up the necessary mathematical foundation for understanding how models predict the next logical word.",
+       "practice": {
+        "tasks": [
+         "Locate and group words in a simplified 2D semantic embedding graph based on contextual similarity."
+        ]
+       },
+       "sessionTime": 25,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "672edceb-acd0-409f-9f8f-d1cfe073a08c",
+       "session_type": "whiteboard",
+       "title": "Context Windows and Conversation Memory",
+       "description": "Learn about the capacity limits of an AI's attention memory and what happens mathematically when conversation context fills up.",
+       "sessionOutline": "Begin the session by drawing a physical box on the whiteboard, labeling it 'Active Memory Space' or the 'Attention Spotlight.' Explain that while humans can remember a conversation over weeks through compressed, long-term semantic memory, a Large Language Model has no permanent short-term memory during a single chat session. Every time a user sends a new message, the model must re-read the entire preceding conversation from scratch. Introduce the concept of the 'Context Window' not as a vague storage drive, but as the strict physical and mathematical limit on how many tokens the model can process at any single instant. This is a crucial conceptual hurdle: students often believe the model 'remembers' them like a friend does, when in reality, it is performing a massive mathematical calculation over a fixed-size text block every single turn.\n\nNow, draw a horizontal filmstrip on the whiteboard, where each frame represents a token (words, punctuation, and sub-words) from an ongoing conversation. Start filling the frames from left to right with a sample chat thread: the user's initial prompt, the model's first response, the user's follow-up, and so on. Over this filmstrip, draw a bold rectangular bracket representing a '1024-token capacity window.' Show how, as long as the total dialogue fits inside this bracket, the model can 'see' and attend to every word. This visual setup makes it clear that attention is a resource constrained by this window size, laying the groundwork for understanding memory limitations without deep math.\n\nIllustrate what happens mathematically and systemically when the conversation grows too long and overflows the window. Slide the bold rectangular bracket to the right, leaving the earliest frames (the user's original instructions or system prompt) outside to the left. Explain that once a token falls outside this active window, it is completely erased from the current computational pass. It literally does not exist to the model anymore. Address the common misconception that models gradually 'fade' or get 'hazy' about old details; clarify that the cutoff is abrupt and binary. When a token is pushed out of the window, it is mathematically zeroed out of the attention mechanism.\n\nIntroduce a hands-on troubleshooting exercise on the whiteboard. Write out a mock long-form prompt thread where a user sets strict formatting rules in the first message (e.g., 'Always reply in bullet points and start with a pirate greeting'), followed by a massive wall of pasted document text, and finally a short question at the very end. Challenge the class to act as the token counter. Mark out where the context window threshold is likely to hit based on average token lengths. Show how the massive pasted text pushes the initial formatting instructions completely out of the active window. Ask the students to predict how the model will respond. This reveals the core operational trap of LLMs: the model will answer the final question perfectly but completely drop the pirate persona, not out of 'disobedience,' but due to absolute physical amnesia.\n\nConclude the whiteboard session by demonstrating practical strategies to manage context limits. Draw a contrast between a 'naive sliding window' (where the oldest text is blindly chopped off) and intelligent application-level architectures like system prompt pinning or conversation summarization. On the board, show how modern chat applications preserve the 'system instructions' by artificially keeping them inside the active window while discarding middle-turn details. This sets up the students to become deliberate operators who structure their inputs strategically rather than assuming the AI's memory is infinite.",
+       "practice": {
+        "tasks": [
+         "Analyze a long prompt thread to estimate where the context window cutoff will hit and predict loss of history."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    },
+    {
+     "lectureId": "unit2Lecture3",
+     "title": "Generating an Answer",
+     "description": "Uncover the step-by-step generative sequence of LLMs, from simple statistical predicting to the transformer framework.",
+     "order": 3,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "170776b1-f180-45c7-89cc-a9904e84ca92",
+       "session_type": "whiteboard",
+       "title": "Predicting the Next Token",
+       "description": "Understand how generative models function as massive correlation calculators that repeatedly predict the single next token based on cumulative probability tables.",
+       "sessionOutline": "We begin this session by deconstructing a massive, pervasive myth: that artificial intelligence 'thinks' or 'understands' concepts in the way humans do. Instead, we introduce the core concept that Large Language Models (LLMs) are, at their heart, advanced statistical calculators designed to do one primary thing extremely well—predict the single next token in a sequence. To ground this concept, the teacher will write a simple, incomplete sentence on the physical or virtual whiteboard: 'The hungry cat chased the...' and draw a blank space. This immediate visual cue shifts the student's focus from abstract 'intelligence' to a concrete, intuitive puzzle: what word naturally comes next, and how does our brain calculate that compared to a machine?\n\nTo explain the underlying mechanics, the teacher will map out a conceptual probability distribution table on the whiteboard. We explain that the AI doesn't search a database of facts; rather, it looks at the prompt as an input sequence and calculates mathematical probabilities for thousands of possible vocabulary words that could fill the blank. On the board, write out potential next tokens like 'mouse' (85%), 'ball' (10%), 'philosophy' (0.01%), and 'refrigerator' (1%). This visual table reveals the logic chain: previous words act as clues or constraints, narrowing down the mathematical likelihood of what follows. The teacher must emphasize that the model operates purely on correlation patterns learned from its vast training data, not an actual understanding of what a cat is.\n\nNext, the teacher will address a common misconception: that the model predicts entire paragraphs or sentences all at once. This is a critical point in the session. The teacher will visually demonstrate the recursive, loop-like nature of generation. If the model selects 'mouse' as the next token, that token is immediately appended to the original prompt, forming a new input: 'The hungry cat chased the mouse.' This entire string is then fed back into the calculator to predict the *next* token (which might be 'into', with a high probability, followed by 'the', then 'kitchen'). By physically drawing this feedback loop on the whiteboard—showing the output becoming the input—the teacher demystifies the illusion of fluid, real-time writing, revealing it to be a repetitive, step-by-step assembly line.\n\nTo solidify this intuition, the teacher will lead the class through a guided practice activity. The teacher writes a new fragment on the board: 'To bake a delicious cake, you first need to preheat the...' and asks the students to rank the likelihood of next-token candidates: 'oven', 'ocean', 'engine', and 'mixing bowl' based on semantic constraints. This exercise is designed to highlight how context clues (like 'bake' and 'cake') dynamically shift the probability tables. During this exercise, some students might incorrectly rank 'mixing bowl' higher than 'oven' because both are kitchen-related. The teacher will address this pitfall by explaining how fine-grained semantic constraints work: while a mixing bowl is relevant to baking, the specific action of 'preheating' mathematically restricts the high-probability window to objects capable of holding heat, demonstrating how the model uses overlapping contextual clues to narrow down its predictions.",
+       "practice": {
+        "tasks": [
+         "Rank next-token probabilities given a simple sentence fragment and semantic constraints."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "3cc106b4-aa47-4716-a1f6-11cb06b8fe33",
+       "session_type": "whiteboard",
+       "title": "Attention and the Transformer",
+       "description": "Explore the breakthrough visual spotlight analogy of Self-Attention, tracking how words link to and contextually alter other words inside the Transformer.",
+       "sessionOutline": "We begin this session by addressing a critical limitation of basic next-token prediction: the lack of context. Traditional statistical models predict words based only on the immediate past word or two, which quickly leads to coherent-sounding gibberish that lacks any logical thread over long passages. To bridge this gap, introduce the concept of the Transformer's breakthrough mechanism—Self-Attention. Explain to the students that instead of looking at words as isolated static points, a Transformer dynamically calculates relationships between all words in a sentence simultaneously. Use the analogy of a 'visual spotlight.' When a human reads a pronoun like 'it,' their brain instantly shines a spotlight back on the specific noun 'it' refers to. The Transformer does this mathematically, updating each word's numerical representation based on its surrounding context.\n\nTo make this abstract concept concrete, draw a simple multi-clause sentence on the whiteboard: 'The bank of the river was muddy, so the bank did not open for business.' Point out the word 'bank' appearing twice. Explain that without attention, a computer might map both instances to the exact same dictionary definition. Walk through how Self-Attention acts as a spotlight. For the first 'bank,' the model shines its attention spotlights on nearby words like 'river' and 'muddy,' pulling their meaning closer and coloring this first 'bank' with the concept of land. For the second 'bank,' the spotlights shift to 'open' and 'business,' instantly shifting the mathematical definition to a financial institution. This visual mapping allows students to realize that words do not have static meanings in AI; their meanings are fluidly determined by where their attention spotlights shine.\n\nAddress a common misconception here: students often assume that the model has a human-like logical reasoning engine that 'knows' grammar rules. Clarify that this is not rule-based. Instead, the model uses 'attention weights'—numerical values representing how much one word influences another. Guide the class through a mental calculation of these weights. In the sentence 'The dog chased the cat because it was fast,' ask students where 'it' should point. Naturally, they will point to 'dog' (or perhaps 'cat'). Explain that the model assigns a high decimal value (like 0.8) of attention weight between 'it' and 'dog,' and a lower weight (like 0.1) to other words. The 'it' vector literally absorbs a portion of the 'dog' vector, modifying its identity for that specific generation cycle.\n\nTransition into a hands-on interactive whiteboard exercise. Present the sentence: 'The trophy did not fit in the brown suitcase because it was too big.' Ask the students to trace the connection for the word 'it' by drawing an arrow from 'it' to either 'trophy' or 'suitcase' based on physical logic. Once they identify 'trophy,' modify the sentence to '...because it was too small.' Have them re-evaluate. They will see that 'it' now points to 'suitcase.' This exercise reveals the magic of attention weights: by changing just one adjective at the very end of a sentence, the entire network of attention connections dynamically reshapes itself instantly. Explain that this fluid recalculation is the exact engine behind modern generative intelligence, allowing models to generate highly coherent, context-aware paragraphs without ever getting lost.",
+       "practice": {
+        "tasks": [
+         "Trace semantic links and weights ('attention weights') of words in a multi-clause sentence where pronouns are resolved."
+        ]
+       },
+       "sessionTime": 30,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 3,
+       "sessionId": "fc4af88e-0cf3-41d3-8acb-4f90dd74aa70",
+       "session_type": "whiteboard",
+       "title": "Why the Same Prompt Can Produce Different Answers",
+       "description": "Demystify randomness parameters like Temperature, understanding how selection paths alter generations on identical seed prompts.",
+       "sessionOutline": "We begin this session by addressing a classic paradox that perplexes most beginners: if computers are inherently deterministic, rule-following machines, why does an AI model generate a completely different answer when you click 'regenerate' on the exact same prompt? This is the perfect moment to transition from the raw probability math discussed in the previous session to the concept of 'decoding strategies.' We want to draw a whiteboard illustration representing a decision tree of words. At the root of our tree is a simple phrase, such as 'The weather today is...' Underneath, we write down the top three candidate next-tokens that the model's neural network has calculated, along with their raw probabilities: 'sunny' (60%), 'cloudy' (30%), and 'banana' (0.01%). This visual establishes that the model does not just output one definitive answer; it outputs a distribution of possibilities.\n\nNow, we introduce the concept of 'Greedy Decoding' as our first path down the tree. In a greedy approach, the system is forced to be entirely deterministic—always selecting the token with the absolute highest probability. On our whiteboard, we draw a thick, unyielding arrow directly to 'sunny.' Explain to the students that while this sounds logical, pure determinism in language generation often leads to highly repetitive, robotic, and dry text. It gets stuck in infinite loops because it lacks the capacity to take a creative detour. This reveals the core tension in AI engineering: the balance between predictability and creativity.\n\nThis tension introduces our main protagonist: 'Temperature.' To make this abstract mathematical concept intuitive, we can sketch a 'thermostat' dial on the whiteboard. When the temperature is set to zero, it behaves exactly like our greedy algorithm, locked onto the absolute highest peak. As we turn the dial up, we are 'heating up' the probability distribution, flattening the differences between candidates. We can visually demonstrate this by drawing two bar charts side-by-side. On the cold chart (low temperature), 'sunny' is a towering skyscraper, while 'cloudy' is a tiny curb. On the hot chart (high temperature), the skyscraper is pushed down, and the curb is raised, making 'sunny' (45%) and 'cloudy' (40%) nearly equal competitors, and even giving low-probability outliers like 'banana' a fighting chance. This explains why high temperature settings lead to highly imaginative, sometimes chaotic, or even nonsensical outputs.\n\nTo solidify this, we run an interactive mental simulation practice. We present the students with the incomplete sentence: 'She looked out the window and saw a...' and show them a set of candidate tokens with assigned probabilities. We then ask them to play the role of the AI under two different rulesets: first, using a deterministic 'greedy' selection, and second, using a high-temperature 'stochastic' list where they must roll a virtual die to select among the top five options. This exercise serves a dual purpose: it dismantles the misconception that the AI possesses 'free will' when it changes its mind, and replaces it with the realization that it is simply executing a randomized sampling process controlled by mathematical parameters. We wrap up by explaining how developers tune these parameters behind the scenes depending on the use case—setting it to zero for factual database queries, and setting it high for creative writing assistants.",
+       "practice": {
+        "tasks": [
+         "Simulate model generation choices using a deterministic approach versus a high-temperature stochastic choice list."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    }
+   ],
+   "projects": [
+    {
+     "stage_id": "76405394-260b-49e5-8d6d-26da2446d79a",
+     "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+     "stage_title": "Tokenization and Next-Token Prediction Sandbox",
+     "stage_description": "In this stage, you will manual-tokenize simple sentences using an online tool, convert them to token IDs, and manually calculate simple probabilistic word predictions based on a small text corpus to understand how generative AI computes text.",
+     "deliverable_increment": "Section 1: Tokenization Map & Next-Token Calculations added to the Logbook, featuring comparative tables of words vs. tokens and a step-by-step next-token probability breakdown.",
+     "order": 4
+    }
+   ],
+   "exams": [
+    {
+     "title": "Unit 2 Assessment: Language Mechanics and Generation",
+     "goal": "Verify understanding of linguistic conversion to numbers, spatial distance in semantic embeddings, and the core mechanical steps of transformer generation.",
+     "sections": [
+      "Comprehensive evaluation of tokenization, vectors, self-attention spotlights, and generation parameters."
+     ],
+     "successCriteria": [
+      "Describe semantic similarity in high-dimensional spaces.",
+      "Explain step-by-step how a Transformer tracks contextual connections to predict tokens."
+     ],
+     "order": 5
+    }
+   ],
+   "learning_finished": false
+  },
+  {
+   "unitId": "unit3",
+   "title": "How AI Models Learn",
+   "description": "Trace the optimization journey of neural weights. Understand data sourcing, param tweaking, mathematical error reduction, and the transformation from raw predictive engines to conversational assistants.",
+   "lectures": [
+    {
+     "lectureId": "unit3Lecture1",
+     "title": "Training a Model",
+     "description": "Understand how raw datasets, model weights, and optimization functions work together to teach artificial brains.",
+     "order": 1,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "e650cfed-c7ac-403c-b73f-a6196b3fd98d",
+       "session_type": "whiteboard",
+       "title": "Training Data",
+       "description": "Explore raw internet corpora, quality curation, data cleaning pipelines, and why training sets decide an AI's conceptual boundaries.",
+       "sessionOutline": "Welcome students to the start of Unit 3, where we pivot from how a model processes information to how it is built in the first place. This session focuses on the absolute foundation of any artificial intelligence: the training data. Start by addressing a common misconception: that AI models are born with pre-existing intelligence or that they possess an active internet connection to search for answers in real-time during every query. The core idea to establish is that a model is entirely a product of its training data; its 'brain' is formed by recognizing patterns in historical text. To make this concrete, use the analogy of a child who has only ever read books about sailing. If you ask this child about mountains, they can only describe them using maritime terms like 'stone waves' or 'earth sails.' The training set defines the absolute boundary of the AI's universe.\n\nNow, introduce the reality of raw internet data. On a physical or virtual whiteboard, draw a messy, chaotic web-scraping pipeline. On the far left, draw a giant bucket labeled 'Raw Crawled Web (Common Crawl).' Explain that this raw data is not a neat library; it is a digital landfill containing duplicate articles, automated spam, formatting codes (HTML tags like <div> or JavaScript snippets), hateful rants, and deeply biased forum arguments. Walk the students through why we cannot simply feed this raw text directly into a machine learning algorithm. If a model trains on chaotic, repetitive, or toxic data, it will learn to mimic those exact patterns, resulting in an unusable and potentially dangerous system. This transition from raw scrap to pristine data is where the engineering magic happens.\n\nNext, visually outline the 'Data Cleaning Pipeline' on the whiteboard. Draw a series of filters or sieves. The first sieve is 'Deduplication.' Explain that if a certain advertisement or spam paragraph appears millions of times across the web, the model will over-index on those words, thinking they are the most important concepts in human language. The second sieve is 'Heuristic Filtering.' Show how we write basic rules to instantly throw away pages that are too short, contain mostly gibberish characters, or have an unnaturally high concentration of keywords designed to trick search engines. The third sieve is 'Quality & Toxicity Filtering.' Explain how engineers train smaller, specialized classifier models just to rate the quality of web pages, discarding low-grade clickbait and filtering out severe hate speech or explicit material.\n\nIntroduce an interactive practice moment. Present the students with a raw, simulated scrap of crawled text containing HTML tags, cookie consent warnings, a recipe for chocolate chip cookies, and an aggressive, biased comment section underneath. Ask them to act as the data curation engineers. Guide them to identify which parts of this text are valuable ('the recipe instructions') and which parts must be aggressively pruned ('the cookie consent policy' and 'the toxic comment section'). Use this exercise to reveal a key truth: data cleaning is not just about making text look pretty; it is an active design choice that directly influences what the AI will believe is 'normal' human behavior.\n\nConclude the session by highlighting the tension between quantity and quality. To build a powerful model, we need billions or trillions of words, but we cannot manually inspect every single sentence. This scale forces reliance on automated pipelines, which are never perfect. Explain that despite our best filtering efforts, some biases and noise will always leak through into the final dataset. This sets up the conceptual bridge for the next session, where students will learn how this cleaned, filtered text is actually converted into mathematical weights and parameters within the model's structure.",
+       "practice": {
+        "tasks": [
+         "Evaluate a raw scrap of crawled text to flag problematic, noisy, or biased content to clean up for training."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "intuition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "245f404d-1bbf-47f2-a408-c2004a830cdd",
+       "session_type": "whiteboard",
+       "title": "Parameters and Pattern Learning",
+       "description": "Understand billions of numeric knobs (parameters/weights) and how they function together to hold learned associations.",
+       "sessionOutline": "We begin this session by addressing a major mental hurdle for beginners: the abstract nature of 'parameters.' To make this tangible, the teacher should draw a simple diagram of three interconnected nodes on the whiteboard—representing an input node, a processing node, and an output node. Explain that if we think of a model as a complex decision-making factory, these parameters are not rigid lines of code, but rather billions of adjustable dials or volume knobs on the pipes connecting the rooms. The physical layout of the pipes (the network architecture) stays the same, but twisting a dial changes how much 'water' (or signal strength) flows from one node to the next.\n\nNext, the teacher will trace an active signal through this simple network to illustrate pattern learning. Suppose the input is the word 'apple' (which we previously converted to numbers), and we want the network to predict whether this is a fruit or a tech company. The teacher will write numbers next to the connecting lines on the whiteboard to represent current weights. By multiplying the input signal by these weight values, we show how a higher weight acts as a megaphone, amplifying the signal down one path, while a near-zero weight silences it. The core insight to emphasize here is that 'knowledge' in AI is not stored in a database of facts, but is distributed across these millions of numeric relationships. This explains why models don't 'look up' answers, but rather channel inputs through a massive web of adjusted dials to calculate an output.\n\nA common pitfall for students is imagining that each parameter has a clear, human-understandable meaning—like 'the verb-detecting knob.' The teacher must proactively dismantle this myth. Explain that in a model with billions of parameters, no single parameter holds an isolated concept. Instead, patterns emerge from the collective state of all parameters working in harmony. To solidify this, lead a quick interactive exercise where students observe a simplified three-node pathway on the board. The teacher will ask: 'If we want to change the final output from A to B, which connecting values must we increase, and which must we decrease?' This exercise reveals whether students grasp how adjusting individual knobs directly reshapes the flow of information, preparing them perfectly for the next session on error correction.",
+       "practice": {
+        "tasks": [
+         "Explain how an adjustment of values on simplified network nodes alters the path of an input signal."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 3,
+       "sessionId": "87669a2b-1e0c-4a8d-89e7-4d66c185124a",
+       "session_type": "whiteboard",
+       "title": "Measuring and Correcting Errors",
+       "description": "Step through loss functions and visual adjustments (backpropagation) showing how systems iteratively minimize differences between actual outcomes and targets.",
+       "sessionOutline": "We begin by establishing a crucial bridge from our previous discussion on weights and parameters to the concept of optimization. The core objective of this session is to demystify how a neural network actually learns from its mistakes, moving from a passive structure to an active, self-correcting organism. Teachers should start by drawing a simple line graph representing the model's current prediction versus the actual ground truth target. The distance between these two points is introduced as the 'error.' Here, it is vital to preempt a common student misconception: models do not inherently know which direction to change their parameters; they only know they made a mistake. Our goal is to show how we quantify that mistake into a single, actionable number.\n\nNext, we introduce the concept of a 'Loss Function' as our mathematical yardstick. Instead of using complex calculus right away, we visual-first on our whiteboard by mapping a simple absolute error formula: Error = |Predicted - Target|. Teachers should write a clear, numerical example on the board: if our model predicts a value of 0.8 for an outcome that should be 0.2, the absolute error is 0.6. We must explain that the loss function acts as a compass, translating multidimensional errors into a single landscape of valleys and peaks, where the lowest point represents perfect alignment with reality. By visualizing this as a physical landscape—a ball rolling down a bumpy hill—students build a concrete spatial intuition for gradient descent without getting lost in the math.\n\nOnce students understand what loss is, we transition to the mechanics of correction, or Backpropagation. This is where we trace the signal backward through our simplified whiteboard network nodes. Teachers should manually walk through a calculation step: if the absolute error is positive and high, we look at the final mathematical operation and ask, 'Did our weight make this number too big or too small?' We demonstrate a manual update where we tweak a parameter down slightly, recalculate the error, and show how the error shrinks. This hands-on visualization directly addresses the technical derivation tag by demystifying the chain rule into a simple rule of proportions: if Weight A contributes twice as much to the final error as Weight B, then Weight A needs a larger correction.\n\nTo solidify this intuition, teachers will pause for an interactive whiteboard exercise where students act as the 'optimizer.' On the board, present three different nodes with specific starting weights and a target output. Ask students to calculate the absolute difference and determine whether the weights of each node must increase or decrease to minimize the overall error. This active exercise reveals whether students truly comprehend the causal relationship between a localized parameter change and a global error reduction, preventing them from treating training as an impenetrable black-box magic trick.",
+       "practice": {
+        "tasks": [
+         "Calculate absolute error value differences and determine whether model parameters must increase or decrease."
+        ]
+       },
+       "sessionTime": 25,
+       "depthTags": [
+        "intuition",
+        "derivation"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    },
+    {
+     "lectureId": "unit3Lecture2",
+     "title": "Improving a Trained Model",
+     "description": "Contrast pretraining with downstream alignment, detailing how safe, helpful dialog systems are forged.",
+     "order": 2,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "52d92810-6262-48e2-914f-5f987925a331",
+       "session_type": "whiteboard",
+       "title": "Pretraining and Fine-Tuning",
+       "description": "Compare massive general baseline pretraining to targeted fine-tuning for domain domain specific task workflows.",
+       "sessionOutline": "Welcome to today's session where we crack open one of the most critical conceptual divides in modern artificial intelligence: the difference between Pretraining and Fine-Tuning. For a public lecture style, we want to bypass complex mathematical loss functions and instead build an intuitive, physical metaphor. Imagine building an elite chef. Pretraining is the equivalent of sending a student to culinary school for years to learn how to identify every ingredient on earth, understand heat, and read any recipe in existence. Fine-Tuning is the specialized, intensive weekend boot camp where that trained chef learns the specific, secret recipes of a high-end sushi restaurant. By establishing this clear metaphor on the whiteboard, we prevent the common learner misconception that models are trained on specialized enterprise data from scratch.\n\nOn the whiteboard, draw two distinct phases side-by-side. On the left, label 'Phase 1: Pretraining (The Generalist Academy)'. Here, you will sketch a massive, open library of text representing the entire internet—Wikipedia, news articles, classic literature, and public code. Explain that during this phase, the model is simply playing a massive game of 'guess the next word' billions of times. The outcome of pretraining is a 'Base Model' (or foundation model). It is incredibly smart but wild; if you type 'What is the capital of France?', a base model might not answer you—instead, it might respond with 'What is the capital of Germany? What is the capital of Spain?', because it thinks you are writing a geography quiz. It has learned language patterns, but not how to be a helpful assistant.\n\nNow, draw a bridge on the whiteboard leading to the right side: 'Phase 2: Fine-Tuning (The Specialist Apprenticeship)'. Explain that instead of feeding the model petabytes of random internet text, we now feed it a highly curated, smaller dataset of specific examples—such as customer service transcripts, medical diagnosis protocols, or legal contract templates. Use the whiteboard to illustrate how the model’s internal neural connections, which were broadly shaped during pretraining, are now slightly nudged and tailored to excel at this specific task. Emphasize that fine-tuning is faster and requires significantly less computational power than pretraining, which is why organizations rarely train base models from scratch and instead fine-tune existing ones.\n\nLet's pause the lecture to guide the audience through an interactive decision-making scenario to test their intuitive grasp of these concepts. Present them with a business challenge: A boutique medical clinic wants an AI system that can draft patient email replies matching their doctors' specific tone and scheduling procedures. Walk them through three strategic choices: Do we build and pretrain a brand-new baseline model from scratch? Do we take an existing pretrained base model and fine-tune it on their past email logs? Or do we simply use a general out-of-the-box model and configure it using system prompts? This exercise is designed to reveal whether learners understand the cost-to-benefit ratio of fine-tuning versus pretraining, guiding them to realize that fine-tuning or direct configuration is almost always the optimal real-world path, whereas building a baseline model is a massive waste of resources for this scenario.\n\nConclude the session by addressing a major conceptual pitfall: the 'catastrophic forgetting' trap. Explain that when you fine-tune a model too aggressively on one narrow task (like writing legal briefs), it might lose its general-purpose reasoning capabilities or forget how to write casual, friendly prose. Draw a scale on the whiteboard balancing 'General Intelligence' on one side and 'Domain Specialization' on the other. This visual serves as a perfect transition to our next session, where we will explore how human feedback is used to keep these models aligned, safe, and conversational without losing their general-purpose capabilities.",
+       "practice": {
+        "tasks": [
+         "Decide whether a business scenario requires full baseline model swap, localized fine-tuning, or direct configuration."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "definition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "90ce7942-41a8-442b-bcd7-5af693a43a91",
+       "session_type": "whiteboard",
+       "title": "Human Feedback and Alignment",
+       "description": "Learn Reinforcement Learning from Human Feedback (RLHF) and how human preferences stop base models from spitting out garbage, unsafe, or rambling structures.",
+       "sessionOutline": "To begin this session, we must first address a common misconception that many beginners hold: the idea that once a model is trained on the entire internet, it is immediately ready to be a helpful assistant. We will construct a conceptual 'whiteboard' split down the middle. On the left side, we draw a massive, chaotic cloud representing the 'pretrained base model'—an entity that is exceptionally good at predicting the next word, but has no sense of manners, safety, or helpfulness. On the right side, we will illustrate the target: a helpful, safe, and concise conversational partner. The bridge between these two states is the process of alignment, primarily achieved through Reinforcement Learning from Human Feedback (RLHF).\n\nNext, we introduce the concept of RLHF by breaking down its mechanics without any complex mathematics. We explain that the base model is like a wild, highly knowledgeable scholar who has read every book in the world but has never interacted with a human. If you ask this scholar, 'How do I bypass a security lock?', they might simply complete the text by providing a step-by-step tutorial because that is what naturally follows in their training corpus. We visualize a feedback loop where human evaluators act as coaches. These coaches do not write the code themselves; instead, they review multiple outputs generated by the model, ranking them from best to worst. This ranking teaches a secondary 'reward model' what humans prefer, which in turn acts as an automated trainer to steer the primary model's behavior.\n\nTo make this concrete, we introduce an interactive practice moment. We present the students with a hypothetical prompt: 'Write an email apologizing for a late delivery.' We show three distinct model draft responses. Draft A is overly clinical, filled with repetitive corporate jargon, and thirty paragraphs long. Draft B is short but passive-aggressive, blaming the customer for ordering late. Draft C is polite, structured, concise, and offers a clear path to resolution. We ask the students to rank these options. This exercise reveals the core challenge of alignment: balancing safety, accuracy, and formatting guidelines. We explain to the learners that they are performing the exact cognitive task that human annotators do to train modern AI systems.\n\nFinally, we address the nuances of alignment, particularly the tension between safety and helpfulness—often called the 'refusal problem.' If a model is aligned too aggressively, it becomes overly cautious and refuses benign tasks (e.g., refusing to write a story about a fictional villain because it contains 'bad behavior'). We sketch a spectrum on our whiteboard showing the delicate balance AI engineers must strike. By understanding this pipeline, students shift from viewing the AI as a single, uniform mind to realizing it is a multi-layered system where raw intelligence is shaped by human values and design choices.",
+       "practice": {
+        "tasks": [
+         "Rank three hypothetical model answers to align with safety, accuracy, and format guidelines."
+        ]
+       },
+       "sessionTime": 25,
+       "depthTags": [
+        "intuition",
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    }
+   ],
+   "projects": [
+    {
+     "stage_id": "37d5ed86-ca7e-4860-828a-315069e71c22",
+     "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+     "stage_title": "Instruction Alignment Case Study",
+     "stage_description": "In this stage, you will analyze and document the differences in responses between a raw, pre-trained base model and a fine-tuned, instruction-aligned assistant model when given the same complex prompts.",
+     "deliverable_increment": "Section 2: Pretraining vs. Alignment Comparison Matrix, showing how RLHF and fine-tuning shape model outputs under different instruction scenarios.",
+     "order": 3
+    }
+   ],
+   "exams": [
+    {
+     "title": "Unit 3 Assessment: Training and Optimization",
+     "goal": "Verify understanding of parameter fine-tuning, objective loss correction, data collection pipeline values, and human feedback safety alignments.",
+     "sections": [
+      "Comprehensive evaluation of training dynamics, parameter calibration, iterative loss correction, and alignment."
+     ],
+     "successCriteria": [
+      "Detail how human feedback is mathematically incorporated to align generative completions.",
+      "Describe backpropagation concepts conceptually."
+     ],
+     "order": 4
+    }
+   ],
+   "learning_finished": false
+  },
+  {
+   "unitId": "unit4",
+   "title": "What AI Can and Cannot Do",
+   "description": "Gain insight into practical AI capabilities, fundamental limitations like hallucinations, and real-world ethical considerations.",
+   "lectures": [
+    {
+     "lectureId": "unit4Lecture1",
+     "title": "AI's Strengths",
+     "description": "Assess standard use cases where current generative engines excel, mapping cognitive architectures to production successes.",
+     "order": 1,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "7a8a0143-ff53-4cc8-b6a6-27ed049d8df6",
+       "session_type": "whiteboard",
+       "title": "Generation and Transformation",
+       "description": "Highlight formatting, summarizing, translating, and style-shifting competencies across varied text modalities.",
+       "sessionOutline": "This session marks the transition from how AI models function internally to what they can actually achieve for us, focusing on the twin engines of productivity: Generation and Transformation. As a whiteboard-style session, we begin by drawing two main columns on the board. On the left, we write 'Source Material (Input),' and on the other, 'Target Output.' We explain to the students that at its core, text generation is not magic; it is a highly controlled translation of entropy (randomness or a prompt) into organized structure. We address the common misconception that models only 'write new things from scratch' by showing that their greatest production utility lies in converting existing unstructured language into highly formatted, structured modalities.\n\nNext, the whiteboard comes alive with a specific workflow mapping: 'Style-Shifting.' We draw a arrow representing a prompt that acts as a cognitive lens. We write a dry, overly technical paragraph of medical data on the left, and show how a style-shifting instruction acts as a filter, outputting a compassionate patient summary on the right. This demonstrates that translation is not merely switching between English and Spanish, but shifting between 'dialects of intent'—such as turning engineering jargon into executive summaries or casual emails into formal project proposals. We caution teachers to warn students here against 'lazy prompting,' where they ask the model to 'rewrite this' without specifying the audience, tone, or structural constraints, which usually results in generic, bloated corporate-speak.\n\nMoving to the practical component, we sketch out a real-world scenario on the whiteboard: transforming raw structural reports into standardized business formats. We guide the students through a live framing of translation instructions. The teacher should write a prompt template on the board, pointing out the explicit placeholders for 'Context,' 'Tone,' and 'Formatting Rules (e.g., Markdown headers, bullet points).' This visual scaffolding helps students understand that control over generative outputs is achieved by limiting the model's choices rather than letting it wander freely.\n\nWe conclude the session with an interactive practice run. Students are challenged to design a set of instructions that takes a chaotic, multi-page technical report and outputs a 3-sentence summary alongside a JSON block of key metrics. By forcing students to design both the input structure and the target output constraint, we reveal a key learning insight: the more structured your input and the more explicit your output format requirements, the more reliable and hallucination-free the model's transformation will be.",
+       "practice": {
+        "tasks": [
+         "Design translation instructions and style transformations for structural reports."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "e57ad9c6-5b7b-4952-b303-8151fa86c197",
+       "session_type": "whiteboard",
+       "title": "Classification and Pattern Recognition",
+       "description": "Leverage models for lightning-fast scanning, sorting semantic patterns, classification tasks, and high-volume parsing.",
+       "sessionOutline": "Welcome back. Today we are transitioning from creative generation to one of the most powerful, high-volume capabilities of modern language models: semantic classification and pattern recognition. In classical machine learning, getting a computer to sort unstructured text into specific categories required training custom classifiers with hundreds of labeled examples, tokenizers, and rigid feature engineering. Large Language Models (LLMs) turn this paradigm on its head by understanding the underlying concepts and intent immediately. As an instructor, you should begin this session by drawing a stark contrast on your whiteboard: on the left, show a rigid, keyword-matching sorting machine that fails when someone uses a synonym; on the right, sketch an LLM that reads between the lines, grouping diverse emotional feedback into operational categories effortlessly.\n\nLet us illustrate this using a real-world scenario of high-volume customer feedback parsing. If a user writes, 'Your delivery arrived late, but the package was in pristine condition and the delivery person was incredibly polite,' a simple keyword system gets confused. It sees 'late' (negative) alongside 'pristine' and 'polite' (positive). An LLM, however, can run a semantic scan. It recognizes that this feedback contains two distinct signals: a logistics complaint (shipping delay) and a customer service compliment (staff behavior). On the whiteboard, map this out by showing the raw feedback text passing through a semantic 'prism' that splits the input into multi-dimensional vectors. Point out that the model isn't just counting words; it is placing the sentiment of this text in a multi-dimensional mathematical space where 'late delivery' naturally clusters closer to 'Logistics Bottleneck' than 'Product Defects'.\n\nNow, address a major learner misconception: the idea that LLMs will always guess the right category out of thin air. Left to their own devices, models are highly creative and will invent new category names on the fly—one day outputting 'Shipping Delay', and the next outputting 'Logistics Lag'. To prevent this chaos, we must use instruction parameters to constrain the model's output space. Show the students how to construct a robust 'Classification Guardrail' prompt on the whiteboard. Write out the structural components: a clear persona ('You are an expert operations analyst'), a defined input, a strict taxonomy of categories, and—most importantly—the explicit instruction to *only* output the exact category name with zero additional conversational filler like 'Sure, here is the category...'. This prevents downstream parsing failures when automating workflows.\n\nLet us transition into an active practice moment. Have the students design a prompt that categorizes user reviews for a grocery app into three precise operational buckets: 'Inventory' (out of stock), 'Quality' (spoiled or damaged items), and 'App UX' (technical glitches). A common trap students fall into during this exercise is forgetting to tell the model what to do with ambiguous or multi-issue reviews, such as 'The app crashed while I was looking for fresh apples.' Guide them to refine their instructions to establish priority rules (e.g., 'If a technical issue is mentioned, classify as App UX first'). Explain to the students that by defining these logical boundary lines, they are effectively programming a highly flexible cognitive router that can process thousands of reviews in seconds with near-human accuracy.",
+       "practice": {
+        "tasks": [
+         "Formulate clear instruction parameters to categorize user review feedback into precise operational categories."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 3,
+       "sessionId": "2a7eb140-a0e0-4fe3-858a-ed8842db1ef3",
+       "session_type": "whiteboard",
+       "title": "Reasoning, Tools, and External Information",
+       "description": "Examine how models chain thoughts, connect with external APIs, search webs, and utilize real-time databases (RAG).",
+       "sessionOutline": "We begin this session by addressing a major mental bottleneck for learners: the illusion that a language model is a self-contained, omniscient brain. Up to this point, students have seen models as closed systems that generate text purely from internal parameters trained on past data. To transition them into elite operators, we must break this illusion and introduce the concept of the \"augmented\" model. Use the whiteboard to draw a clear boundary line. On the left, label it \"The Core Engine (Parametric Memory)\"—fixed, frozen in time, and prone to guessing when it lacks facts. On the right, label it \"The External World (Active Tools)\"—live databases, search engines, and APIs. Explain that modern AI excels not just by knowing things, but by acting as an orchestrator that knows how to use tools. This shift from pure generation to tool orchestration is the foundation of modern agentic systems.\n\nNow, introduce the mechanics of how a model actually uses a tool. Many students mistakenly believe there is a hidden, hard-coded magical link between the AI and Google or a database. Demystify this on the whiteboard by showing the \"Tool Use Loop.\" Draw a three-step cycle: 1. The user asks a question requiring real-time info (e.g., \"What is the stock price of Apple today?\"). 2. The model recognizes its parametric knowledge is insufficient and generates a structured command, like a function call or a search query, instead of a direct answer. 3. The hosting system intercepts this command, executes the real-world search, and feeds the raw text results back into the model's prompt window. The model then reads this fresh context and synthesizes the final answer. Emphasize that the AI doesn't \"click\" buttons; it writes a request, a wrapper program runs it, and the AI reads the output. This is the core mechanism of Retrieval-Augmented Generation (RAG) and API integration.\n\nTo make this concrete, walk through a step-by-step trace of a live search query. Show the difference between a system with \"thought chaining\" (like ReAct or Chain-of-Thought prompting) and one without. On the whiteboard, write out a real-world scenario where a user asks for a comparison of two recent, post-training events. Illustrate the model's inner monologue: \"Thought: I need to find event A's date first. Action: Search[Event A date]. Observation: [Search returns Oct 12]. Thought: Now I need event B's date. Action: Search[Event B date]...\" By visualizing this step-by-step thinking process, students understand that \"reasoning\" in AI is actually a sequential generation process where intermediate steps are used to plan subsequent tool calls. Address the common misconception that models do all this instantly in a single parallel flash; make it clear that it is highly iterative.\n\nIntroduce the hands-on practice block to expose the limitations and fragility of this loop: identifying \"lookup gaps\" and tool failures. Have the students analyze a pre-constructed, flawed trace where a model failed to answer a complex query because it formulated a bad search term or miscalculated the search results. Guide them to dissect where the breakdown happened. Did the model query the wrong keyword? Did the external search tool return irrelevant clutter? Or did the model fail to synthesize the correct answer from the retrieved context? This exercise teaches students that tool-use is a pipeline with multiple points of failure. By teaching them to debug these search traces, we equip them with the mental models needed to diagnose and optimize complex AI workflows in their own professional projects.",
+       "practice": {
+        "tasks": [
+         "Deconstruct an AI response process that queries external search tools to identify lookup gaps."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition",
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    },
+    {
+     "lectureId": "unit4Lecture2",
+     "title": "AI's Limitations",
+     "description": "Analyze key mathematical boundaries of prediction networks, specifically exploring errors, structural bias, and knowledge cliffs.",
+     "order": 2,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "e531ed5b-296f-4992-baa7-6ade1f6ae7a0",
+       "session_type": "whiteboard",
+       "title": "Why AI Hallucinates",
+       "description": "Understand that hallucinations are logical, fluent next-token choices lacking factual search foundations or verification layers.",
+       "sessionOutline": "Welcome back. Today we are tackling one of the most persistent and misunderstood phenomena in artificial intelligence: hallucinations. In a public-lecture format focused on conceptual clarity, our main objective is to shift the learner's perspective from viewing hallucinations as a random glitch or a temporary bug to understanding them as a direct, mathematical consequence of how next-token prediction works. We must dismantle the misconception that AI possesses an internal 'truth database' that it occasionally fails to query. Instead, we will draw a whiteboard schematic showing that generative networks only optimize for linguistic probability and logical flow, completely divorced from factual verification.\n\nLet's start by sketching a simple sentence completion flow on the whiteboard. Write the phrase: 'The first person to walk on the moon was...' and draw a branching probability tree representing the model's choices. Show how 'Neil' receives the highest mathematical weight because of the vast amount of training data reinforcing this association. Now, contrast this by writing a prompt about a completely fictional event or a highly obscure, non-existent historical figure, such as: 'The academic contributions of Dr. Sarah Jenkins-Smith (born 1982) regarding the Martian Soil Treaty of 1998 are...'. On the board, draw the branching path for this prompt. Point out that the model does not have a 'fact-check' switch that says 'this person does not exist.' Instead, the network must generate the most linguistically plausible next words based on patterns of academic profiles. It will write fluent, highly convincing descriptions of publications, institutions, and research methodologies because those tokens flow naturally after the prompt. Explain to the audience that the model is doing exactly what it was trained to do: generating highly coherent, contextually appropriate language. It cannot distinguish between a factual memory and a plausible fabrication because to a mathematical prediction engine, both are simply paths of high probability.\n\nNext, dive into the mechanics of why these fabrications look so incredibly convincing. On the whiteboard, map out a three-layer diagram representing the generation process: Syntax/Grammar at the bottom, Semantic Coherence in the middle, and Factual Grounding (marked with a large red 'X') at the top. Explain that modern LLMs are masters of syntax and semantic coherence—they know exactly how professional, authoritative text sounds. They mimic the structures of peer-reviewed papers, legal documents, and news articles perfectly. This is the source of the danger: the fluency of the output masks the complete absence of an underlying factual search engine. Warn the learners of a common pitfall: assuming that a confident tone implies factual correctness. A model does not feel 'doubt'; it merely calculates probabilities.\n\nTo solidify this intuition, we will conduct an interactive whiteboard exercise. We will write down a simulated, highly realistic-sounding explanation generated by an AI about a fabricated scientific concept (e.g., 'Retrograde Cellular Osmosis in Silicon-Based Plant Life'). As a class, we will systematically deconstruct this passage piece by piece. We will circle the terms that sound scientifically valid, highlight the logical connectors (like 'therefore' and 'as a result') that trick our brains into accepting the logic, and then point out the fatal flaw: the underlying physical premise is completely made up. This exercise will teach learners to look past structural fluency and look for independent verification. We will conclude by emphasizing that because sandboxed models lack live search or deterministic validation layers, they are generators of plausibility, not truth. To make them reliable, we must explicitly build verification workflows into our utilization strategies, which we will explore later in this unit.",
+       "practice": {
+        "tasks": [
+         "Deconstruct a simulated hallucinated explanation, identifying the logical-sounding but factual inconsistencies."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "intuition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "62279123-1e0d-4eef-a607-acbc8cf7d3ce",
+       "session_type": "whiteboard",
+       "title": "Bias and Training Data",
+       "description": "Analyze why systemic human stereotyping and skewed data distribution find their way directly into AI predictions.",
+       "sessionOutline": "To begin this whiteboard session, the teacher must dismantle the common misconception that AI is an objective, mathematical judge, free from human error. The whiteboard should start with a simple drawing of a clean pipeline: 'Raw World Data' flowing into a 'Machine Learning Box' and spitting out 'Predictions.' Draw a big, red question mark over the machine learning box. Explain that models do not learn from the world directly; they learn exclusively from records of the world, which are created, selected, and labeled by humans. If the historic records contain patterns of systemic inequality, underrepresentation, or skewed distributions, the model will treat these historically biased patterns as absolute mathematical truths. The core idea here is that optimization math is indifferent to ethics; it merely seeks to minimize prediction error against the training data it is given.\n\nNext, visually unpack 'skewed distribution' or representation bias using a concrete, non-technical scenario on the whiteboard. Draw a simple bar chart representing a training dataset for an automated resume screening tool. Show a massive bar for 'Resume Data: Demographic Group A' alongside a tiny, almost invisible bar for 'Resume Data: Demographic Group B.' Walk students through the cascading mathematical consequences: because the model's loss function penalizes errors on the majority group much more heavily than on the minority group, the model will organically optimize its neural weights to excel at predicting success for Group A while discarding or misclassifying signals from Group B. The teacher should actively warn against the misconception that 'removing sensitive variables' (like gender or race labels) solves the problem. Illustrate on the board how other variables—such as zip codes, hobby clubs, or universities—act as proxies, allowing the model to easily reconstruct the excluded demographic information.\n\nTransition the lecture into an active, whiteboard-driven debugging exercise. Present a hypothetical historical dataset of loan approvals spanning the last 40 years, where low-income neighborhoods were systematically denied credit. Ask students to identify how this historical bias becomes self-fulfilling: if the model is trained on this data, it will predict that applicants from these neighborhoods are high-risk. If banks use this model, they will deny loans, thereby preventing these neighborhoods from accumulating wealth, which in turn feeds 'bad' data back into the next generation of models. Draw this vicious feedback loop explicitly on the whiteboard to help students visualize the systemic compounding effect of algorithmic bias.\n\nFinally, lead the students through a brainstorming session on how to balance these results, listing mitigation strategies directly on the whiteboard. Contrast 'pre-processing' techniques (such as oversampling minority groups or synthetic data generation) with 'in-processing' adjustments (like modifying the loss function to penalize unfairness) and 'post-processing' constraints (like shifting decision thresholds for different groups to ensure equal opportunity). Emphasize that resolving bias is not a one-click technical patch, but a continuous human-in-the-loop design choice that requires balancing mathematical tradeoffs between raw accuracy metrics and equitable performance across diverse populations.",
+       "practice": {
+        "tasks": [
+         "Identify representation bias in a historical dataset and list strategies to balance model results."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "intuition"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 3,
+       "sessionId": "4942e840-8fe5-460b-b03f-34ba6628142c",
+       "session_type": "whiteboard",
+       "title": "Knowledge Limits and Missing Context",
+       "description": "Define static cutoff dates, localized blindspots, and the absence of live physical reasoning in sandboxed networks.",
+       "sessionOutline": "Begin the session by introducing the metaphor of the 'Frozen Library.' Explain that once a model's training phase is complete, its weights are locked in place, creating a hard temporal boundary known as the knowledge cutoff date. Illustrate this on the whiteboard as a physical vault door that was welded shut on a specific date. Learners often struggle to grasp that a highly conversational AI cannot 'just look up' this morning's news; the teacher must emphasize that without active external integration, the model's universe is entirely static. This sets up the fundamental reasoning limit: the system does not dynamically acquire new memories during a conversation.\n\nNext, expand the whiteboard diagram to demonstrate what happens when a query goes past this temporal cliff. Draw a timeline showing the pretraining cutoff on one side and the present day on the other. Walk through a scenario where a user asks about a company merger that happened last week. Explain that because the model operates on next-token probability based on historic data, it will not experience an error crash; instead, it will confidently generate a response using pre-cutoff semantic associations, creating highly plausible but entirely outdated or incorrect assertions. This visual demonstration helps learners understand that the model's error is structural, not a temporary glitch.\n\nTransition to the concept of sandboxed networks and the absence of physical reasoning. Draw a distinction on the board between 'linguistic knowledge' and 'grounded experience.' Explain that the model has never touched an object, experienced gravity, or witnessed spatial relationships. Its understanding of physics is purely statistical—knowing that the word 'drop' is frequently followed by 'fell to the floor.' Address the common student pitfall of assuming the model has a hidden simulation engine running in the background. Explain that without sensory grounding or real-time physical feedback, spatial puzzles or real-world planning tasks quickly expose the mathematical boundaries of pure text prediction.\n\nIntroduce the solution to these structural limits through the concept of 'Open-Book' versus 'Closed-Book' reasoning. On the left side of the whiteboard, sketch a student taking an exam with zero external materials—this represents standard model inference relying solely on static weights. On the right side, sketch the same student handed a specific reference document containing the exact answer—this represents context injection. Explain that by passing fresh, external data directly into the prompt window alongside the user query, we bypass both the static cutoff and the model's memory limitations by forcing the self-attention mechanism to focus on the provided text rather than old parameters.\n\nConclude with a structured prompt-crafting walkthrough on the whiteboard. Write out a template that explicitly isolates the 'Context' from the 'Instruction.' Show learners how to partition the prompt using clear delimiters (such as XML tags or triple quotes) to feed the model verified, real-time data. Explain the design choices behind adding constraints, such as 'Base your answer only on the provided text, and if the information is missing, state that you do not know.' This live prompt construction demonstrates to learners how to mathematically anchor the network's prediction focus, transforming a fragile knowledge-restricted system into a highly accurate context-driven processor.",
+       "practice": {
+        "tasks": [
+         "Formulate a prompt structure that mitigates knowledge gaps by explicitly injecting updated external context."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "intuition",
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    },
+    {
+     "lectureId": "unit4Lecture3",
+     "title": "Using AI Responsibly",
+     "description": "Gain the practical security mindsets needed to handle intellectual assets and safety workflows safely.",
+     "order": 4,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "5252378f-58c0-444c-81f6-90b8c61e4005",
+       "session_type": "whiteboard",
+       "title": "Privacy and Sensitive Information",
+       "description": "Understand system data leaks, user agreement rules, and which sensitive assets should never pass through public models.",
+       "sessionOutline": "Welcome learners to this session on data privacy and security when using public artificial intelligence models. This session establishes a vital shift in perspective: from viewing AI as a private digital assistant to understanding it as a public, cloud-hosted computational processing engine. The primary goal is to demystify how data moves from a user's local input box into external training loops, helping learners realize that absolute trust in cloud systems is a security vulnerability. By framing this visually on our whiteboard, we will show that when you send data to a standard consumer LLM, that data does not simply vanish after generating an answer; instead, it travels through servers, becomes stored in logs, and may be used to train future iterations of the model.\n\nTo visualize this, draw a horizontal line across the whiteboard labeled the 'Trust Boundary.' Above this line is the local user environment (the user's computer, local memory, and private network). Below this line is the external cloud environment, containing the LLM provider's API endpoints, processing servers, and eventual cold-storage databases. Write a sample sentence at the top: 'Our company, Acme Corp, is planning to acquire BetaTech for $50 million in June, led by Director Jane Doe.' Explain that this sentence contains three distinct tiers of sensitive information: proprietary business strategy, specific financial figures, and personally identifiable information (PII). Walk through the journey of this sentence crossing the Trust Boundary. Once it falls below the line, the user loses physical custody. The LLM provider processes this data to generate a response, but unless explicit opt-outs or enterprise data processing agreements (DPAs) are active, this raw text resides in history logs where human reviewers or automated training pipelines can access it.\n\nAddress the common misconception that 'incognito mode' or simply deleting a chat from your history tab deletes the data from the provider's servers. Explain to the students that a chat history deletion often only removes the pointer from the user interface, while the raw API logs remain subject to the provider's standard data-retention policies. This is where we introduce the logic of proactive client-side redaction. Instead of hoping the model provider is secure, we must scrub sensitive parameters before they ever cross the Trust Boundary. Demonstrate this on the whiteboard by drawing a 'Redaction Filter' block right at the Trust Boundary. Show the process of transforming the previous sentence into: 'Our company, [Company A], is planning to acquire [Company B] for [Transaction Value] in [Timeline], led by [Director Title].' Explain that the structural meaning of the prompt remains fully intact, allowing the AI to draft an acquisition announcement or integration plan without ever knowing the real-world identity or values involved.\n\nNow, initiate an active whiteboard audit simulation. Present raw, unredacted corporate emails, customer support transcripts, or software code containing API keys. Guide students through identifying what constitutes 'toxic input data'—such as personal emails, medical symptoms, exact revenue forecasts, or proprietary algorithms. Show them how to systematically substitute these elements with generic variables or functional placeholders. Emphasize that preserving semantic structure is the key; if you replace 'Jane Doe' with 'Noun,' the AI lose context, but replacing 'Jane Doe' with '[Lead HR Representative]' maintains the relationship mapping, allowing the AI to generate highly contextual, useful output while keeping sensitive details safe on the local side of the Trust Boundary.",
+       "practice": {
+        "tasks": [
+         "Audit sensitive inputs and redact identifying data before passing text to an external web tool."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "8865441d-c060-4946-8648-22fb29a69f47",
+       "session_type": "whiteboard",
+       "title": "Checking Sources and Important Claims",
+       "description": "Establish clear double-check practices to audit citations, critical computations, and output validation loops.",
+       "sessionOutline": "We begin by addressing the dangerous illusion of authority that AI outputs project. Because LLMs generate text that is grammatically flawless and highly confident in tone, users naturally default to trusting them. In this session, the goal is to break that automatic trust and replace it with a systematic, adversarial verification mindset. We must explicitly teach students that an AI-generated citation, historical fact, or mathematical calculation is merely a 'prediction of what a correct answer looks like,' not an actual lookup of verified truth. \n\nTo visualize this, the teacher will draw a 'Trust vs. Verification' matrix on the whiteboard. On one axis, we plot the criticality of the claim (e.g., a medical fact versus a creative brainstorming idea); on the other, we plot the source distance (whether the AI claims it came from a specific URL or just 'general knowledge'). The core teaching beat here is demonstrating how to isolate high-risk claims—specifically direct quotes, statistics, legal citations, and mathematical proofs—and isolate them for independent checking. \n\nNext, the teacher will walk through the anatomy of a hallucinated source. Often, a model will synthesize a real-sounding author name, a plausible journal title, and a fake DOI number that looks perfectly formatted but leads to a 404 page. The teacher should model a live 'structured lookup workflow' on the board. This workflow consists of three steps: isolating the claim, locating the primary source manually using external academic or general search engines, and matching the specific context of the source with the AI's claim. We emphasize that a student should never search for the full generated sentence, as search engines might feed into the same loop; instead, they must extract key entities and search for the actual primary document.\n\nTo solidify this, the session transitions into an active verification exercise. The teacher projects an AI-generated summary of a scientific study containing three citations and one mathematical calculation. The students' task is to act as truth-auditors. They will practice identifying which elements are highly suspicious, using a structured worksheet to run verification queries, and flagging mismatches. This exercise exposes a critical learner misconception: the belief that if two out of three citations are real, the third must be real too. By showing a case where the mathematical calculation is subtly off or one citation is completely fabricated, we install a healthy, permanent skepticism.",
+       "practice": {
+        "tasks": [
+         "Verify the factual citations of an unverified output utilizing a structured lookup process."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    }
+   ],
+   "projects": [
+    {
+     "stage_id": "ea7155fd-1104-4c9f-93a1-3d1775e80607",
+     "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+     "stage_title": "Hallucination and Context Window Probing",
+     "stage_description": "In this stage, you will design and execute boundary tests to intentionally trigger and then fix hallucinations in a public LLM by adjusting context windows, knowledge boundaries, and temperature parameters.",
+     "deliverable_increment": "Section 3: Hallucination Diagnostics Report, documenting three stress-test cases where the AI failed and the specific adjustments made to restore factual accuracy.",
+     "order": 3
+    }
+   ],
+   "exams": [
+    {
+     "title": "Unit 4 Assessment: Strengths, Limitations, and Ethics",
+     "goal": "Verify understanding of functional domains, security, bias causes, hallucination mechanics, and reliable oversight procedures.",
+     "sections": [
+      "Comprehensive evaluation of generative capabilities, limits of prediction engines, safety practices, and bias."
+     ],
+     "successCriteria": [
+      "Describe why predictive models can output fluent hallucinations.",
+      "Apply data security rules to model usage scenarios."
+     ],
+     "order": 5
+    }
+   ],
+   "learning_finished": false
+  },
+  {
+   "unitId": "unit5",
+   "title": "Becoming a Smarter AI User",
+   "description": "Transition from a passive bystander into a deliberate, skilled AI user. Master advanced prompt structuring, iteration methods, and rigorous model evaluation.",
+   "lectures": [
+    {
+     "lectureId": "unit5Lecture1",
+     "title": "Communicating with AI",
+     "description": "Learn functional prompt design principles, exploring structural clarity, constraints, and conversational formatting.",
+     "order": 1,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "330afb86-dfc7-4e1f-8d2e-46a701cd10b8",
+       "session_type": "whiteboard",
+       "title": "Giving Clear Instructions",
+       "description": "Avoid vague queries. Master instructional precision by specifying role-play setups, explicit constraints, formats, and structural layouts.",
+       "sessionOutline": "We begin this session by confronting the most common pitfall in human-AI interaction: treating the large language model like an intuitive human mind readers rather than a mathematical prediction engine. Most absolute beginners draft prompts that are vague, conversational, and open-ended, such as 'Write a blog post about productivity.' The teacher should illustrate on the whiteboard how this open-ended query forces the model to search a massive, unconstrained probability space, leading to generic, unhelpful, and cliché outputs. By drawing a wide, unfocused circle representing this vast space, we visually demonstrate how lack of specificity leads to 'average' answers.\n\nTo move from vague queries to structured commands, the teacher introduces the foundational concept of role-playing and framing. By defining a specific persona (e.g., 'You are an expert copywriter specializing in minimalist time-management systems'), we instantly narrow the probability space down to a targeted domain. The whiteboard should map this as a sharp funnel, narrowing the wide circle of all possible English outputs into a highly specialized subset of professional vocabulary, tone, and pacing. We explain that models do not possess an ego or self-identity; instead, they simulate patterns based on the context provided, making persona-setting a mathematical constraint rather than just a creative exercise.\n\nNext, the teacher breaks down the anatomy of structural constraints and explicit layouts. A high-performing prompt requires a clear separation of instruction, input data, and output format. The teacher will sketch a template on the board using distinct delimiters like triple backticks (```) or XML-style tags (<instructions>, <context>, <constraints>) to show how the model distinguishes between what it must do and the data it must do it to. This structural scaffolding prevents the model from experiencing 'instruction drift'—a common misunderstanding where the model mistakenly processes user input text as a new set of instructions.\n\nWe then transition to a guided practice workspace. The teacher presents a poorly constructed, real-world conversational prompt: 'Help me draft an email to my team about a late project, make it sound professional and tell them what the new deadline is.' The learners are tasked with systematically converting this into a multi-part, structured directive. The teacher guides them to define the sender's exact role, establish strict formatting rules (such as bullet points for action items and a bolded bold date for the new deadline), and set explicit negative constraints (e.g., 'Do not use defensive language or passive-aggressive phrasing'). This exercise highlights the direct correlation between highly constrained instructions and predictable, high-quality, zero-draft outputs.",
+       "practice": {
+        "tasks": [
+         "Rewrite vague conversational prompts into highly structured instructions with exact limits and constraints."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "e5ee8f4a-8763-4d24-8e1e-557052efc664",
+       "session_type": "whiteboard",
+       "title": "Providing Context and Examples",
+       "description": "Master few-shot learning by injecting positive examples, structural output skeletons, and conversational context.",
+       "sessionOutline": "To begin this session, we must dismantle the naive assumption that a large language model implicitly understands the nuanced tone, structure, or categorization criteria we desire from a single-line instruction. This session focuses on the concept of 'few-shot learning'—the practice of feeding the model explicit input-output pairs to serve as a structural template. As a concept-first public lecture, we must visually demonstrate to the audience that instead of writing exhaustive rules to define a tone (which often fail), we can show the model what we want. On our virtual whiteboard, we draw a clear split: on the left side, we show a dry, unsuccessful zero-shot prompt trying to explain a complex sentiment classification task using wordy definitions; on the right side, we sketch out a clean, structured template with three concrete examples. This visual contrast immediately reveals that models are, at their core, pattern-replication engines. By seeing the repeating shape of the inputs and outputs, the model aligns its neural weight dynamics to mimic that exact pattern.\n\nNext, the lesson dives into the anatomy of an effective few-shot example. We walk through the concept of 'structural output skeletons.' We show how formatting our examples using consistent delimiters (like 'Input: [text] \\n Output: [label]') acts as a powerful guide. This is crucial because learners often make the mistake of using messy, inconsistent formats across their examples, which confuses the model's pattern matching. We explain that the examples we provide must cover diverse edge cases; if we are building a sentiment classifier for customer reviews, our three examples shouldn't all be simple 'happy' or 'angry' reviews. Instead, we should include a tricky, sarcastic review where the literal words are positive but the true sentiment is negative. This teaches the model the precise boundary lines of our task, turning a vague instruction into a highly accurate, context-aware system.\n\nWe then transition to an active practice moment, designed to expose a common misconception: that 'more examples are always better.' We challenge the learners to build a three-example 'few-shot' prompt template to guide an assistant on a highly subjective and tricky labeling task, such as separating constructive feature requests from general complaints. During this exercise, we guide them to realize that if their examples contain bias or inconsistent labeling, the model will faithfully replicate those errors. The goal of this practice is to show that quality, diversity, and structural consistency of context are far more important than the raw volume of examples. We wrap up by demonstrating how these contextual anchors drastically reduce 'hallucinations' by keeping the model's next-token predictions locked tightly within the structural framework we have defined.",
+       "practice": {
+        "tasks": [
+         "Build a three-example 'few-shot' prompt template to guide an assistant on a tricky labeling task."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 3,
+       "sessionId": "3b90bc02-352e-4c24-88d4-2abf1c8ca70b",
+       "session_type": "whiteboard",
+       "title": "Improving an Answer Through Iteration",
+       "description": "Ditch the one-and-done mindset. Master conversational loops, corrective prompts, style adjustments, and iterative critiques.",
+       "sessionOutline": "We begin this session by confronting the single greatest psychological barrier that beginner AI users face: the 'one-shot search engine' mentality. Most people approach an AI model the same way they approach Google, typing a single query, looking at the initial output, and—if it is not perfect—concluding that the AI is incompetent. To dismantle this misconception, the teacher should draw a stark comparison on the whiteboard. On the left, draw a straight, single-arrow line representing the 'Search' model: Query leads directly to Result (and if the result is wrong, you must start over with a new query). On the right, draw a circular loop representing the 'Dialogue' model. This loop shows an initial prompt generating a rough draft, which is then fed back into the system with corrective feedback, leading to a refined draft. The core takeaway here is that an AI is not an oracle delivering final truths; it is a highly capable assistant that expects an editorial cycle.\\n\\nNext, the teacher must explain *why* the first response is often underwhelming. Based on the statistical next-token prediction mechanisms discussed in previous units, a model's first unconstrained response is naturally going to lean toward the most average, statistically safe interpretation of the prompt. It is generic because it is trying to satisfy a broad probability distribution. To make the output outstanding, we must squeeze that distribution by applying successive constraints. The whiteboard should illustrate this as a funnel: the top of the funnel represents the wide, generic first draft, while each subsequent corrective prompt acts as a filter that narrows the focus, forcing the model to produce increasingly specific, high-quality text.\\n\\nTo bring this to life, the teacher will walk through a live, iterative scenario. Suppose we want to write a launch email for a local bakery's new sourdough bread. The teacher writes the initial lazy prompt on the board: 'Write an email about our new bread.' The resulting output is inevitably cheesy and stuffed with marketing clichés like 'delight your taste buds' and 'artisanal perfection.' Instead of throwing this draft away, the teacher demonstrates how to dissect it. We identify three flaws: it is too long, the tone is overly dramatic, and it ignores the actual unique selling points—like the 24-hour fermentation process and organic local flour. This analysis sets up our first corrective prompt.\\n\\nNow, the teacher writes the corrective prompt on the board: 'This is too hyperbolic. Rewrite it to be warm but understated. Emphasize that we ferment the dough for 24 hours using local organic rye, and keep the total length under 150 words.' The teacher explains the logical chain here: we did not start over. We referenced the existing draft, named what we disliked (hyperbolic tone), specified what to retain or add (fermentation, rye), and added structural constraints (length). This shows the model how to pivot. A common pitfall for students here is opening a brand-new chat window to try again. The teacher must explicitly warn against this, explaining that continuing the current conversation is vital because the chat's 'context window' acts as a shared memory, keeping the draft and our critiques in its immediate view.\\n\\nFinally, we introduce the concept of 'structural critiques' as an advanced iterative tactic. Instead of simply telling the model to 'make it better,' the teacher shows how to ask the model to analyze its own work. We write a prompt such as: 'Read the draft above. Point out three potential objections a customer might have regarding our pricing, and then revise the email to subtly address those objections.' This technique leverages the model's pattern recognition to self-correct before the final output is generated. For the active practice segment, the teacher will challenge learners to take a poorly written, robotic paragraph and use at least three successive, distinct follow-up prompts—focusing on tone shift, constraint addition, and structural reformulating—to transform it into a polished, natural piece of copy.",
+       "practice": {
+        "tasks": [
+         "Refine a flawed initial draft output through successive corrective follow-up prompts."
+        ]
+       },
+       "sessionTime": 15,
+       "depthTags": [
+        "intuition",
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    },
+    {
+     "lectureId": "unit5Lecture2",
+     "title": "Evaluating AI",
+     "description": "Equip yourself to benchmark system performances objectively, selecting optimal platforms for actual use-cases.",
+     "order": 3,
+     "sessions": [
+      {
+       "sessionIndex": 1,
+       "sessionId": "e04d77f8-06e2-4d6c-ba7d-923d608be051",
+       "session_type": "whiteboard",
+       "title": "Comparing Models and Responses",
+       "description": "Establish scoring criteria (clarity, detail, safety) to objectively benchmark different models against one another.",
+       "sessionOutline": "We begin this session by confronting a common pitfall: the 'vibe check' method of evaluating AI. Most users copy-paste a prompt, read the response, and declare a model 'good' or 'bad' based on a single subjective interaction. To move from passive technology observers to deliberate, competent AI operators, we must replace this casual impressionism with systematic, multi-dimensional benchmarking. The core concept to introduce here is that no single model is universally superior; instead, models represent different trade-offs in clarity, detail, safety, and alignment to specific constraints. By mapping out a physical whiteboard matrix, we will visually show how qualitative text can be decomposed into quantitative, actionable scores.\n\nFirst, draw a grid on the whiteboard. The columns will represent competing models (for example, Model A and Model B), while the rows represent our primary evaluation dimensions: Clarity (Does it directly answer the prompt without fluff?), Detail (Is the depth of information appropriate for the target audience?), and Safety/Factuality (Are there hallucinated facts or boundary violations?). Explain to the students that these criteria are not arbitrary; they are the exact levers developers use to align models. For absolute beginners, illustrate this with an analogy: evaluating an AI is like hiring a contractor—you don't just ask if they are 'good'; you evaluate their speed, accuracy, and adherence to safety codes separately. \n\nNext, introduce a concrete scenario to anchor the evaluation. Imagine asking two different models to explain 'how a transformer neural network processes a word' to a non-technical manager. Present two simulated outputs. Model A provides a beautifully formatted, high-level summary with a brilliant spotlight analogy but glosses over the actual step of turning words into numbers. Model B provides a highly precise, step-by-step description of vector math but uses dense jargon that would alienate the target manager. Walk through the rubric step-by-step, showing how Model A scores high on clarity but lower on necessary detail, while Model B scores low on clarity for the specified audience but exceptionally high on raw detail.\n\nAddress a critical misconception: students often assume that the 'most detailed' answer is always the winner. We must explicitly point out that context dictates the rubric's weighting. If the target audience was a software engineer, Model B's profile is far superior. If the audience is a business executive, Model A wins. This realization shifts their mental model of AI from a search engine (which is either right or wrong) to a collaborative agent whose output must be fit-for-purpose.\n\nConclude the session with an interactive practice run where the students are handed a raw grading matrix and two competing responses to a customer complaint email. One response is overly empathetic but fails to offer a concrete refund solution; the other is blunt and transactional but solves the billing issue immediately. Guide the students to score these drafts against clarity, detail, and safety parameters. This practice reveals whether students can decouple their emotional reaction to an AI's 'tone' from its actual performance against specific operational criteria, solidifying their objective evaluation skills.",
+       "practice": {
+        "tasks": [
+         "Evaluate and score two competing model outputs using a formal rubric matrix."
+        ]
+       },
+       "sessionTime": 20,
+       "depthTags": [
+        "application"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      },
+      {
+       "sessionIndex": 2,
+       "sessionId": "3e853752-e548-49b8-8650-a57a649e04af",
+       "session_type": "whiteboard",
+       "title": "Testing AI on a Real-World Task",
+       "description": "Walk through a workplace setup to deploy and test an AI workflow directly on real task parameters.",
+       "sessionOutline": "Begin the session by clearing the whiteboard to draw a comprehensive architecture diagram of an AI Testing Pipeline. Emphasize to the learners that the biggest mistake organizations make is relying on a 'vibe check'—testing a prompt three times, seeing good results, and immediately deploying it. Explain that moving from amateur AI user to expert system builder requires a systematic, parameterized sandbox. On the whiteboard, draw a central node representing the 'System Under Test', with inputs flowing in from the left and an evaluative framework auditing outputs on the right.\n\nGuide the students through mapping out the variables of a specific, high-stakes real-world task, such as an automated customer-support responder handling billing disputes. Use the whiteboard to split this task into measurable components: input variables (customer history, dispute reason, tone) and system configurations (model type, system prompt, temperature). Show how isolating these variables allows us to pinpoint exactly why an output fails. Point out that without isolating variables, a developer might waste hours rewriting a prompt when the issue was actually a high temperature setting causing erratic syntax.\n\nIntroduce the concept of a 'Golden Dataset' on the whiteboard. This is a hand-curated collection of test cases that represents the battlefield of real-world use. Instruct the teacher to visually partition this dataset into three distinct categories: Standard Cases (60%), Edge Cases (20%), and Adversarial Cases (20%). Explain that edge cases test structural limits (e.g., extremely long, disorganized inputs), while adversarial cases test safety boundaries (e.g., a customer trying to manipulate the AI into issuing an unauthorized refund). Explain that a test plan without adversarial cases is a liability waiting to happen.\n\nNow, define the multi-dimensional evaluation rubric. Draw three distinct columns on the whiteboard: Technical Performance (latency, cost, token usage), Semantic Accuracy (factual alignment, adherence to company policy), and Behavioral Safety (avoidance of hallucinations, professional tone). Explain that a robust test plan must grade outputs against all three dimensions simultaneously. Illustrate a scenario where a prompt change improves accuracy by 5% but increases processing latency by 300%—demonstrating that optimization is always a series of trade-offs.\n\nConclude with an interactive whiteboarding exercise where students are presented with a mock output that successfully answered a customer query but violated an implicit safety policy by promising a delivery date before checking inventory. Walk the learners through logging this failure in a structured evaluation matrix, showing how to calculate an overall 'readiness score' for the model configuration. This exercise helps students build a robust mental model of iterative prompt engineering, demonstrating how systematic regression testing ensures that fixing a bug in one area doesn't inadvertently break performance in another.",
+       "practice": {
+        "tasks": [
+         "Design a comprehensive test plan with parameters, safety, and performance metrics for a real-world task."
+        ]
+       },
+       "sessionTime": 25,
+       "depthTags": [
+        "application",
+        "advanced"
+       ],
+       "references": [],
+       "completed": false,
+       "started": false
+      }
+     ],
+     "learning_finished": false
+    }
+   ],
+   "projects": [
+    {
+     "stage_id": "0072e30f-1aba-404d-98a3-68be6f543508",
+     "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+     "stage_title": "Designing a Few-Shot Prompt Template",
+     "stage_description": "In this stage, you will engineer a robust few-shot prompt template designed to perform a complex categorization and synthesis task, employing system instructions, context bounding, and few-shot examples.",
+     "deliverable_increment": "Section 4: The Master Few-Shot Prompt Template, complete with annotated design explanations showing how context, constraints, and examples steer the AI's behavior.",
+     "order": 2
+    },
+    {
+     "stage_id": "67d2bdbb-06b8-4937-b50e-c795000919b7",
+     "parent_project_id": "d35fa71d-a8ad-4337-b4fc-22420c7a52e9",
+     "stage_title": "Comparative Benchmarking of Real-World Tasks",
+     "stage_description": "In this final stage, you will execute your engineered prompt template across two different AI models, scoring their outputs based on concrete rubrics for accuracy, adherence to instructions, and helpfulness.",
+     "deliverable_increment": "Section 5: Dual-Model Benchmark Matrix and Final Evaluation, scoring and contrasting the performance of two distinct models, completing the final 'AI_Behavior_Logbook.md' deliverable.",
+     "order": 4
+    }
+   ],
+   "exams": [
+    {
+     "title": "Unit 5 Assessment: Advanced Prompting and Testing",
+     "goal": "Verify prompt drafting, context curation, model benchmarking capability, and iterative optimization skills.",
+     "sections": [
+      "Comprehensive evaluation of prompt engineering techniques, comparison matrices, and real-world implementation rules."
+     ],
+     "successCriteria": [
+      "Demonstrate advanced few-shot prompt formulation.",
+      "Apply benchmarking systems to evaluate and pick the best model for a project."
+     ],
+     "order": 5
+    }
+   ],
+   "learning_finished": false
+  }
+ ],
+ "marketplaceSourceId": "e76d14d2-dc70-47e7-a976-490b0f31497a",
+ "coverImageUrl": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/07857874-2e83-4b64-b4f8-46d93d655b62/cover/cover-e703507be4.png?v=1788347550",
+ "wideCoverImageUrl": "/api/v1/course-generation/users/11f410a5-dade-4a87-9483-fc80a35d6078/courses/07857874-2e83-4b64-b4f8-46d93d655b62/cover/cover_wide-75b29affed.png?v=1788347551"
+}

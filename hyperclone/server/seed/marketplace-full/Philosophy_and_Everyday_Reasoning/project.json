@@ -1,0 +1,307 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the first stage of your Philosophical Position Paper! Over the course of this project, you will build a rigorous, peer-ready paper that tackles a contemporary or timeless philosophical dilemma—from the ethics of AI to the nature of justice. By the end, you won't just have an essay; you'll have a masterfully structured defense of a thesis, complete with formal logic and counter-argument rebuttals. To get started, let’s build on what we just learned about hidden assumptions and philosophical inquiry. While Session 1.3 focused on uncovering unstated premises in the arguments of others, today you will begin crafting your own foundations. We are moving from being critics of reasoning to being architects of it.",
+     "step_title": "Project Introduction & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short paragraph (3-5 sentences) identifying your chosen topic and justifying why it is a 'philosophical' rather than 'empirical' inquiry. Good work will clearly distinguish between the facts of the matter and the conceptual/ethical questions at play."
+     },
+     "step_body": "Your first task is to identify a topic that invites philosophical wonder rather than just empirical data. Remember Session 1.1.1: we want a question that is 'fundamental' and 'conceptual.' Are you interested in Ethics (e.g., algorithmic bias), Epistemology (e.g., deepfakes and the nature of truth), or Metaphysics (e.g., personal identity in the digital age)? Briefly describe the contemporary issue you've chosen and explain why it cannot be solved by science or observation alone.",
+     "step_title": "Choose Your Philosophical Domain",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type your finalized philosophical question. It should be open, fundamental, and conceptual. A strong question sets a clear boundary for the argument to follow."
+     },
+     "step_body": "Now, let's use the Socratic Method on ourselves. Take your broad topic and narrow it into a single, precise question. For example, instead of 'Is AI bad?', try 'Can an autonomous system be held morally responsible for its decisions?' Use the 'Conceptual Flip' we practiced in class: take a mundane reality and find the deep question beneath it. Avoid 'yes/no' dead ends; aim for a question that requires a reasoned position.",
+     "step_title": "Refine the Central Question",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a formal outline of your argument (Premise 1, Premise 2... Conclusion). Good work will show a logical flow where the conclusion follows naturally from the premises without committing common fallacies."
+     },
+     "step_body": "Every great paper rests on a logical skeleton. Your thesis is the conclusion of your argument. To get there, you need premises—supporting claims that, if true, lead necessarily to your conclusion. Look back at Session 1.3.1 regarding 'hidden assumptions.' Ensure you aren't leaving any logical gaps. If your conclusion is 'AI should have legal rights,' your premises must bridge the gap between 'what AI is' and 'what deserves rights.' Format this as a list: Premise 1, Premise 2, Conclusion.",
+     "step_title": "Draft Your Thesis and Premises",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify one key assumption in your argument and provide a 2-sentence justification for it. Criteria: The assumption must be a necessary 'bridge' for your logic to hold."
+     },
+     "step_body": "No argument is built in a vacuum. Applying the 'Logical Gap Test' from our recent sessions, identify at least one implicit assumption your argument relies on. For example, if you argue that 'Remote work is better because it increases productivity,' you are assuming that productivity is the primary measure of a job's value. State your assumption clearly and give a brief justification for why you believe this assumption is a reasonable starting point for your paper.",
+     "step_title": "Expose Your Hidden Assumptions",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload a PDF containing: 1) A 200-300 word introduction to your topic and question, and 2) Your formal premise-by-premise logical outline. Criteria for success: Clarity of the question, logical validity of the outline, and absence of informal fallacies."
+     },
+     "step_body": "It's time to assemble your work into the first official artifact of your project: The Introductory Section and Logic Outline. This document should introduce your philosophical question, explain its relevance to the modern world, and present your formalized logical argument. This serves as the roadmap for everything you will write in the coming stages.",
+     "step_title": "Submit the Stage Deliverable",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "7e9de8a9-24c0-431b-93cd-2468b228b0ce",
+   "stage_title": "Formulating the Core Question and Argument Outline",
+   "parent_project_id": "4c14c1c2-4ef8-4ad9-8f1b-17d32a449c43",
+   "stage_description": "Select a contemporary or timeless philosophical topic, refine it into a precise philosophical question, and construct a premise-by-premise logical argument (using deductive or inductive formatting) that concludes with your main thesis. You will also state and justify your key implicit assumptions.",
+   "deliverable_increment": "An introductory section and a formalized logical argument outline (premises 1, 2, ..., and conclusion) of the central thesis, free of common logical fallacies."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you established the logical backbone of your position paper by drafting your core question and a formal argument outline. You've also recently explored the theories of truth (Correspondence, Coherence, and Pragmatic) and the traditional definition of knowledge as Justified True Belief (JTB). Now, it is time to look under the hood of your own argument. This stage focuses on the 'Justification' pillar: you will evaluate the epistemic foundations of your premises to ensure your argument isn't just a 'lucky guess,' but a robustly defended position.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify your primary premise and state whether its evidence is empirical, rationalist, or testimonial. Provide a 2-3 sentence justification for this categorization. Good work clearly links the nature of the claim to the appropriate source of knowledge."
+     },
+     "step_body": "Look at the premises in your formal argument outline. Every claim to truth relies on a specific source of knowledge. Are your premises based on 'Empiricism' (sensory data, scientific studies, or observation), 'Rationalism' (logical necessity, definitions, or mathematical truths), or 'Testimony' (expert reports or historical records)? For this step, identify which category best describes the evidence for your primary premise and explain why you've chosen that epistemic framework.",
+     "step_title": "Categorize your evidence",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State which theory of truth (Correspondence, Coherence, or Pragmatic) best aligns with your paper’s thesis and explain why. A strong response demonstrates an understanding of the theory's definition as applied to your specific topic."
+     },
+     "step_body": "Now, consider how you define the 'truth' of your argument's conclusion. If your paper is on the ethics of AI, do you rely on 'Correspondence' (it matches real-world consequences), 'Coherence' (it fits within a wider web of established moral principles), or 'Pragmatism' (the belief is true because it is the most useful way to navigate societal challenges)? Reflect on which theory of truth most strongly supports your thesis.",
+     "step_title": "Apply a theory of truth",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Recall Descartes’ radical doubt and the distinction between global and local skepticism. A peer-ready paper must anticipate doubts. If a 'local skeptic' questioned your most important piece of evidence—perhaps by pointing out sensory fallibility or the unreliability of a certain dataset—how would you respond? Instead of aiming for 100% Cartesian certainty, use the concept of 'Fallibilism' to explain why your justification is 'adequate' even if it isn't mathematically indubitable.",
+     "step_title": "Address the skeptic",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your ~400-word 'Epistemic Foundation' section. High-quality work will explicitly use terms like 'Justification,' 'Correspondence/Coherence,' and 'Fallibilism' to explain why a reader should trust the truth-claims of your argument."
+     },
+     "step_body": "It is time to synthesize these reflections into a formal 'Epistemic Foundation' section for your paper. This section should be approximately 400 words and will eventually be appended to your draft. It should: 1) State the epistemic nature of your premises (how we know they are true), 2) Justify the reliability of your evidence using a specific theory of truth, and 3) Briefly address potential skepticism or misinformation by explaining your standards for 'adequate' justification.",
+     "step_title": "Submit Epistemic Foundation",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Review your Epistemic Foundation section one last time. Ensure you haven't fallen into the 'lucky guess' trap; check that every major claim in your argument has a clear path of justification. In the next stage, we will move from how we 'know' to how we 'act,' integrating the ethical frameworks that will give your paper its moral weight.",
+     "step_title": "Final review",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "a4c522b9-d9c6-4d53-8ff9-cadaf1691239",
+   "stage_title": "Applying Epistemology and Analyzing Reality Premise",
+   "parent_project_id": "4c14c1c2-4ef8-4ad9-8f1b-17d32a449c43",
+   "stage_description": "Analyze the epistemic underpinnings of your argument by assessing what kind of knowledge or evidence your premises rely on (rationalist, empiricist, or testimonial) and address how you account for skepticism or potential misinformation regarding this evidence.",
+   "deliverable_increment": "An 'Epistemic Foundation' section (approx. 400 words) appended to the draft, justifying the reliability of your premises and truth claims."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you established the logical structure of your argument and defended the reliability of your premises through an epistemic lens. Now, we shift from 'how we know' to 'what we are.' In this stage, you will bridge the gap between your abstract thesis and the human element by defining the nature of the 'agent' involved. Whether your paper discusses AI ethics, political authority, or digital life, your argument inherently makes assumptions about personal identity and free will. We will now integrate these metaphysical foundations into your deliverable.",
+     "step_title": "Recap and stage orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Identify which criterion of personal identity (Psychological or Bodily) best aligns with your thesis and provide a 2-3 sentence justification explaining why this choice is necessary for your argument's consistency."
+     },
+     "step_body": "Based on our sessions on the 'Physicalist' versus 'Psychological' criteria of identity, consider which view better supports your thesis. If your argument relies on the persistence of moral responsibility (like Locke’s 'Bridge of Consciousness'), you might lean toward psychological continuity. If your argument relies on physical presence or biological reality, the bodily continuity criterion might be more appropriate. Reflect on your core question: Does the 'person' in your paper stay the same because of their memories and character, or because of their physical biological organism?",
+     "step_title": "Select your identity criterion",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Briefly describe your stance on human agency or the mind-body problem as it relates to your topic. Will you treat the subjects in your paper as autonomous agents with free will, or as physical systems governed by cause and effect? Explain your reasoning."
+     },
+     "step_body": "Now, consider the 'Will' part of your upcoming subsection. For your conclusion to hold weight, does the subject of your paper need to have 'Libertarian' free will (the ability to have done otherwise), or does a 'Functionalist' or 'Physicalist' view of the mind suffice? For example, if you are writing about algorithmic ethics, you must decide if a human 'agent' is a distinct thinking substance (Dualism) or a complex system of inputs and outputs (Functionalism). This choice determines whether the agent in your paper can truly be held 'responsible' in a metaphysical sense.",
+     "step_title": "Address agency and free will",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the draft of your 'Metaphysics of the Self and Will' subsection. It should be approximately 300 words and clearly define: 1) Your criterion for personal identity, and 2) Your stance on agency/free will as it applies to your thesis."
+     },
+     "step_body": "It is time to synthesize these reflections into a formal addition to your paper. You will draft a new subsection titled 'Metaphysics of the Self and Will' (approx. 300 words). This section should explicitly state your chosen view on personal identity (e.g., Parfit’s psychological continuity or the somatic/bodily view) and explain how this view preserves the 'numerical identity' of the person you are discussing. Ensure you use the terminology correctly—distinguishing between qualitative changes (getting older/smarter) and the numerical identity required for your argument to remain valid over time.",
+     "step_title": "Draft the Metaphysics subsection",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Review your draft as a whole. Ensure that the 'Epistemic Foundation' you wrote previously doesn't contradict your new 'Metaphysics' section. For instance, if you claimed we can only know things through physical observation (Empiricism), but now argue for a non-physical soul (Dualism), you may have a consistency error. Double-check that your 'Metaphysics of the Self and Will' subsection flows logically from your introductory argument outline.",
+     "step_title": "Final integration check",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "87184880-a447-450f-bcbb-ffc01a6e95d3",
+   "stage_title": "Integrating Identity, Agency, and Personal Responsibility",
+   "parent_project_id": "4c14c1c2-4ef8-4ad9-8f1b-17d32a449c43",
+   "stage_description": "Incorporate considerations of human agency, personal identity, or free will as they apply to your central question. For example, explore how your thesis assumes or challenges individual moral agency or continuous personal identity.",
+   "deliverable_increment": "A 'Metaphysics of the Self and Will' subsection (approx. 300 words) integrated into your draft, aligning your argument with a defined view on agency or personal identity."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already established the logical structure of your argument, its epistemic foundation, and its relationship to personal identity. Now, we move into the normative realm. In our recent sessions, we explored the 'Is-Ought' problem—the idea that facts about the world don't automatically tell us how we should act. This stage requires you to bridge that gap by applying formal ethical frameworks to your thesis. You will move beyond describing what 'is' and begin defending what 'ought' to be, ensuring your position is not just logically sound but morally robust.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State which two ethical frameworks you have chosen and provide a 1-2 sentence justification for why these specific lenses are relevant to your philosophical question."
+     },
+     "step_body": "To evaluate your thesis, you must choose two contrasting classical ethical frameworks. Consider Utilitarianism (focusing on the maximization of well-being/pleasure, as discussed by Mill), Deontology (focusing on duty and categorical rules), or Virtue Ethics (focusing on character and eudaimonia). Reflect on your core argument: does it naturally align with one of these? For example, if your paper is on AI ethics, does it prioritize the 'higher pleasures' of human flourishing (Mill) or the objective reality of human agency (Nozick)? Select the two frameworks that provide the most tension or the most support for your position.",
+     "step_title": "Select your ethical lenses",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Start by applying a consequentialist lens, such as Mill's Utilitarianism. Evaluate your thesis by asking: if your conclusion were enacted, how would it affect the balance of pleasure and pain? Remember to distinguish between 'higher' and 'lower' pleasures. If your position causes some temporary pain (like a strict law) but secures a higher intellectual or moral good, use Mill's 'competent judges' logic to defend it. Conversely, consider if Nozick’s 'Experience Machine' poses a threat: does your position prioritize authentic reality over mere simulated happiness?",
+     "step_title": "Draft the Utilitarian assessment",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, look at your thesis through your second chosen lens (e.g., Deontology or Virtue Ethics). This is where you address potential trade-offs. An action that maximizes happiness (Utilitarianism) might violate a moral duty or a universal rule (Objectivism). How does your argument hold up if we assume there are objective moral facts that exist independently of the 'social consensus' or the 'total utility'? Use this section to show that you've considered the moral complexity of your claim and aren't just relying on one convenient perspective.",
+     "step_title": "Contrast with a second framework",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your 'Ethical Assessment' section (approx. 500 words). Good work will explicitly name two frameworks, use terminology correctly (e.g., 'higher pleasures', 'is-ought gap', or 'moral progress'), and clearly argue why the thesis remains defensible even when viewed through contrasting moral lenses."
+     },
+     "step_body": "It is time to finalize your 'Ethical Assessment' section. This should be approximately 500 words and will be integrated into your growing position paper. You must move past the 'Relativism-Tolerance Paradox'—don't just say 'it depends on the culture.' Instead, take an objectivist stance: argue why your conclusion is the morally 'better' path when these two frameworks are weighed against each other. Clearly identify the trade-offs you are willing to accept to maintain your thesis.",
+     "step_title": "Submit the Ethical Assessment",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Read through your full draft, including this new section. Ensure that your 'Ethical Assessment' doesn't contradict your earlier 'Epistemic Foundation.' For example, if you argued for a specific type of reality in your metaphysics section, does your ethical assessment honor that (like Nozick's preference for reality over the Experience Machine)? Make sure the transition between your logical premises and your moral 'oughts' feels earned and explicitly stated.",
+     "step_title": "Final check and integration",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "52252d4a-36bc-43ed-b78e-b7517ef9bccc",
+   "stage_title": "Evaluating the Argument Under Ethical Frameworks",
+   "parent_project_id": "4c14c1c2-4ef8-4ad9-8f1b-17d32a449c43",
+   "stage_description": "Subject your thesis to at least two contrasting classical ethical frameworks (such as Utilitarianism, Deontology, or Virtue Ethics) and defend why your proposed conclusion is morally preferable or defensible.",
+   "deliverable_increment": "An 'Ethical Assessment' section (approx. 500 words) detailing the moral justifications and trade-offs of your thesis under contrasting ethical lenses."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have successfully built the foundations of your position paper: a logical argument, an epistemic justification, a metaphysical defense of agency, and an ethical assessment. Now, we enter the final and most rigorous stage of philosophical writing: the dialectic. To finish your paper, you must not only defend your view but also give a fair hearing to your strongest critic and consider the societal implications of your thesis. Drawing on our recent sessions on political authority and the social contract, you will now 'steel-manned' a counterargument and synthesize your final conclusions.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a draft of your counterargument (approx. 150-200 words). It must clearly represent a philosophical position that directly challenges your thesis and use the 'Principle of Charity' to make the objection as robust as possible."
+     },
+     "step_body": "A weak philosopher attacks a 'straw man' (a simplified version of an opposing view), but a great philosopher attacks a 'steel man'—the strongest possible version of the opposition's argument. Identify the most potent objection to your thesis. For example, if you argued for absolute democratic equality, consider the 'epistocratic' objection that uninformed voting can lead to harmful outcomes. Or, if you defended individual property rights via Locke, consider a Rousseauian critique of how private property can create systemic inequality. Draft this counterargument now, ensuring it is as persuasive and charitable as possible.",
+     "step_title": "Steel-man the counterargument",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your rebuttal (approx. 150-200 words). A strong response will pinpoint a specific weakness in the counterargument's logic or explain why your thesis provides a better solution to the problem than the objection does."
+     },
+     "step_body": "Now that you have invited your critic into the room, you must answer them. A successful rebuttal doesn't just restate your original point; it addresses the specific logic of the counterargument. You might show that the critic's premises are flawed, that their conclusion doesn't follow, or that your original framework can actually account for their concerns without collapsing. Use the logic of the Social Contract (Hobbes, Locke, or Rousseau) or Mill’s Harm Principle to justify why your position remains the more legitimate path for a society to follow.",
+     "step_title": "Draft the logical rebuttal",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Your final step is to zoom out and consider the 'big picture.' How does your position affect the relationship between the individual and the state? Based on your argument, what gives a government the legitimate right to rule in the context of your chosen topic? Briefly synthesize your previous sections on ethics and identity with your new rebuttal to explain the broader societal or political impact of your thesis. This serves as your concluding synthesis, bringing the paper to a close with a final statement on justice or authority.",
+     "step_title": "Synthesize societal impact",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload your final philosophical position paper as a PDF. It should include: 1) Core Question & Formal Argument, 2) Epistemic Foundation, 3) Metaphysics of the Self, 4) Ethical Assessment, 5) Counterargument & Rebuttal, and 6) Final Synthesis. Criteria: logical consistency, academic tone, and clear integration of the political/ethical frameworks covered in class."
+     },
+     "step_body": "It is time to assemble your complete project. Combine your core question, argument outline, epistemic foundation, metaphysics subsection, ethical assessment, and your newly drafted counterargument/rebuttal into one cohesive document. Ensure you have smooth transitions between sections and that your final paper (1,500 - 2,000 words) presents a unified, rigorous defense of your philosophical position.",
+     "step_title": "Submit the final paper",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "07643cdc-bb59-4d94-9828-beed33434fb4",
+   "stage_title": "Formulating the Counterargument, Rebuttal, and Final Synthesis",
+   "parent_project_id": "4c14c1c2-4ef8-4ad9-8f1b-17d32a449c43",
+   "stage_description": "Introduce a highly robust, steel-manned counterargument to your position, apply the Principle of Charity to make it as strong as possible, formulate a logical rebuttal to this counterargument, and synthesize your final conclusions about justice, power, or society.",
+   "deliverable_increment": "The final 'Counterargument, Rebuttal, and Societal Impact' section (approx. 400 words), fully assembling all previous stages into a cohesive, polished academic-style philosophical position paper."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "4c14c1c2-4ef8-4ad9-8f1b-17d32a449c43",
+   "project_name": "Constructing and Defending a Philosophical Position Paper",
+   "final_deliverable": "A complete, structured philosophical position paper (1,500 - 2,000 words) containing a clearly defined philosophical question, a central thesis claim, structured supporting arguments using formal deductive or inductive logic, a critical analysis of a key epistemic or metaphysical premise, an integrated ethical framework justification, a robust counterargument with a systematic rebuttal, and a final concluding synthesis.",
+   "project_description": "Throughout this course, you will choose one significant philosophical question of modern relevance (such as the ethics of algorithmic decision-making, the nature of personal identity in a digital world, or the justification of political authority) and systematically construct a rigorous, peer-ready position paper. You will build, critique, refine, and defend your argument stage by stage as you master logic, epistemology, identity, ethics, and political justice."
+  }
+ ],
+ "courseUuid": "cc6e3f5d-3fc5-4175-8e3e-ad5be4685318"
+}

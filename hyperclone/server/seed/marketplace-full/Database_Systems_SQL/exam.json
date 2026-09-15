@@ -1,0 +1,1315 @@
+{
+ "exams": [
+  {
+   "title": "Relational Foundations Comprehensive Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which phenomenon describes why a database management system (DBMS) outperforms a flat file when two users attempt to update different fields in the same record simultaneously?",
+     "options": [
+      "Physical Data Independence",
+      "Atomic Granularity",
+      "Domain Integrity",
+      "Referential Integrity"
+     ],
+     "explanation": "Atomic granularity allows a DBMS to understand and lock specific fields or rows, whereas an OS treats a flat file as a single block, leading to 'Last Write Wins' conflicts.",
+     "correctAnswers": [
+      "Atomic Granularity"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "What are the primary consequences of a 'Read-Modify-Write' cycle in a file-based storage system during high concurrent access?",
+     "options": [
+      "Performance bottlenecks due to manual file locking",
+      "Automatic rollback of corrupted strings",
+      "Data loss from 'Last Write Wins' scenarios",
+      "Increased physical data independence",
+      "Users being left in a 'loading state' while the file is locked"
+     ],
+     "explanation": "File-based systems lack sophisticated concurrency control, leading to manual locking bottlenecks, user delays, and data overwrites.",
+     "correctAnswers": [
+      "Performance bottlenecks due to manual file locking",
+      "Data loss from 'Last Write Wins' scenarios",
+      "Users being left in a 'loading state' while the file is locked"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A ____ key is an artificial identifier, such as an auto-incrementing integer, used as a primary key instead of using real-world data like a Social Security Number.",
+     "placeholder": "Type of key",
+     "correctAnswers": [
+      "surrogate"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In the context of the Relational Model, why is it incorrect to say that a table has a 'first' or 'last' row?",
+     "options": [
+      "Because tables are limited by physical disk sectors",
+      "Because relations are defined as mathematical sets where order is irrelevant",
+      "Because primary keys must always be alphabetical",
+      "Because SQL automatically re-orders rows every time a query is run"
+     ],
+     "explanation": "A relation is a mathematical set of tuples; by definition, sets do not have a sequence or inherent order.",
+     "correctAnswers": [
+      "Because relations are defined as mathematical sets where order is irrelevant"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are strict requirements for a structure to be considered a 'Relation' in Codd's model?",
+     "options": [
+      "Each row must be uniquely identifiable",
+      "The order of columns must be fixed in physical storage",
+      "Every attribute value must be atomic",
+      "Values in a column must belong to the same domain",
+      "The table must contain at least one foreign key"
+     ],
+     "explanation": "Relations require unique tuples, atomicity (no multi-valued attributes), and domain consistency for all attributes.",
+     "correctAnswers": [
+      "Each row must be uniquely identifiable",
+      "Every attribute value must be atomic",
+      "Values in a column must belong to the same domain"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A ____ anomaly occurs when you are unable to add a new piece of information to the database because it requires the presence of other data that does not yet exist.",
+     "placeholder": "Type of anomaly",
+     "correctAnswers": [
+      "insertion"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "You are designing a 'Product' table. A beginner suggests storing all compatible 'Part Numbers' for a product as a comma-separated string in a single cell. Why does this violate the Relational Model?",
+     "options": [
+      "It violates the rule of Atomicity",
+      "It exceeds the VARCHAR character limit",
+      "It breaks Referential Integrity",
+      "It violates Physical Data Independence"
+     ],
+     "explanation": "Atomicity requires that each intersection of a row and column contains exactly one value, preventing multi-valued attributes in a single cell.",
+     "correctAnswers": [
+      "It violates the rule of Atomicity"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram of two tables showing a foreign key relationship and an orphan record attempt.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/636081c4-9d78-4437-a110-eb71877dadb4/exam/images/unit1-q8.png"
+     },
+     "prompt": "A database schema contains a 'Users' table and an 'Orders' table. Which of the following actions would be prevented by a 'Referential Integrity' constraint?",
+     "options": [
+      "Deleting a user who still has associated records in the Orders table",
+      "Inserting an order with a UserID that does not exist in the Users table",
+      "Adding two users with the same email address if a Unique constraint exists",
+      "Changing a user's password without updating their Order history",
+      "Updating an OrderID to a value that already exists"
+     ],
+     "explanation": "Referential integrity ensures that foreign keys always point to valid primary keys and prevents 'orphan' records.",
+     "correctAnswers": [
+      "Deleting a user who still has associated records in the Orders table",
+      "Inserting an order with a UserID that does not exist in the Users table"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In a database, a ____ is a conceptual 'bubble' that ensures a group of changes either all succeed or all fail together, preventing corruption during crashes.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "transaction"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is the primary risk of using a 'Natural Key' like a Passport Number as a Primary Key?",
+     "options": [
+      "It cannot be indexed by the database engine",
+      "It is always slower than a UUID",
+      "It ties the schema to external standards that might change or contain errors",
+      "It prevents the use of Foreign Keys in other tables"
+     ],
+     "explanation": "Natural keys are based on external data; if that data changes or was entered incorrectly, updating the primary key can break relationships across the database.",
+     "correctAnswers": [
+      "It ties the schema to external standards that might change or contain errors"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What characteristics are mandatory for a column designated as a Primary Key?",
+     "options": [
+      "It must contain unique values",
+      "It must be an integer",
+      "It cannot contain NULL values",
+      "It must be named 'ID'",
+      "It must be referenced by at least one Foreign Key"
+     ],
+     "explanation": "Primary keys must be unique and non-null (Entity Integrity); they do not have to be integers or named 'ID'.",
+     "correctAnswers": [
+      "It must contain unique values",
+      "It cannot contain NULL values"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "Which of the following best describes 'Domain Integrity'?",
+     "options": [
+      "The requirement that every table must have a Primary Key",
+      "The enforcement of valid values for a column, such as preventing 'February 30th' in a Date field",
+      "The ability of the database to recover data after a power failure",
+      "The rule that two rows in a table cannot be identical"
+     ],
+     "explanation": "Domain integrity ensures that all data in a column adheres to the defined data type and constraints (the set of permissible values).",
+     "correctAnswers": [
+      "The enforcement of valid values for a column, such as preventing 'February 30th' in a Date field"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Which steps are required to move a table from its current state into Second Normal Form (2NF)?",
+     "options": [
+      "It must already be in First Normal Form (1NF)",
+      "All non-key attributes must be functionally dependent on the entire primary key",
+      "It must remove all transitive dependencies",
+      "It must eliminate multi-valued attributes",
+      "It must eliminate partial dependencies"
+     ],
+     "explanation": "2NF requires 1NF and the removal of partial dependencies (where a column depends on only part of a composite key).",
+     "correctAnswers": [
+      "It must already be in First Normal Form (1NF)",
+      "All non-key attributes must be functionally dependent on the entire primary key",
+      "It must eliminate partial dependencies"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "You notice that updating a supplier's phone number in one row requires you to manually search and update 50 other rows. This is an example of which data anomaly?",
+     "options": [
+      "Insertion Anomaly",
+      "Update Anomaly",
+      "Deletion Anomaly",
+      "Referential Anomaly"
+     ],
+     "explanation": "An update anomaly occurs when data redundancy forces multiple changes for a single logical update, leading to potential inconsistencies.",
+     "correctAnswers": [
+      "Update Anomaly"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of 'Active Guardian' behavior in a DBMS (as opposed to a passive file)?",
+     "options": [
+      "Rolling back a half-written change after a power failure",
+      "Rejecting a string when an integer is expected",
+      "Allowing 'Last Write Wins' to simplify history",
+      "Ensuring no two rows are identical through PK constraints",
+      "Storing data as a single blob of text"
+     ],
+     "explanation": "A DBMS actively enforces constraints, types, and transactional integrity, whereas files passively store whatever bytes are written.",
+     "correctAnswers": [
+      "Rolling back a half-written change after a power failure",
+      "Rejecting a string when an integer is expected",
+      "Ensuring no two rows are identical through PK constraints"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "The simulation shows two processes attempting to write to a single-file system versus a DBMS. Why does the DBMS eventually complete the tasks faster during high-volume bursts?",
+     "options": [
+      "The DBMS uses file-level locking which is more secure than row-level locking.",
+      "The DBMS allows concurrent writes by locking only the specific rows being modified rather than the entire dataset.",
+      "The DBMS skips the 'Read' phase of the Read-Modify-Write cycle entirely.",
+      "The DBMS increases the physical speed of the hard drive rotation during spikes."
+     ],
+     "explanation": "Granular locking (concurrency control) allows multiple users to work on different parts of the data simultaneously, whereas file-based systems force users to wait for a full file lock to release.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Concurrency Control Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 24px;\n        }\n\n        .scene {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(12px, 2.5vw, 14px);\n            color: var(--muted);\n            font-style: italic;\n            margin-bottom: 8px;\n        }\n\n        .readout {\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            font-size: 11px;\n            color: var(--muted);\n            margin-top: 8px;\n            font-variant-numeric: tabular-nums;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .axis-container {\n            width: 100%;\n            padding: 0 16px;\n            box-sizing: border-box;\n            margin-top: 10px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Comparison of concurrent write operations in two data storage models</h1>\n    \n    <div class=\"container\">\n        <div class=\"fig-wrapper\">\n            <!-- Flat File Side -->\n            <div class=\"scene\">\n                <div class=\"label\">Storage Model A</div>\n                <svg class=\"fig\" viewBox=\"0 0 160 220\" aria-hidden=\"true\">\n                    <!-- Requests Stack -->\n                    <g id=\"file-requests\"></g>\n                    <!-- Container -->\n                    <rect x=\"30\" y=\"100\" width=\"100\" height=\"100\" fill=\"none\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                    <rect id=\"file-lock-overlay\" x=\"30\" y=\"100\" width=\"100\" height=\"100\" fill=\"var(--amber)\" fill-opacity=\"0\" stroke=\"none\" />\n                    <text x=\"80\" y=\"155\" text-anchor=\"middle\" font-family=\"serif\" font-size=\"10\" fill=\"var(--muted)\">Data Block</text>\n                </svg>\n                <div class=\"readout\" id=\"file-status\">Status: Idle</div>\n            </div>\n\n            <!-- DBMS Side -->\n            <div class=\"scene\">\n                <div class=\"label\">Storage Model B</div>\n                <svg class=\"fig\" viewBox=\"0 0 160 220\" aria-hidden=\"true\">\n                    <!-- Requests Stack -->\n                    <g id=\"dbms-requests\"></g>\n                    <!-- Container Grid -->\n                    <g id=\"dbms-grid\"></g>\n                </svg>\n                <div class=\"readout\" id=\"dbms-status\">Status: Idle</div>\n            </div>\n        </div>\n\n        <!-- Shared Axis -->\n        <div class=\"axis-container\">\n            <svg width=\"100%\" height=\"40\" viewBox=\"0 0 400 40\" preserveAspectRatio=\"none\">\n                <line x1=\"0\" y1=\"20\" x2=\"400\" y2=\"20\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <text x=\"0\" y=\"35\" font-family=\"serif\" font-size=\"10\" fill=\"var(--muted)\">0ms</text>\n                <text x=\"200\" y=\"35\" font-family=\"serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"middle\">Sequence Progress</text>\n                <text x=\"400\" y=\"35\" font-family=\"serif\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"end\">4000ms</text>\n                <rect id=\"playhead\" x=\"0\" y=\"15\" width=\"2\" height=\"10\" fill=\"var(--accent)\" />\n            </svg>\n            <div class=\"readout\" style=\"text-align: center;\">4 simultaneous write requests · fixed</div>\n        </div>\n    </div>\n\n    <script>\n        // Seeded random for deterministic behavior\n        let seed = 42;\n        function random() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const fileReqGroup = document.getElementById('file-requests');\n        const dbmsReqGroup = document.getElementById('dbms-requests');\n        const dbmsGridGroup = document.getElementById('dbms-grid');\n        const fileLock = document.getElementById('file-lock-overlay');\n        const playhead = document.getElementById('playhead');\n        const fileStatus = document.getElementById('file-status');\n        const dbmsStatus = document.getElementById('dbms-status');\n\n        // Setup DBMS Grid\n        const gridCells = [];\n        const rows = 4;\n        const cols = 4;\n        const cellSize = 25;\n        for (let r = 0; r < rows; r++) {\n            for (let c = 0; c < cols; c++) {\n                const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n                rect.setAttribute(\"x\", 30 + c * cellSize);\n                rect.setAttribute(\"y\", 100 + r * cellSize);\n                rect.setAttribute(\"width\", cellSize);\n                rect.setAttribute(\"height\", cellSize);\n                rect.setAttribute(\"fill\", \"none\");\n                rect.setAttribute(\"stroke\", varProp('--rule'));\n                rect.setAttribute(\"stroke-width\", \"0.5\");\n                dbmsGridGroup.appendChild(rect);\n                \n                const fill = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n                fill.setAttribute(\"x\", 30 + c * cellSize);\n                fill.setAttribute(\"y\", 100 + r * cellSize);\n                fill.setAttribute(\"width\", cellSize);\n                fill.setAttribute(\"height\", cellSize);\n                fill.setAttribute(\"fill\", varProp('--amber'));\n                fill.setAttribute(\"fill-opacity\", \"0\");\n                dbmsGridGroup.appendChild(fill);\n                \n                gridCells.push({ r, c, fill });\n            }\n        }\n        // Border for DBMS\n        const dbBorder = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n        dbBorder.setAttribute(\"x\", 30); dbBorder.setAttribute(\"y\", 100);\n        dbBorder.setAttribute(\"width\", 100); dbBorder.setAttribute(\"height\", 100);\n        dbBorder.setAttribute(\"fill\", \"none\"); dbBorder.setAttribute(\"stroke\", varProp('--ink'));\n        dbBorder.setAttribute(\"stroke-width\", \"1.5\");\n        dbmsGridGroup.appendChild(dbBorder);\n\n        function varProp(name) {\n            return getComputedStyle(document.documentElement).getPropertyValue(name).trim();\n        }\n\n        // Request Configuration\n        const requests = [\n            { id: 0, targetCell: 2, start: 500, duration: 800 },\n            { id: 1, targetCell: 7, start: 600, duration: 800 },\n            { id: 2, targetCell: 10, start: 700, duration: 800 },\n            { id: 3, targetCell: 13, start: 800, duration: 800 }\n        ];\n\n        const fileSVGs = requests.map(r => createReqUI(fileReqGroup, r.id));\n        const dbmsSVGs = requests.map(r => createReqUI(dbmsReqGroup, r.id));\n\n        function createReqUI(parent, id) {\n            const g = document.createElementNS(\"http://www.w3.org/2000/svg\", \"g\");\n            const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n            rect.setAttribute(\"width\", \"20\");\n            rect.setAttribute(\"height\", \"20\");\n            rect.setAttribute(\"rx\", \"2\");\n            rect.setAttribute(\"fill\", varProp('--accent'));\n            const text = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n            text.textContent = \"W\";\n            text.setAttribute(\"x\", \"10\");\n            text.setAttribute(\"y\", \"14\");\n            text.setAttribute(\"text-anchor\", \"middle\");\n            text.setAttribute(\"fill\", \"white\");\n            text.setAttribute(\"font-size\", \"10\");\n            text.setAttribute(\"font-weight\", \"bold\");\n            g.appendChild(rect);\n            g.appendChild(text);\n            parent.appendChild(g);\n            return g;\n        }\n\n        function update(time) {\n            const loopDuration = 5000;\n            const t = time % loopDuration;\n            \n            // Update Playhead\n            playhead.setAttribute(\"x\", (t / loopDuration) * 400);\n\n            // Logic for Model A (Flat File - Linear/Locked)\n            let fileActiveIdx = -1;\n            let currentFileTime = 0;\n            const fileGap = 100;\n            const writeStep = 800;\n\n            requests.forEach((req, i) => {\n                const startTime = 500 + i * (writeStep + fileGap);\n                const endTime = startTime + writeStep;\n                let y = 30;\n                let opacity = 0;\n\n                if (t < startTime) {\n                    y = 30 + (i * 25);\n                    opacity = 0.4;\n                } else if (t >= startTime && t <= endTime) {\n                    y = 140;\n                    opacity = 1;\n                    fileActiveIdx = i;\n                } else {\n                    y = 140;\n                    opacity = 0;\n                }\n                fileSVGs[i].setAttribute(\"transform\", `translate(70, ${y})`);\n                fileSVGs[i].setAttribute(\"opacity\", opacity);\n            });\n\n            if (fileActiveIdx !== -1) {\n                fileLock.setAttribute(\"fill-opacity\", \"0.2\");\n                fileStatus.textContent = \"Status: Exclusive Lock\";\n            } else {\n                fileLock.setAttribute(\"fill-opacity\", \"0\");\n                fileStatus.textContent = \"Status: Idle\";\n            }\n\n            // Logic for Model B (DBMS - Granular/Parallel)\n            let activeCount = 0;\n            requests.forEach((req, i) => {\n                const startTime = req.start;\n                const endTime = startTime + req.duration;\n                let y = 30;\n                let x = 40 + (i * 25);\n                let opacity = 0;\n\n                const cell = gridCells[req.targetCell];\n\n                if (t < startTime) {\n                    opacity = 0.4;\n                } else if (t >= startTime && t <= endTime) {\n                    x = 30 + cell.c * cellSize + 2.5;\n                    y = 100 + cell.r * cellSize + 2.5;\n                    opacity = 1;\n                    cell.fill.setAttribute(\"fill-opacity\", \"0.4\");\n                    activeCount++;\n                } else {\n                    opacity = 0;\n                    cell.fill.setAttribute(\"fill-opacity\", \"0\");\n                }\n                dbmsSVGs[i].setAttribute(\"transform\", `translate(${x}, ${y})`);\n                dbmsSVGs[i].setAttribute(\"opacity\", opacity);\n            });\n\n            dbmsStatus.textContent = activeCount > 0 ? `Status: ${activeCount} Parallel Writes` : \"Status: Idle\";\n\n            // Cleanup grid highlight for inactive DBMS\n            gridCells.forEach((cell, idx) => {\n                const isTargeted = requests.some(r => r.targetCell === idx && t >= r.start && t <= (r.start + r.duration));\n                if (!isTargeted) cell.fill.setAttribute(\"fill-opacity\", \"0\");\n            });\n\n            requestAnimationFrame(update);\n        }\n\n        // Height Reporting\n        function sendHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            sendHeight();\n            requestAnimationFrame(update);\n        });\n\n        const observer = new ResizeObserver(sendHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The DBMS allows concurrent writes by locking only the specific rows being modified rather than the entire dataset."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Comprehensive Exam: SQL Retrieval Mastery",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following best describes the 'Mental Model of Retrieval' for the SELECT and FROM clauses?",
+     "options": [
+      "A mechanism for creating new tables on disk",
+      "A way to define the horizontal and vertical filters of a table",
+      "A lens that focuses attention on what you want to see and where it is located",
+      "A tool for sorting data according to specific column hierarchies"
+     ],
+     "explanation": "SELECT represents 'what you want to see' and FROM represents 'where it is located,' acting as a focus lens rather than a physical data modification tool.",
+     "correctAnswers": [
+      "A lens that focuses attention on what you want to see and where it is located"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Why is the use of 'SELECT *' often discouraged in production environments according to the unit material?",
+     "options": [
+      "It can break backend applications if the underlying schema changes",
+      "The order of columns returned is not guaranteed",
+      "It is generally slower than selecting only specific columns",
+      "It prevents the use of the WHERE clause",
+      "It automatically filters out rows containing NULL values"
+     ],
+     "explanation": "Wildcards are risky because schema changes break positional assumptions, and fetching all columns consumes more bandwidth and memory than necessary.",
+     "correctAnswers": [
+      "It can break backend applications if the underlying schema changes",
+      "The order of columns returned is not guaranteed",
+      "It is generally slower than selecting only specific columns"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To check for missing data in a column, you must use the ____ operator instead of the equality (=) operator.",
+     "placeholder": "Keyword Phrase",
+     "correctAnswers": [
+      "IS NULL"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Which SQL operator is specifically highlighted as the 'diamond operator' used to check for inequality?",
+     "options": [
+      "!=",
+      "NOT",
+      "<>",
+      "=="
+     ],
+     "explanation": "While many languages use '!=', SQL uses the diamond operator '<>' for 'not equal' as a standard comparison predicate.",
+     "correctAnswers": [
+      "<>"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When combining filters in a WHERE clause, which of the following statements are true regarding AND and OR?",
+     "options": [
+      "AND is evaluated before OR by default",
+      "OR is evaluated before AND by default",
+      "Parentheses should be used to 'defend' the intended logic",
+      "The WHERE clause keeps rows where the condition evaluates to NULL"
+     ],
+     "explanation": "Due to operator precedence, AND takes priority over OR; using parentheses ensures the query follows the developer's specific mental model.",
+     "correctAnswers": [
+      "AND is evaluated before OR by default",
+      "Parentheses should be used to 'defend' the intended logic"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In Three-Valued Logic, the result of 'False AND Unknown' is ____.",
+     "placeholder": "Logical state",
+     "correctAnswers": [
+      "False"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the context of the 'Top-N' problem, what is the logical sequence of operations the database engine performs?",
+     "options": [
+      "LIMIT -> ORDER BY -> WHERE",
+      "ORDER BY -> LIMIT -> WHERE",
+      "WHERE -> ORDER BY -> LIMIT",
+      "WHERE -> LIMIT -> ORDER BY"
+     ],
+     "explanation": "The database first identifies matching rows (WHERE), then organizes them (ORDER BY), and finally 'cuts off' the stream (LIMIT).",
+     "correctAnswers": [
+      "WHERE -> ORDER BY -> LIMIT"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of the Inner Join?",
+     "options": [
+      "It acts as a 'bridge' between isolated tables.",
+      "It only returns rows where there is a match in both tables.",
+      "It preserves all rows from the left table even if no match exists.",
+      "It is used to resolve junction tables in relational designs.",
+      "It requires the column names to be identical in both tables."
+     ],
+     "explanation": "Inner joins focus on the intersection (common ground) of two tables and are essential for navigating relationships defined by foreign keys.",
+     "correctAnswers": [
+      "It acts as a 'bridge' between isolated tables.",
+      "It only returns rows where there is a match in both tables.",
+      "It is used to resolve junction tables in relational designs."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The SQL keyword ____ is used to skip a specified number of rows before beginning to return data.",
+     "placeholder": "Keyword",
+     "correctAnswers": [
+      "OFFSET"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If a query includes 'WHERE price > 100 LIMIT 5' without an ORDER BY clause, what is the most likely outcome?",
+     "options": [
+      "The query will return the 5 most expensive products.",
+      "The query will return the 5 least expensive products.",
+      "The query will return 5 random products that satisfy the price condition.",
+      "The query will fail with a syntax error."
+     ],
+     "explanation": "Without ORDER BY, the order of results is non-deterministic; the database simply returns the first five matches it encounters.",
+     "correctAnswers": [
+      "The query will return 5 random products that satisfy the price condition."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which statements accurately reflect the concept of 'Projection' in SQL?",
+     "options": [
+      "It involves selecting specific columns rather than the whole table.",
+      "It is a horizontal slice of data.",
+      "It improves performance and network efficiency.",
+      "It allows columns to be reordered regardless of storage on disk."
+     ],
+     "explanation": "Projection is a vertical slice (columns). Selecting only necessary columns reduces data transfer and allows for customized data views.",
+     "correctAnswers": [
+      "It involves selecting specific columns rather than the whole table.",
+      "It improves performance and network efficiency.",
+      "It allows columns to be reordered regardless of storage on disk."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If a column allows missing data, SQL treats that state as a ____, which is neither zero nor an empty string.",
+     "placeholder": "Value type",
+     "correctAnswers": [
+      "NULL"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In Three-Valued Logic (3VL), what is the result of the expression 'True AND Unknown'?",
+     "options": [
+      "True",
+      "False",
+      "Unknown",
+      "NULL"
+     ],
+     "explanation": "In an AND operation, if one side is True, the result depends entirely on the other side. If that side is Unknown, the result is Unknown.",
+     "correctAnswers": [
+      "Unknown"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When using ORDER BY, what should a developer remember about data sorting?",
+     "options": [
+      "Tables are unordered sets; order is not guaranteed unless requested.",
+      "The database remembers the last sort order used in previous queries.",
+      "ASC is the default sorting direction.",
+      "Sorting occurs after the WHERE clause has filtered the rows."
+     ],
+     "explanation": "Relational tables are unordered by nature. Sorting is an ephemeral presentation step that follows filtering.",
+     "correctAnswers": [
+      "Tables are unordered sets; order is not guaranteed unless requested.",
+      "ASC is the default sorting direction.",
+      "Sorting occurs after the WHERE clause has filtered the rows."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Why does the expression 'WHERE value NOT IN (1, 2, NULL)' typically return zero results?",
+     "options": [
+      "The database stops searching when it hits a NULL.",
+      "The condition expands to include 'value != NULL', which is always Unknown.",
+      "NULL is treated as the integer 0 in set operations.",
+      "The NOT IN operator is only compatible with strings."
+     ],
+     "explanation": "NOT IN expands to a series of AND conditions. Since 'value != NULL' evaluates to Unknown, the entire expression cannot be True, causing the row to be discarded.",
+     "correctAnswers": [
+      "The condition expands to include 'value != NULL', which is always Unknown."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of these are considered 'Comparison Operators' in SQL?",
+     "options": [
+      "=",
+      "<=",
+      "LIKE",
+      "BETWEEN",
+      "&&"
+     ],
+     "explanation": "Standard comparison includes equals, less than or equal, and pattern/range matchers like LIKE and BETWEEN. '&&' is often a programmatic AND, not a standard SQL comparison operator.",
+     "correctAnswers": [
+      "=",
+      "<=",
+      "LIKE",
+      "BETWEEN"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "image": {
+      "alt": "Venn diagram showing the intersection of two sets.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/636081c4-9d78-4437-a110-eb71877dadb4/exam/images/unit2-q17.png"
+     },
+     "prompt": "Which visual tool is recommended to understand the logic of an Inner Join?",
+     "options": [
+      "Flowchart",
+      "Venn diagram",
+      "Pie chart",
+      "Scatter plot"
+     ],
+     "explanation": "A Venn diagram effectively illustrates the intersection between two tables, which represents the rows that satisfy the Inner Join condition.",
+     "correctAnswers": [
+      "Venn diagram"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "What happens to a row in a WHERE clause if the filter condition evaluates to 'Unknown'?",
+     "options": [
+      "The row is included in the result set.",
+      "The row is discarded from the result set.",
+      "The query fails with a runtime error.",
+      "The row is placed at the end of the sorted results."
+     ],
+     "explanation": "SQL's WHERE clause only retains rows where the predicate is explicitly 'True'. Both 'False' and 'Unknown' results cause the row to be excluded.",
+     "correctAnswers": [
+      "The row is discarded from the result set."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "How does the relationship between OFFSET and the total number of rows processed change as you navigate further into a dataset?",
+     "options": [
+      "The database skips earlier rows instantly without counting them, keeping performance constant.",
+      "The database must scan through and count all skipped rows to find the starting point, increasing the workload.",
+      "The OFFSET clause automatically re-indexes the table so that higher page numbers load faster.",
+      "The workload remains identical to LIMIT 1 because the database only looks at the target rows."
+     ],
+     "explanation": "High offsets are computationally expensive because the engine still has to 'count' the rows it is skipping before it can return the requested set.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>SQL Pagination Performance Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .label {\n            font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n            font-size: 11px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .readout-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .readout-label {\n            font-size: 11px;\n            color: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.03em;\n        }\n\n        .readout-value {\n            font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n            font-size: 16px;\n            font-variant-numeric: tabular-nums;\n            font-weight: 500;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n\n        /* Prevent standard range styling to keep it \"textbook\" */\n        input[type=range] {\n            -webkit-appearance: none;\n            width: 100%;\n            background: transparent;\n            margin: 10px 0;\n        }\n        input[type=range]:focus {\n            outline: none;\n        }\n        input[type=range]::-webkit-slider-runnable-track {\n            width: 100%;\n            height: 2px;\n            background: var(--rule);\n            border-radius: 0;\n        }\n        input[type=range]::-webkit-slider-thumb {\n            height: 14px;\n            width: 2px;\n            background: var(--ink);\n            cursor: pointer;\n            -webkit-appearance: none;\n            margin-top: -6px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of Database Record Scanning During Pagination</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 180\" aria-hidden=\"true\">\n                <!-- Dataset Background -->\n                <rect x=\"20\" y=\"40\" width=\"360\" height=\"40\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Axis -->\n                <line x1=\"20\" y1=\"95\" x2=\"380\" y2=\"95\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <g class=\"ticks\">\n                    <line x1=\"20\" y1=\"95\" x2=\"20\" y2=\"100\" stroke=\"var(--rule)\" />\n                    <text x=\"20\" y=\"112\" text-anchor=\"middle\" class=\"label\">0</text>\n                    \n                    <line x1=\"110\" y1=\"95\" x2=\"110\" y2=\"100\" stroke=\"var(--rule)\" />\n                    <text x=\"110\" y=\"112\" text-anchor=\"middle\" class=\"label\">2.5k</text>\n\n                    <line x1=\"200\" y1=\"95\" x2=\"200\" y2=\"100\" stroke=\"var(--rule)\" />\n                    <text x=\"200\" y=\"112\" text-anchor=\"middle\" class=\"label\">5k</text>\n\n                    <line x1=\"290\" y1=\"95\" x2=\"290\" y2=\"100\" stroke=\"var(--rule)\" />\n                    <text x=\"290\" y=\"112\" text-anchor=\"middle\" class=\"label\">7.5k</text>\n\n                    <line x1=\"380\" y1=\"95\" x2=\"380\" y2=\"100\" stroke=\"var(--rule)\" />\n                    <text x=\"380\" y=\"112\" text-anchor=\"middle\" class=\"label\">10k</text>\n                </g>\n                <text x=\"200\" y=\"128\" text-anchor=\"middle\" class=\"serif\">Offset position in dataset</text>\n\n                <!-- Scanned Region (The Phenomenon) -->\n                <rect id=\"scanned-rect\" x=\"20\" y=\"40\" width=\"0\" height=\"40\" fill=\"var(--accent)\" fill-opacity=\"0.15\" />\n                <line id=\"scan-head\" x1=\"20\" y1=\"40\" x2=\"20\" y2=\"80\" stroke=\"var(--accent)\" stroke-width=\"1.5\" />\n                \n                <!-- Result Window -->\n                <rect id=\"result-rect\" x=\"20\" y=\"38\" width=\"18\" height=\"44\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n                <text id=\"result-label\" x=\"20\" y=\"30\" class=\"serif\" fill=\"var(--amber)\">Target Page</text>\n\n                <!-- Indicator on Axis -->\n                <line id=\"axis-indicator\" x1=\"20\" y1=\"90\" x2=\"20\" y2=\"100\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n            </svg>\n        </div>\n\n        <div class=\"readout-grid\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Rows Processed</span>\n                <span id=\"val-processed\" class=\"readout-value\">0</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Rows Returned (Fixed)</span>\n                <span class=\"readout-value\">50</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Process cycle: Scanning from start to requested offset</div>\n    </div>\n\n    <script>\n        const state = {\n            offset: 0,\n            maxOffset: 10000,\n            limit: 500, // Visual width of the result window\n            startTime: null,\n            duration: 8000, // 8 seconds for a full loop\n            userInteracting: false\n        };\n\n        const elements = {\n            scannedRect: document.getElementById('scanned-rect'),\n            scanHead: document.getElementById('scan-head'),\n            resultRect: document.getElementById('result-rect'),\n            resultLabel: document.getElementById('result-label'),\n            axisIndicator: document.getElementById('axis-indicator'),\n            valProcessed: document.getElementById('val-processed')\n        };\n\n        function update(timestamp) {\n            if (!state.startTime) state.startTime = timestamp;\n            \n            // Loop progress 0 to 1\n            const elapsed = (timestamp - state.startTime) % state.duration;\n            const progress = elapsed / state.duration;\n            \n            // Map progress to offset (0 to 9500 to leave room for the 500-unit \"result\")\n            state.offset = progress * 9500;\n            \n            draw();\n            requestAnimationFrame(update);\n        }\n\n        function draw() {\n            const startX = 20;\n            const totalWidth = 360;\n            const pixelsPerUnit = totalWidth / state.maxOffset;\n            \n            const offsetPx = state.offset * pixelsPerUnit;\n            const limitPx = state.limit * pixelsPerUnit;\n\n            // Update Scanning region\n            elements.scannedRect.setAttribute('width', offsetPx + limitPx);\n            elements.scanHead.setAttribute('x1', startX + offsetPx + limitPx);\n            elements.scanHead.setAttribute('x2', startX + offsetPx + limitPx);\n\n            // Update Result Window\n            elements.resultRect.setAttribute('x', startX + offsetPx);\n            elements.resultLabel.setAttribute('x', startX + offsetPx);\n\n            // Update Axis Indicator\n            elements.axisIndicator.setAttribute('x1', startX + offsetPx);\n            elements.axisIndicator.setAttribute('x2', startX + offsetPx);\n\n            // Update Readouts\n            // The phenomenon: rows processed = offset + limit\n            const totalProcessed = Math.floor(state.offset + 50); \n            elements.valProcessed.textContent = totalProcessed.toLocaleString();\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n\n        // Handle reduced motion\n        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');\n        if (motionQuery.matches) {\n            // If reduced motion, just show a high offset state\n            state.offset = 7500;\n            draw = () => {}; // Disable further drawing\n        }\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The database must scan through and count all skipped rows to find the starting point, increasing the workload."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Modifying and Structuring Data Certification",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "When performing an INSERT, why is the 'Explicit Mapping' syntax (listing column names) considered a professional standard compared to the 'Implicit' version?",
+     "options": [
+      "It improves query performance by reducing the transactional tax.",
+      "It makes the code resilient to schema changes like adding new columns.",
+      "It is the only way to allow the database to use default values.",
+      "It automatically prevents 'NULL Trap' errors during the handshake."
+     ],
+     "explanation": "Explicit mapping ensures that even if new columns are added to the table later, the specific mapping between values and intended columns remains intact, preventing 'implicit' code from breaking or misaligning data.",
+     "correctAnswers": [
+      "It makes the code resilient to schema changes like adding new columns."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following statements accurately describe the differences between DELETE and TRUNCATE?",
+     "options": [
+      "DELETE is a 'scalpel' that can remove specific rows based on a WHERE clause.",
+      "TRUNCATE is generally more efficient for clearing large staging tables.",
+      "TRUNCATE is reversible via standard transaction logs in the same way DELETE is.",
+      "DELETE operations are logged and check constraints/triggers row-by-row.",
+      "TRUNCATE allows you to target specific primary keys using a filter."
+     ],
+     "explanation": "DELETE is a logged, row-level operation that supports filters, whereas TRUNCATE is a high-performance 'sledgehammer' that empties the entire table at once without evaluating row-level conditions.",
+     "correctAnswers": [
+      "DELETE is a 'scalpel' that can remove specific rows based on a WHERE clause.",
+      "TRUNCATE is generally more efficient for clearing large staging tables.",
+      "DELETE operations are logged and check constraints/triggers row-by-row."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The 'Handshake of Integrity' refers to the concept that an INSERT statement must fulfill the requirements of the ____ defined in the schema design phase.",
+     "placeholder": "Enter the term used for the schema's rules",
+     "correctAnswers": [
+      "contract"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "You are designing a forum. When a user deletes their account, you want their posts to remain visible for context, but the 'author_id' should no longer point to the deleted user. Which referential action is most appropriate?",
+     "options": [
+      "ON DELETE CASCADE",
+      "ON DELETE RESTRICT",
+      "ON DELETE SET NULL",
+      "ON DELETE NO ACTION"
+     ],
+     "explanation": "SET NULL allows the child record (the post) to survive while removing the link to the parent (the user), provided the column allows null values.",
+     "correctAnswers": [
+      "ON DELETE SET NULL"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the primary advantages of using the 'INSERT INTO ... SELECT' pattern (The Migration Engine)?",
+     "options": [
+      "It eliminates the need for a WHERE clause in the source table.",
+      "It prevents data from having to leave the database and enter application code.",
+      "It allows for the dynamic transformation of data during the move.",
+      "It is the only way to bypass 'NOT NULL' constraints.",
+      "It is more efficient than pulling data into Python/JavaScript just to push it back."
+     ],
+     "explanation": "Keeping the data move internal to the database reduces overhead (no network latency or application serialization) and leverages the database's own transformation power.",
+     "correctAnswers": [
+      "It prevents data from having to leave the database and enter application code.",
+      "It allows for the dynamic transformation of data during the move.",
+      "It is more efficient than pulling data into Python/JavaScript just to push it back."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the context of referential integrity, the 'Nuclear Option' refers to overusing the ____ action, which could lead to massive unintended data loss across a hierarchy.",
+     "placeholder": "Enter the referential action",
+     "correctAnswers": [
+      "CASCADE",
+      "ON DELETE CASCADE"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A developer attempts to insert a record into a table with a CHECK (price > 0) constraint, but the insert fails because the price is 0. How should this 'rejection' be viewed in a professional context?",
+     "options": [
+      "As a system failure that needs a code patch.",
+      "As a bug in the SQL dialect being used.",
+      "As a proactive feature that prevents downstream application errors.",
+      "As an unnecessary restriction that should be moved to the frontend."
+     ],
+     "explanation": "Constraints act as the 'First Line of Defense,' ensuring only valid data enters the system and maintaining the 'Source of Truth.'",
+     "correctAnswers": [
+      "As a proactive feature that prevents downstream application errors."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "How do UNIQUE constraints differ from PRIMARY KEY constraints according to the unit material?",
+     "options": [
+      "A table can have multiple UNIQUE constraints but only one PRIMARY KEY.",
+      "UNIQUE constraints never allow NULL values, while PRIMARY KEYS do.",
+      "UNIQUE columns can often allow a single NULL value (depending on dialect).",
+      "UNIQUE constraints are used for distinct attributes like emails or SSNs.",
+      "PRIMARY KEYS automatically include a UNIQUE constraint."
+     ],
+     "explanation": "Primary keys are the ultimate identifier and never allow NULLs, while UNIQUE constraints ensure distinct values for secondary attributes and may allow a NULL entry depending on the database system.",
+     "correctAnswers": [
+      "A table can have multiple UNIQUE constraints but only one PRIMARY KEY.",
+      "UNIQUE columns can often allow a single NULL value (depending on dialect).",
+      "UNIQUE constraints are used for distinct attributes like emails or SSNs.",
+      "PRIMARY KEYS automatically include a UNIQUE constraint."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To create a column that automatically populates the time of entry if the developer provides no value, you should use the ____ constraint with a function like CURRENT_TIMESTAMP.",
+     "placeholder": "Enter the constraint name",
+     "correctAnswers": [
+      "DEFAULT"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which SQL operation is described as having a 'transactional tax' that can be mitigated by using a 'Bulk Insert' (trolley) approach?",
+     "options": [
+      "SELECT",
+      "INSERT",
+      "ALTER TABLE",
+      "CREATE VIEW"
+     ],
+     "explanation": "Every INSERT statement has overhead (connection, parsing, committing). Bulk inserts reduce the total number of operations, thus reducing total I/O and latency.",
+     "correctAnswers": [
+      "INSERT"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In a scenario where you are updating user statuses based on their 'last_login' date, which SQL components are most likely to be used together?",
+     "options": [
+      "The UPDATE keyword to initiate the change.",
+      "The SET keyword to define the new status.",
+      "A WHERE clause to filter for specific date ranges.",
+      "A TRUNCATE command to clear old logins.",
+      "An INSERT INTO ... SELECT to move inactive users."
+     ],
+     "explanation": "Conditional updates rely on the UPDATE/SET/WHERE structure to target a specific subset of rows based on business logic like login dates.",
+     "correctAnswers": [
+      "The UPDATE keyword to initiate the change.",
+      "The SET keyword to define the new status.",
+      "A WHERE clause to filter for specific date ranges."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ behavior is the 'Safety First' approach because it blocks the deletion of a parent record as long as associated child records exist.",
+     "placeholder": "Enter the referential action name",
+     "correctAnswers": [
+      "RESTRICT",
+      "NO ACTION"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Before running a destructive DELETE command, what safety-check workflow is recommended?",
+     "options": [
+      "Run TRUNCATE first to see if it works.",
+      "Run a SELECT with the same WHERE clause to verify the targeted rows.",
+      "Remove all constraints to ensure the command finishes quickly.",
+      "Change the primary key of the table to prevent data loss."
+     ],
+     "explanation": "Since DELETE is permanent and operates with absolute literalism, running a SELECT first ensures you are only targeting the intended records.",
+     "correctAnswers": [
+      "Run a SELECT with the same WHERE clause to verify the targeted rows."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When should logic be kept in the application layer (Python/JavaScript) rather than as a CHECK constraint in the database?",
+     "options": [
+      "When the rule is a core, immutable business truth (like price > 0).",
+      "When the rule changes frequently (like a monthly promotional tax rate).",
+      "When the rule requires checking data across multiple external APIs.",
+      "When the database does not support the specific logical operator required.",
+      "When you want to prevent garbage data from ever reaching the source of truth."
+     ],
+     "explanation": "Database constraints are best for stable, structural integrity. Volatile business rules or rules requiring external data are better handled in the application layer.",
+     "correctAnswers": [
+      "When the rule changes frequently (like a monthly promotional tax rate).",
+      "When the rule requires checking data across multiple external APIs.",
+      "When the database does not support the specific logical operator required."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "A ____ constraint ensures that a 'product_price' cannot be negative, effectively bridging the gap between data types and business rules.",
+     "placeholder": "Enter the constraint type",
+     "correctAnswers": [
+      "CHECK"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "If a column is marked 'NOT NULL' and does not have a 'DEFAULT' value defined, what happens if an INSERT statement omits that column?",
+     "options": [
+      "The database inserts an empty string.",
+      "The operation fails because the database is an 'uncompromising judge of quality'.",
+      "The database automatically assigns the next available integer.",
+      "The record is inserted but hidden from SELECT queries until the value is provided."
+     ],
+     "explanation": "This is known as the 'NULL Trap.' Without a default value to provide a safety net, a NOT NULL constraint mandates that the developer provide data or the transaction will be rejected.",
+     "correctAnswers": [
+      "The operation fails because the database is an 'uncompromising judge of quality'."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of the following are valid uses of the 'WHERE clause first' mindset?",
+     "options": [
+      "Using SELECT to verify the scope of an intended UPDATE.",
+      "Using a filter to limit the 'blast radius' of a DELETE.",
+      "Setting a default value for a new column.",
+      "Applying conditional logic to target specific rows for modification.",
+      "Creating a UNIQUE constraint on an email column."
+     ],
+     "explanation": "The 'WHERE clause first' mindset focuses on defining boundaries for destructive or transformative operations to prevent accidental mass data loss.",
+     "correctAnswers": [
+      "Using SELECT to verify the scope of an intended UPDATE.",
+      "Using a filter to limit the 'blast radius' of a DELETE.",
+      "Applying conditional logic to target specific rows for modification."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "image": {
+      "alt": "Diagram illustrating the cascading deletion effect in a hierarchy.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/636081c4-9d78-4437-a110-eb71877dadb4/exam/images/unit3-q18.png"
+     },
+     "prompt": "What is the primary risk of using 'ON DELETE CASCADE' in a deep organizational hierarchy (e.g., Company -> Department -> Employee)?",
+     "options": [
+      "It will cause a 'Foreign Key Constraint Violated' error.",
+      "It might result in a 'blast radius' that wipes out thousands of unintended records.",
+      "It prevents the use of Primary Keys in the Employee table.",
+      "It forces all Employee fields to be nullable."
+     ],
+     "explanation": "CASCADE creates a chain reaction. Deleting a single parent at the top can automatically delete all descendants across multiple tables, which is often too destructive for critical data.",
+     "correctAnswers": [
+      "It might result in a 'blast radius' that wipes out thousands of unintended records."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Why does the performance gap between multiple individual INSERTs and a single bulk INSERT widen as the number of records increases?",
+     "options": [
+      "Because the bulk insert bypasses the transactional tax associated with opening and committing connections for every single row.",
+      "Because the individual inserts require the database to re-index the entire table after every single semicolon, which is exponentially slower.",
+      "Because bulk inserts ignore NOT NULL constraints, allowing the database to write data to disk without checking for quality.",
+      "Because individual inserts use more disk space than bulk inserts, causing the database to run out of memory during large operations."
+     ],
+     "explanation": "As seen in the simulation, each individual operation carries fixed overhead (parsing, connection, I/O commit). A single bulk statement amortizes that overhead across all records, leading to significantly higher efficiency.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Transactional Overhead Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .simulation-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 24px;\n        }\n\n        .process-box {\n            display: flex;\n            flex-direction: column;\n            gap: 8px;\n        }\n\n        .label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(12px, 2.5vw, 14px);\n            font-style: italic;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .readout {\n            font-variant-numeric: tabular-nums;\n            font-size: 13px;\n            display: flex;\n            justify-content: space-between;\n            border-bottom: 1px solid var(--rule);\n            padding-bottom: 4px;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n            background: #fff;\n            border: 1px solid var(--rule);\n            border-radius: 2px;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: 10px;\n            fill: var(--muted);\n        }\n\n        .caption {\n            text-align: center;\n            font-family: Georgia, serif;\n            font-size: 12px;\n            font-style: italic;\n            color: var(--muted);\n            margin-top: 8px;\n        }\n\n        .fixed-tag {\n            font-size: 10px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            opacity: 0.7;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Comparison of Row-by-Row and Batch Operations</h1>\n\n    <div class=\"container\" aria-label=\"A simulation showing the speed and behavior difference between row-by-row commits and batch commits.\">\n        \n        <div class=\"simulation-grid\">\n            <!-- Process A: One-by-One -->\n            <div class=\"process-box\">\n                <div class=\"label\">Method A</div>\n                <div class=\"readout\">\n                    <span>Records: <span id=\"count-a\">0</span></span>\n                    <span id=\"timer-a\" style=\"color: var(--accent)\">0.00s</span>\n                </div>\n                <svg viewBox=\"0 0 100 140\" class=\"fig-svg\" id=\"svg-a\">\n                    <!-- Grid -->\n                    <line x1=\"10\" y1=\"120\" x2=\"90\" y2=\"120\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    <line x1=\"10\" y1=\"20\" x2=\"10\" y2=\"120\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    \n                    <!-- Progress Bar Track -->\n                    <rect x=\"15\" y=\"30\" width=\"10\" height=\"80\" fill=\"var(--bg)\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    <rect id=\"bar-a\" x=\"15\" y=\"110\" width=\"10\" height=\"0\" fill=\"var(--accent)\" />\n                    \n                    <!-- Commit Indicator Light -->\n                    <circle id=\"commit-a\" cx=\"70\" cy=\"50\" r=\"4\" fill=\"var(--rule)\" />\n                    <text x=\"50\" y=\"70\" class=\"axis-label\" text-anchor=\"middle\">Commit Event</text>\n                    \n                    <!-- Axis -->\n                    <text x=\"10\" y=\"132\" class=\"axis-label\">0</text>\n                    <text x=\"90\" y=\"132\" class=\"axis-label\" text-anchor=\"end\">100</text>\n                </svg>\n                <div class=\"readout\" style=\"border:none; font-size: 11px; color: var(--muted);\">\n                    <span>Overhead: <span class=\"fixed-tag\">Active</span></span>\n                </div>\n            </div>\n\n            <!-- Process B: Batch -->\n            <div class=\"process-box\">\n                <div class=\"label\">Method B</div>\n                <div class=\"readout\">\n                    <span>Records: <span id=\"count-b\">0</span></span>\n                    <span id=\"timer-b\" style=\"color: var(--amber)\">0.00s</span>\n                </div>\n                <svg viewBox=\"0 0 100 140\" class=\"fig-svg\" id=\"svg-b\">\n                    <!-- Grid -->\n                    <line x1=\"10\" y1=\"120\" x2=\"90\" y2=\"120\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    <line x1=\"10\" y1=\"20\" x2=\"10\" y2=\"120\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    \n                    <!-- Progress Bar Track -->\n                    <rect x=\"15\" y=\"30\" width=\"10\" height=\"80\" fill=\"var(--bg)\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                    <rect id=\"bar-b\" x=\"15\" y=\"110\" width=\"10\" height=\"0\" fill=\"var(--amber)\" />\n                    \n                    <!-- Commit Indicator Light -->\n                    <circle id=\"commit-b\" cx=\"70\" cy=\"50\" r=\"4\" fill=\"var(--rule)\" />\n                    <text x=\"50\" y=\"70\" class=\"axis-label\" text-anchor=\"middle\">Commit Event</text>\n\n                    <!-- Axis -->\n                    <text x=\"10\" y=\"132\" class=\"axis-label\">0</text>\n                    <text x=\"90\" y=\"132\" class=\"axis-label\" text-anchor=\"end\">100</text>\n                </svg>\n                <div class=\"readout\" style=\"border:none; font-size: 11px; color: var(--muted);\">\n                    <span>Overhead: <span class=\"fixed-tag\">Active</span></span>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"caption\">Insertion of 100 identical records via two different execution patterns.</div>\n    </div>\n\n    <script>\n        const countA = document.getElementById('count-a');\n        const countB = document.getElementById('count-b');\n        const timerA = document.getElementById('timer-a');\n        const timerB = document.getElementById('timer-b');\n        const barA = document.getElementById('bar-a');\n        const barB = document.getElementById('bar-b');\n        const commitA = document.getElementById('commit-a');\n        const commitB = document.getElementById('commit-b');\n\n        let startTime = null;\n        const TOTAL_RECORDS = 100;\n        \n        // Timing constants (ms)\n        const ROW_WORK = 15;        // Time to process data for one row\n        const COMMIT_LATENCY = 60;  // Overhead of a single commit event\n        const BATCH_INIT = 150;     // Initial setup for a bulk operation\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) % 11000; // Total loop cycle ~11s\n            \n            // --- Logic for Method A (Individual) ---\n            // Each record takes (ROW_WORK + COMMIT_LATENCY)\n            const cycleA = ROW_WORK + COMMIT_LATENCY;\n            const progressA = Math.min(TOTAL_RECORDS, Math.floor(elapsed / cycleA));\n            const subCycleA = elapsed % cycleA;\n            \n            // Visuals A\n            countA.textContent = progressA;\n            const heightA = (progressA / TOTAL_RECORDS) * 80;\n            barA.setAttribute('y', 110 - heightA);\n            barA.setAttribute('height', heightA);\n            \n            // Commit indicator A flashes during the latency part of the cycle\n            const isCommittingA = subCycleA > ROW_WORK && progressA < TOTAL_RECORDS;\n            commitA.setAttribute('fill', isCommittingA ? 'var(--accent)' : 'var(--rule)');\n            \n            if (progressA < TOTAL_RECORDS) {\n                timerA.textContent = (elapsed / 1000).toFixed(2) + 's';\n            }\n\n            // --- Logic for Method B (Batch) ---\n            // Slight initial pause then smooth motion\n            let progressB = 0;\n            let timeB = 0;\n            \n            if (elapsed > BATCH_INIT) {\n                // Once init is done, it moves smoothly. \n                // We'll make it significantly faster per record than Method A's work phase\n                const batchRate = 8; // ms per record in batch\n                progressB = Math.min(TOTAL_RECORDS, (elapsed - BATCH_INIT) / batchRate);\n            }\n            \n            // Visuals B\n            countB.textContent = Math.floor(progressB);\n            const heightB = (progressB / TOTAL_RECORDS) * 80;\n            barB.setAttribute('y', 110 - heightB);\n            barB.setAttribute('height', heightB);\n            \n            // Commit indicator B only flashes at the very end\n            const isCommittingB = progressB >= TOTAL_RECORDS && elapsed < (BATCH_INIT + (TOTAL_RECORDS * 8) + COMMIT_LATENCY);\n            commitB.setAttribute('fill', isCommittingB ? 'var(--amber)' : 'var(--rule)');\n\n            if (progressB < TOTAL_RECORDS) {\n                timerB.textContent = (elapsed / 1000).toFixed(2) + 's';\n            }\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        new ResizeObserver(reportHeight).observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the bulk insert bypasses the transactional tax associated with opening and committing connections for every single row."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Performance and Storage Comprehensive Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You have a table with 1,000,000 rows. In the worst-case scenario, how many operations are required to find a record via a Full Table Scan versus a search using a B-Tree index?",
+     "options": [
+      "1,000,000 operations vs. roughly 20 operations",
+      "1,000,000 operations vs. roughly 1,000 operations",
+      "500,000 operations vs. roughly 100 operations",
+      "1,000,000 operations vs. roughly 10,000 operations"
+     ],
+     "explanation": "A Full Table Scan is O(N), meaning 1 million operations for 1 million rows. A B-Tree lookup is logarithmic (O(log N)); log base 2 of 1 million is approximately 20.",
+     "correctAnswers": [
+      "1,000,000 operations vs. roughly 20 operations"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the physical 'cost' of maintaining indexes in a relational database?",
+     "options": [
+      "Every UPDATE to an indexed column requires modifying the corresponding B-Tree.",
+      "Indexes occupy separate physical disk space and can eventually exceed the size of the raw table data.",
+      "Adding an index improves the speed of both SELECT and INSERT operations.",
+      "Over-indexing can lead to 'Index Fatigue', where background maintenance like VACUUMing becomes a bottleneck.",
+      "Indexes modify the original heap table's physical row order to stay sorted."
+     ],
+     "explanation": "Indexes slow down writes (INSERT/UPDATE/DELETE) because the tree must be updated. They are separate structures and do not change the heap's physical order.",
+     "correctAnswers": [
+      "Every UPDATE to an indexed column requires modifying the corresponding B-Tree.",
+      "Indexes occupy separate physical disk space and can eventually exceed the size of the raw table data.",
+      "Over-indexing can lead to 'Index Fatigue', where background maintenance like VACUUMing becomes a bottleneck."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When a B-Tree node becomes completely full during an insertion, the database engine performs a ____, which involves moving a median value to the parent node to maintain balance.",
+     "placeholder": "Enter process name",
+     "correctAnswers": [
+      "node split",
+      "split",
+      "page split"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram illustrating lexicographical ordering in a composite index.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/636081c4-9d78-4437-a110-eb71877dadb4/exam/images/unit4-q4.png"
+     },
+     "prompt": "You have a composite index on (last_name, first_name). Why can the database NOT use this index for a query that only filters by 'first_name'?",
+     "options": [
+      "Because of the Left-to-Right Rule: the data is only sorted by first_name within groups of the same last_name.",
+      "Because composite indexes only work when all columns in the index are used in the WHERE clause.",
+      "Because the database engine always prioritizes a Full Table Scan for single-column filters.",
+      "Because 'first_name' is a leaf node and 'last_name' is a root node in this specific B-Tree."
+     ],
+     "explanation": "In a composite index (A, B), the B-values are only sorted relative to a specific A-value. Without knowing A, the database cannot jump to a specific B entry efficiently.",
+     "correctAnswers": [
+      "Because of the Left-to-Right Rule: the data is only sorted by first_name within groups of the same last_name."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "An architect is designing a high-volume 'Orders' table. In which scenarios should they likely AVOID creating an index?",
+     "options": [
+      "On a boolean column like 'is_processed' where the values are evenly split 50/50.",
+      "On a high-cardinality 'email' column used for user logins.",
+      "On a 'notes' column containing large blobs of text that are never used for filtering.",
+      "On a column that is already the prefix of an existing composite index.",
+      "On the primary key column 'order_id'."
+     ],
+     "explanation": "Low selectivity columns (like 50/50 booleans) and unused large text columns don't benefit from indexing. Redundant prefix indexes also add unnecessary write overhead.",
+     "correctAnswers": [
+      "On a boolean column like 'is_processed' where the values are evenly split 50/50.",
+      "On a 'notes' column containing large blobs of text that are never used for filtering.",
+      "On a column that is already the prefix of an existing composite index."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In database architecture, a ____ is the fundamental unit of storage (often 8KB or 16KB) that is read from or written to the disk at once.",
+     "placeholder": "Unit name",
+     "correctAnswers": [
+      "page",
+      "block",
+      "data page"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary advantage of a 'Covering Index' (Index-Only Scan)?",
+     "options": [
+      "It eliminates the need to fetch the full row from the heap storage.",
+      "It reduces the size of the index by removing the pointers to the heap.",
+      "It allows the database to skip the root node of the B-Tree.",
+      "It automatically sorts the physical table to match the index."
+     ],
+     "explanation": "If the index contains all columns requested in the query, the database can return the result immediately from the index structure without doing expensive disk I/O to the main table (the heap).",
+     "correctAnswers": [
+      "It eliminates the need to fetch the full row from the heap storage."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When analyzing a query plan, which of the following signs indicate that an index is NOT being used effectively?",
+     "options": [
+      "The operation listed is 'Seq Scan' (Sequential Scan).",
+      "The cost estimate grows linearly with the number of rows in the table.",
+      "The operation listed is 'Index Only Scan'.",
+      "A filter is applied to a non-prefix column of a composite index.",
+      "The 'Actual Time' for a single-row lookup is 1ms."
+     ],
+     "explanation": "Sequential scans and linear growth indicate the database is reading the whole table. Non-prefix filters on composite indexes usually cannot utilize the index's sorted structure.",
+     "correctAnswers": [
+      "The operation listed is 'Seq Scan' (Sequential Scan).",
+      "The cost estimate grows linearly with the number of rows in the table.",
+      "A filter is applied to a non-prefix column of a composite index."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The measure of how unique the values in a column are is called ____; high values here typically make a column a better candidate for indexing.",
+     "placeholder": "Term",
+     "correctAnswers": [
+      "selectivity",
+      "cardinality"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is 'SELECT *' considered a performance anti-pattern when trying to utilize Covering Indexes?",
+     "options": [
+      "It almost certainly requests columns not included in the index, forcing a heap fetch.",
+      "It causes the B-Tree to lock the entire table during the scan.",
+      "It forces the database to use a Binary Search Tree instead of a B-Tree.",
+      "It prevents the database from using the Left-to-Right rule."
+     ],
+     "explanation": "To achieve an Index-Only Scan, every selected column must be in the index. SELECT * pulls all columns, making it nearly impossible for an index to 'cover' the query.",
+     "correctAnswers": [
+      "It almost certainly requests columns not included in the index, forcing a heap fetch."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What physical actions must the database engine take when a row is deleted from a table with multiple indexes?",
+     "options": [
+      "Locate and remove the entry from every associated B-Tree index.",
+      "Re-sort the entire heap table to fill the empty hole.",
+      "Mark the space in the heap as available for future writes.",
+      "Perform potential node rebalancing or merging if a B-Tree page becomes too empty.",
+      "Delete the entire B-Tree and rebuild it from scratch."
+     ],
+     "explanation": "Deletions require updating all indexes and the heap. B-Trees may rebalance (merge) if they fall below a certain fill factor.",
+     "correctAnswers": [
+      "Locate and remove the entry from every associated B-Tree index.",
+      "Mark the space in the heap as available for future writes.",
+      "Perform potential node rebalancing or merging if a B-Tree page becomes too empty."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If you have an index on (A, B) and an existing index on (A), the index on (A) is considered ____ and can usually be removed to improve write performance.",
+     "placeholder": "Status",
+     "correctAnswers": [
+      "redundant",
+      "overlapping",
+      "unnecessary"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of tree heights between BST and B-Tree.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/636081c4-9d78-4437-a110-eb71877dadb4/exam/images/unit4-q13.png"
+     },
+     "prompt": "Which data structure is better suited for disk-based storage and why?",
+     "options": [
+      "B-Tree, because its high fan-out minimizes physical disk seeks.",
+      "Binary Search Tree, because it is simpler to implement in memory.",
+      "Sorted Array, because it requires zero extra disk space.",
+      "Hash Table, because it always provides O(1) search time for range queries."
+     ],
+     "explanation": "Disk I/O is slow. B-Trees are shallow and wide, meaning they require fewer 'jumps' between disk pages compared to deep Binary Search Trees.",
+     "correctAnswers": [
+      "B-Tree, because its high fan-out minimizes physical disk seeks."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Given a query: 'SELECT name FROM users WHERE age > 25 ORDER BY department', which composite index strategies might be effective?",
+     "options": [
+      "(age, department, name)",
+      "(department, age, name)",
+      "(name, age)",
+      "(age, name)",
+      "(department, name)"
+     ],
+     "explanation": "Effective indexes should include filtering columns (age) and ordering columns (department). Including 'name' makes it a covering index.",
+     "correctAnswers": [
+      "(age, department, name)",
+      "(department, age, name)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "When a B-Tree undergoes a series of rapid insertions, why does the number of disk I/O operations per search remain relatively constant rather than growing linearly with the data size?",
+     "options": [
+      "The tree splits and grows horizontally ('fan-out'), keeping the total height extremely shallow.",
+      "The database automatically converts the B-Tree into a linear heap to save on pointer lookups.",
+      "The root node is deleted and recreated at every insertion to ensure the path is always one level.",
+      "The database skips intermediate nodes and jumps directly from the root to the leaf regardless of size."
+     ],
+     "explanation": "B-Trees are 'flat and wide'. Because each node can have hundreds of children (high fan-out), the tree's height—which determines disk I/O—increases very slowly (logarithmically) even as millions of rows are added.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>B-Tree Growth and Balancing Simulation</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --ink: #1f1f1f;\n    --muted: #8a8a8a;\n    --rule: #d8d5d0;\n    --accent: #4C6696;\n    --amber: #c47c00;\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    overflow: hidden;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n    color: var(--ink);\n  }\n\n  .container {\n    width: 100%;\n    max-width: 640px;\n    margin: 0 auto;\n    padding: 16px;\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    gap: 20px;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n\n  /* Figure Styling */\n  .fig-container {\n    width: 100%;\n    height: 240px;\n    position: relative;\n  }\n\n  .btree-svg {\n    width: 100%;\n    height: 100%;\n    display: block;\n  }\n\n  .node-rect {\n    fill: #fff;\n    stroke: var(--ink);\n    stroke-width: 1.5px;\n  }\n\n  .node-text {\n    font-size: 11px;\n    text-anchor: middle;\n    dominant-baseline: middle;\n    fill: var(--ink);\n  }\n\n  .link-line {\n    stroke: var(--rule);\n    stroke-width: 1px;\n    fill: none;\n  }\n\n  /* Dashboard / Readouts */\n  .dashboard {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    border-top: 1px solid var(--rule);\n    padding-top: 16px;\n  }\n\n  .stat-box {\n    display: flex;\n    flex-direction: column;\n  }\n\n  .stat-label {\n    font-family: Georgia, serif;\n    font-size: clamp(11px, 2.5vw, 13px);\n    font-style: italic;\n    color: var(--muted);\n    margin-bottom: 4px;\n  }\n\n  .stat-value {\n    font-size: 24px;\n    font-weight: 300;\n    font-variant-numeric: tabular-nums;\n  }\n\n  .val-accent { color: var(--accent); }\n  .val-amber { color: var(--amber); }\n\n  .constant-label {\n    font-size: 10px;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    background: var(--rule);\n    padding: 1px 4px;\n    border-radius: 2px;\n    margin-left: 6px;\n    vertical-align: middle;\n    font-weight: bold;\n    color: #666;\n  }\n\n  .caption {\n    font-family: Georgia, serif;\n    font-size: 12px;\n    font-style: italic;\n    color: var(--muted);\n    text-align: center;\n    margin-top: 4px;\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"sr-only\">Simulation of B-Tree expansion and level balancing</h1>\n\n<div class=\"container\">\n  <div class=\"fig-container\" aria-label=\"A tree structure growing horizontally as items are added\">\n    <svg class=\"btree-svg\" id=\"btreeSvg\" viewBox=\"0 0 600 240\" preserveAspectRatio=\"xMidYMid meet\">\n      <!-- Content generated by JS -->\n    </svg>\n  </div>\n\n  <div class=\"dashboard\">\n    <div class=\"stat-box\">\n      <span class=\"stat-label\">Total Elements</span>\n      <div class=\"stat-value val-accent\" id=\"count-elements\">0</div>\n    </div>\n    <div class=\"stat-box\">\n      <span class=\"stat-label\">Tree Level (Height)</span>\n      <div class=\"stat-value val-amber\" id=\"count-levels\">1</div>\n    </div>\n    <div class=\"stat-box\">\n      <span class=\"stat-label\">Nodes Created</span>\n      <div class=\"stat-value\" id=\"count-nodes\">1</div>\n    </div>\n    <div class=\"stat-box\">\n      <span class=\"stat-label\">Degree (Max Keys)<span class=\"constant-label\">Fixed</span></span>\n      <div class=\"stat-value\" style=\"color: var(--muted)\">3</div>\n    </div>\n  </div>\n\n  <div class=\"caption\">Continuous insertion run: observing depth vs width</div>\n</div>\n\n<script>\n/**\n * Simple B-Tree implementation for visualization\n * Order (M) = 4, so max keys = 3.\n */\nconst M = 4;\nconst MAX_KEYS = M - 1;\n\nclass BTreeNode {\n  constructor(isLeaf = true) {\n    this.keys = [];\n    this.children = [];\n    this.isLeaf = isLeaf;\n    this.x = 0;\n    this.y = 0;\n    this.width = 0;\n  }\n}\n\nclass BTree {\n  constructor() {\n    this.root = new BTreeNode();\n    this.totalNodes = 1;\n    this.height = 1;\n  }\n\n  insert(key) {\n    let root = this.root;\n    if (root.keys.length === MAX_KEYS) {\n      let s = new BTreeNode(false);\n      this.totalNodes++;\n      this.root = s;\n      s.children.push(root);\n      this.splitChild(s, 0, root);\n      this.insertNonFull(s, key);\n      this.height++;\n    } else {\n      this.insertNonFull(root, key);\n    }\n  }\n\n  splitChild(x, i, y) {\n    let z = new BTreeNode(y.isLeaf);\n    this.totalNodes++;\n    let mid = Math.floor(MAX_KEYS / 2);\n    let midKey = y.keys[mid];\n\n    z.keys = y.keys.splice(mid + 1);\n    if (!y.isLeaf) {\n      z.children = y.children.splice(mid + 1);\n    }\n\n    y.keys.splice(mid);\n\n    x.children.splice(i + 1, 0, z);\n    x.keys.splice(i, 0, midKey);\n  }\n\n  insertNonFull(x, k) {\n    let i = x.keys.length - 1;\n    if (x.isLeaf) {\n      while (i >= 0 && k < x.keys[i]) {\n        i--;\n      }\n      x.keys.splice(i + 1, 0, k);\n    } else {\n      while (i >= 0 && k < x.keys[i]) {\n        i--;\n      }\n      i++;\n      if (x.children[i].keys.length === MAX_KEYS) {\n        this.splitChild(x, i, x.children[i]);\n        if (k > x.keys[i]) {\n          i++;\n        }\n      }\n      this.insertNonFull(x.children[i], k);\n    }\n  }\n}\n\n// Layout helper: Calculates coordinates for SVG\nfunction layoutTree(node, depth, xStart) {\n  const nodeWidth = node.keys.length * 20 + 10;\n  const verticalGap = 50;\n  const horizontalGap = 10;\n\n  node.y = 30 + depth * verticalGap;\n  \n  if (node.isLeaf) {\n    node.x = xStart;\n    node.width = nodeWidth;\n    return nodeWidth + horizontalGap;\n  } else {\n    let currentX = xStart;\n    let totalChildWidth = 0;\n    for (let child of node.children) {\n      let w = layoutTree(child, depth + 1, currentX);\n      totalChildWidth += w;\n      currentX += w;\n    }\n    node.width = nodeWidth;\n    node.x = xStart + (totalChildWidth - horizontalGap) / 2 - nodeWidth / 2;\n    return totalChildWidth;\n  }\n}\n\nconst svg = document.getElementById('btreeSvg');\nconst countElements = document.getElementById('count-elements');\nconst countLevels = document.getElementById('count-levels');\nconst countNodes = document.getElementById('count-nodes');\n\nlet tree = new BTree();\nlet frame = 0;\nlet elementSequence = Array.from({length: 40}, (_, i) => i + 1);\nlet currentIndex = 0;\n\nfunction drawNode(node) {\n  const g = document.createElementNS(\"http://www.w3.org/2000/svg\", \"g\");\n  \n  // Links to children\n  if (!node.isLeaf) {\n    node.children.forEach(child => {\n      const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n      line.setAttribute(\"x1\", node.x + node.width / 2);\n      line.setAttribute(\"y1\", node.y + 10);\n      line.setAttribute(\"x2\", child.x + child.width / 2);\n      line.setAttribute(\"y2\", child.y + 10);\n      line.classList.add(\"link-line\");\n      svg.appendChild(line);\n      drawNode(child);\n    });\n  }\n\n  // Node box\n  const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n  rect.setAttribute(\"x\", node.x);\n  rect.setAttribute(\"y\", node.y);\n  rect.setAttribute(\"width\", node.width);\n  rect.setAttribute(\"height\", 20);\n  rect.setAttribute(\"rx\", 2);\n  rect.classList.add(\"node-rect\");\n  g.appendChild(rect);\n\n  // Divider lines\n  for (let i = 1; i < node.keys.length; i++) {\n    const l = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n    l.setAttribute(\"x1\", node.x + i * 20 + 5);\n    l.setAttribute(\"y1\", node.y);\n    l.setAttribute(\"x2\", node.x + i * 20 + 5);\n    l.setAttribute(\"y2\", node.y + 20);\n    l.setAttribute(\"stroke\", \"var(--rule)\");\n    g.appendChild(l);\n  }\n\n  // Keys\n  node.keys.forEach((key, i) => {\n    const text = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n    text.setAttribute(\"x\", node.x + i * 20 + 15);\n    text.setAttribute(\"y\", node.y + 11);\n    text.classList.add(\"node-text\");\n    text.textContent = key;\n    g.appendChild(text);\n  });\n\n  svg.appendChild(g);\n}\n\nfunction update() {\n  if (frame % 60 === 0) {\n    if (currentIndex >= elementSequence.length) {\n      tree = new BTree();\n      currentIndex = 0;\n    } else {\n      tree.insert(elementSequence[currentIndex]);\n      currentIndex++;\n    }\n\n    // Render\n    svg.innerHTML = '';\n    layoutTree(tree.root, 0, 10);\n    \n    // Auto-center shift\n    let minX = Infinity, maxX = -Infinity;\n    function findBounds(n) {\n      minX = Math.min(minX, n.x);\n      maxX = Math.max(maxX, n.x + n.width);\n      if(!n.isLeaf) n.children.forEach(findBounds);\n    }\n    findBounds(tree.root);\n    const treeWidth = maxX - minX;\n    const offset = (600 - treeWidth) / 2 - minX;\n    \n    function applyOffset(n) {\n      n.x += offset;\n      if(!n.isLeaf) n.children.forEach(applyOffset);\n    }\n    applyOffset(tree.root);\n\n    drawNode(tree.root);\n\n    // Update stats\n    countElements.textContent = currentIndex;\n    countLevels.textContent = tree.height;\n    countNodes.textContent = tree.totalNodes;\n  }\n  \n  frame++;\n  requestAnimationFrame(update);\n}\n\n// Initial height report\nfunction reportHeight() {\n  try {\n    parent.postMessage({ \n      type: 'hk-anim-height', \n      height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n    }, '*');\n  } catch(e) {}\n}\n\nwindow.addEventListener('load', () => {\n  reportHeight();\n  update();\n});\n\nconst ro = new ResizeObserver(reportHeight);\nro.observe(document.body);\n\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The tree splits and grows horizontally ('fan-out'), keeping the total height extremely shallow."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Transactions and Modern Systems Comprehensive Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During a banking transfer from Account A to Account B, the power fails after the money is deducted from A but before it is added to B. Which ACID property ensures the money is not lost and the system returns to its original state?",
+     "options": [
+      "Atomicity",
+      "Consistency",
+      "Isolation",
+      "Durability"
+     ],
+     "explanation": "Atomicity ensures the 'all or nothing' rule; if any part of the transaction fails, the entire set of operations is undone to prevent 'half-baked' states like money disappearing.",
+     "correctAnswers": [
+      "Atomicity"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of the 'Durability' property in ACID?",
+     "options": [
+      "Changes are stored in RAM for faster access after a restart",
+      "Completed transactions survive a total hardware reboot",
+      "Transactions are recorded in a Write-Ahead Log on non-volatile storage",
+      "It prevents multiple users from accessing the same row simultaneously"
+     ],
+     "explanation": "Durability guarantees that once a transaction is committed, it remains in the system even in the event of a crash, typically by writing to non-volatile storage rather than just volatile RAM.",
+     "correctAnswers": [
+      "Completed transactions survive a total hardware reboot",
+      "Transactions are recorded in a Write-Ahead Log on non-volatile storage"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "A developer initiates a transaction with BEGIN, performs five UPDATE operations, and then loses their network connection before sending any further commands. What is the status of the data in the database?",
+     "options": [
+      "The data is permanently updated because the commands were sent",
+      "The changes are held in a 'Draft State' forever until the developer reconnects",
+      "The database engine will eventually roll back the changes to maintain integrity",
+      "Only the first and last updates are committed to ensure partial success"
+     ],
+     "explanation": "Uncommitted transactions are not permanent; if a session is interrupted without a COMMIT, the database must discard the 'purgatory' data to maintain an atomic and consistent state.",
+     "correctAnswers": [
+      "The database engine will eventually roll back the changes to maintain integrity"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "What are the primary risks associated with 'Long-Running Transactions'?",
+     "options": [
+      "Increased consumption of system memory to track old and new data",
+      "Potential for locking other users out of specific data rows or tables",
+      "The automatic disabling of the Write-Ahead Log",
+      "Creation of system-wide performance bottlenecks"
+     ],
+     "explanation": "Long-running transactions hold locks and require the database to maintain multiple versions of data, which consumes resources and blocks other operations.",
+     "correctAnswers": [
+      "Increased consumption of system memory to track old and new data",
+      "Potential for locking other users out of specific data rows or tables",
+      "Creation of system-wide performance bottlenecks"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "Which isolation level is generally considered the default for PostgreSQL and prevents 'Dirty Reads' but allows 'Non-repeatable Reads'?",
+     "options": [
+      "Read Uncommitted",
+      "Read Committed",
+      "Repeatable Read",
+      "Serializable"
+     ],
+     "explanation": "Read Committed ensures a transaction only sees data that has been officially committed, though the data could still change between two subsequent reads in the same transaction.",
+     "correctAnswers": [
+      "Read Committed"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "Identify the scenario(s) that describe a 'Phantom Read' anomaly.",
+     "options": [
+      "Reading a balance of $100, then reading it again and seeing $200 because another user committed an update.",
+      "Running a query for 'All users in New York' twice and getting 10 rows the first time but 11 rows the second time.",
+      "Reading a value that is later deleted by a ROLLBACK operation.",
+      "A range-based search finding new records that were inserted and committed by a different transaction."
+     ],
+     "explanation": "Phantom reads involve the 'set' of results changing due to insertions or deletions in a range, rather than an existing row being modified.",
+     "correctAnswers": [
+      "Running a query for 'All users in New York' twice and getting 10 rows the first time but 11 rows the second time.",
+      "A range-based search finding new records that were inserted and committed by a different transaction."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the context of isolation levels, what is the primary trade-off when moving from 'Read Committed' to 'Serializable'?",
+     "options": [
+      "Higher consistency at the cost of significantly lower performance and higher abort rates",
+      "Better performance at the cost of allowing more dirty reads",
+      "Increased disk space usage with no impact on transaction speed",
+      "Lower memory usage but higher risk of phantom reads"
+     ],
+     "explanation": "Serializable provides the highest safety but introduces massive overhead due to strict locking or dependency tracking, which can slow down high-traffic systems.",
+     "correctAnswers": [
+      "Higher consistency at the cost of significantly lower performance and higher abort rates"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of these are valid reasons to choose a NoSQL architecture over a traditional SQL system?",
+     "options": [
+      "The need for flexible, schema-less data structures",
+      "The requirement for ACID compliance across all distributed nodes",
+      "The necessity of horizontal scaling across many commodity servers",
+      "Storing simple key-value pairs with extremely high throughput"
+     ],
+     "explanation": "NoSQL systems are optimized for scale and flexibility, often sacrificing strict ACID compliance (following the CAP theorem) to achieve high availability and performance.",
+     "correctAnswers": [
+      "The need for flexible, schema-less data structures",
+      "The necessity of horizontal scaling across many commodity servers",
+      "Storing simple key-value pairs with extremely high throughput"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of MVCC versioning",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/636081c4-9d78-4437-a110-eb71877dadb4/exam/images/unit5-q9.png"
+     },
+     "prompt": "How does Multi-Version Concurrency Control (MVCC) differ from traditional locking?",
+     "options": [
+      "MVCC prevents all reads while a write is occurring",
+      "MVCC allows readers to see a consistent snapshot of the data without being blocked by writers",
+      "MVCC requires the database to stay in 'autocommit' mode",
+      "MVCC only works with the Read Uncommitted isolation level"
+     ],
+     "explanation": "MVCC maintains multiple versions of data rows, allowing transactions to read 'older' versions of data while new versions are being written, improving concurrency.",
+     "correctAnswers": [
+      "MVCC allows readers to see a consistent snapshot of the data without being blocked by writers"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "image": {
+      "alt": "Database sharding diagram",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/636081c4-9d78-4437-a110-eb71877dadb4/exam/images/unit5-q10.png"
+     },
+     "prompt": "When implementing a 'Sharding' strategy, what factors must a developer consider to ensure efficiency?",
+     "options": [
+      "Selecting a 'Shard Key' that distributes data evenly across nodes",
+      "Ensuring all transactions are always cross-shard for maximum security",
+      "The complexity of performing joins across different shards",
+      "Avoiding 'hot spots' where one shard handles significantly more traffic than others"
+     ],
+     "explanation": "Effective sharding requires balanced distribution (avoiding hot spots) and minimizing cross-shard operations, which are computationally expensive.",
+     "correctAnswers": [
+      "Selecting a 'Shard Key' that distributes data evenly across nodes",
+      "The complexity of performing joins across different shards",
+      "Avoiding 'hot spots' where one shard handles significantly more traffic than others"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "According to the CAP Theorem, in the event of a network partition, a distributed system must choose between:",
+     "options": [
+      "Speed and Security",
+      "Consistency and Availability",
+      "Durability and Isolation",
+      "Atomicity and Performance"
+     ],
+     "explanation": "The CAP theorem states that in a distributed system, during a network partition (P), you can maintain either Consistency (C) or Availability (A), but not both.",
+     "correctAnswers": [
+      "Consistency and Availability"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Which of the following describes the 'Consistency' property in ACID as defined in this unit?",
+     "options": [
+      "The database ensures that only valid data following defined rules is saved",
+      "It acts as a gatekeeper for business logic, such as preventing negative balances",
+      "It ensures that a transaction is a transition from one valid state to another",
+      "It guarantees that two users cannot see each other's work"
+     ],
+     "explanation": "Consistency in ACID refers to data integrity and the enforcement of schema rules/constraints, whereas 'guaranteeing users cannot see each other's work' is the definition of Isolation.",
+     "correctAnswers": [
+      "The database ensures that only valid data following defined rules is saved",
+      "It acts as a gatekeeper for business logic, such as preventing negative balances",
+      "It ensures that a transaction is a transition from one valid state to another"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a social media application needs to display 'Like' counts that are eventually accurate but don't need to be perfectly synchronized globally every second, which consistency model is most appropriate?",
+     "options": [
+      "Strong Consistency",
+      "Strict Serializability",
+      "Eventual Consistency",
+      "Immediate Atomicity"
+     ],
+     "explanation": "Eventual consistency allows for high availability and performance by allowing temporary discrepancies that resolve over time, which is perfect for non-critical data like like counts.",
+     "correctAnswers": [
+      "Eventual Consistency"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "What is the primary function of a 'Write-Ahead Log' (WAL)?",
+     "options": [
+      "To provide a backup of the database in a different geographic region",
+      "To ensure durability by recording changes before they are applied to the main data files",
+      "To speed up 'SELECT' queries by indexing common search terms",
+      "To allow multiple users to edit the same row without any locks"
+     ],
+     "explanation": "WAL is a standard method for ensuring that even if a crash occurs, the database can replay the log to recover any committed changes that hadn't yet been written to the data files.",
+     "correctAnswers": [
+      "To ensure durability by recording changes before they are applied to the main data files"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Why does the transaction in the simulation fail to maintain a consistent sum despite seeing only 'committed' data?",
+     "options": [
+      "Because the Read Committed level allows external updates to change row values between the first and second read.",
+      "Because the transaction is reading uncommitted 'dirty' data that is later rolled back by the other user.",
+      "Because the simulation is using Row-Level locking which prevents the second read from completing at all.",
+      "Because the Write-Ahead Log has reached its capacity and forced an early termination of the calculation."
+     ],
+     "explanation": "In the simulation, a 'Non-repeatable Read' occurs: the observer reads a value, another user commits a change, and a second read yields a different value, breaking the report's internal logic.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Concurrent Transaction Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            color: var(--ink);\n            font-family: var(--sans);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readout-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-card {\n            display: flex;\n            flex-direction: column;\n        }\n\n        .label {\n            font-family: var(--serif);\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .value {\n            font-size: 18px;\n            font-weight: 600;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .user-a { color: var(--accent); }\n        .user-b { color: var(--amber); }\n\n        .timeline-axis {\n            margin-top: 8px;\n        }\n\n        .caption {\n            font-family: var(--serif);\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 4px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of two concurrent database transactions affecting a sum calculation</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"0 0 400 240\" aria-hidden=\"true\">\n            <!-- Table Representation -->\n            <g transform=\"translate(40, 20)\">\n                <text x=\"0\" y=\"-10\" font-family=\"var(--serif)\" font-style=\"italic\" font-size=\"12\" fill=\"var(--muted)\">Database Records</text>\n                \n                <!-- Table Rows -->\n                <g id=\"rows-group\"></g>\n                \n                <!-- Scanner for User A -->\n                <rect id=\"scanner\" x=\"-5\" y=\"0\" width=\"120\" height=\"18\" fill=\"var(--accent)\" fill-opacity=\"0.1\" stroke=\"var(--accent)\" stroke-width=\"1\" style=\"display:none;\"/>\n                <path id=\"scanner-arrow\" d=\"M 125 9 L 135 9\" stroke=\"var(--accent)\" stroke-width=\"1.5\" fill=\"none\" marker-end=\"url(#arrowhead)\" style=\"display:none;\"/>\n            </g>\n\n            <!-- Timelines -->\n            <g transform=\"translate(180, 20)\">\n                <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"180\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"180\" y1=\"0\" x2=\"180\" y2=\"180\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Ticks -->\n                <g id=\"timeline-ticks\"></g>\n\n                <!-- Labels -->\n                <text x=\"0\" y=\"-10\" text-anchor=\"middle\" font-family=\"var(--serif)\" font-size=\"12\" fill=\"var(--muted)\">User A</text>\n                <text x=\"180\" y=\"-10\" text-anchor=\"middle\" font-family=\"var(--serif)\" font-size=\"12\" fill=\"var(--muted)\">User B</text>\n\n                <!-- Progress Lines -->\n                <path id=\"path-a\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\" />\n                <path id=\"path-b\" stroke=\"var(--amber)\" stroke-width=\"2\" fill=\"none\" />\n                \n                <!-- Current Position Markers (Not handles) -->\n                <circle id=\"head-a\" r=\"3\" fill=\"var(--accent)\" />\n                <circle id=\"head-b\" r=\"3\" fill=\"var(--amber)\" />\n            </g>\n\n            <defs>\n                <marker id=\"arrowhead\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orient=\"auto\">\n                    <polygon points=\"0 0, 6 3, 0 6\" fill=\"var(--accent)\" />\n                </marker>\n            </defs>\n        </svg>\n\n        <div class=\"readout-grid\">\n            <div class=\"readout-card\">\n                <span class=\"label\">User A: Calculated Sum</span>\n                <span id=\"sum-a\" class=\"value user-a\">0</span>\n            </div>\n            <div class=\"readout-card\">\n                <span class=\"label\">User B: Row 8 Status</span>\n                <span id=\"status-b\" class=\"value user-b\">Original</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Parallel execution of a summation and a record update.</div>\n    </div>\n\n    <script>\n        const ROWS_COUNT = 10;\n        const INITIAL_VAL = 10;\n        const UPDATE_VAL = 50;\n        const UPDATE_ROW_INDEX = 7; // Row 8 (0-indexed)\n\n        const rowsGroup = document.getElementById('rows-group');\n        const scanner = document.getElementById('scanner');\n        const sumAElement = document.getElementById('sum-a');\n        const statusBElement = document.getElementById('status-b');\n        const pathA = document.getElementById('path-a');\n        const pathB = document.getElementById('path-b');\n        const headA = document.getElementById('head-a');\n        const headB = document.getElementById('head-b');\n\n        // Setup static rows\n        for (let i = 0; i < ROWS_COUNT; i++) {\n            const g = document.createElementNS(\"http://www.w3.org/2000/svg\", \"g\");\n            g.setAttribute(\"transform\", `translate(0, ${i * 18})`);\n            \n            const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n            rect.setAttribute(\"width\", \"110\");\n            rect.setAttribute(\"height\", \"16\");\n            rect.setAttribute(\"fill\", \"white\");\n            rect.setAttribute(\"stroke\", \"var(--rule)\");\n            rect.setAttribute(\"rx\", \"2\");\n\n            const txt = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n            txt.setAttribute(\"x\", \"55\");\n            txt.setAttribute(\"y\", \"12\");\n            txt.setAttribute(\"text-anchor\", \"middle\");\n            txt.setAttribute(\"font-size\", \"10\");\n            txt.setAttribute(\"fill\", \"var(--ink)\");\n            txt.textContent = `Row ${i+1}: ${INITIAL_VAL}`;\n            txt.id = `row-text-${i}`;\n\n            g.appendChild(rect);\n            g.appendChild(txt);\n            rowsGroup.appendChild(g);\n        }\n\n        const ticksGroup = document.getElementById('timeline-ticks');\n        for (let i = 0; i <= 10; i++) {\n            const y = (i / 10) * 180;\n            const l1 = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n            l1.setAttribute(\"x1\", \"-3\"); l1.setAttribute(\"y1\", y); l1.setAttribute(\"x2\", \"3\"); l1.setAttribute(\"y2\", y);\n            l1.setAttribute(\"stroke\", \"var(--rule)\");\n            ticksGroup.appendChild(l1);\n            \n            const l2 = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n            l2.setAttribute(\"x1\", \"177\"); l2.setAttribute(\"y1\", y); l2.setAttribute(\"x2\", \"183\"); l2.setAttribute(\"y2\", y);\n            l2.setAttribute(\"stroke\", \"var(--rule)\");\n            ticksGroup.appendChild(l2);\n        }\n\n        let startTime = null;\n        const DURATION = 10000; // 10 seconds total loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let progress = ((timestamp - startTime) % DURATION) / DURATION;\n\n            // Phase definitions (0.0 to 1.0)\n            // User A starts at 0.1, ends sum at 0.9\n            // User B updates at 0.4 and commits at 0.5\n            \n            let sumA = 0;\n            let row8Val = INITIAL_VAL;\n            let scannerY = -100;\n            let showScanner = false;\n\n            // User A Timeline Logic\n            let aProgress = 0;\n            if (progress > 0.1 && progress < 0.9) {\n                aProgress = (progress - 0.1) / 0.8;\n                showScanner = true;\n                const rowsRead = Math.floor(aProgress * ROWS_COUNT);\n                \n                // Deterministic calculation based on state at read time\n                for (let i = 0; i < ROWS_COUNT; i++) {\n                    const rowReadProgress = (i + 0.5) / ROWS_COUNT;\n                    if (aProgress > rowReadProgress) {\n                        // If User A is past this row, what was the value when they were exactly there?\n                        // User B updates at progress 0.45 (committed)\n                        const timeOfRead = 0.1 + (rowReadProgress * 0.8);\n                        const valAtRead = (i === UPDATE_ROW_INDEX && timeOfRead > 0.5) ? UPDATE_VAL : INITIAL_VAL;\n                        sumA += valAtRead;\n                    }\n                }\n                scannerY = Math.min(ROWS_COUNT - 1, Math.floor(aProgress * ROWS_COUNT)) * 18;\n            } else if (progress >= 0.9) {\n                // Final calculation result\n                aProgress = 1;\n                // Row 8 was updated at progress 0.5. User A reached Row 8 at aProgress = 7.5/10 = 0.75\n                // 0.1 + 0.75 * 0.8 = 0.7. 0.7 > 0.5, so they saw the update.\n                sumA = (INITIAL_VAL * (ROWS_COUNT - 1)) + UPDATE_VAL; \n            }\n\n            // User B Timeline Logic\n            let bProgress = 0;\n            let statusB = \"Original\";\n            if (progress > 0.3) {\n                bProgress = Math.min(1, (progress - 0.3) / 0.2);\n                if (progress > 0.4) statusB = \"Updating...\";\n                if (progress > 0.5) {\n                    statusB = \"Committed\";\n                    row8Val = UPDATE_VAL;\n                }\n            }\n\n            // Update DOM\n            scanner.style.display = showScanner ? 'block' : 'none';\n            scanner.setAttribute('y', scannerY);\n            \n            for (let i = 0; i < ROWS_COUNT; i++) {\n                const el = document.getElementById(`row-text-${i}`);\n                const currentVal = (i === UPDATE_ROW_INDEX && progress > 0.5) ? UPDATE_VAL : INITIAL_VAL;\n                el.textContent = `Row ${i+1}: ${currentVal}`;\n                el.setAttribute('fill', (i === UPDATE_ROW_INDEX && progress > 0.5) ? 'var(--amber)' : 'var(--ink)');\n            }\n\n            sumAElement.textContent = sumA;\n            statusBElement.textContent = statusB;\n            statusBElement.style.color = (progress > 0.5) ? 'var(--amber)' : 'var(--muted)';\n\n            // Update paths\n            const yA = 0 + (aProgress * 180);\n            pathA.setAttribute('d', `M 0 0 L 0 ${yA}`);\n            headA.setAttribute('cx', 0);\n            headA.setAttribute('cy', yA);\n\n            const yB = 0 + (bProgress * 180);\n            pathB.setAttribute('d', `M 180 0 L 180 ${yB}`);\n            headB.setAttribute('cx', 180);\n            headB.setAttribute('cy', yB);\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.onload = () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n            new ResizeObserver(reportHeight).observe(document.body);\n        };\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the Read Committed level allows external updates to change row values between the first and second read."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "c94f24d2-e674-44df-abc3-9b322eb969dd"
+}

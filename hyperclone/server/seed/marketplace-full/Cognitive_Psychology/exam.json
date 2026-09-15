@@ -1,0 +1,1184 @@
+{
+ "exams": [
+  {
+   "title": "Foundations and Perception Comprehensive Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During the 'Cognitive Revolution,' what was the primary reason researchers moved away from Behaviorism to explain language?",
+     "options": [
+      "Language is purely an imitation of parental speech and reinforcement.",
+      "Language is generative, allowing humans to create sentences they have never heard before.",
+      "Behaviorists believed the mind was too complex to ever be understood by science.",
+      "Brain imaging showed that language production and comprehension happen in different areas."
+     ],
+     "explanation": "Chomsky's 'Poverty of the Stimulus' argument highlighted that children produce novel sentences, proving language is governed by internal rules rather than just reinforced imitation.",
+     "correctAnswers": [
+      "Language is generative, allowing humans to create sentences they have never heard before."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are considered fundamental characteristics of the 'Information-Processing' approach to the mind?",
+     "options": [
+      "Cognition involves a series of discrete processing stages.",
+      "The mind acts as a passive sponge, reflecting the environment exactly.",
+      "Mental processes involve the transformation and encoding of information.",
+      "Mental capacity is finite, similar to how computer hardware has limits.",
+      "All mental activities are purely emotional and cannot be modeled logically."
+     ],
+     "explanation": "The information-processing approach views the mind as an active processor that encodes and transforms data through specific stages, subject to hardware-like capacity limits.",
+     "correctAnswers": [
+      "Cognition involves a series of discrete processing stages.",
+      "Mental processes involve the transformation and encoding of information.",
+      "Mental capacity is finite, similar to how computer hardware has limits."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In mental chronometry, the 'ruler' of cognitive science is defined as the time interval between a stimulus and a response, known as ____.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "reaction time",
+      "response time",
+      "latency"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram showing the logic of double dissociation between two patients.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/2f2b0715-6318-4205-ae35-fac328658dcc/exam/images/unit1-q4.png"
+     },
+     "prompt": "A researcher discovers that Patient A can recognize faces but not objects, while Patient B can recognize objects but not faces. This scenario is a classic example of:",
+     "options": [
+      "A speed-accuracy trade-off",
+      "A double dissociation",
+      "The poverty of the stimulus",
+      "Top-down processing failure"
+     ],
+     "explanation": "Double dissociation proves that two cognitive functions (face recognition and object recognition) are independent and supported by distinct neural circuitries.",
+     "correctAnswers": [
+      "A double dissociation"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following were key catalysts for the birth of Cognitive Psychology in the 1950s?",
+     "options": [
+      "Chomsky's critique of Skinner's 'Verbal Behavior'",
+      "George Miller's research on short-term memory capacity",
+      "The invention of the first functional MRI scanner",
+      "The 1956 Symposium on Information Theory at MIT",
+      "The complete abandonment of experimental methodology"
+     ],
+     "explanation": "The Cognitive Revolution was sparked by linguistics (Chomsky), memory limits (Miller), and the development of computer science/information theory.",
+     "correctAnswers": [
+      "Chomsky's critique of Skinner's 'Verbal Behavior'",
+      "George Miller's research on short-term memory capacity",
+      "The 1956 Symposium on Information Theory at MIT"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'Magic Number ____' plus or minus two, identified by George Miller, refers to the capacity limit of human short-term memory.",
+     "placeholder": "Number",
+     "correctAnswers": [
+      "Seven",
+      "7"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "According to the computer metaphor of the mind, if neurons and brain structures are the 'hardware,' what is the 'software'?",
+     "options": [
+      "The physical skull and cerebrospinal fluid",
+      "External stimuli like light and sound",
+      "Internal mental processes like memory and attention",
+      "The biological reinforcement of behaviors"
+     ],
+     "explanation": "Cognitive psychology views mental processes as the programs or 'software' that run on the biological 'hardware' of the brain.",
+     "correctAnswers": [
+      "Internal mental processes like memory and attention"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A person is quickly reading a menu in a dim restaurant. Which factors represent 'top-down' processing in this scenario?",
+     "options": [
+      "Using knowledge of food items to guess a blurry word.",
+      "The light from the page hitting the retina.",
+      "Expecting to see the word 'Entrée' at the top of the page.",
+      "Distinguishing the color contrast between ink and paper.",
+      "Recalling a previous meal to help interpret a vague description."
+     ],
+     "explanation": "Top-down processing uses prior knowledge, expectations, and context to interpret sensory information, whereas bottom-up processing relies on the raw sensory data.",
+     "correctAnswers": [
+      "Using knowledge of food items to guess a blurry word.",
+      "Expecting to see the word 'Entrée' at the top of the page.",
+      "Recalling a previous meal to help interpret a vague description."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The technique of grouping random digits into meaningful sets (like area codes) to overcome memory limits is called ____.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "chunking"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What does the concept of 'localization of function' imply for cognitive models?",
+     "options": [
+      "Every part of the brain is equally responsible for every thought.",
+      "Mental processes have specific, dedicated physical sites in the brain.",
+      "The mind can be understood without any reference to biology.",
+      "Cognitive models are always identical across all animal species."
+     ],
+     "explanation": "Localization of function suggests that specific cognitive processes, like language or vision, are mapped to specific regions of the brain's anatomy.",
+     "correctAnswers": [
+      "Mental processes have specific, dedicated physical sites in the brain."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why did Behaviorists refer to the mind as a 'Black Box'?",
+     "options": [
+      "They believed internal states were unobservable and unscientific.",
+      "They felt that only inputs and outputs were necessary for a rigorous science of behavior.",
+      "They thought the mind was literally a black void inside the skull.",
+      "They wanted to focus on how mental representations are formed.",
+      "They believed the laws of learning applied regardless of what happened internally."
+     ],
+     "explanation": "Behaviorists did not deny the mind existed, but they argued that since it couldn't be directly observed, it shouldn't be the focus of scientific study.",
+     "correctAnswers": [
+      "They believed internal states were unobservable and unscientific.",
+      "They felt that only inputs and outputs were necessary for a rigorous science of behavior.",
+      "They believed the laws of learning applied regardless of what happened internally."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When a participant prioritizes speed over accuracy in an experiment, they often make more errors. This phenomenon is known as the speed-accuracy ____.",
+     "placeholder": "One word",
+     "correctAnswers": [
+      "trade-off",
+      "tradeoff"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the context of cognitive load, what happens when a person attempts to perform too many complex mental tasks at once?",
+     "options": [
+      "The 'Hard Drive' (Long-Term Memory) expands its physical size.",
+      "The 'RAM' (Working Memory) capacity is exceeded, leading to processing errors.",
+      "The stimulus becomes stronger to compensate for the lack of attention.",
+      "The person enters a 'Behaviorist' state where no processing occurs."
+     ],
+     "explanation": "The information-processing model suggests our working memory has a limited capacity (like RAM); overloading it leads to slower reaction times and more mistakes.",
+     "correctAnswers": [
+      "The 'RAM' (Working Memory) capacity is exceeded, leading to processing errors."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of these are examples of 'automatic' cognitive processes mentioned in the unit?",
+     "options": [
+      "Filtering out noise in a crowded room",
+      "Recognizing a familiar face",
+      "Solving a complex algebraic equation",
+      "Turning ink marks into letters (Perception)",
+      "Choosing which college to attend"
+     ],
+     "explanation": "Cognitive psychology covers both high-level conscious thinking and low-level automatic processes like perception and recognition.",
+     "correctAnswers": [
+      "Filtering out noise in a crowded room",
+      "Recognizing a familiar face",
+      "Turning ink marks into letters (Perception)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "If a participant is asked to rotate a mental image of an object, what can the researcher infer by measuring their reaction time?",
+     "options": [
+      "The person's level of physical fitness.",
+      "The amount of 'mental work' or complexity involved in the transformation.",
+      "The exact number of neurons being used in the visual cortex.",
+      "Whether the person prefers the object they are looking at."
+     ],
+     "explanation": "Longer reaction times for greater angles of rotation suggest that the mind is performing an internal, time-consuming process that mirrors physical rotation.",
+     "correctAnswers": [
+      "The amount of 'mental work' or complexity involved in the transformation."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Why does the observer's accuracy improve even when the stimulus remains visually degraded?",
+     "options": [
+      "Because the brain relies on bottom-up signals which gradually clarify the image pixels over time.",
+      "Because the brain uses contextual cues and prior knowledge to narrow down the most likely identity of the object.",
+      "Because the physical light intensity increases automatically as the observer stares longer at the screen.",
+      "Because the sensory receptors in the eye become more sensitive to low light after repeated exposure to the same image."
+     ],
+     "explanation": "This demonstrates top-down processing: the simulation shows that as context (like a kitchen background) is added, the 'software' of the mind uses expectations to resolve an ambiguous 'hardware' input.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Visual Identification Phenomenon Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: --bg;\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n            background: white;\n            border: 1px solid var(--rule);\n            border-radius: 2px;\n        }\n\n        .readouts {\n            width: 100%;\n            margin-top: 12px;\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 8px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n        }\n\n        .value {\n            font-family: -apple-system, sans-serif;\n            font-weight: 500;\n            font-size: 14px;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .axis-container {\n            width: 100%;\n            margin-top: 20px;\n            position: relative;\n            padding-bottom: 20px;\n        }\n\n        .axis-line {\n            height: 1px;\n            background: var(--rule);\n            width: 100%;\n            position: relative;\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: 0;\n            width: 1px;\n            height: 6px;\n            background: var(--rule);\n        }\n\n        .axis-tick-label {\n            position: absolute;\n            top: 10px;\n            transform: translateX(-50%);\n            font-size: 11px;\n            color: var(--muted);\n            white-space: nowrap;\n        }\n\n        .axis-indicator {\n            position: absolute;\n            top: -4px;\n            width: 1px;\n            height: 10px;\n            background: var(--accent);\n            transition: left 0.05s linear;\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of object identification over time as environmental context changes</h1>\n    \n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"0 0 400 240\" aria-label=\"A central blurry shape surrounded by a table setting that gradually appears.\">\n            <!-- Background / Table surface -->\n            <rect x=\"0\" y=\"0\" width=\"400\" height=\"240\" fill=\"#fff\" />\n            \n            <!-- Table Edge -->\n            <line x1=\"0\" y1=\"180\" x2=\"400\" y2=\"180\" stroke=\"#eee\" stroke-width=\"1\" />\n            \n            <!-- Context Elements (Grouped for opacity control) -->\n            <g id=\"context-group\" opacity=\"0\">\n                <!-- Plate -->\n                <ellipse cx=\"200\" cy=\"140\" rx=\"90\" ry=\"60\" fill=\"none\" stroke=\"#d8d5d0\" stroke-width=\"1.5\" />\n                <ellipse cx=\"200\" cy=\"140\" rx=\"60\" ry=\"40\" fill=\"none\" stroke=\"#e8e5e0\" stroke-width=\"1\" />\n                \n                <!-- Fork -->\n                <g transform=\"translate(80, 140) rotate(-10)\">\n                    <path d=\"M0,-40 L0,30 M-5,-40 L-5,-10 M5,-40 L5,-10\" fill=\"none\" stroke=\"#d8d5d0\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>\n                </g>\n                \n                <!-- Knife -->\n                <g transform=\"translate(320, 140) rotate(5)\">\n                    <path d=\"M0,-45 L0,30\" fill=\"none\" stroke=\"#d8d5d0\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n                </g>\n\n                <!-- Napkin -->\n                <rect x=\"290\" y=\"150\" width=\"40\" height=\"50\" fill=\"none\" stroke=\"#e8e5e0\" stroke-width=\"1\" transform=\"rotate(15, 310, 175)\"/>\n            </g>\n\n            <!-- The Object (Apple-like shape) -->\n            <defs>\n                <filter id=\"blur-filter\">\n                    <feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"6\" />\n                </filter>\n            </defs>\n            <g filter=\"url(#blur-filter)\">\n                <!-- Base shape of an apple/round fruit -->\n                <path d=\"M200,115 C185,115 175,125 175,140 C175,160 190,170 200,170 C210,170 225,160 225,140 C225,125 215,115 200,115\" fill=\"#d15a5a\" />\n                <!-- Stem area -->\n                <path d=\"M200,115 L200,105\" stroke=\"#6b4423\" stroke-width=\"3\" stroke-linecap=\"round\" />\n            </g>\n\n            <!-- Fixed annotation -->\n            <text x=\"200\" y=\"30\" text-anchor=\"middle\" font-family=\"Georgia, serif\" font-size=\"12\" font-style=\"italic\" fill=\"#8a8a8a\">Target Object: Resolution Fixed</text>\n        </svg>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Target Detail</span>\n                <span class=\"value\" id=\"res-val\">Low (Fixed)</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Environmental Information</span>\n                <span class=\"value\" id=\"context-val\">0%</span>\n            </div>\n        </div>\n\n        <div class=\"axis-container\">\n            <div class=\"axis-line\">\n                <div class=\"axis-tick\" style=\"left: 0%\"></div>\n                <div class=\"axis-tick-label\" style=\"left: 0%\">Start</div>\n                \n                <div class=\"axis-tick\" style=\"left: 50%\"></div>\n                <div class=\"axis-tick-label\" style=\"left: 50%\">Midway</div>\n                \n                <div class=\"axis-tick\" style=\"left: 100%\"></div>\n                <div class=\"axis-tick-label\" style=\"left: 100%\">Complete</div>\n                \n                <div id=\"indicator\" class=\"axis-indicator\" style=\"left: 0%\"></div>\n            </div>\n            <div class=\"label\" style=\"margin-top: 28px; text-align: center;\">Timeline of Scene Development</div>\n        </div>\n\n        <div class=\"caption\">Development of surrounding environment.</div>\n    </div>\n\n    <script>\n        const contextGroup = document.getElementById('context-group');\n        const contextVal = document.getElementById('context-val');\n        const indicator = document.getElementById('indicator');\n\n        const DURATION = 10000; // 10 seconds for a full cycle\n        let startTime = null;\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let progress = (timestamp - startTime) / DURATION;\n            \n            // Loop progress from 0 to 1\n            if (progress > 1) {\n                startTime = timestamp;\n                progress = 0;\n            }\n\n            // Phenomenon: Shape stays blurry, context fades in\n            // Use an easing or a hold at the ends to make it readable\n            let visualProgress;\n            if (progress < 0.1) visualProgress = 0;\n            else if (progress > 0.9) visualProgress = 1;\n            else visualProgress = (progress - 0.1) / 0.8;\n\n            // Apply to visual elements\n            contextGroup.setAttribute('opacity', visualProgress);\n            \n            // Update readouts\n            contextVal.textContent = Math.round(visualProgress * 100) + '%';\n            indicator.style.left = (progress * 100) + '%';\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function sendHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            sendHeight();\n        });\n\n        const resizeObserver = new ResizeObserver(() => {\n            sendHeight();\n        });\n        resizeObserver.observe(document.body);\n\n        // Deterministic seed simulation (not needed here but kept for template)\n        let seed = 12345;\n        function pseudoRandom() {\n            seed = (seed * 9301 + 49297) % 233280;\n            return seed / 233280;\n        }\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the brain uses contextual cues and prior knowledge to narrow down the most likely identity of the object."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Attention and Consciousness Mastery Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During a dichotic listening task, a participant is shadowing a story in their left ear. If the speaker in the unattended right ear suddenly switches from speaking English to speaking German, what is the most likely result based on early selection research?",
+     "options": [
+      "The participant will immediately notice and name the new language.",
+      "The participant will report a change in the speaker's gender but not the language.",
+      "The participant will fail to notice that the language has changed.",
+      "The participant will stop shadowing the left ear to process the new information."
+     ],
+     "explanation": "Early selection models like Broadbent's suggest that unattended information is filtered out based on physical characteristics before semantic processing (like language identification) occurs.",
+     "correctAnswers": [
+      "The participant will fail to notice that the language has changed."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following experimental findings challenge the rigid 'on/off' filter proposed by Broadbent's Filter Model?",
+     "options": [
+      "The 'Name Effect' where a participant hears their own name in an unattended channel.",
+      "Participants noticing if a voice in the unattended ear changes from male to female.",
+      "Information from an unattended ear 'breaking through' if it is highly relevant, like a cry of 'Fire!'.",
+      "Participants successfully shadowing a message in one ear while ignoring the other."
+     ],
+     "explanation": "Broadbent's model fails to explain how meaning-based stimuli (like names or danger words) bypass the filter; the detection of physical changes (gender/pitch) actually supports his model.",
+     "correctAnswers": [
+      "The 'Name Effect' where a participant hears their own name in an unattended channel.",
+      "Information from an unattended ear 'breaking through' if it is highly relevant, like a cry of 'Fire!'."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Anne Treisman’s Attenuation Theory, the mental 'unit' containing words with varying activation thresholds is called the ____ Unit.",
+     "placeholder": "Enter the specific unit name",
+     "correctAnswers": [
+      "Dictionary"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "How does Treisman’s Attenuation Theory differ fundamentally from Broadbent's Filter Model?",
+     "options": [
+      "It moves the filter to the very end of the processing stream after memory.",
+      "It replaces the 'all-or-nothing' filter with a 'volume knob' that turns down unattended signals.",
+      "It argues that attention is unnecessary for complex task performance.",
+      "It suggests that we process physical features and meaning simultaneously in the sensory buffer."
+     ],
+     "explanation": "Treisman proposed an 'attenuator' that weakens rather than eliminates unattended information, allowing high-priority words to still reach awareness.",
+     "correctAnswers": [
+      "It replaces the 'all-or-nothing' filter with a 'volume knob' that turns down unattended signals."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the distinction between Overt and Covert attention?",
+     "options": [
+      "Overt attention involves the physical movement of the eyes toward a stimulus.",
+      "Covert attention is effectively 'the mind's eye' shifting focus without eye movement.",
+      "It is impossible to attend to something unless you are looking directly at it.",
+      "The Posner Cueing Task specifically measures the mechanics of covert attention."
+     ],
+     "explanation": "Overt attention is visible (eye movement), while covert attention is a mental shift. The Posner task requires participants to keep their eyes fixed, isolating the covert shift.",
+     "correctAnswers": [
+      "Overt attention involves the physical movement of the eyes toward a stimulus.",
+      "Covert attention is effectively 'the mind's eye' shifting focus without eye movement.",
+      "The Posner Cueing Task specifically measures the mechanics of covert attention."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The phenomenon where a driver looks directly at a motorcycle but fails to consciously perceive it because they are searching for cars is known as ____ blindness.",
+     "placeholder": "Type the type of blindness",
+     "correctAnswers": [
+      "inattentional"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A Late Selection model of attention would argue that the 'bottleneck' or filter occurs at which stage of processing?",
+     "options": [
+      "Immediately after sensory registration.",
+      "Before any semantic (meaning) analysis takes place.",
+      "After the meaning of the stimulus has been processed but before the response.",
+      "During the initial intake of physical stimulus characteristics."
+     ],
+     "explanation": "Late selection models suggest that all stimuli are processed for meaning, but we only select what is relevant to enter conscious awareness and guide our responses.",
+     "correctAnswers": [
+      "After the meaning of the stimulus has been processed but before the response."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "How does 'Change Blindness' differ from 'Inattentional Blindness'?",
+     "options": [
+      "Change Blindness requires a comparison of a scene across a brief disruption or blank screen.",
+      "Inattentional Blindness involves missing a stimulus that is present throughout the task.",
+      "Change Blindness only happens when the person is not looking at the image at all.",
+      "Change Blindness demonstrates that our internal representation of the world is less detailed than we think."
+     ],
+     "explanation": "Change blindness involves a failure to detect a transition (often masked by a flicker), whereas inattentional blindness involves missing an object that is clearly visible because attention is elsewhere.",
+     "correctAnswers": [
+      "Change Blindness requires a comparison of a scene across a brief disruption or blank screen.",
+      "Inattentional Blindness involves missing a stimulus that is present throughout the task.",
+      "Change Blindness demonstrates that our internal representation of the world is less detailed than we think."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When we focus on one end of a bar and find that our attention automatically spreads to the other end of that same bar, we are demonstrating ____-based attention.",
+     "placeholder": "Enter the focus type",
+     "correctAnswers": [
+      "object"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Using the 'Zoom-Lens' metaphor, what is the cognitive trade-off when you expand your attentional field to take in a whole crowd of people?",
+     "options": [
+      "The speed of processing increases, but only for objects in the center.",
+      "The resolution of detail for any individual person in the crowd decreases.",
+      "The brain switches from visual processing to auditory processing.",
+      "The 'spotlight' becomes fixed and cannot be moved for several seconds."
+     ],
+     "explanation": "The zoom-lens model suggests a trade-off between the size of the attended area and the 'power' or resolution of processing within that area.",
+     "correctAnswers": [
+      "The resolution of detail for any individual person in the crowd decreases."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following statements align with the view that attention is an 'Evolutionary Advantage'?",
+     "options": [
+      "It prevents the brain from being overwhelmed by the infinite sensory 'noise' of the environment.",
+      "It allows us to focus on goal-oriented tasks, like hunting or tool-making, without distraction.",
+      "It ensures that we see every single detail in our environment with high-definition clarity.",
+      "It provides a mechanism to prioritize high-importance stimuli like the sound of a predator."
+     ],
+     "explanation": "Attention is a selective filter that trades off 'the big picture' for 'task focus'—a necessary adaptation for managing limited biological processing power.",
+     "correctAnswers": [
+      "It prevents the brain from being overwhelmed by the infinite sensory 'noise' of the environment.",
+      "It allows us to focus on goal-oriented tasks, like hunting or tool-making, without distraction.",
+      "It provides a mechanism to prioritize high-importance stimuli like the sound of a predator."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "image": {
+      "alt": "Diagram illustrating cognitive resource depletion during a task.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/2f2b0715-6318-4205-ae35-fac328658dcc/exam/images/unit2-q12.png"
+     },
+     "prompt": "In the 'Invisible Gorilla' experiment, why do participants who are intensely counting basketball passes fail to see the gorilla?",
+     "options": [
+      "The gorilla is physically transparent and difficult for the retina to capture.",
+      "The gorilla moves too quickly for the human eye to track.",
+      "Their cognitive resources are entirely consumed by the primary task, leaving no capacity for the unexpected stimulus.",
+      "The participants are experiencing a temporary form of total blindness called the Flicker effect."
+     ],
+     "explanation": "Inattentional blindness occurs because attention is a finite resource; when it is fully engaged in a demanding task, even obvious but 'task-irrelevant' stimuli are not processed into awareness.",
+     "correctAnswers": [
+      "Their cognitive resources are entirely consumed by the primary task, leaving no capacity for the unexpected stimulus."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "When comparing Broadbent’s and Treisman’s models, which components are unique to Treisman’s Attenuation Theory?",
+     "options": [
+      "A physical filter based on loudness and pitch.",
+      "An 'Attenuator' that acts as a volume control.",
+      "A 'Dictionary Unit' with varying word thresholds.",
+      "A sensory buffer that temporarily holds incoming data."
+     ],
+     "explanation": "While both models use a sensory buffer, the attenuator and dictionary unit are specific to Treisman's solution for why we sometimes hear meaningful unattended info.",
+     "correctAnswers": [
+      "An 'Attenuator' that acts as a volume control.",
+      "A 'Dictionary Unit' with varying word thresholds."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "What is the primary function of the 'blank screen' in a Flicker Task designed to study change blindness?",
+     "options": [
+      "It clears the participant's short-term memory entirely.",
+      "It forces the participant to blink, which causes the blindness.",
+      "It masks the local motion transients that would normally draw attention to a change.",
+      "It increases the brightness of the following image to make the task harder."
+     ],
+     "explanation": "Without the blank screen, the brain's 'motion detectors' would instantly spot the pixel change. The flicker forces the mind to use its internal spotlight to search for the change manually.",
+     "correctAnswers": [
+      "It masks the local motion transients that would normally draw attention to a change."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "In this simulation of the Posner Cueing Task, why does the reaction time increase significantly when the target appears in a location opposite to where the arrow pointed?",
+     "options": [
+      "The eyes must physically move back to the center before they can move to the new location.",
+      "The mental 'spotlight' must be disengaged from the cued location, moved, and then re-engaged at the target location.",
+      "The sensory buffer is cleared every time a cue is proven to be incorrect.",
+      "The brain requires more oxygen to process targets that appear in the peripheral vision."
+     ],
+     "explanation": "The 'invalid cue' condition demonstrates that covert attention (the mental spotlight) moves independently of the eyes and incurs a time cost when it must be redirected.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Covert Orienting of Attention Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --font-serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: var(--font-sans);\n            color: var(--ink);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-text {\n            font-family: var(--font-serif);\n            font-size: 13px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .timer-track {\n            fill: none;\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .timer-progress {\n            fill: none;\n            stroke: var(--muted);\n            stroke-width: 2px;\n        }\n\n        .spotlight {\n            fill: var(--accent);\n            opacity: 0.15;\n        }\n\n        .fixation-cross {\n            stroke: var(--ink);\n            stroke-width: 2px;\n        }\n\n        .cue-arrow {\n            stroke: var(--ink);\n            stroke-width: 2.5px;\n            fill: none;\n            stroke-linecap: round;\n            stroke-linejoin: round;\n        }\n\n        .target-dot {\n            fill: var(--amber);\n        }\n\n        .data-row {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .data-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .data-label {\n            font-family: var(--font-serif);\n            font-size: 12px;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .data-value {\n            font-variant-numeric: tabular-nums;\n            font-size: 14px;\n            font-weight: 500;\n        }\n\n        .status-pill {\n            font-size: 11px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            padding: 2px 6px;\n            border-radius: 4px;\n            background: #eeebe6;\n            color: var(--muted);\n            margin-top: 4px;\n        }\n\n        .caption {\n            font-family: var(--font-serif);\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 8px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of Visual Attention Shifts Following a Directional Cue</h1>\n    \n    <div class=\"container\">\n        <div class=\"fig-container\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 220\" aria-hidden=\"true\">\n                <!-- Background & Layout -->\n                <rect x=\"50\" y=\"60\" width=\"80\" height=\"80\" rx=\"4\" fill=\"none\" stroke=\"var(--rule)\" stroke-dasharray=\"4 2\" />\n                <rect x=\"270\" y=\"60\" width=\"80\" height=\"80\" rx=\"4\" fill=\"none\" stroke=\"var(--rule)\" stroke-dasharray=\"4 2\" />\n                \n                <!-- Axis for Timeline -->\n                <line x1=\"100\" y1=\"190\" x2=\"300\" y2=\"190\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"100\" y1=\"185\" x2=\"100\" y2=\"195\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"300\" y1=\"185\" x2=\"300\" y2=\"195\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <text x=\"200\" y=\"210\" text-anchor=\"middle\" class=\"label-text\">Trial sequence timeline</text>\n                \n                <!-- Current Position on Axis -->\n                <line id=\"timeline-marker\" x1=\"100\" y1=\"182\" x2=\"100\" y2=\"198\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n\n                <!-- The \"Mental Spotlight\" -->\n                <circle id=\"spotlight-circle\" cx=\"200\" cy=\"100\" r=\"45\" class=\"spotlight\" />\n\n                <!-- Central Fixation -->\n                <line x1=\"192\" y1=\"100\" x2=\"208\" y2=\"100\" class=\"fixation-cross\" />\n                <line x1=\"200\" y1=\"92\" x2=\"200\" y2=\"108\" class=\"fixation-cross\" />\n\n                <!-- Cue Arrow -->\n                <g id=\"cue-group\" style=\"opacity: 0;\">\n                    <path id=\"cue-path\" d=\"M 185 115 L 215 115\" class=\"cue-arrow\" />\n                    <path id=\"cue-head\" d=\"M 210 110 L 215 115 L 210 120\" class=\"cue-arrow\" />\n                </g>\n\n                <!-- Target Dot -->\n                <circle id=\"target-dot\" cx=\"90\" cy=\"100\" r=\"6\" class=\"target-dot\" style=\"opacity: 0;\" />\n\n                <!-- Labels -->\n                <text x=\"90\" y=\"50\" text-anchor=\"middle\" class=\"label-text\">Left Field</text>\n                <text x=\"310\" y=\"50\" text-anchor=\"middle\" class=\"label-text\">Right Field</text>\n            </svg>\n        </div>\n\n        <div class=\"data-row\">\n            <div class=\"data-item\">\n                <span class=\"data-label\">Trial Type</span>\n                <span id=\"trial-type-val\" class=\"data-value\">—</span>\n            </div>\n            <div class=\"data-item\">\n                <span class=\"data-label\">Processing State</span>\n                <span id=\"state-val\" class=\"data-value\">—</span>\n                <span class=\"status-pill\">Fixed Sequence</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Continuous observation of shift and detection sequence.</div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 42;\n        function seededRandom() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const spotlight = document.getElementById('spotlight-circle');\n        const cueGroup = document.getElementById('cue-group');\n        const cueHead = document.getElementById('cue-head');\n        const targetDot = document.getElementById('target-dot');\n        const timelineMarker = document.getElementById('timeline-marker');\n        const trialTypeVal = document.getElementById('trial-type-val');\n        const stateVal = document.getElementById('state-val');\n\n        // Animation parameters\n        const DURATION = 8000; // Total trial cycle in ms\n        const POS_CENTER = 200;\n        const POS_LEFT = 90;\n        const POS_RIGHT = 310;\n        \n        let startTime = null;\n        let trialCounter = 0;\n\n        // Sequence of trials: Valid, Valid, Invalid, Valid, Invalid...\n        const trialSequence = [\n            { type: 'Valid', cueDir: 1, targetDir: 1 },    // Cue Right, Target Right\n            { type: 'Valid', cueDir: -1, targetDir: -1 },  // Cue Left, Target Left\n            { type: 'Invalid', cueDir: 1, targetDir: -1 }, // Cue Right, Target Left\n            { type: 'Valid', cueDir: -1, targetDir: -1 },  // Cue Left, Target Left\n            { type: 'Invalid', cueDir: -1, targetDir: 1 }  // Cue Left, Target Right\n        ];\n\n        function easeInOut(t) {\n            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;\n        }\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let elapsed = (timestamp - startTime) % DURATION;\n            let progress = elapsed / DURATION;\n            \n            // Determine which trial from sequence\n            let trialIdx = Math.floor((timestamp - startTime) / DURATION) % trialSequence.length;\n            let trial = trialSequence[trialIdx];\n\n            // UI Updates\n            trialTypeVal.textContent = trial.type;\n            timelineMarker.setAttribute('x1', 100 + progress * 200);\n            timelineMarker.setAttribute('x2', 100 + progress * 200);\n\n            // Stages of a single trial (0.0 to 1.0)\n            // 0.0 - 0.1: Baseline (Fixation only)\n            // 0.1 - 0.2: Cue appears\n            // 0.2 - 0.4: Attention shifts (Mental spotlight moves)\n            // 0.4 - 0.5: Target appears\n            // 0.5 - 0.7: Re-orienting (if invalid)\n            // 0.7 - 0.9: Detection/Processing\n            // 0.9 - 1.0: Reset/Blank\n\n            let spotX = POS_CENTER;\n            let cueOpacity = 0;\n            let targetOpacity = 0;\n            let currentState = \"Fixating\";\n\n            if (progress < 0.1) {\n                // Baseline\n                spotX = POS_CENTER;\n                currentState = \"Fixating\";\n            } \n            else if (progress < 0.4) {\n                // Cue and Shift\n                cueOpacity = 1;\n                currentState = \"Orienting\";\n                let shiftProgress = Math.min(1, (progress - 0.1) / 0.2);\n                let targetX = trial.cueDir === 1 ? POS_RIGHT : POS_LEFT;\n                spotX = POS_CENTER + (targetX - POS_CENTER) * easeInOut(shiftProgress);\n            } \n            else if (progress < 0.7) {\n                // Target Period\n                cueOpacity = 0;\n                targetOpacity = 1;\n                \n                let targetX = trial.targetDir === 1 ? POS_RIGHT : POS_LEFT;\n                let cuedX = trial.cueDir === 1 ? POS_RIGHT : POS_LEFT;\n                \n                targetDot.setAttribute('cx', targetX);\n\n                if (trial.type === 'Valid') {\n                    spotX = targetX;\n                    currentState = \"Processing Target\";\n                } else {\n                    // Invalid: must move back\n                    let reorientProgress = Math.min(1, (progress - 0.4) / 0.25);\n                    spotX = cuedX + (targetX - cuedX) * easeInOut(reorientProgress);\n                    currentState = reorientProgress < 1 ? \"Re-orienting\" : \"Processing Target\";\n                }\n            } \n            else if (progress < 0.9) {\n                // Post-detection dwell\n                targetOpacity = 1;\n                spotX = trial.targetDir === 1 ? POS_RIGHT : POS_LEFT;\n                currentState = \"Processing Target\";\n            }\n            else {\n                // Reset\n                spotX = POS_CENTER;\n                currentState = \"Fixating\";\n            }\n\n            // Apply transforms\n            spotlight.setAttribute('cx', spotX);\n            cueGroup.style.opacity = cueOpacity;\n            targetDot.style.opacity = targetOpacity;\n            stateVal.textContent = currentState;\n\n            // Adjust cue arrow direction\n            if (trial.cueDir === 1) {\n                // Right\n                cueGroup.setAttribute('transform', 'translate(0, 0)');\n            } else {\n                // Left\n                cueGroup.setAttribute('transform', 'translate(400, 0) scale(-1, 1)');\n            }\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The mental 'spotlight' must be disengaged from the cued location, moved, and then re-engaged at the target location."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Memory Systems and Processes Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which component of the memory system acts as a 'temporal glue', allowing us to perceive speech as a continuous sentence rather than disconnected frequencies?",
+     "options": [
+      "Iconic memory",
+      "Echoic memory",
+      "Phonological loop",
+      "Semantic memory"
+     ],
+     "explanation": "Echoic memory is the auditory sensory register that lasts up to 3-4 seconds, providing the necessary duration to integrate sounds into meaningful language.",
+     "correctAnswers": [
+      "Echoic memory"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Based on George Sperling's 1960 experiments, which of the following statements accurately describe iconic memory?",
+     "options": [
+      "It has a nearly limitless capacity for raw physical input.",
+      "Its duration is roughly 3 to 4 seconds.",
+      "Information fades extremely rapidly, usually in less than a second.",
+      "It is the primary store for procedural skills.",
+      "The Partial Report technique revealed its true capacity."
+     ],
+     "explanation": "Sperling showed that while the icon holds almost the entire visual field (high capacity), it decays so fast (short duration) that subjects cannot report all items before the trace vanishes.",
+     "correctAnswers": [
+      "It has a nearly limitless capacity for raw physical input.",
+      "Information fades extremely rapidly, usually in less than a second.",
+      "The Partial Report technique revealed its true capacity."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The 'tip-of-the-tongue' phenomenon is a classic example of a failure in ____, where information is available in the brain but cannot be currently reached.",
+     "placeholder": "Enter concept...",
+     "correctAnswers": [
+      "accessibility",
+      "retrieval"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In Baddeley's Working Memory model, which component is responsible for directing attention and coordinating the 'slave systems' during a complex task like mental arithmetic?",
+     "options": [
+      "Phonological loop",
+      "Central Executive",
+      "Visuospatial Sketchpad",
+      "Hippocampus"
+     ],
+     "explanation": "The Central Executive acts as the 'traffic controller' or 'boss' that manages cognitive resources and attention without storing information itself.",
+     "correctAnswers": [
+      "Central Executive"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "According to the 'dual-task logic' discussed in the Working Memory session, which combinations of activities would likely cause the system to 'crash' or show significant interference?",
+     "options": [
+      "Repeating 'the' while trying to memorize a written list of words.",
+      "Listening to a podcast while navigating a complex 3D maze in a video game.",
+      "Mentally rotating a geometric shape while trying to sketch a map of a room.",
+      "Reciting a poem while mentally calculating a restaurant tip.",
+      "Reading a book while the television is playing in the background."
+     ],
+     "explanation": "Interference occurs when two tasks compete for the same specialized resource (e.g., two verbal tasks or two visual tasks). Navigating a maze (visual) and listening (verbal) use different systems.",
+     "correctAnswers": [
+      "Repeating 'the' while trying to memorize a written list of words.",
+      "Mentally rotating a geometric shape while trying to sketch a map of a room.",
+      "Reciting a poem while mentally calculating a restaurant tip."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'inner voice' used to keep a phone number in mind by repeating it silently is technically part of the ____ in the Working Memory model.",
+     "placeholder": "Enter system name...",
+     "correctAnswers": [
+      "Phonological Loop"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A patient with anterograde amnesia (like H.M.) is asked to practice a mirror-drawing task for five consecutive days. What is the most likely outcome?",
+     "options": [
+      "They will remember the researcher's name but fail the task.",
+      "They will improve at the task but have no conscious memory of practicing it.",
+      "They will remember the practice sessions but show no improvement in speed.",
+      "They will fail to learn the task entirely due to hippocampal damage."
+     ],
+     "explanation": "This demonstrates the dissociation between explicit memory (which is impaired) and implicit procedural memory (which remains intact).",
+     "correctAnswers": [
+      "They will improve at the task but have no conscious memory of practicing it."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "How does Long-Term Memory (LTM) differ from Working Memory (WM)?",
+     "options": [
+      "LTM has a theoretically infinite capacity, while WM is limited to about 7 items.",
+      "LTM duration is measured in seconds, while WM lasts a lifetime.",
+      "LTM is like writing in sand; WM is like carving in stone.",
+      "LTM requires consolidation to become stable; WM does not.",
+      "Failure in LTM is often a matter of accessibility rather than availability."
+     ],
+     "explanation": "WM is the transient 'flickering' workspace, whereas LTM is the vast, stable archive that requires consolidation and depends on retrieval cues for access.",
+     "correctAnswers": [
+      "LTM has a theoretically infinite capacity, while WM is limited to about 7 items.",
+      "LTM requires consolidation to become stable; WM does not.",
+      "Failure in LTM is often a matter of accessibility rather than availability."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "Which of the following is an example of 'Semantic Memory'?",
+     "options": [
+      "Remembering the specific details of your 10th birthday party.",
+      "Knowing that the capital of France is Paris.",
+      "Being able to type on a keyboard without looking at the keys.",
+      "Feeling a sense of dread when walking into a dentist's office."
+     ],
+     "explanation": "Semantic memory is our 'mental encyclopedia' of general facts and knowledge that lacks specific autobiographical context.",
+     "correctAnswers": [
+      "Knowing that the capital of France is Paris."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios involve 'Implicit Memory'?",
+     "options": [
+      "A veteran chef chopping onions perfectly while talking about their day.",
+      "Recognizing a brand logo faster because you saw it on a billboard earlier.",
+      "Explaining the rules of soccer to a child.",
+      "Recalling exactly where you were during a major historical event.",
+      "Improving at a video game through repetitive practice."
+     ],
+     "explanation": "Implicit memory includes procedural skills (chopping, gaming) and priming (faster recognition), which occur without conscious intent.",
+     "correctAnswers": [
+      "A veteran chef chopping onions perfectly while talking about their day.",
+      "Recognizing a brand logo faster because you saw it on a billboard earlier.",
+      "Improving at a video game through repetitive practice."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "Which of these biological processes acts as the 'glue' that moves memories from a fragile state in the hippocampus to a stable state in the cortex?",
+     "options": [
+      "Articulatory suppression",
+      "Consolidation",
+      "Priming",
+      "Chunking"
+     ],
+     "explanation": "Consolidation is the process that stabilizes a memory trace after initial acquisition, often involving sleep and repetitive firing.",
+     "correctAnswers": [
+      "Consolidation"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram of memory consolidation pathways in the brain.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/2f2b0715-6318-4205-ae35-fac328658dcc/exam/images/unit3-q12.png"
+     },
+     "prompt": "If a person suffers an injury that destroys their hippocampus but leaves their cortex intact, what would likely happen?",
+     "options": [
+      "They would lose all childhood memories.",
+      "They would be unable to form new episodic memories.",
+      "They would lose the ability to perform existing motor skills like walking.",
+      "They would still be able to learn new procedural tasks.",
+      "They would forget the definitions of words they knew for years."
+     ],
+     "explanation": "The hippocampus is the 'loading dock' for new explicit memories; old consolidated memories in the cortex and implicit procedural systems would likely remain functional.",
+     "correctAnswers": [
+      "They would be unable to form new episodic memories.",
+      "They would still be able to learn new procedural tasks."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "How does 'chunking' affect the physical capacity of short-term memory?",
+     "options": [
+      "It increases the physical number of slots available in the brain.",
+      "It expands the duration of the sensory buffer.",
+      "It doesn't change the capacity but organizes data into more efficient units.",
+      "It moves information directly into long-term storage, bypassing the bottleneck."
+     ],
+     "explanation": "The 'hardware' limit of 7 +/- 2 remains; chunking is a 'software' strategy that makes each of those 7 slots more information-dense.",
+     "correctAnswers": [
+      "It doesn't change the capacity but organizes data into more efficient units."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of the Central Executive?",
+     "options": [
+      "It has a large storage capacity for visual images.",
+      "It coordinates the activity of the Phonological Loop.",
+      "It acts as a filter for sensory memory.",
+      "It decides which information is worthy of attention.",
+      "It is responsible for the 'inner ear' rehearsal process."
+     ],
+     "explanation": "The Central Executive is a supervisory system that controls attention and coordinates the slave systems; it does not have storage capacity and is not the inner ear itself.",
+     "correctAnswers": [
+      "It coordinates the activity of the Phonological Loop.",
+      "It decides which information is worthy of attention."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Why does the subject's ability to recall items from the grid change so drastically between the first and second scenarios shown?",
+     "options": [
+      "The signal in the second scenario allows the subject to focus attention on the trace before it decays.",
+      "The auditory tone in the second scenario actually improves the physical resolution of the visual icon.",
+      "The 'Whole Report' condition (first scenario) causes the letters to be permanently erased from sensory memory.",
+      "The 'Partial Report' (second scenario) extends the duration of sensory memory to several minutes."
+     ],
+     "explanation": "In the Whole Report, the icon fades while the subject is speaking. In the Partial Report, the subject only needs to report a small portion, which they can do before the high-capacity icon disappears.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Sperling's Iconic Memory Experiment Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n            background: var(--bg);\n        }\n\n        .readout {\n            margin-top: 12px;\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(12px, 3vw, 14px);\n            color: var(--muted);\n            font-style: italic;\n            text-align: center;\n            line-height: 1.4;\n        }\n\n        .status-row {\n            display: flex;\n            gap: 20px;\n            margin-top: 8px;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .metric {\n            font-size: 11px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .metric span {\n            color: var(--ink);\n            font-weight: 600;\n        }\n    </style>\n</head>\n<body>\n\n    <h1 class=\"visually-hidden\">Visual sensory memory decay simulation</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"0 0 400 240\" aria-label=\"A 3 by 4 grid of letters flashing briefly, followed by different recall conditions.\">\n            <!-- Definitions for markers and filters -->\n            <defs>\n                <filter id=\"blur\">\n                    <feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"0.5\" />\n                </filter>\n            </defs>\n\n            <!-- Timeline Axis -->\n            <g transform=\"translate(50, 210)\">\n                <line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <path d=\"M 0,-3 L 0,3 M 75,-3 L 75,3 M 150,-3 L 150,3 M 225,-3 L 225,3 M 300,-3 L 300,3\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <text x=\"0\" y=\"15\" text-anchor=\"middle\" fill=\"var(--muted)\" font-size=\"10\" font-family=\"serif\">0s</text>\n                <text x=\"150\" y=\"15\" text-anchor=\"middle\" fill=\"var(--muted)\" font-size=\"10\" font-family=\"serif\">0.5s</text>\n                <text x=\"300\" y=\"15\" text-anchor=\"middle\" fill=\"var(--muted)\" font-size=\"10\" font-family=\"serif\">1.0s</text>\n                \n                <!-- Playhead -->\n                <line id=\"playhead\" x1=\"0\" y1=\"-180\" x2=\"0\" y2=\"5\" stroke=\"var(--accent)\" stroke-width=\"1\" stroke-dasharray=\"2 2\" />\n            </g>\n\n            <!-- Grid Container -->\n            <g id=\"letter-grid\" transform=\"translate(140, 40)\"></g>\n\n            <!-- Tone Indicator (Speaker Icon) -->\n            <g id=\"tone-indicator\" transform=\"translate(320, 95)\" opacity=\"0\">\n                <path d=\"M0 5 L4 5 L8 1 L8 13 L4 9 L0 9 Z\" fill=\"var(--muted)\" />\n                <path id=\"tone-waves\" d=\"M10 3 Q13 7 10 11 M12 1 Q16 7 12 13\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"18\" y=\"10\" fill=\"var(--muted)\" font-size=\"10\" font-family=\"serif\" font-style=\"italic\">Cued</text>\n            </g>\n\n            <!-- Labels -->\n            <text id=\"condition-label\" x=\"200\" y=\"25\" text-anchor=\"middle\" fill=\"var(--ink)\" font-size=\"14\" font-family=\"serif\"></text>\n            <text id=\"phase-label\" x=\"50\" y=\"105\" fill=\"var(--muted)\" font-size=\"11\" font-family=\"serif\" font-style=\"italic\" transform=\"rotate(-90 50 105)\">Stimulus Trace</text>\n        </svg>\n\n        <div class=\"status-row\">\n            <div class=\"metric\">Exposure: <span>50ms · fixed</span></div>\n            <div class=\"metric\">Decay: <span>~500ms</span></div>\n        </div>\n\n        <div class=\"readout\" id=\"description\">\n            <!-- Text updated via JS -->\n        </div>\n    </div>\n\n    <script>\n        // Deterministic letter set\n        const letters = \"FXKBPVHMZRQS\".split(\"\");\n        const gridEl = document.getElementById('letter-grid');\n        const playhead = document.getElementById('playhead');\n        const condLabel = document.getElementById('condition-label');\n        const toneInd = document.getElementById('tone-indicator');\n        const descEl = document.getElementById('description');\n\n        // Create Grid\n        letters.forEach((l, i) => {\n            const row = Math.floor(i / 4);\n            const col = i % 4;\n            const text = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n            text.setAttribute(\"x\", col * 35);\n            text.setAttribute(\"y\", row * 40);\n            text.setAttribute(\"text-anchor\", \"middle\");\n            text.setAttribute(\"font-family\", \"sans-serif\");\n            text.setAttribute(\"font-size\", \"24\");\n            text.setAttribute(\"font-weight\", \"500\");\n            text.textContent = l;\n            text.classList.add('letter');\n            gridEl.appendChild(text);\n        });\n\n        const letterNodes = document.querySelectorAll('.letter');\n\n        let startTime = null;\n        const CYCLE_DURATION = 6000; // 6 seconds per condition\n        const STIM_START = 500;\n        const STIM_DURATION = 50;\n        const DECAY_START = STIM_START + STIM_DURATION;\n        const DECAY_END = DECAY_START + 500;\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) % (CYCLE_DURATION * 2);\n            \n            const isPartialReport = elapsed > CYCLE_DURATION;\n            const localTime = elapsed % CYCLE_DURATION;\n            const playheadX = (localTime / 3000) * 300; // Scale 3s to axis width\n            \n            // Update Playhead (clamped to axis)\n            playhead.setAttribute(\"x1\", Math.min(300, playheadX));\n            playhead.setAttribute(\"x2\", Math.min(300, playheadX));\n\n            // Visibility Logic\n            let opacity = 0;\n            if (localTime >= STIM_START && localTime < STIM_START + STIM_DURATION) {\n                opacity = 1.0; // Flash\n            } else if (localTime >= DECAY_START && localTime < DECAY_END) {\n                // The Phenomenon: Visible fade of the 'icon'\n                opacity = 1.0 - (localTime - DECAY_START) / 500;\n            } else {\n                opacity = 0;\n            }\n\n            // Apply Opacity & Highlighting\n            const targetRow = isPartialReport ? 1 : -1; // Cued row (middle)\n            \n            letterNodes.forEach((node, i) => {\n                const row = Math.floor(i / 4);\n                let nodeOpacity = opacity;\n                \n                // In Partial Report, the focus is on the cued row\n                if (isPartialReport) {\n                    if (row === targetRow) {\n                        node.setAttribute(\"fill\", `rgba(76, 102, 150, ${nodeOpacity})`);\n                    } else {\n                        // Un-cued rows still exist in the icon but are not focused\n                        node.setAttribute(\"fill\", `rgba(31, 31, 31, ${nodeOpacity * 0.3})`);\n                    }\n                } else {\n                    node.setAttribute(\"fill\", `rgba(31, 31, 31, ${nodeOpacity})`);\n                }\n            });\n\n            // Tone indicator logic\n            if (isPartialReport && localTime >= STIM_START + STIM_DURATION && localTime < STIM_START + STIM_DURATION + 400) {\n                toneInd.setAttribute(\"opacity\", 1);\n            } else {\n                toneInd.setAttribute(\"opacity\", 0);\n            }\n\n            // Text Updates\n            if (!isPartialReport) {\n                condLabel.textContent = \"Condition A: Whole Report\";\n                descEl.textContent = \"Attempting to recall all letters from the entire grid.\";\n            } else {\n                condLabel.textContent = \"Condition B: Partial Report\";\n                descEl.textContent = \"A tone cues recall of a single row immediately after the flash.\";\n            }\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height Reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n        });\n\n        const resizer = new ResizeObserver(reportHeight);\n        resizer.observe(document.body);\n\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The signal in the second scenario allows the subject to focus attention on the trace before it decays."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Knowledge and Language Examination",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the 'Cognitive Economy' argument, why does the human mind primarily utilize categorization?",
+     "options": [
+      "To ensure every sensory detail is stored with maximum fidelity.",
+      "To allow the brain to act as a passive camera recording external reality.",
+      "To reduce cognitive load by allowing us to treat different objects as equivalent.",
+      "To eliminate the need for any internal mental representation of objects."
+     ],
+     "explanation": "Categorization serves as a 'mental shortcut' or 'inference engine,' allowing us to predict properties of new objects based on past categories rather than processing every detail as unique.",
+     "correctAnswers": [
+      "To reduce cognitive load by allowing us to treat different objects as equivalent."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are key differences between the Prototype Theory and the Exemplar Theory of categorization?",
+     "options": [
+      "Prototype theory relies on a single 'average' representation, while exemplar theory relies on specific memories.",
+      "Exemplar theory is better at preserving information about the variability within a category.",
+      "Only prototype theory can explain why we recognize a 'robin' faster than a 'penguin'.",
+      "Prototypes are more commonly used by experts, while exemplars are the tool of novices.",
+      "Exemplar theory suggests we compare new stimuli to a library of stored instances rather than a generic ideal."
+     ],
+     "explanation": "Prototypes involve an 'average' or ideal member, whereas exemplars are specific memories. Exemplars preserve variability (like knowing pizzas can be square or round), and both theories can actually explain typicality effects.",
+     "correctAnswers": [
+      "Prototype theory relies on a single 'average' representation, while exemplar theory relies on specific memories.",
+      "Exemplar theory is better at preserving information about the variability within a category.",
+      "Exemplar theory suggests we compare new stimuli to a library of stored instances rather than a generic ideal."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The phenomenon where recognizing the word 'Doctor' is faster after seeing the word 'Nurse' is explained by the cognitive mechanism known as ____.",
+     "placeholder": "Enter the mechanism name",
+     "correctAnswers": [
+      "spreading activation",
+      "priming",
+      "Spreading Activation",
+      "Priming"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In a hierarchical semantic network, at which level are shared properties like 'has wings' or 'lays eggs' typically stored for maximum cognitive economy?",
+     "options": [
+      "At every individual node (e.g., Canary, Ostrich, Robin).",
+      "At the highest possible level (e.g., Bird).",
+      "At the subordinate level only.",
+      "In a separate 'dictionary' node unrelated to the hierarchy."
+     ],
+     "explanation": "Cognitive economy dictates that we store shared properties at the highest level possible to avoid repeating the same information for every specific instance.",
+     "correctAnswers": [
+      "At the highest possible level (e.g., Bird)."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "How does expertise typically change a person's mental organization of information?",
+     "options": [
+      "Experts move from taxonomic (appearance-based) grouping to relational (functional) grouping.",
+      "Experts rely exclusively on basic-level categories and lose subordinate details.",
+      "The expert's functional 'basic level' of categorization often shifts to more specific, subordinate levels.",
+      "Experts eliminate the use of schemas to avoid memory errors.",
+      "Expertise involves 'perceptual learning,' allowing for the immediate detection of meaningful patterns."
+     ],
+     "explanation": "Experts reorganize their knowledge functionally (e.g., grouping by how things work), shift their 'default' recognition to more specific levels (like a botanist seeing a species rather than just a 'tree'), and use perceptual learning to see patterns novices miss.",
+     "correctAnswers": [
+      "Experts move from taxonomic (appearance-based) grouping to relational (functional) grouping.",
+      "The expert's functional 'basic level' of categorization often shifts to more specific, subordinate levels.",
+      "Expertise involves 'perceptual learning,' allowing for the immediate detection of meaningful patterns."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In cognitive psychology, the mental representation of a physical set of objects in the world is known as a ____.",
+     "placeholder": "Type your answer",
+     "correctAnswers": [
+      "concept",
+      "Concept"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What does the 'Definition Trap' reveal about the way humans naturally categorize the world?",
+     "options": [
+      "Humans follow strict binary rules to define category membership.",
+      "Most human concepts are 'fuzzy' and lack rigid boundaries or checklists.",
+      "Every category member must share a single, identical defining feature.",
+      "Visual definitions are more accurate than functional definitions."
+     ],
+     "explanation": "The 'Definition Trap' shows that it is difficult to find a single rule that covers every member of a category (like a tripod dog), indicating our concepts are flexible and graded rather than binary.",
+     "correctAnswers": [
+      "Most human concepts are 'fuzzy' and lack rigid boundaries or checklists."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios best illustrate the influence of 'Scripts' on human memory and behavior?",
+     "options": [
+      "Automatically knowing to wait for a host to seat you when entering a traditional restaurant.",
+      "Identifying a 'dog' based on its four legs and fur.",
+      "Expectantly looking for a menu on a table even if one isn't present, simply because you are at a cafe.",
+      "Remembering the specific details of the first car you ever owned.",
+      "Experiencing confusion when a transaction process at a foreign store differs from your home country."
+     ],
+     "explanation": "Scripts are schemas for events (like dining or shopping). They lead to automatic behaviors, pre-loaded expectations (which can cause memory errors), and cultural mismatch when processes differ.",
+     "correctAnswers": [
+      "Automatically knowing to wait for a host to seat you when entering a traditional restaurant.",
+      "Expectantly looking for a menu on a table even if one isn't present, simply because you are at a cafe.",
+      "Experiencing confusion when a transaction process at a foreign store differs from your home country."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "According to the hybrid perspective, novices are more likely to rely on ____ while experts rely more on specific exemplars.",
+     "placeholder": "Type of mental representation",
+     "correctAnswers": [
+      "prototypes",
+      "Prototypes",
+      "averages",
+      "Averages"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If a semantic network is described as having 'graded structure,' what does this imply about category membership?",
+     "options": [
+      "All members are considered equally representative of the category.",
+      "Membership is binary; you are either in the category or you are out.",
+      "Some members are 'better' or more central examples of a category than others.",
+      "The network only stores abstract concepts and no specific instances."
+     ],
+     "explanation": "Graded structure refers to the idea that membership is a matter of degree, where some items (like a robin for 'bird') are more typical than others (like a penguin).",
+     "correctAnswers": [
+      "Some members are 'better' or more central examples of a category than others."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why might an expert (like a doctor) categorize a set of symptoms differently than a medical student (a novice)?",
+     "options": [
+      "The expert has a larger library of specific 'exemplars' from past cases.",
+      "The expert focuses on surface-level, taxonomic features like the color of a rash.",
+      "The expert's mental map is organized by causal and functional relationships (relational).",
+      "The expert ignores schemas to rely purely on raw sensory data.",
+      "The expert utilizes perceptual learning to see meaningful patterns in the symptoms immediately."
+     ],
+     "explanation": "Expertise involves a move toward relational organization, the accumulation of many exemplars, and enhanced perceptual abilities to spot patterns.",
+     "correctAnswers": [
+      "The expert has a larger library of specific 'exemplars' from past cases.",
+      "The expert's mental map is organized by causal and functional relationships (relational).",
+      "The expert utilizes perceptual learning to see meaningful patterns in the symptoms immediately."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "Which phenomenon provides evidence that thinking about one concept 'primes' the brain for related concepts?",
+     "options": [
+      "The Definition Trap",
+      "Spreading Activation",
+      "The Basic Level Paradox",
+      "The Hierarchical Bottleneck"
+     ],
+     "explanation": "Spreading activation describes how energy ripples through a semantic network from one node to its neighbors, making related concepts easier to access.",
+     "correctAnswers": [
+      "Spreading Activation"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "What are the consequences of a 'broken' semantic network, as seen in certain cognitive disorders?",
+     "options": [
+      "The individual may recognize an object but be unable to retrieve its name.",
+      "The individual's concepts become entirely rules-based and rigid.",
+      "The links between nodes fail even if the nodes (the ideas) themselves remain.",
+      "The individual lose the ability to categorize items at the basic level.",
+      "The person may understand the concept but lose the totality of its connections to other knowledge."
+     ],
+     "explanation": "When the network structure fails, the 'meaning'—which is the sum of its connections—is lost, even if the individual can still identify the object visually.",
+     "correctAnswers": [
+      "The individual may recognize an object but be unable to retrieve its name.",
+      "The links between nodes fail even if the nodes (the ideas) themselves remain.",
+      "The person may understand the concept but lose the totality of its connections to other knowledge."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "A person sees a 'Windsor chair' and simply thinks 'chair.' This is an example of categorizing at which level?",
+     "options": [
+      "Superordinate level",
+      "Subordinate level",
+      "Basic level",
+      "Relational level"
+     ],
+     "explanation": "The basic level (e.g., 'chair') is the level most people use by default, as it balances detail and generality, whereas 'furniture' is superordinate and 'Windsor chair' is subordinate.",
+     "correctAnswers": [
+      "Basic level"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Observe the reaction times for categorizing different stimuli. Why does the 'typicality effect' result in faster response times for certain items within the same category?",
+     "options": [
+      "Because typical members are closer to the category's central prototype or match more frequent exemplars.",
+      "Because the brain processes atypical members using a completely different hierarchical network.",
+      "Because typical members require more 'spreading activation' steps to reach the root node.",
+      "Because atypical members are stored at a higher level in the hierarchy than typical members."
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Typicality and Reaction Time Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-text {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 13px;\n            fill: var(--ink);\n        }\n\n        .muted-text {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .timer-text {\n            font-family: -apple-system, sans-serif;\n            font-variant-numeric: tabular-nums;\n            font-size: 12px;\n            fill: var(--muted);\n        }\n\n        .node-circle {\n            fill: var(--bg);\n            stroke: var(--rule);\n            stroke-width: 1.5;\n        }\n\n        .node-active {\n            stroke: var(--accent);\n            fill: #fff;\n        }\n\n        .prompt-box {\n            fill: #fff;\n            stroke: var(--ink);\n            stroke-width: 1;\n        }\n\n        .connection-path {\n            fill: none;\n            stroke: var(--rule);\n            stroke-width: 1;\n            stroke-dasharray: 4 2;\n        }\n\n        .pulse {\n            fill: var(--accent);\n        }\n\n        .caption {\n            margin-top: 12px;\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n        }\n\n        .axis-line {\n            stroke: var(--rule);\n            stroke-width: 1;\n        }\n\n        .tick-line {\n            stroke: var(--rule);\n            stroke-width: 1;\n        }\n    </style>\n</head>\n<body>\n\n    <h1 class=\"sr-only\">Simulation of categorization reaction times for different bird species</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\" aria-label=\"A diagram showing reaction times to the prompt 'Is it a bird?' for Robin, Penguin, and Ostrich.\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 280\" xmlns=\"http://www.w3.org/2000/svg\">\n                <!-- Background definitions -->\n                <defs>\n                    <marker id=\"arrowhead\" markerWidth=\"6\" markerHeight=\"4\" refX=\"5\" refY=\"2\" orient=\"auto\">\n                        <polygon points=\"0 0, 6 2, 0 4\" fill=\"var(--rule)\" />\n                    </marker>\n                </defs>\n\n                <!-- Timer Axis -->\n                <g transform=\"translate(50, 250)\">\n                    <line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" class=\"axis-line\" />\n                    <text x=\"150\" y=\"20\" text-anchor=\"middle\" class=\"muted-text\">Processing Time (ms)</text>\n                    \n                    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"5\" class=\"tick-line\" />\n                    <text x=\"0\" y=\"15\" text-anchor=\"middle\" class=\"timer-text\">0</text>\n                    \n                    <line x1=\"150\" y1=\"0\" x2=\"150\" y2=\"5\" class=\"tick-line\" />\n                    <text x=\"150\" y=\"15\" text-anchor=\"middle\" class=\"timer-text\">500</text>\n                    \n                    <line x1=\"300\" y1=\"0\" x2=\"300\" y2=\"5\" class=\"tick-line\" />\n                    <text x=\"300\" y=\"15\" text-anchor=\"middle\" class=\"timer-text\">1000</text>\n\n                    <!-- Time Indicator Ticks (Moving) -->\n                    <line id=\"time-cursor\" x1=\"0\" y1=\"-230\" x2=\"0\" y2=\"0\" stroke=\"var(--accent)\" stroke-width=\"1\" stroke-dasharray=\"2 2\" opacity=\"0\" />\n                </g>\n\n                <!-- Central Node -->\n                <g transform=\"translate(200, 140)\">\n                    <circle r=\"30\" class=\"node-circle\" id=\"center-node\" />\n                    <text y=\"5\" text-anchor=\"middle\" class=\"label-text\" style=\"font-weight: bold;\">Bird</text>\n                </g>\n\n                <!-- Prompt -->\n                <g id=\"prompt-group\" transform=\"translate(200, 40)\" opacity=\"0\">\n                    <rect x=\"-50\" y=\"-15\" width=\"100\" height=\"30\" rx=\"4\" class=\"prompt-box\" />\n                    <text y=\"5\" text-anchor=\"middle\" class=\"label-text\" style=\"font-size: 12px;\">\"Is it a bird?\"</text>\n                </g>\n\n                <!-- Peripheral Nodes -->\n                <!-- Robin (Typical) -->\n                <g transform=\"translate(320, 80)\">\n                    <path d=\"M -90 45 L -25 15\" class=\"connection-path\" />\n                    <circle r=\"25\" class=\"node-circle\" id=\"node-robin\" />\n                    <text y=\"4\" text-anchor=\"middle\" class=\"label-text\">Robin</text>\n                    <text id=\"resp-robin\" y=\"45\" text-anchor=\"middle\" class=\"muted-text\" opacity=\"0\">Response: YES</text>\n                </g>\n\n                <!-- Penguin (Atypical) -->\n                <g transform=\"translate(80, 80)\">\n                    <path d=\"M 90 45 L 25 15\" class=\"connection-path\" />\n                    <circle r=\"25\" class=\"node-circle\" id=\"node-penguin\" />\n                    <text y=\"4\" text-anchor=\"middle\" class=\"label-text\">Penguin</text>\n                    <text id=\"resp-penguin\" y=\"45\" text-anchor=\"middle\" class=\"muted-text\" opacity=\"0\">Response: YES</text>\n                </g>\n\n                <!-- Ostrich (Atypical) -->\n                <g transform=\"translate(200, 215)\">\n                    <path d=\"M 0 -45 L 0 -25\" class=\"connection-path\" />\n                    <circle r=\"25\" class=\"node-circle\" id=\"node-ostrich\" />\n                    <text y=\"4\" text-anchor=\"middle\" class=\"label-text\">Ostrich</text>\n                    <text id=\"resp-ostrich\" y=\"38\" text-anchor=\"middle\" class=\"muted-text\" opacity=\"0\">Response: YES</text>\n                </g>\n\n                <!-- Pulse Elements -->\n                <circle id=\"pulse-robin\" r=\"4\" class=\"pulse\" opacity=\"0\" />\n                <circle id=\"pulse-penguin\" r=\"4\" class=\"pulse\" opacity=\"0\" />\n                <circle id=\"pulse-ostrich\" r=\"4\" class=\"pulse\" opacity=\"0\" />\n\n            </svg>\n        </div>\n        <div class=\"caption\">Network activation during category verification</div>\n    </div>\n\n    <script>\n        (function() {\n            const centerNode = document.getElementById('center-node');\n            const promptGroup = document.getElementById('prompt-group');\n            const nodeRobin = document.getElementById('node-robin');\n            const nodePenguin = document.getElementById('node-penguin');\n            const nodeOstrich = document.getElementById('node-ostrich');\n            const respRobin = document.getElementById('resp-robin');\n            const respPenguin = document.getElementById('resp-penguin');\n            const respOstrich = document.getElementById('resp-ostrich');\n            const pulseRobin = document.getElementById('pulse-robin');\n            const pulsePenguin = document.getElementById('pulse-penguin');\n            const pulseOstrich = document.getElementById('pulse-ostrich');\n            const timeCursor = document.getElementById('time-cursor');\n\n            const DURATION = 6000; // Total loop duration\n            const START_TIME = 1000;\n            const ROBIN_ARRIVAL = 1800;\n            const PENGUIN_ARRIVAL = 3800;\n            const OSTRICH_ARRIVAL = 4200;\n            const END_DISPLAY = 5500;\n\n            const centerPos = { x: 200, y: 140 };\n            const robinPos = { x: 320, y: 80 };\n            const penguinPos = { x: 80, y: 80 };\n            const ostrichPos = { x: 200, y: 215 };\n\n            function lerp(start, end, t) {\n                return start + (end - start) * t;\n            }\n\n            function update(timestamp) {\n                const elapsed = timestamp % DURATION;\n\n                // Reset all\n                [nodeRobin, nodePenguin, nodeOstrich, centerNode].forEach(n => n.classList.remove('node-active'));\n                [respRobin, respPenguin, respOstrich].forEach(r => r.setAttribute('opacity', '0'));\n                [pulseRobin, pulsePenguin, pulseOstrich].forEach(p => p.setAttribute('opacity', '0'));\n                promptGroup.setAttribute('opacity', '0');\n                timeCursor.setAttribute('opacity', '0');\n\n                if (elapsed > 500 && elapsed < END_DISPLAY) {\n                    promptGroup.setAttribute('opacity', '1');\n                    centerNode.classList.add('node-active');\n                    timeCursor.setAttribute('opacity', '1');\n                    \n                    // Update time cursor\n                    const timelineProgress = Math.min(1, (elapsed - START_TIME) / (OSTRICH_ARRIVAL - START_TIME + 200));\n                    if (elapsed >= START_TIME) {\n                        const x = Math.min(300, (elapsed - START_TIME) / 10); // 10ms = 1px scale approx\n                        timeCursor.setAttribute('transform', `translate(${x}, 0)`);\n                    } else {\n                        timeCursor.setAttribute('transform', `translate(0, 0)`);\n                    }\n                }\n\n                // Robin Pulse\n                if (elapsed >= START_TIME && elapsed <= ROBIN_ARRIVAL) {\n                    const t = (elapsed - START_TIME) / (ROBIN_ARRIVAL - START_TIME);\n                    pulseRobin.setAttribute('opacity', '1');\n                    pulseRobin.setAttribute('cx', lerp(centerPos.x, robinPos.x, t));\n                    pulseRobin.setAttribute('cy', lerp(centerPos.y, robinPos.y, t));\n                }\n                if (elapsed >= ROBIN_ARRIVAL && elapsed < END_DISPLAY) {\n                    nodeRobin.classList.add('node-active');\n                    respRobin.setAttribute('opacity', '1');\n                }\n\n                // Penguin Pulse\n                if (elapsed >= START_TIME && elapsed <= PENGUIN_ARRIVAL) {\n                    const t = (elapsed - START_TIME) / (PENGUIN_ARRIVAL - START_TIME);\n                    pulsePenguin.setAttribute('opacity', '1');\n                    pulsePenguin.setAttribute('cx', lerp(centerPos.x, penguinPos.x, t));\n                    pulsePenguin.setAttribute('cy', lerp(centerPos.y, penguinPos.y, t));\n                }\n                if (elapsed >= PENGUIN_ARRIVAL && elapsed < END_DISPLAY) {\n                    nodePenguin.classList.add('node-active');\n                    respPenguin.setAttribute('opacity', '1');\n                }\n\n                // Ostrich Pulse\n                if (elapsed >= START_TIME && elapsed <= OSTRICH_ARRIVAL) {\n                    const t = (elapsed - START_TIME) / (OSTRICH_ARRIVAL - START_TIME);\n                    pulseOstrich.setAttribute('opacity', '1');\n                    pulseOstrich.setAttribute('cx', lerp(centerPos.x, ostrichPos.x, t));\n                    pulseOstrich.setAttribute('cy', lerp(centerPos.y, ostrichPos.y, t));\n                }\n                if (elapsed >= OSTRICH_ARRIVAL && elapsed < END_DISPLAY) {\n                    nodeOstrich.classList.add('node-active');\n                    respOstrich.setAttribute('opacity', '1');\n                }\n\n                requestAnimationFrame(update);\n            }\n\n            // Height reporting\n            function reportHeight() {\n                try {\n                    const height = document.documentElement.getBoundingClientRect().height;\n                    parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n                } catch (e) {}\n            }\n\n            window.addEventListener('load', () => {\n                reportHeight();\n                requestAnimationFrame(update);\n            });\n\n            const observer = new ResizeObserver(reportHeight);\n            observer.observe(document.body);\n        })();\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because typical members are closer to the category's central prototype or match more frequent exemplars."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Thinking and Decision Making Final Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In the context of the 'Problem Space' framework, what distinguishes an 'Operator' from a 'Solution Path'?",
+     "options": [
+      "An operator is a legal move or rule, while a solution path is a specific sequence of these moves to reach the goal.",
+      "An operator represents the goal state, while the solution path represents the initial state.",
+      "Operators are only the successful moves, whereas the solution path includes all possible mistakes.",
+      "The operator is the mental representation, while the solution path is the physical action taken."
+     ],
+     "explanation": "Operators define the 'rules of the game' or the possible moves within the problem space; the solution path is one successful route found by applying those operators from start to finish.",
+     "correctAnswers": [
+      "An operator is a legal move or rule, while a solution path is a specific sequence of these moves to reach the goal."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of 'Means-Ends Analysis' as a problem-solving strategy?",
+     "options": [
+      "Reducing the largest difference between the current state and the goal state.",
+      "Systematically searching every possible move in the entire problem space.",
+      "Breaking a daunting task into smaller, manageable sub-goals.",
+      "Relying solely on subconscious incubation to find a solution.",
+      "Allowing for temporary detours or backtracking to resolve nested obstacles."
+     ],
+     "explanation": "Means-Ends Analysis is a heuristic that involves sub-goaling and distance reduction. Unlike algorithms, it does not search every possible move, and unlike insight, it is a conscious, methodical process.",
+     "correctAnswers": [
+      "Reducing the largest difference between the current state and the goal state.",
+      "Breaking a daunting task into smaller, manageable sub-goals.",
+      "Allowing for temporary detours or backtracking to resolve nested obstacles."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When a person is unable to see that a cardboard box can be used as a platform rather than just a container, they are experiencing a cognitive bias known as ____.",
+     "placeholder": "two words",
+     "correctAnswers": [
+      "functional fixedness"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Illustration of meaningful vs. random chess board configurations.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/2f2b0715-6318-4205-ae35-fac328658dcc/exam/images/unit5-q4.png"
+     },
+     "prompt": "Why did the chess masters' memory advantage disappear when pieces were placed randomly on the board?",
+     "options": [
+      "Random placement increases the total number of operators in the problem space.",
+      "Experts rely on 'chunking' meaningful strategic patterns rather than photographic memory.",
+      "The masters suffered from functional fixedness regarding the board's dimensions.",
+      "Random boards require System 2 thinking which is slower than System 1."
+     ],
+     "explanation": "Expertise is content-dependent; when the 'deep structure' (strategic patterns) is removed by randomizing the pieces, the expert has no meaningful units to chunk and recall.",
+     "correctAnswers": [
+      "Experts rely on 'chunking' meaningful strategic patterns rather than photographic memory."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "According to the unit material, why are heuristics often preferred over algorithms in everyday human cognition?",
+     "options": [
+      "Heuristics guarantee a mathematically perfect solution every time.",
+      "Human cognitive resources and time are finite.",
+      "Algorithms can be 'irrational' choices if they cost more time than the solution is worth.",
+      "Heuristics ignore the problem space entirely to save energy.",
+      "The brain acts as a 'satisficer,' looking for solutions that are 'good enough'."
+     ],
+     "explanation": "Heuristics represent 'Cognitive Economy.' Because we have limited processing power, we trade the guarantee of an algorithm for the efficiency of a shortcut.",
+     "correctAnswers": [
+      "Human cognitive resources and time are finite.",
+      "Algorithms can be 'irrational' choices if they cost more time than the solution is worth.",
+      "The brain acts as a 'satisficer,' looking for solutions that are 'good enough'."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the Newell and Simon framework, the universe of all possible moves, including mistakes and dead ends, is called the ____.",
+     "placeholder": "two words",
+     "correctAnswers": [
+      "problem space"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A student excels at driving a car and quickly learns to drive a large delivery van. This is an example of:",
+     "options": [
+      "Far Transfer",
+      "Functional Fixedness",
+      "Near Transfer",
+      "Recursive Sub-goaling"
+     ],
+     "explanation": "Near transfer occurs when the surface and deep structures of two tasks overlap significantly, such as moving between two types of motor vehicles.",
+     "correctAnswers": [
+      "Near Transfer"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which scenarios would likely result in 'Functional Fixedness'?",
+     "options": [
+      "Using a heavy book only for reading and not as a doorstop.",
+      "Seeing a paperclip only as a tool for holding papers together.",
+      "Using a coin to turn a screw when a screwdriver is missing.",
+      "Thinking of a brick only as a building material and not as a weight.",
+      "Developing a sub-goal to find a missing key."
+     ],
+     "explanation": "Functional fixedness is the inability to see an object's potential use outside of its traditional or intended function.",
+     "correctAnswers": [
+      "Using a heavy book only for reading and not as a doorstop.",
+      "Seeing a paperclip only as a tool for holding papers together.",
+      "Thinking of a brick only as a building material and not as a weight."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The process where the mind continues to work on a problem subconsciously while the person is doing something else is called ____.",
+     "placeholder": "one word",
+     "correctAnswers": [
+      "incubation"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is the primary cognitive act involved in 'Insight' according to Gestalt psychologists?",
+     "options": [
+      "Exhaustive search of the initial state.",
+      "The gradual accumulation of small sub-goals.",
+      "Restructuring the mental representation of the problem.",
+      "Increasing the cognitive load to force a solution."
+     ],
+     "explanation": "Insight involves a sudden shift where the problem is viewed in a new way (restructured), often after an incubation period.",
+     "correctAnswers": [
+      "Restructuring the mental representation of the problem."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why is 'Far Transfer' (e.g., learning Latin to become a better programmer) generally difficult to achieve?",
+     "options": [
+      "The surface features of the two domains are too different.",
+      "The underlying deep structures do not spontaneously map to each other.",
+      "Latin and programming use different types of working memory.",
+      "Most skills are highly domain-specific and content-dependent.",
+      "Sub-goaling is not possible in language learning."
+     ],
+     "explanation": "Far transfer requires identifying abstract principles that bridge fields, which rarely happens because human expertise is usually tied to specific content.",
+     "correctAnswers": [
+      "The surface features of the two domains are too different.",
+      "The underlying deep structures do not spontaneously map to each other.",
+      "Most skills are highly domain-specific and content-dependent."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A strategy that always leads to a solution but requires significant time and energy is known as an ____.",
+     "placeholder": "one word",
+     "correctAnswers": [
+      "algorithm"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Tower of Hanoi rule constraint illustration.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/2f2b0715-6318-4205-ae35-fac328658dcc/exam/images/unit5-q13.png"
+     },
+     "prompt": "In the Tower of Hanoi, why is 'moving any disk to any peg' not considered a valid Operator?",
+     "options": [
+      "It is too simple to be a cognitive operator.",
+      "Operators must include the specific constraints/rules of the problem.",
+      "It represents the Goal State rather than a move.",
+      "Operators only apply to the initial state."
+     ],
+     "explanation": "Operators are 'legal' moves. Because the Tower of Hanoi has rules (e.g., no large disk on a small disk), a move that violates these is not a valid operator.",
+     "correctAnswers": [
+      "Operators must include the specific constraints/rules of the problem."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "How do experts' mental representations differ from those of novices?",
+     "options": [
+      "Experts have a larger general-purpose short-term memory capacity.",
+      "Experts' knowledge is organized into dense, interconnected 'deep structures'.",
+      "Experts focus on underlying patterns rather than surface features.",
+      "Experts use algorithms more often than heuristics to ensure perfection.",
+      "Experts perceive 'chunks' of information as single meaningful units."
+     ],
+     "explanation": "Expertise is characterized by organized knowledge structures and the ability to see patterns (chunks) that novices miss.",
+     "correctAnswers": [
+      "Experts' knowledge is organized into dense, interconnected 'deep structures'.",
+      "Experts focus on underlying patterns rather than surface features.",
+      "Experts perceive 'chunks' of information as single meaningful units."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Based on the simulation of the search process, why does the 'Heuristic' path reach the goal faster than the 'Algorithm' path?",
+     "options": [
+      "The heuristic path uses a 'hill-climbing' logic that avoids every single dead end by default.",
+      "The algorithm is forced to explore every branch of the tree to completion before moving to the next.",
+      "The heuristic uses specific domain rules to prune branches that are unlikely to lead to the goal.",
+      "The algorithm has a smaller 'Problem Space' than the heuristic which causes it to loop."
+     ],
+     "explanation": "Heuristics improve efficiency by narrowing the search area. The animation shows the algorithm methodically touching every node, while the heuristic ignores irrelevant branches.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Tree Search Visualization</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Algorithmic Searcher */\n            --amber: #c47c00;  /* Heuristic Searcher */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            color: var(--ink);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            position: relative;\n            background: var(--bg);\n        }\n\n        .tree-fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-text {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .node {\n            fill: var(--bg);\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .node.goal {\n            stroke: var(--ink);\n            stroke-width: 2px;\n        }\n\n        .edge {\n            stroke: var(--rule);\n            stroke-width: 1px;\n            fill: none;\n        }\n\n        .stats-overlay {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            width: 100%;\n            gap: 20px;\n            margin-top: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .stat-group {\n            display: flex;\n            flex-direction: column;\n        }\n\n        .stat-header {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            font-style: italic;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .stat-value {\n            font-size: 14px;\n            font-weight: 500;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .color-a { color: var(--accent); }\n        .color-b { color: var(--amber); }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            font-style: italic;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Comparison of two search methods through a tree structure</h1>\n    \n    <div class=\"container\">\n        <div class=\"fig-wrapper\" aria-label=\"A branching tree graph showing two different search paths\">\n            <svg class=\"tree-fig\" viewBox=\"0 0 400 240\">\n                <!-- Tree Edges -->\n                <g id=\"edges\"></g>\n                <!-- Tree Nodes -->\n                <g id=\"nodes\"></g>\n                \n                <!-- Goal Marker Label -->\n                <text x=\"355\" y=\"195\" class=\"label-text\" text-anchor=\"middle\">target</text>\n                \n                <!-- Searcher Dots -->\n                <circle id=\"searcher-a\" r=\"5\" fill=\"var(--accent)\" stroke=\"white\" stroke-width=\"1.5\" />\n                <circle id=\"searcher-b\" r=\"5\" fill=\"var(--amber)\" stroke=\"white\" stroke-width=\"1.5\" />\n            </svg>\n        </div>\n\n        <div class=\"stats-overlay\">\n            <div class=\"stat-group\">\n                <div class=\"stat-header\">Search Path A</div>\n                <div class=\"stat-value color-a\">Nodes checked: <span id=\"count-a\">0</span></div>\n            </div>\n            <div class=\"stat-group\">\n                <div class=\"stat-header\">Search Path B</div>\n                <div class=\"stat-value color-b\">Nodes checked: <span id=\"count-b\">0</span></div>\n            </div>\n        </div>\n\n        <div class=\"caption\">Two simultaneous search processes on a fixed branching structure.</div>\n    </div>\n\n    <script>\n        // Tree configuration\n        // Using a seed-based approach for the tree structure to ensure determinism\n        const treeData = {\n            nodes: [\n                { id: 0, x: 200, y: 30, depth: 0 },\n                { id: 1, x: 100, y: 80, depth: 1 },\n                { id: 2, x: 300, y: 80, depth: 1 },\n                { id: 3, x: 50,  y: 130, depth: 2 },\n                { id: 4, x: 150, y: 130, depth: 2 },\n                { id: 5, x: 250, y: 130, depth: 2 },\n                { id: 6, x: 350, y: 130, depth: 2 },\n                { id: 7, x: 25,  y: 180, depth: 3 },\n                { id: 8, x: 75,  y: 180, depth: 3 },\n                { id: 9, x: 125, y: 180, depth: 3 },\n                { id: 10, x: 175, y: 180, depth: 3 },\n                { id: 11, x: 225, y: 180, depth: 3 },\n                { id: 12, x: 275, y: 180, depth: 3 },\n                { id: 13, x: 325, y: 180, depth: 3 },\n                { id: 14, x: 375, y: 180, depth: 3 } // Goal Node\n            ],\n            edges: [\n                [0,1], [0,2], [1,3], [1,4], [2,5], [2,6],\n                [3,7], [3,8], [4,9], [4,10], [5,11], [5,12], [6,13], [6,14]\n            ]\n        };\n\n        const goalNodeId = 14;\n\n        // Path A: Systematic exhaustive search (Breadth-First or Depth-First style sequence)\n        // Visits almost everything before finding goal\n        const pathA = [0, 1, 3, 7, 8, 4, 9, 10, 2, 5, 11, 12, 6, 13, 14];\n        \n        // Path B: Targeted search\n        // Skips large branches\n        const pathB = [0, 2, 6, 14];\n\n        const svgNodes = document.getElementById('nodes');\n        const svgEdges = document.getElementById('edges');\n        const dotA = document.getElementById('searcher-a');\n        const dotB = document.getElementById('searcher-b');\n        const countA = document.getElementById('count-a');\n        const countB = document.getElementById('count-b');\n\n        // Draw Tree\n        treeData.edges.forEach(edge => {\n            const n1 = treeData.nodes[edge[0]];\n            const n2 = treeData.nodes[edge[1]];\n            const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n            line.setAttribute(\"x1\", n1.x);\n            line.setAttribute(\"y1\", n1.y);\n            line.setAttribute(\"x2\", n2.x);\n            line.setAttribute(\"y2\", n2.y);\n            line.classList.add('edge');\n            svgEdges.appendChild(line);\n        });\n\n        treeData.nodes.forEach(node => {\n            const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n            circle.setAttribute(\"cx\", node.x);\n            circle.setAttribute(\"cy\", node.y);\n            circle.setAttribute(\"r\", 6);\n            circle.classList.add('node');\n            if (node.id === goalNodeId) circle.classList.add('goal');\n            svgNodes.appendChild(circle);\n        });\n\n        let startTime = null;\n        const duration = 10000; // 10 seconds per loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) % duration;\n            const progress = elapsed / duration;\n\n            // Update searcher A\n            const indexA = Math.min(Math.floor(progress * pathA.length * 1.2), pathA.length - 1);\n            const nodeA = treeData.nodes[pathA[indexA]];\n            dotA.setAttribute(\"cx\", nodeA.x);\n            dotA.setAttribute(\"cy\", nodeA.y);\n            countA.textContent = indexA + 1;\n\n            // Update searcher B\n            // B moves slower in \"steps\" or pauses, but finishes much faster relative to total nodes\n            const indexB = Math.min(Math.floor(progress * pathA.length * 1.2), pathB.length - 1);\n            const nodeB = treeData.nodes[pathB[indexB]];\n            \n            // Stay at goal once reached\n            dotB.setAttribute(\"cx\", nodeB.x);\n            dotB.setAttribute(\"cy\", nodeB.y);\n            countB.textContent = indexB + 1;\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The heuristic uses specific domain rules to prune branches that are unlikely to lead to the goal."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "b408925e-86e7-41e1-bd35-4abc8432a8ac"
+}

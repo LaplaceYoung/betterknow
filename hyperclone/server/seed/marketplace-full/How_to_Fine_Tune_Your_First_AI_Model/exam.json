@@ -1,0 +1,1286 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Comprehensive Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which component of a neural network acts as a 'sensitivity knob', determining how strongly the model reacts to a specific input feature?",
+     "options": [
+      "Bias",
+      "Weight",
+      "Loss function",
+      "Validation set"
+     ],
+     "explanation": "Weights are the parameters that multiply the input, effectively acting as knobs that determine the intensity or importance of a specific signal in the network's mathematical pathways.",
+     "correctAnswers": [
+      "Weight"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "During the 'Training Phase' of a fine-tuning project, which of the following activities are actively occurring?",
+     "options": [
+      "The model weights are being updated via backpropagation.",
+      "The loss function is calculated to measure error against ground-truth labels.",
+      "The model is in a static, frozen state to save memory.",
+      "A forward pass is performed to generate a prediction.",
+      "The model is being used in a production environment for end-users."
+     ],
+     "explanation": "Training is a dynamic loop involving a forward pass, loss calculation, and a backward pass (backpropagation) to update weights. Static states and production use are characteristic of the Inference phase.",
+     "correctAnswers": [
+      "The model weights are being updated via backpropagation.",
+      "The loss function is calculated to measure error against ground-truth labels.",
+      "A forward pass is performed to generate a prediction."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A model that has memorized the specific noise and outliers of a training set rather than learning the underlying patterns is said to be ____.",
+     "placeholder": "Enter the concept name",
+     "correctAnswers": [
+      "overfitting",
+      "overfitted"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why is a 'pretrained checkpoint' generally preferred over 'random initialization' when starting a new classification task?",
+     "options": [
+      "Random initialization requires no hardware to run.",
+      "Pretrained models have already learned grammar and general world facts.",
+      "Pretrained models are already experts in your specific domain tasks.",
+      "Random initialization is only used for inference, not training."
+     ],
+     "explanation": "Pretraining provides a foundation of linguistic patterns and general knowledge, saving significant time and compute compared to starting from a 'blank slate' that knows nothing about language.",
+     "correctAnswers": [
+      "Pretrained models have already learned grammar and general world facts."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which factors contribute to the higher GPU memory requirements of training compared to inference?",
+     "options": [
+      "Storing gradients for every parameter.",
+      "Maintaining optimizer states.",
+      "Tracking intermediate values for backpropagation.",
+      "Loading the static weights of the model.",
+      "Processing the final output text."
+     ],
+     "explanation": "In addition to model weights (which both use), training requires extra memory for the mathematical 'overhead' of the backward pass, such as gradients and optimizer data.",
+     "correctAnswers": [
+      "Storing gradients for every parameter.",
+      "Maintaining optimizer states.",
+      "Tracking intermediate values for backpropagation."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The process of using a trained model to generate predictions on new data, where weights remain frozen, is called ____.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "inference"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the 'Hiker in a Valley' analogy, what does the 'Gradient' represent?",
+     "options": [
+      "The height of the hiker above sea level.",
+      "The direction of the nearest global maximum.",
+      "The slope of the ground indicating the direction of steepest ascent.",
+      "The total distance the hiker has walked."
+     ],
+     "explanation": "The gradient is the derivative of the loss function, telling the optimizer which way is 'uphill' so it can move in the opposite direction to find the minimum error.",
+     "correctAnswers": [
+      "The slope of the ground indicating the direction of steepest ascent."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When should you choose fine-tuning over using a general-purpose pretrained model?",
+     "options": [
+      "When you need strict adherence to a custom classification schema.",
+      "When the task involves specialized medical or legal vocabulary.",
+      "When you want the model to brainstorm creative writing prompts.",
+      "When you need the model to follow specific organizational behavioral guidelines.",
+      "When you want to translate a common sentence into French."
+     ],
+     "explanation": "Fine-tuning is best for domain-specific tasks or strict formatting requirements that general pretraining doesn't cover in detail.",
+     "correctAnswers": [
+      "When you need strict adherence to a custom classification schema.",
+      "When the task involves specialized medical or legal vocabulary.",
+      "When you need the model to follow specific organizational behavioral guidelines."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The ____ acts as a threshold shifter, determining how easy it is for a neuron to fire regardless of the specific input values.",
+     "placeholder": "Weight or Bias?",
+     "correctAnswers": [
+      "bias"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is the primary risk of setting a learning rate too high during optimization?",
+     "options": [
+      "The model will learn too slowly.",
+      "The model may overshoot the minimum loss and fail to converge.",
+      "The model will automatically switch to inference mode.",
+      "The loss function will become a flat line."
+     ],
+     "explanation": "A high learning rate means the steps taken are too large, which can cause the optimizer to jump over the 'valley' of minimum loss entirely.",
+     "correctAnswers": [
+      "The model may overshoot the minimum loss and fail to converge."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What components are needed to visualize the 'Loss Landscape' of a model?",
+     "options": [
+      "Parameter values (weights/biases) as coordinates.",
+      "The calculated error (loss) as the vertical height.",
+      "The number of GPUs available in the cluster.",
+      "The learning rate speed.",
+      "The ground-truth labels for comparison."
+     ],
+     "explanation": "A loss landscape maps parameter combinations to their resulting error; calculating that error requires comparing predictions to ground-truth labels.",
+     "correctAnswers": [
+      "Parameter values (weights/biases) as coordinates.",
+      "The calculated error (loss) as the vertical height.",
+      "The ground-truth labels for comparison."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The mathematical difference between a model's prediction and the actual ground-truth label is measured by the ____ function.",
+     "placeholder": "Name the function",
+     "correctAnswers": [
+      "loss",
+      "cost",
+      "objective"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the context of the course, what does a loss of zero typically signify on a training set?",
+     "options": [
+      "Perfect generalization to all future data.",
+      "The model has likely memorized the training data (overfitting).",
+      "The learning rate is too low.",
+      "The model requires more parameters to function."
+     ],
+     "explanation": "While it looks good on paper, a zero loss often means the model has captured every noise and outlier in the training set, which usually hurts performance on real-world unseen data.",
+     "correctAnswers": [
+      "The model has likely memorized the training data (overfitting)."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of a 'Pretrained Model'?",
+     "options": [
+      "It was trained on a massive corpus like web text and books.",
+      "It uses random numbers for all its initial weights.",
+      "It understands statistical probabilities of word sequences.",
+      "It is essentially a 'blank slate' for syntax.",
+      "It serves as a foundation for downstream fine-tuning."
+     ],
+     "explanation": "Pretrained models are not blank slates; they have already learned language patterns from vast datasets and are used as starting points for specific tasks.",
+     "correctAnswers": [
+      "It was trained on a massive corpus like web text and books.",
+      "It understands statistical probabilities of word sequences.",
+      "It serves as a foundation for downstream fine-tuning."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Which of these best describes the 'Forward Pass'?",
+     "options": [
+      "Adjusting weights to reduce error.",
+      "Calculating the derivative of the loss function.",
+      "Input data traveling through the model layers to produce an output.",
+      "Dividing the dataset into training and validation sets."
+     ],
+     "explanation": "The forward pass is the process where input 'X' is processed through the network's mathematical pathways to generate prediction 'Y'.",
+     "correctAnswers": [
+      "Input data traveling through the model layers to produce an output."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "In the mathematical function 'Y = WX + B', which variables represent the model's parameters?",
+     "options": [
+      "X (Input)",
+      "W (Weight)",
+      "B (Bias)",
+      "Y (Output)"
+     ],
+     "explanation": "In a linear neuron, weights (W) and biases (B) are the adjustable sliders (parameters) that the model learns during training.",
+     "correctAnswers": [
+      "W (Weight)",
+      "B (Bias)"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the model training progress to find the 'Sweet Spot' where generalization is highest before the model begins to overfit.",
+     "options": [
+      "Early Training (Both losses high)",
+      "Optimal Point (Validation loss at minimum)",
+      "Late Training (Validation loss rising)",
+      "Final Convergence (Training loss at zero)"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Overfitting & Underfitting Interactive Graph</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #707070;\n    --accent: #4C6696;\n    --accent-soft: #f0f4f8;\n    --accent-strong: #3a4f78;\n    --train-color: #3b82f6;\n    --val-color: #f97316;\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    color: var(--fg);\n    -webkit-tap-highlight-color: transparent;\n    overflow: hidden;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n\n  .widget-container {\n    width: 100%;\n    max-width: 480px;\n    margin: 0 auto;\n    box-sizing: border-box;\n    padding: 12px 16px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    user-select: none;\n  }\n\n  .instruction {\n    font-size: clamp(12px, 2.5vw, 13px);\n    color: var(--muted-fg);\n    text-align: center;\n    margin: 0;\n  }\n\n  .stage {\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 12px;\n    padding: 8px 12px;\n    position: relative;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.02);\n  }\n\n  .stage-svg {\n    width: 100%;\n    height: auto;\n    display: block;\n    overflow: visible;\n  }\n\n  /* Interaction Controls */\n  .control-area {\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n    align-items: center;\n    margin-top: 4px;\n  }\n\n  .slider-container {\n    width: 100%;\n    position: relative;\n    height: 28px;\n    display: flex;\n    align-items: center;\n    touch-action: none;\n  }\n\n  .slider-track {\n    position: absolute;\n    left: 0;\n    right: 0;\n    height: 6px;\n    background: var(--stage);\n    border-radius: 3px;\n    border: 1px solid var(--border);\n  }\n\n  .slider-fill {\n    position: absolute;\n    left: 0;\n    height: 6px;\n    background: var(--accent-strong);\n    border-radius: 3px;\n    width: 0%;\n  }\n\n  .slider-thumb {\n    position: absolute;\n    width: 20px;\n    height: 20px;\n    border-radius: 50%;\n    background: var(--surface);\n    border: 2px solid var(--accent);\n    box-shadow: 0 2px 4px rgba(0,0,0,0.15);\n    cursor: grab;\n    transform: translateX(-50%);\n    transition: transform 0.1s ease, background-color 0.1s ease;\n    outline: none;\n  }\n\n  .slider-thumb:active {\n    cursor: grabbing;\n    transform: translateX(-50%) scale(1.15);\n    background: var(--accent-soft);\n  }\n\n  .slider-thumb:focus-visible {\n    outline: 2px solid var(--accent-strong);\n    outline-offset: 2px;\n  }\n\n  /* State Card / Current Answer Indicator */\n  .state-indicator {\n    width: 100%;\n    background: var(--accent-soft);\n    border: 1.5px solid var(--accent);\n    border-radius: 8px;\n    padding: 8px 12px;\n    box-sizing: border-box;\n    text-align: center;\n    transition: background-color 0.2s, border-color 0.2s;\n  }\n\n  .state-label {\n    font-size: 11px;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    color: var(--accent-strong);\n    font-weight: 700;\n    margin-bottom: 2px;\n  }\n\n  .state-value {\n    font-size: clamp(14px, 3.5vw, 15px);\n    font-weight: 600;\n    color: var(--fg);\n  }\n\n  .locked {\n    pointer-events: none !important;\n    opacity: 0.7;\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"sr-only\">Interactive Training Loss vs Validation Loss Graph Analyzer</h1>\n\n<div class=\"widget-container\">\n  \n  <div class=\"stage\" id=\"stage\">\n    <svg class=\"stage-svg\" viewBox=\"0 0 400 160\" aria-hidden=\"true\">\n      <!-- Grid lines -->\n      <line x1=\"45\" y1=\"15\" x2=\"385\" y2=\"15\" stroke=\"#f1f1f1\" stroke-width=\"1\" />\n      <line x1=\"45\" y1=\"75\" x2=\"385\" y2=\"75\" stroke=\"#f1f1f1\" stroke-width=\"1\" />\n      <line x1=\"45\" y1=\"135\" x2=\"385\" y2=\"135\" stroke=\"#e9e9e9\" stroke-width=\"1\" />\n\n      <!-- Axes -->\n      <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"135\" stroke=\"#d1d1d1\" stroke-width=\"1.5\" />\n      <line x1=\"45\" y1=\"135\" x2=\"385\" y2=\"135\" stroke=\"#d1d1d1\" stroke-width=\"1.5\" />\n\n      <!-- Y Axis Labels -->\n      <text x=\"35\" y=\"20\" font-size=\"10\" text-anchor=\"end\" fill=\"#888\">High</text>\n      <text x=\"12\" y=\"78\" font-size=\"10\" text-anchor=\"start\" fill=\"#888\" transform=\"rotate(-90, 12, 78)\" font-weight=\"600\">LOSS</text>\n      <text x=\"35\" y=\"138\" font-size=\"10\" text-anchor=\"end\" fill=\"#888\">Zero</text>\n\n      <!-- X Axis Labels -->\n      <text x=\"45\" y=\"148\" font-size=\"10\" text-anchor=\"middle\" fill=\"#888\">Start</text>\n      <text x=\"215\" y=\"148\" font-size=\"10\" text-anchor=\"middle\" fill=\"#888\" font-weight=\"600\">EPOCHS (TIME)</text>\n      <text x=\"385\" y=\"148\" font-size=\"10\" text-anchor=\"middle\" fill=\"#888\">End</text>\n\n      <!-- Legend -->\n      <g transform=\"translate(180, 10)\">\n        <line x1=\"0\" y1=\"0\" x2=\"15\" y2=\"0\" stroke=\"var(--train-color)\" stroke-width=\"2.5\" />\n        <text x=\"20\" y=\"3\" font-size=\"9\" fill=\"#555\" font-weight=\"500\">Training Loss</text>\n        <line x1=\"110\" y1=\"0\" x2=\"125\" y2=\"0\" stroke=\"var(--val-color)\" stroke-width=\"2\" stroke-dasharray=\"3 2\" />\n        <text x=\"130\" y=\"3\" font-size=\"9\" fill=\"#555\" font-weight=\"500\">Val Loss</text>\n      </g>\n\n      <!-- Graph Curves -->\n      <path id=\"train-curve\" fill=\"none\" stroke=\"var(--train-color)\" stroke-width=\"2.5\" />\n      <path id=\"val-curve\" fill=\"none\" stroke=\"var(--val-color)\" stroke-width=\"2\" stroke-dasharray=\"4 3\" />\n\n      <!-- Indicator & Tracking Elements -->\n      <line id=\"indicator-line\" x1=\"45\" y1=\"15\" x2=\"45\" y2=\"135\" stroke=\"var(--accent)\" stroke-width=\"1.5\" stroke-dasharray=\"2 2\" />\n      \n      <circle id=\"train-dot\" r=\"5\" fill=\"var(--train-color)\" stroke=\"#fff\" stroke-width=\"1.5\" />\n      <circle id=\"val-dot\" r=\"5\" fill=\"var(--val-color)\" stroke=\"#fff\" stroke-width=\"1.5\" />\n    </svg>\n  </div>\n\n  <div class=\"control-area\">\n    <div class=\"slider-container\" id=\"slider-container\">\n      <div class=\"slider-track\"></div>\n      <div class=\"slider-fill\" id=\"slider-fill\"></div>\n      <div class=\"slider-thumb\" id=\"slider-thumb\" role=\"slider\" aria-label=\"Epoch controller\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\" tabindex=\"0\"></div>\n    </div>\n\n    <div class=\"state-indicator\">\n      <div class=\"state-label\">Current Training State</div>\n      <div class=\"state-value\" id=\"state-text\">Drag the slider to begin</div>\n    </div>\n  </div>\n\n  <p class=\"instruction\">Slide left to right to track progress. Stop at the optimal target.</p>\n</div>\n\n<script>\n  // Math & Geometry mappings\n  const xMin = 45;\n  const xMax = 385;\n  const yMin = 15;\n  const yMax = 135;\n\n  function getTrainLoss(t) {\n    // Starts high, decays down\n    return 0.9 * Math.exp(-t / 32) + 0.04;\n  }\n\n  function getValLoss(t) {\n    // Quadratic drop & rise with minimum near t=35\n    return 0.73 * Math.exp(-t / 14) + 0.18 + 0.000135 * Math.pow(t - 35, 2);\n  }\n\n  // Pre-generate curve paths\n  let trainD = \"\";\n  let valD = \"\";\n  for (let t = 0; t <= 100; t++) {\n    const px = xMin + (t / 100) * (xMax - xMin);\n    const pyTrain = yMax - getTrainLoss(t) * (yMax - yMin);\n    const pyVal = yMax - getValLoss(t) * (yMax - yMin);\n    \n    trainD += (t === 0 ? \"M\" : \"L\") + ` ${px} ${pyTrain}`;\n    valD += (t === 0 ? \"M\" : \"L\") + ` ${px} ${pyVal}`;\n  }\n  document.getElementById('train-curve').setAttribute('d', trainD);\n  document.getElementById('val-curve').setAttribute('d', valD);\n\n  // State Management\n  let currentVal = 0; \n  let isLocked = false;\n  let hasInteracted = false;\n\n  const sliderContainer = document.getElementById('slider-container');\n  const sliderThumb = document.getElementById('slider-thumb');\n  const sliderFill = document.getElementById('slider-fill');\n  const stateText = document.getElementById('state-text');\n  const indicatorLine = document.getElementById('indicator-line');\n  const trainDot = document.getElementById('train-dot');\n  const valDot = document.getElementById('val-dot');\n\n  const OPTIONS = [\n    \"Early Training (Both losses high)\",\n    \"Optimal Point (Validation loss at minimum)\",\n    \"Late Training (Validation loss rising)\",\n    \"Final Convergence (Training loss at zero)\"\n  ];\n\n  function getOptionForValue(t) {\n    if (t < 25) return OPTIONS[0];\n    if (t >= 25 && t <= 45) return OPTIONS[1];\n    if (t > 45 && t < 85) return OPTIONS[2];\n    return OPTIONS[3];\n  }\n\n  function updateVisuals(t) {\n    // Limit range\n    t = Math.max(0, Math.min(100, t));\n    currentVal = t;\n\n    // Update Slider\n    sliderThumb.style.left = `${t}%`;\n    sliderFill.style.width = `${t}%`;\n    sliderThumb.setAttribute('aria-valuenow', Math.round(t));\n\n    // Update Graph Indicators\n    const cx = xMin + (t / 100) * (xMax - xMin);\n    const cyTrain = yMax - getTrainLoss(t) * (yMax - yMin);\n    const cyVal = yMax - getValLoss(t) * (yMax - yMin);\n\n    indicatorLine.setAttribute('x1', cx);\n    indicatorLine.setAttribute('x2', cx);\n    \n    trainDot.setAttribute('cx', cx);\n    trainDot.setAttribute('cy', cyTrain);\n    valDot.setAttribute('cx', cx);\n    valDot.setAttribute('cy', cyVal);\n\n    // Update Text label\n    const option = getOptionForValue(t);\n    stateText.textContent = option;\n\n    // Report answer\n    if (hasInteracted) {\n      parent.postMessage({ type: 'hk-practice-answer', value: option }, '*');\n    }\n  }\n\n  // Pointer Interaction\n  let isDragging = false;\n\n  function handlePointerMove(e) {\n    if (!isDragging || isLocked) return;\n    const rect = sliderContainer.getBoundingClientRect();\n    const clientX = e.touches ? e.touches[0].clientX : e.clientX;\n    let percentage = ((clientX - rect.left) / rect.width) * 100;\n    percentage = Math.max(0, Math.min(100, percentage));\n    hasInteracted = true;\n    updateVisuals(percentage);\n  }\n\n  function startDrag(e) {\n    if (isLocked) return;\n    isDragging = true;\n    hasInteracted = true;\n    sliderContainer.setPointerCapture(e.pointerId);\n    handlePointerMove(e);\n  }\n\n  function stopDrag(e) {\n    isDragging = false;\n  }\n\n  sliderContainer.addEventListener('pointerdown', startDrag);\n  sliderContainer.addEventListener('pointermove', handlePointerMove);\n  sliderContainer.addEventListener('pointerup', stopDrag);\n  sliderContainer.addEventListener('pointercancel', stopDrag);\n\n  // Keyboard Access\n  sliderThumb.addEventListener('keydown', (e) => {\n    if (isLocked) return;\n    hasInteracted = true;\n    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n      updateVisuals(currentVal + 2);\n    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n      updateVisuals(currentVal - 2);\n    }\n  });\n\n  // Host Message Listeners\n  window.addEventListener('message', function(e) {\n    if (e.data && e.data.type === 'hk-practice-lock') {\n      isLocked = true;\n      document.querySelector('.widget-container').classList.add('locked');\n      sliderThumb.removeAttribute('tabindex');\n    }\n  });\n\n  // Height reporting\n  function reportHeight() {\n    try {\n      const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n      parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n    } catch (e) {}\n  }\n\n  window.addEventListener('load', () => {\n    updateVisuals(10); // Start at early stage\n    hasInteracted = false; // Reset interaction flag on initial load so nothing reports until touched\n    reportHeight();\n  });\n\n  const resizeObserver = new ResizeObserver(() => reportHeight());\n  resizeObserver.observe(document.body);\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Optimal Point (Validation loss at minimum)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Comprehensive Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a developer uses a dataset with a Creative Commons 'NC' (Non-Commercial) clause to fine-tune a model for a paid enterprise software, which statement best describes the legal standing?",
+     "options": [
+      "The model is legally compliant because the data is only used for training, not direct redistribution.",
+      "The model weights are considered a derivative work and are legally compromised for commercial use.",
+      "The license only applies to the raw text files, not the mathematical weights of the neural network.",
+      "As long as the model is open-sourced, the commercial status of the software does not matter."
+     ],
+     "explanation": "Creative Commons NC clauses prohibit the creation of commercial derivatives. Fine-tuning transforms the data into model weights, which are generally viewed as derivative works in this context.",
+     "correctAnswers": [
+      "The model weights are considered a derivative work and are legally compromised for commercial use."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are primary reasons to perform thorough deduplication across training and validation sets?",
+     "options": [
+      "To prevent 'data leakage' where the model memorizes test answers during training.",
+      "To ensure validation metrics provide an honest assessment of model generalization.",
+      "To reduce the physical storage size of the final model weights.",
+      "To avoid wasting computational resources on redundant gradient updates.",
+      "To automatically anonymize PII present in multiple records."
+     ],
+     "explanation": "Deduplication ensures the model doesn't see the same data in both sets (leakage), provides honest metrics, and prevents the training loop from wasting cycles on identical samples. It does not reduce the model size or anonymize PII.",
+     "correctAnswers": [
+      "To prevent 'data leakage' where the model memorizes test answers during training.",
+      "To ensure validation metrics provide an honest assessment of model generalization.",
+      "To avoid wasting computational resources on redundant gradient updates."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "A team is preparing a sentiment analysis dataset. They have a label called 'Other' for any text that isn't clearly positive or negative. Why might this be problematic for a high-performance model?",
+     "options": [
+      "Language models cannot mathematically process more than two labels.",
+      "The 'Other' label acts as a lazy catch-all that lacks clear semantic boundaries.",
+      "Label names must always be at least eight characters long for the tokenizer.",
+      "The model will automatically assign all text to 'Other' to minimize loss."
+     ],
+     "explanation": "Vague or overlapping labels prevent the model from finding clear boundaries in the vector space. High-quality datasets require a rigorous, mutually exclusive taxonomy.",
+     "correctAnswers": [
+      "The 'Other' label acts as a lazy catch-all that lacks clear semantic boundaries."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Identify the elements in the following string that should be targeted during a 'cleaning' pass for a clean training set: '<div class=\"user_msg\">Contact me at 555-0199 or email user@example.com</div>'",
+     "options": [
+      "HTML tags like <div> and </div>",
+      "The email address 'user@example.com'",
+      "The phone number '555-0199'",
+      "The word 'Contact'",
+      "The word 'email'"
+     ],
+     "explanation": "HTML tags are structural noise (garbage), while the phone number and email are PII. 'Contact' and 'email' are harmless semantic context.",
+     "correctAnswers": [
+      "HTML tags like <div> and </div>",
+      "The email address 'user@example.com'",
+      "The phone number '555-0199'"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "What is the primary risk of 'over-redaction' during the PII removal process?",
+     "options": [
+      "The dataset will take up too much memory on the GPU.",
+      "The model will learn to output only '<MASK>' tokens during generation.",
+      "The context is destroyed, making it difficult for the model to learn syntactic relationships.",
+      "Regex patterns will become too slow to execute on large datasets."
+     ],
+     "explanation": "If too many words are replaced with placeholders, the sentence structure is gutted, and the model can no longer understand the relationship between words (the 'semantic utility').",
+     "correctAnswers": [
+      "The context is destroyed, making it difficult for the model to learn syntactic relationships."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "Which of these are considered 'safe harbor' practices when handling internal corporate data for fine-tuning?",
+     "options": [
+      "Reviewing internal data governance and customer privacy agreements.",
+      "Ensuring compliance with frameworks like GDPR or HIPAA.",
+      "Assuming all internal logs are safe to use because they are not public.",
+      "Sanitizing sensitive customer identifiers before they reach the training pipeline.",
+      "Sharing the fine-tuned model on public repositories for transparency."
+     ],
+     "explanation": "Internal data requires strict governance and sanitization to protect privacy and comply with laws like GDPR. Internal data is not 'automatically' safe to use just because it's private.",
+     "correctAnswers": [
+      "Reviewing internal data governance and customer privacy agreements.",
+      "Ensuring compliance with frameworks like GDPR or HIPAA.",
+      "Sanitizing sensitive customer identifiers before they reach the training pipeline."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a supervised learning ledger, what does the arrow pointing from the 'Example' to the 'Label' represent mathematically?",
+     "options": [
+      "The storage path on the hard drive.",
+      "The mapping function the neural network tries to approximate.",
+      "The speed at which the model processes text.",
+      "The sequence of layers in the transformer architecture."
+     ],
+     "explanation": "In supervised learning, the goal is for the model to learn the function that maps a specific input (example) to a desired output (label).",
+     "correctAnswers": [
+      "The mapping function the neural network tries to approximate."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "An annotator sees the feedback: 'I need a PDF of my March invoice.' Based on the session discussion, why is 'Billing_Issue' a better label than 'Technical_Support'?",
+     "options": [
+      "The semantic intent is related to a financial transaction (invoice).",
+      "The word 'PDF' is a technical term, but the core need is billing-related.",
+      "Technical_Support labels are only used for hardware failures.",
+      "It follows the principle of labeling based on intent rather than surface-level keywords.",
+      "Billing_Issue is a shorter word and thus easier for the model to learn."
+     ],
+     "explanation": "High-quality labeling looks past surface keywords (like 'PDF') to find the underlying intent (getting an invoice), which is a billing concern.",
+     "correctAnswers": [
+      "The semantic intent is related to a financial transaction (invoice).",
+      "The word 'PDF' is a technical term, but the core need is billing-related.",
+      "It follows the principle of labeling based on intent rather than surface-level keywords."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "Why is '&nbsp;' or '<div class=\"content\">' considered problematic noise for a language model?",
+     "options": [
+      "They cause the model to crash during the training phase.",
+      "The model wastes capacity learning to process tokens that have no semantic value.",
+      "These strings are too long for standard tokenizers to handle.",
+      "They are automatically converted into PII by the neural network."
+     ],
+     "explanation": "Non-semantic components (noise) distract the model. Instead of learning useful language patterns, the attention heads waste resources on structural artifacts.",
+     "correctAnswers": [
+      "The model wastes capacity learning to process tokens that have no semantic value."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "A text block contains: 'My name is Bob. I live at 123 Maple St. I love the new software update.' Which parts are 'harmless domain-specific context' rather than PII?",
+     "options": [
+      "Bob",
+      "123 Maple St.",
+      "I love the new",
+      "software update",
+      "I live at"
+     ],
+     "explanation": "'Bob' (Name) and '123 Maple St' (Address) are direct and locator identifiers (PII). The rest of the phrase describes the user's sentiment and the product, which is vital training context.",
+     "correctAnswers": [
+      "I love the new",
+      "software update",
+      "I live at"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "Which of the following is a direct consequence of having overlapping labels (e.g., 'Inquiry' and 'Question') in your training set?",
+     "options": [
+      "The model will run 50% slower during inference.",
+      "The model will struggle to find a clear decision boundary between categories.",
+      "The loss function will become zero immediately.",
+      "The tokenizer will refuse to process the label names."
+     ],
+     "explanation": "If humans (and therefore labels) cannot distinguish between categories, the model's predictions will be chaotic because there is no clear boundary in the vector space.",
+     "correctAnswers": [
+      "The model will struggle to find a clear decision boundary between categories."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Why is 'raw data' compared to 'crude oil' in the context of supervised learning?",
+     "options": [
+      "It is unusable for fine-tuning until it has been refined and paired with labels.",
+      "It is naturally found in underground digital repositories.",
+      "It must be 'refined' through cleaning and preprocessing to become valuable.",
+      "It is a non-renewable resource in the world of machine learning.",
+      "The process of cleaning it is known as 'distillation'."
+     ],
+     "explanation": "Raw data is often noisy and unorganized. Like crude oil, it only becomes useful for 'fueling' a model after it has been cleaned, structured, and labeled.",
+     "correctAnswers": [
+      "It is unusable for fine-tuning until it has been refined and paired with labels.",
+      "It must be 'refined' through cleaning and preprocessing to become valuable."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "You see a validation accuracy of 99.8% on a complex text classification task, but the model fails on almost all real-world inputs. What is the most likely cause?",
+     "options": [
+      "The model is too small to understand the task.",
+      "The learning rate was set too high during fine-tuning.",
+      "Data leakage caused by duplicates appearing in both the training and validation sets.",
+      "The model was trained for too many epochs."
+     ],
+     "explanation": "Artificially high validation scores often point to data leakage, where the model has memorized the answers because it saw the same records during the training phase.",
+     "correctAnswers": [
+      "Data leakage caused by duplicates appearing in both the training and validation sets."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "Which tool is best suited for the 'first line of defense' in identifying predictable patterns like credit card numbers or standard email formats?",
+     "options": [
+      "BeautifulSoup",
+      "Regular Expressions (Regex)",
+      "Named Entity Recognition (NER)",
+      "Deduplication Algorithms"
+     ],
+     "explanation": "Regex is fast and deterministic for identifying predictable strings like digit patterns or email symbols, making it an ideal first filter.",
+     "correctAnswers": [
+      "Regular Expressions (Regex)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "A flowchart showing deduplication occurring after data splitting.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e39dcbd0-7faf-4c95-a607-e15c049b41c6/exam/images/unit2-q15.png"
+     },
+     "prompt": "Look at the diagram of a 'Data Hygiene Pipeline'. If the 'Deduplication' step is placed AFTER the 'Split' step, what is the risk?",
+     "options": [
+      "The training set will become too small to use.",
+      "Duplicates may have already been distributed into both the training and validation sets.",
+      "The model will take twice as long to tokenize the text.",
+      "HTML tags will be re-inserted into the text."
+     ],
+     "explanation": "Deduplication should happen before splitting. If you split first, identical records can end up in different buckets, leading to data leakage that cannot be fixed by per-bucket cleaning.",
+     "correctAnswers": [
+      "Duplicates may have already been distributed into both the training and validation sets."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "You are auditing a dataset for 'data leakage' across splits. Use the interactive tool to organize these three samples into the Training, Validation, and Test sets to ensure a valid evaluation.",
+     "options": [
+      "Identical duplicates are placed in Training and Validation.",
+      "Each unique sample is placed in only one of the three splits.",
+      "All samples are placed in the Training set to maximize learning.",
+      "The Test set contains data that was also used to tune hyperparameters."
+     ],
+     "explanation": "To prevent leakage and ensure honest metrics, there must be no overlap of samples between any of the three splits.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      --card-a: #e28743;\n      --card-b: #76b5c5;\n      --card-c: #873e23;\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 12px;\n      overflow: hidden;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: flex-start;\n      min-height: 100vh;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 500px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 14px;\n      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Simulation Stage */\n    .stage {\n      position: relative;\n      height: 130px;\n      background: var(--stage);\n      border-radius: 8px;\n      border: 1px dashed #d1cfc9;\n      display: flex;\n      justify-content: space-around;\n      align-items: flex-start;\n      padding: 8px;\n    }\n\n    .bucket {\n      width: 30%;\n      height: 100%;\n      border: 2px dashed #dcdad4;\n      border-radius: 6px;\n      background: rgba(255, 255, 255, 0.4);\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      padding: 4px;\n      position: relative;\n    }\n\n    .bucket-label {\n      font-size: 11px;\n      font-weight: 700;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      margin-bottom: 4px;\n    }\n\n    /* Cards */\n    .card {\n      position: absolute;\n      width: 32px;\n      height: 38px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 4px;\n      box-shadow: 0 2px 4px rgba(0,0,0,0.08);\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      font-weight: bold;\n      font-size: 12px;\n      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n      pointer-events: none;\n      z-index: 10;\n    }\n\n    .card::before {\n      content: '';\n      position: absolute;\n      top: 0;\n      left: 0;\n      right: 0;\n      height: 4px;\n      border-top-left-radius: 3px;\n      border-top-right-radius: 3px;\n    }\n\n    .card.type-a::before { background: var(--card-a); }\n    .card.type-b::before { background: var(--card-b); }\n    .card.type-c::before { background: var(--card-c); }\n\n    .card-sub {\n      font-size: 8px;\n      color: var(--muted-fg);\n      font-weight: normal;\n      margin-top: -2px;\n    }\n\n    /* Warning flow line for state 4 */\n    .flow-line {\n      position: absolute;\n      border-top: 2px dashed #e28743;\n      height: 0;\n      z-index: 5;\n      opacity: 0;\n      transition: opacity 0.3s ease;\n      pointer-events: none;\n    }\n\n    /* Interactive Tuning Slider Area */\n    .control-area {\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .slider-container {\n      position: relative;\n      padding: 0 8px;\n    }\n\n    .slider-track {\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n      position: relative;\n      margin: 12px 0;\n    }\n\n    .slider-fill {\n      position: absolute;\n      left: 0;\n      top: 0;\n      height: 100%;\n      background: var(--accent);\n      border-radius: 3px;\n      width: 0%;\n      transition: width 0.1s ease;\n    }\n\n    .slider-ticks {\n      position: absolute;\n      width: 100%;\n      display: flex;\n      justify-content: space-between;\n      top: -3px;\n      left: 0;\n      padding: 0 8px;\n      pointer-events: none;\n    }\n\n    .tick {\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: #e2e2e2;\n      border: 2px solid var(--surface);\n      transition: all 0.2s ease;\n    }\n\n    .tick.active {\n      background: var(--accent);\n      transform: scale(1.2);\n    }\n\n    .slider-input {\n      position: absolute;\n      top: -10px;\n      left: 0;\n      width: 100%;\n      height: 30px;\n      opacity: 0;\n      cursor: pointer;\n      margin: 0;\n    }\n\n    .slider-input:focus ~ .slider-track {\n      outline: 2px solid rgba(76,102,150,0.4);\n      outline-offset: 4px;\n    }\n\n    /* Active Answer / Description Card */\n    .option-display {\n      background: var(--accent-soft);\n      border: 1px solid rgba(76,102,150,0.15);\n      border-radius: 8px;\n      padding: 10px 12px;\n      min-height: 54px;\n      display: flex;\n      align-items: center;\n      gap: 8px;\n      transition: border-color 0.2s;\n    }\n\n    .option-icon {\n      flex-shrink: 0;\n      width: 20px;\n      height: 20px;\n      color: var(--accent);\n    }\n\n    .option-text {\n      font-size: 12.5px;\n      line-height: 1.4;\n      color: var(--fg);\n      font-weight: 500;\n    }\n\n    .action-hint {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -4px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Dataset Leakage Auditing Tool</h1>\n\n  <div class=\"widget-container\">\n    <!-- Visual Stage containing the buckets -->\n    <div class=\"stage\" id=\"stage\">\n      <div class=\"bucket\" id=\"bucket-train\">\n        <span class=\"bucket-label\">Training</span>\n      </div>\n      <div class=\"bucket\" id=\"bucket-val\">\n        <span class=\"bucket-label\">Validation</span>\n      </div>\n      <div class=\"bucket\" id=\"bucket-test\">\n        <span class=\"bucket-label\">Test</span>\n      </div>\n\n      <!-- Draggable/Animate-able Cards -->\n      <div class=\"card type-a\" id=\"card-a1\">A<span class=\"card-sub\">orig</span></div>\n      <div class=\"card type-a\" id=\"card-a2\">A<span class=\"card-sub\">dup</span></div>\n      <div class=\"card type-b\" id=\"card-b\">B</div>\n      <div class=\"card type-c\" id=\"card-c\">C</div>\n      <!-- Optional clone card to represent leakage flow visually -->\n      <div class=\"card type-b\" id=\"card-b-leak\" style=\"opacity: 0; transform: scale(0);\">B<span class=\"card-sub\">leak</span></div>\n    </div>\n\n    <!-- Interactive slider to toggle setups -->\n    <div class=\"control-area\">\n      <div class=\"slider-container\">\n        <div class=\"slider-track\">\n          <div class=\"slider-fill\" id=\"slider-fill\"></div>\n        </div>\n        <div class=\"slider-ticks\">\n          <div class=\"tick active\" data-index=\"0\"></div>\n          <div class=\"tick\" data-index=\"1\"></div>\n          <div class=\"tick\" data-index=\"2\"></div>\n          <div class=\"tick\" data-index=\"3\"></div>\n        </div>\n        <input type=\"range\" id=\"strategy-slider\" class=\"slider-input\" min=\"0\" max=\"3\" value=\"0\" step=\"1\" aria-label=\"Dataset Split Strategy Slider\">\n      </div>\n\n      <!-- Action / Readout Box displaying current chosen option -->\n      <div class=\"option-display\" id=\"option-display\">\n        <svg class=\"option-icon\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01\"></path>\n        </svg>\n        <div class=\"option-text\" id=\"option-text\">Drag the slider above to evaluate different splitting methods...</div>\n      </div>\n\n      <div class=\"action-hint\">↔️ Slide to choose a layout and inspect the data leakage profile</div>\n    </div>\n  </div>\n\n  <script>\n    const OPTIONS = [\n      \"Identical duplicates are placed in Training and Validation.\",\n      \"Each unique sample is placed in only one of the three splits.\",\n      \"All samples are placed in the Training set to maximize learning.\",\n      \"The Test set contains data that was also used to tune hyperparameters.\"\n    ];\n\n    const slider = document.getElementById('strategy-slider');\n    const sliderFill = document.getElementById('slider-fill');\n    const ticks = document.querySelectorAll('.tick');\n    const optionText = document.getElementById('option-text');\n\n    // DOM Cards\n    const cardA1 = document.getElementById('card-a1');\n    const cardA2 = document.getElementById('card-a2');\n    const cardB = document.getElementById('card-b');\n    const cardC = document.getElementById('card-c');\n    const cardBLeak = document.getElementById('card-b-leak');\n\n    // Positions configurations (percentages relative to parent .stage)\n    // format: { left: %, top: %, scale: 1, opacity: 1 }\n    const configurations = [\n      // State 0: Identical duplicates are placed in Training and Validation\n      {\n        a1: { left: '16%', top: '55px', scale: '1', opacity: '1' },\n        a2: { left: '48%', top: '55px', scale: '1', opacity: '1' },\n        b: { left: '16%', top: '85px', scale: '1', opacity: '1' },\n        c: { left: '80%', top: '70px', scale: '1', opacity: '1' },\n        bLeak: { left: '80%', top: '70px', scale: '0', opacity: '0' }\n      },\n      // State 1: Each unique sample is placed in only one of the three splits\n      {\n        a1: { left: '20%', top: '70px', scale: '1', opacity: '1' },\n        a2: { left: '50%', top: '150px', scale: '0', opacity: '0' }, // Discarded\n        b: { left: '52%', top: '70px', scale: '1', opacity: '1' },\n        c: { left: '80%', top: '70px', scale: '1', opacity: '1' },\n        bLeak: { left: '80%', top: '70px', scale: '0', opacity: '0' }\n      },\n      // State 2: All samples are placed in the Training set to maximize learning\n      {\n        a1: { left: '12%', top: '45px', scale: '1', opacity: '1' },\n        a2: { left: '26%', top: '45px', scale: '1', opacity: '1' },\n        b: { left: '12%', top: '85px', scale: '1', opacity: '1' },\n        c: { left: '26%', top: '85px', scale: '1', opacity: '1' },\n        bLeak: { left: '80%', top: '70px', scale: '0', opacity: '0' }\n      },\n      // State 3: The Test set contains data that was also used to tune hyperparameters\n      {\n        a1: { left: '20%', top: '70px', scale: '1', opacity: '1' },\n        a2: { left: '50%', top: '150px', scale: '0', opacity: '0' },\n        b: { left: '52%', top: '70px', scale: '1', opacity: '1' }, // Used to tune\n        c: { left: '20%', top: '40px', scale: '1', opacity: '1' },\n        bLeak: { left: '80%', top: '70px', scale: '1', opacity: '1' } // Leak copy in test\n      }\n    ];\n\n    function updateScene(index) {\n      // Update slider tracks & ticks\n      const pct = (index / 3) * 100;\n      sliderFill.style.width = pct + '%';\n      \n      ticks.forEach((tick, i) => {\n        if (i <= index) {\n          tick.classList.add('active');\n        } else {\n          tick.classList.remove('active');\n        }\n      });\n\n      // Position cards\n      const config = configurations[index];\n      applyCardStyle(cardA1, config.a1);\n      applyCardStyle(cardA2, config.a2);\n      applyCardStyle(cardB, config.b);\n      applyCardStyle(cardC, config.c);\n      applyCardStyle(cardBLeak, config.bLeak);\n\n      // Update description text\n      optionText.textContent = OPTIONS[index];\n\n      // Report answer to host\n      parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');\n    }\n\n    function applyCardStyle(card, style) {\n      card.style.left = style.left;\n      card.style.top = style.top;\n      card.style.transform = `scale(${style.scale})`;\n      card.style.opacity = style.opacity;\n    }\n\n    // Input handlers\n    slider.addEventListener('input', (e) => {\n      updateScene(parseInt(e.target.value));\n    });\n\n    // Handle incoming locks\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        slider.disabled = true;\n        slider.style.pointerEvents = 'none';\n        document.body.style.pointerEvents = 'none';\n      }\n    });\n\n    // Height calculation & initialization\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', () => {\n      // Start with initial layout config\n      updateScene(0);\n      reportHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Each unique sample is placed in only one of the three splits."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are training a DistilBERT model on a system with 16GB of VRAM and receive an 'Out of Memory' (OOM) error. Which adjustment is most effective for reducing VRAM usage without changing the model architecture?",
+     "options": [
+      "Increase the number of training epochs",
+      "Decrease the training batch size",
+      "Switch from a GPU to a CPU runtime",
+      "Increase the learning rate"
+     ],
+     "explanation": "Batch size directly impacts VRAM because it determines the number of samples processed in parallel during the forward and backward passes. Reducing it lowers the memory footprint per step.",
+     "correctAnswers": [
+      "Decrease the training batch size"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When initializing a 'Sequence Classification' model using a pretrained BERT checkpoint, which of the following statements accurately describe the state of the model before training starts?",
+     "options": [
+      "The transformer backbone weights are loaded from the pretrained checkpoint.",
+      "The classification head weights are randomly initialized.",
+      "The model is already capable of accurately categorizing custom domain labels.",
+      "A warning message about 'newly initialized weights' is expected and normal.",
+      "The model's initial loss will be zero."
+     ],
+     "explanation": "The 'backbone' retains general language knowledge, but the 'head' is replaced with a new, untrained layer for your specific task, causing the standard initialization warning.",
+     "correctAnswers": [
+      "The transformer backbone weights are loaded from the pretrained checkpoint.",
+      "The classification head weights are randomly initialized.",
+      "A warning message about 'newly initialized weights' is expected and normal."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The ____ command is used in notebook environments to check the GPU model, memory capacity, and current utilization of the hardware accelerator.",
+     "placeholder": "Enter command",
+     "correctAnswers": [
+      "nvidia-smi"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Which architecture type is generally preferred for text classification tasks due to its ability to process text bidirectionally and generate rich dense representations?",
+     "options": [
+      "Decoder-only (e.g., GPT)",
+      "Encoder-only (e.g., BERT)",
+      "Encoder-Decoder (e.g., T5)",
+      "Recurrent Neural Networks (RNN)"
+     ],
+     "explanation": "Encoder-only models are specialized for understanding context across the entire sequence simultaneously, making them highly efficient for classification compared to generative decoder models.",
+     "correctAnswers": [
+      "Encoder-only (e.g., BERT)"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "If you are forced to train on a CPU due to GPU quota limits, which strategies should you implement to make the training feasible?",
+     "options": [
+      "Use a smaller subset of the dataset for debugging",
+      "Switch to a highly distilled architecture like DistilBERT",
+      "Increase the batch size to maximize CPU utilization",
+      "Significantly reduce the batch size",
+      "Use a 70 billion parameter model"
+     ],
+     "explanation": "CPUs process data much slower than GPUs. Reducing batch size, using smaller models, and subsetting data are necessary to prevent the training from taking weeks.",
+     "correctAnswers": [
+      "Use a smaller subset of the dataset for debugging",
+      "Switch to a highly distilled architecture like DistilBERT",
+      "Significantly reduce the batch size"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "For a classification task with three mutually exclusive categories (Billing, Tech Support, Refund), the most appropriate mathematical objective is ____ Loss.",
+     "placeholder": "Type of loss",
+     "correctAnswers": [
+      "Cross-Entropy",
+      "Cross Entropy",
+      "Categorical Cross-Entropy"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why does a developer see a warning that 'some weights were not used' when loading a pretrained model for Sequence Classification?",
+     "options": [
+      "The model checkpoint is corrupted.",
+      "The language modeling head from the pretraining phase was discarded.",
+      "The GPU does not have enough memory to load the full model.",
+      "The tokenizer is incompatible with the model weights."
+     ],
+     "explanation": "In transfer learning for classification, the original head (used for predicting masked tokens) is replaced with a new classification layer, so those specific head weights are no longer needed.",
+     "correctAnswers": [
+      "The language modeling head from the pretraining phase was discarded."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When inspecting a Hugging Face 'Model Card', which metadata fields are critical for ensuring compatibility with your classification project?",
+     "options": [
+      "Pipeline tag (e.g., text-classification)",
+      "Model size (parameter count)",
+      "The date the model was first uploaded",
+      "Supported languages",
+      "The color scheme of the model's logo"
+     ],
+     "explanation": "Pipeline tags ensure the architecture supports your task; size determines if it fits your hardware; language ensures it understands your data.",
+     "correctAnswers": [
+      "Pipeline tag (e.g., text-classification)",
+      "Model size (parameter count)",
+      "Supported languages"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The process of keeping the 'body' of a model intact while replacing the final layer to adapt to a new task is known as ____.",
+     "placeholder": "Process name",
+     "correctAnswers": [
+      "Transfer Learning",
+      "Fine-tuning",
+      "Fine tuning"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "According to the unit material, what is the 'rule of thumb' for VRAM requirements when loading model weights?",
+     "options": [
+      "1GB per billion parameters",
+      "2GB per billion parameters",
+      "4GB per billion parameters",
+      "10GB per billion parameters"
+     ],
+     "explanation": "4GB per billion parameters is the standard estimate for loading weights in full precision (FP32), though more memory is needed during the actual training backpropagation.",
+     "correctAnswers": [
+      "4GB per billion parameters"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are benefits of using DistilBERT over BERT-base for training in Google Colab?",
+     "options": [
+      "It is approximately 40% smaller.",
+      "It is 60% faster during training.",
+      "It achieves higher accuracy than BERT-base on all tasks.",
+      "It retains over 95% of the original performance.",
+      "It requires significantly more VRAM."
+     ],
+     "explanation": "DistilBERT is a distilled version designed to be faster and lighter while sacrificing very little predictive performance.",
+     "correctAnswers": [
+      "It is approximately 40% smaller.",
+      "It is 60% faster during training.",
+      "It retains over 95% of the original performance."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The 'backbone' of a transformer model acts as a deep ____ extractor, learning the syntax and grammar of language.",
+     "placeholder": "Keyword",
+     "correctAnswers": [
+      "feature"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a model's baseline prediction for a 2-class problem shows 99.9% confidence for Class A before any training has occurred, what does this likely indicate?",
+     "options": [
+      "A highly effective pretrained backbone",
+      "A bug or unintended bias in weight initialization",
+      "The model has already learned the task",
+      "The learning rate is too high"
+     ],
+     "explanation": "Baseline predictions should be near random (50/50 for 2 classes). Extreme confidence before training suggests the weights are not truly random or the head is biased.",
+     "correctAnswers": [
+      "A bug or unintended bias in weight initialization"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "A student is using a Decoder-only model for a simple text classification task. Why might this be considered a mistake based on the unit sessions?",
+     "options": [
+      "It may have unnecessary overhead for generating text token-by-token.",
+      "It is often much larger (e.g., 7B parameters) than needed for classification.",
+      "Decoder-only models cannot be used for classification.",
+      "It is less computationally efficient than an Encoder-only model for this task.",
+      "It lacks a transformer architecture."
+     ],
+     "explanation": "While possible, using massive generative models for classification is inefficient compared to smaller Encoder-only models like BERT.",
+     "correctAnswers": [
+      "It may have unnecessary overhead for generating text token-by-token.",
+      "It is often much larger (e.g., 7B parameters) than needed for classification.",
+      "It is less computationally efficient than an Encoder-only model for this task."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "An engineer is troubleshooting a model that is producing 'stochastic' (random) predictions despite being fed valid input. Adjust the model state to reach a 'Baseline Prediction' state for a 4-class classification problem.",
+     "options": [
+      "Class A: 99%, others: <1%",
+      "Class A: 25%, B: 25%, C: 25%, D: 25%",
+      "Class A: 50%, B: 50%, C: 0%, D: 0%",
+      "All classes: 0%"
+     ],
+     "explanation": "An untrained, randomly initialized model should ideally reflect a uniform distribution (1/N) for its predictions, meaning for 4 classes, each should have roughly 25% probability.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Stochastic Model Baseline Practice Widget</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --bar-a: #5C76A6;\n      --bar-b: #708BB8;\n      --bar-c: #85A0CA;\n      --bar-d: #9BB5DC;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      -webkit-user-select: none;\n      user-select: none;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 2px;\n    }\n\n    /* Live Visualization Area */\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 16px;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.03);\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    .chart-container {\n      display: grid;\n      grid-template-columns: repeat(4, 1fr);\n      gap: 12px;\n      height: 120px;\n      align-items: flex-end;\n      position: relative;\n    }\n\n    .bar-wrapper {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      height: 100%;\n      justify-content: flex-end;\n      position: relative;\n    }\n\n    .bar-track {\n      width: 28px;\n      height: 90px;\n      background: var(--stage);\n      border-radius: 6px;\n      position: relative;\n      overflow: hidden;\n    }\n\n    .bar-fill {\n      width: 100%;\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      background: var(--accent);\n      border-radius: 4px;\n      transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n    }\n\n    .bar-wrapper:nth-child(1) .bar-fill { background: var(--bar-a); }\n    .bar-wrapper:nth-child(2) .bar-fill { background: var(--bar-b); }\n    .bar-wrapper:nth-child(3) .bar-fill { background: var(--bar-c); }\n    .bar-wrapper:nth-child(4) .bar-fill { background: var(--bar-d); }\n\n    .bar-value {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--fg);\n      margin-bottom: 4px;\n      font-variant-numeric: tabular-nums;\n      height: 14px;\n      line-height: 14px;\n    }\n\n    .bar-label {\n      font-size: 12px;\n      font-weight: bold;\n      color: var(--muted-fg);\n      margin-top: 6px;\n    }\n\n    /* Interactive Tuning Control */\n    .control-panel {\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n      margin-top: 4px;\n    }\n\n    .slider-track-container {\n      position: relative;\n      height: 40px;\n      display: flex;\n      align-items: center;\n      cursor: pointer;\n      touch-action: none;\n    }\n\n    .slider-line {\n      position: absolute;\n      left: 10px;\n      right: 10px;\n      height: 6px;\n      background: var(--stage);\n      border-radius: 3px;\n      z-index: 1;\n    }\n\n    .slider-notches {\n      position: absolute;\n      left: 10px;\n      right: 10px;\n      display: flex;\n      justify-content: space-between;\n      z-index: 2;\n    }\n\n    .notch {\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--border);\n      transform: translateY(-2px);\n      transition: background 0.2s;\n    }\n\n    .notch.active {\n      background: var(--accent);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 3px solid var(--accent);\n      box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n      z-index: 3;\n      transform: translate(-50%, -12px);\n      top: 50%;\n      cursor: grab;\n      transition: border-color 0.2s, transform 0.1s ease;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: translate(-50%, -12px) scale(1.15);\n      border-color: var(--accent-strong);\n    }\n\n    .notch-labels {\n      display: flex;\n      justify-content: space-between;\n      padding: 0 4px;\n    }\n\n    .notch-label {\n      font-size: 10px;\n      color: var(--muted-fg);\n      width: 60px;\n      text-align: center;\n      line-height: 1.2;\n      transition: color 0.2s, font-weight 0.2s;\n    }\n\n    .notch-label.active {\n      color: var(--accent-strong);\n      font-weight: 600;\n    }\n\n    /* Focus styling */\n    .slider-track-container:focus-visible {\n      outline: none;\n    }\n    .slider-track-container:focus-visible .slider-handle {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    /* Readonly locked state */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Model Initialization State Adjuster</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"action-hint\">Drag the slider to adjust the model's initialization/weight state:</div>\n\n    <div class=\"stage\">\n      <!-- 4-Class Probability Bar Chart -->\n      <div class=\"chart-container\" aria-label=\"Class probability distribution chart\">\n        <div class=\"bar-wrapper\">\n          <span class=\"bar-value\" id=\"val-a\">25%</span>\n          <div class=\"bar-track\">\n            <div class=\"bar-fill\" id=\"bar-a\" style=\"height: 25%;\"></div>\n          </div>\n          <span class=\"bar-label\">Class A</span>\n        </div>\n\n        <div class=\"bar-wrapper\">\n          <span class=\"bar-value\" id=\"val-b\">25%</span>\n          <div class=\"bar-track\">\n            <div class=\"bar-fill\" id=\"bar-b\" style=\"height: 25%;\"></div>\n          </div>\n          <span class=\"bar-label\">Class B</span>\n        </div>\n\n        <div class=\"bar-wrapper\">\n          <span class=\"bar-value\" id=\"val-c\">25%</span>\n          <div class=\"bar-track\">\n            <div class=\"bar-fill\" id=\"bar-c\" style=\"height: 25%;\"></div>\n          </div>\n          <span class=\"bar-label\">Class C</span>\n        </div>\n\n        <div class=\"bar-wrapper\">\n          <span class=\"bar-value\" id=\"val-d\">25%</span>\n          <div class=\"bar-track\">\n            <div class=\"bar-fill\" id=\"bar-d\" style=\"height: 25%;\"></div>\n          </div>\n          <span class=\"bar-label\">Class D</span>\n        </div>\n      </div>\n\n      <!-- Slider Tuning Control -->\n      <div class=\"control-panel\">\n        <div class=\"slider-track-container\" id=\"slider-container\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"1\" aria-valuetext=\"Randomly Initialized (Uniform)\">\n          <div class=\"slider-line\"></div>\n          <div class=\"slider-notches\">\n            <div class=\"notch\" style=\"margin-left: 0%;\"></div>\n            <div class=\"notch active\" style=\"margin-left: 0%;\"></div>\n            <div class=\"notch\" style=\"margin-left: 0%;\"></div>\n            <div class=\"notch\" style=\"margin-left: 0%;\"></div>\n          </div>\n          <div class=\"slider-handle\" id=\"slider-handle\" style=\"left: 33.333%;\"></div>\n        </div>\n\n        <div class=\"notch-labels\">\n          <span class=\"notch-label\" style=\"margin-left: -15px;\">Overfitted / High Bias</span>\n          <span class=\"notch-label active\" style=\"margin-left: -5px;\">Untrained (Uniform)</span>\n          <span class=\"notch-label\" style=\"margin-right: -5px;\">Partial Collapse</span>\n          <span class=\"notch-label\" style=\"margin-right: -15px;\">Dead Neurons</span>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // State configurations mapping to corresponding option strings\n    const STATES = [\n      {\n        option: \"Class A: 99%, others: <1%\",\n        text: \"Overfitted / High Bias\",\n        values: [99, 0.3, 0.3, 0.4]\n      },\n      {\n        option: \"Class A: 25%, B: 25%, C: 25%, D: 25%\",\n        text: \"Untrained (Uniform)\",\n        values: [25, 25, 25, 25]\n      },\n      {\n        option: \"Class A: 50%, B: 50%, C: 0%, D: 0%\",\n        text: \"Partial Collapse\",\n        values: [50, 50, 0, 0]\n      },\n      {\n        option: \"All classes: 0%\",\n        text: \"Dead Neurons\",\n        values: [0, 0, 0, 0]\n      }\n    ];\n\n    let currentIndex = 1; // Start at Untrained / Uniform baseline state\n    let isDragging = false;\n    let isLocked = false;\n\n    const container = document.getElementById('slider-container');\n    const handle = document.getElementById('slider-handle');\n    const notches = document.querySelectorAll('.notch');\n    const labels = document.querySelectorAll('.notch-label');\n\n    const barFills = {\n      a: document.getElementById('bar-a'),\n      b: document.getElementById('bar-b'),\n      c: document.getElementById('bar-c'),\n      d: document.getElementById('bar-d')\n    };\n\n    const barVals = {\n      a: document.getElementById('val-a'),\n      b: document.getElementById('val-b'),\n      c: document.getElementById('val-c'),\n      d: document.getElementById('val-d')\n    };\n\n    // Initialize visual state\n    updateUI(currentIndex, true);\n    reportAnswer(currentIndex);\n\n    // Resize Observer for Host Iframe Height\n    const resizeObserver = new ResizeObserver(() => {\n      sendHeight();\n    });\n    resizeObserver.observe(document.body);\n    window.addEventListener('load', sendHeight);\n\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    function reportAnswer(index) {\n      if (isLocked) return;\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: STATES[index].option }, '*');\n      } catch (e) {}\n    }\n\n    // Smooth interpolation or direct snap UI update\n    function updateUI(targetIndex, instant = false) {\n      const percentage = (targetIndex / 3) * 100;\n      handle.style.left = `${percentage}%`;\n\n      // Update active classes for notches and labels\n      notches.forEach((n, idx) => n.classList.toggle('active', idx === targetIndex));\n      labels.forEach((l, idx) => l.classList.toggle('active', idx === targetIndex));\n\n      container.setAttribute('aria-valuenow', targetIndex);\n      container.setAttribute('aria-valuetext', STATES[targetIndex].text);\n\n      const stateValues = STATES[targetIndex].values;\n      const keys = ['a', 'b', 'c', 'd'];\n\n      keys.forEach((key, idx) => {\n        const val = stateValues[idx];\n        barFills[key].style.height = `${val}%`;\n        // Text display formatting\n        if (val === 0.3 || val === 0.4) {\n          barVals[key].textContent = '<1%';\n        } else {\n          barVals[key].textContent = `${val}%`;\n        }\n      });\n    }\n\n    // Drag / Pointer logic\n    function getIndexFromPointer(e) {\n      const rect = container.getBoundingClientRect();\n      const padding = 10; // offset inside the track\n      const width = rect.width - (padding * 2);\n      const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);\n      const relativeX = Math.max(0, Math.min(clientX - rect.left - padding, width));\n      const percentage = relativeX / width;\n      const rawIndex = percentage * 3;\n      return Math.max(0, Math.min(3, Math.round(rawIndex)));\n    }\n\n    container.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      container.setPointerCapture(e.pointerId);\n      handlePositionChange(e);\n    });\n\n    container.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      handlePositionChange(e);\n    });\n\n    container.addEventListener('pointerup', (e) => {\n      if (!isDragging || isLocked) return;\n      isDragging = false;\n      container.releasePointerCapture(e.pointerId);\n    });\n\n    function handlePositionChange(e) {\n      const newIndex = getIndexFromPointer(e);\n      if (newIndex !== currentIndex) {\n        currentIndex = newIndex;\n        updateUI(currentIndex);\n        reportAnswer(currentIndex);\n      }\n    }\n\n    // Keyboard support\n    container.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        if (currentIndex < 3) {\n          currentIndex++;\n          updateUI(currentIndex);\n          reportAnswer(currentIndex);\n        }\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        if (currentIndex > 0) {\n          currentIndex--;\n          updateUI(currentIndex);\n          reportAnswer(currentIndex);\n        }\n      }\n    });\n\n    // Lock listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.querySelector('.widget-container').classList.add('locked');\n        container.removeAttribute('tabindex');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Class A: 25%, B: 25%, C: 25%, D: 25%"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Comprehensive Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Why can a model's loss decrease significantly even if its classification accuracy remains unchanged?",
+     "options": [
+      "Accuracy only measures hard decision boundaries, while loss accounts for the confidence level of soft probabilities.",
+      "Loss is always inversely proportional to accuracy regardless of the decision threshold.",
+      "Accuracy is calculated using gradients, while loss is calculated using discrete counts.",
+      "The model is overfitting to the training data and ignoring the validation labels."
+     ],
+     "explanation": "Accuracy is based on discrete outcomes (right or wrong), whereas loss functions like Cross-Entropy are sensitive to how confident a prediction is (e.g., shifting from 0.51 to 0.89 confidence for the correct class reduces loss but doesn't change the accuracy).",
+     "correctAnswers": [
+      "Accuracy only measures hard decision boundaries, while loss accounts for the confidence level of soft probabilities."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In a scenario where you are building a medical diagnostic tool for a rare, fatal disease, which of the following statements are true regarding your evaluation strategy?",
+     "options": [
+      "A high False Negative rate is catastrophic because it means missing sick patients.",
+      "Recall should be prioritized over Precision to ensure as many cases as possible are caught.",
+      "Accuracy is a reliable metric because the disease is rare.",
+      "A False Positive is generally less dangerous than a False Negative in this context.",
+      "You should optimize for the lowest possible Precision to ensure high Recall."
+     ],
+     "explanation": "In life-critical diagnostics, missing a case (False Negative) is more dangerous than a false alarm (False Positive). Therefore, maximizing recall is the priority, even if accuracy looks high due to the rarity of the disease.",
+     "correctAnswers": [
+      "A high False Negative rate is catastrophic because it means missing sick patients.",
+      "Recall should be prioritized over Precision to ensure as many cases as possible are caught.",
+      "A False Positive is generally less dangerous than a False Negative in this context."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a model predicts 'Spam' 100 times, and out of those predictions 80 are actually spam and 20 are legitimate emails, the model's Precision is ____.",
+     "placeholder": "Enter value (e.g. 0.5)",
+     "correctAnswers": [
+      "0.8",
+      "80%",
+      "0.80"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary mathematical reason for using the harmonic mean (F1 Score) instead of the arithmetic mean when combining Precision and Recall?",
+     "options": [
+      "The harmonic mean penalizes extreme values, preventing a model with near-zero recall from appearing successful.",
+      "The arithmetic mean is computationally more expensive to calculate for large datasets.",
+      "The harmonic mean allows the model to ignore False Positives entirely.",
+      "The F1 Score is only valid for balanced datasets where precision and recall are equal."
+     ],
+     "explanation": "The harmonic mean effectively 'minimum-seeks'; if either precision or recall is very low, the F1 Score will be low, whereas an arithmetic mean could still produce a misleadingly 'average' score.",
+     "correctAnswers": [
+      "The harmonic mean penalizes extreme values, preventing a model with near-zero recall from appearing successful."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A model has the following performance results: TP=50, FP=10, FN=40, TN=900. Which of the following metrics are correctly calculated?",
+     "options": [
+      "Precision = 0.833",
+      "Recall = 0.555",
+      "Accuracy = 0.95",
+      "Precision = 0.555",
+      "Recall = 0.833"
+     ],
+     "explanation": "Precision = TP/(TP+FP) = 50/60 = 0.833. Recall = TP/(TP+FN) = 50/90 = 0.555. Accuracy = (TP+TN)/Total = 950/1000 = 0.95.",
+     "correctAnswers": [
+      "Precision = 0.833",
+      "Recall = 0.555",
+      "Accuracy = 0.95"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a 2x2 Confusion Matrix, the quadrant representing the instances where the model predicted 'Negative' but the actual class was 'Positive' is called a ____.",
+     "correctAnswers": [
+      "False Negative",
+      "FN"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "You are building an SMS alert system where every 'False Positive' results in an annoyed user unsubscribing. Which metric should you prioritize?",
+     "options": [
+      "Precision",
+      "Recall",
+      "Arithmetic Mean",
+      "Loss"
+     ],
+     "explanation": "Precision measures the reliability of positive predictions. When the cost of a False Positive (annoying the user) is high, you must ensure that when you do send an alert, it is correct.",
+     "correctAnswers": [
+      "Precision"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Why is 'Accuracy' often a deceptive metric for stakeholders?",
+     "options": [
+      "It can be high even if the model fails completely on a critical minority class.",
+      "It treats all types of errors (FP and FN) as having equal cost.",
+      "It is mathematically impossible to calculate for multi-class problems.",
+      "It focuses on the majority class in imbalanced datasets.",
+      "It is only useful for regression, not classification."
+     ],
+     "explanation": "Accuracy can mask total failure on minority classes. For example, in a dataset with 99% 'Negative' labels, a model that always predicts 'Negative' is 99% accurate but has 0% recall for the 'Positive' class.",
+     "correctAnswers": [
+      "It can be high even if the model fails completely on a critical minority class.",
+      "It treats all types of errors (FP and FN) as having equal cost.",
+      "It focuses on the majority class in imbalanced datasets."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A model has a Precision of 1.0 and a Recall of 0.0. Its F1 Score will be ____.",
+     "placeholder": "Enter numeric value",
+     "correctAnswers": [
+      "0",
+      "0.0"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What happens to Precision and Recall if you increase the decision threshold from 0.5 to 0.9?",
+     "options": [
+      "Precision likely increases, while Recall likely decreases.",
+      "Precision likely decreases, while Recall likely increases.",
+      "Both Precision and Recall will increase.",
+      "The F1 Score will always remain constant."
+     ],
+     "explanation": "Raising the threshold makes the model more conservative; it only predicts 'positive' when highly confident, which reduces False Positives (higher precision) but increases False Negatives (lower recall).",
+     "correctAnswers": [
+      "Precision likely increases, while Recall likely decreases."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following would be considered 'True Positives' in a fraud detection system?",
+     "options": [
+      "A fraudulent transaction that the model correctly flags as fraud.",
+      "A legitimate transaction that the model flags as fraud.",
+      "A fraudulent transaction that the model flags as legitimate.",
+      "A stolen credit card use that triggers an automated block.",
+      "A regular grocery purchase that is allowed to proceed."
+     ],
+     "explanation": "True Positives are cases where the actual class is positive (fraud) and the predicted class is also positive (flagged/blocked).",
+     "correctAnswers": [
+      "A fraudulent transaction that the model correctly flags as fraud.",
+      "A stolen credit card use that triggers an automated block."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Recall is also commonly referred to in other fields (like medicine) as ____.",
+     "placeholder": "One word",
+     "correctAnswers": [
+      "Sensitivity",
+      "True Positive Rate"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Which formula correctly represents the F1 Score?",
+     "options": [
+      "2 * (Precision * Recall) / (Precision + Recall)",
+      "(Precision + Recall) / 2",
+      "TP / (TP + FP + FN)",
+      "Precision / Recall"
+     ],
+     "explanation": "The F1 score is the harmonic mean of precision and recall, simplified to 2 * (P * R) / (P + R).",
+     "correctAnswers": [
+      "2 * (Precision * Recall) / (Precision + Recall)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which actions can help improve a model that shows high training accuracy but low validation accuracy (overfitting)?",
+     "options": [
+      "Adding regularization techniques.",
+      "Increasing the complexity of the model.",
+      "Collecting more diverse training data.",
+      "Reducing the number of training epochs.",
+      "Removing the validation set."
+     ],
+     "explanation": "Overfitting is addressed by simplifying the model, adding constraints (regularization), stopping earlier, or providing more data to generalize better.",
+     "correctAnswers": [
+      "Adding regularization techniques.",
+      "Collecting more diverse training data.",
+      "Reducing the number of training epochs."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The total number of True Positives and False ____ equals the total number of actual positive instances in the dataset.",
+     "placeholder": "Enter word",
+     "correctAnswers": [
+      "Negatives"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "image": {
+      "alt": "Heatmap confusion matrix showing high cross-error between two classes.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e39dcbd0-7faf-4c95-a607-e15c049b41c6/exam/images/unit4-q16.png"
+     },
+     "prompt": "A confusion matrix shows that Class A is frequently predicted as Class B, and Class B is frequently predicted as Class A. What does this suggest?",
+     "options": [
+      "The model is struggling to differentiate between the features of Class A and Class B.",
+      "The model has a high True Negative rate for both classes.",
+      "The dataset is perfectly balanced for these two classes.",
+      "The learning rate is too high."
+     ],
+     "explanation": "Symmetric confusion between two classes indicates overlapping features or insufficient data to distinguish the two specific categories.",
+     "correctAnswers": [
+      "The model is struggling to differentiate between the features of Class A and Class B."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the decision threshold slider to find the point that minimizes False Negatives for a cancer screening tool.",
+     "options": [
+      "Threshold set to 0.1",
+      "Threshold set to 0.5",
+      "Threshold set to 0.9",
+      "Threshold set to 1.0"
+     ],
+     "explanation": "Lowering the threshold to a minimum (0.1) ensures that any borderline case is flagged as 'Positive', thereby maximizing Recall and minimizing False Negatives, which is critical in life-saving screenings.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Threshold Classifier Manipulative</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #707070;\n    --accent: #4C6696;\n    --accent-soft: #f5f8fc;\n    --accent-strong: #3a4f78;\n    \n    --color-safe: #3b82f6;       /* Blue */\n    --color-infected: #ef4444;   /* Red */\n    --color-safe-bg: rgba(59, 130, 246, 0.15);\n    --color-infected-bg: rgba(239, 68, 68, 0.15);\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    color: var(--fg);\n    user-select: none;\n    -webkit-user-select: none;\n    overflow: hidden;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n\n  .widget-container {\n    width: 100%;\n    max-width: 100%;\n    box-sizing: border-box;\n    padding: 12px 16px;\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n    height: 360px;\n    justify-content: space-between;\n  }\n\n  /* Plot Stage */\n  .plot-stage {\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 12px;\n    position: relative;\n    height: 180px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.02);\n    overflow: hidden;\n  }\n\n  .stage-svg {\n    width: 100%;\n    height: 100%;\n    display: block;\n  }\n\n  /* Controls and Labels */\n  .controls-panel {\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 12px;\n    padding: 12px;\n  }\n\n  .slider-container {\n    position: relative;\n    height: 36px;\n    display: flex;\n    align-items: center;\n    touch-action: none;\n  }\n\n  .slider-track {\n    position: absolute;\n    left: 8px;\n    right: 8px;\n    height: 6px;\n    background: var(--stage);\n    border-radius: 3px;\n    border: 1px solid var(--border);\n  }\n\n  .slider-ticks {\n    position: absolute;\n    left: 8px;\n    right: 8px;\n    display: flex;\n    justify-content: space-between;\n    pointer-events: none;\n  }\n\n  .tick-mark {\n    width: 2px;\n    height: 10px;\n    background: var(--border);\n    position: relative;\n  }\n  .tick-mark.active {\n    background: var(--accent);\n  }\n\n  .tick-label {\n    position: absolute;\n    top: 14px;\n    transform: translateX(-50%);\n    font-size: 11px;\n    color: var(--muted-fg);\n    font-weight: 500;\n  }\n\n  .slider-handle {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    border-radius: 50%;\n    background: var(--surface);\n    border: 2px solid var(--accent);\n    box-shadow: 0 2px 5px rgba(0,0,0,0.15);\n    cursor: grab;\n    transform: translateX(-50%);\n    z-index: 10;\n    transition: background-color 0.15s, transform 0.1s;\n    outline: none;\n  }\n\n  .slider-handle:active {\n    cursor: grabbing;\n    background: var(--accent-soft);\n    transform: translateX(-50%) scale(1.1);\n  }\n\n  .slider-handle:focus-visible {\n    box-shadow: 0 0 0 3px rgba(76, 102, 150, 0.4);\n  }\n\n  /* Stats Overlay */\n  .stats-bar {\n    display: flex;\n    justify-content: space-around;\n    font-size: 12px;\n    font-weight: 600;\n    border-top: 1px solid var(--border);\n    padding-top: 8px;\n    margin-top: 4px;\n  }\n\n  .stat-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n\n  .stat-dot {\n    width: 8px;\n    height: 8px;\n    border-radius: 50%;\n  }\n\n  .stat-dot.fn {\n    background: var(--color-infected);\n    box-shadow: 0 0 0 2px var(--color-infected-bg);\n  }\n\n  .stat-dot.fp {\n    background: var(--color-safe);\n    box-shadow: 0 0 0 2px var(--color-safe-bg);\n  }\n\n  .hint-text {\n    text-align: center;\n    font-size: 11px;\n    color: var(--muted-fg);\n    margin: 0;\n  }\n\n  /* Disabled state */\n  .disabled {\n    pointer-events: none !important;\n    opacity: 0.7;\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"sr-only\">Decision Threshold Interactive Plot</h1>\n\n<div class=\"widget-container\">\n  <!-- Plot Viewport -->\n  <div class=\"plot-stage\">\n    <svg class=\"stage-svg\" viewBox=\"0 0 400 180\" preserveAspectRatio=\"none\">\n      <defs>\n        <!-- Gradients for classification zones -->\n        <linearGradient id=\"safeGrad\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n          <stop offset=\"0%\" stop-color=\"#3b82f6\" stop-opacity=\"0.03\"/>\n          <stop offset=\"100%\" stop-color=\"#3b82f6\" stop-opacity=\"0.08\"/>\n        </linearGradient>\n        <linearGradient id=\"infectedGrad\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n          <stop offset=\"0%\" stop-color=\"#ef4444\" stop-opacity=\"0.03\"/>\n          <stop offset=\"100%\" stop-color=\"#ef4444\" stop-opacity=\"0.08\"/>\n        </linearGradient>\n      </defs>\n\n      <!-- Background Zones -->\n      <rect id=\"zone-left\" x=\"0\" y=\"0\" width=\"200\" height=\"155\" fill=\"url(#safeGrad)\" />\n      <rect id=\"zone-right\" x=\"200\" y=\"0\" width=\"200\" height=\"155\" fill=\"url(#infectedGrad)\" />\n\n      <!-- Horizontal baseline -->\n      <line x1=\"0\" y1=\"155\" x2=\"400\" y2=\"155\" stroke=\"#e2e2e2\" stroke-width=\"1.5\" />\n\n      <!-- Zone labels in the plot -->\n      <text id=\"lbl-left\" x=\"15\" y=\"25\" fill=\"#555\" font-size=\"10\" font-weight=\"bold\" letter-spacing=\"0.5\">CLASSIFIED AS SAFE</text>\n      <text id=\"lbl-right\" x=\"385\" y=\"25\" fill=\"#555\" font-size=\"10\" font-weight=\"bold\" letter-spacing=\"0.5\" text-anchor=\"end\">CLASSIFIED AS INFECTED</text>\n\n      <!-- Data Dots Group -->\n      <g id=\"dots-group\"></g>\n\n      <!-- Vertical Decision Line -->\n      <g id=\"decision-line-group\">\n        <line id=\"decision-line\" x1=\"200\" y1=\"0\" x2=\"200\" y2=\"155\" stroke=\"var(--accent)\" stroke-width=\"2.5\" stroke-dasharray=\"4 3\" />\n        <rect id=\"line-glow\" x=\"198\" y=\"0\" width=\"5\" height=\"155\" fill=\"var(--accent)\" opacity=\"0.15\" />\n      </g>\n    </svg>\n  </div>\n\n  <!-- Interactive Controls Area -->\n  <div class=\"controls-panel\">\n    <div class=\"slider-container\" id=\"slider-box\" aria-label=\"Confidence threshold slider\" tabindex=\"0\">\n      <div class=\"slider-track\"></div>\n      <div class=\"slider-ticks\" id=\"ticks-container\"></div>\n      <div class=\"slider-handle\" id=\"slider-handle\"></div>\n    </div>\n\n    <!-- Live Counter Metrics -->\n    <div class=\"stats-bar\">\n      <div class=\"stat-item\">\n        <span class=\"stat-dot fn\"></span>\n        <span>False Negatives (Missed Cases): <span id=\"count-fn\" style=\"font-variant-numeric: tabular-nums;\">0</span></span>\n      </div>\n      <div class=\"stat-item\">\n        <span class=\"stat-dot fp\"></span>\n        <span>False Positives (False Alarms): <span id=\"count-fp\" style=\"font-variant-numeric: tabular-nums;\">0</span></span>\n      </div>\n    </div>\n  </div>\n\n  <p class=\"hint-text\">Drag the slider handle to adjust the threshold.</p>\n</div>\n\n<script>\n  // Discrete steps matching OPTIONS\n  const STEPS = [0.1, 0.5, 0.9, 1.0];\n  const OPTION_STRINGS = {\n    0.1: \"Threshold set to 0.1\",\n    0.5: \"Threshold set to 0.5\",\n    0.9: \"Threshold set to 0.9\",\n    1.0: \"Threshold set to 1.0\"\n  };\n\n  // Fixed set of patients (scores from 0 to 1)\n  // Blue (Safe, actual healthy) should be centered lower\n  // Red (Infected, actual sick) spread from 0.15 upwards\n  const DOTS = [\n    // Healthy patients (Blue)\n    { id: 1, type: 'safe', score: 0.08, y: 120 },\n    { id: 2, type: 'safe', score: 0.18, y: 90 },\n    { id: 3, type: 'safe', score: 0.25, y: 135 },\n    { id: 4, type: 'safe', score: 0.40, y: 70 },\n    { id: 5, type: 'safe', score: 0.48, y: 110 },\n    { id: 6, type: 'safe', score: 0.65, y: 130 },\n    \n    // Sick patients (Red)\n    { id: 7, type: 'infected', score: 0.15, y: 45 },\n    { id: 8, type: 'infected', score: 0.32, y: 60 },\n    { id: 9, type: 'infected', score: 0.55, y: 40 },\n    { id: 10, type: 'infected', score: 0.72, y: 80 },\n    { id: 11, type: 'infected', score: 0.88, y: 50 }\n  ];\n\n  let currentStepIndex = 1; // Start at 0.5\n  let isLocked = false;\n\n  const sliderBox = document.getElementById('slider-box');\n  const sliderHandle = document.getElementById('slider-handle');\n  const ticksContainer = document.getElementById('ticks-container');\n  const decisionLine = document.getElementById('decision-line');\n  const lineGlow = document.getElementById('line-glow');\n  const zoneLeft = document.getElementById('zone-left');\n  const zoneRight = document.getElementById('zone-right');\n  const dotsGroup = document.getElementById('dots-group');\n  const countFN = document.getElementById('count-fn');\n  const countFP = document.getElementById('count-fp');\n\n  // Draw ticks\n  STEPS.forEach((val) => {\n    const tick = document.createElement('div');\n    tick.className = 'tick-mark';\n    tick.style.left = `${val * 100}%`;\n    \n    const label = document.createElement('div');\n    label.className = 'tick-label';\n    label.innerText = val.toFixed(1);\n    tick.appendChild(label);\n    \n    ticksContainer.appendChild(tick);\n  });\n\n  // Draw initial dots\n  function drawDots() {\n    dotsGroup.innerHTML = '';\n    DOTS.forEach(dot => {\n      const cx = dot.score * 400;\n      const cy = dot.y;\n      \n      const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');\n      \n      // Outer glow/ring\n      const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');\n      ring.setAttribute('cx', cx);\n      ring.setAttribute('cy', cy);\n      ring.setAttribute('r', '9');\n      ring.setAttribute('fill', 'none');\n      ring.setAttribute('stroke-width', '2');\n      ring.setAttribute('opacity', '0.4');\n      ring.id = `ring-${dot.id}`;\n      \n      // Inner solid circle\n      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');\n      circle.setAttribute('cx', cx);\n      circle.setAttribute('cy', cy);\n      circle.setAttribute('r', '5.5');\n      circle.setAttribute('fill', dot.type === 'safe' ? 'var(--color-safe)' : 'var(--color-infected)');\n      \n      group.appendChild(ring);\n      group.appendChild(circle);\n      dotsGroup.appendChild(group);\n    });\n  }\n\n  // Update classification and metrics based on current threshold\n  function updateVisualization() {\n    const threshold = STEPS[currentStepIndex];\n    const lineX = threshold * 400;\n\n    // Update line and background regions\n    decisionLine.setAttribute('x1', lineX);\n    decisionLine.setAttribute('x2', lineX);\n    lineGlow.setAttribute('x', lineX - 2.5);\n    zoneLeft.setAttribute('width', lineX);\n    zoneRight.setAttribute('x', lineX);\n    zoneRight.setAttribute('width', 400 - lineX);\n\n    // Position slider handle\n    // Safe margin to align center of handle with ends of track\n    const containerWidth = sliderBox.getBoundingClientRect().width || 368;\n    const padding = 8;\n    const trackWidth = containerWidth - padding * 2;\n    const leftPx = padding + threshold * trackWidth;\n    sliderHandle.style.left = `${leftPx}px`;\n\n    // Calculate metrics & update dots\n    let falseNegatives = 0; // Infected but classified as Safe (left of threshold)\n    let falsePositives = 0; // Safe but classified as Infected (right of threshold)\n\n    DOTS.forEach(dot => {\n      const isRightOfLine = dot.score >= threshold;\n      const ring = document.getElementById(`ring-${dot.id}`);\n      \n      if (dot.type === 'safe') {\n        if (isRightOfLine) {\n          // False Positive (Healthy but flagged)\n          falsePositives++;\n          ring.setAttribute('stroke', 'var(--color-safe)');\n          ring.setAttribute('opacity', '0.75');\n        } else {\n          ring.setAttribute('stroke', 'none');\n        }\n      } else {\n        if (!isRightOfLine) {\n          // False Negative (Missed cancer case)\n          falseNegatives++;\n          ring.setAttribute('stroke', 'var(--color-infected)');\n          ring.setAttribute('opacity', '0.75');\n        } else {\n          ring.setAttribute('stroke', 'none');\n        }\n      }\n    });\n\n    countFN.innerText = falseNegatives;\n    countFP.innerText = falsePositives;\n\n    // Highlight active tick label\n    const labels = document.querySelectorAll('.tick-mark');\n    labels.forEach((tick, idx) => {\n      if (idx === currentStepIndex) {\n        tick.classList.add('active');\n        tick.querySelector('.tick-label').style.color = 'var(--accent)';\n        tick.querySelector('.tick-label').style.fontWeight = 'bold';\n      } else {\n        tick.classList.remove('active');\n        tick.querySelector('.tick-label').style.color = 'var(--muted-fg)';\n        tick.querySelector('.tick-label').style.fontWeight = '500';\n      }\n    });\n\n    // Notify parent\n    if (window.parent) {\n      window.parent.postMessage({\n        type: 'hk-practice-answer',\n        value: OPTION_STRINGS[threshold]\n      }, '*');\n    }\n  }\n\n  // Pointer Interaction\n  let isDragging = false;\n\n  function handlePointerMove(e) {\n    if (!isDragging || isLocked) return;\n    const rect = sliderBox.getBoundingClientRect();\n    const padding = 8;\n    const trackWidth = rect.width - padding * 2;\n    const clientX = e.clientX || (e.touches && e.touches[0].clientX);\n    const relativeX = Math.max(0, Math.min(clientX - rect.left - padding, trackWidth));\n    const normalizedVal = relativeX / trackWidth;\n\n    // Find closest discrete step\n    let closestIndex = 0;\n    let minDiff = Infinity;\n    STEPS.forEach((stepVal, idx) => {\n      const diff = Math.abs(stepVal - normalizedVal);\n      if (diff < minDiff) {\n        minDiff = diff;\n        closestIndex = idx;\n      }\n    });\n\n    if (closestIndex !== currentStepIndex) {\n      currentStepIndex = closestIndex;\n      updateVisualization();\n    }\n  }\n\n  sliderBox.addEventListener('pointerdown', (e) => {\n    if (isLocked) return;\n    isDragging = true;\n    sliderBox.setPointerCapture(e.pointerId);\n    handlePointerMove(e);\n  });\n\n  sliderBox.addEventListener('pointermove', handlePointerMove);\n\n  sliderBox.addEventListener('pointerup', () => {\n    isDragging = false;\n  });\n\n  // Keyboard navigation\n  sliderBox.addEventListener('keydown', (e) => {\n    if (isLocked) return;\n    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n      if (currentStepIndex < STEPS.length - 1) {\n        currentStepIndex++;\n        updateVisualization();\n      }\n    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n      if (currentStepIndex > 0) {\n        currentStepIndex--;\n        updateVisualization();\n      }\n    }\n  });\n\n  // Lock message listener\n  window.addEventListener('message', (e) => {\n    if (e.data && e.data.type === 'hk-practice-lock') {\n      isLocked = true;\n      sliderBox.classList.add('disabled');\n      sliderHandle.style.cursor = 'default';\n    }\n  });\n\n  // Height observer\n  function reportHeight() {\n    try {\n      if (window.parent) {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        window.parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      }\n    } catch (e) {}\n  }\n\n  window.addEventListener('load', () => {\n    drawDots();\n    updateVisualization();\n    reportHeight();\n    // Re-report height to ensure layout stabilizes\n    setTimeout(reportHeight, 150);\n  });\n\n  const resizeObserver = new ResizeObserver(() => {\n    updateVisualization();\n    reportHeight();\n  });\n  resizeObserver.observe(document.body);\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Threshold set to 0.1"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Comprehensive Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of Softmax transforming logits to probabilities.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e39dcbd0-7faf-4c95-a607-e15c049b41c6/exam/images/unit5-q1.png"
+     },
+     "prompt": "During the construction of an inference pipeline, what is the primary purpose of the Softmax operation after the model's forward pass?",
+     "options": [
+      "To reduce the memory footprint of the tensor",
+      "To convert raw logits into normalized probabilities that sum to 1",
+      "To map high-dimensional embeddings back to text tokens",
+      "To calculate the loss for backpropagation"
+     ],
+     "explanation": "Logits are arbitrary real numbers; Softmax transforms them into a probability distribution, making them interpretable as confidence scores for each class.",
+     "correctAnswers": [
+      "To convert raw logits into normalized probabilities that sum to 1"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are components of a standard model versioning schema under the adapted Semantic Versioning (SemVer) framework?",
+     "options": [
+      "MAJOR: Breaking changes to architecture or output classes",
+      "MINOR: Retraining on new data with the same architecture",
+      "PATCH: Minor fixes to documentation or metadata",
+      "DATA: Changes to the size of the validation split"
+     ],
+     "explanation": "SemVer for ML defines MAJOR as breaking changes, MINOR as performance improvements via retraining, and PATCH as non-functional updates like documentation fixes.",
+     "correctAnswers": [
+      "MAJOR: Breaking changes to architecture or output classes",
+      "MINOR: Retraining on new data with the same architecture",
+      "PATCH: Minor fixes to documentation or metadata"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a production inference pipeline, the process of finding the index of the highest probability value is known as the ____ operation.",
+     "explanation": "Argmax (Arguments of the Maxima) returns the index of the largest value in a tensor, which corresponds to the predicted class label.",
+     "placeholder": "e.g., Softmax, Argmax",
+     "correctAnswers": [
+      "Argmax"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why is it critical that the tokenizer used during inference matches the one used during fine-tuning?",
+     "options": [
+      "To ensure the model weights are loaded into the correct GPU memory",
+      "To prevent a mismatch between input IDs and the model's learned vocabulary",
+      "To allow the Gradio interface to render special characters correctly",
+      "To reduce the number of floating-point operations (FLOPs)"
+     ],
+     "explanation": "If the tokenizer is different, a specific ID (e.g., 402) might represent 'cat' to the tokenizer but 'run' to the model, leading to total prediction failure.",
+     "correctAnswers": [
+      "To prevent a mismatch between input IDs and the model's learned vocabulary"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When building a Gradio or Streamlit interface for a classification model, which validation steps help ensure 'defensive engineering'?",
+     "options": [
+      "Checking for zero-length strings (empty inputs)",
+      "Automatically converting all text to uppercase",
+      "Handling non-ASCII characters or emojis gracefully",
+      "Retraining the model every time the user submits a query"
+     ],
+     "explanation": "Defensive engineering focuses on preventing crashes from unexpected user input, such as empty strings or special characters that the model cannot process.",
+     "correctAnswers": [
+      "Checking for zero-length strings (empty inputs)",
+      "Handling non-ASCII characters or emojis gracefully"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Executing several initial inference runs to prime the system and discard memory allocation spikes is called a ____ run.",
+     "explanation": "Warm-up runs are necessary because the first few inferences involve one-time costs like CUDA initialization and memory allocation that don't reflect steady-state performance.",
+     "placeholder": "e.g., cold-start, warm-up",
+     "correctAnswers": [
+      "warm-up",
+      "warmup"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Latency distribution chart highlighting the 99th percentile.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e39dcbd0-7faf-4c95-a607-e15c049b41c6/exam/images/unit5-q7.png"
+     },
+     "prompt": "What does the 'p99 latency' metric represent in a benchmarking report?",
+     "options": [
+      "The time taken for the first 99% of the training data to be processed",
+      "The average speed of the model over 99 consecutive runs",
+      "The response time that 99% of requests are faster than or equal to",
+      "The probability that the model is 99% accurate in production"
+     ],
+     "explanation": "p99 latency is a tail-latency metric used to understand the worst-case performance experienced by the slowest 1% of users.",
+     "correctAnswers": [
+      "The response time that 99% of requests are faster than or equal to"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which factors contribute to the total operational cost of hosting a fine-tuned model in the cloud?",
+     "options": [
+      "The monthly salary of the data scientist who trained it",
+      "The number of queries processed per month",
+      "The hourly rate of the hardware (GPU vs. CPU)",
+      "The average latency of a single inference pass"
+     ],
+     "explanation": "Operational cost is a function of throughput, hardware price, and how long the hardware must be active to process each request.",
+     "correctAnswers": [
+      "The number of queries processed per month",
+      "The hourly rate of the hardware (GPU vs. CPU)",
+      "The average latency of a single inference pass"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To tie a specific state of code to a specific version of model weights on a platform like Hugging Face, you should use ____ tags.",
+     "explanation": "Git tags create immutable checkpoints that allow you to pin your inference environment to a specific, verified version of the model and code.",
+     "correctAnswers": [
+      "Git",
+      "release"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Why is it discouraged to store large model weight files (.pt, .bin) directly in a standard Git repository?",
+     "options": [
+      "Git cannot read binary files at all",
+      "Large binary files bloat the repository size and slow down version control",
+      "Weights are too sensitive to be stored in version control systems",
+      "Model weights change every time the code is committed"
+     ],
+     "explanation": "Git is optimized for text; large binaries should be handled by Git LFS or dedicated model registries like Hugging Face Hub to keep the repo performant.",
+     "correctAnswers": [
+      "Large binary files bloat the repository size and slow down version control"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "According to the course material, what should be included in a 'Model Card' for a fine-tuned classifier?",
+     "options": [
+      "Safety boundaries and out-of-scope tasks",
+      "The exact SSH keys for the production server",
+      "A description of the training data and intended use cases",
+      "Known limitations and biases"
+     ],
+     "explanation": "Model Cards are documentation standards that help users understand where a model can be safely applied and where it is likely to fail.",
+     "correctAnswers": [
+      "Safety boundaries and out-of-scope tasks",
+      "A description of the training data and intended use cases",
+      "Known limitations and biases"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "During the inference forward pass, using `torch.no_grad()` reduces ____ usage by not storing intermediate tensors for backpropagation.",
+     "explanation": "Memory (VRAM on GPUs) is saved because the model does not need to store the gradients required for training updates.",
+     "placeholder": "e.g., CPU, memory",
+     "correctAnswers": [
+      "memory",
+      "RAM",
+      "VRAM"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a business requires 100ms latency but your current GPU setup delivers 400ms, which engineering trade-off is most logical?",
+     "options": [
+      "Increasing the number of training epochs",
+      "Upgrading to more powerful hardware or optimizing via quantization",
+      "Switching from GPU to CPU to save money",
+      "Increasing the learning rate during training"
+     ],
+     "explanation": "When latency requirements are not met, the solutions are either better hardware or optimizing the model itself (e.g., quantization/distillation).",
+     "correctAnswers": [
+      "Upgrading to more powerful hardware or optimizing via quantization"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "What are the benefits of wrapping a fine-tuned model in a Python class for the inference pipeline?",
+     "options": [
+      "Encapsulation of tokenizer and model loading",
+      "Automatic reduction of training time",
+      "Simplified integration into web frameworks like Gradio",
+      "Easier management of device placement (CPU/GPU)"
+     ],
+     "explanation": "Class-based pipelines provide a clean interface for external tools and ensure that all internal dependencies (tokenizer, device settings) are managed in one place.",
+     "correctAnswers": [
+      "Encapsulation of tokenizer and model loading",
+      "Simplified integration into web frameworks like Gradio",
+      "Easier management of device placement (CPU/GPU)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "When text encoding is inconsistent between training and deployment, a model might fail due to a ____ mismatch.",
+     "explanation": "A tokenization mismatch occurs when the strings are converted into IDs using different rules than the model learned, resulting in nonsensical predictions.",
+     "placeholder": "e.g., shape, hardware",
+     "correctAnswers": [
+      "shape",
+      "tokenizer",
+      "tokenization"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "A 'MAJOR' version increment in a model registry is most likely triggered by which event?",
+     "options": [
+      "Fixing a typo in a label name in the UI",
+      "Adding a new 'Safety' class to the model's output, changing the output shape",
+      "Retraining the model on 10% more data to increase accuracy",
+      "Changing the background color of the Gradio interface"
+     ],
+     "explanation": "A change in the output shape or architecture is a 'breaking change' because it requires updating the code that consumes the model's output.",
+     "correctAnswers": [
+      "Adding a new 'Safety' class to the model's output, changing the output shape"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of these are valid reasons to roll back a model version in production?",
+     "options": [
+      "A spike in p99 latency after a MINOR version update",
+      "The model's validation accuracy was 92% in the notebook",
+      "A discovery of unintended bias in the newly deployed version",
+      "Downstream applications crashing due to a change in label formatting"
+     ],
+     "explanation": "Rollbacks are used for operational failures (latency), ethical/safety issues (bias), or integration breakages (label format changes).",
+     "correctAnswers": [
+      "A spike in p99 latency after a MINOR version update",
+      "A discovery of unintended bias in the newly deployed version",
+      "Downstream applications crashing due to a change in label formatting"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "You are optimizing an inference pipeline to minimize memory usage and maximize speed. Adjust the pipeline settings to the most efficient state for a production deployment environment where training is already complete.",
+     "options": [
+      "Gradients Enabled / GPU",
+      "Gradients Disabled / GPU",
+      "Gradients Enabled / CPU",
+      "Gradients Disabled / CPU"
+     ],
+     "explanation": "Disabling gradients using torch.no_grad() is essential for inference as it prevents the construction of a computation graph, saving memory and compute. Using a GPU provides the hardware acceleration needed for the fastest forward pass.",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --gauge-fill: #e2e2e2;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 16px;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .control-panel {\n      width: 100%;\n      max-width: 360px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 16px;\n      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    .switches-container {\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .switch-row {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      background: var(--stage);\n      padding: 10px 14px;\n      border-radius: 8px;\n      border: 1px solid transparent;\n      transition: border-color 0.2s, background-color 0.2s;\n    }\n\n    .switch-row:focus-within {\n      border-color: var(--accent);\n      background-color: var(--accent-soft);\n    }\n\n    .switch-info {\n      display: flex;\n      flex-direction: column;\n      gap: 2px;\n    }\n\n    .switch-label {\n      font-size: 13px;\n      font-weight: 600;\n      color: var(--fg);\n    }\n\n    .switch-state-desc {\n      font-size: 11px;\n      color: var(--muted-fg);\n      font-variant-numeric: tabular-nums;\n    }\n\n    /* Tactile Toggle Switch styling */\n    .toggle-control {\n      position: relative;\n      width: 64px;\n      height: 30px;\n      background-color: #d1ceda;\n      border-radius: 15px;\n      cursor: pointer;\n      outline: none;\n      border: 2px solid transparent;\n      transition: background-color 0.2s, box-shadow 0.2s;\n      user-select: none;\n      -webkit-user-select: none;\n      touch-action: none;\n    }\n\n    .toggle-control:focus-visible {\n      box-shadow: 0 0 0 2px var(--accent);\n    }\n\n    .toggle-handle {\n      position: absolute;\n      top: 2px;\n      left: 2px;\n      width: 22px;\n      height: 22px;\n      background-color: var(--surface);\n      border-radius: 50%;\n      box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);\n    }\n\n    /* Active colors and positions */\n    .toggle-control[aria-checked=\"true\"] {\n      background-color: var(--accent);\n    }\n\n    .toggle-control[aria-checked=\"true\"] .toggle-handle {\n      transform: translateX(34px);\n    }\n\n    /* Gauge Area */\n    .gauge-section {\n      border-top: 1px dashed var(--border);\n      padding-top: 14px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 10px;\n    }\n\n    .gauge-wrapper {\n      position: relative;\n      width: 180px;\n      height: 90px;\n      overflow: hidden;\n    }\n\n    .gauge-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n    }\n\n    .gauge-needle {\n      transform-origin: 90px 85px;\n      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);\n    }\n\n    .metrics-row {\n      display: flex;\n      width: 100%;\n      justify-content: space-around;\n      gap: 10px;\n    }\n\n    .metric-card {\n      text-align: center;\n      flex: 1;\n    }\n\n    .metric-val {\n      font-size: 15px;\n      font-weight: 700;\n      color: var(--fg);\n      font-variant-numeric: tabular-nums;\n    }\n\n    .metric-lbl {\n      font-size: 10px;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      margin-top: 2px;\n    }\n\n    .action-hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n    }\n\n    /* Read-only / Locked State */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n    .locked .toggle-control {\n      cursor: default;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Inference Pipeline Optimizer Configuration</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"control-panel\" id=\"panel\">\n      \n      <!-- Switches -->\n      <div class=\"switches-container\">\n        <!-- Switch A -->\n        <div class=\"switch-row\">\n          <div class=\"switch-info\">\n            <span class=\"switch-label\">Gradient Tracking</span>\n            <span class=\"switch-state-desc\" id=\"desc-grad\">Enabled (For Training)</span>\n          </div>\n          <button type=\"button\" \n                  role=\"switch\" \n                  aria-checked=\"true\" \n                  id=\"switch-grad\" \n                  class=\"toggle-control\" \n                  aria-label=\"Toggle Gradients Enabled or Disabled\">\n            <span class=\"toggle-handle\"></span>\n          </button>\n        </div>\n\n        <!-- Switch B -->\n        <div class=\"switch-row\">\n          <div class=\"switch-info\">\n            <span class=\"switch-label\">Hardware Device</span>\n            <span class=\"switch-state-desc\" id=\"desc-dev\">GPU Acceleration</span>\n          </div>\n          <button type=\"button\" \n                  role=\"switch\" \n                  aria-checked=\"true\" \n                  id=\"switch-dev\" \n                  class=\"toggle-control\" \n                  aria-label=\"Toggle Device between CPU and GPU\">\n            <span class=\"toggle-handle\"></span>\n          </button>\n        </div>\n      </div>\n\n      <!-- Gauge Area -->\n      <div class=\"gauge-section\">\n        <div class=\"gauge-wrapper\">\n          <svg class=\"gauge-svg\" viewBox=\"0 0 180 100\" aria-hidden=\"true\">\n            <!-- Background Arc -->\n            <path d=\"M 20 85 A 70 70 0 0 1 160 85\" fill=\"none\" stroke=\"var(--stage)\" stroke-width=\"12\" stroke-linecap=\"round\"/>\n            <!-- Active Fill Indication -->\n            <path id=\"gauge-fill-arc\" d=\"M 20 85 A 70 70 0 0 1 160 85\" fill=\"none\" stroke=\"var(--accent-soft)\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-dasharray=\"220\" stroke-dashoffset=\"220\"/>\n            \n            <!-- Safe/Optimized Highlight Range -->\n            <path d=\"M 20 85 A 70 70 0 0 1 60 45\" fill=\"none\" stroke=\"rgba(76,102,150,0.15)\" stroke-width=\"12\" stroke-linecap=\"round\"/>\n            \n            <!-- Needle Center Pivot -->\n            <circle cx=\"90\" cy=\"85\" r=\"6\" fill=\"var(--accent)\"/>\n            \n            <!-- Needle -->\n            <g class=\"gauge-needle\" id=\"needle\">\n              <line x1=\"90\" y1=\"85\" x2=\"90\" y2=\"25\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n              <polygon points=\"87,35 90,20 93,35\" fill=\"var(--accent)\"/>\n            </g>\n          </svg>\n        </div>\n\n        <div class=\"metrics-row\">\n          <div class=\"metric-card\">\n            <div class=\"metric-val\" id=\"metric-mem\">18.2 GB</div>\n            <div class=\"metric-lbl\">Latent & Memory</div>\n          </div>\n          <div class=\"metric-card\">\n            <div class=\"metric-val\" id=\"metric-speed\">15 ms/it</div>\n            <div class=\"metric-lbl\">Inference Latency</div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n    <div class=\"action-hint\">Flick the switches to optimize the production settings.</div>\n  </div>\n\n  <script>\n    // State representation\n    const state = {\n      gradientsEnabled: true, // true = Gradients Enabled, false = Gradients Disabled\n      useGPU: true,          // true = GPU, false = CPU\n      isLocked: false\n    };\n\n    // Configuration states & values mapping\n    const configurations = {\n      'Gradients Enabled / GPU': {\n        needleAngle: 35, // Degrees from vertical (0)\n        memory: '18.2 GB',\n        latency: '15 ms/it',\n        dashOffset: 70\n      },\n      'Gradients Disabled / GPU': {\n        needleAngle: -65,\n        memory: '1.1 GB',\n        latency: '8 ms/it',\n        dashOffset: 190\n      },\n      'Gradients Enabled / CPU': {\n        needleAngle: 75,\n        memory: '24.5 GB',\n        latency: '450 ms/it',\n        dashOffset: 15\n      },\n      'Gradients Disabled / CPU': {\n        needleAngle: -20,\n        memory: '4.2 GB',\n        latency: '380 ms/it',\n        dashOffset: 130\n      }\n    };\n\n    // DOM Elements\n    const panel = document.getElementById('panel');\n    const switchGrad = document.getElementById('switch-grad');\n    const switchDev = document.getElementById('switch-dev');\n    const descGrad = document.getElementById('desc-grad');\n    const descDev = document.getElementById('desc-dev');\n    const needle = document.getElementById('needle');\n    const gaugeFillArc = document.getElementById('gauge-fill-arc');\n    const metricMem = document.getElementById('metric-mem');\n    const metricSpeed = document.getElementById('metric-speed');\n\n    // Update visuals & report state\n    function updateUI() {\n      // 1. Get current option key matching the OPTIONS list\n      const gradStr = state.gradientsEnabled ? 'Gradients Enabled' : 'Gradients Disabled';\n      const devStr = state.useGPU ? 'GPU' : 'CPU';\n      const optionKey = `${gradStr} / ${devStr}`;\n\n      // 2. Update switch attributes & texts\n      switchGrad.setAttribute('aria-checked', state.gradientsEnabled);\n      descGrad.textContent = state.gradientsEnabled ? 'Enabled (For Training)' : 'Disabled (No backprop)';\n\n      switchDev.setAttribute('aria-checked', state.useGPU);\n      descDev.textContent = state.useGPU ? 'GPU Acceleration' : 'CPU (Standard)';\n\n      // 3. Get metrics & render gauge animation\n      const config = configurations[optionKey];\n      needle.style.transform = `rotate(${config.needleAngle}deg)`;\n      gaugeFillArc.style.strokeDashoffset = config.dashOffset;\n      metricMem.textContent = config.memory;\n      metricSpeed.textContent = config.latency;\n\n      // 4. Report answer back to host\n      parent.postMessage({ type: 'hk-practice-answer', value: optionKey }, '*');\n    }\n\n    // Interactive behaviors\n    function toggleGrad() {\n      if (state.isLocked) return;\n      state.gradientsEnabled = !state.gradientsEnabled;\n      updateUI();\n    }\n\n    function toggleDev() {\n      if (state.isLocked) return;\n      state.useGPU = !state.useGPU;\n      updateUI();\n    }\n\n    // Listeners for switches (pointer and keyboard support via standard button)\n    switchGrad.addEventListener('click', toggleGrad);\n    switchDev.addEventListener('click', toggleDev);\n\n    // Support drag/swipe on the toggles as well\n    let dragStartX = 0;\n    function setupDrag(element, toggleFn) {\n      element.addEventListener('pointerdown', (e) => {\n        if (state.isLocked) return;\n        dragStartX = e.clientX;\n        element.setPointerCapture(e.pointerId);\n      });\n      element.addEventListener('pointerup', (e) => {\n        if (state.isLocked) return;\n        const dragDistance = e.clientX - dragStartX;\n        const isChecked = element.getAttribute('aria-checked') === 'true';\n        // If dragged significantly to the opposite side, toggle it\n        if ((dragDistance > 10 && !isChecked) || (dragDistance < -10 && isChecked)) {\n          toggleFn();\n        }\n      });\n    }\n    setupDrag(switchGrad, toggleGrad);\n    setupDrag(switchDev, toggleDev);\n\n    // Lock listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        state.isLocked = true;\n        panel.classList.add('locked');\n        switchGrad.setAttribute('disabled', 'true');\n        switchDev.setAttribute('disabled', 'true');\n      }\n    });\n\n    // Height reporter\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', () => {\n      updateUI();\n      reportHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Gradients Disabled / GPU"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "6f5cbbef-6655-4fac-b522-7530cc5be3a2"
+}

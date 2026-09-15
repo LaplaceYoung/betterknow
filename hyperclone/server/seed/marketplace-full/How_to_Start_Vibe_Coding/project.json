@@ -1,0 +1,332 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project stage! Over the course of this project, you will build 'VibeQuest'—a fully functional, habit-tracking web application that you'll deploy to the live internet. By the end, you'll have a tool that tracks streaks and stores data securely, all built using AI-assisted 'Vibe Coding.' Today, we start at the very beginning. Following our recent look at workspace environments, your goal for this stage is to move from a blank screen to a live 'Hello World' preview. We are setting up your 'Canvas' so your AI assistant has a place to work.",
+     "step_title": "Welcome to VibeQuest!",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State the name of the tool you chose (e.g., StackBlitz, Cursor, etc.) and give one reason why you preferred a cloud-based or local setup for this project."
+     },
+     "step_body": "Based on our discussion about 'Cloud Sandboxes' versus 'Local Engine Rooms,' decide which environment you will use for VibeQuest. If you want zero setup and immediate results, I recommend a web-based tool like StackBlitz or Replit. If you want to dive into professional AI-native tools and don't mind a little installation, try Cursor or VS Code. Once you've opened your chosen tool, create a new, empty folder named 'vibe-quest'. Which environment did you choose, and why does it fit your current learning vibe?",
+     "step_title": "Choose your workspace",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "In your new project folder, create a file named 'index.html'. This is the 'Entry Point' of any web application. In the world of Vibe Coding, we don't write the boilerplate code ourselves. Open your AI chat interface (like the Sidebar in Cursor or the 'Ask AI' button in your browser-based editor) and prompt it: 'Create a basic HTML5 boilerplate for a project called VibeQuest. Inside the body, include a heading that says Hello World from VibeQuest.' Copy the code it provides into your index.html file and save it.",
+     "step_title": "Initialize your first file",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now it's time to act as the Auditor. Look at the code the AI generated. Does it contain the standard HTML tags like <html>, <head>, and <body>? Most importantly, does it include the specific 'Hello World' message we asked for? Use your environment's 'Preview' or 'Live Server' button to open a browser window showing your file. You should see your heading appearing clearly on a white page. This confirms your environment is wired up correctly and ready for complex development.",
+     "step_title": "Verify the 'Vibe'",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot showing your code editor with the index.html file open and the 'Hello World' message visible in the preview window. Success is defined by a functioning local or cloud-based preview of your code."
+     },
+     "step_body": "You have successfully initialized your workspace! This simple 'Hello World' is the foundation upon which we will build our habit tracker's UI and logic. To complete this stage, take a screenshot of your coding environment. Make sure I can see both your file explorer (showing index.html) and the live browser preview displaying your message. This proves your 'Engine Room' is running.",
+     "step_title": "Submit your progress",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "347a0f50-174f-411c-a109-f2bfcd7e0643",
+   "stage_title": "Project Initialization and Workspace Setup",
+   "parent_project_id": "42be40a5-dfd5-4b8e-8a07-7a131822241d",
+   "stage_description": "Set up your beginner-friendly development environment (e.g., StackBlitz or VS Code) and create your empty project folder. Use your AI assistant to generate a basic HTML boilerplate and verify you can preview it locally.",
+   "deliverable_increment": "An active coding workspace with a basic 'index.html' rendering a 'Hello World' message in a local browser preview."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the last stage, you successfully initialized your workspace with a basic 'Hello World' index file. Now, it's time to transition from a coder to a systems architect. Before we write a single line of application logic, we need to leverage the AI to create a blueprint. This ensures our Habit Tracker has a solid foundation, clear state management, and a manageable scope, preventing the 'black box' of messy code that often occurs when jumping straight into generation.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your single-sentence problem statement and three user stories. A good response clearly identifies the user, the specific moment of friction, and the desired outcome without mentioning complex technical requirements like external databases."
+     },
+     "step_body": "Based on our lesson on 'Limiting the First Version,' we must define our Minimum Viable Product (MVP). For VibeQuest, focus on the core friction: tracking a habit and seeing a streak. Avoid 'feature creep' like user accounts or cloud databases for now. Write down a single-sentence problem statement and three specific user stories (Who, What, Why) that focus purely on local habit tracking. This will serve as the context for your AI architect.",
+     "step_title": "Define your V1 constraints",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, open your AI coding assistant. You are going to use a 'boundary prompt' to force it into planning mode. Tell the AI its role is a 'Principal Software Architect.' Provide the problem statement and user stories you just wrote. Crucially, include an explicit restriction: 'Do not write any application code yet. Provide a high-level step-by-step implementation plan including state management, UI structure, and external data flow using local storage.' Review the output to ensure it hasn't 'slipped' into writing code.",
+     "step_title": "Prompt the AI Architect",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a summary of the AI's proposed architecture and its component checklist. Good work shows a modular approach where each piece of the UI and data logic is isolated and manageable."
+     },
+     "step_body": "Examine the AI's proposed plan with a 'Vibe Critic' eye. Does the architecture seem simple? Does it use local storage instead of a complex database? Ask the AI to break the plan down further into a phased implementation schedule. Specifically, ask for a 'component checklist' that lists every UI element (e.g., progress bar, input field, habit list) needed for V1. This ensures the AI has a granular roadmap before we start building.",
+     "step_title": "Refine the execution plan",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'planning.md' file. The document must include a clear system architecture description, a specific component checklist, and a phased development schedule that avoids complex out-of-scope features."
+     },
+     "step_body": "It's time to formalize your blueprint. Create a new file in your repository named 'planning.md'. Copy the finalized system architecture, the component checklist, and the phase-by-phase implementation schedule into this file. This document will serve as your north star for the remainder of the project. Having this written down allows you to hold the AI accountable to the original design as you begin generating code in the next stage.",
+     "step_title": "Create and submit planning.md",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Take a moment to review your 'planning.md'. You've successfully moved from a vague idea to a structured engineering plan. By acting as the architect first, you've ensured that the code you generate next will be clean, modular, and—most importantly—understandable. You are now ready to begin the build phase with a clear roadmap in hand.",
+     "step_title": "Final review and wrap-up",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "eb575d3f-9554-4d49-b71f-076c3b010df2",
+   "stage_title": "Planning and Scoping with AI",
+   "parent_project_id": "42be40a5-dfd5-4b8e-8a07-7a131822241d",
+   "stage_description": "Formulate a clear prompt requesting a core design blueprint and a phased feature list for the Habit Tracker. Have the AI generate a logical execution plan and break it down into tiny, step-by-step development tasks.",
+   "deliverable_increment": "A 'planning.md' file inside your repository detailing the system architecture, component checklist, and phase-by-phase implementation schedule approved by the AI."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you initialized your workspace and created a detailed planning document. You now have a repository with a 'Hello World' index.html. In this stage, we are moving from that blank slate to a functional application. You will guide your AI to build the 'VibeQuest' interface and the interactive logic that lets users track habits and save progress. This is the core of your final deliverable.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the specific prompt you used to generate the structural layout of your application. Good work explicitly defines the zones (like header, form, and list) and restricts the AI to vanilla HTML/CSS/JS."
+     },
+     "step_body": "Before adding features, you must define the physical zones of your app. Think of it as building the skeleton. Use your AI assistant to generate a three-file structure: index.html, styles.css, and app.js. Ask the AI to create logical containers for a header, an input form for new habits, and a list area where active habits will appear. Remember the 'Skeletal Prompt' rule: specify vanilla HTML/CSS and avoid complex frameworks to keep the code clean and manageable.",
+     "step_title": "Structure the layout",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Paste the JavaScript code snippet generated by the AI that handles the button click and habit list update. I am looking for a clear event listener and a function that updates the DOM."
+     },
+     "step_body": "Now, let's make it interactive by adding a habit input. Direct the AI to create a text input field and an 'Add Habit' button. Focus on the 'Listener' concept: the AI needs to listen for a click on that button, grab the text from the input, and add a new habit item to your list area. Don't worry about styling yet; focus on the logic of getting a user's typed word to appear on the screen.",
+     "step_title": "Implement habit creation",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "A habit tracker needs a sense of progress. Instruct the AI to add a 'Complete' button to each habit item and a tally counter that increments a 'streak' when clicked. Once the functionality works, give your app its 'vibe'. Prompt the AI to style the application using the CSS file, ensuring it is responsive and visually appealing. Aim for a clean, modern look that makes tracking habits feel rewarding.",
+     "step_title": "Add streaks and styling",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Currently, your data disappears if you refresh the page. To fix this, you need to implement local storage. Ask the AI to update app.js so that every time a habit is added or a streak is updated, the state is saved to the browser's localStorage. Additionally, tell the AI to write a function that loads this data automatically when the page first opens. This ensures your user's hard work isn't lost.",
+     "step_title": "Enable local persistence",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot of your habit tracker. The image should show at least two habits in the list with active streak counts and a styled UI that matches your project plan."
+     },
+     "step_body": "It is time to verify your progress. Your application should now allow you to type a habit, add it to a list, increment a streak, and see those habits again after refreshing the browser. Open your project in a browser, add a few habits, and take a screenshot of the interface in action. This represents the completion of your core dynamic functionality.",
+     "step_title": "Submit functional UI",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief reflection (2-3 sentences) on one challenge you faced while prompting for interactivity and how you resolved it to keep the code simple."
+     },
+     "step_body": "Great work! You've successfully transitioned from a static plan to a living, breathing application. Reflect on the prompting process: did the AI ever add 'bloated' code or unnecessary libraries? How did you correct it? In the next stage, we will focus on auditing your code for errors and preparing the repository for professional deployment.",
+     "step_title": "Reflection and wrap-up",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "0525ae71-9366-4f39-a1a0-5af7b4521fc9",
+   "stage_title": "Building the UI and Dynamic Core Functionality",
+   "parent_project_id": "42be40a5-dfd5-4b8e-8a07-7a131822241d",
+   "stage_description": "Prompt the AI to generate the page structure, CSS styling, and interactive features. Implement buttons to add and complete habits, keep track of daily tallies, and configure local storage so data persists across browser refreshes.",
+   "deliverable_increment": "A fully styled user interface ('index.html', 'styles.css', 'app.js') that accepts text input, adds active habits to a list, increments completion streaks, and saves progress locally."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have built a functional VibeQuest Habit Tracker with a styled UI, streak counting, and local storage. However, a polished look can be a 'mirage of completeness.' Following our 'Product Auditor' mindset, we must now move beyond the 'Happy Path' where everything works perfectly. In this stage, you will act as a friendly hacker to ensure your app is resilient, secure, and ready for the public web by checking for gaps in logic and security.",
+     "step_title": "Recap and Audit Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief list of at least three 'wild' inputs you tested and describe the application's actual behavior for each. For example: 'Empty input: The app added a blank white box to my list.'"
+     },
+     "step_body": "It is time to try and break your application. Open your live preview and systematically enter 'wild' inputs into your habit name and streak fields. Try leaving them blank, entering 5000+ characters of text, or inputting negative numbers for streaks. Observe how your app reacts: Does it crash? Does it display 'NaN'? Does it let you add an empty habit? Document every 'friction point' or 'silent failure' where the app doesn't behave gracefully.",
+     "step_title": "The Wild Path: Stress Test",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "A critical security risk in web apps is Cross-Site Scripting (XSS), where a user enters malicious code into an input field. Try entering `<script>alert('hacked')</script>` into your habit name field and save it. If an alert box pops up, your app is vulnerable! You need to ensure your code 'sanitizes' inputs. Ask your AI assistant to review your current code specifically for OWASP security guidelines and to add validation rules that prevent script injection and handle excessively long text.",
+     "step_title": "Security Sweep: XSS and Injection",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Confirm that you have checked your source code for hardcoded secrets. Briefly explain why committing a '.env' file to a public repository is a security risk."
+     },
+     "step_body": "Recall our session on 'Protecting Passwords and Secret Keys.' Even if your habit tracker is simple, you must ensure no sensitive information is hardcoded. Check your files for any accidental 'sk-' keys or personal identifiers. Ensure that if you were to add an API in the future, you have a `.gitignore` file ready to protect your environment variables. This creates a 'credential boundary' between your logic and your identity.",
+     "step_title": "Credential and Privacy Check",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "When something goes wrong (like a local storage failure), your app shouldn't just disappear. Instruct your AI to 'implement graceful error handling and user-friendly error messages.' For example, if a user tries to add an invalid habit, a red message should appear instead of the app simply doing nothing. This feedback loop is essential for user trust.",
+     "step_title": "Implement Error Boundaries",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a ZIP file containing your updated codebase (HTML, CSS, JS) and a 'testing_log.txt' file. The log should list the edge cases you tested (empty inputs, XSS scripts, extreme lengths) and confirm that the app now handles them without crashing or executing malicious code."
+     },
+     "step_body": "Now that you have hardened your application, it's time to submit the results of your audit. You should have updated your code to include input validation, sanitization, and error messages. You also need to provide a record of your testing process to prove the app's resilience.",
+     "step_title": "Submit Your Audited Codebase",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {},
+     "step_body": "Congratulations! You've shifted from a 'Vibe Coder' who just wants things to look good to a 'Developer' who ensures things are safe and robust. By identifying vulnerabilities and patching them with your AI assistant, you have significantly increased the quality of your final deliverable. Next, we will prepare for the final deployment!",
+     "step_title": "Final Reflection",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "6e1323d0-a093-432d-b63f-932598f283a4",
+   "stage_title": "Auditing and Securing Your AI-Generated Code",
+   "parent_project_id": "42be40a5-dfd5-4b8e-8a07-7a131822241d",
+   "stage_description": "Review and verify the code against OWASP guidelines to prevent security risks. Check for dependency vulnerabilities, test with extreme inputs (empty, excessively long text, malicious scripts), and configure error boundaries to handle runtime issues gracefully.",
+   "deliverable_increment": "An updated codebase containing input validation rules to prevent script injection (XSS), a clean dependency log, and a 'testing_log.txt' verifying your edge-case tests."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have come a long way, Vibe Coder! You now have a functional, secure, and audited Habit Tracker running locally. However, currently, your project only exists on your computer. If your hard drive failed today, your work would be lost. In this stage, we are going to transform your 'passive' project folder into an 'active' repository with a memory, and then launch it onto the global stage so anyone can use it. We will use Git to create a timeline of your progress and a hosting service to go live. Let's start by preparing your workspace for its public debut.",
+     "step_title": "Orient and Recap",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "Before we save our work to a permanent history, we must perform 'clean-up diagnostics.' During development, it's common to leave 'console.log' statements or temporary test alerts in your code. Using your AI assistant, ask it to 'Review my index.html, styles.css, and app.js. Identify and remove any debugging logs, temporary test code, or commented-out snippets that aren't needed for the final production version.' This ensures your code is lean and professional. Once cleaned, double-check that your habit tracker still functions correctly in your local preview.",
+     "step_title": "The Great Clean-up",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's turn your folder into a Repository—a flight data recorder for your code. If you are using a modern editor like VS Code, look for the 'Source Control' icon (it looks like a branch) and click 'Initialize Repository.' If you are using a terminal, type 'git init'. You will notice your files change color or gain a 'U' (Untracked) symbol. This means Git is now watching your files, waiting for you to create your first 'save state.'",
+     "step_title": "Initialize Your Local Repository",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the commit message you used for your first snapshot and a brief explanation of why 'staging' files is a necessary step before committing."
+     },
+     "step_body": "It is time to plant your first 'milestone flag.' We don't just save; we 'commit' with intent. Open your Source Control panel, 'stage' all your current files (usually by clicking a '+' icon), and write a clear, semantic commit message. Instead of 'finished app,' use the format 'feat: initial production-ready habit tracker'. This tells anyone looking at your history exactly what this version represents.",
+     "step_title": "Craft Your First Commit",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "To practice the 'video game save state' workflow, let's create a branch. This is a parallel universe where you can try risky changes without breaking your main app. Create a new branch named 'feature-vibe-check'. In this branch, ask your AI to add a small visual polish—perhaps a celebration animation when a habit is checked off. If it works, great! If it breaks, you can always warp back to your 'main' branch. This is the secret to fearless coding.",
+     "step_title": "Create an Experimental Branch",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Paste the link to your public GitHub repository. Ensure the repository includes your 'planning.md' and your latest code updates."
+     },
+     "step_body": "To make your project permanent and shareable, you need to push it to the cloud. Create a new public repository on GitHub named 'VibeQuest-Habit-Tracker'. Follow the instructions provided by GitHub to link your local folder to this remote repository and 'push' your code. This creates a public home for your work where others can see your clean code and your commit history.",
+     "step_title": "Push to GitHub",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the live URL of your deployed VibeQuest application. A successful submission will show a fully functional, styled habit tracker that saves data locally in the browser."
+     },
+     "step_body": "The final step of your journey is deployment. We will use a service like Netlify or Vercel. Connect your GitHub account to the service, select your 'VibeQuest' repository, and hit 'Deploy.' The service will provide you with a live URL. This is the moment your project moves from a 'file on a computer' to a 'live application on the internet.' Visit the link, test your habit tracker, and make sure everything persists as expected.",
+     "step_title": "Deploy to the Cloud",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "805a398b-08ce-4175-8a2c-bea8be1e4410",
+   "stage_title": "Git Versioning and Global Cloud Deployment",
+   "parent_project_id": "42be40a5-dfd5-4b8e-8a07-7a131822241d",
+   "stage_description": "Initialize a local Git repository, commit your clean codebase, and push it to GitHub. Deploy your site to a hosting platform (like Netlify or Vercel) while keeping any sensitive configurations secure.",
+   "deliverable_increment": "A public GitHub repository with a complete commit history, an experimental feature branch, and a live web URL where anybody can interact with your finished VibeQuest tracker."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "42be40a5-dfd5-4b8e-8a07-7a131822241d",
+   "project_name": "VibeQuest: A Fully Deployed Interactive Habit Tracker",
+   "final_deliverable": "A deployed, public web application featuring a habit tracker with streak tracking, local storage persistence, responsive styling, secure error handling, a complete Git repository history with branches, and a clean code audit report.",
+   "project_description": "In this project, you will build and deploy a fully functional web-based Habit Tracker application from scratch using only natural language instructions with an AI coding assistant. You will design, prompt, code, test, secure, and version-control this application, moving from a blank page to a live, production-deployed tool."
+  }
+ ],
+ "courseUuid": "d57d1807-f1f1-48b2-8418-c89ae577b9fa"
+}

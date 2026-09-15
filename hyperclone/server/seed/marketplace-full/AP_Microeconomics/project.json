@@ -1,0 +1,384 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project stage! By the end of this course, you will have built a complete 'Market & Policy Simulator'—a professional Economic Policy Analysis Deck for a tech-ag firm called AeroCrop. This final 5-part deliverable will prove your mastery of microeconomics, from supply curves to strategic game theory. Today, we start at the very beginning: Scarcity. You just learned that every choice involves a trade-off because resources are finite. We are going to apply that to AeroCrop. The company has a limited budget and workforce (Land, Labor, and Capital) and must decide how to split its production between two goods: Automated Drones and Organic Fertilizers. Let's start by defining our constraints.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a list of 5 production points (A, B, C, D, E). Each point should list the number of Drones and the number of Fertilizers. Ensure that as you increase Drones (0 to 4), the amount of Fertilizer lost at each step gets larger (e.g., losing 5, then 8, then 12, then 15)."
+     },
+     "step_body": "Every business faces scarcity. For AeroCrop, producing more Drones means redirecting engineers and materials away from Fertilizer production. To build your Production Possibilities Curve (PPC), you need a schedule. Imagine AeroCrop has 5 possible production 'Points' (A through E). At Point A, they produce 0 Drones and 40 units of Fertilizer. At Point E, they produce 4 Drones and 0 units of Fertilizer. In between, the trade-off isn't a simple 1-to-1 line because resources aren't perfectly adaptable (this is the Law of Increasing Opportunity Cost). Based on this, list five production pairs (Drones, Fertilizer) where the amount of Fertilizer given up increases for every additional Drone built.",
+     "step_title": "Define Your Production Trade-offs",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now that you have your data, it's time to visualize it for Slide 1 of your deck. A Production Possibilities Curve (PPC) represents the maximum combinations of two goods an economy can produce. Draw a graph with 'Drones' on the X-axis and 'Fertilizers' on the Y-axis. Plot your five points and connect them. Because of the increasing opportunity costs you calculated in the last step, your curve should be 'bowed out' (concave) from the origin. Label a point 'F' inside the curve to represent inefficiency (like a broken factory) and a point 'G' outside the curve to represent an unattainable goal given current resources.",
+     "step_title": "Draft the PPC Graph",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the numerical opportunity cost (in units of Fertilizer) for the two shifts requested. Include a 1-2 sentence explanation of why the cost is higher for the second shift, referencing resource suitability."
+     },
+     "step_body": "Investors reading your AeroCrop deck need to see the 'True Cost' of expansion. Using the points you defined earlier, calculate the opportunity cost for two specific decisions: 1) Moving from Point B to Point C, and 2) Moving from Point D to Point E. Remember what you learned in Session 1.1.2: the opportunity cost is the value of the next-best alternative forgone. In this case, it is the specific amount of Fertilizer AeroCrop must stop producing to get those extra Drones. Why does the cost change as we produce more drones?",
+     "step_title": "Calculate Opportunity Costs",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a simple table or list showing the MB and MC for units 1-4. State the optimal number of units to produce and justify it using the rule that a firm should produce as long as Marginal Benefit is greater than or equal to Marginal Cost."
+     },
+     "step_body": "Producing as much as possible isn't always the best choice. Rational firms use Marginal Analysis (MB=MC). Imagine each Drone provides a 'Marginal Benefit' to AeroCrop's revenue, but each Drone also has a 'Marginal Cost' in terms of resources used. Create a small table for 1 to 4 Drones. Assign a decreasing Marginal Benefit (e.g., $100, $80, $60, $40) and an increasing Marginal Cost (e.g., $30, $50, $70, $90). Identify the 'Optimal Quantity' of Drones where AeroCrop should stop production to maximize net benefit.",
+     "step_title": "Find the Optimal Scale",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Slide 1 as a PDF. Good work will feature a correctly bowed-out PPC curve, accurate labels for efficiency/attainability, and correct calculations for opportunity cost and marginal optimization based on your previous steps."
+     },
+     "step_body": "It's time to assemble your first deliverable! Combine your work into a single layout for Slide 1 of your deck. This slide should include: 1) Your labeled PPC graph (showing points A-G), 2) A clear table showing your opportunity cost calculations, and 3) Your marginal analysis table identifying the optimal production scale. This slide sets the stage for the entire project by showing how AeroCrop manages its scarcity. You can use any tool (PowerPoint, Canva, or a neat hand-drawn sketch) as long as it is clear and professional.",
+     "step_title": "Submit Slide 1 Draft",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "4aadd610-8051-4f9f-84b2-fe96d27af264",
+   "stage_title": "Production Possibilities and Marginal Cost-Benefit Formulation",
+   "parent_project_id": "2b7f33df-2346-4c4e-8aa5-63ccd05ec532",
+   "stage_description": "Define the hypothetical AeroCrop company's resource constraints and plot its Production Possibilities Curve (PPC) between automated drones and organic fertilizers. Perform marginal cost-benefit analysis on optimal production scale.",
+   "deliverable_increment": "Draft Slide 1 of the deck, presenting a labeled PPC graph, opportunity cost calculations for moving along the curve, and a utility/marginal benefit optimization table."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you established the production possibilities for 'AeroCrop.' Now, we transition from production capacity to the actual marketplace. In this stage, you will build Slide 2 of your deck, which models the supply and demand equilibrium for AeroCrop’s signature product, the 'Aero-Nourish' fertilizer. Reflecting on our recent lectures, remember that while markets naturally seek equilibrium, government interventions like taxes change consumer and producer behavior, creating measurable impacts on total welfare.",
+     "step_title": "Recap and market orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated equilibrium price, quantity, and the numerical values for CS and PS. A high-quality response will include the step-by-step algebraic solutions for Pe and Qe and the area-of-a-triangle calculations for surplus."
+     },
+     "step_body": "To build a quantitative model, we need specific functions. For the Aero-Nourish market, use the following linear equations: Demand: P = 20 - 0.5Q and Supply: P = 2 + 0.4Q. Calculate the equilibrium price (Pe) and equilibrium quantity (Qe) where quantity supplied equals quantity demanded. Additionally, calculate the Consumer Surplus (CS) and Producer Surplus (PS) at this equilibrium point. Show your algebraic steps clearly so your logic can be verified.",
+     "step_title": "Define supply and demand functions",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the new Pc, Pp, Qt, total Tax Revenue, and DWL. Include the calculation for DWL using the formula: 0.5 * tax * (Qe - Qt)."
+     },
+     "step_body": "Now, assume the government imposes a $3-per-unit excise tax on producers. This creates a vertical shift in your supply curve (Stax). Calculate the new price consumers pay (Pc), the price producers receive (Pp), and the new quantity traded (Qt). Using these new values, calculate the resulting Tax Revenue and the Deadweight Loss (DWL) generated by the tax. Think about how this tax 'wedges' itself between the buyer's willingness to pay and the seller's marginal cost.",
+     "step_title": "Model the tax intervention",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It is time to visualize these shifts for your deck. Using a graphing tool or neat hand-drawing, create a comprehensive Market Analysis graph. Your graph must include: 1) The original Supply and Demand curves, 2) The new Supply + Tax curve, 3) Labeled axes and equilibrium points, and 4) Shaded regions for the new Consumer Surplus, Producer Surplus, Tax Revenue, and Deadweight Loss. Ensure you also note the price elasticity of demand at the original equilibrium to help explain who bears the tax burden.",
+     "step_title": "Draft the market analysis slide",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image (PNG/JPG) or screenshot of Slide 2. Success criteria: The graph must accurately reflect the mathematical shift of the tax, all 8 required numerical values must be present, and shaded regions (CS, PS, Tax Revenue, DWL) must be correctly identified."
+     },
+     "step_body": "Combine your calculations and your graph into a single, professional slide for your Policy Analysis Deck. This slide serves as the 'Market Intervention' section of your final project. Check that all areas are clearly labeled and that your numerical values (Pe, Qe, Pc, Pp, Qt, CS, PS, DWL) are legible and presented alongside the visual model.",
+     "step_title": "Submit Slide 2 deliverable",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a 2-3 sentence reflection identifying which party bears more of the tax burden and why, citing the relationship between elasticity and tax incidence."
+     },
+     "step_body": "Before moving to market structures in the next stage, consider the tax's impact. Based on your supply and demand slopes, who ended up paying a larger share of the $3 tax—the consumers of Aero-Nourish or the AeroCrop company? Briefly explain how the relative elasticity of the curves determines this 'tax incidence.' This insight will be vital when we later design corrective policies for environmental impacts.",
+     "step_title": "Reflect on elasticity",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "a5923e23-7a3b-47e6-9e77-c205f63c7a72",
+   "stage_title": "Market Demand, Supply, and Tax Intervention Models",
+   "parent_project_id": "2b7f33df-2346-4c4e-8aa5-63ccd05ec532",
+   "stage_description": "Model the market supply and demand functions for AeroCrop products, calculate consumer and producer surplus, and analyze the deadweight loss resulting from a $3-per-unit excise tax.",
+   "deliverable_increment": "Draft Slide 2, displaying a detailed market equilibrium graph before and after tax, with shaded areas for deadweight loss, tax revenue, and calculated numerical values for elasticities."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, we established AeroCrop's production possibilities and analyzed the broader market demand and supply curves, including how tax policies create deadweight loss. Now, we shift our focus from the entire industry to the internal logic of a single firm: AeroCrop itself. In this stage, you will define AeroCrop's cost structure and determine how it behaves as a 'price taker' in a perfectly competitive market. This work will result in Slide 3 of your deck, providing the micro-foundations for your eventual policy recommendations.",
+     "step_title": "Recap and firm orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (2-4 sentences) of diminishing marginal returns for AeroCrop. Your response should correctly identify a fixed input and explain how labor eventually crowds that fixed input."
+     },
+     "step_body": "Before we can calculate costs, we must understand production. Recall that AeroCrop operates in the short run where capital (like automated greenhouse systems) is fixed, but labor (technicians) is variable. Using the principle of diminishing marginal returns, why does adding the 10th technician provide less marginal product than the 2nd? Briefly explain this intuition using the bakery analogy from our lecture and identify what specific resource is likely the 'fixed input' for AeroCrop.",
+     "step_title": "Analyze the production function",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe the relationship between AFC and output. A strong answer will explain that AFC decreases as output increases because the fixed cost is divided by a larger quantity."
+     },
+     "step_body": "Now, let's translate those production dynamics into dollars. You need to calculate the standard family of short-run costs. Assume AeroCrop has a Fixed Cost (FC) of $100. As production (Q) increases, your Variable Costs (VC) will rise. Draft a small table or list for yourself calculating Total Cost (TC), Average Variable Cost (AVC), and Average Total Cost (ATC) for at least 5 levels of output. Remember: MC = ΔTC / ΔQ. How does the 'spreading the overhead' effect influence your AFC as AeroCrop scales up?",
+     "step_title": "Calculate the cost structure",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It is time to build Slide 3. You must create two graphs side-by-side. On the left, draw the Market Equilibrium (Supply and Demand) for the agricultural tech industry. On the right, draw the individual firm (AeroCrop). Because AeroCrop is a price taker, draw a horizontal Marginal Revenue (MR) line from the market price across to the firm's graph. Then, plot the U-shaped MC, ATC, and AVC curves for the firm. Ensure the MC curve intersects both ATC and AVC at their lowest points.",
+     "step_title": "Construct the side-by-side graphs",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Explain the logic of producing at a price between AVC and ATC. Good work will specify that the firm should continue to produce in the short run to minimize losses by covering all variable costs and some fixed costs."
+     },
+     "step_body": "To complete your analysis, you must label two critical thresholds on your firm graph. The 'Shutdown Point' occurs at the minimum of the AVC curve, and the 'Break-even Point' occurs at the minimum of the ATC curve. In a short-run scenario where the market price is between these two points, should AeroCrop continue to produce or shut down immediately? Justify your decision based on whether they can cover their variable costs.",
+     "step_title": "Identify key price points",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit Slide 3 in PDF format. It must include: 1) Side-by-side graphs for the Market and Firm, 2) Correctly labeled MC, ATC, and AVC curves, 3) Identification of the shutdown and break-even points, and 4) Clear visual indication of the price-taking relationship."
+     },
+     "step_body": "Finalize Slide 3 of your Analysis Deck. This slide must visually present the side-by-side market/firm graphs you've developed. Ensure all axes (Price and Quantity) are labeled, and the relationship between the market price and the firm's horizontal demand curve is clear. Highlight the long-run equilibrium where Price = MC = Minimum ATC.",
+     "step_title": "Submit Slide 3 draft",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "676f1883-858b-4d41-a411-2b2d948e5cff",
+   "stage_title": "The Firm's Cost Curves and Perfect Competition Benchmark",
+   "parent_project_id": "2b7f33df-2346-4c4e-8aa5-63ccd05ec532",
+   "stage_description": "Construct AeroCrop's cost structure by calculating and plotting ATC, AVC, and MC curves. Model its production and pricing choices as a price-taking firm in a perfectly competitive long-run equilibrium.",
+   "deliverable_increment": "Draft Slide 3, featuring a side-by-side graph of the perfectly competitive market and the individual firm, identifying the short-run shutdown price and long-run break-even point."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In previous stages, you modeled AeroCrop as a price-taker in a perfectly competitive market. However, in the high-tech 'AeroCrop' industry, barriers to entry like patents and massive capital requirements often lead to market power. In this stage, we will re-examine AeroCrop as a single-price monopolist and then as a strategic player in an oligopoly. You will build Slide 4 of your deck, moving from a single-firm analysis to a strategic 'chess match' against a rival.",
+     "step_title": "Recap and pivot to market power",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "Begin by sketching your monopoly graph. On a new set of axes, draw a downward-sloping Demand curve and a Marginal Revenue (MR) curve that is twice as steep. Add your Marginal Cost (MC) curve from Slide 3. To find the profit-maximizing quantity, locate where MR = MC. Then, move vertically up to the Demand curve to find the monopoly price. Shade the area of Deadweight Loss (DWL) to show the inefficiency created by this market power compared to the competitive benchmark you established earlier.",
+     "step_title": "Model the monopoly outcome",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (2-3 sentences) comparing the monopoly price to the competitive price and identifying one specific barrier to entry that allows AeroCrop to maintain this markup."
+     },
+     "step_body": "Compare your new monopoly price to the price you calculated in the perfectly competitive model from Slide 3. Why is the monopolist able to charge more, and why doesn't a new firm simply enter the market to undercut them? Briefly explain the specific barrier to entry (e.g., a patent on AeroCrop's specialized sensor technology) that protects this position.",
+     "step_title": "Justify the monopoly markup",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, imagine a second firm, 'TerraFirm,' enters the market. You are no longer a monopolist but an oligopolist. Create a 2x2 payoff matrix representing a price-competition game. The strategies for both firms are 'High Price' and 'Low Price.' Fill in the payoffs (profits) for each of the four scenarios. Ensure that if both firms collude on a high price, they both earn more than if they both price low, but create an incentive for one firm to 'cheat' by lowering their price to capture the market.",
+     "step_title": "Construct the strategic payoff matrix",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "State the dominant strategy for each firm and identify the final Nash Equilibrium cell (e.g., Low/Low). Briefly explain why neither firm would want to move from this point."
+     },
+     "step_body": "Analyze your 2x2 matrix to find the dominant strategies for both AeroCrop and TerraFirm. Does either firm have a strategy that is always better regardless of what the other does? Once identified, circle the Nash Equilibrium—the outcome where neither firm has an incentive to deviate. This is a crucial addition to Slide 4, as it demonstrates how strategic interdependence limits potential profits in an oligopoly.",
+     "step_title": "Identify the Nash Equilibrium",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image of Slide 4. The slide must include a correctly labeled monopoly graph (with MR below Demand and shaded DWL) and a 2x2 payoff matrix with the Nash Equilibrium clearly indicated."
+     },
+     "step_body": "It's time to finalize the fourth increment of your Project Deck. Combine your Monopoly graph (showing Demand, MR, MC, and DWL) and your 2x2 Payoff Matrix (with Nash Equilibrium identified) into a single, professional slide. Ensure all axes are labeled and the strategic outcomes in the matrix are clear.",
+     "step_title": "Submit Slide 4",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "d30da92c-cc65-4166-a59f-3f717ca38178",
+   "stage_title": "Monopoly Pricing and Strategic Oligopoly Game Play",
+   "parent_project_id": "2b7f33df-2346-4c4e-8aa5-63ccd05ec532",
+   "stage_description": "Re-evaluate the firm as a single-price monopolist and calculate deadweight loss. Then, construct a 2x2 game-theory payoff matrix modeling strategic price competition (Nash equilibrium) between AeroCrop and its chief rival.",
+   "deliverable_increment": "Draft Slide 4, displaying the monopoly price-searcher graph (MR, Demand, MC) contrasted with a 2x2 payoff matrix highlighting dominant strategies and Nash equilibria."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In our previous stages, we successfully modeled AeroCrop’s product market, from its production possibilities to its strategic monopoly pricing and oligopoly games. Now, we turn our focus to the factor market—the market where AeroCrop hires its workers. This stage is crucial because it connects the revenue generated by selling crops (Slide 4) to the cost of the labor required to grow them. We will build Slide 5 of your deck by modeling how AeroCrop optimizes its workforce in both perfectly competitive and monopsonistic labor environments.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a short paragraph calculating the MRP for the 5th worker and comparing it to the MRC (wage). State whether the firm should hire this worker and why, specifically referencing the profit-maximization rule."
+     },
+     "step_body": "Before we graph, we must determine the hiring rule. Remember that Marginal Revenue Product (MRP) is the 'benefit' of a worker (Marginal Product x Product Price), and Marginal Resource Cost (MRC) is the 'cost' of that worker. For AeroCrop, assume a perfectly competitive product price of $20. If the 5th worker has a Marginal Product of 5 units and the market wage is $80, should AeroCrop hire them? Explain your reasoning using the MRP vs. MRC rule.",
+     "step_title": "Calculate MRP and MRC",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let’s visualize the benchmark. In a perfectly competitive labor market, AeroCrop is a 'wage-taker.' Start drafting the first half of Slide 5 by drawing a side-by-side graph. On the left, show the market supply and demand for agricultural labor. On the right, show AeroCrop’s individual firm graph, where the wage is a horizontal line (MRC) intersecting a downward-sloping MRP curve. Label the equilibrium quantity of labor as 'Qc' and the wage as 'Wc'.",
+     "step_title": "Draft the Competitive Model",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "What if AeroCrop is the only employer in a rural region? This makes it a monopsony. Unlike a competitive firm, a monopsonist faces the entire upward-sloping market supply curve. Crucially, because they must raise wages for all workers to hire one more, the MRC curve sits above the Supply curve. On the second half of your slide, draft a graph showing this relationship. Identify the point where MRP = MRC to find the quantity (Qm), then move down to the Supply curve to find the wage (Wm).",
+     "step_title": "Analyze the Monopsony Shift",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit a PDF of Slide 5. It must include: 1) A side-by-side or comparative graph of Competitive vs. Monopsony labor markets, 2) Clear labels for MRP, MRC, and Supply (SL), 3) Labeled equilibrium points (Wc, Qc vs Wm, Qm), and 4) A highlighted area representing the Deadweight Loss in the monopsony model."
+     },
+     "step_body": "It is time to finalize the Factor Market Equilibrium slide. Your slide must clearly contrast the 'Competitive' and 'Monopsonistic' models. Ensure you have shaded the 'Monopsonistic Exploitation' (the difference between MRP and the wage paid) and the Deadweight Loss caused by the monopsony's reduced hiring levels. This slide serves as the final technical analysis before we move to policy interventions.",
+     "step_title": "Submit Slide 5 Draft",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a brief reflection explaining how an increase in product demand affects the MRP curve and the resulting employment level. A good response correctly identifies that MRP is a derived demand and shifts rightward when product price increases."
+     },
+     "step_body": "Great work. You've now modeled how labor is priced. As a final thought for this stage: if the demand for AeroCrop's products suddenly spiked in the product market, how would that specifically shift the curves you just drew on Slide 5? Consider the concept of 'derived demand' in your answer.",
+     "step_title": "Reflect on Factor Demand",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "66dd1578-de21-441a-a3fa-c6df5ec1e972",
+   "stage_title": "Factor Market Equilibrium: Labor Cost Optimization",
+   "parent_project_id": "2b7f33df-2346-4c4e-8aa5-63ccd05ec532",
+   "stage_description": "Model AeroCrop's labor hiring choices in both a competitive labor market and a monopsony. Calculate Marginal Revenue Product of Labor (MRPL) and Marginal Resource Cost (MRC) to determine optimal employment levels and wages.",
+   "deliverable_increment": "Draft Slide 5, providing comparative labor market diagrams (Competitive vs. Monopsonistic) showing optimal wages and deadweight loss in factor markets."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you've successfully modeled AeroCrop's production possibilities, market demand under taxation, and the internal cost structures of both competitive and monopolistic environments. You even tackled labor optimization. Now, we face a final challenge: Market Failure. While AeroCrop is efficient at producing crops, its production process creates a negative environmental externality—chemical runoff—that impacts the local community. This stage focuses on Slide 6 of your deck, where you will use the principles of Marginal Social Cost (MSC) and Marginal Social Benefit (MSB) to design a policy that internalizes these external costs and corrects the market's overproduction.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short paragraph explaining the relationship between Marginal Social Cost (MSC) and Marginal Private Cost (MPC) in this scenario. A good response will identify that because MSC > MPC, the market price is too low and the quantity produced is higher than the socially optimal level, creating deadweight loss."
+     },
+     "step_body": "To start your analysis for Slide 6, you must differentiate between private and social costs. In our scenario, AeroCrop's Marginal Private Cost (MPC) is the market supply curve you've used previously, but the chemical runoff adds an additional 'External Cost' of $15 per unit produced. Marginal Social Cost (MSC) is the sum of MPC and this external cost. Because there are no positive externalities in consumption, we assume Marginal Social Benefit (MSB) is equal to the Marginal Private Benefit (MPB/Demand). Briefly explain in your own words why the market equilibrium (where MPB = MPC) results in a quantity that is 'too high' for society's well-being.",
+     "step_title": "Identify the externality wedge",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload an image/screenshot of your Slide 6 draft. The graph must clearly show the MSC curve parallel to and above the MPC curve, the MSB curve, the labeled equilibrium points (market vs. social), and a correctly shaded Deadweight Loss triangle pointing toward the socially optimal quantity."
+     },
+     "step_body": "Now, draft the visual component of Slide 6. You need to create a graph that includes: 1) The Demand curve (MSB/MPB), 2) The original Supply curve (MPC), and 3) The new Marginal Social Cost (MSC) curve, which sits $15 above the MPC. Label the market equilibrium (Qm, Pm) and the socially optimal equilibrium (Qs, Ps). Finally, shade the triangle representing the Deadweight Loss (DWL) created by the unaddressed externality. This visual is the heart of your policy recommendation, as it proves that the current production level destroys social value.",
+     "step_title": "Graph the failure and the fix",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the per-unit tax value and a brief explanation of the policy's impact. Good work will identify the tax as exactly $15 per unit and explain that it forces the firm to pay the full social cost, leading to a higher price and a lower, socially efficient quantity."
+     },
+     "step_body": "To correct this market failure, you must propose a Pigouvian Tax. A Pigouvian tax is a corrective tax intended to equalize the marginal private cost and the marginal social cost. Based on our earlier data that the external cost is $15 per unit, calculate the exact per-unit tax required to shift the supply curve (MPC) to align perfectly with the MSC curve. Explain how this tax 'internalizes' the externality for AeroCrop and describe what happens to the market price and quantity once this tax is implemented.",
+     "step_title": "Design the Pigouvian Tax",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your final 6-slide Policy Analysis Deck in PDF format. The deck should be organized sequentially: 1. PPC/Utility, 2. Supply/Demand Tax Model, 3. Firm Cost/Perfect Competition, 4. Monopoly/Game Theory, 5. Factor Markets, 6. Externality Remediation. Ensure all graphs are labeled and all calculations are legible."
+     },
+     "step_body": "You have completed all the analytical components of the Market & Policy Simulator! Review Slide 6 to ensure it includes the externality graph, the tax calculation, and a clear policy recommendation. Then, compile all six slides—from your initial PPC through to this final Pigouvian intervention—into one cohesive PDF. This 'Decision Deck' serves as a comprehensive microeconomic analysis of AeroCrop's operations and its impact on the economy and the environment.",
+     "step_title": "Finalize and assemble the deck",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit6",
+   "stage_id": "91cd1157-55cd-4c56-a2e0-6ed7d82b065f",
+   "stage_title": "Market Failure Remediation: Designing Pigouvian Taxes and Subsidies",
+   "parent_project_id": "2b7f33df-2346-4c4e-8aa5-63ccd05ec532",
+   "stage_description": "Analyze a negative environmental externality caused by chemical run-offs from AeroCrop production. Design a Pigouvian tax policy to internalize the external costs and bring the market output to the socially optimal level.",
+   "deliverable_increment": "Draft Slide 6, demonstrating the externality graph (MSC, MPC, MSB, MPB) and policy recommendations, and assemble all completed slides into the final PDF Policy Analysis Deck."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "2b7f33df-2346-4c4e-8aa5-63ccd05ec532",
+   "project_name": "The Market & Policy Simulator: An Microeconomic Analysis and Decision Deck",
+   "final_deliverable": "A comprehensive, 5-part slide deck (PDF format) containing custom-built supply/demand graphs, cost curves, market structure comparisons (perfect competition vs. monopoly), a strategic game theory payoff matrix, labor market equilibrium solutions, and a fully analyzed environmental pigouvian policy intervention.",
+   "project_description": "Throughout this course, you will design, model, and analyze a comprehensive, quantitative Economic Policy Analysis Deck for a hypothetical agricultural tech industry ('AeroCrop'). You will build mathematical models, construct standard AP microeconomics graphs, evaluate imperfect competition payoff matrices, solve monopsonistic labor outcomes, and design corrective policy interventions."
+  }
+ ],
+ "courseUuid": "0060db99-0246-4900-920f-3c29a148a16f"
+}

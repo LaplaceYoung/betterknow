@@ -1,0 +1,1665 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Comprehensive Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "image": {
+      "alt": "A PPC graph with a point plotted inside the frontier representing inefficiency.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit1-q1.png"
+     },
+     "prompt": "An economy is currently producing at a point inside its Production Possibilities Curve (PPC). What does this situation most likely indicate?",
+     "options": [
+      "The economy is experiencing a high rate of unemployment or idle factories.",
+      "The economy is growing due to a new technological breakthrough.",
+      "The economy has reached a state of allocative efficiency.",
+      "The economy is suffering from a permanent lack of natural resources."
+     ],
+     "explanation": "Points inside the PPC represent underutilization of resources or inefficiency. This means the economy is not using all its available land, labor, or capital, which is typical during a recession or period of high unemployment.",
+     "correctAnswers": [
+      "The economy is experiencing a high rate of unemployment or idle factories."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following would cause a society's Production Possibilities Curve (PPC) to shift outward?",
+     "options": [
+      "An increase in the total labor force through immigration.",
+      "A decrease in the national unemployment rate.",
+      "Advances in manufacturing technology that increase productivity.",
+      "A discovery of new oil reserves within the country.",
+      "A reallocation of resources from consumer goods to capital goods."
+     ],
+     "explanation": "An outward shift of the PPC represents economic growth, which is caused by an increase in the quantity or quality of the factors of production (Land, Labor, Capital, Entrepreneurship) or technological improvement. Reducing unemployment only moves a point from inside the curve toward the frontier; it does not shift the frontier itself.",
+     "correctAnswers": [
+      "An increase in the total labor force through immigration.",
+      "Advances in manufacturing technology that increase productivity.",
+      "A discovery of new oil reserves within the country."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the study of economics, the human-made tools and machinery used to produce other goods and services are classified as ____.",
+     "placeholder": "Enter factor of production",
+     "correctAnswers": [
+      "Capital",
+      "Physical Capital",
+      "Capital Goods"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Sarah is considering opening a bakery. She currently earns $60,000 a year as an accountant. To start the bakery, she will spend $20,000 on ingredients and $10,000 on rent. What is Sarah's total annual economic cost of opening the bakery?",
+     "options": [
+      "$30,000",
+      "$60,000",
+      "$90,000",
+      "$80,000"
+     ],
+     "explanation": "Total economic cost includes both explicit costs ($20,000 ingredients + $10,000 rent = $30,000) and implicit costs (the $60,000 forgone salary). $30,000 + $60,000 = $90,000.",
+     "correctAnswers": [
+      "$90,000"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which characteristics are primarily associated with a pure Command Economy?",
+     "options": [
+      "Prices are determined by the interaction of supply and demand.",
+      "A central planning board determines production quotas.",
+      "Consumer sovereignty dictates what goods are produced.",
+      "Government ownership of the factors of production.",
+      "Lack of competition and profit motive."
+     ],
+     "explanation": "In command economies, the state owns resources and makes top-down decisions via central planning. Price signals and consumer sovereignty are features of market economies.",
+     "correctAnswers": [
+      "A central planning board determines production quotas.",
+      "Government ownership of the factors of production.",
+      "Lack of competition and profit motive."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "According to the principle of comparative advantage, countries should specialize in producing goods for which they have the lowest ____.",
+     "placeholder": "Type the economic term",
+     "correctAnswers": [
+      "Opportunity Cost",
+      "Relative cost"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "A concave PPC illustrating increasing opportunity costs.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit1-q7.png"
+     },
+     "prompt": "Why is the Production Possibilities Curve (PPC) typically bowed outward (concave) from the origin?",
+     "options": [
+      "Because resources are perfectly adaptable between the production of two goods.",
+      "Due to the Law of Increasing Opportunity Costs.",
+      "Because of the Law of Diminishing Marginal Utility.",
+      "As a result of constant opportunity costs."
+     ],
+     "explanation": "The PPC is bowed outward because resources are not perfectly adaptable. As you produce more of one good, you must give up increasingly larger amounts of the other because you are forced to use resources less suited for that production.",
+     "correctAnswers": [
+      "Due to the Law of Increasing Opportunity Costs."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'Land' in the context of the four Factors of Production?",
+     "options": [
+      "A fertile field used for corn.",
+      "A tractor used to harvest wheat.",
+      "Crude oil beneath the surface.",
+      "A river used for hydroelectric power.",
+      "The owner of a farming corporation."
+     ],
+     "explanation": "Land includes all natural resources provided by nature. A tractor is Capital, and the owner is the Entrepreneur.",
+     "correctAnswers": [
+      "A fertile field used for corn.",
+      "Crude oil beneath the surface.",
+      "A river used for hydroelectric power."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If the marginal utility of the last slice of pizza is 20 units and its price is $2, and the marginal utility of the last soda is 30 units and its price is $3, the consumer is ____ their total utility.",
+     "placeholder": "maximizing/not maximizing",
+     "correctAnswers": [
+      "maximizing",
+      "optimizing"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If Country A can produce 10 shirts or 2 computers, and Country B can produce 12 shirts or 4 computers, which statement is true?",
+     "options": [
+      "Country A has a comparative advantage in computers.",
+      "Country B has a comparative advantage in shirts.",
+      "Country B has an absolute advantage in both goods.",
+      "Country A has an absolute advantage in shirts."
+     ],
+     "explanation": "Country B produces more of both (12 > 10 and 4 > 2), giving it the absolute advantage in both. To find comparative advantage, we compare opportunity costs (A's 1 computer costs 5 shirts; B's 1 computer costs 3 shirts).",
+     "correctAnswers": [
+      "Country B has an absolute advantage in both goods."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are the fundamental questions every economic system must answer due to scarcity?",
+     "options": [
+      "What to produce?",
+      "How to produce?",
+      "When to produce?",
+      "For whom to produce?",
+      "How to eliminate scarcity?"
+     ],
+     "explanation": "Scarcity forces societies to decide what goods to make, how to combine resources to make them, and who gets to consume the final products.",
+     "correctAnswers": [
+      "What to produce?",
+      "How to produce?",
+      "For whom to produce?"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The Law of ____ states that as more of a good is consumed, the additional satisfaction gained from each subsequent unit decreases.",
+     "placeholder": "Enter the law name",
+     "correctAnswers": [
+      "Diminishing Marginal Utility",
+      "Diminishing Utility"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A student spends $100 on a non-refundable concert ticket. On the day of the concert, they are offered an $80 shift at work. What is the opportunity cost of attending the concert?",
+     "options": [
+      "$100",
+      "$80",
+      "$180",
+      "$20"
+     ],
+     "explanation": "The $100 spent on the ticket is a sunk cost and should not influence future decisions. The opportunity cost is the value of the next best alternative given up: the $80 from working.",
+     "correctAnswers": [
+      "$80"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which scenarios represent an implicit cost of starting a business?",
+     "options": [
+      "Paying $2,000 a month for office rent.",
+      "Forgone interest on savings used for the startup.",
+      "The salary the owner could have earned at another company.",
+      "Purchasing a new laptop for bookkeeping.",
+      "Using the owner's personal garage as a warehouse without charging the business."
+     ],
+     "explanation": "Implicit costs are the opportunity costs of using resources already owned by the firm or owner, where no direct cash payment is made. Rent and equipment purchases are explicit costs.",
+     "correctAnswers": [
+      "Forgone interest on savings used for the startup.",
+      "The salary the owner could have earned at another company.",
+      "Using the owner's personal garage as a warehouse without charging the business."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The core problem in economics that arises because human wants are infinite but resources are limited is known as ____.",
+     "placeholder": "Enter the core concept",
+     "correctAnswers": [
+      "Scarcity"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "In a market economy, what acts as the primary signal for producers to allocate more resources to a specific good?",
+     "options": [
+      "Government subsidies.",
+      "A decrease in the price of the good.",
+      "An increase in the price of the good.",
+      "Central planning directives."
+     ],
+     "explanation": "Prices act as signals. An increase in price usually indicates higher consumer demand, signaling to profit-seeking firms that they should produce more of that good.",
+     "correctAnswers": [
+      "An increase in the price of the good."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "In a mixed economy, why does the government typically intervene in the market?",
+     "options": [
+      "To provide public goods like national defense.",
+      "To eliminate the 'invisible hand' entirely.",
+      "To regulate environmental pollution.",
+      "To ensure a basic social safety net.",
+      "To fix all prices for consumer goods."
+     ],
+     "explanation": "Mixed economies use government intervention to address market failures (like pollution) and provide services that the private market might under-provide.",
+     "correctAnswers": [
+      "To provide public goods like national defense.",
+      "To regulate environmental pollution.",
+      "To ensure a basic social safety net."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "Country X: 1 Wheat costs 2 Corn. Country Y: 1 Wheat costs 4 Corn. What is a mutually beneficial term of trade for 1 unit of Wheat?",
+     "options": [
+      "1 unit of Corn",
+      "3 units of Corn",
+      "5 units of Corn",
+      "0.5 units of Corn"
+     ],
+     "explanation": "For trade to benefit both, the terms must fall between the two countries' opportunity costs. 3 units of Corn is between 2 and 4.",
+     "correctAnswers": [
+      "3 units of Corn"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "If a producer has a comparative advantage in producing bread, which of the following must be true?",
+     "options": [
+      "They have a lower opportunity cost of producing bread than their trading partner.",
+      "They can produce bread using fewer resources than their trading partner.",
+      "They should specialize in bread production.",
+      "They have the absolute advantage in bread production.",
+      "They will gain from trading bread for other goods."
+     ],
+     "explanation": "Comparative advantage is based on lower opportunity cost, not necessarily lower resource use (absolute advantage). Specialization based on comparative advantage leads to gains from trade.",
+     "correctAnswers": [
+      "They have a lower opportunity cost of producing bread than their trading partner.",
+      "They should specialize in bread production.",
+      "They will gain from trading bread for other goods."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Adjust the consumption of Good X and Good Y to find the utility-maximizing bundle given a $10 budget.",
+     "options": [
+      "2 units of X and 2 units of Y",
+      "3 units of X and 1 unit of Y",
+      "1 unit of X and 3 units of Y",
+      "0 units of X and 5 units of Y"
+     ],
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Utility Maximization Shopping Cart</title>`\n  `<style>`\n    `/* CSS RESET & VARIABLES */`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #757575;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f0f4fa;`\n      `--accent-strong: #3a4f78;`\n      `--warning: #d97706;`\n      `--warning-soft: #fef3c7;`\n      `--good-x: #3b82f6;`\n      `--good-y: #f97316;`\n    `}`\n\n    `* {`\n      `box-sizing: border-box;`\n      `margin: 0;`\n      `padding: 0;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;`\n      `-webkit-user-select: none;`\n      `user-select: none;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `color: var(--fg);`\n      `overflow: hidden;`\n      `width: 100%;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `#app {`\n      `width: 100%;`\n      `max-width: 480px;`\n      `margin: 0 auto;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 12px;`\n    `}`\n\n    `/* HEADER & BUDGET METRIC */`\n    `.status-bar {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 12px;`\n      `padding: 10px 14px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 6px;`\n      `box-shadow: 0 1px 3px rgba(0,0,0,0.02);`\n    `}`\n\n    `.status-row {`\n      `display: flex;`\n      `justify-content: space-between;`\n      `align-items: center;`\n    `}`\n\n    `.status-label {`\n      `font-size: 13px;`\n      `font-weight: 500;`\n      `color: var(--muted-fg);`\n    `}`\n\n    `.status-value {`\n      `font-size: 15px;`\n      `font-weight: 700;`\n      `font-variant-numeric: tabular-nums;`\n    `}`\n\n    `.budget-track {`\n      `height: 8px;`\n      `background: var(--stage);`\n      `border-radius: 4px;`\n      `overflow: hidden;`\n      `position: relative;`\n    `}`\n\n    `.budget-fill {`\n      `height: 100%;`\n      `width: 0%;`\n      `background: var(--accent);`\n      `transition: width 0.2s ease, background-color 0.2s ease;`\n    `}`\n\n    `.budget-fill.warning {`\n      `background: var(--warning);`\n    `}`\n\n    `.budget-marker {`\n      `position: absolute;`\n      `top: 0;`\n      `bottom: 0;`\n      `left: 62.5%; /* $10 out of max possible $16 */`\n      `width: 2px;`\n      `background: #ef4444;`\n      `opacity: 0.7;`\n    `}`\n\n    `/* TUNERS & SLIDERS */`\n    `.control-panel {`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 8px;`\n    `}`\n\n    `.slider-card {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 12px;`\n      `padding: 10px 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 6px;`\n    `}`\n\n    `.slider-header {`\n      `display: flex;`\n      `justify-content: space-between;`\n      `font-size: 12px;`\n      `font-weight: 600;`\n    `}`\n\n    `.color-x { color: var(--good-x); }`\n    `.color-y { color: var(--good-y); }`\n\n    `.slider-container {`\n      `display: flex;`\n      `align-items: center;`\n      `gap: 8px;`\n    `}`\n\n    `input[type=\"range\"] {`\n      `-webkit-appearance: none;`\n      `width: 100%;`\n      `height: 6px;`\n      `border-radius: 3px;`\n      `background: var(--stage);`\n      `outline: none;`\n    `}`\n\n    `input[type=\"range\"]::-webkit-slider-thumb {`\n      `-webkit-appearance: none;`\n      `width: 20px;`\n      `height: 20px;`\n      `border-radius: 50%;`\n      `background: var(--accent);`\n      `cursor: grab;`\n      `box-shadow: 0 2px 4px rgba(0,0,0,0.15);`\n      `transition: transform 0.1s;`\n    `}`\n\n    `input[type=\"range\"]::-webkit-slider-thumb:active {`\n      `cursor: grabbing;`\n      `transform: scale(1.15);`\n    `}`\n\n    `.slider-val {`\n      `min-width: 20px;`\n      `text-align: right;`\n      `font-weight: bold;`\n      `font-size: 14px;`\n    `}`\n\n    `/* MU & ECONOMIC DATA TABLE */`\n    `.data-grid {`\n      `display: grid;`\n      `grid-template-columns: 1fr 1fr;`\n      `gap: 8px;`\n    `}`\n\n    `.data-box {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 10px;`\n      `padding: 8px;`\n      `text-align: center;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 2px;`\n    `}`\n\n    `.data-title {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `text-transform: uppercase;`\n      `letter-spacing: 0.5px;`\n    `}`\n\n    `.data-value {`\n      `font-size: 13px;`\n      `font-weight: bold;`\n    `}`\n\n    `/* STAGE & ANIMATED SHOPPING CART */`\n    `.cart-stage {`\n      `background: var(--stage);`\n      `border: 1px solid var(--border);`\n      `border-radius: 14px;`\n      `height: 110px;`\n      `position: relative;`\n      `display: flex;`\n      `align-items: flex-end;`\n      `justify-content: center;`\n      `padding-bottom: 8px;`\n      `overflow: hidden;`\n    `}`\n\n    `.cart-graphic {`\n      `position: absolute;`\n      `bottom: 4px;`\n      `width: 140px;`\n      `height: 70px;`\n      `border: 3px solid #757575;`\n      `border-top: none;`\n      `border-radius: 0 0 16px 16px;`\n      `display: flex;`\n      `align-items: flex-end;`\n      `justify-content: center;`\n      `gap: 4px;`\n      `padding: 6px;`\n      `background: rgba(255, 255, 255, 0.4);`\n      `z-index: 1;`\n    `}`\n\n    `.cart-wheel {`\n      `position: absolute;`\n      `bottom: -3px;`\n      `width: 14px;`\n      `height: 14px;`\n      `background: #333;`\n      `border-radius: 50%;`\n    `}`\n    `.wheel-l { left: 25px; }`\n    `.wheel-r { right: 25px; }`\n\n    `/* ITEM ANIMATIONS */`\n    `.cart-items-container {`\n      `position: absolute;`\n      `bottom: 12px;`\n      `width: 120px;`\n      `height: 80px;`\n      `display: flex;`\n      `flex-wrap: wrap-reverse;`\n      `align-content: flex-start;`\n      `justify-content: center;`\n      `gap: 4px;`\n      `z-index: 2;`\n    `}`\n\n    `.item-node {`\n      `width: 22px;`\n      `height: 22px;`\n      `border-radius: 4px;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `font-size: 10px;`\n      `font-weight: 800;`\n      `color: white;`\n      `animation: dropIn 0.25s cubic-bezier(.34,1.56,.64,1) forwards;`\n    `}`\n\n    `.item-node.type-x {`\n      `background: var(--good-x);`\n      `border: 1px solid #1e40af;`\n    `}`\n\n    `.item-node.type-y {`\n      `background: var(--good-y);`\n      `border: 1px solid #c2410c;`\n      `border-radius: 50%;`\n    `}`\n\n    `@keyframes dropIn {`\n      `0% {`\n        `transform: translateY(-50px) scale(0.5);`\n        `opacity: 0;`\n      `}`\n      `100% {`\n        `transform: translateY(0) scale(1);`\n        `opacity: 1;`\n      `}`\n    `}`\n\n    `/* ACTION HINT */`\n    `.hint-text {`\n      `text-align: center;`\n      `font-size: 12px;`\n      `color: var(--muted-fg);`\n      `margin-top: -4px;`\n    `}`\n\n    `/* FOCUS OUTLINE */`\n    `input[type=\"range\"]:focus-visible {`\n      `outline: 2px solid var(--accent);`\n      `outline-offset: 2px;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"sr-only\">Utility Maximization Interactive Shopping Cart</h1>`\n\n  `<div id=\"app\">`\n    `<!-- BUDGET BAR -->`\n    `<div class=\"status-bar\">`\n      `<div class=\"status-row\">`\n        `<span class=\"status-label\">Total Budget Spent</span>`\n        `<span class=\"status-value\" id=\"budget-text\">$0 / $10</span>`\n      `</div>`\n      `<div class=\"budget-track\">`\n        `<div class=\"budget-fill\" id=\"budget-fill\"></div>`\n        `<div class=\"budget-marker\"></div>`\n      `</div>`\n    `</div>`\n\n    `<!-- SLIDERS -->`\n    `<div class=\"control-panel\">`\n      `<div class=\"slider-card\">`\n        `<div class=\"slider-header\">`\n          `<span class=\"color-x\">Good X (Price: $3)</span>`\n          `<span>MU Sequence: 15, 12, 9</span>`\n        `</div>`\n        `<div class=\"slider-container\">`\n          `<input type=\"range\" id=\"slider-x\" min=\"0\" max=\"3\" value=\"0\" aria-label=\"Quantity of Good X\">`\n          `<span class=\"slider-val color-x\" id=\"val-x\">0</span>`\n        `</div>`\n      `</div>`\n\n      `<div class=\"slider-card\">`\n        `<div class=\"slider-header\">`\n          `<span class=\"color-y\">Good Y (Price: $2)</span>`\n          `<span>MU Sequence: 10, 8, 6, 4, 2</span>`\n        `</div>`\n        `<div class=\"slider-container\">`\n          `<input type=\"range\" id=\"slider-y\" min=\"0\" max=\"5\" value=\"0\" aria-label=\"Quantity of Good Y\">`\n          `<span class=\"slider-val color-y\" id=\"val-y\">0</span>`\n        `</div>`\n      `</div>`\n    `</div>`\n\n    `<!-- ECONOMIC VALUES -->`\n    `<div class=\"data-grid\">`\n      `<div class=\"data-box\">`\n        `<span class=\"data-title\">Last Unit MU/P (X)</span>`\n        `<span class=\"data-value color-x\" id=\"mup-x\">—</span>`\n      `</div>`\n      `<div class=\"data-box\">`\n        `<span class=\"data-title\">Last Unit MU/P (Y)</span>`\n        `<span class=\"data-value color-y\" id=\"mup-y\">—</span>`\n      `</div>`\n    `</div>`\n\n    `<!-- ANIMATED STAGE -->`\n    `<div class=\"cart-stage\">`\n      `<div class=\"cart-items-container\" id=\"items-container\">`\n        `<!-- Managed dynamically by JS -->`\n      `</div>`\n      `<div class=\"cart-graphic\">`\n        `<div class=\"cart-wheel wheel-l\"></div>`\n        `<div class=\"cart-wheel wheel-r\"></div>`\n      `</div>`\n    `</div>`\n\n    `<p class=\"hint-text\">Adjust sliders to load your cart. Find the optimal $10 bundle!</p>`\n  `</div>`\n\n  `<script>`\n    `// State Management`\n    `const state = {`\n      `x: 0,`\n      `y: 0,`\n      `locked: false`\n    `};`\n\n    `// Utility Sequences`\n    `const muX = [15, 12, 9];`\n    `const muY = [10, 8, 6, 4, 2];`\n\n    `// DOM Elements`\n    `const sliderX = document.getElementById('slider-x');`\n    `const sliderY = document.getElementById('slider-y');`\n    `const valX = document.getElementById('val-x');`\n    `const valY = document.getElementById('val-y');`\n    `const budgetText = document.getElementById('budget-text');`\n    `const budgetFill = document.getElementById('budget-fill');`\n    `const mupXText = document.getElementById('mup-x');`\n    `const mupYText = document.getElementById('mup-y');`\n    `const itemsContainer = document.getElementById('items-container');`\n\n    `// Answer Option Mapping`\n    `const OPTIONS = [`\n      `\"2 units of X and 2 units of Y\",`\n      `\"3 units of X and 1 unit of Y\",`\n      `\"1 unit of X and 3 units of Y\",`\n      `\"0 units of X and 5 units of Y\"`\n    `];`\n\n    `function updateUI() {`\n      `// Update count displays`\n      `valX.textContent = state.x;`\n      `valY.textContent = state.y;`\n\n      `// Budget Calculations`\n      `const costX = state.x * 3;`\n      `const costY = state.y * 2;`\n      `const totalCost = costX + costY;`\n      `budgetText.textContent = \\`$\\${totalCost} / $10\\`;`\n\n      `// Progress Bar Width (Max potential display limit is $16)`\n      `const percentage = Math.min((totalCost / 16) * 100, 100);`\n      `budgetFill.style.width = \\`\\${percentage}%\\`;`\n\n      `if (totalCost > 10) {`\n        `budgetFill.classList.add('warning');`\n        `budgetText.style.color = 'var(--warning)';`\n      `} else {`\n        `budgetFill.classList.remove('warning');`\n        `budgetText.style.color = 'var(--fg)';`\n      `}`\n\n      `// Marginal Utility / Price Calculations`\n      `if (state.x > 0) {`\n        `const lastMuX = muX[state.x - 1];`\n        `mupXText.textContent = \\`\\${lastMuX} / $3 = \\${(lastMuX / 3).toFixed(1)}\\`;`\n      `} else {`\n        `mupXText.textContent = '—';`\n      `}`\n\n      `if (state.y > 0) {`\n        `const lastMuY = muY[state.y - 1];`\n        `mupYText.textContent = \\`\\${lastMuY} / $2 = \\${(lastMuY / 2).toFixed(1)}\\`;`\n      `} else {`\n        `mupYText.textContent = '—';`\n      `}`\n\n      `// Re-render items inside shopping cart`\n      `renderCartItems();`\n\n      `// Check matches with Options`\n      `checkAnswerMatch();`\n    `}`\n\n    `function renderCartItems() {`\n      `itemsContainer.innerHTML = '';`\n      `// Add X items`\n      `for (let i = 0; i < state.x; i++) {`\n        `const node = document.createElement('div');`\n        `node.className = 'item-node type-x';`\n        `node.textContent = 'X';`\n        `itemsContainer.appendChild(node);`\n      `}`\n      `// Add Y items`\n      `for (let i = 0; i < state.y; i++) {`\n        `const node = document.createElement('div');`\n        `node.className = 'item-node type-y';`\n        `node.textContent = 'Y';`\n        `itemsContainer.appendChild(node);`\n      `}`\n    `}`\n\n    `function checkAnswerMatch() {`\n      `let currentOptionStr = \"\";`\n      `if (state.x === 2 && state.y === 2) {`\n        `currentOptionStr = OPTIONS[0];`\n      `} else if (state.x === 3 && state.y === 1) {`\n        `currentOptionStr = OPTIONS[1];`\n      `} else if (state.x === 1 && state.y === 3) {`\n        `currentOptionStr = OPTIONS[2];`\n      `} else if (state.x === 0 && state.y === 5) {`\n        `currentOptionStr = OPTIONS[3];`\n      `}`\n\n      `if (currentOptionStr) {`\n        `try {`\n          `parent.postMessage({ type: 'hk-practice-answer', value: currentOptionStr }, '*');`\n        `} catch(e) {}`\n      `}`\n    `}`\n\n    `// Event Listeners`\n    `sliderX.addEventListener('input', (e) => {`\n      `if (state.locked) return;`\n      `state.x = parseInt(e.target.value, 10);`\n      `updateUI();`\n    `});`\n\n    `sliderY.addEventListener('input', (e) => {`\n      `if (state.locked) return;`\n      `state.y = parseInt(e.target.value, 10);`\n      `updateUI();`\n    `});`\n\n    `// Lock Support`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `state.locked = true;`\n        `sliderX.disabled = true;`\n        `sliderY.disabled = true;`\n        `sliderX.style.pointerEvents = 'none';`\n        `sliderY.style.pointerEvents = 'none';`\n      `}`\n    `});`\n\n    `// Height Reporting`\n    `function sendHeight() {`\n      `try {`\n        `const height = Math.ceil(document.documentElement.getBoundingClientRect().height);`\n        `parent.postMessage({ type: 'hk-anim-height', height: height }, '*');`\n      `} catch(e) {}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `updateUI();`\n      `sendHeight();`\n      `try {`\n        `new ResizeObserver(sendHeight).observe(document.body);`\n      `} catch(e) {}`\n    `});`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "2 units of X and 2 units of Y"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Comprehensive Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If the price of a product increases, what happens to the demand for that product according to the Law of Demand?",
+     "options": [
+      "The demand curve shifts to the left",
+      "The demand curve shifts to the right",
+      "The quantity demanded decreases",
+      "The quantity demanded increases"
+     ],
+     "explanation": "According to the Law of Demand, a change in the price of the good itself causes a movement along the curve, which is a change in 'quantity demanded', not a shift in the entire demand curve.",
+     "correctAnswers": [
+      "The quantity demanded decreases"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following would cause a demand curve for a normal good to shift to the right?",
+     "options": [
+      "An increase in consumer income",
+      "An increase in the price of a substitute good",
+      "A decrease in the price of a complementary good",
+      "A decrease in the price of the good itself",
+      "An increase in the number of consumers"
+     ],
+     "explanation": "Increases in income (for normal goods), more buyers, and favorable price changes in related goods (higher substitute prices or lower complement prices) all increase demand. A change in the good's own price only changes quantity demanded.",
+     "correctAnswers": [
+      "An increase in consumer income",
+      "An increase in the price of a substitute good",
+      "A decrease in the price of a complementary good",
+      "An increase in the number of consumers"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The principle that as more units of a product are consumed, the additional satisfaction from each extra unit decreases is known as the law of ____.",
+     "placeholder": "Enter economic law",
+     "correctAnswers": [
+      "diminishing marginal utility",
+      "diminishing utility"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Which concept explains why a consumer's purchasing power increases when the price of a good falls, allowing them to buy more units?",
+     "options": [
+      "The substitution effect",
+      "The income effect",
+      "The law of supply",
+      "The price elasticity of supply"
+     ],
+     "explanation": "The income effect specifically refers to the change in 'real income' or purchasing power that occurs when a price change allows a consumer to buy the same amount and have money left over.",
+     "correctAnswers": [
+      "The income effect"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following factors would cause the supply curve for a product to shift to the right?",
+     "options": [
+      "A technological improvement in production",
+      "A government subsidy to the producers",
+      "An increase in the number of sellers in the market",
+      "An increase in the price of the product",
+      "An increase in business taxes"
+     ],
+     "explanation": "Technology, subsidies, and more sellers increase supply (rightward shift). Taxes decrease supply, and price changes cause movements along the curve.",
+     "correctAnswers": [
+      "A technological improvement in production",
+      "A government subsidy to the producers",
+      "An increase in the number of sellers in the market"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When a price ceiling is set below the equilibrium price, it typically results in a ____.",
+     "placeholder": "Enter market condition",
+     "correctAnswers": [
+      "shortage",
+      "persistent shortage"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Graph showing a leftward shift of the supply curve due to increased production costs.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit2-q7.png"
+     },
+     "prompt": "An increase in the price of fertilizer (an input) for corn production will lead to which of the following in the corn market?",
+     "options": [
+      "A rightward shift of the supply curve",
+      "A leftward shift of the supply curve",
+      "A movement down along the supply curve",
+      "An increase in quantity supplied"
+     ],
+     "explanation": "Fertilizer is an input. An increase in input prices raises the marginal cost of production, shifting the supply curve to the left (a decrease in supply).",
+     "correctAnswers": [
+      "A leftward shift of the supply curve"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "If the Cross-Price Elasticity of Demand between Good A and Good B is -1.5, which of the following statements are true?",
+     "options": [
+      "Goods A and B are complements",
+      "Goods A and B are substitutes",
+      "An increase in the price of A will decrease the demand for B",
+      "A decrease in the price of A will decrease the demand for B",
+      "Goods A and B are unrelated"
+     ],
+     "explanation": "A negative cross-price elasticity indicates the goods are complements. This means they are consumed together; if one becomes expensive, demand for the other falls.",
+     "correctAnswers": [
+      "Goods A and B are complements",
+      "An increase in the price of A will decrease the demand for B"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The loss in total surplus that occurs when a market is not in equilibrium due to a tax or price control is called ____.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "deadweight loss",
+      "DWL"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A price elasticity of demand coefficient of 2.5 indicates that demand is:",
+     "options": [
+      "Unit elastic",
+      "Inelastic",
+      "Perfectly inelastic",
+      "Elastic"
+     ],
+     "explanation": "A coefficient greater than 1 means the percentage change in quantity demanded is greater than the percentage change in price, which is defined as elastic demand.",
+     "correctAnswers": [
+      "Elastic"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Under a scenario of international trade where a country is an importer of a good, which groups benefit from the trade?",
+     "options": [
+      "Domestic producers",
+      "Domestic consumers",
+      "Foreign producers",
+      "The domestic government (via revenue)",
+      "Local workers in that industry"
+     ],
+     "explanation": "When a country imports, the world price is below the domestic equilibrium. Domestic consumers enjoy lower prices and more quantity, while foreign producers gain market share.",
+     "correctAnswers": [
+      "Domestic consumers",
+      "Foreign producers"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The total benefit that consumers receive from a good minus the total amount they pay for it is called ____ surplus.",
+     "placeholder": "Enter type of surplus",
+     "correctAnswers": [
+      "consumer"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Graph of a tax wedge showing the supply curve shifting up by the tax amount.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit2-q13.png"
+     },
+     "prompt": "Which of the following occurs when the government imposes a per-unit tax on a product?",
+     "options": [
+      "The supply curve shifts down by the amount of the tax",
+      "The supply curve shifts up by the amount of the tax",
+      "The demand curve shifts up by the amount of the tax",
+      "Consumer surplus increases"
+     ],
+     "explanation": "A per-unit tax is treated as an increase in the marginal cost of production, shifting the supply curve vertically upward (or leftward) by the dollar amount of the tax.",
+     "correctAnswers": [
+      "The supply curve shifts up by the amount of the tax"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "If the demand for a product is perfectly inelastic, which of the following are true regarding a tax on that product?",
+     "options": [
+      "Consumers bear the entire burden of the tax",
+      "Sellers bear the entire burden of the tax",
+      "There is no deadweight loss",
+      "Quantity demanded remains constant",
+      "The supply curve does not shift"
+     ],
+     "explanation": "With perfectly inelastic demand, consumers will buy the same quantity regardless of price, so the price rises by the full tax amount, leaving quantity unchanged and preventing DWL.",
+     "correctAnswers": [
+      "Consumers bear the entire burden of the tax",
+      "There is no deadweight loss",
+      "Quantity demanded remains constant"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "If the price of Good X rises and as a result the demand for Good Y falls, X and Y are ____.",
+     "placeholder": "Enter relationship",
+     "correctAnswers": [
+      "complements",
+      "complementary goods"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "If a 10% increase in income leads to a 5% increase in the quantity demanded of a good, the good is:",
+     "options": [
+      "An inferior good",
+      "A normal good (luxury)",
+      "A normal good (necessity)",
+      "A substitute good"
+     ],
+     "explanation": "Since the income elasticity is positive (0.5), it is a normal good. Since the elasticity is between 0 and 1, it is considered a necessity rather than a luxury.",
+     "correctAnswers": [
+      "A normal good (necessity)"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "According to the total revenue test, if a firm lowers the price of its product and total revenue increases, what must be true?",
+     "options": [
+      "Demand is elastic",
+      "The percentage change in quantity is greater than the percentage change in price",
+      "Demand is inelastic",
+      "The product is a necessity",
+      "Demand is unit elastic"
+     ],
+     "explanation": "If total revenue moves in the opposite direction of the price change, demand is elastic. This occurs because consumers are highly sensitive to price changes.",
+     "correctAnswers": [
+      "Demand is elastic",
+      "The percentage change in quantity is greater than the percentage change in price"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Adjust the market price to see how it affects consumer and producer surplus. Drag the 'Price' slider to the level that maximizes Total Economic Surplus.",
+     "options": [
+      "Price above equilibrium",
+      "Price below equilibrium",
+      "Equilibrium price",
+      "Price at the vertical axis intercept"
+     ],
+     "explanation": "Total surplus (the sum of consumer and producer surplus) is maximized at the equilibrium price where supply equals demand. Any other price creates deadweight loss.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Supply and Demand Economic Surplus Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      /* Surplus Colors */\n      --cs-color: rgba(76, 102, 150, 0.25);\n      --cs-stroke: #4C6696;\n      --ps-color: rgba(245, 158, 11, 0.22);\n      --ps-stroke: #d97706;\n      --dwl-color: rgba(239, 68, 68, 0.2);\n      --dwl-stroke: #dc2626;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Stage Area */\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 8px;\n      position: relative;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Interactive Price Line & Handle */\n    .price-line-group {\n      cursor: grab;\n    }\n    .price-line-group:active {\n      cursor: grabbing;\n    }\n    .price-line {\n      stroke: var(--accent);\n      stroke-width: 3;\n      stroke-dasharray: none;\n      transition: stroke 0.15s;\n    }\n    .price-line-group:hover .price-line,\n    .price-line-group:focus-within .price-line {\n      stroke: var(--accent-strong);\n    }\n    .price-handle {\n      fill: var(--accent);\n      stroke: var(--surface);\n      stroke-width: 2px;\n      transition: fill 0.15s, transform 0.15s cubic-bezier(.34,1.56,.64,1);\n      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));\n    }\n    .price-line-group:hover .price-handle,\n    .price-line-group:focus-within .price-handle {\n      fill: var(--accent-strong);\n      transform: scale(1.1);\n    }\n    .price-line-hitbox {\n      fill: transparent;\n      stroke: transparent;\n      stroke-width: 16px;\n      cursor: grab;\n    }\n\n    /* Text & Labels */\n    .axis-label {\n      font-size: 11px;\n      fill: var(--muted-fg);\n      font-weight: 500;\n    }\n    .curve-label {\n      font-size: 11px;\n      font-weight: bold;\n    }\n    .demand-label { fill: #2563eb; }\n    .supply-label { fill: #059669; }\n\n    .region-label {\n      font-size: 10px;\n      font-weight: 700;\n      text-anchor: middle;\n      pointer-events: none;\n      user-select: none;\n      transition: opacity 0.15s;\n    }\n    .cs-text { fill: var(--accent-strong); }\n    .ps-text { fill: #b45309; }\n    .dwl-text { fill: #b91c1c; }\n\n    /* Legend & Output Info */\n    .legend-container {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      gap: 8px;\n      flex-wrap: wrap;\n      background: var(--surface);\n      padding: 8px 12px;\n      border-radius: 8px;\n      border: 1px solid var(--border);\n    }\n\n    .legend-item {\n      display: flex;\n      align-items: center;\n      gap: 6px;\n      font-size: 11px;\n      font-weight: 500;\n      color: var(--muted-fg);\n    }\n\n    .legend-color {\n      width: 12px;\n      height: 12px;\n      border-radius: 3px;\n      border: 1px solid transparent;\n    }\n    .color-cs { background: var(--cs-color); border-color: var(--cs-stroke); }\n    .color-ps { background: var(--ps-color); border-color: var(--ps-stroke); }\n    .color-dwl { background: var(--dwl-color); border-color: var(--dwl-stroke); }\n\n    .status-badge {\n      font-size: 12px;\n      font-weight: 600;\n      padding: 4px 8px;\n      border-radius: 6px;\n      background: var(--accent-soft);\n      color: var(--accent-strong);\n      border: 1px solid rgba(76,102,150,0.15);\n      text-align: center;\n      display: inline-block;\n    }\n\n    .hint-text {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: 2px;\n    }\n\n    /* Accessibility Focus Outline */\n    .price-line-group:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 4px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Supply and Demand Graph - Adjust Market Price to explore Consumer Surplus, Producer Surplus, and Deadweight Loss</h1>\n\n  <div class=\"widget-container\">\n    \n    <!-- Dynamic State Badge -->\n    <div style=\"display: flex; justify-content: space-between; align-items: center;\">\n      <span class=\"hint-text\">Drag the Price line up/down:</span>\n      <span class=\"status-badge\" id=\"state-badge\">Equilibrium price</span>\n    </div>\n\n    <!-- Graph Stage -->\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 320 220\" id=\"graph-svg\">\n        <!-- Grid Backing -->\n        <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"180\" stroke=\"#e2e2e2\" stroke-width=\"1\" />\n        <line x1=\"40\" y1=\"180\" x2=\"280\" y2=\"180\" stroke=\"#e2e2e2\" stroke-width=\"1\" />\n        \n        <!-- Equilibrium Reference Lines (Dotted) -->\n        <line x1=\"160\" y1=\"180\" x2=\"160\" y2=\"100\" stroke=\"#ccc\" stroke-dasharray=\"3,3\" />\n        <line x1=\"40\" y1=\"100\" x2=\"160\" y2=\"100\" stroke=\"#ccc\" stroke-dasharray=\"3,3\" />\n        <circle cx=\"160\" cy=\"100\" r=\"3\" fill=\"#888\" />\n\n        <!-- Surplus Shapes (Dynamic) -->\n        <path id=\"cs-path\" fill=\"var(--cs-color)\" stroke=\"var(--cs-stroke)\" stroke-width=\"1.5\" />\n        <path id=\"ps-path\" fill=\"var(--ps-color)\" stroke=\"var(--ps-stroke)\" stroke-width=\"1.5\" />\n        <path id=\"dwl-path\" fill=\"var(--dwl-color)\" stroke=\"var(--dwl-stroke)\" stroke-width=\"1.5\" stroke-dasharray=\"3,2\" />\n\n        <!-- Static Supply / Demand Curves -->\n        <!-- Demand: P = 100 - Q -> (0, 100) to (100, 0) -> SVG (40, 20) to (280, 180) -->\n        <line x1=\"40\" y1=\"20\" x2=\"280\" y2=\"180\" stroke=\"#2563eb\" stroke-width=\"2.5\" />\n        <!-- Supply: P = Q -> (0, 0) to (100, 100) -> SVG (40, 180) to (280, 20) -->\n        <line x1=\"40\" y1=\"180\" x2=\"280\" y2=\"20\" stroke=\"#059669\" stroke-width=\"2.5\" />\n\n        <!-- Curve Labels -->\n        <text x=\"282\" y=\"175\" class=\"curve-label demand-label\">D</text>\n        <text x=\"282\" y=\"25\" class=\"curve-label supply-label\">S</text>\n\n        <!-- Dynamic Centroid Text Labels -->\n        <text id=\"cs-label\" class=\"region-label cs-text\">CS</text>\n        <text id=\"ps-label\" class=\"region-label ps-text\">PS</text>\n        <text id=\"dwl-label\" class=\"region-label dwl-text\">DWL</text>\n\n        <!-- Axes Labels -->\n        <text x=\"35\" y=\"15\" class=\"axis-label\" text-anchor=\"end\">Price (P)</text>\n        <text x=\"280\" y=\"195\" class=\"axis-label\" text-anchor=\"middle\">Quantity (Q)</text>\n        <text x=\"32\" y=\"103\" class=\"axis-label\" text-anchor=\"end\" style=\"font-size: 9px;\">P_eq</text>\n        <text x=\"160\" y=\"193\" class=\"axis-label\" text-anchor=\"middle\" style=\"font-size: 9px;\">Q_eq</text>\n\n        <!-- Interactive Drag Group -->\n        <g class=\"price-line-group\" id=\"drag-group\" tabindex=\"0\" role=\"slider\" aria-label=\"Market Price\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"50\">\n          <line x1=\"30\" y1=\"100\" x2=\"280\" y2=\"100\" class=\"price-line\" id=\"interactive-price-line\" />\n          <polygon points=\"26,94 34,100 26,106\" class=\"price-handle\" id=\"interactive-handle\" />\n          <!-- Thick transparent grab line -->\n          <line x1=\"20\" y1=\"100\" x2=\"280\" y2=\"100\" class=\"price-line-hitbox\" />\n        </g>\n      </svg>\n    </div>\n\n    <!-- Legends -->\n    <div class=\"legend-container\">\n      <div class=\"legend-item\">\n        <div class=\"legend-color color-cs\"></div>\n        <span>Consumer Surplus</span>\n      </div>\n      <div class=\"legend-item\">\n        <div class=\"legend-color color-ps\"></div>\n        <span>Producer Surplus</span>\n      </div>\n      <div class=\"legend-item\">\n        <div class=\"legend-color color-dwl\"></div>\n        <span>Deadweight Loss</span>\n      </div>\n    </div>\n\n  </div>\n\n  <script>\n    // State Variables\n    let currentPriceVal = 50; // Range: 0 to 100\n    let isDragging = false;\n    let dragStartY = 0;\n    let dragStartPriceVal = 50;\n    let isLocked = false;\n\n    // Elements\n    const svg = document.getElementById('graph-svg');\n    const dragGroup = document.getElementById('drag-group');\n    const priceLine = document.getElementById('interactive-price-line');\n    const priceHandle = document.getElementById('interactive-handle');\n    const hitbox = document.querySelector('.price-line-hitbox');\n    const stateBadge = document.getElementById('state-badge');\n\n    const csPath = document.getElementById('cs-path');\n    const psPath = document.getElementById('ps-path');\n    const dwlPath = document.getElementById('dwl-path');\n\n    const csLabel = document.getElementById('cs-label');\n    const psLabel = document.getElementById('ps-label');\n    const dwlLabel = document.getElementById('dwl-label');\n\n    // Mapping: Price (0-100) to SVG Y coordinate (180-20)\n    // Y = 180 - (Price * 1.6)\n    function priceToY(price) {\n      return 180 - (price * 1.6);\n    }\n\n    function yToPrice(y) {\n      const p = (180 - y) / 1.6;\n      return Math.max(0, Math.min(100, p));\n    }\n\n    // Determine current answer option based on price\n    function getOptionStr(price) {\n      if (price >= 97) {\n        return \"Price at the vertical axis intercept\";\n      } else if (price >= 53) {\n        return \"Price above equilibrium\";\n      } else if (price >= 47 && price <= 52) {\n        return \"Equilibrium price\";\n      } else {\n        return \"Price below equilibrium\";\n      }\n    }\n\n    // Update the visual representation\n    function updateScene(price, snap = false) {\n      // Snap logic for better UX\n      if (snap) {\n        if (price >= 47 && price <= 52) {\n          price = 50;\n        } else if (price >= 97) {\n          price = 100;\n        }\n      }\n\n      currentPriceVal = price;\n      dragGroup.setAttribute('aria-valuenow', Math.round(price));\n      \n      const y = priceToY(price);\n\n      // Update interactive lines\n      priceLine.setAttribute('y1', y);\n      priceLine.setAttribute('y2', y);\n      hitbox.setAttribute('y1', y);\n      hitbox.setAttribute('y2', y);\n      priceHandle.setAttribute('points', `26,${y-6} 34,${y} 26,${y+6}`);\n\n      // Coordinates setup\n      // Equilibrium point: Q=50 (SVG X=160), P=50 (SVG Y=100)\n      // Demand curve: line from (40, 20) to (280, 180)\n      // Supply curve: line from (40, 180) to (280, 20)\n      \n      let csPoints = [];\n      let psPoints = [];\n      let dwlPoints = [];\n\n      let csCenter = {x: 0, y: 0};\n      let psCenter = {x: 0, y: 0};\n      let dwlCenter = {x: 0, y: 0};\n\n      if (price >= 50) {\n        // Price above equilibrium\n        const q_traded = 100 - price; \n        const x_traded = 40 + (q_traded * 2.4);\n        const y_supply_at_q = 180 - (q_traded * 1.6);\n\n        // CS: Triangle between Demand curve and price line up to Q_traded\n        csPoints = [\n          {x: 40, y: y},\n          {x: 40, y: 20},\n          {x: x_traded, y: y}\n        ];\n\n        // PS: Trapezoid below price, above supply, up to Q_traded\n        psPoints = [\n          {x: 40, y: y},\n          {x: x_traded, y: y},\n          {x: x_traded, y: y_supply_at_q},\n          {x: 40, y: 180}\n        ];\n\n        // DWL: Triangle bounded by Demand, Supply, from Q_traded to Q_eq\n        if (price > 50) {\n          dwlPoints = [\n            {x: x_traded, y: y},\n            {x: x_traded, y: y_supply_at_q},\n            {x: 160, y: 100}\n          ];\n        }\n      } else {\n        // Price below equilibrium\n        const q_traded = price;\n        const x_traded = 40 + (q_traded * 2.4);\n        const y_demand_at_q = 180 - ((100 - q_traded) * 1.6);\n\n        // CS: Trapezoid above price, below demand, up to Q_traded\n        csPoints = [\n          {x: 40, y: y},\n          {x: 40, y: 20},\n          {x: x_traded, y: y_demand_at_q},\n          {x: x_traded, y: y}\n        ];\n\n        // PS: Triangle below price, above supply, up to Q_traded\n        psPoints = [\n          {x: 40, y: y},\n          {x: x_traded, y: y},\n          {x: 40, y: 180}\n        ];\n\n        // DWL: Triangle bounded by Demand, Supply, from Q_traded to Q_eq\n        if (price < 50) {\n          dwlPoints = [\n            {x: x_traded, y: y},\n            {x: x_traded, y: y_demand_at_q},\n            {x: 160, y: 100}\n          ];\n        }\n      }\n\n      // Build SVG paths\n      const formatPath = points => points.length ? 'M ' + points.map(p => `${p.x},${p.y}`).join(' L ') + ' Z' : '';\n      \n      csPath.setAttribute('d', formatPath(csPoints));\n      psPath.setAttribute('d', formatPath(psPoints));\n      dwlPath.setAttribute('d', formatPath(dwlPoints));\n\n      // Calculate approximate centroids for text labels\n      const getCentroid = (pts) => {\n        if (!pts.length) return {x:0, y:0};\n        let xs = pts.reduce((sum, p) => sum + p.x, 0);\n        let ys = pts.reduce((sum, p) => sum + p.y, 0);\n        return { x: xs / pts.length, y: ys / pts.length };\n      };\n\n      csCenter = getCentroid(csPoints);\n      psCenter = getCentroid(psPoints);\n      dwlCenter = getCentroid(dwlPoints);\n\n      // Render Labels\n      if (price >= 97) {\n        csLabel.style.opacity = 0;\n        psLabel.style.opacity = 0;\n        dwlLabel.style.opacity = 1;\n        dwlLabel.setAttribute('x', 120);\n        dwlLabel.setAttribute('y', 105);\n      } else {\n        csLabel.style.opacity = (price > 90) ? 0 : 1;\n        psLabel.style.opacity = (price < 10) ? 0 : 1;\n        dwlLabel.style.opacity = dwlPoints.length ? 1 : 0;\n\n        csLabel.setAttribute('x', csCenter.x - 5);\n        csLabel.setAttribute('y', csCenter.y + 3);\n        \n        psLabel.setAttribute('x', psCenter.x - 5);\n        psLabel.setAttribute('y', psCenter.y + 3);\n\n        if (dwlPoints.length) {\n          dwlLabel.setAttribute('x', dwlCenter.x + 8);\n          dwlLabel.setAttribute('y', dwlCenter.y + 3);\n        }\n      }\n\n      // Report Status\n      const opt = getOptionStr(price);\n      stateBadge.textContent = opt;\n\n      // Send current answer state to parent platform\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: opt }, '*');\n      } catch (e) {}\n    }\n\n    // Pointer Events for No-Jump Dragging\n    dragGroup.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      dragGroup.setPointerCapture(e.pointerId);\n      \n      // Preserve grab offset\n      const rect = svg.getBoundingClientRect();\n      const relativeY = e.clientY - rect.top;\n      const svgY = (relativeY / rect.height) * 220;\n      dragStartY = svgY;\n      dragStartPriceVal = currentPriceVal;\n      \n      e.preventDefault();\n    });\n\n    dragGroup.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      \n      const rect = svg.getBoundingClientRect();\n      const relativeY = e.clientY - rect.top;\n      const svgY = (relativeY / rect.height) * 220;\n      \n      // Calculate delta in SVG coordinates\n      const deltaY = svgY - dragStartY;\n      const deltaPrice = - (deltaY / 1.6); // invert since Y is inverted\n      \n      let targetPrice = Math.max(0, Math.min(100, dragStartPriceVal + deltaPrice));\n      updateScene(targetPrice, true);\n    });\n\n    const endDrag = (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      // Do a final update with hard snapping on drop\n      updateScene(currentPriceVal, true);\n    };\n\n    dragGroup.addEventListener('pointerup', endDrag);\n    dragGroup.addEventListener('pointercancel', endDrag);\n\n    // Keyboard support\n    dragGroup.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      let step = 1;\n      if (e.shiftKey) step = 10;\n\n      if (e.key === 'ArrowUp') {\n        updateScene(Math.min(100, currentPriceVal + step), true);\n        e.preventDefault();\n      } else if (e.key === 'ArrowDown') {\n        updateScene(Math.max(0, currentPriceVal - step), true);\n        e.preventDefault();\n      }\n    });\n\n    // Listen for locking message from host\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        dragGroup.style.pointerEvents = 'none';\n        dragGroup.style.cursor = 'default';\n        dragGroup.removeAttribute('tabindex');\n      }\n    });\n\n    // Report height on load and layout change\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', () => {\n      updateScene(50); // Set initial state to Equilibrium\n      sendHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      sendHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Equilibrium price"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A firm currently produces 100 units of output with a Total Fixed Cost (TFC) of $500 and a Total Variable Cost (TVC) of $800. If the firm increases production to 101 units and the Marginal Cost (MC) of that 101st unit is $20, what happens to the Average Total Cost (ATC)?",
+     "options": [
+      "The ATC increases.",
+      "The ATC decreases.",
+      "The ATC remains constant.",
+      "The ATC becomes equal to the MC."
+     ],
+     "explanation": "The current ATC at 100 units is ($500 + $800) / 100 = $13. Since the Marginal Cost of the next unit ($20) is greater than the current Average Total Cost ($13), the average must be pulled upward.",
+     "correctAnswers": [
+      "The ATC increases."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios describe a firm operating in the 'Long Run'?",
+     "options": [
+      "A pizza parlor adds a second brick oven to its kitchen.",
+      "A shipping company signs a new 5-year lease for a larger warehouse.",
+      "A retail store hires three more seasonal workers for the holidays while keeping the store size the same.",
+      "A factory installs a new automated assembly line and doubles its square footage.",
+      "A law firm buys a box of printer paper."
+     ],
+     "explanation": "The long run is defined as a period where all inputs are variable, particularly capital (ovens, warehouses, and assembly lines). Seasonal hiring and buying supplies are short-run variable adjustments, but changing the physical scale of the business marks the long run.",
+     "correctAnswers": [
+      "A pizza parlor adds a second brick oven to its kitchen.",
+      "A shipping company signs a new 5-year lease for a larger warehouse.",
+      "A factory installs a new automated assembly line and doubles its square footage."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The mathematical phenomenon where Average Fixed Cost (AFC) continuously declines as production increases is often referred to as ____ the overhead.",
+     "explanation": "Because Fixed Cost is a constant numerator, dividing it by an ever-larger quantity (Q) results in a smaller per-unit cost, effectively spreading the fixed cost across more units.",
+     "placeholder": "Action verb",
+     "correctAnswers": [
+      "spreading"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Long-Run Average Cost curve showing economies and diseconomies of scale.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit3-q4.png"
+     },
+     "prompt": "If a firm is experiencing 'Diseconomies of Scale', what must be true about its Long-Run Average Cost (LRAC) curve?",
+     "options": [
+      "The LRAC curve is downward sloping.",
+      "The LRAC curve is upward sloping.",
+      "The LRAC curve is at its minimum point.",
+      "The LRAC curve is perfectly horizontal."
+     ],
+     "explanation": "Diseconomies of scale occur when increasing the scale of all inputs leads to a more than proportionate increase in costs, resulting in an upward-sloping LRAC curve.",
+     "correctAnswers": [
+      "The LRAC curve is upward sloping."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "According to the relationship between Marginal Product (MP) and Marginal Cost (MC), which of the following are true?",
+     "options": [
+      "When MP is increasing, MC is decreasing.",
+      "When MP is at its maximum, MC is at its minimum.",
+      "When MP is decreasing, MC must be negative.",
+      "When MP is decreasing but positive, MC is increasing.",
+      "MC and MP always move in the same direction."
+     ],
+     "explanation": "MP and MC have an inverse relationship due to the law of diminishing returns. As workers become more productive (higher MP), the cost of the extra unit (MC) falls, and vice versa.",
+     "correctAnswers": [
+      "When MP is increasing, MC is decreasing.",
+      "When MP is at its maximum, MC is at its minimum.",
+      "When MP is decreasing but positive, MC is increasing."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A firm should continue to produce in the short run, even if making a loss, as long as the Price is greater than the ____.",
+     "explanation": "The shutdown rule states that if Price covers Average Variable Cost, the firm can use the excess to pay down some of its Fixed Costs, which it would have to pay even if it shut down.",
+     "placeholder": "Cost curve acronym",
+     "correctAnswers": [
+      "Average Variable Cost",
+      "AVC"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a perfectly competitive market, what is the relationship between Price (P), Marginal Revenue (MR), and Average Revenue (AR)?",
+     "options": [
+      "P > MR = AR",
+      "P = MR = AR",
+      "P = MR > AR",
+      "P < MR = AR"
+     ],
+     "explanation": "In perfect competition, firms are price takers. They can sell any quantity at the market price, meaning the price received for each unit (AR) and the extra revenue from the next unit (MR) are both equal to the market price.",
+     "correctAnswers": [
+      "P = MR = AR"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "image": {
+      "alt": "Long-run equilibrium for a perfectly competitive firm and market.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit3-q8.png"
+     },
+     "prompt": "A firm in a perfectly competitive market is in long-run equilibrium. Which of the following conditions must be met?",
+     "options": [
+      "Price equals Marginal Cost.",
+      "Price equals the minimum of Average Total Cost.",
+      "Economic profit is zero.",
+      "Accounting profit is zero.",
+      "Marginal Revenue equals Marginal Cost."
+     ],
+     "explanation": "Long-run equilibrium in perfect competition occurs where P=MC=MR at the minimum of ATC. This ensures both allocative efficiency and zero economic profit (normal profit). Accounting profit is usually positive even when economic profit is zero.",
+     "correctAnswers": [
+      "Price equals Marginal Cost.",
+      "Price equals the minimum of Average Total Cost.",
+      "Economic profit is zero.",
+      "Marginal Revenue equals Marginal Cost."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'Law of Diminishing Marginal Returns' begins to take effect when the ____ curve starts to decline.",
+     "explanation": "Diminishing marginal returns refers specifically to the point where each additional unit of a variable input adds less to total output than the previous unit.",
+     "placeholder": "Productivity curve",
+     "correctAnswers": [
+      "Marginal Product",
+      "MP"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What happens to the Short-Run Average Total Cost (SRATC) curve if the price of a fixed input, like rent, increases?",
+     "options": [
+      "The SRATC shifts up, but the MC curve does not move.",
+      "Both the SRATC and the MC curve shift up.",
+      "The SRATC shifts up, and the MC curve shifts down.",
+      "Neither the SRATC nor the MC curve moves."
+     ],
+     "explanation": "Rent is a fixed cost. An increase in fixed cost increases Total Cost and Average Total Cost, but it does not change the cost of producing one 'extra' unit (Marginal Cost).",
+     "correctAnswers": [
+      "The SRATC shifts up, but the MC curve does not move."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why is the Marginal Cost (MC) curve U-shaped in the short run?",
+     "options": [
+      "Initially, specialization allows workers to be more productive (rising MP).",
+      "Eventually, fixed capital becomes a constraint, leading to diminishing returns.",
+      "Fixed costs eventually start to rise as production increases.",
+      "Average Fixed Costs are falling rapidly at low levels of output.",
+      "The cost of the next unit falls as productivity rises, then rises as productivity falls."
+     ],
+     "explanation": "MC is the inverse of MP. Specialization leads to falling MC, while diminishing returns lead to rising MC. Fixed costs do not affect MC.",
+     "correctAnswers": [
+      "Initially, specialization allows workers to be more productive (rising MP).",
+      "Eventually, fixed capital becomes a constraint, leading to diminishing returns.",
+      "The cost of the next unit falls as productivity rises, then rises as productivity falls."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Economic Profit is calculated by subtracting both explicit costs and ____ costs from total revenue.",
+     "explanation": "Economic profit differs from accounting profit because it accounts for opportunity costs (implicit costs), such as the owner's time or forgone interest.",
+     "placeholder": "Type of cost",
+     "correctAnswers": [
+      "implicit"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a firm's Total Cost (TC) is $100 when output is 0, and $150 when output is 1, what is the Marginal Cost of the first unit?",
+     "options": [
+      "$100",
+      "$150",
+      "$50",
+      "$250"
+     ],
+     "explanation": "Marginal Cost is the change in Total Cost. $150 - $100 = $50.",
+     "correctAnswers": [
+      "$50"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "If a perfectly competitive industry is earning short-run economic profits, what will happen in the long run?",
+     "options": [
+      "New firms will enter the market.",
+      "Market supply will shift to the right.",
+      "The market price will decrease.",
+      "Individual firm demand curves will shift upward.",
+      "Firms will exit the market to avoid competition."
+     ],
+     "explanation": "Profits attract new firms. As they enter, market supply increases, driving down the equilibrium price until economic profits are eroded to zero.",
+     "correctAnswers": [
+      "New firms will enter the market.",
+      "Market supply will shift to the right.",
+      "The market price will decrease."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In the short run, the firm's supply curve is the portion of its ____ curve that lies above the Average Variable Cost curve.",
+     "explanation": "The firm will produce where P=MC as long as P is at least equal to AVC. Therefore, the MC curve defines how much the firm is willing to supply at various prices.",
+     "placeholder": "Cost curve",
+     "correctAnswers": [
+      "Marginal Cost",
+      "MC"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "A perfectly competitive firm is producing where MR = MC. At this level of output, P = $10, ATC = $12, and AVC = $9. What should the firm do?",
+     "options": [
+      "Shut down immediately.",
+      "Continue producing in the short run to minimize losses.",
+      "Increase production to reach the minimum of ATC.",
+      "Raise the price to $12 to break even."
+     ],
+     "explanation": "Since Price ($10) is greater than AVC ($9), the firm covers all its variable costs and some of its fixed costs. It loses less by producing than by shutting down (where it would lose all fixed costs).",
+     "correctAnswers": [
+      "Continue producing in the short run to minimize losses."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which characteristics define a Perfectly Competitive market?",
+     "options": [
+      "Many small buyers and sellers.",
+      "Differentiated products.",
+      "Identical (homogeneous) products.",
+      "Perfect information for buyers and sellers.",
+      "High barriers to entry."
+     ],
+     "explanation": "Perfect competition requires many participants, standardized products, and easy entry/exit, ensuring no single firm has market power.",
+     "correctAnswers": [
+      "Many small buyers and sellers.",
+      "Identical (homogeneous) products.",
+      "Perfect information for buyers and sellers."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "Which of the following is the best example of 'Productive Efficiency'?",
+     "options": [
+      "P = MC",
+      "P = minimum ATC",
+      "P = MR",
+      "MC = MR"
+     ],
+     "explanation": "Productive efficiency occurs when a firm is producing at the lowest possible per-unit cost, which is the minimum point of the Average Total Cost curve.",
+     "correctAnswers": [
+      "P = minimum ATC"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Adjust the firm's output level to identify the profit-maximizing quantity where Marginal Revenue equals Marginal Cost.",
+     "options": [
+      "Quantity where ATC is at its minimum",
+      "Quantity where the vertical distance between TR and TC is greatest",
+      "Quantity where Price equals AVC",
+      "Quantity where Marginal Product is highest"
+     ],
+     "explanation": "Profit is Total Revenue minus Total Cost. Graphically, this is maximized where the gap between the TR and TC curves is widest, which mathematically occurs where their slopes (MR and MC) are equal.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Firm Output Optimization</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f1f5fa;\n      --accent-strong: #3a4f78;\n      --tr-color: #ff9f43;\n      --tc-color: #ee5253;\n      --mr-color: #2ecc71;\n      --mc-color: #9b59b6;\n      --atc-color: #3498db;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .graphs-container {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 12px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 10px;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n    }\n\n    .graph-box {\n      position: relative;\n      width: 100%;\n    }\n\n    .graph-title {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 4px;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Interactive controls */\n    .controls-container {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n    }\n\n    .slider-track-container {\n      position: relative;\n      height: 40px;\n      display: flex;\n      align-items: center;\n      cursor: pointer;\n      touch-action: none;\n    }\n\n    .slider-line {\n      position: absolute;\n      left: 10px;\n      right: 10px;\n      height: 6px;\n      background: var(--stage);\n      border-radius: 3px;\n      border: 1px solid var(--border);\n    }\n\n    .slider-ticks {\n      position: absolute;\n      left: 10px;\n      right: 10px;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .tick-point {\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--border);\n      transform: translateY(-2px);\n      transition: background 0.2s, transform 0.2s;\n    }\n\n    .tick-point.active {\n      background: var(--accent);\n      transform: translateY(-2px) scale(1.3);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background: var(--accent);\n      border: 2px solid #fff;\n      box-shadow: 0 2px 5px rgba(0,0,0,0.2);\n      cursor: grab;\n      touch-action: none;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: transform 0.1s;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: scale(1.1);\n      background: var(--accent-strong);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid rgba(76,102,150,0.6);\n      outline-offset: 2px;\n    }\n\n    .options-layout {\n      display: grid;\n      grid-template-columns: 1fr;\n      gap: 6px;\n    }\n\n    .option-card {\n      background: var(--stage);\n      border: 1.5px solid transparent;\n      border-radius: 6px;\n      padding: 8px 12px;\n      font-size: 12px;\n      font-weight: 500;\n      color: var(--muted-fg);\n      transition: all 0.2s ease;\n      cursor: pointer;\n      display: flex;\n      align-items: center;\n      gap: 8px;\n    }\n\n    .option-card.active {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n      color: var(--fg);\n    }\n\n    .option-dot {\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--border);\n      transition: background 0.2s;\n    }\n\n    .option-card.active .option-dot {\n      background: var(--accent);\n    }\n\n    .action-hint {\n      font-size: 11px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: -4px;\n    }\n\n    .legend-dot {\n      display: inline-block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      margin-right: 4px;\n    }\n\n    /* Grid lines & labels */\n    .grid-line {\n      stroke: #f0ede9;\n      stroke-width: 1;\n    }\n    .axis {\n      stroke: var(--fg);\n      stroke-width: 1.5;\n    }\n    .axis-label {\n      font-size: 8px;\n      fill: var(--muted-fg);\n    }\n  </style>\n</head>\n<body>\n\n  <h1 style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;\">\n    Interactive Economics Practice: Firm Cost and Revenue Optimization\n  </h1>\n\n  <div class=\"widget-container\">\n    <div class=\"graphs-container\">\n      <!-- Left Graph: TR and TC -->\n      <div class=\"graph-box\">\n        <div class=\"graph-title\">Total Revenue &amp; Cost</div>\n        <svg class=\"stage-svg\" viewBox=\"0 0 130 110\">\n          <g>\n            <line x1=\"15\" y1=\"10\" x2=\"15\" y2=\"95\" class=\"axis\" />\n            <line x1=\"15\" y1=\"95\" x2=\"125\" y2=\"95\" class=\"axis\" />\n            \n            <text x=\"120\" y=\"103\" class=\"axis-label\" text-anchor=\"middle\">Q</text>\n            <text x=\"8\" y=\"15\" class=\"axis-label\" writing-mode=\"tb\" text-anchor=\"middle\">TR, TC</text>\n            \n            <!-- Curves -->\n            <path id=\"tr-path\" d=\"\" fill=\"none\" stroke=\"var(--tr-color)\" stroke-width=\"2\" />\n            <path id=\"tc-path\" d=\"\" fill=\"none\" stroke=\"var(--tc-color)\" stroke-width=\"2\" />\n            \n            <!-- Profit Line Indicator -->\n            <line id=\"profit-line\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"0\" stroke=\"var(--accent)\" stroke-width=\"2\" stroke-dasharray=\"2,2\" />\n            \n            <!-- Tracking dots -->\n            <circle id=\"tr-dot\" r=\"3.5\" fill=\"var(--tr-color)\" stroke=\"#fff\" stroke-width=\"1\" />\n            <circle id=\"tc-dot\" r=\"3.5\" fill=\"var(--tc-color)\" stroke=\"#fff\" stroke-width=\"1\" />\n            \n            <!-- Dynamic vertical indicator line across graphs -->\n            <line id=\"left-q-line\" x1=\"0\" y1=\"10\" x2=\"0\" y2=\"95\" stroke=\"#ccc\" stroke-width=\"1\" stroke-dasharray=\"2,2\" />\n          </g>\n        </svg>\n      </div>\n\n      <!-- Right Graph: MC / ATC / MR -->\n      <div class=\"graph-box\">\n        <div class=\"graph-title\">Marginal &amp; Average</div>\n        <svg class=\"stage-svg\" viewBox=\"0 0 130 110\">\n          <g>\n            <line x1=\"15\" y1=\"10\" x2=\"15\" y2=\"95\" class=\"axis\" />\n            <line x1=\"15\" y1=\"95\" x2=\"125\" y2=\"95\" class=\"axis\" />\n            \n            <text x=\"120\" y=\"103\" class=\"axis-label\" text-anchor=\"middle\">Q</text>\n            <text x=\"8\" y=\"15\" class=\"axis-label\" writing-mode=\"tb\" text-anchor=\"middle\">MC, ATC, MR</text>\n            \n            <!-- Curves -->\n            <path id=\"mr-path\" d=\"\" fill=\"none\" stroke=\"var(--mr-color)\" stroke-width=\"2\" />\n            <path id=\"mc-path\" d=\"\" fill=\"none\" stroke=\"var(--mc-color)\" stroke-width=\"2\" />\n            <path id=\"atc-path\" d=\"\" fill=\"none\" stroke=\"var(--atc-color)\" stroke-width=\"2\" />\n            \n            <!-- Tracking dots -->\n            <circle id=\"mr-dot\" r=\"3.5\" fill=\"var(--mr-color)\" stroke=\"#fff\" stroke-width=\"1\" />\n            <circle id=\"mc-dot\" r=\"3.5\" fill=\"var(--mc-color)\" stroke=\"#fff\" stroke-width=\"1\" />\n            <circle id=\"atc-dot\" r=\"3.5\" fill=\"var(--atc-color)\" stroke=\"#fff\" stroke-width=\"1\" />\n            \n            <!-- Dynamic vertical indicator line across graphs -->\n            <line id=\"right-q-line\" x1=\"0\" y1=\"10\" x2=\"0\" y2=\"95\" stroke=\"#ccc\" stroke-width=\"1\" stroke-dasharray=\"2,2\" />\n          </g>\n        </svg>\n      </div>\n    </div>\n\n    <!-- Interactive Track & Options -->\n    <div class=\"controls-container\">\n      <div class=\"slider-track-container\" id=\"track-container\">\n        <div class=\"slider-line\"></div>\n        <div class=\"slider-ticks\" id=\"slider-ticks\">\n          <div class=\"tick-point\" style=\"left: 20%;\"></div>\n          <div class=\"tick-point\" style=\"left: 40%;\"></div>\n          <div class=\"tick-point\" style=\"left: 65%;\"></div>\n          <div class=\"tick-point\" style=\"left: 88%;\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"slider-handle\" tabindex=\"0\" role=\"slider\" aria-label=\"Quantity Output Slider\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"50\"></div>\n      </div>\n\n      <div class=\"options-layout\">\n        <div class=\"option-card\" id=\"opt-mp\" data-idx=\"0\">\n          <div class=\"option-dot\"></div>\n          <span>Quantity where Marginal Product is highest</span>\n        </div>\n        <div class=\"option-card\" id=\"opt-avc\" data-idx=\"1\">\n          <div class=\"option-dot\"></div>\n          <span>Quantity where Price equals AVC</span>\n        </div>\n        <div class=\"option-card\" id=\"opt-atc\" data-idx=\"2\">\n          <div class=\"option-dot\"></div>\n          <span>Quantity where ATC is at its minimum</span>\n        </div>\n        <div class=\"option-card\" id=\"opt-maxp\" data-idx=\"3\">\n          <div class=\"option-dot\"></div>\n          <span>Quantity where the vertical distance between TR and TC is greatest</span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"action-hint\">Drag the slider or tap the milestones above to inspect output quantities.</div>\n  </div>\n\n  <script>\n    // Exact Option Strings\n    const OPTIONS = [\n      \"Quantity where Marginal Product is highest\",\n      \"Quantity where Price equals AVC\",\n      \"Quantity where ATC is at its minimum\",\n      \"Quantity where the vertical distance between TR and TC is greatest\"\n    ];\n\n    // Map targets to slider fraction (0 to 1)\n    const TARGETS = [0.20, 0.40, 0.65, 0.88];\n    let currentIdx = -1;\n    let currentU = 0.5; // Starts in the middle\n    let isLocked = false;\n\n    const handle = document.getElementById('slider-handle');\n    const track = document.getElementById('track-container');\n    const tickPoints = document.querySelectorAll('.tick-point');\n    const optionCards = document.querySelectorAll('.option-card');\n\n    // Curves Math Helpers (Mapped to SVG coords: X goes 15 -> 115, Y goes 10 -> 95)\n    // u goes 0 -> 1\n    function getX(u) {\n      return 15 + u * 100;\n    }\n\n    function getTR(u) {\n      return 90 - u * 75;\n    }\n\n    function getTC(u) {\n      // S-curve shape\n      return 82 - 15 * u - 130 * Math.pow(u, 2) + 110 * Math.pow(u, 3);\n    }\n\n    function getMR(u) {\n      return 50; // Horizontal MR/Price line\n    }\n\n    function getMC(u) {\n      // MC reaches its minimum (highest SVG Y coordinate) at u = 0.20\n      return 75 - 75 * Math.pow(u - 0.20, 2);\n    }\n\n    function getATC(u) {\n      // ATC reaches its minimum at u = 0.65, matching MC\n      return 60.1 - 90 * Math.pow(u - 0.65, 2);\n    }\n\n    // Initialize SVG Paths\n    function initPaths() {\n      let trD = \"\", tcD = \"\", mrD = \"\", mcD = \"\", atcD = \"\";\n      for (let i = 0; i <= 50; i++) {\n        const u = i / 50;\n        const x = getX(u);\n        \n        trD += `${i===0?'M':'L'} ${x} ${getTR(u)}`;\n        tcD += `${i===0?'M':'L'} ${x} ${getTC(u)}`;\n        mrD += `${i===0?'M':'L'} ${x} ${getMR(u)}`;\n        mcD += `${i===0?'M':'L'} ${x} ${getMC(u)}`;\n        atcD += `${i===0?'M':'L'} ${x} ${getATC(u)}`;\n      }\n      document.getElementById('tr-path').setAttribute('d', trD);\n      document.getElementById('tc-path').setAttribute('d', tcD);\n      document.getElementById('mr-path').setAttribute('d', mrD);\n      document.getElementById('mc-path').setAttribute('d', mcD);\n      document.getElementById('atc-path').setAttribute('d', atcD);\n    }\n\n    function updateVisuals(u) {\n      const x = getX(u);\n      \n      // Update dots & indicators\n      document.getElementById('left-q-line').setAttribute('x1', x);\n      document.getElementById('left-q-line').setAttribute('x2', x);\n      document.getElementById('right-q-line').setAttribute('x1', x);\n      document.getElementById('right-q-line').setAttribute('x2', x);\n\n      const yTr = getTR(u);\n      const yTc = getTC(u);\n      document.getElementById('tr-dot').setAttribute('cx', x);\n      document.getElementById('tr-dot').setAttribute('cy', yTr);\n      document.getElementById('tc-dot').setAttribute('cx', x);\n      document.getElementById('tc-dot').setAttribute('cy', yTc);\n\n      // Profit bar\n      document.getElementById('profit-line').setAttribute('x1', x);\n      document.getElementById('profit-line').setAttribute('x2', x);\n      document.getElementById('profit-line').setAttribute('y1', yTr);\n      document.getElementById('profit-line').setAttribute('y2', yTc);\n\n      document.getElementById('mr-dot').setAttribute('cx', x);\n      document.getElementById('mr-dot').setAttribute('cy', getMR(u));\n      document.getElementById('mc-dot').setAttribute('cx', x);\n      document.getElementById('mc-dot').setAttribute('cy', getMC(u));\n      document.getElementById('atc-dot').setAttribute('cx', x);\n      document.getElementById('atc-dot').setAttribute('cy', getATC(u));\n\n      // Update Slider handle position\n      const rect = track.getBoundingClientRect();\n      const availableWidth = rect.width - 20; // 10px padding each side\n      const leftPos = 10 + u * availableWidth - 12; // 12px half width of handle\n      handle.style.left = `${leftPos}px`;\n      handle.setAttribute('aria-valuenow', Math.round(u * 100));\n\n      // Check Snap proximity\n      let activeIdx = -1;\n      TARGETS.forEach((target, idx) => {\n        if (Math.abs(u - target) < 0.05) {\n          activeIdx = idx;\n        }\n      });\n\n      // Update active options & dots\n      tickPoints.forEach((t, idx) => {\n        if (idx === activeIdx) {\n          t.classList.add('active');\n        } else {\n          t.classList.remove('active');\n        }\n      });\n\n      optionCards.forEach((c, idx) => {\n        if (idx === activeIdx) {\n          c.classList.add('active');\n        } else {\n          c.classList.remove('active');\n        }\n      });\n\n      if (activeIdx !== currentIdx && activeIdx !== -1) {\n        currentIdx = activeIdx;\n        parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[currentIdx] }, '*');\n      }\n    }\n\n    // Drag / Touch Interactions\n    let dragging = false;\n\n    function handlePointer(e) {\n      if (isLocked) return;\n      const rect = track.getBoundingClientRect();\n      const clientX = e.clientX || (e.touches && e.touches[0].clientX);\n      if (clientX === undefined) return;\n      \n      const availableWidth = rect.width - 20;\n      let u = (clientX - rect.left - 10) / availableWidth;\n      u = Math.max(0, Math.min(1, u));\n\n      // Snapping assistance\n      TARGETS.forEach(target => {\n        if (Math.abs(u - target) < 0.04) {\n          u = target;\n        }\n      });\n\n      currentU = u;\n      updateVisuals(u);\n    }\n\n    track.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      dragging = true;\n      track.setPointerCapture(e.pointerId);\n      handlePointer(e);\n    });\n\n    track.addEventListener('pointermove', (e) => {\n      if (dragging) {\n        handlePointer(e);\n      }\n    });\n\n    track.addEventListener('pointerup', (e) => {\n      dragging = false;\n    });\n\n    // Make option cards clickable\n    optionCards.forEach(card => {\n      card.addEventListener('click', () => {\n        if (isLocked) return;\n        const idx = parseInt(card.getAttribute('data-idx'));\n        currentU = TARGETS[idx];\n        updateVisuals(currentU);\n      });\n    });\n\n    // Keyboard navigation on handle\n    handle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        currentU = Math.min(1, currentU + 0.05);\n        updateVisuals(currentU);\n        e.preventDefault();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        currentU = Math.max(0, currentU - 0.05);\n        updateVisuals(currentU);\n        e.preventDefault();\n      }\n    });\n\n    // Lock support\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        handle.removeAttribute('tabindex');\n        handle.style.cursor = 'default';\n        track.style.cursor = 'default';\n        optionCards.forEach(c => c.style.cursor = 'default');\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', () => {\n      initPaths();\n      updateVisuals(currentU);\n      reportHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      updateVisuals(currentU);\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Quantity where the vertical distance between TR and TC is greatest"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Comprehensive Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A local water utility has a continuously declining Average Total Cost (ATC) curve across the entire range of market demand. This cost structure defines the utility as a:",
+     "options": [
+      "Perfectly competitive firm",
+      "Natural monopoly",
+      "Monopolistically competitive firm",
+      "Strategic oligopoly"
+     ],
+     "explanation": "A natural monopoly exists when economies of scale are so large that one firm can supply the entire market at a lower average cost than two or more firms. This is represented by a continuously declining ATC curve.",
+     "correctAnswers": [
+      "Natural monopoly"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following conditions must be met for a firm to successfully engage in price discrimination?",
+     "options": [
+      "The firm must be a price taker",
+      "The firm must possess market power",
+      "The firm must be able to prevent resale (arbitrage)",
+      "The firm must be able to segregate customers by their willingness to pay",
+      "The firm must produce at the minimum of its ATC curve"
+     ],
+     "explanation": "Price discrimination requires market power to set prices, the ability to identify different consumer groups, and a way to stop low-price buyers from reselling to high-price buyers.",
+     "correctAnswers": [
+      "The firm must possess market power",
+      "The firm must be able to prevent resale (arbitrage)",
+      "The firm must be able to segregate customers by their willingness to pay"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a single-price monopoly, the Marginal Revenue curve is always ____ than the price because the firm must lower the price on all units sold to increase quantity.",
+     "placeholder": "lower/higher",
+     "correctAnswers": [
+      "less",
+      "lower",
+      "smaller"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Graph showing monopoly price exceeding marginal cost at the profit-maximizing output.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit4-q4.png"
+     },
+     "prompt": "At the profit-maximizing level of output for a single-price monopolist, which of the following is true regarding efficiency?",
+     "options": [
+      "Price equals Marginal Cost, achieving allocative efficiency.",
+      "Price is greater than Marginal Cost, failing allocative efficiency.",
+      "The firm produces at the minimum of ATC, achieving productive efficiency.",
+      "Consumer surplus is maximized."
+     ],
+     "explanation": "Monopolists restrict output and charge a price higher than marginal cost (P > MC), which means the value to society is greater than the cost of production, indicating allocative inefficiency.",
+     "correctAnswers": [
+      "Price is greater than Marginal Cost, failing allocative efficiency."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "If a monopolist switches from a single-price strategy to perfect (first-degree) price discrimination, what are the expected outcomes?",
+     "options": [
+      "Consumer surplus increases",
+      "Deadweight loss is eliminated",
+      "Economic profit increases",
+      "The quantity produced increases",
+      "Consumer surplus is reduced to zero"
+     ],
+     "explanation": "In perfect price discrimination, the firm captures all consumer surplus as profit and produces the socially optimal quantity where D=MC, thereby eliminating deadweight loss.",
+     "correctAnswers": [
+      "Deadweight loss is eliminated",
+      "Economic profit increases",
+      "The quantity produced increases",
+      "Consumer surplus is reduced to zero"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the long run, firms in monopolistic competition earn ____ economic profit due to the lack of high barriers to entry.",
+     "placeholder": "amount of profit",
+     "correctAnswers": [
+      "zero",
+      "0",
+      "normal"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of Demand elasticity and Total Revenue.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit4-q7.png"
+     },
+     "prompt": "A monopolist will never choose to produce a quantity where the demand curve is inelastic because in this range:",
+     "options": [
+      "Marginal revenue is positive",
+      "Total revenue is increasing",
+      "Marginal revenue is negative",
+      "Price is less than marginal cost"
+     ],
+     "explanation": "If demand is inelastic, lowering the price to sell more units causes total revenue to decrease, meaning marginal revenue is negative. A profit-maximizing firm would never produce where MR is negative.",
+     "correctAnswers": [
+      "Marginal revenue is negative"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of monopolistic competition?",
+     "options": [
+      "Many small buyers and sellers",
+      "Differentiated products",
+      "High barriers to entry",
+      "Firms are price takers",
+      "Low barriers to entry"
+     ],
+     "explanation": "Monopolistic competition is characterized by many firms selling slightly different products with easy entry and exit, unlike monopolies which have high barriers.",
+     "correctAnswers": [
+      "Many small buyers and sellers",
+      "Differentiated products",
+      "Low barriers to entry"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'price effect' for a monopolist refers to the loss in revenue from selling previous units at a ____ price to sell one more unit.",
+     "placeholder": "type of price change",
+     "correctAnswers": [
+      "lower",
+      "cheaper",
+      "reduced"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In a 2x2 payoff matrix for a duopoly, a Nash Equilibrium is defined as a situation where:",
+     "options": [
+      "Both firms earn the highest possible joint profit",
+      "One firm has a dominant strategy and the other does not",
+      "Neither firm can improve its payoff by changing its strategy unilaterally",
+      "Firms collude to set the highest possible price"
+     ],
+     "explanation": "A Nash equilibrium is a stable state in game theory where no player can gain by a change of strategy if the other players keep theirs unchanged.",
+     "correctAnswers": [
+      "Neither firm can improve its payoff by changing its strategy unilaterally"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following result in a deadweight loss to society?",
+     "options": [
+      "Single-price monopoly",
+      "Perfect competition",
+      "Monopolistic competition in the long run",
+      "Perfect price discrimination",
+      "Oligopoly with collusion"
+     ],
+     "explanation": "Deadweight loss occurs whenever price is greater than marginal cost at the equilibrium quantity. This occurs in single-price monopolies, monopolistically competitive firms (due to excess capacity), and collusive oligopolies.",
+     "correctAnswers": [
+      "Single-price monopoly",
+      "Monopolistic competition in the long run",
+      "Oligopoly with collusion"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "An agreement among firms in an oligopoly to divide the market and set prices is known as ____.",
+     "placeholder": "term for cooperation",
+     "correctAnswers": [
+      "collusion",
+      "a cartel",
+      "price fixing"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A dominant strategy is one that a player chooses:",
+     "options": [
+      "Only if the other player cooperates",
+      "Regardless of the strategy chosen by the other player",
+      "To minimize the maximum possible loss",
+      "To ensure the other player earns zero profit"
+     ],
+     "explanation": "A strategy is dominant if it yields a higher payoff for a player than any other strategy, no matter what the other players do.",
+     "correctAnswers": [
+      "Regardless of the strategy chosen by the other player"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of barriers to entry that can lead to monopoly power?",
+     "options": [
+      "Patent protections",
+      "Economies of scale",
+      "Control of a scarce resource",
+      "Low startup costs",
+      "Product differentiation"
+     ],
+     "explanation": "Patents (legal), economies of scale (natural), and resource control (physical) all prevent new competitors from entering a market.",
+     "correctAnswers": [
+      "Patent protections",
+      "Economies of scale",
+      "Control of a scarce resource"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Compared to a perfectly competitive market, a single-price monopoly results in:",
+     "options": [
+      "Lower price and higher quantity",
+      "Higher price and higher quantity",
+      "Lower price and lower quantity",
+      "Higher price and lower quantity"
+     ],
+     "explanation": "By restricting output to where MR=MC, the monopolist moves up the demand curve to charge a higher price, causing a contraction in quantity compared to the competitive outcome.",
+     "correctAnswers": [
+      "Higher price and lower quantity"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Analyze the strategic interaction in this duopoly. Both Firm A and Firm B must decide whether to 'Advertise' or 'Stay Quiet'. Use the interactive payoff matrix to find the Nash Equilibrium.",
+     "options": [
+      "Both Stay Quiet",
+      "Both Advertise",
+      "Firm A Advertises, Firm B Stays Quiet",
+      "Firm A Stays Quiet, Firm B Advertises"
+     ],
+     "explanation": "In this classic payoff structure, both firms have a dominant strategy to 'Advertise' because it yields a higher payoff regardless of the other's choice. The Nash Equilibrium is the cell where both choose this dominant strategy.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Payoff Matrix Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --arrow-color: #ff5e5e;\n      --arrow-color-in: #4caf50;\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 12px;\n    }\n\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 4px;\n    }\n\n    /* Game Layout Grid */\n    .matrix-container {\n      position: relative;\n      width: 100%;\n      display: grid;\n      grid-template-columns: 60px 1fr 1fr;\n      grid-template-rows: auto 1fr 1fr;\n      gap: 8px;\n      background: var(--stage);\n      padding: 12px;\n      border-radius: 12px;\n      border: 1px solid var(--border);\n    }\n\n    /* Headers */\n    .header-label {\n      font-size: 12px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .col-header {\n      grid-row: 1;\n      padding: 4px;\n    }\n    .col-1 { grid-column: 2; }\n    .col-2 { grid-column: 3; }\n\n    .row-header {\n      grid-column: 1;\n      padding: 4px;\n      writing-mode: vertical-lr;\n      transform: rotate(180deg);\n    }\n    .row-1 { grid-row: 2; }\n    .row-2 { grid-row: 3; }\n\n    /* Cells */\n    .cell {\n      background: var(--surface);\n      border: 2px solid var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      height: 90px;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      position: relative;\n      cursor: pointer;\n      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;\n    }\n\n    .cell:hover {\n      border-color: #ccc;\n    }\n\n    .cell.active {\n      border-color: var(--accent);\n      background-color: var(--accent-soft);\n      z-index: 2;\n    }\n\n    .cell-label-A {\n      font-size: 11px;\n      font-weight: 500;\n      color: #777;\n    }\n\n    .cell-label-B {\n      font-size: 11px;\n      font-weight: 500;\n      color: #777;\n      text-align: right;\n    }\n\n    .payoffs {\n      display: flex;\n      justify-content: space-between;\n      align-items: baseline;\n      margin-top: auto;\n    }\n\n    .payoff-val {\n      font-size: 18px;\n      font-weight: bold;\n      font-variant-numeric: tabular-nums;\n    }\n    .payoff-A { color: #3a4f78; }\n    .payoff-B { color: #8c52ff; }\n\n    /* Draggable Token */\n    .token {\n      position: absolute;\n      width: 44px;\n      height: 44px;\n      border-radius: 50%;\n      background: var(--accent);\n      color: white;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      box-shadow: 0 4px 10px rgba(0,0,0,0.15);\n      cursor: grab;\n      touch-action: none;\n      z-index: 10;\n      font-weight: bold;\n      font-size: 11px;\n      text-align: center;\n      line-height: 1.1;\n      border: 3px solid #fff;\n    }\n\n    .token:active {\n      cursor: grabbing;\n    }\n\n    /* Arrow Overlay Layer */\n    .arrows-svg {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 100%;\n      pointer-events: none;\n      z-index: 5;\n    }\n\n    .incentive-arrow {\n      fill: none;\n      stroke-width: 3;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n      marker-end: url(#arrowhead);\n      opacity: 0;\n      transition: opacity 0.25s ease, stroke-dashoffset 0.5s ease;\n    }\n\n    .incentive-arrow.visible {\n      opacity: 1;\n    }\n\n    /* Disabled State for Locking */\n    .disabled {\n      pointer-events: none !important;\n      cursor: default !important;\n    }\n    .disabled .token {\n      cursor: default !important;\n      background: #888 !important;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Payoff Matrix Explorer</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"action-hint\">Drag the tracker or tap a cell to analyze decisions</div>\n\n    <div class=\"matrix-container\" id=\"matrix-container\">\n      <!-- SVG for dynamic decision arrows -->\n      <svg class=\"arrows-svg\" id=\"arrows-svg\">\n        <defs>\n          <marker id=\"arrowhead\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orient=\"auto\">\n            <polygon points=\"0 0, 6 3, 0 6\" fill=\"var(--arrow-color)\" />\n          </marker>\n          <marker id=\"arrowhead-in\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orient=\"auto\">\n            <polygon points=\"0 0, 6 3, 0 6\" fill=\"var(--arrow-color-in)\" />\n          </marker>\n        </defs>\n        <!-- Arrow paths will be rendered dynamically based on chosen cell -->\n        <path id=\"arrow-down-left\" class=\"incentive-arrow\" stroke=\"var(--arrow-color)\" d=\"\" />\n        <path id=\"arrow-right-top\" class=\"incentive-arrow\" stroke=\"var(--arrow-color)\" d=\"\" />\n        <path id=\"arrow-down-right\" class=\"incentive-arrow\" stroke=\"var(--arrow-color)\" d=\"\" />\n        <path id=\"arrow-right-bottom\" class=\"incentive-arrow\" stroke=\"var(--arrow-color)\" d=\"\" />\n        <!-- Inward arrows for Nash Equilibrium -->\n        <path id=\"arrow-nash-1\" class=\"incentive-arrow\" stroke=\"var(--arrow-color-in)\" d=\"\" style=\"marker-end: url(#arrowhead-in);\" />\n        <path id=\"arrow-nash-2\" class=\"incentive-arrow\" stroke=\"var(--arrow-color-in)\" d=\"\" style=\"marker-end: url(#arrowhead-in);\" />\n      </svg>\n\n      <!-- Column Labels -->\n      <div class=\"header-label col-header col-1\">Stay Quiet</div>\n      <div class=\"header-label col-header col-2\">Advertise</div>\n\n      <!-- Row Labels -->\n      <div class=\"header-label row-header row-1\">Stay Quiet</div>\n      <div class=\"header-label row-header row-2\">Advertise</div>\n\n      <!-- Cells -->\n      <div class=\"cell\" id=\"cell-0\" data-index=\"0\" data-option=\"Both Stay Quiet\" tabindex=\"0\" aria-label=\"Both Stay Quiet, Payoffs 10 each\">\n        <div style=\"display: flex; justify-content: space-between; width:100%;\">\n          <span class=\"cell-label-A\">A: Quiet</span>\n          <span class=\"cell-label-B\">B: Quiet</span>\n        </div>\n        <div class=\"payoffs\">\n          <span class=\"payoff-val payoff-A\">$10M</span>\n          <span class=\"payoff-val payoff-B\">$10M</span>\n        </div>\n      </div>\n\n      <div class=\"cell\" id=\"cell-1\" data-index=\"1\" data-option=\"Firm A Stays Quiet, Firm B Advertises\" tabindex=\"0\" aria-label=\"Firm A Stays Quiet, Firm B Advertises, Payoffs A 5, B 15\">\n        <div style=\"display: flex; justify-content: space-between; width:100%;\">\n          <span class=\"cell-label-A\">A: Quiet</span>\n          <span class=\"cell-label-B\">B: Adv</span>\n        </div>\n        <div class=\"payoffs\">\n          <span class=\"payoff-val payoff-A\">$5M</span>\n          <span class=\"payoff-val payoff-B\">$15M</span>\n        </div>\n      </div>\n\n      <div class=\"cell\" id=\"cell-2\" data-index=\"2\" data-option=\"Firm A Advertises, Firm B Stays Quiet\" tabindex=\"0\" aria-label=\"Firm A Advertises, Firm B Stays Quiet, Payoffs A 15, B 5\">\n        <div style=\"display: flex; justify-content: space-between; width:100%;\">\n          <span class=\"cell-label-A\">A: Adv</span>\n          <span class=\"cell-label-B\">B: Quiet</span>\n        </div>\n        <div class=\"payoffs\">\n          <span class=\"payoff-val payoff-A\">$15M</span>\n          <span class=\"payoff-val payoff-B\">$5M</span>\n        </div>\n      </div>\n\n      <div class=\"cell\" id=\"cell-3\" data-index=\"3\" data-option=\"Both Advertise\" tabindex=\"0\" aria-label=\"Both Advertise, Payoffs 8 each. Nash Equilibrium.\">\n        <div style=\"display: flex; justify-content: space-between; width:100%;\">\n          <span class=\"cell-label-A\">A: Adv</span>\n          <span class=\"cell-label-B\">B: Adv</span>\n        </div>\n        <div class=\"payoffs\">\n          <span class=\"payoff-val payoff-A\">$8M</span>\n          <span class=\"payoff-val payoff-B\">$8M</span>\n        </div>\n      </div>\n\n      <!-- Drag puck tracker -->\n      <div class=\"token\" id=\"tracker\">STATE</div>\n    </div>\n  </div>\n\n  <script>\n    const matrix = document.getElementById('matrix-container');\n    const tracker = document.getElementById('tracker');\n    const cells = Array.from(document.querySelectorAll('.cell'));\n    const svg = document.getElementById('arrows-svg');\n\n    let activeIndex = -1;\n    let isDragging = false;\n    let startX = 0;\n    let startY = 0;\n    let tokenX = 0;\n    let tokenY = 0;\n    let isLocked = false;\n\n    // Report height\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Get cell center coordinates relative to matrix-container\n    function getCellCenter(index) {\n      const cell = cells[index];\n      const mRect = matrix.getBoundingClientRect();\n      const cRect = cell.getBoundingClientRect();\n      return {\n        x: (cRect.left + cRect.width / 2) - mRect.left,\n        y: (cRect.top + cRect.height / 2) - mRect.top\n      };\n    }\n\n    // Move tracker visually to a cell\n    function moveTrackerToCell(index, animate = true) {\n      const center = getCellCenter(index);\n      const targetX = center.x - tracker.offsetWidth / 2;\n      const targetY = center.y - tracker.offsetHeight / 2;\n\n      tracker.style.transition = animate ? 'transform 0.25s cubic-bezier(.34,1.56,.64,1)' : 'none';\n      tracker.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;\n      tokenX = targetX;\n      tokenY = targetY;\n\n      // Update active cell class\n      cells.forEach((cell, i) => {\n        if (i === index) {\n          cell.classList.add('active');\n        } else {\n          cell.classList.remove('active');\n        }\n      });\n\n      drawArrows(index);\n    }\n\n    // Dynamic drawing of decision arrows\n    function drawArrows(index) {\n      // Clear previous arrows\n      document.querySelectorAll('.incentive-arrow').forEach(p => p.classList.remove('visible'));\n\n      // Cell centers\n      const c0 = getCellCenter(0);\n      const c1 = getCellCenter(1);\n      const c2 = getCellCenter(2);\n      const c3 = getCellCenter(3);\n\n      if (index === 0) {\n        // Both Stay Quiet -> Firm A wants to move down to Cell 2 (Adv, Quiet)\n        // Firm B wants to move right to Cell 1 (Quiet, Adv)\n        setArrowPath('arrow-down-left', c0.x, c0.y + 20, c2.x, c2.y - 30);\n        setArrowPath('arrow-right-top', c0.x + 20, c0.y, c1.x - 30, c1.y);\n      } else if (index === 1) {\n        // Firm A Stays Quiet, Firm B Advertises -> Firm A wants to switch to Advertise (Cell 3)\n        setArrowPath('arrow-down-right', c1.x, c1.y + 20, c3.x, c3.y - 30);\n      } else if (index === 2) {\n        // Firm A Advertises, Firm B Stays Quiet -> Firm B wants to switch to Advertise (Cell 3)\n        setArrowPath('arrow-right-bottom', c2.x + 20, c2.y, c3.x - 30, c3.y);\n      } else if (index === 3) {\n        // Nash Equilibrium! Show inward arrows as reinforcement\n        setArrowPath('arrow-nash-1', c1.x, c1.y + 20, c3.x, c3.y - 30);\n        setArrowPath('arrow-nash-2', c2.x + 20, c2.y, c3.x - 30, c3.y);\n      }\n    }\n\n    function setArrowPath(id, x1, y1, x2, y2) {\n      const path = document.getElementById(id);\n      path.setAttribute('d', `M ${x1} ${y1} L ${x2} ${y2}`);\n      path.classList.add('visible');\n    }\n\n    // Set state & post message\n    function selectCell(index) {\n      if (index === activeIndex) return;\n      activeIndex = index;\n      moveTrackerToCell(index);\n      \n      const option = cells[index].getAttribute('data-option');\n      parent.postMessage({ type: 'hk-practice-answer', value: option }, '*');\n    }\n\n    // Drag / Touch Mechanics\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      tracker.setPointerCapture(e.pointerId);\n      \n      const mRect = matrix.getBoundingClientRect();\n      const tRect = tracker.getBoundingClientRect();\n      \n      // Calculate start offset to avoid jumps\n      startX = e.clientX - tRect.left;\n      startY = e.clientY - tRect.top;\n      \n      tracker.style.transition = 'none';\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging || isLocked) return;\n      \n      const mRect = matrix.getBoundingClientRect();\n      let x = e.clientX - mRect.left - startX;\n      let y = e.clientY - mRect.top - startY;\n\n      // Bound to matrix limits\n      x = Math.max(0, Math.min(x, mRect.width - tracker.offsetWidth));\n      y = Math.max(0, Math.min(y, mRect.height - tracker.offsetHeight));\n\n      tracker.style.transform = `translate3d(${x}px, ${y}px, 0)`;\n      tokenX = x;\n      tokenY = y;\n\n      // Find closest cell\n      const trackerCenter = {\n        x: x + tracker.offsetWidth / 2,\n        y: y + tracker.offsetHeight / 2\n      };\n\n      let minDistance = Infinity;\n      let closestIndex = 0;\n\n      cells.forEach((cell, idx) => {\n        const center = getCellCenter(idx);\n        const dist = Math.hypot(center.x - trackerCenter.x, center.y - trackerCenter.y);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestIndex = idx;\n        }\n      });\n\n      // Visually preview active state\n      cells.forEach((cell, i) => {\n        if (i === closestIndex) {\n          cell.classList.add('active');\n        } else {\n          cell.classList.remove('active');\n        }\n      });\n      drawArrows(closestIndex);\n    }\n\n    function onPointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      \n      // Snap to closest cell\n      const trackerCenter = {\n        x: tokenX + tracker.offsetWidth / 2,\n        y: tokenY + tracker.offsetHeight / 2\n      };\n\n      let minDistance = Infinity;\n      let closestIndex = 0;\n\n      cells.forEach((cell, idx) => {\n        const center = getCellCenter(idx);\n        const dist = Math.hypot(center.x - trackerCenter.x, center.y - trackerCenter.y);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestIndex = idx;\n        }\n      });\n\n      selectCell(closestIndex);\n    }\n\n    // Listeners for tracker dragging\n    tracker.addEventListener('pointerdown', onPointerDown);\n    tracker.addEventListener('pointermove', onPointerMove);\n    tracker.addEventListener('pointerup', onPointerUp);\n    tracker.addEventListener('pointercancel', onPointerUp);\n\n    // Tap cell fallback\n    cells.forEach((cell, idx) => {\n      cell.addEventListener('click', () => {\n        if (isLocked) return;\n        selectCell(idx);\n      });\n      cell.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          selectCell(idx);\n        }\n      });\n    });\n\n    // Start in state 0 without posting until user interacts\n    moveTrackerToCell(0, false);\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        matrix.classList.add('disabled');\n        tracker.classList.add('disabled');\n      }\n    });\n\n    // Handle responsive reposition of tracker\n    window.addEventListener('resize', () => {\n      if (activeIndex !== -1) {\n        moveTrackerToCell(activeIndex, false);\n      } else {\n        moveTrackerToCell(0, false);\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Both Advertise"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Comprehensive Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In the circular flow model of a factor market, which of the following describes the role of households and firms?",
+     "options": [
+      "Households are the demanders of resources and firms are the suppliers.",
+      "Households are the suppliers of resources and firms are the demanders.",
+      "Both households and firms are demanders in the resource market.",
+      "Firms are the buyers in the product market while households are the sellers."
+     ],
+     "explanation": "In factor (resource) markets, households own the factors of production and sell them to firms, which use them to produce goods and services. This is the reverse of the product market role.",
+     "correctAnswers": [
+      "Households are the suppliers of resources and firms are the demanders."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following would cause a rightward shift in the demand curve for airline pilots?",
+     "options": [
+      "An increase in the demand for air travel.",
+      "An increase in the productivity of pilots due to better flight technology.",
+      "A decrease in the price of jet fuel (a complementary resource).",
+      "A decrease in the salary of flight attendants.",
+      "An increase in the price of train tickets (a substitute good for travel)."
+     ],
+     "explanation": "Demand for labor shifts when the price of the product increases (derived from travel demand or higher prices of substitute goods) or when worker productivity increases.",
+     "correctAnswers": [
+      "An increase in the demand for air travel.",
+      "An increase in the productivity of pilots due to better flight technology.",
+      "An increase in the price of train tickets (a substitute good for travel)."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The concept that the demand for a resource, such as labor, is dependent on the demand for the goods or services that resource produces is known as ____.",
+     "explanation": "Derived demand explains that firms only hire workers because there is a demand for the output those workers create.",
+     "placeholder": "Enter term...",
+     "correctAnswers": [
+      "derived demand"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A perfectly competitive firm in a labor market is considered a 'wage taker' because:",
+     "options": [
+      "The firm can influence the wage by hiring more workers.",
+      "The firm's labor supply curve is perfectly inelastic.",
+      "The firm can hire all the workers it wants at the market equilibrium wage.",
+      "The government sets a fixed wage for all workers in that industry."
+     ],
+     "explanation": "In perfect competition, individual firms are small relative to the market and must accept the market-clearing wage, resulting in a perfectly elastic (horizontal) labor supply curve.",
+     "correctAnswers": [
+      "The firm can hire all the workers it wants at the market equilibrium wage."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "If a firm is currently hiring labor such that MRP > MRC, which of the following statements are true?",
+     "options": [
+      "The firm is maximizing profit.",
+      "The firm should hire more workers to increase profit.",
+      "The last worker hired added more to total revenue than to total cost.",
+      "The firm should decrease production to save on costs.",
+      "Total profit is increasing with each additional worker hired up to the point where MRP = MRC."
+     ],
+     "explanation": "When MRP > MRC, the marginal benefit of hiring exceeds the marginal cost, meaning total profit has not yet been maximized.",
+     "correctAnswers": [
+      "The firm should hire more workers to increase profit.",
+      "The last worker hired added more to total revenue than to total cost.",
+      "Total profit is increasing with each additional worker hired up to the point where MRP = MRC."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In a monopsony labor market, the Marginal Resource Cost (MRC) curve is located ____ the labor supply curve.",
+     "explanation": "In a monopsony, the firm must raise the wage for all workers to hire one more, making the cost of the additional worker higher than the wage paid to that worker.",
+     "placeholder": "above/below/on",
+     "correctAnswers": [
+      "above"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Graph showing how a market wage decrease leads to lower MRC and higher hiring for a firm.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit5-q7.png"
+     },
+     "prompt": "Based on the side-by-side graphs of a labor market and a single firm, if the market labor supply increases, how will the firm's Marginal Resource Cost (MRC) and employment change?",
+     "options": [
+      "MRC will increase and employment will increase.",
+      "MRC will decrease and employment will increase.",
+      "MRC will decrease and employment will decrease.",
+      "MRC will stay constant and employment will increase."
+     ],
+     "explanation": "An increase in market labor supply lowers the equilibrium wage. This shifts the firm's horizontal MRC curve down, leading to a new intersection with MRP at a higher quantity of labor.",
+     "correctAnswers": [
+      "MRC will decrease and employment will increase."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which factors could cause the supply of labor in a specific market to shift to the left?",
+     "options": [
+      "An increase in the popularity of the profession.",
+      "An increase in the required years of education for the job.",
+      "A decrease in the wages of a related alternative occupation.",
+      "A decrease in the working-age population.",
+      "Better non-monetary benefits in other industries."
+     ],
+     "explanation": "Labor supply shifts left when the opportunity cost of working that job increases or the pool of qualified workers shrinks.",
+     "correctAnswers": [
+      "An increase in the required years of education for the job.",
+      "A decrease in the working-age population.",
+      "Better non-monetary benefits in other industries."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If a firm uses two resources, labor and capital, the least-cost combination is found where the marginal product per dollar of labor equals the ____.",
+     "explanation": "The least-cost rule states that a firm should balance the marginal product of each resource relative to its price: MP(labor)/P(labor) = MP(capital)/P(capital).",
+     "placeholder": "Enter term...",
+     "correctAnswers": [
+      "marginal product per dollar of capital"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "How is the Marginal Revenue Product (MRP) calculated for a firm in a perfectly competitive product market?",
+     "options": [
+      "Total Revenue divided by Total Labor.",
+      "Marginal Product multiplied by the Product Price.",
+      "Change in Total Cost divided by Change in Labor.",
+      "The Wage divided by the Marginal Product."
+     ],
+     "explanation": "MRP measures the additional revenue from one more unit of labor. In perfect competition, because price is constant, MRP is simply Marginal Product (MP) times Price (P).",
+     "correctAnswers": [
+      "Marginal Product multiplied by the Product Price."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In a monopsony, why is the Marginal Resource Cost (MRC) curve steeper than the Labor Supply curve?",
+     "options": [
+      "Because the firm is a price taker in the product market.",
+      "Because to hire an additional worker, the firm must pay a higher wage to all existing workers.",
+      "Because the firm faces a downward-sloping demand curve for its product.",
+      "Because the supply of labor is perfectly elastic.",
+      "Because the firm must increase the wage to attract more labor from the market."
+     ],
+     "explanation": "The monopsonist is the sole buyer and faces the upward-sloping market supply curve. To hire more, it raises the wage for the new hire AND all previous hires, making the marginal cost higher than the wage.",
+     "correctAnswers": [
+      "Because to hire an additional worker, the firm must pay a higher wage to all existing workers.",
+      "Because the firm must increase the wage to attract more labor from the market."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A firm will continue to hire workers as long as the Marginal Revenue Product is ____ than the Marginal Resource Cost.",
+     "explanation": "As long as the additional revenue brought in by a worker (MRP) is higher than the cost to hire them (MRC), the firm's total profit increases.",
+     "placeholder": "greater/less",
+     "correctAnswers": [
+      "greater"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Comparison graph between competitive and monopsonistic labor market outcomes.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit5-q13.png"
+     },
+     "prompt": "What happens to the wage and employment level in a competitive labor market if a monopsony is formed?",
+     "options": [
+      "Wages increase and employment increases.",
+      "Wages decrease and employment increases.",
+      "Wages decrease and employment decreases.",
+      "Wages increase and employment decreases."
+     ],
+     "explanation": "A monopsonist has market power, allowing it to restrict the number of workers hired to keep wages lower than they would be in a competitive market.",
+     "correctAnswers": [
+      "Wages decrease and employment decreases."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following would lead to a decrease in the Marginal Revenue Product (MRP) of automotive assembly workers?",
+     "options": [
+      "A decrease in the price of automobiles.",
+      "An increase in the wages of the workers.",
+      "A decrease in the marginal productivity of the workers.",
+      "A decrease in the price of robots used in assembly.",
+      "An increase in the number of qualified assembly workers."
+     ],
+     "explanation": "MRP depends on the price of the product and the marginal product of the worker. Changes in wages or labor supply shift the MRC or supply curves, but not the MRP curve itself.",
+     "correctAnswers": [
+      "A decrease in the price of automobiles.",
+      "A decrease in the marginal productivity of the workers."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "If the price of a good produced by a firm increases, what is the most likely impact on the firm's labor demand?",
+     "options": [
+      "Demand for labor decreases because the product is now more expensive.",
+      "Demand for labor increases because the MRP of each worker has risen.",
+      "Demand for labor remains the same because productivity hasn't changed.",
+      "Supply of labor increases because workers want to earn more."
+     ],
+     "explanation": "Since MRP = MP x P, an increase in the product price (P) directly increases the MRP, shifting the labor demand curve to the right.",
+     "correctAnswers": [
+      "Demand for labor increases because the MRP of each worker has risen."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Adjust the hiring level of the firm in this monopsony labor market to reach the profit-maximizing point.",
+     "options": [
+      "Hiring where MRP equals the Supply curve.",
+      "Hiring where MRP equals MRC.",
+      "Hiring where the Supply curve equals the Wage axis.",
+      "Hiring where MRC is at its minimum point."
+     ],
+     "explanation": "Like all firms, a monopsonist maximizes profit by hiring where the marginal benefit (MRP) equals the marginal cost (MRC). However, they then pay the wage indicated by the supply curve at that quantity.",
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Monopsony Labor Market Interaction</title>`\n  `<style>`\n    `html, body {`\n      `background: #faf9f7;`\n      `margin: 0;`\n      `padding: 0;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;`\n      `color: #1f1f1f;`\n      `user-select: none;`\n      `-webkit-user-select: none;`\n      `overflow: hidden;`\n    `}`\n\n    `.widget-container {`\n      `width: 100%;`\n      `max-width: 480px;`\n      `margin: 0 auto;`\n      `padding: 12px;`\n      `box-sizing: border-box;`\n      `display: flex;`\n      `flex-direction: column;`\n      `align-items: center;`\n    `}`\n\n    `.stage-box {`\n      `width: 100%;`\n      `background: #ffffff;`\n      `border: 1px solid #e2e2e2;`\n      `border-radius: 12px;`\n      `padding: 12px 12px 8px 12px;`\n      `box-shadow: 0 1px 3px rgba(0,0,0,0.05);`\n      `box-sizing: border-box;`\n      `position: relative;`\n    `}`\n\n    `.stage-svg {`\n      `width: 100%;`\n      `height: auto;`\n      `display: block;`\n      `overflow: visible;`\n    `}`\n\n    `.axis {`\n      `stroke: #888888;`\n      `stroke-width: 1.5;`\n      `stroke-linecap: round;`\n    `}`\n\n    `.axis-label {`\n      `font-size: 11px;`\n      `fill: #888888;`\n      `font-weight: 500;`\n    `}`\n\n    `/* Curves styling */`\n    `.curve-mrp {`\n      `stroke: #d97706;`\n      `stroke-width: 2.5;`\n      `fill: none;`\n    `}`\n    `.curve-supply {`\n      `stroke: #059669;`\n      `stroke-width: 2.5;`\n      `fill: none;`\n    `}`\n    `.curve-mrc {`\n      `stroke: #2563eb;`\n      `stroke-width: 2.5;`\n      `fill: none;`\n    `}`\n\n    `.curve-label {`\n      `font-size: 11px;`\n      `font-weight: bold;`\n    `}`\n    `.label-mrp { fill: #d97706; }`\n    `.label-supply { fill: #059669; }`\n    `.label-mrc { fill: #2563eb; }`\n\n    `/* Interactive element styles */`\n    `.hiring-line {`\n      `stroke: #4C6696;`\n      `stroke-width: 2;`\n      `stroke-dasharray: 4 3;`\n      `transition: stroke-width 0.1s;`\n    `}`\n\n    `.hiring-line-interactive {`\n      `stroke: transparent;`\n      `stroke-width: 20;`\n      `cursor: grab;`\n    `}`\n    `.hiring-line-interactive:active {`\n      `cursor: grabbing;`\n    `}`\n\n    `.drag-handle-glow {`\n      `fill: #4C6696;`\n      `fill-opacity: 0.15;`\n      `transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);`\n    `}`\n    `body:not(.locked) .drag-handle-container:hover .drag-handle-glow {`\n      `transform: scale(1.3);`\n    `}`\n\n    `.drag-handle {`\n      `fill: #4C6696;`\n      `stroke: #ffffff;`\n      `stroke-width: 2;`\n      `cursor: grab;`\n      `transition: fill 0.15s;`\n    `}`\n    `.drag-handle:active {`\n      `cursor: grabbing;`\n      `fill: #3a4f78;`\n    `}`\n\n    `.snap-dot-active {`\n      `stroke: #ffffff;`\n      `stroke-width: 2;`\n      `animation: pulse 1.5s infinite ease-in-out;`\n    `}`\n\n    `@keyframes pulse {`\n      `0% { r: 5px; stroke-width: 2; opacity: 1; }`\n      `50% { r: 7.5px; stroke-width: 3; opacity: 0.8; }`\n      `100% { r: 5px; stroke-width: 2; opacity: 1; }`\n    `}`\n\n    `.snap-target-line {`\n      `stroke: #e2e2e2;`\n      `stroke-width: 1;`\n      `stroke-dasharray: 2 2;`\n    `}`\n\n    `/* Action Hint & Readout */`\n    `.action-bar {`\n      `margin-top: 10px;`\n      `text-align: center;`\n      `width: 100%;`\n    `}`\n\n    `.hint-text {`\n      `font-size: 12.5px;`\n      `color: #666666;`\n      `margin: 0;`\n      `display: inline-flex;`\n      `align-items: center;`\n      `gap: 4px;`\n    `}`\n\n    `.state-badge {`\n      `margin-top: 8px;`\n      `padding: 6px 12px;`\n      `background: #f5f8fc;`\n      `border: 1px solid #4C6696;`\n      `color: #3a4f78;`\n      `border-radius: 20px;`\n      `font-size: 13px;`\n      `font-weight: 600;`\n      `display: inline-block;`\n      `box-shadow: 0 1px 2px rgba(0,0,0,0.03);`\n    `}`\n\n    `/* Locked State */`\n    `.locked .drag-handle,`\n    `.locked .hiring-line-interactive {`\n      `cursor: default !important;`\n      `pointer-events: none;`\n    `}`\n    `.locked .drag-handle-glow {`\n      `display: none;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n  `<h1 class=\"sr-only\">Interactive Monopsony Labor Market Graph - Select Quantity Hired</h1>`\n\n  `<div class=\"widget-container\">`\n    `<div class=\"stage-box\">`\n      `<svg class=\"stage-svg\" viewBox=\"0 0 400 220\" aria-hidden=\"true\" id=\"graph-svg\">`\n        `<!-- Grid lines / axes -->`\n        `<line x1=\"50\" y1=\"180\" x2=\"380\" y2=\"180\" class=\"axis\" />`\n        `<line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"180\" class=\"axis\" />`\n        `<!-- Axis Labels -->`\n        `<text x=\"380\" y=\"194\" class=\"axis-label\" text-anchor=\"end\">Labor (Q)</text>`\n        `<text x=\"45\" y=\"25\" class=\"axis-label\" text-anchor=\"end\" transform=\"rotate(-90 45 25)\">Wage / Costs</text>`\n\n        `<!-- Snap Guide Lines -->`\n        `<line id=\"guide-q0\" x1=\"50\" y1=\"20\" x2=\"50\" y2=\"180\" class=\"snap-target-line\" />`\n        `<line id=\"guide-q1\" x1=\"100\" y1=\"20\" x2=\"100\" y2=\"180\" class=\"snap-target-line\" />`\n        `<line id=\"guide-q2\" x1=\"190\" y1=\"20\" x2=\"190\" y2=\"180\" class=\"snap-target-line\" />`\n        `<line id=\"guide-q3\" x1=\"250\" y1=\"20\" x2=\"250\" y2=\"180\" class=\"snap-target-line\" />`\n\n        `<!-- Curves -->`\n        `<!-- MRP: Line from (50, 40) to (350, 160) -->`\n        `<path d=\"M 50 40 L 350 160\" class=\"curve-mrp\" />`\n        `<!-- Supply: Line from (50, 145) to (350, 107.5) -->`\n        `<path d=\"M 50 145 L 350 107.5\" class=\"curve-supply\" />`\n        `<!-- MRC: Curve starting at (50, 145), minimum at (100, 148), passes through (190, 96) -->`\n        `<path d=\"M 50 145 Q 100 152, 130 130 T 190 96 T 250 40\" class=\"curve-mrc\" />`\n\n        `<!-- Curve Labels -->`\n        `<text x=\"355\" y=\"163\" class=\"curve-label label-mrp\">MRP</text>`\n        `<text x=\"355\" y=\"111\" class=\"curve-label label-supply\">S</text>`\n        `<text x=\"258\" y=\"38\" class=\"curve-label label-mrc\">MRC</text>`\n\n        `<!-- Interactive Vertical Quantity Line -->`\n        `<g id=\"interactive-group\">`\n          `<line id=\"hiring-line\" x1=\"190\" y1=\"20\" x2=\"190\" y2=\"180\" class=\"hiring-line\" />`\n          `<line id=\"hiring-line-hit\" x1=\"190\" y1=\"20\" x2=\"190\" y2=\"180\" class=\"hiring-line-interactive\" />`\n          `<!-- Live feedback active point marker -->`\n          `<circle id=\"active-marker\" cx=\"190\" cy=\"96\" r=\"6\" fill=\"#4C6696\" class=\"snap-dot-active\" />`\n          `<!-- Slider Handle at Q Axis -->`\n          `<g class=\"drag-handle-container\" id=\"handle-group\" transform=\"translate(190, 180)\">`\n            `<circle cx=\"0\" cy=\"0\" r=\"14\" class=\"drag-handle-glow\" />`\n            `<circle cx=\"0\" cy=\"0\" r=\"7\" class=\"drag-handle\" />`\n          `</g>`\n        `</g>`\n      `</svg>`\n    `</div>`\n\n    `<div class=\"action-bar\">`\n      `<p class=\"hint-text\">`\n        `← Drag the vertical dashed line left/right to adjust employment →`\n      `</p>`\n      `<div class=\"state-badge\" id=\"state-description\">Hiring where MRP equals MRC</div>`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `const OPTIONS = [`\n      `\"Hiring where the Supply curve equals the Wage axis.\",`\n      `\"Hiring where MRC is at its minimum point.\",`\n      `\"Hiring where MRP equals MRC.\",`\n      `\"Hiring where MRP equals the Supply curve.\"`\n    `];`\n\n    `// Snap point X positions & their parameters`\n    `const snapPoints = [`\n      `{ x: 50, option: OPTIONS[0], desc: \"Zero Hiring (Supply at Wage Axis)\", markerY: 145, color: \"#059669\" },`\n      `{ x: 100, option: OPTIONS[1], desc: \"Hiring at Minimum MRC Point\", markerY: 148, color: \"#2563eb\" },`\n      `{ x: 190, option: OPTIONS[2], desc: \"Profit-Maximizing: MRP = MRC\", markerY: 96, color: \"#4C6696\" },`\n      `{ x: 250, option: OPTIONS[3], desc: \"Competitive Point: MRP = Supply\", markerY: 120, color: \"#059669\" }`\n    `];`\n\n    `let currentSnapIndex = 2; // Default to MRP = MRC`\n    `let isDragging = false;`\n    `let startX = 0;`\n    `let startLineX = 190;`\n    `let locked = false;`\n\n    `const hiringLine = document.getElementById('hiring-line');`\n    `const hiringLineHit = document.getElementById('hiring-line-hit');`\n    `const handleGroup = document.getElementById('handle-group');`\n    `const activeMarker = document.getElementById('active-marker');`\n    `const stateDescription = document.getElementById('state-description');`\n    `const graphSvg = document.getElementById('graph-svg');`\n    `const interactiveGroup = document.getElementById('interactive-group');`\n\n    `// Initialize positions`\n    `updateState(currentSnapIndex, false);`\n\n    `// Drag logic`\n    `interactiveGroup.addEventListener('pointerdown', onPointerDown);`\n\n    `function onPointerDown(e) {`\n      `if (locked) return;`\n      `isDragging = true;`\n      `interactiveGroup.setPointerCapture(e.pointerId);`\n      `const pt = getLocalCoords(e);`\n      `startX = pt.x;`\n      `startLineX = snapPoints[currentSnapIndex].x;`\n      `document.addEventListener('pointermove', onPointerMove);`\n      `document.addEventListener('pointerup', onPointerUp);`\n    `}`\n\n    `function onPointerMove(e) {`\n      `if (!isDragging) return;`\n      `const pt = getLocalCoords(e);`\n      `const dx = pt.x - startX;`\n      `let targetX = startLineX + dx;`\n      `// Clamp within graph bounds`\n      `targetX = Math.max(50, Math.min(300, targetX));`\n\n      `// Find closest snap point`\n      `let closestIndex = 0;`\n      `let minDist = Infinity;`\n      `snapPoints.forEach((p, idx) => {`\n        `const dist = Math.abs(p.x - targetX);`\n        `if (dist < minDist) {`\n          `minDist = dist;`\n          `closestIndex = idx;`\n        `}`\n      `});`\n\n      `if (closestIndex !== currentSnapIndex) {`\n        `updateState(closestIndex, true);`\n      `}`\n    `}`\n\n    `function onPointerUp(e) {`\n      `if (!isDragging) return;`\n      `isDragging = false;`\n      `document.removeEventListener('pointermove', onPointerMove);`\n      `document.removeEventListener('pointerup', onPointerUp);`\n      `// Snap smoothly to final position`\n      `updateState(currentSnapIndex, true);`\n    `}`\n\n    `function getLocalCoords(e) {`\n      `const rect = graphSvg.getBoundingClientRect();`\n      `const x = (e.clientX - rect.left) * (400 / rect.width);`\n      `const y = (e.clientY - rect.top) * (220 / rect.height);`\n      `return { x, y };`\n    `}`\n\n    `function updateState(index, emitEvent) {`\n      `currentSnapIndex = index;`\n      `const p = snapPoints[index];`\n\n      `// Update visuals`\n      `hiringLine.setAttribute('x1', p.x);`\n      `hiringLine.setAttribute('x2', p.x);`\n      `hiringLineHit.setAttribute('x1', p.x);`\n      `hiringLineHit.setAttribute('x2', p.x);`\n      `handleGroup.setAttribute('transform', \\`translate(\\${p.x}, 180)\\`);`\n\n      `// Position marker`\n      `activeMarker.setAttribute('cx', p.x);`\n      `activeMarker.setAttribute('cy', p.markerY);`\n      `activeMarker.setAttribute('fill', p.color);`\n\n      `// Text description`\n      `stateDescription.textContent = p.desc;`\n\n      `// Emit message`\n      `if (emitEvent) {`\n        `try {`\n          `parent.postMessage({ type: 'hk-practice-answer', value: p.option }, '*');`\n        `} catch(err) {}`\n      `}`\n    `}`\n\n    `// Keyboard support`\n    `document.addEventListener('keydown', (e) => {`\n      `if (locked) return;`\n      `if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {`\n        `if (currentSnapIndex < snapPoints.length - 1) {`\n          `updateState(currentSnapIndex + 1, true);`\n        `}`\n      `} else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {`\n        `if (currentSnapIndex > 0) {`\n          `updateState(currentSnapIndex - 1, true);`\n        `}`\n      `}`\n    `});`\n\n    `// Lock listener`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `locked = true;`\n        `document.body.classList.add('locked');`\n      `}`\n    `});`\n\n    `// Height reporter`\n    `function reportHeight() {`\n      `try {`\n        `parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');`\n      `} catch (e) {}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `reportHeight();`\n      `// Send initial state on load`\n      `try {`\n        `parent.postMessage({ type: 'hk-practice-answer', value: snapPoints[currentSnapIndex].option }, '*');`\n      `} catch(err) {}`\n    `});`\n    `new ResizeObserver(reportHeight).observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "Hiring where MRP equals MRC."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 6 Comprehensive Exam",
+   "unitId": "unit6",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "image": {
+      "alt": "Graph showing MSB curve to the right of MPB curve, resulting in a higher optimal quantity than the market equilibrium.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit6-q1.png"
+     },
+     "prompt": "If a market for a good involves a positive externality in consumption, how does the private market equilibrium compare to the socially optimal outcome?",
+     "options": [
+      "The market equilibrium quantity is lower than the socially optimal quantity.",
+      "The market equilibrium price is higher than the socially optimal price.",
+      "The market equilibrium quantity is higher than the socially optimal quantity.",
+      "The market equilibrium results in a quantity where MSB equals MSC."
+     ],
+     "explanation": "With a positive externality, the Marginal Social Benefit (MSB) is greater than the Marginal Private Benefit (MPB). Because consumers only consider their private benefit, they under-consume the good relative to the social optimum.",
+     "correctAnswers": [
+      "The market equilibrium quantity is lower than the socially optimal quantity."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of a 'Public Good' as defined in economic theory?",
+     "options": [
+      "Non-rivalry in consumption",
+      "Excludability through pricing",
+      "Non-excludability",
+      "Rivalry in consumption",
+      "Provided exclusively by private firms"
+     ],
+     "explanation": "Public goods are defined by two technical characteristics: non-rivalry (one person's use doesn't diminish another's) and non-excludability (you cannot easily prevent non-payers from using it).",
+     "correctAnswers": [
+      "Non-rivalry in consumption",
+      "Non-excludability"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The situation where a person drives more recklessly after purchasing car insurance because they are shielded from the full financial cost of an accident is known as ____.",
+     "explanation": "Moral hazard occurs when one party changes their behavior to the detriment of another after a transaction has taken place, often due to a lack of full consequences for their actions.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "moral hazard"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram showing the vertical distance between MPC and MSC labeled as the marginal external cost.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit6-q4.png"
+     },
+     "prompt": "What is represented by the vertical distance between the Marginal Private Cost (MPC) and the Marginal Social Cost (MSC) curve in a negative externality graph?",
+     "options": [
+      "The total social surplus",
+      "The marginal external cost (MEC)",
+      "The deadweight loss",
+      "The socially optimal price"
+     ],
+     "explanation": "The vertical gap between the private cost curve and the social cost curve represents the external cost per unit (the spillover cost) imposed on society.",
+     "correctAnswers": [
+      "The marginal external cost (MEC)"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A natural monopoly exists when which of the following conditions are met?",
+     "options": [
+      "Average Total Cost (ATC) declines over the entire range of relevant market demand.",
+      "The firm experiences significant economies of scale.",
+      "Multiple small firms can produce at a lower cost than one large firm.",
+      "The socially optimal price (P=MC) is likely to result in economic losses for the firm.",
+      "There are no barriers to entry in the market."
+     ],
+     "explanation": "Natural monopolies have high fixed costs and low marginal costs, causing ATC to fall as output increases. Because ATC is above MC at most points, pricing at P=MC usually forces the firm into a loss.",
+     "correctAnswers": [
+      "Average Total Cost (ATC) declines over the entire range of relevant market demand.",
+      "The firm experiences significant economies of scale.",
+      "The socially optimal price (P=MC) is likely to result in economic losses for the firm."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ is a visual representation of income inequality that plots the cumulative percentage of total income against the cumulative percentage of the population.",
+     "explanation": "The Lorenz Curve shows the distribution of income. The further it bows away from the line of perfect equality, the greater the inequality.",
+     "placeholder": "Name of the curve",
+     "correctAnswers": [
+      "Lorenz Curve"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "To correct a negative externality, the government should implement a per-unit tax equal to the ____.",
+     "options": [
+      "Deadweight loss value",
+      "Marginal external cost at the socially optimal quantity",
+      "Difference between price and average total cost",
+      "Total consumer surplus"
+     ],
+     "explanation": "A Pigouvian tax internalizes the externality by making the private cost equal to the social cost; this is achieved by setting the tax equal to the marginal external cost.",
+     "correctAnswers": [
+      "Marginal external cost at the socially optimal quantity"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following actions would likely decrease a country's Gini coefficient?",
+     "options": [
+      "Increasing progressive income taxes",
+      "Expanding transfer payments to low-income families",
+      "A shift from a progressive tax system to a flat tax system",
+      "Eliminating the inheritance tax",
+      "Implementing a universal basic income"
+     ],
+     "explanation": "A lower Gini coefficient indicates greater income equality. Progressive taxes and transfer payments redistribute wealth from higher-income groups to lower-income groups, moving the Lorenz curve closer to the line of equality.",
+     "correctAnswers": [
+      "Increasing progressive income taxes",
+      "Expanding transfer payments to low-income families",
+      "Implementing a universal basic income"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When a firm produces a good where MSB > MSC, the market is experiencing ____.",
+     "explanation": "If MSB is greater than MSC, society values additional units more than they cost to produce, meaning the current output is too low.",
+     "correctAnswers": [
+      "underproduction",
+      "under-production",
+      "allocative inefficiency"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Natural monopoly graph indicating the fair-return price at the intersection of demand and average total cost.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit6-q10.png"
+     },
+     "prompt": "If the government regulates a natural monopoly using a 'Fair-Return' pricing policy, where will the price and quantity be set?",
+     "options": [
+      "Where P = MC",
+      "Where P = ATC",
+      "Where MR = MC",
+      "Where MR = 0"
+     ],
+     "explanation": "Fair-return pricing sets the price where the demand curve (P) intersects the Average Total Cost (ATC), allowing the firm to break even (zero economic profit).",
+     "correctAnswers": [
+      "Where P = ATC"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are examples of 'Asymmetric Information' leading to market failure?",
+     "options": [
+      "A car salesman knowing a vehicle has a hidden engine defect that the buyer cannot see.",
+      "A factory not paying for the air pollution it creates.",
+      "An insurance applicant hiding a pre-existing medical condition.",
+      "A streetlight being used by people who didn't pay for it.",
+      "A monopoly charging a price higher than marginal cost."
+     ],
+     "explanation": "Asymmetric information involves one party in a transaction having more information than the other, leading to adverse selection or moral hazard.",
+     "correctAnswers": [
+      "A car salesman knowing a vehicle has a hidden engine defect that the buyer cannot see.",
+      "An insurance applicant hiding a pre-existing medical condition."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The 'Free Rider Problem' is most closely associated with ____ goods.",
+     "explanation": "Because public goods are non-excludable, individuals have an incentive to consume them without paying, leading to under-provision by the private market.",
+     "placeholder": "Type of good",
+     "correctAnswers": [
+      "public"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Allocative efficiency is achieved at the level of output where:",
+     "options": [
+      "Total Social Benefit is maximized.",
+      "Marginal Social Benefit equals Marginal Social Cost.",
+      "Consumer Surplus equals Producer Surplus.",
+      "Marginal Private Cost is minimized."
+     ],
+     "explanation": "Allocative efficiency occurs when the last unit produced provides a benefit to society exactly equal to the cost of the resources used to produce it.",
+     "correctAnswers": [
+      "Marginal Social Benefit equals Marginal Social Cost."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "What are the typical outcomes of a 'Socially Optimal Pricing' regulation (P = MC) on a natural monopoly?",
+     "options": [
+      "The firm achieves allocative efficiency.",
+      "The firm will likely earn an economic loss.",
+      "The firm maximizes its own profit.",
+      "The firm produces where ATC is at its minimum.",
+      "Deadweight loss is eliminated."
+     ],
+     "explanation": "P=MC achieves allocative efficiency and removes DWL, but because ATC is falling and thus higher than MC, the firm loses money.",
+     "correctAnswers": [
+      "The firm achieves allocative efficiency.",
+      "The firm will likely earn an economic loss.",
+      "Deadweight loss is eliminated."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "Negative externality graph with a shaded deadweight loss triangle pointing to the right.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/de9c2c1f-4dec-4a31-9c98-72368ea89f51/exam/images/unit6-q15.png"
+     },
+     "prompt": "Why does a deadweight loss occur in a market with a negative externality if the government does not intervene?",
+     "options": [
+      "The market produces too little of the good.",
+      "The marginal social cost of the last units produced exceeds the marginal social benefit.",
+      "The price is too high for consumers to afford.",
+      "The marginal private cost exceeds the marginal social cost."
+     ],
+     "explanation": "In an unregulated market with a negative externality, firms produce where MPB = MPC. At this quantity, MSC (which includes external costs) is higher than MSB, leading to units being produced that cost society more than they are worth.",
+     "correctAnswers": [
+      "The marginal social cost of the last units produced exceeds the marginal social benefit."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "If a government imposes a price ceiling below the equilibrium price in a market with no externalities, what happens to social welfare?",
+     "options": [
+      "Consumer surplus definitely increases.",
+      "Deadweight loss is created.",
+      "The market becomes allocatively inefficient.",
+      "Marginal Social Benefit will exceed Marginal Social Cost at the new quantity.",
+      "Producer surplus increases."
+     ],
+     "explanation": "A price ceiling causes a shortage and underproduction. Since MSB > MSC for the units not produced, value is lost to society (DWL). Consumer surplus might increase for those who get the good, but it is not guaranteed for the whole group.",
+     "correctAnswers": [
+      "Deadweight loss is created.",
+      "The market becomes allocatively inefficient.",
+      "Marginal Social Benefit will exceed Marginal Social Cost at the new quantity."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Adjust the market output to achieve allocative efficiency in a market currently experiencing a negative externality from production.",
+     "options": [
+      "Quantity where MSB equals MPC",
+      "Quantity where MPB equals MSC",
+      "Quantity where MPB exceeds MSC",
+      "Quantity where MPC exceeds MSB"
+     ],
+     "explanation": "Allocative efficiency occurs where the marginal social benefit (MSB) equals the marginal social cost (MSC). In a market with a negative production externality and no consumption externality, MSB is represented by the demand curve (MPB), and MSC includes the external cost added to the supply curve (MPC). Moving to where MSB=MSC corrects overproduction.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Negative Externality Interactive Graph</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --color-msb: #2b6cb0;\n      --color-mpc: #dd6b20;\n      --color-msc: #e53e3e;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      padding: 12px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .action-hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-bottom: 2px;\n    }\n\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      position: relative;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n    }\n\n    .graph-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n    }\n\n    /* Grid & Axis */\n    .axis {\n      stroke: #888888;\n      stroke-width: 1.5;\n    }\n    .grid-line {\n      stroke: #f0f0f0;\n      stroke-width: 1;\n      stroke-dasharray: 2 2;\n    }\n    .curve-label {\n      font-size: 10px;\n      font-weight: 600;\n    }\n\n    /* Interactive Line & Dots */\n    .quantity-line {\n      stroke: var(--accent);\n      stroke-width: 2;\n      stroke-dasharray: 4 4;\n      transition: x1 0.15s ease, x2 0.15s ease;\n    }\n    .intersection-dot {\n      transition: cx 0.15s ease, cy 0.15s ease;\n    }\n\n    /* Slider Container */\n    .slider-container {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n      margin-top: 4px;\n    }\n\n    .slider-track {\n      position: relative;\n      height: 36px;\n      background: var(--stage);\n      border-radius: 6px;\n      border: 1px solid var(--border);\n      display: flex;\n      align-items: center;\n      padding: 0 16px;\n      touch-action: none;\n      cursor: pointer;\n    }\n\n    .slider-ticks {\n      position: absolute;\n      left: 16px;\n      right: 16px;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .slider-tick {\n      width: 6px;\n      height: 6px;\n      border-radius: 50%;\n      background: #ccc;\n    }\n    .slider-tick.active {\n      background: var(--accent);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background: var(--accent);\n      border: 2px solid #fff;\n      box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n      cursor: grab;\n      touch-action: none;\n      top: 5px;\n      transform: translateX(-50%);\n      transition: left 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);\n    }\n    .slider-handle:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n    }\n\n    /* Live Readouts Card */\n    .readout-card {\n      background: var(--accent-soft);\n      border: 1px solid rgba(76,102,150,0.15);\n      border-radius: 6px;\n      padding: 8px 12px;\n      display: flex;\n      justify-content: space-between;\n      font-size: 11px;\n      gap: 8px;\n    }\n\n    .readout-item {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      flex: 1;\n    }\n\n    .readout-label {\n      font-weight: 600;\n      color: var(--muted-fg);\n      margin-bottom: 2px;\n    }\n\n    .readout-value {\n      font-size: 13px;\n      font-weight: bold;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .state-indicator {\n      text-align: center;\n      font-size: 12px;\n      font-weight: 600;\n      color: var(--accent-strong);\n      min-height: 18px;\n    }\n\n    /* Utilities */\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n    .locked .slider-handle {\n      background: #888 !important;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Supply &amp; Demand Negative Externality Graph Slider</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"action-hint\">Drag the slider below to adjust market production quantity</div>\n    \n    <div class=\"stage\" id=\"stage\">\n      <svg viewBox=\"0 0 400 190\" class=\"graph-svg\" id=\"graph\">\n        <!-- Axes -->\n        <line x1=\"40\" y1=\"10\" x2=\"40\" y2=\"160\" class=\"axis\" />\n        <line x1=\"40\" y1=\"160\" x2=\"380\" y2=\"160\" class=\"axis\" />\n        \n        <!-- Axis Labels -->\n        <text x=\"375\" y=\"175\" font-size=\"9\" text-anchor=\"end\" fill=\"#555\">Quantity (Q)</text>\n        <text x=\"35\" y=\"18\" font-size=\"9\" text-anchor=\"end\" fill=\"#555\" transform=\"rotate(-90 35 18)\">Price, Cost ($)</text>\n\n        <!-- Demand Curve: MSB = MPB -->\n        <path d=\"M 60 30 L 360 145\" stroke=\"var(--color-msb)\" stroke-width=\"2.5\" fill=\"none\" />\n        <text x=\"365\" y=\"148\" class=\"curve-label\" fill=\"var(--color-msb)\">MSB = MPB</text>\n\n        <!-- Supply Curve: MPC -->\n        <path d=\"M 60 135 L 360 55\" stroke=\"var(--color-mpc)\" stroke-width=\"2\" fill=\"none\" />\n        <text x=\"365\" y=\"52\" class=\"curve-label\" fill=\"var(--color-mpc)\">MPC</text>\n\n        <!-- Supply Curve: MSC -->\n        <path d=\"M 60 100 L 360 20\" stroke=\"var(--color-msc)\" stroke-width=\"2\" fill=\"none\" />\n        <text x=\"365\" y=\"18\" class=\"curve-label\" fill=\"var(--color-msc)\">MSC</text>\n\n        <!-- Vertical Quantity Indicator Line -->\n        <line id=\"q-line\" x1=\"120\" y1=\"15\" x2=\"120\" y2=\"160\" class=\"quantity-line\" />\n\n        <!-- Intersection Dots -->\n        <circle id=\"dot-msb\" cx=\"120\" cy=\"50\" r=\"5\" fill=\"var(--color-msb)\" class=\"intersection-dot\" />\n        <circle id=\"dot-msc\" cx=\"120\" cy=\"80\" r=\"5\" fill=\"var(--color-msc)\" class=\"intersection-dot\" />\n        <circle id=\"dot-mpc\" cx=\"120\" cy=\"110\" r=\"5\" fill=\"var(--color-mpc)\" class=\"intersection-dot\" />\n      </svg>\n    </div>\n\n    <!-- Live Dynamic Readout -->\n    <div class=\"readout-card\">\n      <div class=\"readout-item\">\n        <span class=\"readout-label\" style=\"color:var(--color-msb)\">MSB (Benefit)</span>\n        <span class=\"readout-value\" id=\"val-msb\">$0.00</span>\n      </div>\n      <div class=\"readout-item\" style=\"border-left: 1px solid var(--border); border-right: 1px solid var(--border);\">\n        <span class=\"readout-label\" style=\"color:var(--color-msc)\">MSC (Social Cost)</span>\n        <span class=\"readout-value\" id=\"val-msc\">$0.00</span>\n      </div>\n      <div class=\"readout-item\">\n        <span class=\"readout-label\" style=\"color:var(--color-mpc)\">MPC (Private Cost)</span>\n        <span class=\"readout-value\" id=\"val-mpc\">$0.00</span>\n      </div>\n    </div>\n\n    <!-- Active Region Indicator -->\n    <div class=\"state-indicator\" id=\"state-text\">\n      Select a production state\n    </div>\n\n    <!-- Interactive Track -->\n    <div class=\"slider-container\">\n      <div class=\"slider-track\" id=\"slider-track\">\n        <div class=\"slider-ticks\">\n          <div class=\"slider-tick\" style=\"margin-left: 0%;\"></div>\n          <div class=\"slider-tick\" style=\"margin-left: 33%;\"></div>\n          <div class=\"slider-tick\" style=\"margin-left: 66%;\"></div>\n          <div class=\"slider-tick\" style=\"margin-left: 100%;\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"slider-handle\"></div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // 4 discrete states corresponding to the answer options\n    const STATES = [\n      {\n        id: 0,\n        pct: 12, // Slider visual percentage\n        qVal: 20,\n        optionText: \"Quantity where MPB exceeds MSC\",\n        msb: 74.5,\n        msc: 44.5,\n        mpc: 24.5\n      },\n      {\n        id: 1,\n        pct: 42,\n        qVal: 40,\n        optionText: \"Quantity where MPB equals MSC\",\n        msb: 54.5,\n        msc: 54.5,\n        mpc: 34.5\n      },\n      {\n        id: 2,\n        pct: 70,\n        qVal: 62,\n        optionText: \"Quantity where MSB equals MPC\",\n        msb: 34.5,\n        msc: 63.5,\n        mpc: 34.5\n      },\n      {\n        id: 3,\n        pct: 100,\n        qVal: 85,\n        optionText: \"Quantity where MPC exceeds MSB\",\n        msb: 15.5,\n        msc: 74.5,\n        mpc: 54.5\n      }\n    ];\n\n    let currentStateIndex = 1; // Default to social optimum or mid-range\n    let isLocked = false;\n\n    const track = document.getElementById('slider-track');\n    const handle = document.getElementById('slider-handle');\n    const qLine = document.getElementById('q-line');\n    const dotMsb = document.getElementById('dot-msb');\n    const dotMsc = document.getElementById('dot-msc');\n    const dotMpc = document.getElementById('dot-mpc');\n    \n    const valMsb = document.getElementById('val-msb');\n    const valMsc = document.getElementById('val-msc');\n    const valMpc = document.getElementById('val-mpc');\n    const stateText = document.getElementById('state-text');\n    const ticks = document.querySelectorAll('.slider-tick');\n\n    // Setup visual dimensions for SVG mapping\n    // Graph Q ranges from 40px (Q=0) to 360px (Q=100)\n    function updateVisuals(index) {\n      const state = STATES[index];\n      \n      // Update slider handle position\n      handle.style.left = `calc(${state.pct}% - 0px)`;\n      \n      // Update active tick highlight\n      ticks.forEach((tick, i) => {\n        if (i === index) {\n          tick.classList.add('active');\n        } else {\n          tick.classList.remove('active');\n        }\n      });\n\n      // Map dynamic SVG positions\n      const xPos = 40 + (state.qVal * 3.2);\n      qLine.setAttribute('x1', xPos);\n      qLine.setAttribute('x2', xPos);\n\n      // Y-positions based on linear functions\n      // P scales from 160px (P=0) to 10px (P=100). Height is 150px.\n      const yMsb = 160 - (state.msb * 1.5);\n      const yMsc = 160 - (state.msc * 1.5);\n      const yMpc = 160 - (state.mpc * 1.5);\n\n      dotMsb.setAttribute('cx', xPos);\n      dotMsb.setAttribute('cy', yMsb);\n\n      dotMsc.setAttribute('cx', xPos);\n      dotMsc.setAttribute('cy', yscPos = yMsc);\n\n      dotMpc.setAttribute('cx', xPos);\n      dotMpc.setAttribute('cy', ympcPos = yMpc);\n\n      // Update values\n      valMsb.textContent = `$${state.msb.toFixed(2)}`;\n      valMsc.textContent = `$${state.msc.toFixed(2)}`;\n      valMpc.textContent = `$${state.mpc.toFixed(2)}`;\n\n      stateText.textContent = state.optionText;\n\n      // Report active choice to host\n      parent.postMessage({ type: 'hk-practice-answer', value: state.optionText }, '*');\n    }\n\n    // Handle user slide logic\n    function handlePointer(clientX) {\n      if (isLocked) return;\n      const rect = track.getBoundingClientRect();\n      const offsetX = clientX - rect.left - 16; // Adjust for padding\n      const width = rect.width - 32;\n      const percentage = Math.max(0, Math.min(100, (offsetX / width) * 100));\n\n      // Find closest state\n      let closestIndex = 0;\n      let minDiff = Infinity;\n      STATES.forEach((state, idx) => {\n        const diff = Math.abs(state.pct - percentage);\n        if (diff < minDiff) {\n          minDiff = diff;\n          closestIndex = idx;\n        }\n      });\n\n      if (closestIndex !== currentStateIndex) {\n        currentStateIndex = closestIndex;\n        updateVisuals(currentStateIndex);\n      }\n    }\n\n    // Pointer Events\n    let isDragging = false;\n    track.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      track.setPointerCapture(e.pointerId);\n      handlePointer(e.clientX);\n    });\n\n    track.addEventListener('pointermove', (e) => {\n      if (isDragging) {\n        handlePointer(e.clientX);\n      }\n    });\n\n    track.addEventListener('pointerup', () => {\n      isDragging = false;\n    });\n\n    // Keyboard controls for Accessibility\n    track.setAttribute('tabindex', '0');\n    track.setAttribute('aria-label', 'Quantity adjustment slider');\n    track.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        if (currentStateIndex < STATES.length - 1) {\n          currentStateIndex++;\n          updateVisuals(currentStateIndex);\n        }\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        if (currentStateIndex > 0) {\n          currentStateIndex--;\n          updateVisuals(currentStateIndex);\n        }\n      }\n    });\n\n    // Lock interaction hook\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        track.classList.add('locked');\n        track.removeAttribute('tabindex');\n      }\n    });\n\n    // Initialize & Height reporting\n    window.addEventListener('load', () => {\n      updateVisuals(currentStateIndex);\n      try {\n        parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');\n      } catch (err) {}\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      try {\n        parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');\n      } catch (err) {}\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Quantity where MPB equals MSC"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "0060db99-0246-4900-920f-3c29a148a16f"
+}

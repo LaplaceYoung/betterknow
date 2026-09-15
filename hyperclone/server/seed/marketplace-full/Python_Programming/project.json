@@ -1,0 +1,392 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first project! Over the course of this journey, you are going to build WeatherInsight—a professional-grade command-line interface (CLI) tool. By the end of the full course, you will have a robust Python package capable of fetching live API data, processing historical trends, and exporting reports. Today, we start at the beginning: building the logic engine. You've recently learned how Python handles strings, variables, and arithmetic. In this stage, you will combine those skills to create a 'Basic Weather Interface'—a script that interacts with a user to provide personalized clothing advice based on simulated temperature data. Let's start by setting up your environment and your first script file.",
+     "step_title": "Project Kickoff & Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {},
+     "step_body": "To begin, create a new Python file named `weather_cli.py`. Every great program starts with a clear greeting to the user. Using the `print()` function and the string techniques you've mastered, write a header that welcomes the user to 'WeatherInsight CLI'. Think back to our session on 'Running Python'; remember that Python executes top-to-bottom. After your welcome message, use the `input()` function to ask the user for their city and store it in a variable named `city_name`.",
+     "step_title": "Initialize the Script",
+     "need_response": false
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the 3-4 lines of code you have written so far to capture and clean the city name and temperature. I will check if you correctly applied the string methods and the integer type conversion."
+     },
+     "step_body": "In our previous session on Slicing and String Methods, we discussed how user input can be messy. Users might add extra spaces or use inconsistent casing. To make your dashboard look professional, take the `city_name` variable and apply the `.strip()` and `.title()` methods. This ensures '  london  ' becomes 'London'. Now, create a second input variable called `temp_input` where you ask the user: 'What is the current temperature in Celsius?'. Because `input()` always returns a string, you'll need to use type conversion—convert this input into an integer (int) so we can perform math on it later.",
+     "step_title": "Capture & Clean Input",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now for the 'intelligence' of your script! You need to provide a clothing recommendation based on the temperature. We will use conditional logic for this. If the temperature is below 10 degrees, suggest a 'Heavy Coat'. If it is between 10 and 20, suggest a 'Light Jacket'. Otherwise, suggest 'T-shirt weather'. Use the comparison operators you learned in the 'Numbers and Arithmetic' session. Create a variable called `recommendation` to store the result of this logic.",
+     "step_title": "Build the Logic Gates",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "It is time to display the results back to the user in a clean, readable format. Use an f-string to print a summary message. It should look something like this: '--- Weather Report for [City] ---'. On the next line, show the temperature, and on the final line, provide the recommendation. This brings together your knowledge of variables, strings, and program flow into a single cohesive output.",
+     "step_title": "Format the Final Report",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your final 'weather_cli.py' script. It must: 1) Greet the user, 2) Properly clean the city name input, 3) Convert the temperature to an integer, 4) Use conditional logic for recommendations, and 5) Print a formatted summary. I will be looking for correct syntax and logical flow."
+     },
+     "step_body": "You've just built the foundational interface for WeatherInsight! You've successfully managed user state with variables, cleaned data with string methods, and implemented logic gates to process information. This script will serve as the core 'brain' that we will later expand with real API data and object-oriented structures. Please upload your completed `weather_cli.py` file to finish this stage.",
+     "step_title": "Final Script Submission",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "227045a5-8ef3-45fb-b20c-8c88d63cad48",
+   "stage_title": "Basic Weather Interface",
+   "parent_project_id": "f225b169-9327-4ac1-8c38-d9bb318a0f82",
+   "stage_description": "Create a script that uses variables and control flow to simulate a weather dashboard. It will accept user input for a city name and use conditional logic to provide clothing recommendations based on simulated temperature values.",
+   "deliverable_increment": "A single script 'weather_cli.py' that processes user input and outputs formatted text based on logic gates."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you built a basic CLI script that used logic gates to simulate weather output. Since then, we've explored Python's collection types: Lists for ordered sequences, Tuples for immutable records, and Dictionaries for labeled data. In this stage, you will move away from 'hard-coded' single variables and start building a robust data structure. This will eventually allow your 'WeatherInsight' tool to store a full week of forecast data for multiple cities, laying the groundwork for your final data-processing library.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code for your 'day_record' dictionary. A good response will use descriptive string keys and appropriate data types for values (strings for date/condition, integers/floats for temperatures)."
+     },
+     "step_body": "Before we build a collection, we need to design what a single day of weather looks like. Using a dictionary is the 'standard practice' for this because it allows us to use semantic labels like 'temp' or 'condition' instead of relying on list indices. Create a dictionary named 'day_record' that contains the following keys: 'date', 'high_temp', 'low_temp', and 'condition'. Assign some sample values to these keys (e.g., '2023-10-01', 72, 55, 'Sunny').",
+     "step_title": "Design a daily data record",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now that you have a single record, let's scale up. In professional software, we often see a 'List of Dictionaries' to represent a series of related objects. Create a variable called 'forecast_data' which is a list containing seven of your daily weather dictionaries. You can use placeholder data for now, but ensure each dictionary follows the same structure you designed in the previous step. This structure mimics the JSON data you will eventually fetch from real-world APIs.",
+     "step_title": "Create the 7-day forecast list",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the code for your 'get_daily_summary' function. I will be looking for correct list indexing, dictionary key access, and a clear, formatted return string."
+     },
+     "step_body": "To make this data useful, your CLI needs a way to extract specific information. Create a new Python file named 'data_manager.py'. Inside, write a function called 'get_daily_summary(forecast, index)'. This function should take your list of dictionaries and an integer index. It should return a formatted string that says: 'On [date], the weather will be [condition] with a high of [high_temp]°.' Remember to use defensive programming: what happens if the user asks for index 10 in a 7-day list? Use a try-except block or a conditional check to handle potential index errors gracefully.",
+     "step_title": "Draft the retrieval function",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Currently, our tool only handles one location. To expand this into a 'Professional-grade' tool, create a top-level dictionary called 'weather_store'. The keys should be city names (e.g., 'New York', 'London'), and the values should be the 7-day forecast lists you created earlier. This nested structure (Dictionary -> List -> Dictionary) is the 'north star' for handling complex state in Python. Practice accessing data from this structure by retrieving the 'high_temp' for the 3rd day of a specific city.",
+     "step_title": "Implement city-based lookups",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'data_manager.py' file. This deliverable should include a nested data structure (Dictionary of Lists of Dictionaries) and at least one function that retrieves and formats data from that structure. Good work will show clean formatting and consistent key naming."
+     },
+     "step_body": "You've successfully transitioned from simple variables to a multi-layered data structure. This file will serve as the 'Data Module' for your WeatherInsight CLI. Ensure your 'data_manager.py' contains your 'weather_store' dictionary and your 'get_daily_summary' function. Double-check that your keys are consistent and your function handles out-of-bounds indices without crashing.",
+     "step_title": "Finalize and submit data module",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "7e6e556d-0db4-4207-adee-de2b122362e4",
+   "stage_title": "Historical Data Management",
+   "parent_project_id": "f225b169-9327-4ac1-8c38-d9bb318a0f82",
+   "stage_description": "Implement dictionary and list structures to store 7-day weather forecasts. Use dictionary lookups and nested lists to manage temperature high/lows and weather conditions for multiple cities.",
+   "deliverable_increment": "A data module containing dictionary-based records and a function to retrieve specific daily stats from the collection."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous unit, you built a script that processes weather data linearly and manages historical records using dictionaries. While functional, the current logic is 'coupled'—meaning the calculation and display are mixed together. Now that you've learned the 'Anatomy of a Definition,' you'll transform that script into a professional engine. By refactoring your logic into pure functions with clear parameters and return values, you'll create a reusable 'toolbox' that makes your WeatherInsight tool modular and testable.",
+     "step_title": "Recap and scope orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short plan for two functions. Example: calculate_average(temp_list) -> returns float; filter_extremes(data, threshold) -> returns list."
+     },
+     "step_body": "Before writing code, we need to map out our 'machines.' Look at your current weather logic. Identify two specific tasks: calculating the average temperature from a list of values, and filtering out 'extreme' weather days (e.g., days above a certain temperature). Think about what 'ingredients' (parameters) these machines need and what 'package' (return value) they should hand back. Briefly list the names, parameters, and return types you plan to use for these two functions.",
+     "step_title": "Identify core calculations",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Create a new file named 'engine.py'. Inside, define your first function to calculate the average temperature. Remember the 'Function as a Machine' model: use the 'return' statement to pass the result back to the caller instead of just printing it. Then, define a second function that takes a list of daily records and a threshold value, returning a new list containing only the days that exceed that threshold. Use a default argument for the threshold (e.g., 30 degrees Celsius) so the function has a 'sane default' but remains flexible.",
+     "step_title": "Draft the calculation engine",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation of the results of your test calls. Did you encounter any scoping errors? How did using keyword arguments change the readability of your function call?"
+     },
+     "step_body": "To ensure your 'handshake' between the call and the definition is working, add a temporary test block at the bottom of 'engine.py'. Call your functions using both positional arguments and keyword arguments. Specifically, try calling your filter function using a keyword argument for the threshold to see how it makes your code self-documenting. Print the returned values to verify the logic is sound. Does the average function return 'None'? If so, check if you remembered the 'return' keyword!",
+     "step_title": "Test the engine handshake",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'engine.py' file. It should contain at least two functions: one for averaging and one for filtering data using default and keyword argument patterns. Good work will show clear separation of logic and the correct use of return statements."
+     },
+     "step_body": "Now that you have refactored your logic into a dedicated module, you have the foundation of a professional-grade CLI tool. Ensure your functions include docstrings (a short string at the top of the function) explaining what they do. This modular approach means you can now use these calculations anywhere in your project without copy-pasting code, effectively solving the 'Software Crisis' in your application.",
+     "step_title": "Submit your engine.py",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great job modularizing your code! Before we move on, consider the LEGB rule we discussed. If you were to define a variable named 'data' inside your averaging function and another variable named 'data' in your main script, why don't they crash into each other? Reflecting on this 'Local' vs 'Global' landscape will help you avoid bugs as your WeatherInsight tool grows into a full package.",
+     "step_title": "Final reflection on scope",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "bc984365-173a-4e4d-a123-232b153bc175",
+   "stage_title": "Functional Refactoring",
+   "parent_project_id": "f225b169-9327-4ac1-8c38-d9bb318a0f82",
+   "stage_description": "Refactor the logic into reusable functions with clear parameters and return types. Implement a core logic module that calculates averages and filters extreme weather days from the data structures.",
+   "deliverable_increment": "A modularized 'engine.py' file containing pure functions for data analysis and weather calculations."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, we managed our weather data using standard dictionaries and pure functions in 'engine.py'. While functional, this approach makes it hard to manage state as our application grows. This stage is about the shift from procedural to Object-Oriented Programming (OOP). We will transform our data into 'objects'—living containers that hold both data (attributes) and behavior (methods). By the end of this stage, you'll have a robust class library that serves as the backbone for our professional-grade CLI tool.",
+     "step_title": "Recap & Orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Paste the code for your 'WeatherData' class definition and the two instances you created. I am looking for a correct __init__ method with 'self' and properly assigned instance attributes."
+     },
+     "step_body": "Let's start by building a blueprint for our weather observations. Create a class named 'WeatherData'. Using the `__init__` method, initialize it with attributes for 'city', 'temperature', 'condition', and 'humidity'. This moves our data from 'nouns' floating in a dictionary to a structured 'State' within an object. Once defined, create two distinct instances of this class for 'London' and 'New York' to see how the same blueprint produces unique houses.",
+     "step_title": "Define the WeatherData Class",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now that our objects have data, they need to 'do' something. Add a method called `format_output(self)` to your 'WeatherData' class. This method should return a clean, user-friendly string (e.g., 'The weather in London is 15°C and Cloudy'). Remember the 'self' parameter—it is the key that lets the method know exactly which city and temperature to reference. This is called 'Encapsulation': the object is now responsible for representing its own data.",
+     "step_title": "Add Behavior with Methods",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the code for your 'WeatherReport' and 'DetailedReport' classes. Ensure you use the 'super()' function if you define an __init__ in the subclass, and demonstrate that 'DetailedReport' can access the data stored in the parent class."
+     },
+     "step_body": "Our tool needs different types of reports. Rather than writing redundant code, we'll use Inheritance. Create a base class 'WeatherReport' that holds a list of 'WeatherData' objects. Then, create a subclass called 'DetailedReport' that inherits from 'WeatherReport'. In 'DetailedReport', add a method called `generate()` that iterates through the data and uses the `format_output()` method we created earlier. This 'Is-A' relationship allows the DetailedReport to leverage the foundation of the base class while adding its own specific logic.",
+     "step_title": "Implement Report Inheritance",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'models.py' file. Your submission should show a clear class hierarchy, proper use of 'self' in methods, and the successful conversion of raw data into object-oriented models."
+     },
+     "step_body": "It's time to assemble your work into the project structure. Refactor your code into a clean library file (e.g., 'models.py'). This file should contain your 'WeatherData' class, your 'WeatherReport' base class, and the 'DetailedReport' subclass. Ensure that your methods use 'self' correctly and that your inheritance logic is clean. This library will replace the old dictionary-based logic in your main CLI script in the next stage.",
+     "step_title": "Submit the Class Library",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief explanation (2-3 sentences) on how polymorphism helps you add new report types in the future without changing the core execution logic of your CLI."
+     },
+     "step_body": "You've successfully moved from scripts to a class-based architecture! Before we move on, consider the concept of Polymorphism. If we created a 'SummaryReport' subclass alongside 'DetailedReport', we could treat them both as 'Reports' in our main loop without knowing their specific type. How does this 'shape-blind' approach make our CLI tool more scalable for future features like CSV or JSON specific report classes?",
+     "step_title": "Reflect on Polymorphism",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "7bb3ad4f-1953-4181-aa49-df994f31f5ff",
+   "stage_title": "Object-Oriented Weather Models",
+   "parent_project_id": "f225b169-9327-4ac1-8c38-d9bb318a0f82",
+   "stage_description": "Convert dictionary data into Class instances. Define a 'WeatherData' class to encapsulate state and a 'WeatherReport' class to handle different output formats, utilizing inheritance for specialized reports.",
+   "deliverable_increment": "A class-based library architecture replacing raw data structures with objects and methods."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome back! You've successfully built an object-oriented foundation for the WeatherInsight CLI, with classes representing weather models and engines for calculations. However, until now, all your data has been 'volatile'—meaning it disappears the moment the script stops. This stage is about bridging that gap. You will transition from temporary memory to permanent storage by implementing file handlers, ensuring your weather reports can be saved, shared, and reviewed later as CSV or JSON files.",
+     "step_title": "Recap & persist",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the Python code for your WeatherExportError class and a 1-2 sentence explanation of why custom exceptions improve debugging. Criteria: Class must correctly inherit from Exception and the explanation must mention error clarity or specific catching."
+     },
+     "step_body": "Professional tools don't just crash when something goes wrong; they handle errors gracefully. Before we touch the filesystem, let's define a dedicated exception. In your project, create a custom exception class named 'WeatherExportError' that inherits from the base 'Exception' class. This will allow us to specifically catch errors related to file saving (like permission issues or disk space) without catching unrelated logic bugs. Write a short snippet showing your class definition and explain why inheriting from 'Exception' is better than using a raw 'print' statement for errors.",
+     "step_title": "Define custom exceptions",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now, let's build the persistence logic. Add a method to your reporting class (or a dedicated 'ExportManager' class) that takes a list of weather objects and writes them to a .csv file. Use the 'with' statement to manage the file handle safely, ensuring the 'bridge' to the disk is closed even if the write fails. You should use the 'csv' module for this. Remember to write a header row (e.g., 'Date, Temperature, Condition') before iterating through your objects.",
+     "step_title": "Implement the CSV exporter",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Users often need data in different formats. Implement a JSON export method. Unlike CSV, JSON is great for nested data. Inside this method, wrap your file operations in a 'try...except' block. If an 'IOError' occurs (like a read-only directory), catch it and raise your 'WeatherExportError' instead. This 'wraps' a low-level system error into a meaningful application error.",
+     "step_title": "Add JSON support and error handling",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Submit your updated Python files (e.g., engine.py or a new export_handler.py). Criteria: Must use 'with' statements for file I/O, implement both CSV and JSON logic, and use a try-except block that raises your custom WeatherExportError."
+     },
+     "step_body": "It is time to verify your I/O implementation. Ensure your CLI now has a command or flag (like '--export csv') that triggers these new methods. Test it by generating a report and confirming the file appears in your project directory with the correct data. Upload your updated code showing the file-handling methods and the integration of your custom exception.",
+     "step_title": "Submit your persistence layer",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short reflection (3-4 sentences). Criteria: Must correctly identify that 'with' ensures file closure/cleanup even during crashes, preventing file corruption or locked resources."
+     },
+     "step_body": "Great work! Your WeatherInsight tool can now generate permanent records. To wrap up this stage, think about the 'Context Manager' (the 'with' statement) you used. If you had used 'file = open()' and 'file.close()' instead, what might happen to your weather data if the program crashed exactly halfway through the writing process? Write a brief reflection on how 'with' protects the integrity of the user's filesystem.",
+     "step_title": "Reflect on resource safety",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "11cac425-5035-4701-95ac-e639e207817b",
+   "stage_title": "Data Persistence and Error Handling",
+   "parent_project_id": "f225b169-9327-4ac1-8c38-d9bb318a0f82",
+   "stage_description": "Add functionality to save weather reports to JSON and CSV files. Implement try-except blocks to handle file system errors and invalid data formats gracefully.",
+   "deliverable_increment": "File I/O handlers and custom exception classes integrated into the main application flow."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have come a long way! You've transformed a simple script into a sophisticated, object-oriented system with custom error handling and file I/O. Currently, your 'WeatherInsight' tool relies on simulated data. In this final stage, you are going to bridge the gap to the real world. You will integrate the 'requests' library to fetch live weather data, wrap your logic in a professional CLI using 'argparse', and ensure everything is rock-solid using the 'pytest' framework. By the end, you'll have a fully-packaged Python tool ready for professional use.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a code snippet showing your updated API request logic. I am looking for clean use of the requests library and proper error handling for non-200 HTTP status codes."
+     },
+     "step_body": "It is time to replace your static data modules with dynamic API calls. Using the 'requests' library, update your core logic to query a real weather service. Remember our lessons on defensive programming: ensure you handle potential network issues or invalid API keys using the custom exception classes you built in the previous stage. Your code should now be able to fetch a real temperature for a given city.",
+     "step_title": "Integrate live API calls",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the 'argparse' configuration code from your script. Your submission should demonstrate at least one positional argument and one optional flag with appropriate 'type' and 'help' parameters."
+     },
+     "step_body": "No professional tool requires the user to edit the source code to change a city name. Using 'argparse', create a main entry point that accepts positional arguments (like the city name) and optional flags (like '--format csv' or '--units metric'). This turns your script into a native system utility. Ensure you include helpful descriptions for each argument so that the automatically generated '-h' help menu looks professional and clear.",
+     "step_title": "Build the CLI entry point",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now that the features are built, we need a 'Safety Net'. Create a 'tests/' directory and write test functions using 'pytest'. Start with the 'happy path'—ensure that when your data processor receives valid JSON, it returns the expected temperature and conditions. Use the 'assert' keyword to verify that your calculations (like Celsius to Fahrenheit conversions) are mathematically correct. Running 'pytest' in your terminal should now show passing dots for these core functions.",
+     "step_title": "Write logic validation tests",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Describe two edge cases you identified and provide the pytest code you wrote to verify them. Good work will show tests that specifically target empty inputs or malformed data."
+     },
+     "step_body": "A professional tool is defined by how it handles the unexpected. Think like an 'Adversarial Developer' and identify boundary conditions for your weather tool. What happens if the API returns an empty list? What if the user inputs a city name with special characters? Write specialized test functions for at least two edge cases. If these tests fail, refactor your core logic until they pass. This ensures your tool won't crash in the hands of a real user.",
+     "step_title": "Identify and test edge cases",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload a ZIP file containing your complete WeatherInsight project (including source code, pyproject.toml, and the tests folder). Your project will be evaluated on API functionality, CLI usability, code style (PEP 8), and test coverage."
+     },
+     "step_body": "Finally, let's assemble the full package. Ensure your project structure includes a 'pyproject.toml' file for packaging and follow PEP 8 standards for naming and spacing. Run a linter to catch any final style issues. This is your final deliverable: a complete, robust, and tested CLI package that fetches live weather data.",
+     "step_title": "Package and submit WeatherInsight",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Write a brief reflection (3-5 sentences) on which software engineering principle from this project will most impact the way you write code in the future."
+     },
+     "step_body": "Congratulations on finishing the WeatherInsight CLI Automation Tool! You have evolved a script from a simple prompt-based loop into a fully tested, installable Python package. Before you move on, reflect on the process: which part of building this modular system—the OOP design, the error handling, or the automated testing—did you find most valuable for your future projects?",
+     "step_title": "Final project reflection",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "1883e1ae-5621-4ad8-ae65-1e2db1bfad95",
+   "stage_title": "API Integration and CLI Packaging",
+   "parent_project_id": "f225b169-9327-4ac1-8c38-d9bb318a0f82",
+   "stage_description": "Replace simulated data with live calls to a Weather API using the requests library. Finalize the project as a package with a pyproject.toml and a pytest suite ensuring all logic is verified.",
+   "deliverable_increment": "The final 'WeatherInsight' package featuring API connectivity, CLI arguments, and a passing test suite."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "f225b169-9327-4ac1-8c38-d9bb318a0f82",
+   "project_name": "WeatherInsight CLI Automation Tool",
+   "final_deliverable": "A complete, pip-installable Python package including a CLI entry point, a data-processing class library, JSON/CSV export functionality, and a pytest-driven test suite.",
+   "project_description": "Build a professional-grade command-line tool that fetches real-time weather data from an API, processes historical trends, and generates formatted reports. The project evolves from a simple script into a robust, object-oriented application with full error handling and automated tests."
+  }
+ ],
+ "courseUuid": "e99074c6-6e55-4172-9d0a-aa6efc0e2c45"
+}

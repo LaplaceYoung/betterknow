@@ -1,0 +1,1374 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Comprehensive Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "An LLM is often described as 'stateless' in a single-turn exchange. What does this conceptually mean for the model's internal memory?",
+     "options": [
+      "The model stores user preferences in a temporary cache for 24 hours.",
+      "The model has no inherent memory of past interactions outside the current compute window.",
+      "The model requires a database connection to process any text input.",
+      "The model automatically updates its weights after every user prompt."
+     ],
+     "explanation": "Statelessness means the model treats every request as a brand-new interaction; it does not 'remember' previous prompts unless they are explicitly re-sent in the current context window.",
+     "correctAnswers": [
+      "The model has no inherent memory of past interactions outside the current compute window."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When a chat interface creates the 'illusion' of a continuous conversation, which of the following hidden actions are typically occurring in the background?",
+     "options": [
+      "The application code appends previous messages into a cumulative text block.",
+      "The LLM's physical neural weights are re-trained in real-time.",
+      "The system prompt is re-sent with every new user message.",
+      "The entire conversation history is processed as a single mathematical function input.",
+      "The model uses a built-in 'long-term memory' module inherent to its architecture."
+     ],
+     "explanation": "Chat interfaces maintain state by re-sending the entire history (including system prompts) to the model, which processes it as one block of text to generate the next response.",
+     "correctAnswers": [
+      "The application code appends previous messages into a cumulative text block.",
+      "The system prompt is re-sent with every new user message.",
+      "The entire conversation history is processed as a single mathematical function input."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In a deterministic AI workflow, the execution path is controlled by ____ rather than being decided at runtime by the model.",
+     "explanation": "In workflows, the developer defines the sequence of events using standard code (like Python) so the path remains the same every time.",
+     "placeholder": "who or what controls the path",
+     "correctAnswers": [
+      "developer code",
+      "hardcoded logic",
+      "programmatic chains",
+      "predefined code"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "A linear four-step sequence representing a deterministic workflow.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/516c8eac-87c7-48e9-8547-877aa386a4c7/exam/images/unit1-q4.png"
+     },
+     "prompt": "You are building a translation pipeline: Input -> Translate -> Summarize -> Output. This sequence never changes. What is the most efficient architectural choice?",
+     "options": [
+      "An autonomous agent with search tools",
+      "A multi-agent swarm",
+      "A deterministic AI workflow",
+      "A single-turn open-ended chat"
+     ],
+     "explanation": "Since the sequence is fixed and contains no uncertainty, a deterministic workflow is faster, cheaper, and more reliable than an agent.",
+     "correctAnswers": [
+      "A deterministic AI workflow"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the primary benefits of using a deterministic workflow over an agent for a predictable task? Select all that apply.",
+     "options": [
+      "Lower latency through asynchronous execution",
+      "Increased ability to handle unexpected user intents",
+      "More predictable token usage and costs",
+      "Easier debugging by isolating specific node failures",
+      "Reduced need for schema validation"
+     ],
+     "explanation": "Workflows excel in performance and reliability because their structure is known, allowing for parallel calls, cost estimation, and clear error isolation.",
+     "correctAnswers": [
+      "Lower latency through asynchronous execution",
+      "More predictable token usage and costs",
+      "Easier debugging by isolating specific node failures"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'prompt-spaghetti trap' occurs when a developer attempts to manage complex state by writing ____ inside a chat-like loop.",
+     "explanation": "Trying to force a model to manage its own complex state through massive prompts rather than structural code often leads to failure and 'prompt-spaghetti.'",
+     "placeholder": "type of prompts",
+     "correctAnswers": [
+      "convoluted prompts",
+      "longer prompts",
+      "overly complex instructions"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Where does the 'steering wheel' reside in an agentic system compared to a standard workflow?",
+     "options": [
+      "In the workflow, the model decides; in the agent, the developer decides.",
+      "In the workflow, the developer decides; in the agent, the model decides.",
+      "In both, the model determines the next code branch to execute.",
+      "In both, the developer must hardcode every possible response."
+     ],
+     "explanation": "The core difference is the locus of control: developers hardcode workflow paths, whereas agents use model-driven reasoning to choose paths at runtime.",
+     "correctAnswers": [
+      "In the workflow, the developer decides; in the agent, the model decides."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which components are part of the standard 'agentic runtime loop' mentioned in the material?",
+     "options": [
+      "Evaluate state",
+      "Automatic weight adjustment",
+      "Decide on an action",
+      "Run a feedback loop",
+      "Static HTML rendering"
+     ],
+     "explanation": "An agentic loop involves the model observing its context, deciding on a path/tool, and processing the result in a continuous cycle.",
+     "correctAnswers": [
+      "Evaluate state",
+      "Decide on an action",
+      "Run a feedback loop"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In an agentic system, the formula for Total Cost is the sum of ____ token costs for every reasoning turn.",
+     "explanation": "Agent costs are unpredictable because each loop consumes both input and output tokens, and the number of loops is not fixed.",
+     "placeholder": "types of",
+     "correctAnswers": [
+      "input and output",
+      "input/output",
+      "I/O"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "An agent receives a request for a product that is out of stock. How does its behavior typically differ from a rigid workflow?",
+     "options": [
+      "The agent will crash because 'out of stock' is not a hardcoded path.",
+      "The agent can dynamically pivot to suggest alternatives using available tools.",
+      "The agent will automatically order the item from a competitor without permission.",
+      "The agent will wait indefinitely for the item to return to stock."
+     ],
+     "explanation": "Agents use reasoning to handle edge cases; if a result (like out of stock) is returned, the agent can decide on a new course of action, like searching for alternatives.",
+     "correctAnswers": [
+      "The agent can dynamically pivot to suggest alternatives using available tools."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "According to the 'Cost-Complexity Rule of Thumb,' which two factors define the 'sweet spot' for using an agent?",
+     "options": [
+      "Low input uncertainty",
+      "High input uncertainty",
+      "Strict latency requirements (under 1 second)",
+      "Relaxed operational tolerances for latency",
+      "Need for 100% deterministic output paths"
+     ],
+     "explanation": "Agents are best suited for tasks where you cannot predict the input or path, and where you can afford the extra time and cost associated with model reasoning loops.",
+     "correctAnswers": [
+      "High input uncertainty",
+      "Relaxed operational tolerances for latency"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process of 'Read Context -> Generate Next Token -> Parse JSON Action -> Execute System Function' describes the ____.",
+     "explanation": "This four-step cycle is the mechanical reality behind an agent's apparent 'reasoning' ability.",
+     "placeholder": "term for the loop",
+     "correctAnswers": [
+      "agentic loop",
+      "reasoning loop",
+      "decide-act-observe loop"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why is a high-volume user registration system (validate email -> save to DB -> send email) a poor candidate for an agent?",
+     "options": [
+      "The task requires too much creative reasoning.",
+      "There is zero structural uncertainty in the process.",
+      "LLMs cannot send emails.",
+      "Registration requires a human-in-the-loop for every turn."
+     ],
+     "explanation": "If a task has no uncertainty and follows a fixed logic, using an agent adds unnecessary cost, latency, and risk of failure compared to simple code.",
+     "correctAnswers": [
+      "There is zero structural uncertainty in the process."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "If an agentic loop fails, what are common reasons cited in the unit material?",
+     "options": [
+      "The LLM output deviates from the expected JSON schema.",
+      "The tool-definition format is slightly incorrect.",
+      "The model ran out of its daily reasoning quota.",
+      "The agent encountered a 'formatting error' and began looping indefinitely.",
+      "The developer used Python instead of a purely agentic language."
+     ],
+     "explanation": "Agent loops are fragile; small errors in output formatting or tool calls can cause the entire reasoning chain to break or loop.",
+     "correctAnswers": [
+      "The LLM output deviates from the expected JSON schema.",
+      "The tool-definition format is slightly incorrect.",
+      "The agent encountered a 'formatting error' and began looping indefinitely."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "A developer needs to build a system that takes a user's messy notes and formats them into a specific, rigid 5-field JSON schema for a database. Adjust the 'System Slider' to the architectural pattern that best balances reliability and cost for this specific task.",
+     "options": [
+      "Single-turn Chat",
+      "Deterministic Workflow",
+      "Autonomous Agent",
+      "Multi-agent Swarm"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>System Architecture Selector</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #6e6e6e;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      max-height: 380px;\n    }\n\n    h1.sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Stage Area representing the architecture & execution flow */\n    .stage-area {\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 12px;\n      box-sizing: border-box;\n      border: 1px solid var(--border);\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .flow-visualization {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      height: 80px;\n      background: var(--surface);\n      border-radius: 8px;\n      padding: 8px 16px;\n      box-sizing: border-box;\n      border: 1px solid rgba(0, 0, 0, 0.05);\n      position: relative;\n    }\n\n    .node {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 4px;\n      width: 60px;\n    }\n\n    .node-title {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .node-icon-svg {\n      width: 32px;\n      height: 32px;\n    }\n\n    .arrow-divider {\n      color: var(--border);\n      font-size: 18px;\n      font-weight: bold;\n    }\n\n    /* Engine Area changes based on selected index */\n    .engine-display {\n      flex: 1;\n      height: 100%;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n      overflow: hidden;\n    }\n\n    .engine-graphic {\n      width: 100%;\n      height: 50px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .engine-graphic svg {\n      height: 100%;\n      width: auto;\n      max-width: 100%;\n    }\n\n    .engine-label {\n      font-size: 12px;\n      font-weight: bold;\n      color: var(--accent);\n      margin-top: 2px;\n      text-align: center;\n    }\n\n    /* Performance Gauges */\n    .gauges-container {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 16px;\n      background: var(--surface);\n      border-radius: 8px;\n      padding: 8px 12px;\n      border: 1px solid rgba(0, 0, 0, 0.05);\n    }\n\n    .gauge-item {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n    }\n\n    .gauge-header {\n      display: flex;\n      justify-content: space-between;\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--muted-fg);\n    }\n\n    .gauge-bar {\n      height: 8px;\n      background: #eaeaea;\n      border-radius: 4px;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .gauge-fill {\n      height: 100%;\n      border-radius: 4px;\n      width: 0%;\n      transition: width 0.3s cubic-bezier(.4,0,.2,1), background-color 0.3s ease;\n    }\n\n    .reliability-color {\n      background-color: #5aa17f;\n    }\n    .cost-color {\n      background-color: #d68060;\n    }\n\n    /* Interactive Custom Slider Container */\n    .slider-box {\n      margin-top: 4px;\n      position: relative;\n      padding: 10px 0 24px 0;\n    }\n\n    .slider-track-bg {\n      height: 8px;\n      background: var(--stage);\n      border-radius: 4px;\n      position: relative;\n      border: 1px solid var(--border);\n    }\n\n    .slider-track-fill {\n      position: absolute;\n      left: 0;\n      top: 0;\n      height: 100%;\n      background: var(--accent-soft);\n      border-radius: 4px;\n      width: 0%;\n    }\n\n    .slider-ticks {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 100%;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .tick-mark {\n      width: 2px;\n      height: 8px;\n      background: var(--border);\n    }\n\n    .slider-handle {\n      position: absolute;\n      top: -6px;\n      left: 0%;\n      width: 22px;\n      height: 22px;\n      background: var(--accent);\n      border: 2px solid var(--surface);\n      border-radius: 50%;\n      cursor: grab;\n      box-shadow: 0 2px 5px rgba(0,0,0,0.2);\n      transform: translateX(-50%);\n      transition: background-color 0.15s, transform 0.1s;\n      outline: none;\n      z-index: 10;\n    }\n\n    .slider-handle:hover {\n      background: var(--accent-strong);\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: translateX(-50%) scale(1.1);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .tick-labels {\n      position: absolute;\n      top: 24px;\n      left: 0;\n      width: 100%;\n      display: flex;\n      justify-content: space-between;\n    }\n\n    .tick-label {\n      width: 24%;\n      text-align: center;\n      font-size: 10px;\n      font-weight: 500;\n      color: var(--muted-fg);\n      cursor: pointer;\n      transition: color 0.2s, font-weight 0.2s;\n    }\n\n    .tick-label.active {\n      color: var(--accent-strong);\n      font-weight: 700;\n    }\n\n    .action-hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: 2px;\n    }\n\n    /* Disable states when locked */\n    .locked {\n      pointer-events: none !important;\n    }\n    .locked .slider-handle {\n      background: var(--muted-fg);\n      box-shadow: none;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Architecture Selector for Formatted Notes Export</h1>\n\n  <div class=\"widget-container\" id=\"main-widget\">\n    \n    <!-- Animated Stage representing the layout of the system selection -->\n    <div class=\"stage-area\">\n      <div class=\"flow-visualization\">\n        <!-- Input Node -->\n        <div class=\"node\">\n          <span class=\"node-title\">Input</span>\n          <svg class=\"node-icon-svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n            <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" stroke=\"#d68060\" />\n            <path d=\"M7 8h10M7 12h10M7 16h5\" stroke=\"#d68060\" />\n          </svg>\n        </div>\n\n        <div class=\"arrow-divider\">➔</div>\n\n        <!-- Processing Engine (Dynamic content updated by Javascript) -->\n        <div class=\"engine-display\">\n          <div class=\"engine-graphic\" id=\"engine-graphic-slot\">\n            <!-- Dynamic SVG content will go here -->\n          </div>\n          <div class=\"engine-label\" id=\"engine-label-text\">-</div>\n        </div>\n\n        <div class=\"arrow-divider\">➔</div>\n\n        <!-- Output Node -->\n        <div class=\"node\">\n          <span class=\"node-title\">JSON</span>\n          <svg class=\"node-icon-svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n            <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" stroke=\"#5aa17f\" />\n            <path d=\"M8 8h3m2 0h3M8 12h8M8 16h5\" stroke=\"#5aa17f\" />\n          </svg>\n        </div>\n      </div>\n\n      <!-- Live metrics evaluation standard -->\n      <div class=\"gauges-container\">\n        <div class=\"gauge-item\">\n          <div class=\"gauge-header\">\n            <span>Reliability (Rigid Schema)</span>\n            <span id=\"reliability-val\">-</span>\n          </div>\n          <div class=\"gauge-bar\">\n            <div id=\"reliability-bar\" class=\"gauge-fill reliability-color\"></div>\n          </div>\n        </div>\n        <div class=\"gauge-item\">\n          <div class=\"gauge-header\">\n            <span>Cost Efficiency</span>\n            <span id=\"cost-val\">-</span>\n          </div>\n          <div class=\"gauge-bar\">\n            <div id=\"cost-bar\" class=\"gauge-fill cost-color\"></div>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Custom System Slider Control -->\n    <div class=\"slider-box\" id=\"slider-box\">\n      <div class=\"slider-track-bg\" id=\"slider-track\">\n        <div class=\"slider-track-fill\" id=\"slider-track-fill\"></div>\n        <div class=\"slider-ticks\">\n          <div class=\"tick-mark\"></div>\n          <div class=\"tick-mark\"></div>\n          <div class=\"tick-mark\"></div>\n          <div class=\"tick-mark\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"slider-handle\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"0\" aria-valuetext=\"Single-turn Chat\"></div>\n      </div>\n      <div class=\"tick-labels\">\n        <div class=\"tick-label active\" data-idx=\"0\">Single-turn Chat</div>\n        <div class=\"tick-label\" data-idx=\"1\">Deterministic Workflow</div>\n        <div class=\"tick-label\" data-idx=\"2\">Autonomous Agent</div>\n        <div class=\"tick-label\" data-idx=\"3\">Multi-agent Swarm</div>\n      </div>\n    </div>\n\n    <div class=\"action-hint\">\n      Drag the slider to find the architecture with the best cost-to-reliability ratio\n    </div>\n\n  </div>\n\n  <script>\n    // Exact answer options defined\n    const OPTIONS = [\n      \"Single-turn Chat\",\n      \"Deterministic Workflow\",\n      \"Autonomous Agent\",\n      \"Multi-agent Swarm\"\n    ];\n\n    // Data corresponding to each of the 4 steps\n    const STATE_DATA = [\n      {\n        reliability: 40,\n        reliabilityText: \"Low (Unreliable Structure)\",\n        cost: 95,\n        costText: \"Extremely Low\",\n        svg: `<svg viewBox=\"0 0 100 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\">\n                <circle cx=\"50\" cy=\"20\" r=\"14\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <path d=\"M47 16l6 4-6 4\" stroke=\"var(--accent)\" />\n              </svg>`\n      },\n      {\n        reliability: 98,\n        reliabilityText: \"Guaranteed (Validated JSON)\",\n        cost: 80,\n        costText: \"Low (Very Efficient)\",\n        svg: `<svg viewBox=\"0 0 100 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\">\n                <rect x=\"15\" y=\"10\" width=\"20\" height=\"20\" rx=\"3\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <path d=\"M35 20 L50 20\" stroke=\"var(--accent)\" />\n                <rect x=\"50\" y=\"10\" width=\"20\" height=\"20\" rx=\"3\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <path d=\"M60 17 L60 23\" stroke=\"var(--accent)\" />\n                <circle cx=\"82\" cy=\"20\" r=\"6\" stroke=\"#5aa17f\" fill=\"#e8f5ec\" />\n                <path d=\"M80 20 L84 20\" stroke=\"#5aa17f\" />\n              </svg>`\n      },\n      {\n        reliability: 75,\n        reliabilityText: \"Variable (Self-Correction Loop)\",\n        cost: 35,\n        costText: \"High (Multi-turn loops)\",\n        svg: `<svg viewBox=\"0 0 100 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\">\n                <circle cx=\"45\" cy=\"20\" r=\"12\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <path d=\"M45 8 A 12 12 0 0 1 57 20\" stroke=\"var(--accent)\" />\n                <path d=\"M57 20 A 12 12 0 0 1 45 32\" stroke=\"var(--accent)\" />\n                <path d=\"M42 32 L46 32 L45 28\" stroke=\"var(--accent)\" />\n                <circle cx=\"45\" cy=\"20\" r=\"4\" fill=\"var(--accent)\" />\n              </svg>`\n      },\n      {\n        reliability: 90,\n        reliabilityText: \"High (Overkill Validation)\",\n        cost: 10,\n        costText: \"Extremely High (Prohibitive)\",\n        svg: `<svg viewBox=\"0 0 100 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\">\n                <circle cx=\"25\" cy=\"20\" r=\"8\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <circle cx=\"50\" cy=\"12\" r=\"8\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <circle cx=\"50\" cy=\"28\" r=\"8\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <circle cx=\"75\" cy=\"20\" r=\"8\" stroke=\"var(--accent)\" fill=\"var(--accent-soft)\" />\n                <path d=\"M33 17 L42 14\" stroke=\"var(--accent)\" stroke-width=\"1\" />\n                <path d=\"M33 23 L42 26\" stroke=\"var(--accent)\" stroke-width=\"1\" />\n                <path d=\"M58 14 L67 17\" stroke=\"var(--accent)\" stroke-width=\"1\" />\n                <path d=\"M58 26 L67 23\" stroke=\"var(--accent)\" stroke-width=\"1\" />\n              </svg>`\n      }\n    ];\n\n    // State\n    let currentIndex = -1; // -1 means uncommitted initially\n    let isDragging = false;\n    let dragStartX = 0;\n    let dragStartPercent = 0;\n    let isLocked = false;\n\n    // Elements\n    const sliderBox = document.getElementById('slider-box');\n    const sliderTrack = document.getElementById('slider-track');\n    const sliderTrackFill = document.getElementById('slider-track-fill');\n    const sliderHandle = document.getElementById('slider-handle');\n    const tickLabels = document.querySelectorAll('.tick-label');\n    const engineGraphicSlot = document.getElementById('engine-graphic-slot');\n    const engineLabelText = document.getElementById('engine-label-text');\n    const reliabilityValText = document.getElementById('reliability-val');\n    const reliabilityBar = document.getElementById('reliability-bar');\n    const costValText = document.getElementById('cost-val');\n    const costBar = document.getElementById('cost-bar');\n\n    // Report height on setup and resizing\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    // Set interactive target state\n    function setIndex(index) {\n      if (index < 0) index = 0;\n      if (index > 3) index = 3;\n\n      const changed = currentIndex !== index;\n      currentIndex = index;\n\n      // Update Slider Visuals\n      const percent = (index / 3) * 100;\n      sliderHandle.style.left = `${percent}%`;\n      sliderTrackFill.style.width = `${percent}%`;\n      sliderHandle.setAttribute('aria-valuenow', index);\n      sliderHandle.setAttribute('aria-valuetext', OPTIONS[index]);\n\n      // Update Ticks Classes\n      tickLabels.forEach((lbl, idx) => {\n        if (idx === index) {\n          lbl.classList.add('active');\n        } else {\n          lbl.classList.remove('active');\n        }\n      });\n\n      // Update Engine Visual Representation\n      const data = STATE_DATA[index];\n      engineGraphicSlot.innerHTML = data.svg;\n      engineLabelText.textContent = OPTIONS[index];\n\n      // Update Metrics visual feedback\n      reliabilityBar.style.width = `${data.reliability}%`;\n      reliabilityValText.textContent = data.reliabilityText;\n      costBar.style.width = `${data.cost}%`;\n      costValText.textContent = data.costText;\n\n      // Report answer to parent\n      if (changed) {\n        parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');\n      }\n    }\n\n    // Interactive Drag Mechanics\n    function handlePointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      dragStartX = e.clientX;\n      const rect = sliderTrack.getBoundingClientRect();\n      const currentLeft = parseFloat(sliderHandle.style.left) || 0;\n      dragStartPercent = currentLeft;\n      sliderHandle.setPointerCapture(e.pointerId);\n      e.preventDefault();\n    }\n\n    function handlePointerMove(e) {\n      if (!isDragging || isLocked) return;\n      const rect = sliderTrack.getBoundingClientRect();\n      const deltaX = e.clientX - dragStartX;\n      const deltaPercent = (deltaX / rect.width) * 100;\n      let newPercent = dragStartPercent + deltaPercent;\n      newPercent = Math.max(0, Math.min(100, newPercent));\n      \n      sliderHandle.style.left = `${newPercent}%`;\n      sliderTrackFill.style.width = `${newPercent}%`;\n\n      // Calculate matching step dynamically during live drag\n      const approxIndex = Math.round((newPercent / 100) * 3);\n      setIndex(approxIndex);\n    }\n\n    function handlePointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      const rect = sliderTrack.getBoundingClientRect();\n      const currentLeftPercent = parseFloat(sliderHandle.style.left) || 0;\n      const exactIndex = Math.round((currentLeftPercent / 100) * 3);\n      \n      // Snapping motion\n      setIndex(exactIndex);\n    }\n\n    // Event Wireups\n    sliderHandle.addEventListener('pointerdown', handlePointerDown);\n    sliderHandle.addEventListener('pointermove', handlePointerMove);\n    sliderHandle.addEventListener('pointerup', handlePointerUp);\n\n    // Allow clicking on track directly to change state\n    sliderTrack.addEventListener('pointerdown', (e) => {\n      if (isLocked || e.target === sliderHandle) return;\n      const rect = sliderTrack.getBoundingClientRect();\n      const clickPercent = ((e.clientX - rect.left) / rect.width) * 100;\n      const index = Math.round((clickPercent / 100) * 3);\n      setIndex(index);\n    });\n\n    // Label Clicks\n    tickLabels.forEach(lbl => {\n      lbl.addEventListener('click', () => {\n        if (isLocked) return;\n        const idx = parseInt(lbl.getAttribute('data-idx'));\n        setIndex(idx);\n      });\n    });\n\n    // Keyboard support\n    sliderHandle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        setIndex(currentIndex + 1);\n        e.preventDefault();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        setIndex(currentIndex - 1);\n        e.preventDefault();\n      }\n    });\n\n    // Receive platform message events\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('main-widget').classList.add('locked');\n      }\n    });\n\n    // Initialize state\n    window.addEventListener('load', () => {\n      setIndex(1); // Default to a reasonable starter point, but let them explore.\n      reportHeight();\n    });\n\n    // Responsive Height Monitoring\n    if (window.ResizeObserver) {\n      const ro = new ResizeObserver(() => {\n        reportHeight();\n      });\n      ro.observe(document.body);\n    }\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Deterministic Workflow"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Comprehensive Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are identifying a problem for your first agent. According to the 'Whiteboard Spectrum' discussed, which scenario falls into the 'Sweet Spot' for an agentic solution?",
+     "options": [
+      "A script that fetches a single weather API and sends a Slack alert",
+      "A model that writes a creative sci-fi story based on a one-sentence prompt",
+      "A system that cross-references a live news API and financial filings to resolve a query",
+      "A hardcoded function that calculates the tax on a shopping cart total"
+     ],
+     "explanation": "The 'sweet spot' for agents involves tasks requiring dynamic orchestration and logic execution over multiple data sources. Simple API alerts are deterministic, and story generation is purely creative/generative.",
+     "correctAnswers": [
+      "A system that cross-references a live news API and financial filings to resolve a query"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When defining the agent's objective, which of the following are characteristics of a high-efficacy goal statement as opposed to an ambiguous user request?",
+     "options": [
+      "It establishes a clear, measurable stopping condition.",
+      "It provides a multi-step execution plan for the model to follow.",
+      "It uses subjective adjectives like 'cool' or 'interesting' to guide style.",
+      "It mathematically reduces the decision-making space for the model.",
+      "It specifies the 'what' (the bounded outcome) rather than the 'how'."
+     ],
+     "explanation": "Effective goals act as hard constraints and specify bounded outcomes. Specifying the 'how' limits the planner's autonomy, and subjective terms lead to model drift.",
+     "correctAnswers": [
+      "It establishes a clear, measurable stopping condition.",
+      "It mathematically reduces the decision-making space for the model.",
+      "It specifies the 'what' (the bounded outcome) rather than the 'how'."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To prevent raw API keys from leaking into version control systems, developers should use ____ files and reference them via environment variables.",
+     "placeholder": "Filename extension",
+     "correctAnswers": [
+      ".env",
+      "dotenv",
+      "environment"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary danger of providing an agent with a vague, open-ended mission statement like 'Help the user manage their emails'?",
+     "options": [
+      "The model will refuse to answer due to safety protocols.",
+      "The agent may enter infinite loops or generate runaway API costs.",
+      "The user will be unable to understand the agent's output format.",
+      "The system will automatically switch to a deterministic script."
+     ],
+     "explanation": "Vague goals fail to provide a termination signal, leading to 'drift' where the agent continues to query tools indefinitely without resolving the task.",
+     "correctAnswers": [
+      "The agent may enter infinite loops or generate runaway API costs."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which components should be included in a 'Three-Part Validation Checklist' to define semantic success before an agent terminates?",
+     "options": [
+      "Data Completeness (presence of all required variables)",
+      "HTTP 200 Status Code verification for all API calls",
+      "Source Validation (verifying info came from tools, not hallucinations)",
+      "Logical Coherence (the data actually resolves the primary query)",
+      "Creative Variance (ensuring the output is stylistically unique)"
+     ],
+     "explanation": "Technical success (HTTP 200) is insufficient for agentic reliability. Semantic success requires checking that data is complete, grounded in tool outputs, and logically relevant.",
+     "correctAnswers": [
+      "Data Completeness (presence of all required variables)",
+      "Source Validation (verifying info came from tools, not hallucinations)",
+      "Logical Coherence (the data actually resolves the primary query)"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When designing the agent's file system layout, the directory containing the specific logic for tool interactions is typically named ____.",
+     "placeholder": "folder name",
+     "correctAnswers": [
+      "tools",
+      "services",
+      "actions"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why is forcing an agent to output its final answer into a strict JSON schema considered a 'steering mechanism'?",
+     "options": [
+      "It allows the model to ignore its internal reasoning steps.",
+      "It guarantees that the LLM will never hallucinate data.",
+      "It forces the model's internal reasoning to align with the required fields.",
+      "It makes the agent run faster by skipping the planning phase."
+     ],
+     "explanation": "By requiring specific keys (like 'sources' or 'confidence'), the model is implicitly directed to perform the reasoning necessary to populate those keys during the loop.",
+     "correctAnswers": [
+      "It forces the model's internal reasoning to align with the required fields."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When applying 'Hard Prohibitions' to an initial agent build, which of the following are recommended safety measures?",
+     "options": [
+      "Setting a maximum execution loop counter (e.g., max 5 steps).",
+      "Writing prompt-level constraints telling the LLM what it 'must never do'.",
+      "Hardcoding API query limits in the middleware.",
+      "Allowing the agent to decide its own budget based on task difficulty.",
+      "Removing human-in-the-loop requirements for destructive actions."
+     ],
+     "explanation": "Software-level boundaries (loop counters and query limits) combined with prompt constraints provide a multi-layered safety net to prevent runaway costs.",
+     "correctAnswers": [
+      "Setting a maximum execution loop counter (e.g., max 5 steps).",
+      "Writing prompt-level constraints telling the LLM what it 'must never do'.",
+      "Hardcoding API query limits in the middleware."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If a developer limits an agent to 5 total steps to prevent recursive billing, they are implementing a(n) ____ limit.",
+     "placeholder": "type of limit",
+     "correctAnswers": [
+      "execution",
+      "loop",
+      "iteration"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which of these represents the most 'Action Minimized' toolset for a V1 Market Intelligence agent?",
+     "options": [
+      "Search Web, Write Email, Draft Blog Post, Update Database",
+      "Search Web, Summarize Text, Translate Document",
+      "Database Reader, Text Extractor",
+      "Social Media Poster, News Scraper, Image Generator"
+     ],
+     "explanation": "The 'Rule of Three' and Action Minimization suggest starting with the smallest possible set of tools that can solve the core data problem without adding complex write-actions.",
+     "correctAnswers": [
+      "Database Reader, Text Extractor"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In an agentic workspace environment, what are the best practices for handling sensitive API credentials?",
+     "options": [
+      "Storing keys in a global variable within the main logic file",
+      "Adding .env to the .gitignore file",
+      "Hardcoding keys into the system instructions for easy access",
+      "Using an environment variable manager like 'dotenv'",
+      "Committing a template file (e.g., .env.example) without real keys"
+     ],
+     "explanation": "Credentials should never be committed to source control. Using .gitignore, .env files, and templates ensures the code is portable without being insecure.",
+     "correctAnswers": [
+      "Adding .env to the .gitignore file",
+      "Using an environment variable manager like 'dotenv'",
+      "Committing a template file (e.g., .env.example) without real keys"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "If an agent finds 2 out of 3 required data points and stops, which guardrail failed?",
+     "options": [
+      "Tool Argument Hallucination guardrail",
+      "JSON Schema validation / Data Completeness",
+      "The 'Rule of Three' tool limitation",
+      "Prompt-level persona instruction"
+     ],
+     "explanation": "Strict schema definitions (e.g., requiring an array of length 3) act as a stopping condition that prevents the agent from terminating with incomplete results.",
+     "correctAnswers": [
+      "JSON Schema validation / Data Completeness"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Identify the potential 'loop vulnerabilities' in this persona: 'You are a helpful researcher. Keep searching until you find a definitive answer that satisfies all possible user questions.'",
+     "options": [
+      "It lacks a specific 'stop' command or step limit.",
+      "The criteria 'satisfies all possible questions' is subjective and infinite.",
+      "It uses a structured JSON output format.",
+      "It doesn't define what a 'definitive answer' looks like.",
+      "It correctly limits the tools the agent can use."
+     ],
+     "explanation": "Vague terms like 'definitive' and 'satisfies all' without hard boundaries lead to infinite reasoning cycles and high costs.",
+     "correctAnswers": [
+      "It lacks a specific 'stop' command or step limit.",
+      "The criteria 'satisfies all possible questions' is subjective and infinite.",
+      "It doesn't define what a 'definitive answer' looks like."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "In the lesson 'Defining the Agent's Goal', what is the primary difference between the 'What' and the 'How'?",
+     "options": [
+      "The 'What' is the tool list; the 'How' is the persona.",
+      "The 'What' is the bounded outcome; the 'How' is the specific sequence of tool calls.",
+      "The 'What' is for the developer; the 'How' is for the end-user.",
+      "There is no difference; they should be combined into one instruction."
+     ],
+     "explanation": "The goal should define the target state (the what). The agent's planner should retain the autonomy to decide the sequence (the how) within its bounded space.",
+     "correctAnswers": [
+      "The 'What' is the bounded outcome; the 'How' is the specific sequence of tool calls."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Which of these are valid reasons to use an agent instead of a deterministic script?",
+     "options": [
+      "The task requires navigating unexpected branching logic based on live data.",
+      "The input data format is inconsistent and requires semantic interpretation.",
+      "The task involves a simple, linear calculation that never changes.",
+      "The path to the solution depends on the results of intermediate tool calls.",
+      "You want to maximize API costs to test your billing alert system."
+     ],
+     "explanation": "Agents excel at non-linear orchestration and interpreting messy data. Linear, unchanging tasks are better suited for cheaper, faster deterministic scripts.",
+     "correctAnswers": [
+      "The task requires navigating unexpected branching logic based on live data.",
+      "The input data format is inconsistent and requires semantic interpretation.",
+      "The path to the solution depends on the results of intermediate tool calls."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "You are configuring the state transition logic for an agent. Drag the 'Exit Condition' node to the correct position in the workflow to ensure the agent does not cost too much while attempting to achieve high confidence.",
+     "options": [
+      "Before the first tool call",
+      "Inside the tool execution block",
+      "Immediately after the Loop Counter check",
+      "Only when the LLM says it is finished"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Agent Loop Workspace</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #767676;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n      \n      --flow-normal: #8a9bb8;\n      --flow-success: #4caf50;\n      --flow-error: #f44336;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Interactive Workspace Stage */\n    .stage {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      position: relative;\n      overflow: hidden;\n      aspect-ratio: 600 / 270;\n      width: 100%;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Draggable element style */\n    .draggable-token {\n      cursor: grab;\n      touch-action: none;\n    }\n    .draggable-token:active {\n      cursor: grabbing;\n    }\n\n    /* Drop Zone styling */\n    .drop-zone {\n      transition: fill 0.2s, stroke 0.2s;\n    }\n    .drop-zone.active-hover {\n      fill: var(--accent-soft);\n      stroke: var(--accent);\n      stroke-width: 2.5;\n    }\n    .drop-zone.occupied {\n      stroke: var(--accent);\n      fill: var(--surface);\n    }\n\n    /* Instructions & Status Bar */\n    .status-bar {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      padding: 10px 16px;\n      border-radius: 8px;\n      font-size: 13px;\n      min-height: 40px;\n      box-sizing: border-box;\n    }\n\n    .hint-text {\n      color: var(--muted-fg);\n      display: flex;\n      align-items: center;\n      gap: 6px;\n    }\n\n    .status-output {\n      font-weight: 600;\n      color: var(--fg);\n      transition: color 0.2s;\n      display: flex;\n      align-items: center;\n      gap: 6px;\n    }\n\n    .status-output.success {\n      color: #388e3c;\n    }\n    .status-output.error {\n      color: #d32f2f;\n    }\n\n    .focus-ring:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n    \n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Flowchart Workspace: Configuring Agent Exit Condition</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"stage\" id=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 600 270\" id=\"flowchart-svg\">\n        <defs>\n          <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n            <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#a0a0a0\" />\n          </marker>\n          <marker id=\"arrow-active\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n            <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"var(--accent)\" />\n          </marker>\n          <filter id=\"shadow\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n            <feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-opacity=\"0.15\" />\n          </filter>\n        </defs>\n\n        <!-- Connection Lines / Paths -->\n        <!-- Start to Slot 1 -->\n        <path d=\"M 55 55 L 95 55\" stroke=\"#a0a0a0\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrow)\" />\n        <!-- Slot 1 to LLM Planner -->\n        <path d=\"M 205 55 L 235 55\" stroke=\"#a0a0a0\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrow)\" />\n        <!-- LLM Planner to Tool Exec -->\n        <path d=\"M 335 55 L 385 55\" stroke=\"#a0a0a0\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrow)\" />\n        <!-- Tool Exec to Loop Counter -->\n        <path d=\"M 485 55 L 515 55\" stroke=\"#a0a0a0\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrow)\" />\n\n        <!-- Vertical branch lines to slots -->\n        <!-- LLM Planner down to Slot 4 -->\n        <path id=\"path-slot4\" d=\"M 285 75 L 285 110\" stroke=\"#a0a0a0\" stroke-dasharray=\"3 3\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrow)\" />\n        <!-- Tool Execution down to Slot 2 -->\n        <path id=\"path-slot2\" d=\"M 435 75 L 435 110\" stroke=\"#a0a0a0\" stroke-dasharray=\"3 3\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrow)\" />\n        <!-- Loop Counter down to Slot 3 -->\n        <path id=\"path-slot3\" d=\"M 545 75 L 545 110\" stroke=\"#a0a0a0\" stroke-dasharray=\"3 3\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrow)\" />\n\n        <!-- Back Loop Line -->\n        <path d=\"M 545 55 L 545 15 L 285 15 L 285 35\" stroke=\"#c0c0c0\" stroke-width=\"1.5\" fill=\"none\" stroke-dasharray=\"4 4\" marker-end=\"url(#arrow)\" />\n\n        <!-- Flow State Output Indicators (Dynamic path colors) -->\n        <path id=\"result-flow-line\" d=\"M 300 240 L 300 240\" stroke=\"#a0a0a0\" stroke-width=\"3\" fill=\"none\" marker-end=\"url(#arrow)\" style=\"display: none;\" />\n\n        <!-- STATIC NODES -->\n        <!-- Start -->\n        <g transform=\"translate(10, 35)\">\n          <rect width=\"45\" height=\"40\" rx=\"20\" fill=\"#e8e7e3\" stroke=\"#d0cfcb\" stroke-width=\"1.5\" />\n          <text x=\"22.5\" y=\"24\" font-size=\"11\" font-weight=\"bold\" fill=\"#555\" text-anchor=\"middle\">Start</text>\n        </g>\n\n        <!-- LLM Planner -->\n        <g transform=\"translate(235, 35)\">\n          <rect width=\"100\" height=\"40\" rx=\"6\" fill=\"#ffffff\" stroke=\"#c0c0c0\" stroke-width=\"1.5\" />\n          <text x=\"50\" y=\"24\" font-size=\"11\" font-weight=\"600\" fill=\"#333\" text-anchor=\"middle\">LLM Planner</text>\n        </g>\n\n        <!-- Tool Execution -->\n        <g transform=\"translate(385, 35)\">\n          <rect width=\"100\" height=\"40\" rx=\"6\" fill=\"#ffffff\" stroke=\"#c0c0c0\" stroke-width=\"1.5\" />\n          <text x=\"50\" y=\"24\" font-size=\"11\" font-weight=\"600\" fill=\"#333\" text-anchor=\"middle\">Tool Execution</text>\n        </g>\n\n        <!-- Loop Counter -->\n        <g transform=\"translate(515, 35)\">\n          <rect width=\"75\" height=\"40\" rx=\"6\" fill=\"#ffffff\" stroke=\"#c0c0c0\" stroke-width=\"1.5\" />\n          <text x=\"37.5\" y=\"24\" font-size=\"11\" font-weight=\"600\" fill=\"#333\" text-anchor=\"middle\">Loop Counter</text>\n        </g>\n\n\n        <!-- DROP ZONES (Slots) -->\n        <!-- Slot 1: Before the first tool call -->\n        <g class=\"slot-group\" data-option=\"Before the first tool call\" data-x=\"95\" data-y=\"35\">\n          <rect class=\"drop-zone\" x=\"95\" y=\"35\" width=\"110\" height=\"40\" rx=\"6\" fill=\"rgba(255,255,255,0.4)\" stroke=\"#b0b0b0\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\" />\n          <text x=\"150\" y=\"58\" font-size=\"9\" fill=\"#888\" text-anchor=\"middle\">Before first tool</text>\n        </g>\n\n        <!-- Slot 4: Only when the LLM says it is finished -->\n        <g class=\"slot-group\" data-option=\"Only when the LLM says it is finished\" data-x=\"230\" data-y=\"110\">\n          <rect class=\"drop-zone\" x=\"230\" y=\"110\" width=\"110\" height=\"40\" rx=\"6\" fill=\"rgba(255,255,255,0.4)\" stroke=\"#b0b0b0\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\" />\n          <text x=\"285\" y=\"133\" font-size=\"9\" fill=\"#888\" text-anchor=\"middle\">Only on LLM Finish</text>\n        </g>\n\n        <!-- Slot 2: Inside the tool execution block -->\n        <g class=\"slot-group\" data-option=\"Inside the tool execution block\" data-x=\"380\" data-y=\"110\">\n          <rect class=\"drop-zone\" x=\"380\" y=\"110\" width=\"110\" height=\"40\" rx=\"6\" fill=\"rgba(255,255,255,0.4)\" stroke=\"#b0b0b0\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\" />\n          <text x=\"435\" y=\"133\" font-size=\"9\" fill=\"#888\" text-anchor=\"middle\">Inside Tool Block</text>\n        </g>\n\n        <!-- Slot 3: Immediately after the Loop Counter check -->\n        <g class=\"slot-group\" data-option=\"Immediately after the Loop Counter check\" data-x=\"490\" data-y=\"110\">\n          <rect class=\"drop-zone\" x=\"490\" y=\"110\" width=\"110\" height=\"40\" rx=\"6\" fill=\"rgba(255,255,255,0.4)\" stroke=\"#b0b0b0\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\" />\n          <text x=\"545\" y=\"133\" font-size=\"9\" fill=\"#888\" text-anchor=\"middle\">After Loop Check</text>\n        </g>\n\n\n        <!-- DRAGGABLE TOKEN -->\n        <g id=\"drag-token\" class=\"draggable-token focus-ring\" transform=\"translate(245, 195)\" tabindex=\"0\" aria-label=\"Exit Condition Block, draggable. Use Arrow Keys to cycle positions.\">\n          <rect width=\"110\" height=\"40\" rx=\"6\" fill=\"var(--accent)\" stroke=\"var(--accent-strong)\" stroke-width=\"1.5\" filter=\"url(#shadow)\" />\n          <text x=\"55\" y=\"24\" font-size=\"11\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">Exit Condition</text>\n          <!-- Small drag indicator handle -->\n          <line x1=\"50\" y1=\"32\" x2=\"60\" y2=\"32\" stroke=\"#ffffff\" stroke-width=\"1.5\" stroke-linecap=\"round\" opacity=\"0.7\"/>\n          <line x1=\"50\" y1=\"34\" x2=\"60\" y2=\"34\" stroke=\"#ffffff\" stroke-width=\"1.5\" stroke-linecap=\"round\" opacity=\"0.7\"/>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Interactive Status Bar -->\n    <div class=\"status-bar\">\n      <div class=\"hint-text\" id=\"hint-text\">\n        <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M15 18l-6-6 6-6\"/></svg>\n        Drag 'Exit Condition' into a slot to configure flow\n      </div>\n      <div class=\"status-output\" id=\"status-output\">\n        Status: <span style=\"font-weight: normal; color: var(--muted-fg);\">Idle</span>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // Constants & State\n    const optionsMap = {\n      slot1: \"Before the first tool call\",\n      slot2: \"Inside the tool execution block\",\n      slot3: \"Immediately after the Loop Counter check\",\n      slot4: \"Only when the LLM says it is finished\"\n    };\n\n    const slots = [\n      { id: 'slot1', x: 95, y: 35, option: optionsMap.slot1 },\n      { id: 'slot4', x: 230, y: 110, option: optionsMap.slot4 },\n      { id: 'slot2', x: 380, y: 110, option: optionsMap.slot2 },\n      { id: 'slot3', x: 490, y: 110, option: optionsMap.slot3 }\n    ];\n\n    const initialPos = { x: 245, y: 195 };\n    let currentPos = { ...initialPos };\n    let activeSlot = null;\n    let isLocked = false;\n\n    // DOM Elements\n    const dragToken = document.getElementById('drag-token');\n    const stage = document.getElementById('stage');\n    const svgElement = document.getElementById('flowchart-svg');\n    const statusOutput = document.getElementById('status-output');\n    const hintText = document.getElementById('hint-text');\n\n    // Init height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    new ResizeObserver(reportHeight).observe(document.body);\n\n    // Coordinate conversion helper\n    function getSVGCoords(e) {\n      const rect = svgElement.getBoundingClientRect();\n      const clientX = e.clientX || (e.touches && e.touches[0].clientX);\n      const clientY = e.clientY || (e.touches && e.touches[0].clientY);\n      \n      // Map to 600x270 coordinates\n      const x = ((clientX - rect.left) / rect.width) * 600;\n      const y = ((clientY - rect.top) / rect.height) * 270;\n      return { x, y };\n    }\n\n    // Drag-and-Drop Implementation\n    let isDragging = false;\n    let dragOffset = { x: 0, y: 0 };\n\n    dragToken.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      dragToken.setPointerCapture(e.pointerId);\n      \n      const coords = getSVGCoords(e);\n      dragOffset.x = coords.x - currentPos.x;\n      dragOffset.y = coords.y - currentPos.y;\n      \n      dragToken.setAttribute('filter', 'drop-shadow(0px 8px 12px rgba(0,0,0,0.25))');\n      e.preventDefault();\n    });\n\n    dragToken.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      const coords = getSVGCoords(e);\n      let targetX = coords.x - dragOffset.x;\n      let targetY = coords.y - dragOffset.y;\n\n      // Keep inside bounds\n      targetX = Math.max(0, Math.min(600 - 110, targetX));\n      targetY = Math.max(0, Math.min(270 - 40, targetY));\n\n      currentPos.x = targetX;\n      currentPos.y = targetY;\n      updateTokenPosition();\n\n      // Check proximity to slots\n      let closestSlot = null;\n      let minDistance = 50; // snapping threshold\n\n      slots.forEach(slot => {\n        const dx = (targetX + 55) - (slot.x + 55);\n        const dy = (targetY + 20) - (slot.y + 20);\n        const dist = Math.sqrt(dx * dx + dy * dy);\n        \n        const slotEl = document.querySelector(`[data-option=\"${slot.option}\"] .drop-zone`);\n        if (dist < minDistance) {\n          closestSlot = slot;\n          slotEl.classList.add('active-hover');\n        } else {\n          slotEl.classList.remove('active-hover');\n        }\n      });\n    });\n\n    dragToken.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      dragToken.releasePointerCapture(e.pointerId);\n      dragToken.removeAttribute('filter');\n\n      // Snap logic\n      let closestSlot = null;\n      let minDistance = 50;\n\n      slots.forEach(slot => {\n        const dx = (currentPos.x + 55) - (slot.x + 55);\n        const dy = (currentPos.y + 20) - (slot.y + 20);\n        const dist = Math.sqrt(dx * dx + dy * dy);\n        \n        // Clean up visual hover state\n        const slotEl = document.querySelector(`[data-option=\"${slot.option}\"] .drop-zone`);\n        slotEl.classList.remove('active-hover');\n\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestSlot = slot;\n        }\n      });\n\n      if (closestSlot) {\n        currentPos.x = closestSlot.x;\n        currentPos.y = closestSlot.y;\n        activeSlot = closestSlot;\n        \n        // Add occupied status visual class\n        slots.forEach(s => {\n          const el = document.querySelector(`[data-option=\"${s.option}\"] .drop-zone`);\n          if (s.id === closestSlot.id) el.classList.add('occupied');\n          else el.classList.remove('occupied');\n        });\n      } else {\n        // Return to initial spot\n        currentPos = { ...initialPos };\n        activeSlot = null;\n        slots.forEach(s => {\n          document.querySelector(`[data-option=\"${s.option}\"] .drop-zone`).classList.remove('occupied');\n        });\n      }\n\n      updateTokenPosition();\n      updateSimulationFeedback();\n    });\n\n    function updateTokenPosition() {\n      dragToken.setAttribute('transform', `translate(${currentPos.x}, ${currentPos.y})`);\n    }\n\n    // Keyboard support\n    let selectedSlotIndex = -1;\n    dragToken.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        selectedSlotIndex = (selectedSlotIndex + 1) % slots.length;\n        snapToSlot(slots[selectedSlotIndex]);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        selectedSlotIndex = (selectedSlotIndex - 1 + slots.length) % slots.length;\n        snapToSlot(slots[selectedSlotIndex]);\n      } else if (e.key === 'Escape') {\n        selectedSlotIndex = -1;\n        activeSlot = null;\n        currentPos = { ...initialPos };\n        slots.forEach(s => document.querySelector(`[data-option=\"${s.option}\"] .drop-zone`).classList.remove('occupied'));\n        updateTokenPosition();\n        updateSimulationFeedback();\n      }\n    });\n\n    function snapToSlot(slot) {\n      currentPos.x = slot.x;\n      currentPos.y = slot.y;\n      activeSlot = slot;\n      slots.forEach(s => {\n        const el = document.querySelector(`[data-option=\"${s.option}\"] .drop-zone`);\n        if (s.id === slot.id) el.classList.add('occupied');\n        else el.classList.remove('occupied');\n      });\n      updateTokenPosition();\n      updateSimulationFeedback();\n    }\n\n    // Update the visual simulator control flow outputs & parent messaging\n    function updateSimulationFeedback() {\n      if (!activeSlot) {\n        statusOutput.innerHTML = `Status: <span style=\"font-weight: normal; color: var(--muted-fg);\">Idle (Not Positioned)</span>`;\n        statusOutput.className = 'status-output';\n        return;\n      }\n\n      // Notify parent of answer choice immediately\n      try {\n        parent.postMessage({\n          type: 'hk-practice-answer',\n          value: activeSlot.option\n        }, '*');\n      } catch (e) {}\n\n      // Render simulator flow behavior\n      if (activeSlot.id === 'slot3') {\n        // \"Immediately after the Loop Counter check\" -> Safe / Correct Loop termination flow\n        statusOutput.innerHTML = `Status: <span class=\"success\">● Verified Control Flow</span>`;\n        statusOutput.className = 'status-output success';\n        hintText.innerHTML = `<span>✔ Optimal termination path established.</span>`;\n      } else if (activeSlot.id === 'slot1') {\n        statusOutput.innerHTML = `Status: <span class=\"error\">▲ Premature Exit Loop</span>`;\n        statusOutput.className = 'status-output error';\n        hintText.innerHTML = `<span>Agent terminates before any planner steps or execution takes place.</span>`;\n      } else {\n        statusOutput.innerHTML = `Status: <span class=\"error\">▲ Inconsistent Control Flow</span>`;\n        statusOutput.className = 'status-output error';\n        hintText.innerHTML = `<span>Risk of infinite loops or unmonitored execution paths.</span>`;\n      }\n    }\n\n    // Handle Lock message from host\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        dragToken.classList.add('disabled');\n        dragToken.removeAttribute('tabindex');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Immediately after the Loop Counter check"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In the 'Model-Mediated Loop' described in the course, what is the primary role of the Large Language Model?",
+     "options": [
+      "To act as a native Python compiler for executing tool code",
+      "To serve as an intelligent controller that translates natural language into structured tool calls",
+      "To provide a hard-coded routing table for API endpoints",
+      "To manage the physical hardware where the tool functions are stored"
+     ],
+     "explanation": "The model acts as a translator and decision-maker, converting intents into JSON payloads; the actual execution happens in the developer's runtime environment, not within the model itself.",
+     "correctAnswers": [
+      "To serve as an intelligent controller that translates natural language into structured tool calls"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are components of the 'Interface Contract' between natural language and Python functions?",
+     "options": [
+      "Function name and arguments dictionary",
+      "The model's internal weights and biases",
+      "JSON-schema declarations of available tools",
+      "The local Python runtime environment's memory addresses",
+      "Docstrings providing semantic hints for parameter usage"
+     ],
+     "explanation": "The contract consists of the tool name, the argument schema, and the descriptions (docstrings) that help the model understand how to use the tool.",
+     "correctAnswers": [
+      "Function name and arguments dictionary",
+      "JSON-schema declarations of available tools",
+      "Docstrings providing semantic hints for parameter usage"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The practice of creating a restricted tool like 'check_service_status' instead of a general terminal tool is an application of the principle of ____.",
+     "explanation": "The principle of least privilege ensures an agent only has the specific access necessary to perform its intended task, minimizing security risks.",
+     "placeholder": "Enter principle name",
+     "correctAnswers": [
+      "least privilege",
+      "minimal privilege"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why is a tool like 'run_terminal_command(command: str)' considered high-risk in agentic design?",
+     "options": [
+      "It is too slow for real-time model interaction",
+      "It violates the principle of least privilege by allowing arbitrary system access",
+      "The model cannot generate valid shell syntax consistently",
+      "Terminal commands cannot be serialized into JSON format"
+     ],
+     "explanation": "Broad tools allow for catastrophic actions like 'rm -rf /'. Safe design requires restricted, parameterized tools that prevent raw command execution.",
+     "correctAnswers": [
+      "It violates the principle of least privilege by allowing arbitrary system access"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which features can be used within a JSON schema to reduce semantic ambiguity for the LLM?",
+     "options": [
+      "The 'enum' property to restrict inputs to a specific list",
+      "The 'type' field to specify if a value is a number or string",
+      "Python's internal function ID",
+      "Regex patterns for string validation",
+      "Recursive call-stack depth limits"
+     ],
+     "explanation": "Enums, types, and regex patterns act as semantic constraints that guide the model toward valid token selection during tool-call generation.",
+     "correctAnswers": [
+      "The 'enum' property to restrict inputs to a specific list",
+      "The 'type' field to specify if a value is a number or string",
+      "Regex patterns for string validation"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "To prevent an LLM from passing 'United States' when an API requires 'US', a developer should use the ____ property in the JSON schema.",
+     "explanation": "The 'enum' property restricts the model's output to a predefined set of valid strings, preventing near-miss formatting errors.",
+     "placeholder": "JSON schema property",
+     "correctAnswers": [
+      "enum"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When defining a JSON schema for a tool, what happens if a parameter is listed in the 'required' array but omitted from the 'properties' block?",
+     "options": [
+      "The model will automatically infer the property type from the function name",
+      "The schema is structurally invalid and will likely lead to parsing failures",
+      "The application will default the missing property to a string type",
+      "The tool will execute normally but ignore that specific parameter"
+     ],
+     "explanation": "A mismatch between the required list and the property definitions is a silent point of failure that prevents the model from correctly forming the payload.",
+     "correctAnswers": [
+      "The schema is structurally invalid and will likely lead to parsing failures"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What are the primary challenges when serializing complex tool outputs (like DataFrames or database records) for the model?",
+     "options": [
+      "Models cannot natively process binary memory structures",
+      "Massive payloads can cause prompt bloat and exceed context windows",
+      "The model requires all data to be converted into base64 images",
+      "Nested JSON objects must be flattened into single integers",
+      "Inconsistent data types may lead to parsing errors in the next reasoning step"
+     ],
+     "explanation": "Serialization must convert runtime objects into readable text (JSON/Markdown) while managing size constraints and data consistency.",
+     "correctAnswers": [
+      "Models cannot natively process binary memory structures",
+      "Massive payloads can cause prompt bloat and exceed context windows",
+      "Inconsistent data types may lead to parsing errors in the next reasoning step"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If a tool returns a non-serializable object like a Python 'datetime', the application must apply a custom ____ before sending it to the model.",
+     "explanation": "Custom serializers convert complex Python objects into standard JSON-safe strings that the model can interpret.",
+     "placeholder": "Type of function/policy",
+     "correctAnswers": [
+      "serializer",
+      "serialization policy"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of dictionary unpacking into a function.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/516c8eac-87c7-48e9-8547-877aa386a4c7/exam/images/unit3-q10.png"
+     },
+     "prompt": "In the Dispatch Mechanics flow, how should tool arguments typically be passed to a Python function to avoid security risks?",
+     "options": [
+      "By using the 'eval()' function on the JSON string",
+      "By manually parsing the string in a series of if-else blocks",
+      "By unpacking the argument dictionary using the double-asterisk (**arguments) operator",
+      "By writing the arguments to a temporary text file for the function to read"
+     ],
+     "explanation": "Unpacking a dictionary into a function call is a clean, safe, and dynamic way to map model outputs to Python parameters without using dangerous evaluation functions.",
+     "correctAnswers": [
+      "By unpacking the argument dictionary using the double-asterisk (**arguments) operator"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "When a tool returns a massive dataset, which strategies help maintain model performance?",
+     "options": [
+      "Returning a truncated summary of the data",
+      "Converting the entire dataset into a single string with no spaces",
+      "Filtering the data to only include relevant fields",
+      "Converting the data into a Markdown table for better readability",
+      "Increasing the model's temperature to 2.0"
+     ],
+     "explanation": "Summarization and filtering prevent context window overflow, while formatting like Markdown helps the model's 'reading comprehension'.",
+     "correctAnswers": [
+      "Returning a truncated summary of the data",
+      "Filtering the data to only include relevant fields",
+      "Converting the data into a Markdown table for better readability"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When an agent queries a database, providing a specific 'get_user_orders' function instead of 'run_raw_sql' protects the system from ____.",
+     "explanation": "Restricted tools prevent the agent from being manipulated into executing malicious database commands.",
+     "placeholder": "Security vulnerability name",
+     "correctAnswers": [
+      "SQL injection"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Visual representation of the tool-calling message sequence.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/516c8eac-87c7-48e9-8547-877aa386a4c7/exam/images/unit3-q13.png"
+     },
+     "prompt": "What is the 'indivisible structural sandwich' mentioned in the context of chat history?",
+     "options": [
+      "System prompt, User query, and API key",
+      "User message, Assistant tool-call block, and Tool-role result message",
+      "Function name, JSON schema, and Docstring",
+      "Input, Hidden Layer, and Output"
+     ],
+     "explanation": "To maintain context, the conversation must show the user's intent, the model's decision to call a tool, and the result returned from that tool.",
+     "correctAnswers": [
+      "User message, Assistant tool-call block, and Tool-role result message"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of these are valid reasons to use a 'Registry Pattern' for tool dispatching?",
+     "options": [
+      "It prevents security bypasses by isolating function scopes",
+      "It maps string keys from the model to executable function pointers",
+      "It allows the LLM to write its own Python code on the fly",
+      "It keeps tool logic organized and decoupled from the main loop",
+      "It automatically generates documentation for the LLM"
+     ],
+     "explanation": "A registry ensures that the model can only call specific, pre-defined functions, improving both security and code maintainability.",
+     "correctAnswers": [
+      "It prevents security bypasses by isolating function scopes",
+      "It maps string keys from the model to executable function pointers",
+      "It keeps tool logic organized and decoupled from the main loop"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Why is providing a tool with a 'date' parameter and no description a problem?",
+     "options": [
+      "The model will refuse to call the tool",
+      "The model may hallucinate various formats like 'MM/DD/YYYY' which the parser might not expect",
+      "JSON does not support date types",
+      "The function will automatically default to the current system time"
+     ],
+     "explanation": "Without semantic hints, the model relies on training data defaults which often vary, leading to inconsistent and unparseable date strings.",
+     "correctAnswers": [
+      "The model may hallucinate various formats like 'MM/DD/YYYY' which the parser might not expect"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "When describing a tool's purpose in a schema, why are docstrings important?",
+     "options": [
+      "They provide the model with the necessary 'reasoning' context to choose the tool",
+      "They define the memory allocation for the function in the CPU",
+      "They help the model understand the unit of measure expected for parameters",
+      "They are required by the Python interpreter to execute the JSON",
+      "They reduce the likelihood of the model selecting the wrong tool for a specific intent"
+     ],
+     "explanation": "Docstrings provide the semantic bridge that the model 'reads' to understand when and how to apply a specific tool.",
+     "correctAnswers": [
+      "They provide the model with the necessary 'reasoning' context to choose the tool",
+      "They help the model understand the unit of measure expected for parameters",
+      "They reduce the likelihood of the model selecting the wrong tool for a specific intent"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "In the suggested practice exercise for 'database queries', why is a 'filter' parameter refactored into an array-of-objects structure?",
+     "options": [
+      "To allow the model to write raw SQL WHERE clauses",
+      "To constrain the model to a rigid, predictable key-value format",
+      "To reduce the number of tokens used by the model",
+      "To allow the tool to bypass validation checks"
+     ],
+     "explanation": "Structured formats prevent the model from sending un-escaped characters or raw code that could break the application logic.",
+     "correctAnswers": [
+      "To constrain the model to a rigid, predictable key-value format"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "What should a developer do if a tool result contains 'null' fields or inconsistent types before sending it to the LLM?",
+     "options": [
+      "Send the raw object and let the LLM figure it out",
+      "Clean up the null fields to save tokens",
+      "Normalize the types into a consistent string or numeric format",
+      "Re-run the tool until the output changes",
+      "Discard the result and tell the user the tool failed"
+     ],
+     "explanation": "Preprocessing tool results ensures the data is in a format optimized for model reading and avoids confusing the model's next step.",
+     "correctAnswers": [
+      "Clean up the null fields to save tokens",
+      "Normalize the types into a consistent string or numeric format"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Construct the safest tool interface for a file-reading agent. Drag the tool definition components to the 'Tool Creation' zone to minimize risk and maximize reliability.",
+     "options": [
+      "Tool accepting raw path strings with no constraints",
+      "Tool with 'enum' path restrictions and sandboxed directory",
+      "Tool with broad shell access using 'eval()'",
+      "Tool that ignores all input parameters"
+     ],
+     "explanation": "The safest tool uses 'enum' to restrict choices and 'sandboxing' to limit the file system impact, whereas raw strings or shell access introduce major security vulnerabilities.",
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Tool Workbench</title>`\n  `<style>`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #666666;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f0f4f8;`\n      `--accent-strong: #3a4f78;`\n      `--shadow: 0 4px 12px rgba(0, 0, 0, 0.05);`\n      `--shadow-active: 0 8px 20px rgba(76, 102, 150, 0.15);`\n    `}`\n\n    `* {`\n      `box-sizing: border-box;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `margin: 0;`\n      `padding: 0;`\n      `color: var(--fg);`\n      `overflow: hidden;`\n    `}`\n\n    `.sr-only {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `.container {`\n      `width: 100%;`\n      `max-width: 600px;`\n      `margin: 0 auto;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 12px;`\n    `}`\n\n    `.instruction {`\n      `font-size: 13px;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n      `margin: 0;`\n    `}`\n\n    `/* WORKBENCH LAYOUT */`\n    `.workbench {`\n      `display: grid;`\n      `grid-template-columns: 1fr 1.2fr;`\n      `gap: 12px;`\n      `align-items: stretch;`\n    `}`\n\n    `@media (max-width: 480px) {`\n      `.workbench {`\n        `grid-template-columns: 1fr;`\n      `}`\n    `}`\n\n    `/* RACK & TARGETS */`\n    `.panel {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 8px;`\n      `padding: 10px;`\n      `box-shadow: var(--shadow);`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 8px;`\n    `}`\n\n    `.panel-title {`\n      `font-size: 11px;`\n      `text-transform: uppercase;`\n      `letter-spacing: 0.05em;`\n      `color: var(--muted-fg);`\n      `margin: 0 0 4px 0;`\n      `font-weight: 700;`\n    `}`\n\n    `.rack {`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 6px;`\n      `min-height: 180px;`\n    `}`\n\n    `.dropzone {`\n      `border: 2px dashed var(--border);`\n      `border-radius: 8px;`\n      `background: var(--stage);`\n      `min-height: 150px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 6px;`\n      `padding: 8px;`\n      `transition: background 0.2s, border-color 0.2s;`\n      `justify-content: flex-start;`\n      `position: relative;`\n    `}`\n\n    `.dropzone.dragover {`\n      `border-color: var(--accent);`\n      `background: var(--accent-soft);`\n    `}`\n\n    `.dropzone-empty-text {`\n      `position: absolute;`\n      `top: 50%;`\n      `left: 50%;`\n      `transform: translate(-50%, -50%);`\n      `font-size: 12px;`\n      `color: var(--muted-fg);`\n      `pointer-events: none;`\n      `text-align: center;`\n      `width: 80%;`\n    `}`\n\n    `/* FEATURE BLOCKS */`\n    `.block {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 6px;`\n      `padding: 8px 10px;`\n      `font-size: 12px;`\n      `font-weight: 600;`\n      `cursor: grab;`\n      `user-select: none;`\n      `touch-action: none;`\n      `display: flex;`\n      `align-items: center;`\n      `gap: 6px;`\n      `box-shadow: 0 2px 4px rgba(0,0,0,0.02);`\n      `transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;`\n    `}`\n\n    `.block:active {`\n      `cursor: grabbing;`\n    `}`\n\n    `.block.dragging {`\n      `opacity: 0.6;`\n      `transform: scale(0.98);`\n    `}`\n\n    `.block-icon {`\n      `width: 14px;`\n      `height: 14px;`\n      `flex-shrink: 0;`\n    `}`\n\n    `/* BLOCK-SPECIFIC COLORS */`\n    `[data-id=\"raw\"] { border-left: 4px solid #E67E22; }`\n    `[data-id=\"enum\"] { border-left: 4px solid #2ECC71; }`\n    `[data-id=\"sandbox\"] { border-left: 4px solid #3498DB; }`\n    `[data-id=\"eval\"] { border-left: 4px solid #E74C3C; }`\n\n    `/* OUTPUT MONITOR */`\n    `.monitor {`\n      `background: #1e1e1e;`\n      `color: #a9b7c6;`\n      `border-radius: 8px;`\n      `padding: 10px 12px;`\n      `font-family: Consolas, Monaco, monospace;`\n      `font-size: 11px;`\n      `min-height: 85px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `justify-content: space-between;`\n      `box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);`\n      `border: 1px solid #333;`\n    `}`\n\n    `.monitor-header {`\n      `display: flex;`\n      `justify-content: space-between;`\n      `color: #85c1e9;`\n      `font-weight: bold;`\n      `border-bottom: 1px solid #333;`\n      `padding-bottom: 4px;`\n      `margin-bottom: 6px;`\n    `}`\n\n    `.monitor-body {`\n      `flex-grow: 1;`\n      `line-height: 1.4;`\n      `white-space: pre-wrap;`\n    `}`\n\n    `.status-tag {`\n      `padding: 2px 6px;`\n      `border-radius: 4px;`\n      `font-size: 10px;`\n      `font-weight: bold;`\n      `text-transform: uppercase;`\n      `background: #333;`\n    `}`\n\n    `.status-secure { color: #2ecc71; background: rgba(46, 204, 113, 0.15); }`\n    `.status-warning { color: #f1c40f; background: rgba(241, 196, 15, 0.15); }`\n    `.status-danger { color: #e74c3c; background: rgba(231, 76, 60, 0.15); }`\n    `.status-empty { color: #888; background: rgba(255,255,255,0.05); }`\n\n    `/* disabled states */`\n    `.disabled {`\n      `pointer-events: none !important;`\n      `opacity: 0.7;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"sr-only\">Interactive Tool Workbench Simulator</h1>`\n\n  `<div class=\"container\">`\n    `<p class=\"instruction\">Drag/tap blocks to move them between the rack and the workbench</p>`\n\n    `<div class=\"workbench\">`\n      `<!-- RACK PANEL -->`\n      `<div class=\"panel\">`\n        `<div class=\"panel-title\">Available Features</div>`\n        `<div class=\"rack\" id=\"rack\" role=\"list\" aria-label=\"Available feature blocks\">`\n          `<div class=\"block\" draggable=\"true\" data-id=\"raw\" id=\"blk-raw\" role=\"listitem\" tabindex=\"0\" aria-label=\"Raw String Path Feature\">`\n            `<svg class=\"block-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#E67E22\" stroke-width=\"2.5\"><path d=\"M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z\"/><polyline points=\"13 2 13 9 20 9\"/></svg>`\n            `Raw String Path`\n          `</div>`\n          `<div class=\"block\" draggable=\"true\" data-id=\"enum\" id=\"blk-enum\" role=\"listitem\" tabindex=\"0\" aria-label=\"Enum List of Allowed Files Feature\">`\n            `<svg class=\"block-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2ECC71\" stroke-width=\"2.5\"><line x1=\"8\" y1=\"6\" x2=\"21\" y2=\"6\"/><line x1=\"8\" y1=\"12\" x2=\"21\" y2=\"12\"/><line x1=\"8\" y1=\"18\" x2=\"21\" y2=\"18\"/><line x1=\"3\" y1=\"6\" x2=\"3.01\" y2=\"6\"/><line x1=\"3\" y1=\"12\" x2=\"3.01\" y2=\"12\"/><line x1=\"3\" y1=\"18\" x2=\"3.01\" y2=\"18\"/></svg>`\n            `Enum Allowed Files`\n          `</div>`\n          `<div class=\"block\" draggable=\"true\" data-id=\"sandbox\" id=\"blk-sandbox\" role=\"listitem\" tabindex=\"0\" aria-label=\"Sandbox Data Folder Feature\">`\n            `<svg class=\"block-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#3498DB\" stroke-width=\"2.5\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/><line x1=\"9\" y1=\"3\" x2=\"9\" y2=\"21\"/></svg>`\n            `Sandbox Folder`\n          `</div>`\n          `<div class=\"block\" draggable=\"true\" data-id=\"eval\" id=\"blk-eval\" role=\"listitem\" tabindex=\"0\" aria-label=\"Root Access and Eval Command Execution Feature\">`\n            `<svg class=\"block-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#E74C3C\" stroke-width=\"2.5\"><path d=\"M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z\"/><path d=\"M9 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z\"/></svg>`\n            `Root &amp; eval()`\n          `</div>`\n        `</div>`\n      `</div>`\n\n      `<!-- TOOL SCHEMA BOX -->`\n      `<div class=\"panel\">`\n        `<div class=\"panel-title\">Active Schema Box</div>`\n        `<div class=\"dropzone\" id=\"dropzone\" aria-label=\"Workbench drop zone\">`\n          `<div class=\"dropzone-empty-text\" id=\"empty-hint\">Drop schema components here</div>`\n        `</div>`\n      `</div>`\n    `</div>`\n\n    `<!-- OUTPUT VISUALIZATION SCREEN -->`\n    `<div class=\"monitor\">`\n      `<div class=\"monitor-header\">`\n        `<span>TOOL PROFILE</span>`\n        `<span class=\"status-tag status-empty\" id=\"sec-tag\">Empty</span>`\n      `</div>`\n      `<div class=\"monitor-body\" id=\"code-output\">`\n`// Drag items to assemble code schema`\n`{}`\n      `</div>`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `const rack = document.getElementById('rack');`\n    `const dropzone = document.getElementById('dropzone');`\n    `const emptyHint = document.getElementById('empty-hint');`\n    `const codeOutput = document.getElementById('code-output');`\n    `const secTag = document.getElementById('sec-tag');`\n    `const blocks = document.querySelectorAll('.block');`\n\n    `let draggedElement = null;`\n\n    `// Answer Option Strings`\n    `const OPTION_1 = \"Tool accepting raw path strings with no constraints\";`\n    `const OPTION_2 = \"Tool with 'enum' path restrictions and sandboxed directory\";`\n    `const OPTION_3 = \"Tool with broad shell access using 'eval()'\";`\n    `const OPTION_4 = \"Tool that ignores all input parameters\";`\n\n    `// Init & Drag/Drop Event Listeners`\n    `blocks.forEach(block => {`\n      `block.addEventListener('dragstart', (e) => {`\n        `draggedElement = block;`\n        `block.classList.add('dragging');`\n        `e.dataTransfer.setData('text/plain', block.id);`\n      `});`\n\n      `block.addEventListener('dragend', () => {`\n        `block.classList.remove('dragging');`\n        `draggedElement = null;`\n      `});`\n\n      `// Click/Tap toggle for mobile friendliness and keyboard support`\n      `block.addEventListener('click', () => {`\n        `toggleBlock(block);`\n      `});`\n\n      `block.addEventListener('keydown', (e) => {`\n        `if (e.key === 'Enter' || e.key === ' ') {`\n          `e.preventDefault();`\n          `toggleBlock(block);`\n        `}`\n      `});`\n    `});`\n\n    `dropzone.addEventListener('dragover', (e) => {`\n      `e.preventDefault();`\n      `dropzone.classList.add('dragover');`\n    `});`\n\n    `dropzone.addEventListener('dragleave', () => {`\n      `dropzone.classList.remove('dragover');`\n    `});`\n\n    `dropzone.addEventListener('drop', (e) => {`\n      `e.preventDefault();`\n      `dropzone.classList.remove('dragover');`\n      `if (draggedElement) {`\n        `dropzone.appendChild(draggedElement);`\n        `updateState();`\n      `}`\n    `});`\n\n    `rack.addEventListener('dragover', (e) => {`\n      `e.preventDefault();`\n    `});`\n\n    `rack.addEventListener('drop', (e) => {`\n      `e.preventDefault();`\n      `if (draggedElement) {`\n        `rack.appendChild(draggedElement);`\n        `updateState();`\n      `}`\n    `});`\n\n    `function toggleBlock(block) {`\n      `if (block.parentNode === rack) {`\n        `dropzone.appendChild(block);`\n      `} else {`\n        `rack.appendChild(block);`\n      `}`\n      `updateState();`\n    `}`\n\n    `// Core evaluation engine mapping combinations to Options`\n    `function updateState() {`\n      `const itemsInZone = Array.from(dropzone.querySelectorAll('.block')).map(b => b.dataset.id);`\n      `let selectedOption = OPTION_4;`\n\n      `// Toggle dropzone placeholder hint`\n      `if (itemsInZone.length > 0) {`\n        `emptyHint.style.display = 'none';`\n      `} else {`\n        `emptyHint.style.display = 'block';`\n      `}`\n\n      `// Evaluate configuration`\n      `if (itemsInZone.length === 0) {`\n        `selectedOption = OPTION_4;`\n        `secTag.className = 'status-tag status-empty';`\n        `secTag.textContent = 'Empty';`\n        `codeOutput.textContent = '// Empty parameters\\\\nfunction runTool(args) {\\\\n  // Input is entirely ignored\\\\n  return readDefault();\\\\n}';`\n      `} else if (itemsInZone.includes('eval')) {`\n        `selectedOption = OPTION_3;`\n        `secTag.className = 'status-tag status-danger';`\n        `secTag.textContent = 'CRITICAL RISK';`\n        `codeOutput.textContent = 'function runTool(args) {\\\\n  // DANGEROUS execution\\\\n  eval(`cat ${args.path}`);\\\\n}';`\n      `} else if (itemsInZone.includes('enum') && itemsInZone.includes('sandbox')) {`\n        `selectedOption = OPTION_2;`\n        `secTag.className = 'status-tag status-secure';`\n        `secTag.textContent = 'SECURE';`\n        `codeOutput.textContent = 'const ALLOWED = [\"doc1.txt\", \"doc2.txt\"];\\\\nfunction runTool(args) {\\\\n  if (ALLOWED.includes(args.path)) {\\\\n    return read(\"/sandbox/\" + args.path);\\\\n  }\\\\n}';`\n      `} else if (itemsInZone.includes('raw')) {`\n        `selectedOption = OPTION_1;`\n        `secTag.className = 'status-tag status-warning';`\n        `secTag.textContent = 'VULNERABLE';`\n        `codeOutput.textContent = 'function runTool(args) {\\\\n  // Raw user input lookup\\\\n  return readRaw(args.path); \\\\n}';`\n      `} else {`\n        `// Default fallback for partial combos`\n        `selectedOption = OPTION_1;`\n        `secTag.className = 'status-tag status-warning';`\n        `secTag.textContent = 'INCOMPLETE';`\n        `codeOutput.textContent = '// Hybrid configuration\\\\n// No strict sandbox enforcement';`\n      `}`\n\n      `// Report current answer selection`\n      `parent.postMessage({ type: 'hk-practice-answer', value: selectedOption }, '*');`\n      `notifyHeight();`\n    `}`\n\n    `// Lock interaction functionality`\n    `window.addEventListener('message', function(e) {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `document.querySelectorAll('.block').forEach(b => {`\n          `b.classList.add('disabled');`\n          `b.setAttribute('draggable', 'false');`\n          `b.setAttribute('tabindex', '-1');`\n        `});`\n        `dropzone.classList.add('disabled');`\n      `}`\n    `});`\n\n    `// Resize Observer for Height`\n    `function notifyHeight() {`\n      `try {`\n        `parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');`\n      `} catch (err) {}`\n    `}`\n\n    `window.addEventListener('load', () => {`\n      `updateState();`\n      `notifyHeight();`\n    `});`\n    `new ResizeObserver(notifyHeight).observe(document.body);`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "Tool with 'enum' path restrictions and sandboxed directory"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Comprehensive Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "When initializing the 'State Initializer' for an agent run, what is the safest way to handle the message history list to avoid state leakage between independent calls?",
+     "options": [
+      "Define the message history as a default empty list in the function signature: `def run(history=[])`.",
+      "Set the history parameter to `None` in the signature and initialize a new list inside the function scope.",
+      "Globalize the history variable so it can be cleared manually after every third run.",
+      "Pass the history as a raw string and use `.split()` to convert it to a list inside the loop."
+     ],
+     "explanation": "In Python, default list arguments are evaluated once at definition, meaning the same list object is shared across all calls. Using `None` and initializing locally ensures every agent run starts with a fresh, empty state.",
+     "correctAnswers": [
+      "Set the history parameter to `None` in the signature and initialize a new list inside the function scope."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are essential components of a 'structured state dictionary' used as the single source of truth in an agentic loop?",
+     "options": [
+      "The system prompt template",
+      "A counter to track the number of iterations (steps)",
+      "The raw unvalidated user input string",
+      "An empty or ongoing message history list",
+      "The local file system path of the Python interpreter"
+     ],
+     "explanation": "A state dictionary must maintain the instructions (system prompt), the history (context), and safety metadata (step counter) to manage the loop effectively. Raw unvalidated strings should be transformed into structured data before being stored.",
+     "correctAnswers": [
+      "The system prompt template",
+      "A counter to track the number of iterations (steps)",
+      "An empty or ongoing message history list"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To prevent an agent from running forever, developers implement a/an ____ condition that detects when the model has populated a specific terminal field in the response schema.",
+     "explanation": "Exit or termination conditions are programmatic checks within the 'while' loop that look for a specific flag or 'final_answer' key to safely conclude the process.",
+     "placeholder": "type of condition",
+     "correctAnswers": [
+      "exit",
+      "termination",
+      "stop",
+      "break"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of a parsing utility extracting a JSON object from surrounding natural language text.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/516c8eac-87c7-48e9-8547-877aa386a4c7/exam/images/unit4-q4.png"
+     },
+     "prompt": "You are building a parser for LLM outputs. The model often includes conversational text like 'I will find that for you' before the JSON block. What is the most resilient way to extract the tool call?",
+     "options": [
+      "Use `json.loads()` on the entire raw string returned by the model.",
+      "Apply regular expressions to isolate the content between the first '{' and the last '}'.",
+      "Configure the model to only use 1-character tokens for all responses.",
+      "Force the user to manually delete the conversational text before the code executes."
+     ],
+     "explanation": "LLMs often hallucinate conversational preambles or post-scripts. Isolating the JSON boundaries using string manipulation or regex prevents `json.loads` from failing due to non-JSON text.",
+     "correctAnswers": [
+      "Apply regular expressions to isolate the content between the first '{' and the last '}'."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "When a tool execution encounters a Python exception (e.g., an API timeout), what are the recommended steps for the agent to maintain the loop?",
+     "options": [
+      "Immediately terminate the script and raise a SystemExit.",
+      "Catch the exception and serialize the error message into a string.",
+      "Append the error string back into the message history as a 'tool' observation.",
+      "Delete the message history to clear the 'bad' state and restart.",
+      "Allow the model to read the error so it can attempt a self-correction or alternative path."
+     ],
+     "explanation": "In agentic workflows, errors should be treated as 'observations' or data. Feeding the error back to the model allows it to pivot strategies rather than crashing the entire system.",
+     "correctAnswers": [
+      "Catch the exception and serialize the error message into a string.",
+      "Append the error string back into the message history as a 'tool' observation.",
+      "Allow the model to read the error so it can attempt a self-correction or alternative path."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A developer should record a ____ log immediately before invoking a tool to ensure traceability even if the tool causes a fatal crash.",
+     "explanation": "If a tool crashes the system, a post-execution log will never be written. Pre-execution logs capture the arguments and state required to diagnose why the crash occurred.",
+     "placeholder": "type of log",
+     "correctAnswers": [
+      "pre-execution",
+      "structured",
+      "audit",
+      "input"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary security risk of using `eval()` to map a model-generated string to a Python function?",
+     "options": [
+      "It is slightly slower than a dictionary lookup.",
+      "It can execute arbitrary and potentially malicious code if the model is compromised.",
+      "It requires all functions to be defined in the same file.",
+      "It doesn't support keyword arguments (**kwargs)."
+     ],
+     "explanation": "`eval()` or `exec()` allows the model to run any Python command, which is a massive security hole. Using a hard-coded tool registry (a dictionary) ensures only pre-approved functions can be called.",
+     "correctAnswers": [
+      "It can execute arbitrary and potentially malicious code if the model is compromised."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When sending a tool's output back to an LLM API, which pieces of metadata are typically required to maintain context integrity?",
+     "options": [
+      "The matching 'tool_call_id' from the original request.",
+      "The specific 'role' (often 'tool' or 'user').",
+      "The raw binary bytes of the Python function object.",
+      "The serialized string content of the tool's return value.",
+      "The CPU usage of the server during execution."
+     ],
+     "explanation": "APIs require the `tool_call_id` to pair the answer with the question. The `role` and the serialized content (the 'observation') complete the feedback loop for the model.",
+     "correctAnswers": [
+      "The matching 'tool_call_id' from the original request.",
+      "The specific 'role' (often 'tool' or 'user').",
+      "The serialized string content of the tool's return value."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the Agentic Loop, the phase where the code executes a specific function based on the model's parsed choice is known as the ____ phase.",
+     "explanation": "The standard loop is often described as Decide-Act-Observe. 'Act' is the phase where the deterministic Python code carries out the instructions generated in the 'Decide' phase.",
+     "placeholder": "loop phase",
+     "correctAnswers": [
+      "Act",
+      "Execution",
+      "Tool Invocation",
+      "Action"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "How does a 'registry pattern' with decorators improve tool management in an agentic workflow?",
+     "options": [
+      "It automatically optimizes the model's token usage.",
+      "It prevents the model from hallucinating tool names.",
+      "It provides a secure, central map of string-to-function references.",
+      "It translates Python code into JSON automatically."
+     ],
+     "explanation": "Decorators allow developers to tag functions for agent use. The registry then acts as a whitelist, ensuring the agent only executes intended code via a safe lookup mechanism.",
+     "correctAnswers": [
+      "It provides a secure, central map of string-to-function references."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are valid reasons to use an Orchestrator-Worker pattern rather than a single simple prompt chain?",
+     "options": [
+      "The task involves multiple sub-tasks that can be performed in parallel.",
+      "The task is extremely simple and requires no branching logic.",
+      "Different sub-tasks require specialized system prompts or different models.",
+      "You want to minimize the number of API calls as much as possible.",
+      "A central controller needs to validate the work of several sub-agents before finishing."
+     ],
+     "explanation": "Orchestrator-Worker patterns are ideal for complex, multi-faceted tasks where modularity, specialization, and parallelization are needed, whereas simple chains are better for linear, predictable steps.",
+     "correctAnswers": [
+      "The task involves multiple sub-tasks that can be performed in parallel.",
+      "Different sub-tasks require specialized system prompts or different models.",
+      "A central controller needs to validate the work of several sub-agents before finishing."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "To avoid a 'system hang,' developers often define a/an ____ limit which represents the maximum number of iterations the agent can take before being forced to stop.",
+     "explanation": "A step limit is a vital safety 'kill-switch' that prevents an agent from entering an infinite loop of API calls if it fails to reach a conclusion.",
+     "placeholder": "type of limit",
+     "correctAnswers": [
+      "step",
+      "iteration",
+      "max_turns",
+      "recursion"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "During the 'Selecting the Next Action' phase, what should the system do if the LLM returns an invalid JSON response that cannot be parsed?",
+     "options": [
+      "Hard-crash the application with a JSONDecodeError.",
+      "Assume the model meant to exit and return an empty string to the user.",
+      "Send an error message describing the parsing failure back into the model's context for a retry.",
+      "Automatically delete the last message and try the exact same prompt again."
+     ],
+     "explanation": "By feeding the parsing error back into the loop, the model can 'see' its mistake and attempt to format the JSON correctly in the next iteration, improving system robustness.",
+     "correctAnswers": [
+      "Send an error message describing the parsing failure back into the model's context for a retry."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which features are critical for a 'Human-in-the-loop' (HITL) validation barrier in an agentic workflow?",
+     "options": [
+      "The ability to pause the execution loop while waiting for input.",
+      "Automatically skipping the human if they don't respond in 500 milliseconds.",
+      "A mechanism to display the agent's 'proposed action' to the human.",
+      "The ability for the human to approve, reject, or modify the proposed action.",
+      "A way to hide the agent's internal reasoning from the human to avoid confusion."
+     ],
+     "explanation": "HITL requires the system to pause and present the state to a human, who then acts as a gatekeeper for high-stakes actions like tool execution or final responses.",
+     "correctAnswers": [
+      "The ability to pause the execution loop while waiting for input.",
+      "A mechanism to display the agent's 'proposed action' to the human.",
+      "The ability for the human to approve, reject, or modify the proposed action."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "When an agent reaches a terminal state, it typically populates a ____ field in its structured output, signifying that the result is ready for the user.",
+     "explanation": "A dedicated field for the final result allows the execution engine to distinguish between a request for more tools and the completion of the user's request.",
+     "placeholder": "field name",
+     "correctAnswers": [
+      "final_answer",
+      "response",
+      "output",
+      "conclusion"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the primary benefit of 'Flow Engineering' (designing custom execution loops) over just using a standard zero-shot prompt?",
+     "options": [
+      "It uses fewer tokens per request.",
+      "It enables the agent to self-correct by using tool outputs and error messages as feedback.",
+      "It eliminates the need for a system prompt.",
+      "It allows the model to access the internet without any tool definitions."
+     ],
+     "explanation": "Flow engineering builds a scaffolding around the model that allows it to iterate. This feedback loop is what makes the system 'agentic' rather than just a static completion engine.",
+     "correctAnswers": [
+      "It enables the agent to self-correct by using tool outputs and error messages as feedback."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "When passing arguments from a parsed LLM response to a Python function using `**kwargs`, what common data-type issues might arise?",
+     "options": [
+      "The model provides a string (e.g., '10') when the function expects an integer.",
+      "The model provides a nested JSON object when the function expects a flat list.",
+      "The model uses 'None' as a string instead of the Python `None` type.",
+      "The model successfully passes a Python function object directly in the JSON.",
+      "The model omits a required argument defined in the function signature."
+     ],
+     "explanation": "LLMs communicate in text/JSON. Python functions are strict about types and required parameters. A validation layer is needed to convert strings to integers or handle missing keys before the call.",
+     "correctAnswers": [
+      "The model provides a string (e.g., '10') when the function expects an integer.",
+      "The model uses 'None' as a string instead of the Python `None` type.",
+      "The model omits a required argument defined in the function signature."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "In the context of the unit material, why is the 'Observing' phase considered the 'turning point' of the loop?",
+     "options": [
+      "It is the first time the LLM is actually called in the session.",
+      "It transforms external tool results into internal model context, enabling adaptation.",
+      "It is where the user's initial goal is first validated for safety.",
+      "It is the phase where the final answer is presented to the user."
+     ],
+     "explanation": "Observation is the bridge from the real world (tool output) back to the agent's 'brain' (context window). This allows the agent to decide if it needs to try again or if its task is complete.",
+     "correctAnswers": [
+      "It transforms external tool results into internal model context, enabling adaptation."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "An agent is stuck in an infinite loop because a tool call keeps returning an error. Drag the logic block to the correct 'Flow Engineering' position to resolve the loop.",
+     "options": [
+      "Place a 'Max Iterations' check at the start of the while-loop.",
+      "Place an 'Error Formatter' after the tool execution that feeds back to the LLM.",
+      "Place a 'Human Approval' gate before the tool execution.",
+      "Place all three blocks in the loop sequence."
+     ],
+     "explanation": "A robust agentic workflow needs multiple safeguards: step limits to prevent endless cycles, error feedback so the model can pivot, and human gates for high-stakes decisions.",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Agent Loop Safeguard Practice</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n      --error-soft: #fff5f5;\n      --error-border: #fca5a5;\n    }\n\n    html, body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 0;\n      user-select: none;\n      -webkit-user-select: none;\n      overflow: hidden;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      height: auto;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Scene Header showing the infinite loop state */\n    .loop-visual {\n      background: var(--stage);\n      border-radius: 8px;\n      padding: 8px 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n      border: 1px solid var(--border);\n    }\n\n    .loop-flow {\n      display: flex;\n      align-items: center;\n      gap: 8px;\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--muted-fg);\n    }\n\n    .flow-node {\n      background: var(--surface);\n      padding: 4px 8px;\n      border-radius: 4px;\n      border: 1px solid var(--border);\n      display: flex;\n      align-items: center;\n      gap: 4px;\n    }\n\n    .flow-node.error {\n      background: var(--error-soft);\n      border-color: var(--error-border);\n      color: #c53030;\n      animation: pulse-red 2s infinite ease-in-out;\n    }\n\n    @keyframes pulse-red {\n      0%, 100% { opacity: 1; }\n      50% { opacity: 0.6; }\n    }\n\n    .arrow {\n      color: var(--muted-fg);\n    }\n\n    /* Grid of 4 blueprint targets */\n    .targets-grid {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n    }\n\n    .target-slot {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      min-height: 72px;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      position: relative;\n      transition: all 0.2s ease;\n      cursor: pointer;\n    }\n\n    .target-slot:hover {\n      border-color: var(--muted-fg);\n    }\n\n    .target-slot.active {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      border-style: solid;\n    }\n\n    .target-label {\n      font-size: 11px;\n      font-weight: bold;\n      color: var(--fg);\n      line-height: 1.2;\n      pointer-events: none;\n    }\n\n    .target-desc {\n      font-size: 10px;\n      color: var(--muted-fg);\n      margin-top: 4px;\n      line-height: 1.1;\n      pointer-events: none;\n    }\n\n    /* Drag source area */\n    .drag-area {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      position: relative;\n      min-height: 52px;\n    }\n\n    .action-hint {\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-bottom: 4px;\n    }\n\n    /* Draggable Token */\n    .draggable-token {\n      background: var(--accent);\n      color: white;\n      padding: 8px 16px;\n      border-radius: 20px;\n      font-size: 12px;\n      font-weight: bold;\n      cursor: grab;\n      display: inline-flex;\n      align-items: center;\n      gap: 6px;\n      box-shadow: 0 2px 6px rgba(76,102,150,0.25);\n      touch-action: none;\n      z-index: 10;\n      position: relative;\n      transition: transform 0.1s ease, box-shadow 0.1s ease;\n    }\n\n    .draggable-token:active {\n      cursor: grabbing;\n    }\n\n    .draggable-token.dragging {\n      box-shadow: 0 8px 16px rgba(76,102,150,0.35);\n      transform: scale(1.05);\n      transition: none; /* Instant 1:1 movement */\n    }\n\n    .draggable-token.locked {\n      background: var(--muted-fg);\n      cursor: default;\n      pointer-events: none;\n    }\n\n    .grid-icon {\n      width: 14px;\n      height: 14px;\n      fill: currentColor;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Flow Engineering Sandbox: Resolve the Agent Infinite Loop</h1>\n\n  <div id=\"widget-container\">\n    <!-- Flow Status Visual -->\n    <div class=\"loop-visual\">\n      <div class=\"loop-flow\">\n        <span class=\"flow-node\">🔄 Agent LLM</span>\n        <span class=\"arrow\">➔</span>\n        <span class=\"flow-node error\">🛠️ Tool Call (Error)</span>\n        <span class=\"arrow\">➔</span>\n        <span style=\"color:#c53030; font-size:10px;\">Infinite Loop 🔁</span>\n      </div>\n    </div>\n\n    <!-- Target Slots Grid -->\n    <div class=\"targets-grid\" role=\"radiogroup\" aria-label=\"Safeguard integration positions\">\n      <div class=\"target-slot\" id=\"target-0\" data-index=\"0\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n        <div>\n          <div class=\"target-label\">Loop Start Check</div>\n          <div class=\"target-desc\">Max Iterations safeguard</div>\n        </div>\n      </div>\n\n      <div class=\"target-slot\" id=\"target-1\" data-index=\"1\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n        <div>\n          <div class=\"target-label\">Post-Execution</div>\n          <div class=\"target-desc\">Error Formatter feedback</div>\n        </div>\n      </div>\n\n      <div class=\"target-slot\" id=\"target-2\" data-index=\"2\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n        <div>\n          <div class=\"target-label\">Pre-Execution</div>\n          <div class=\"target-desc\">Human Approval gate</div>\n        </div>\n      </div>\n\n      <div class=\"target-slot\" id=\"target-3\" data-index=\"3\" role=\"radio\" aria-checked=\"false\" tabindex=\"0\">\n        <div>\n          <div class=\"target-label\">Comprehensive</div>\n          <div class=\"target-desc\">Place all three blocks</div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Drag Zone -->\n    <div class=\"drag-area\" id=\"drag-source\">\n      <div class=\"action-hint\" id=\"hint-text\">Drag active safeguard block to a position above:</div>\n      <div class=\"draggable-token\" id=\"logic-block\" role=\"button\" aria-grabbed=\"false\" tabindex=\"0\">\n        <svg class=\"grid-icon\" viewBox=\"0 0 24 24\">\n          <path d=\"M19,9H15V5a1,1,0,0,0-2,0V9H9V5a1,1,0,0,0-2,0V9H5a1,1,0,0,0,0,2H7v4H5a1,1,0,0,0,0,2H7v4a1,1,0,0,0,2,0V17h4v4a1,1,0,0,0,2,0V17h4a1,1,0,0,0,0-2H17V11h2a1,1,0,0,0,0-2Zm-6,6H9V11h4Z\"/>\n        </svg>\n        Safeguard Logic Block\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // Exact Option Mapping\n    const OPTIONS = [\n      \"Place a 'Max Iterations' check at the start of the while-loop.\",\n      \"Place an 'Error Formatter' after the tool execution that feeds back to the LLM.\",\n      \"Place a 'Human Approval' gate before the tool execution.\",\n      \"Place all three blocks in the loop sequence.\"\n    ];\n\n    let currentSelectedIdx = -1;\n    let isLocked = false;\n\n    const block = document.getElementById('logic-block');\n    const slots = document.querySelectorAll('.target-slot');\n    const dragSource = document.getElementById('drag-source');\n    const hintText = document.getElementById('hint-text');\n\n    // Drag-and-drop mechanics\n    let startX = 0, startY = 0;\n    let currentX = 0, currentY = 0;\n    let isDragging = false;\n\n    block.addEventListener('pointerdown', onPointerDown);\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      block.classList.add('dragging');\n      block.setAttribute('aria-grabbed', 'true');\n      block.setPointerCapture(e.pointerId);\n\n      // Record start position offsets\n      const rect = block.getBoundingClientRect();\n      startX = e.clientX - rect.left;\n      startY = e.clientY - rect.top;\n\n      block.style.position = 'fixed';\n      updatePosition(e.clientX, e.clientY);\n\n      block.addEventListener('pointermove', onPointerMove);\n      block.addEventListener('pointerup', onPointerUp);\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging) return;\n      updatePosition(e.clientX, e.clientY);\n      highlightHoveredSlot(e.clientX, e.clientY);\n    }\n\n    function updatePosition(clientX, clientY) {\n      block.style.left = `${clientX - startX}px`;\n      block.style.top = `${clientY - startY}px`;\n    }\n\n    function highlightHoveredSlot(clientX, clientY) {\n      slots.forEach(slot => {\n        const r = slot.getBoundingClientRect();\n        if (clientX >= r.left && clientX <= r.right && clientY >= r.top && clientY <= r.bottom) {\n          slot.style.borderColor = 'var(--accent)';\n          slot.style.background = 'var(--accent-soft)';\n        } else {\n          const idx = parseInt(slot.getAttribute('data-index'));\n          if (idx !== currentSelectedIdx) {\n            slot.style.borderColor = '';\n            slot.style.background = '';\n          }\n        }\n      });\n    }\n\n    function onPointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      block.classList.remove('dragging');\n      block.setAttribute('aria-grabbed', 'false');\n      block.releasePointerCapture(e.pointerId);\n\n      block.removeEventListener('pointermove', onPointerMove);\n      block.removeEventListener('pointerup', onPointerUp);\n\n      // Snap check\n      let landedIdx = -1;\n      slots.forEach((slot, idx) => {\n        const r = slot.getBoundingClientRect();\n        if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {\n          landedIdx = idx;\n        }\n      });\n\n      if (landedIdx !== -1) {\n        selectOption(landedIdx);\n      } else {\n        resetBlockPosition();\n      }\n    }\n\n    function selectOption(index) {\n      currentSelectedIdx = index;\n      \n      // Update UI active states\n      slots.forEach((slot, idx) => {\n        if (idx === index) {\n          slot.classList.add('active');\n          slot.setAttribute('aria-checked', 'true');\n          slot.style.borderColor = 'var(--accent)';\n          slot.style.background = 'var(--accent-soft)';\n          \n          // Visually \"contain\" the block inside the selected slot\n          if (!slot.querySelector('#logic-block')) {\n            slot.appendChild(block);\n          }\n        } else {\n          slot.classList.remove('active');\n          slot.setAttribute('aria-checked', 'false');\n          slot.style.borderColor = '';\n          slot.style.background = '';\n        }\n      });\n\n      block.style.position = 'relative';\n      block.style.left = '0';\n      block.style.top = '0';\n      hintText.textContent = \"Deployed Safeguard Strategy:\";\n\n      // Report answer selection\n      parent.postMessage({ \n        type: 'hk-practice-answer', \n        value: OPTIONS[index] \n      }, '*');\n\n      notifyHeight();\n    }\n\n    function resetBlockPosition() {\n      dragSource.appendChild(block);\n      block.style.position = 'relative';\n      block.style.left = '0';\n      block.style.top = '0';\n      slots.forEach(slot => {\n        slot.classList.remove('active');\n        slot.style.borderColor = '';\n        slot.style.background = '';\n      });\n      currentSelectedIdx = -1;\n      hintText.textContent = \"Drag active safeguard block to a position above:\";\n      notifyHeight();\n    }\n\n    // Keyboard support\n    slots.forEach((slot, idx) => {\n      slot.addEventListener('click', () => {\n        if (!isLocked) selectOption(idx);\n      });\n      slot.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          selectOption(idx);\n        }\n      });\n    });\n\n    block.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowRight' || e.key === 'ArrowLeft') {\n        e.preventDefault();\n        let nextIdx = (currentSelectedIdx + 1) % 4;\n        selectOption(nextIdx);\n      }\n    });\n\n    // Lock support\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        block.classList.add('locked');\n        block.setAttribute('tabindex', '-1');\n        slots.forEach(slot => {\n          slot.setAttribute('tabindex', '-1');\n          slot.style.cursor = 'default';\n        });\n      }\n    });\n\n    // Height calculation & Reporting\n    function notifyHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', notifyHeight);\n    const resizeObserver = new ResizeObserver(notifyHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Place all three blocks in the loop sequence."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Comprehensive Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Why is 'Golden Dataset' construction considered the first step in moving beyond 'vibe-based' engineering?",
+     "options": [
+      "It provides a deterministic baseline to measure semantic variance across multiple runs.",
+      "It automatically fixes prompt injection vulnerabilities without developer intervention.",
+      "It eliminates the need for LLM-as-a-judge by providing exact string matches.",
+      "It allows the agent to skip tool calls by caching the golden responses."
+     ],
+     "explanation": "A Golden Dataset provides a static, repeatable set of scenarios that allows developers to measure performance objectively rather than relying on the subjective 'feel' of the most recent manual test.",
+     "correctAnswers": [
+      "It provides a deterministic baseline to measure semantic variance across multiple runs."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are essential components of a production-grade test task schema in a Golden Dataset?",
+     "options": [
+      "Expected sequence of tool calls",
+      "Raw user goal and hidden constraints",
+      "Structured target outcomes",
+      "Agent's local Python environment path",
+      "The specific model temperature setting"
+     ],
+     "explanation": "Production-grade tasks need the goal, constraints, expected tool interactions, and the final target outcome to enable multi-dimensional evaluation.",
+     "correctAnswers": [
+      "Expected sequence of tool calls",
+      "Raw user goal and hidden constraints",
+      "Structured target outcomes"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "In an LLM-as-a-judge system, why is it recommended to force the judge to output a 'reasoning' block before the numerical score?",
+     "options": [
+      "It bypasses the need for a system prompt.",
+      "It dramatically stabilizes judgment and mitigates the judge's own reasoning errors.",
+      "It allows the agent to learn from the judge's feedback in real-time.",
+      "It reduces the token cost of the evaluation run."
+     ],
+     "explanation": "Chain-of-thought reasoning in the judge model helps it process the criteria before committing to a score, reducing noise and instability in the evaluation.",
+     "correctAnswers": [
+      "It dramatically stabilizes judgment and mitigates the judge's own reasoning errors."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram comparing ideal versus actual tool call sequences.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/516c8eac-87c7-48e9-8547-877aa386a4c7/exam/images/unit5-q4.png"
+     },
+     "prompt": "Which metrics are most useful for evaluating an agent's internal 'trace' and tool selection logic?",
+     "options": [
+      "Sequence Alignment (Levenshtein distance of tool names)",
+      "Tool call frequency distributions",
+      "Total character count of the final response",
+      "Argument construction accuracy against Pydantic schemas"
+     ],
+     "explanation": "Evaluating the trace requires looking at the order of tools (Sequence Alignment), whether the agent is looping (frequency), and if parameters are valid (schema accuracy).",
+     "correctAnswers": [
+      "Sequence Alignment (Levenshtein distance of tool names)",
+      "Tool call frequency distributions",
+      "Argument construction accuracy against Pydantic schemas"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "What is 'Style Bias' in the context of LLM-as-a-judge evaluation?",
+     "options": [
+      "The judge preferring shorter answers over longer ones.",
+      "The judge being influenced by the agent's formatting or politeness rather than factual accuracy.",
+      "The agent refusing to use tools that don't match its persona.",
+      "The judge model being unable to parse JSON output."
+     ],
+     "explanation": "Style bias occurs when a judge model gives a high score to a well-formatted or 'friendly' response even if it contains factual errors or failed the task.",
+     "correctAnswers": [
+      "The judge being influenced by the agent's formatting or politeness rather than factual accuracy."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "When implementing 'Chaos Engineering' for agents, which of the following scenarios should be mocked to test resilience?",
+     "options": [
+      "HTTP 429 Rate Limit errors",
+      "Random socket timeouts",
+      "Successful API responses with valid data",
+      "Invalid parameter errors (HTTP 400)"
+     ],
+     "explanation": "Mocking successes doesn't test resilience; testing timeouts, rate limits, and bad requests forces the agent to demonstrate its error-handling and recovery logic.",
+     "correctAnswers": [
+      "HTTP 429 Rate Limit errors",
+      "Random socket timeouts",
+      "Invalid parameter errors (HTTP 400)"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Flowchart showing an out-of-order tool call sequence.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/516c8eac-87c7-48e9-8547-877aa386a4c7/exam/images/unit5-q7.png"
+     },
+     "prompt": "An agent is building a flight booking query. It has access to 'Search_Flights' and 'Confirm_Booking'. If it calls 'Confirm_Booking' before 'Search_Flights', which metric has it violated?",
+     "options": [
+      "Semantic Clarity",
+      "Sequence Precision",
+      "Token Budget Efficiency",
+      "Redundant Loop Frequency"
+     ],
+     "explanation": "Sequence Precision (and Recall) measures the logical order of tool calls; calling a confirmation before a search is a logic/sequence error.",
+     "correctAnswers": [
+      "Sequence Precision"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are valid strategies for mitigating 'Agentic Loops of Death'?",
+     "options": [
+      "Implementing strict local state counters for repeated calls",
+      "Setting a maximum 'step budget' for the agent loop",
+      "Increasing the model temperature to encourage variety",
+      "Prompting the agent to recognize a 'record not found' as a final answer"
+     ],
+     "explanation": "State counters and step budgets physically stop loops, while specific prompting helps the agent understand when to stop searching. Increasing temperature often makes loops more unpredictable rather than stopping them.",
+     "correctAnswers": [
+      "Implementing strict local state counters for repeated calls",
+      "Setting a maximum 'step budget' for the agent loop",
+      "Prompting the agent to recognize a 'record not found' as a final answer"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "When evaluating a customer support agent, why must the Golden Dataset include 'Adversarial Inputs'?",
+     "options": [
+      "To test if the agent can be tricked into providing free services or leaking data.",
+      "To ensure the agent always agrees with the customer.",
+      "To increase the cost of the evaluation suite.",
+      "To test the speed of the underlying database."
+     ],
+     "explanation": "Adversarial inputs test the agent's safety boundaries and its resistance to prompt injection or manipulation.",
+     "correctAnswers": [
+      "To test if the agent can be tricked into providing free services or leaking data."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "What are the primary disadvantages of using 'Naive Assertions' (like regex) in agent evaluation?",
+     "options": [
+      "High false-positive rates due to linguistic variability",
+      "Inability to measure the 'quality' of a correct answer",
+      "They are too computationally expensive compared to LLMs",
+      "Failure to capture if a task was successfully completed via a different path"
+     ],
+     "explanation": "Regex and string matching are brittle; they can't handle different ways of saying the same thing or evaluate nuanced quality.",
+     "correctAnswers": [
+      "High false-positive rates due to linguistic variability",
+      "Inability to measure the 'quality' of a correct answer",
+      "Failure to capture if a task was successfully completed via a different path"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "In a 5-point grading rubric for an agent, a score of '3' typically represents:",
+     "options": [
+      "Perfect Execution and Comprehensive Resolution",
+      "Complete Failure or Hallucination",
+      "Meets Minimum Requirements but Lacks Accuracy or Clarity",
+      "Partial Effort but Severely Flawed"
+     ],
+     "explanation": "A score of 3 is the 'passing but mediocre' middle ground where the core task is done but the quality is not production-ready.",
+     "correctAnswers": [
+      "Meets Minimum Requirements but Lacks Accuracy or Clarity"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Which of these are signs that an agent is failing to handle tool parameters correctly?",
+     "options": [
+      "The agent passes 'next Monday' to an API requiring 'YYYY-MM-DD'",
+      "The agent retries the exact same invalid parameter after receiving a schema error",
+      "The agent hallucinates a parameter like 'color' for a tool that only accepts 'size'",
+      "The agent successfully converts a user's relative date into an ISO string"
+     ],
+     "explanation": "Invalid formats, hallucinated parameters, and failing to learn from schema errors all indicate poor tool parameter handling.",
+     "correctAnswers": [
+      "The agent passes 'next Monday' to an API requiring 'YYYY-MM-DD'",
+      "The agent retries the exact same invalid parameter after receiving a schema error",
+      "The agent hallucinates a parameter like 'color' for a tool that only accepts 'size'"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of a mocking layer intercepting API calls to inject errors.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/516c8eac-87c7-48e9-8547-877aa386a4c7/exam/images/unit5-q13.png"
+     },
+     "prompt": "What is the benefit of a 'Mocking Layer' in agent testing?",
+     "options": [
+      "It speeds up the agent's response time for end users.",
+      "It allows developers to simulate rare or expensive failure conditions without using real resources.",
+      "It replaces the LLM with a faster rule-based engine.",
+      "It automatically generates the Golden Dataset from user logs."
+     ],
+     "explanation": "Mocking lets you test how an agent handles a 'Database Down' or 'Rate Limit' error without actually breaking your production database or hitting limits.",
+     "correctAnswers": [
+      "It allows developers to simulate rare or expensive failure conditions without using real resources."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why is 'Sequence Alignment' measured using methods like Levenshtein distance in tool evaluation?",
+     "options": [
+      "To quantify how much the agent's path deviated from the optimal 'Golden Path'",
+      "To determine the literal string distance between the agent's final answer and the ground truth",
+      "To identify missing, extra, or out-of-order tool calls",
+      "To calculate the total cost of tokens used in the sequence"
+     ],
+     "explanation": "Levenshtein distance treats the sequence of tool names as a string, allowing us to mathematically score how many 'edits' (missing or wrong calls) exist compared to the ideal path.",
+     "correctAnswers": [
+      "To quantify how much the agent's path deviated from the optimal 'Golden Path'",
+      "To identify missing, extra, or out-of-order tool calls"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "An agent tasked with 'refunding a customer' calls the 'Refund' tool three times in a row with the same TransactionID. This is an example of:",
+     "options": [
+      "Successful multi-step verification",
+      "A redundant loop failure",
+      "Efficient use of tool retries",
+      "Semantic variance in execution"
+     ],
+     "explanation": "Repeatedly calling a high-impact tool (like a refund) with identical parameters is a critical failure of state management and logic.",
+     "correctAnswers": [
+      "A redundant loop failure"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "You are testing an agent's response to a transient API timeout (HTTP 504). Move the 'Agent Decision' slider to the behavior that represents 'Graceful Degradation' instead of a 'Blind Retry'.",
+     "options": [
+      "Infinite Loop (Retrying with same parameters)",
+      "Crash (Returning raw stack trace to user)",
+      "Context Switch (Attempting a fallback tool/database)",
+      "Silent Failure (Ending the run with no output)"
+     ],
+     "explanation": "Graceful degradation involves the agent recognizing a failure and adapting its plan—such as using a fallback resource—rather than simply retrying the failing action or crashing.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Agent Behavior Simulator</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    html, body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n      margin: 0;\n      padding: 0;\n      overflow: hidden;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      padding: 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 16px;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      white-space: nowrap;\n      border: 0;\n    }\n\n    /* Animation Stage */\n    .stage {\n      width: 100%;\n      max-width: 480px;\n      height: 160px;\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      position: relative;\n      overflow: hidden;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Interactive Controls */\n    .control-panel {\n      width: 100%;\n      max-width: 480px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .slider-container {\n      position: relative;\n      width: 100%;\n      height: 48px;\n      display: flex;\n      align-items: center;\n    }\n\n    .slider-track {\n      position: absolute;\n      left: 24px;\n      right: 24px;\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n      pointer-events: none;\n    }\n\n    .slider-track-fill {\n      position: absolute;\n      left: 24px;\n      height: 6px;\n      background: var(--accent);\n      border-radius: 3px;\n      width: 0%;\n      transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n      pointer-events: none;\n    }\n\n    .slider-stations {\n      position: absolute;\n      left: 24px;\n      right: 24px;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .station-dot {\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 2px solid var(--border);\n      transform: translateY(-3px);\n      transition: all 0.2s ease;\n    }\n\n    .station-dot.active {\n      border-color: var(--accent);\n      background: var(--accent);\n      box-shadow: 0 0 0 4px var(--accent-soft);\n    }\n\n    /* Real Invisible Native Input for Range & A11y */\n    .native-slider {\n      width: 100%;\n      height: 100%;\n      opacity: 0;\n      cursor: pointer;\n      position: absolute;\n      z-index: 5;\n    }\n\n    .native-slider:focus-visible ~ .custom-handle {\n      outline: 2px solid var(--accent-strong);\n      outline-offset: 4px;\n    }\n\n    /* Visually gorgeous custom handle overlay */\n    .custom-handle {\n      position: absolute;\n      width: 36px;\n      height: 36px;\n      background: var(--surface);\n      border: 3px solid var(--accent);\n      border-radius: 50%;\n      box-shadow: 0 3px 8px rgba(0,0,0,0.15);\n      cursor: grab;\n      top: 50%;\n      transform: translate(-50%, -50%);\n      pointer-events: none;\n      transition: left 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.1s ease;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .custom-handle:active {\n      cursor: grabbing;\n      transform: translate(-50%, -50%) scale(1.1);\n    }\n\n    .custom-handle svg {\n      width: 20px;\n      height: 20px;\n      fill: var(--accent);\n    }\n\n    .labels-container {\n      display: flex;\n      justify-content: space-between;\n      width: 100%;\n      padding: 0 4px;\n    }\n\n    .label-btn {\n      background: none;\n      border: none;\n      color: var(--muted-fg);\n      font-size: clamp(11px, 2.5vw, 13px);\n      font-weight: 600;\n      cursor: pointer;\n      text-align: center;\n      flex: 1;\n      padding: 4px;\n      transition: color 0.2s;\n    }\n\n    .label-btn.active {\n      color: var(--accent-strong);\n    }\n\n    .action-hint {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: 4px;\n    }\n\n    /* SVG Animation specific styles */\n    .spin {\n      transform-origin: 240px 80px;\n      animation: rotate-anim 3s linear infinite;\n    }\n\n    .glitch {\n      animation: glitch-anim 0.3s steps(2) infinite;\n    }\n\n    @keyframes rotate-anim {\n      from { transform: rotate(0deg); }\n      to { transform: rotate(360deg); }\n    }\n\n    @keyframes glitch-anim {\n      0% { opacity: 0.9; transform: translate(1px, 0); }\n      50% { opacity: 0.4; transform: translate(-1px, 1px); }\n      100% { opacity: 0.9; transform: translate(0, -1px); }\n    }\n\n    /* State transitions */\n    .stage-group {\n      transition: opacity 0.25s ease, transform 0.25s ease;\n      opacity: 0;\n      transform: scale(0.95);\n    }\n\n    .stage-group.active {\n      opacity: 1;\n      transform: scale(1);\n    }\n\n    .read-only {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Agent Decision Simulator - Slide to select fallback behavior</h1>\n\n  <div class=\"widget-container\">\n    <!-- Visual Stage Area -->\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 480 160\">\n        <!-- Background Grid -->\n        <defs>\n          <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n            <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"rgba(0,0,0,0.03)\" stroke-width=\"1\" />\n          </pattern>\n        </defs>\n        <rect width=\"100%\" height=\"100%\" fill=\"url(#grid)\" rx=\"12\" />\n\n        <!-- STATION 1: Infinite Loop -->\n        <g id=\"state-0\" class=\"stage-group active\">\n          <!-- Looping Orbit -->\n          <circle cx=\"240\" cy=\"80\" r=\"40\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-dasharray=\"10 6\" class=\"spin\" />\n          <!-- Main Brain Core -->\n          <circle cx=\"240\" cy=\"80\" r=\"24\" fill=\"var(--surface)\" stroke=\"var(--accent)\" stroke-width=\"3\" />\n          <path d=\"M234 74h12v12h-12z\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n          <path d=\"M237 77h6v6h-6z\" fill=\"var(--accent)\" />\n          <!-- Orbiting packet -->\n          <circle cx=\"240\" cy=\"40\" r=\"6\" fill=\"var(--accent)\" />\n          <text x=\"240\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--fg)\">Retrying indefinitely...</text>\n        </g>\n\n        <!-- STATION 2: Crash (Stack Trace) -->\n        <g id=\"state-1\" class=\"stage-group\">\n          <!-- Monitor Frame -->\n          <rect x=\"180\" y=\"30\" width=\"120\" height=\"80\" rx=\"6\" fill=\"#1e1e1e\" stroke=\"#444\" stroke-width=\"3\" />\n          <rect x=\"220\" y=\"110\" width=\"40\" height=\"15\" fill=\"#333\" />\n          <!-- Lightning / Crash Crack -->\n          <path d=\"M225 45 L255 45 L240 70 L260 70 L230 100\" fill=\"none\" stroke=\"#e06c75\" stroke-width=\"3\" class=\"glitch\" />\n          <!-- Code stack text mockup -->\n          <g transform=\"translate(190, 42)\" opacity=\"0.7\">\n            <rect x=\"0\" y=\"0\" width=\"30\" height=\"4\" fill=\"#e06c75\" />\n            <rect x=\"0\" y=\"8\" width=\"50\" height=\"4\" fill=\"#abb2bf\" />\n            <rect x=\"0\" y=\"16\" width=\"40\" height=\"4\" fill=\"#d19a66\" />\n          </g>\n          <text x=\"240\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--fg)\">Fatal: Raw Stack Trace returned</text>\n        </g>\n\n        <!-- STATION 3: Context Switch (Fallback) -->\n        <g id=\"state-2\" class=\"stage-group\">\n          <!-- Primary Tool -->\n          <circle cx=\"180\" cy=\"80\" r=\"20\" fill=\"var(--surface)\" stroke=\"var(--border)\" stroke-width=\"2\" />\n          <text x=\"180\" y=\"84\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--muted-fg)\">API</text>\n          \n          <!-- Path Indicator -->\n          <path d=\"M 180 80 Q 240 40 300 80\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-dasharray=\"6 4\" />\n          <!-- Moving agent node -->\n          <circle cx=\"240\" cy=\"50\" r=\"8\" fill=\"var(--accent)\" />\n          \n          <!-- Secondary Fallback DB -->\n          <circle cx=\"300\" cy=\"80\" r=\"22\" fill=\"var(--accent-soft)\" stroke=\"var(--accent)\" stroke-width=\"3\" />\n          <text x=\"300\" y=\"84\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--accent-strong)\">LOCAL</text>\n          \n          <text x=\"240\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--fg)\">Switching to local DB cache</text>\n        </g>\n\n        <!-- STATION 4: Silent Failure -->\n        <g id=\"state-3\" class=\"stage-group\">\n          <!-- Ghostly, empty dashed screen outline -->\n          <rect x=\"180\" y=\"35\" width=\"120\" height=\"70\" rx=\"8\" fill=\"none\" stroke=\"var(--border)\" stroke-width=\"2\" stroke-dasharray=\"6 6\" />\n          <path d=\"M225 70 L255 70\" stroke=\"var(--muted-fg)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n          <text x=\"240\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--fg)\">Process complete (No output)</text>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Interactive Panel -->\n    <div class=\"control-panel\">\n      <div class=\"slider-container\">\n        <!-- Native Slider Input -->\n        <input type=\"range\" id=\"state-slider\" class=\"native-slider\" min=\"0\" max=\"3\" value=\"0\" aria-label=\"Agent decision state selection\">\n        \n        <!-- Custom visual components -->\n        <div class=\"slider-track\"></div>\n        <div class=\"slider-track-fill\" id=\"track-fill\"></div>\n        <div class=\"slider-stations\">\n          <div class=\"station-dot active\" data-idx=\"0\"></div>\n          <div class=\"station-dot\" data-idx=\"1\"></div>\n          <div class=\"station-dot\" data-idx=\"2\"></div>\n          <div class=\"station-dot\" data-idx=\"3\"></div>\n        </div>\n        <div class=\"custom-handle\" id=\"slider-handle\">\n          <!-- Brain Icon inside Handle -->\n          <svg viewBox=\"0 0 24 24\">\n            <path d=\"M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.58 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z\"/>\n          </svg>\n        </div>\n      </div>\n\n      <!-- Quick labels mapping to options -->\n      <div class=\"labels-container\">\n        <button class=\"label-btn active\" data-idx=\"0\">Infinite Loop</button>\n        <button class=\"label-btn\" data-idx=\"1\">Crash</button>\n        <button class=\"label-btn\" data-idx=\"2\">Context Switch</button>\n        <button class=\"label-btn\" data-idx=\"3\">Silent Failure</button>\n      </div>\n    </div>\n\n    <div class=\"action-hint\">Drag the slider to choose the graceful fallback behavior</div>\n  </div>\n\n  <script>\n    // Exact option strings mapped\n    const OPTIONS = [\n      \"Infinite Loop (Retrying with same parameters)\",\n      \"Crash (Returning raw stack trace to user)\",\n      \"Context Switch (Attempting a fallback tool/database)\",\n      \"Silent Failure (Ending the run with no output)\"\n    ];\n\n    const slider = document.getElementById('state-slider');\n    const handle = document.getElementById('slider-handle');\n    const fill = document.getElementById('track-fill');\n    const dots = document.querySelectorAll('.station-dot');\n    const labels = document.querySelectorAll('.label-btn');\n    const stages = [\n      document.getElementById('state-0'),\n      document.getElementById('state-1'),\n      document.getElementById('state-2'),\n      document.getElementById('state-3')\n    ];\n\n    let currentVal = 0;\n    let hasInteracted = false;\n\n    function updateUI(val) {\n      currentVal = val;\n      const percent = (val / 3) * 100;\n      \n      // Update custom slider visual position\n      handle.style.left = `calc(24px + (${percent}% - ${percent * 0.48}px))`;\n      fill.style.width = `${percent}%`;\n\n      // Update active dots and labels\n      dots.forEach((dot, idx) => {\n        if (idx == val) {\n          dot.classList.add('active');\n        } else {\n          dot.classList.remove('active');\n        }\n      });\n\n      labels.forEach((label, idx) => {\n        if (idx == val) {\n          label.classList.add('active');\n        } else {\n          label.classList.remove('active');\n        }\n      });\n\n      // Update SVGs visual stage\n      stages.forEach((stage, idx) => {\n        if (idx == val) {\n          stage.classList.add('active');\n        } else {\n          stage.classList.remove('active');\n        }\n      });\n\n      // Report answer to parent host\n      if (hasInteracted) {\n        parent.postMessage({\n          type: 'hk-practice-answer',\n          value: OPTIONS[val]\n        }, '*');\n      }\n    }\n\n    // Input slider event listeners\n    slider.addEventListener('input', (e) => {\n      hasInteracted = true;\n      updateUI(parseInt(e.target.value, 10));\n    });\n\n    // Support clicking quick labels directly\n    labels.forEach(btn => {\n      btn.addEventListener('click', (e) => {\n        const targetIdx = parseInt(e.target.getAttribute('data-idx'), 10);\n        slider.value = targetIdx;\n        hasInteracted = true;\n        updateUI(targetIdx);\n      });\n    });\n\n    // Lock support\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        document.querySelector('.widget-container').classList.add('read-only');\n        slider.disabled = true;\n        labels.forEach(btn => btn.disabled = true);\n      }\n    });\n\n    // Height Reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', () => {\n      updateUI(0);\n      reportHeight();\n    });\n\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Context Switch (Attempting a fallback tool/database)"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "16dd706f-329c-4630-8260-85066b1e0f75"
+}

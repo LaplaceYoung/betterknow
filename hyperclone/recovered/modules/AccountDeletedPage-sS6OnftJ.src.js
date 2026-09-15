@@ -1,0 +1,103 @@
+import { b as e, u as t, k as c, r as a, j as s } from "./index-TjoB2Buo.js";
+function i() {
+  var i;
+  const {
+    t: n
+  } = e();
+  const l = t();
+  const d = c();
+  const [o, r] = a.useState("visible");
+  const u = a.useRef(null);
+  const x = Boolean((i = d.state) == null ? undefined : i.accountDeleted);
+  a.useEffect(() => {
+    if (!x) {
+      l("/signin", {
+        replace: true
+      });
+    }
+  }, [x, l]);
+  a.useEffect(() => () => {
+    if (u.current) {
+      clearTimeout(u.current);
+    }
+  }, []);
+  if (x) {
+    return s.jsx("main", {
+      className: `account-deleted-page account-deleted-page--${o}`,
+      role: "dialog",
+      "aria-modal": "true",
+      "aria-label": n("settings.accountDeletedTitle"),
+      children: s.jsxs("div", {
+        className: "account-deleted-start",
+        children: [s.jsx("span", {
+          className: "account-deleted-piece account-deleted-mark-wrap",
+          style: {
+            "--exit-x": "-48px",
+            "--exit-y": "-64px",
+            "--exit-rotate": "-8deg"
+          },
+          children: s.jsxs("svg", {
+            className: "account-deleted-mark",
+            viewBox: "0 0 96 96",
+            fill: "none",
+            "aria-hidden": "true",
+            children: [s.jsx("circle", {
+              cx: "48",
+              cy: "48",
+              r: "44",
+              stroke: "#2F2F2F",
+              strokeWidth: "3",
+              opacity: "0.16"
+            }), s.jsx("path", {
+              className: "account-deleted-check",
+              d: "M30 49.5 L42.5 62 L66 36",
+              stroke: "#2F2F2F",
+              strokeWidth: "5",
+              strokeLinecap: "round",
+              strokeLinejoin: "round"
+            })]
+          })
+        }), s.jsx("span", {
+          className: "account-deleted-piece account-deleted-copy",
+          style: {
+            "--exit-x": "44px",
+            "--exit-y": "-20px",
+            "--exit-rotate": "5deg"
+          },
+          children: n("settings.accountDeletedTitle")
+        }), s.jsx("span", {
+          className: "account-deleted-piece account-deleted-subcopy",
+          style: {
+            "--exit-x": "36px",
+            "--exit-y": "10px",
+            "--exit-rotate": "3deg"
+          },
+          children: n("settings.accountDeletedSubtitle")
+        }), s.jsx("button", {
+          type: "button",
+          className: "account-deleted-piece account-deleted-cta",
+          style: {
+            "--exit-x": "0px",
+            "--exit-y": "58px",
+            "--exit-rotate": "3deg"
+          },
+          onClick: () => {
+            if (o === "visible") {
+              r("exiting");
+              u.current = window.setTimeout(() => {
+                l("/signin", {
+                  replace: true
+                });
+                u.current = null;
+              }, 760);
+            }
+          },
+          children: n("settings.accountDeletedBackToLogin")
+        })]
+      })
+    });
+  } else {
+    return null;
+  }
+}
+export { i as default };

@@ -1,0 +1,1450 @@
+{
+ "exams": [
+  {
+   "title": "The Academic Writing Situation Assessment",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following best describes the transition from 'knowledge-telling' to 'knowledge-transforming' in academic writing?",
+     "options": [
+      "Proving you have read the source material by providing a detailed summary.",
+      "Using existing information to solve a problem or fill a research gap.",
+      "Increasing the complexity of vocabulary to match scholarly standards.",
+      "Expressing personal opinions with greater passion and rhetorical flair."
+     ],
+     "explanation": "Knowledge-transforming involves the active use of information to contribute something new to the conversation, rather than just repeating what is already known.",
+     "correctAnswers": [
+      "Using existing information to solve a problem or fill a research gap."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the 'Rhetorical Situation' and the 'Burden of Proof' discussed in the unit, what are the three pillars of a scholarly article?",
+     "options": [
+      "Transparency",
+      "Skepticism",
+      "Charisma",
+      "Precision",
+      "Emotional Persuasion"
+     ],
+     "explanation": "Scholarly work relies on showing your work (transparency), anticipating counter-arguments (skepticism), and using technical language for accuracy (precision), rather than the author's charisma or emotional appeal.",
+     "correctAnswers": [
+      "Transparency",
+      "Skepticism",
+      "Precision"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "What is the functional purpose of 'genre' within an academic context?",
+     "options": [
+      "A rigid set of rules used to grade students on formatting.",
+      "A literary category such as mystery, sci-fi, or non-fiction.",
+      "A patterned response to a recurring rhetorical situation.",
+      "A way to hide weak logic behind standardized structures."
+     ],
+     "explanation": "Genre is viewed as a 'social action' that provides a predictable way for scholars to communicate within their community.",
+     "correctAnswers": [
+      "A patterned response to a recurring rhetorical situation."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'implicit' conventions in academic writing?",
+     "options": [
+      "The use of APA citation style",
+      "The level of hedging used in a claim",
+      "The specific margins and font size required",
+      "The preference for passive voice in hard sciences",
+      "The inclusion of a reference list"
+     ],
+     "explanation": "Implicit conventions are the unwritten values and stylistic choices of a field, like hedging or voice, whereas citation styles and margins are explicit rules.",
+     "correctAnswers": [
+      "The level of hedging used in a claim",
+      "The preference for passive voice in hard sciences"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "Why might a social scientist use the first-person 'I' while a physical scientist avoids it?",
+     "options": [
+      "Physical scientists are not allowed to have personal opinions.",
+      "Social scientists use 'I' to acknowledge their positionality in the research.",
+      "Social science is less rigorous and therefore more personal.",
+      "The first-person is used only when the data is inconclusive."
+     ],
+     "explanation": "This stylistic choice reflects the underlying values of the discipline, specifically regarding objectivity vs. subjectivity.",
+     "correctAnswers": [
+      "Social scientists use 'I' to acknowledge their positionality in the research."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "image": {
+      "alt": "Anatomy of an Abstract diagram.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/exam/images/unit1-q6.png"
+     },
+     "prompt": "A scholarly abstract typically functions as a standardized 'map' for the reader. Which components are standard parts of this genre's anatomy?",
+     "options": [
+      "The Problem",
+      "The Methodology",
+      "The Author's Biography",
+      "The Findings",
+      "The Significance"
+     ],
+     "explanation": "An abstract is a promise to the reader that outlines the research problem, how it was studied, what was found, and why it matters.",
+     "correctAnswers": [
+      "The Problem",
+      "The Methodology",
+      "The Findings",
+      "The Significance"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary goal of using the 'Academic Register'?",
+     "options": [
+      "To impress the audience with sophisticated vocabulary.",
+      "To minimize the distance between the reader and the evidence.",
+      "To demonstrate the writer's superior intelligence.",
+      "To make the text as difficult to read as possible for non-experts."
+     ],
+     "explanation": "The academic register is a strategic choice to project objectivity and precision, focusing the reader's attention on the data rather than the writer.",
+     "correctAnswers": [
+      "To minimize the distance between the reader and the evidence."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In the context of the 'Expert Audience,' which questions is a skeptical reader likely to ask when encountering an unsupported generalization?",
+     "options": [
+      "Is the author famous enough to believe?",
+      "Who is included in this 'everyone'?",
+      "How is this specific term defined?",
+      "Where is the metric or evidence for this?",
+      "Does the author have a nice writing style?"
+     ],
+     "explanation": "Expert readers are 'skeptics by default' and look for intellectual vulnerability and evidentiary support in every claim.",
+     "correctAnswers": [
+      "Who is included in this 'everyone'?",
+      "How is this specific term defined?",
+      "Where is the metric or evidence for this?"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "What does the 'Register of Humility' refer to in scholarly writing?",
+     "options": [
+      "Apologizing for the lack of data in a study.",
+      "Using 'hedging' terms like 'suggests' or 'indicates' to avoid over-claiming.",
+      "Writing in a lower-level vocabulary to be accessible to everyone.",
+      "The practice of citing other authors more than yourself."
+     ],
+     "explanation": "Hedging is a sign of professional strength, showing that the writer understands the limits of their data.",
+     "correctAnswers": [
+      "Using 'hedging' terms like 'suggests' or 'indicates' to avoid over-claiming."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "What are the core phases of the academic workflow mentioned in the 'Writing Process' session?",
+     "options": [
+      "Discovery",
+      "Scaffolding",
+      "Marketing",
+      "Drafting",
+      "Refining"
+     ],
+     "explanation": "The academic workflow is broken into Discovery (research), Scaffolding (outlining), Drafting, and Refining (revision).",
+     "correctAnswers": [
+      "Discovery",
+      "Scaffolding",
+      "Drafting",
+      "Refining"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "image": {
+      "alt": "Recursive vs Linear writing process diagram.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/exam/images/unit1-q11.png"
+     },
+     "prompt": "Which visualization best represents the reality of the academic writing process?",
+     "options": [
+      "A single straight line from Idea to Finished Paper.",
+      "A series of overlapping circles or a spiral.",
+      "A pyramid with the final draft at the very top.",
+      "A square box representing a single session of deep focus."
+     ],
+     "explanation": "Writing is recursive; it involves layering thoughts over time and returning to previous stages.",
+     "correctAnswers": [
+      "A series of overlapping circles or a spiral."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "When analyzing an author's rhetorical situation, what elements should a critical reader identify?",
+     "options": [
+      "The intended audience",
+      "The author's hidden personal secrets",
+      "The exigence (the 'why now?')",
+      "The constraints of the genre",
+      "The number of pages in the text"
+     ],
+     "explanation": "Understanding the audience, urgency (exigence), and genre rules helps the reader evaluate the effectiveness of the argument.",
+     "correctAnswers": [
+      "The intended audience",
+      "The exigence (the 'why now?')",
+      "The constraints of the genre"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is 'Scaffolding' in the context of writing a research paper?",
+     "options": [
+      "The final proofreading for grammar and spelling errors.",
+      "The process of building an outline and mapping evidence.",
+      "The bibliography at the end of the document.",
+      "The peer-review feedback received from classmates."
+     ],
+     "explanation": "Scaffolding acts as a bridge that prevents writers from getting lost in their notes or 'patchwriting'.",
+     "correctAnswers": [
+      "The process of building an outline and mapping evidence."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following actions are consistent with 'skepticism' as a pillar of academic integrity?",
+     "options": [
+      "Ignoring data that contradicts your thesis.",
+      "Anticipating potential counter-arguments from the reader.",
+      "Verifying the citations and sources used by another author.",
+      "Assuming the author is correct because they have a PhD.",
+      "Questioning the methodology used to gather data."
+     ],
+     "explanation": "Skepticism involves active verification and preparation for disagreement, which strengthens the final argument.",
+     "correctAnswers": [
+      "Anticipating potential counter-arguments from the reader.",
+      "Verifying the citations and sources used by another author.",
+      "Questioning the methodology used to gather data."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "How does critical reading differ from 'extracting information'?",
+     "options": [
+      "It is faster because you only read the abstract.",
+      "It involves approaching a text as a skeptical inquirer rather than a passive recipient.",
+      "It requires memorizing the author's primary arguments for a test.",
+      "It focuses on the emotional impact of the writing on the reader."
+     ],
+     "explanation": "Critical reading is an active engagement where you evaluate the logic and evidence of the text.",
+     "correctAnswers": [
+      "It involves approaching a text as a skeptical inquirer rather than a passive recipient."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Why is 'incubation' considered a legitimate part of the professional writing process?",
+     "options": [
+      "It allows the writer to avoid work until the last minute.",
+      "It gives the brain time to process complex ideas away from the screen.",
+      "It is a time for the writer to find others to do the work for them.",
+      "It is only necessary for students who are struggling with English."
+     ],
+     "explanation": "Time away from the screen is a professional milestone that allows for mental synthesis of research.",
+     "correctAnswers": [
+      "It gives the brain time to process complex ideas away from the screen."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "If a student replaces the phrase 'I feel that the policy is bad' with 'The policy's implementation resulted in measurable economic decline,' what have they primarily changed?",
+     "options": [
+      "The font and formatting of the paper.",
+      "The rhetorical register and the level of objectivity.",
+      "The actual meaning and intent of the statement.",
+      "The citation style of the paragraph."
+     ],
+     "explanation": "The student has shifted from a subjective personal feeling to an objective, evidence-based scholarly claim.",
+     "correctAnswers": [
+      "The rhetorical register and the level of objectivity."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Why does the writer's 'authority' appear to increase as the personal pronouns and emotional adjectives decrease over the course of the revision process?",
+     "options": [
+      "Because the reader is distracted by the lack of personality and assumes the data is better.",
+      "Because stripping away subjective noise forces the evidence to become the primary focus of the argument.",
+      "Because shorter sentences are naturally more authoritative than long, descriptive ones.",
+      "Because academic journals have software that automatically rejects papers with too many adjectives."
+     ],
+     "explanation": "The animation shows that as 'subjective noise' (I think, really, terrible) is removed, the 'evidentiary signal' (data, metrics) becomes more prominent to the reader.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Sentence Transformation Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            color: var(--ink);\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 24px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .simulation-stage {\n            height: 120px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            position: relative;\n            background: white;\n            border: 1px solid var(--rule);\n            border-radius: 4px;\n            padding: 20px;\n            box-shadow: 0 1px 3px rgba(0,0,0,0.02);\n        }\n\n        .sentence-display {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(14px, 4vw, 18px);\n            line-height: 1.5;\n            text-align: center;\n            max-width: 100%;\n            position: relative;\n        }\n\n        .word {\n            display: inline-block;\n            transition: opacity 0.8s ease, transform 0.8s ease, color 0.8s ease;\n            white-space: pre;\n        }\n\n        .word.removed {\n            opacity: 0;\n            transform: translateY(-5px);\n            position: absolute;\n        }\n\n        .word.added {\n            color: var(--accent);\n            font-weight: 500;\n        }\n\n        .metrics-container {\n            display: flex;\n            align-items: flex-end;\n            gap: 40px;\n            height: 100px;\n            padding: 0 20px 20px 20px;\n        }\n\n        .meter-group {\n            flex: 1;\n            display: flex;\n            flex-direction: column;\n            gap: 8px;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n            font-style: italic;\n        }\n\n        .meter-track {\n            height: 4px;\n            background: var(--rule);\n            width: 100%;\n            position: relative;\n        }\n\n        .meter-fill {\n            height: 100%;\n            background: var(--accent);\n            width: 0%;\n            transition: width 0.1s linear;\n        }\n\n        .axis-markers {\n            display: flex;\n            justify-content: space-between;\n            margin-top: 4px;\n        }\n\n        .tick {\n            height: 4px;\n            width: 1px;\n            background: var(--muted);\n        }\n\n        .tick-label {\n            font-size: 9px;\n            color: var(--muted);\n            margin-top: 2px;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .status-caption {\n            text-align: center;\n            font-family: Georgia, serif;\n            font-size: 13px;\n            color: var(--muted);\n            font-style: italic;\n            margin-top: -10px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Linguistic Register Shift Simulation</h1>\n    \n    <div class=\"container\" aria-label=\"A sentence transforming from informal to academic register alongside a rising credibility meter\">\n        \n        <div class=\"simulation-stage\">\n            <div id=\"sentence\" class=\"sentence-display\"></div>\n        </div>\n\n        <div class=\"metrics-container\">\n            <div class=\"meter-group\">\n                <span class=\"axis-label\">Credibility Rating</span>\n                <div class=\"meter-track\">\n                    <div id=\"credibility-fill\" class=\"meter-fill\"></div>\n                </div>\n                <div class=\"axis-markers\">\n                    <div style=\"display: flex; flex-direction: column; align-items: center;\">\n                        <div class=\"tick\"></div>\n                        <span class=\"tick-label\">0.0</span>\n                    </div>\n                    <div style=\"display: flex; flex-direction: column; align-items: center;\">\n                        <div class=\"tick\"></div>\n                        <span class=\"tick-label\">0.5</span>\n                    </div>\n                    <div style=\"display: flex; flex-direction: column; align-items: center;\">\n                        <div class=\"tick\"></div>\n                        <span class=\"tick-label\">1.0</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"status-caption\">Observed register shift over time</div>\n    </div>\n\n    <script>\n        const sentenceElement = document.getElementById('sentence');\n        const credibilityFill = document.getElementById('credibility-fill');\n\n        // The stages of the sentence\n        // Stage 0: The original wordy/emotional sentence\n        // Stage 1: The removal of emotion\n        // Stage 2: The introduction of nominalized/objective terms\n        const stages = [\n            {\n                words: [\n                    { text: \"People\", type: \"base\" },\n                    { text: \" who \", type: \"base\" },\n                    { text: \"really \", type: \"emotional\" },\n                    { text: \"hate \", type: \"emotional\" },\n                    { text: \"how \", type: \"base\" },\n                    { text: \"the \", type: \"base\" },\n                    { text: \"climate \", type: \"base\" },\n                    { text: \"is \", type: \"base\" },\n                    { text: \"getting \", type: \"base\" },\n                    { text: \"worse \", type: \"emotional\" },\n                    { text: \"expressed \", type: \"base\" },\n                    { text: \"their \", type: \"base\" },\n                    { text: \"anger.\", type: \"emotional\" }\n                ],\n                credibility: 15\n            },\n            {\n                words: [\n                    { text: \"People\", type: \"base\" },\n                    { text: \" who \", type: \"base\" },\n                    { text: \" \", type: \"removed\" },\n                    { text: \" \", type: \"removed\" },\n                    { text: \"the \", type: \"base\" },\n                    { text: \"climate \", type: \"base\" },\n                    { text: \"is \", type: \"base\" },\n                    { text: \" \", type: \"removed\" },\n                    { text: \" \", type: \"removed\" },\n                    { text: \"expressed \", type: \"base\" },\n                    { text: \" \", type: \"removed\" },\n                    { text: \" \", type: \"removed\" }\n                ],\n                credibility: 45\n            },\n            {\n                words: [\n                    { text: \"Public \", type: \"added\" },\n                    { text: \"dissatisfaction \", type: \"added\" },\n                    { text: \"regarding \", type: \"added\" },\n                    { text: \"climatic \", type: \"added\" },\n                    { text: \"deterioration \", type: \"added\" },\n                    { text: \"was \", type: \"added\" },\n                    { text: \"documented.\", type: \"added\" }\n                ],\n                credibility: 92\n            }\n        ];\n\n        let currentStage = 0;\n        let startTime = null;\n        const duration = 9000; // Total loop time 9s\n\n        function renderSentence(stageIndex, progress) {\n            const stage = stages[stageIndex];\n            sentenceElement.innerHTML = '';\n            \n            stage.words.forEach(word => {\n                const span = document.createElement('span');\n                span.className = 'word ' + word.type;\n                span.textContent = word.text;\n                \n                // Fine-tune visibility based on progress within the stage\n                if (word.type === 'emotional' && stageIndex === 0) {\n                    span.style.opacity = progress > 0.7 ? 1 - (progress - 0.7) * 3.3 : 1;\n                }\n                \n                sentenceElement.appendChild(span);\n            });\n\n            // Smooth credibility update\n            const baseCred = stage.credibility;\n            const nextCred = stages[(stageIndex + 1) % stages.length].credibility;\n            const displayCred = stageIndex === 2 ? baseCred : baseCred + (nextCred - baseCred) * progress;\n            credibilityFill.style.width = displayCred + '%';\n        }\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = (timestamp - startTime) % duration;\n            const cycleProgress = elapsed / duration;\n\n            let stageIdx, stageProgress;\n            if (cycleProgress < 0.33) {\n                stageIdx = 0;\n                stageProgress = cycleProgress / 0.33;\n            } else if (cycleProgress < 0.66) {\n                stageIdx = 1;\n                stageProgress = (cycleProgress - 0.33) / 0.33;\n            } else {\n                stageIdx = 2;\n                stageProgress = (cycleProgress - 0.66) / 0.34;\n            }\n\n            renderSentence(stageIdx, stageProgress);\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.onload = () => {\n            requestAnimationFrame(animate);\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        };\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because stripping away subjective noise forces the evidence to become the primary focus of the argument."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Comprehensive Exam: The Architecture of Argument",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following best describes the 'Thesis Contract' as defined in the unit?",
+     "options": [
+      "A formal agreement between the student and the instructor regarding the paper's grade.",
+      "A promise that the writer will prove a specific point, creating mutual expectations with the reader.",
+      "A summary of all the factual information available on a specific subject.",
+      "A list of references and citations that will be used throughout the essay."
+     ],
+     "explanation": "The 'Thesis Contract' establishes that the thesis is not just a topic, but a promise to the reader that dictates the writer's choice of evidence and word choice to prove a specific point.",
+     "correctAnswers": [
+      "A promise that the writer will prove a specific point, creating mutual expectations with the reader."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following statements would be classified as 'Arguable' rather than 'Factual' or 'Personal Taste'?",
+     "options": [
+      "The sun rises in the east and sets in the west.",
+      "Social media algorithms have eroded the democratic process by prioritizing engagement over truth.",
+      "Sunny days are far more enjoyable than rainy or overcast days.",
+      "The psychological association between sunlight and productivity justifies flexible working hours in northern latitudes.",
+      "Digital social media has changed how people communicate in the 21st century."
+     ],
+     "explanation": "These two options require evidence and logic to sustain and invite scholarly debate. The others are either settled facts or matters of private preference.",
+     "correctAnswers": [
+      "Social media algorithms have eroded the democratic process by prioritizing engagement over truth.",
+      "The psychological association between sunlight and productivity justifies flexible working hours in northern latitudes."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of moving from a broad topic to a specific thesis is described in the unit as a ____ funnel.",
+     "placeholder": "type of shape",
+     "correctAnswers": [
+      "narrowing"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary function of the 'Because' clause in the 'Thesis because Reason' formula?",
+     "options": [
+      "To provide a concluding sentence for the entire research paper.",
+      "To act as a logical hinge that forces the writer to articulate a reason rather than just listing topics.",
+      "To introduce a piece of raw data without further analysis.",
+      "To signal that the writer is moving from a sub-claim to a counterargument."
+     ],
+     "explanation": "The 'Because' clause transforms a static claim into a reasoned argument, serving as the logical architecture for body paragraphs.",
+     "correctAnswers": [
+      "To act as a logical hinge that forces the writer to articulate a reason rather than just listing topics."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A student claims 'Online classes are superior to in-person classes because they allow for flexible scheduling.' Which of the following must be true for this argument to be persuasive to a reader?",
+     "options": [
+      "The reader must value flexible scheduling as a primary metric of educational quality.",
+      "The reader must already be enrolled in an online degree program.",
+      "The writer must assume that flexibility is universally more important than face-to-face mentorship.",
+      "The reader must accept that technology is always better than tradition.",
+      "The writer must provide a definition of 'superiority'."
+     ],
+     "explanation": "These are the warrants (assumptions) of the argument. If the reader does not share these values, the link between the reason and the claim fails.",
+     "correctAnswers": [
+      "The reader must value flexible scheduling as a primary metric of educational quality.",
+      "The writer must assume that flexibility is universally more important than face-to-face mentorship."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A thesis that everyone agrees with is not an academic contribution; it is an ____ entry.",
+     "correctAnswers": [
+      "encyclopedia"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the Toulmin model, what is a 'warrant'?",
+     "options": [
+      "The specific data or statistics used to support a claim.",
+      "The primary conclusion the writer wants the audience to accept.",
+      "The underlying assumption or shared value that connects a claim to its support.",
+      "A formal list of counterarguments that the writer must refute."
+     ],
+     "explanation": "A warrant is the 'invisible glue' or the unstated bridge that makes the evidence relevant to the claim being made.",
+     "correctAnswers": [
+      "The underlying assumption or shared value that connects a claim to its support."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Why is it discouraged to save the thesis as a 'surprise' for the end of an academic paper?",
+     "options": [
+      "Academic readers need to know the 'answer' upfront to evaluate the logic as they read.",
+      "It violates the 'Thesis Contract' established at the start of the paper.",
+      "A thesis at the end is technically a conclusion, not a thesis.",
+      "Readers may lose interest if they don't know the specific point the writer is trying to prove.",
+      "It makes the paper too short to meet academic requirements."
+     ],
+     "explanation": "Academic writing values transparency; the thesis acts as a roadmap that allows the reader to judge the validity of the evidence in real-time.",
+     "correctAnswers": [
+      "Academic readers need to know the 'answer' upfront to evaluate the logic as they read.",
+      "It violates the 'Thesis Contract' established at the start of the paper.",
+      "Readers may lose interest if they don't know the specific point the writer is trying to prove."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'Umbrella Test' is used to ensure that a ____ fits under the logical scope of the main thesis.",
+     "placeholder": "part of the essay",
+     "correctAnswers": [
+      "sub-claim"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "The Umbrella Test diagram illustrating hierarchy in argument structure.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/exam/images/unit2-q10.png"
+     },
+     "prompt": "If a sub-claim is the same 'size' as the main thesis, it fails which of the following tests?",
+     "options": [
+      "The Syllogism Stress Test",
+      "The Umbrella Test",
+      "The So What? Test",
+      "The Thesis Contract Test"
+     ],
+     "explanation": "The Umbrella Test ensures that sub-claims are specific 'pillars' supporting the main thesis rather than just restating it.",
+     "correctAnswers": [
+      "The Umbrella Test"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which elements are required to move from a 'Topic' to a 'Thesis' in the narrowing funnel model?",
+     "options": [
+      "A broad subject area.",
+      "A specific question addressing a tension or gap.",
+      "A definitive answer to that question that invites disagreement.",
+      "A summary of all previous research on the topic.",
+      "A statement of personal feeling without evidence."
+     ],
+     "explanation": "The funnel moves from Topic to Question to Thesis. A thesis must be an answer that is arguable and rooted in a specific problem.",
+     "correctAnswers": [
+      "A broad subject area.",
+      "A specific question addressing a tension or gap.",
+      "A definitive answer to that question that invites disagreement."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "Consider the claim: 'The density of metaphorical language is a sign of literary merit.' In which scenario would this warrant fail?",
+     "options": [
+      "When the audience is a group of poets.",
+      "When the audience consists of scientists who value clarity and literalism.",
+      "When the essay is being written for a literature professor.",
+      "When the author uses too few metaphors."
+     ],
+     "explanation": "Warrants are often discipline-specific; a scientist might view dense metaphor as a barrier to clarity rather than a sign of merit.",
+     "correctAnswers": [
+      "When the audience consists of scientists who value clarity and literalism."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "According to the unit material, what are the characteristics of a 'Purpose Statement'?",
+     "options": [
+      "It uses the template 'In this paper, I am arguing [X] because [Y].'",
+      "It must be written in perfectly polished academic prose immediately.",
+      "It acts as an internal 'north star' for the writer during the drafting process.",
+      "It identifies an intervention the writer wants to make in the subject matter.",
+      "It replaces the need for a final thesis statement."
+     ],
+     "explanation": "The purpose statement is a functional tool that helps the writer identify their direction and intervention before polishing the final thesis.",
+     "correctAnswers": [
+      "It uses the template 'In this paper, I am arguing [X] because [Y].'",
+      "It acts as an internal 'north star' for the writer during the drafting process.",
+      "It identifies an intervention the writer wants to make in the subject matter."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "What is the danger of 'Warrant Blindness'?",
+     "options": [
+      "The writer forgets to include a thesis statement.",
+      "The writer assumes their internal logic and values are universal and shared by all readers.",
+      "The writer provides too much evidence for a single claim.",
+      "The reader is unable to understand the writer's vocabulary."
+     ],
+     "explanation": "Warrant blindness occurs when a writer fails to see that their argument depends on assumptions the audience might not accept.",
+     "correctAnswers": [
+      "The writer assumes their internal logic and values are universal and shared by all readers."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Identify the common pitfalls mentioned when students attempt to create sub-claims.",
+     "options": [
+      "Creating a sub-claim that is too broad and merely restates the thesis.",
+      "Creating a sub-claim that is too narrow, such as a single data point.",
+      "Using the word 'because' to link a claim to a reason.",
+      "Identifying three distinct pillars of support.",
+      "Failing to fit the sub-claim under the 'umbrella' of the main thesis."
+     ],
+     "explanation": "Sub-claims should be miniature arguments. They fail if they are the same size as the thesis (too broad) or just raw data (too narrow).",
+     "correctAnswers": [
+      "Creating a sub-claim that is too broad and merely restates the thesis.",
+      "Creating a sub-claim that is too narrow, such as a single data point.",
+      "Failing to fit the sub-claim under the 'umbrella' of the main thesis."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "How does the 'Revision Flow' help a student improve a weak thesis like 'Recycling is good for the environment'?",
+     "options": [
+      "By suggesting the student change the topic entirely.",
+      "By adding qualifying 'although' or 'because' clauses to introduce complexity and specific stakes.",
+      "By helping the student find more facts about recycling.",
+      "By correcting the grammar and punctuation of the statement."
+     ],
+     "explanation": "Adding clauses like 'because' or 'although' forces the writer to address specific mechanisms and potential counter-points, making the claim arguable.",
+     "correctAnswers": [
+      "By adding qualifying 'although' or 'because' clauses to introduce complexity and specific stakes."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Why does the 'Logical Gap' widen when the warrant is not shared between the writer and the audience?",
+     "options": [
+      "Because the writer has failed to provide enough raw data to overwhelm the reader's skepticism.",
+      "Because the evidence provided relies on a principle or value that the audience does not accept as valid for that claim.",
+      "Because the writer is using too many different types of evidence for a single sub-claim.",
+      "Because the audience is distracted by the descriptive nature of the introduction."
+     ],
+     "explanation": "A warrant is the bridge; if the audience rejects the assumption (the bridge), no amount of evidence (the reason) can reach the claim.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Toulmin Warrant Bridge Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(12px, 3.5vw, 14px);\n            font-style: italic;\n            fill: var(--muted);\n        }\n\n        .label-bold {\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            font-weight: 600;\n            font-size: clamp(13px, 4vw, 15px);\n            fill: var(--ink);\n        }\n\n        .readout {\n            margin-top: 12px;\n            font-variant-numeric: tabular-nums;\n            color: var(--muted);\n            font-size: 13px;\n            display: flex;\n            gap: 20px;\n        }\n\n        .axis-container {\n            width: 100%;\n            margin-top: 24px;\n            padding: 0 20px;\n            box-sizing: border-box;\n        }\n\n        .axis-line {\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .axis-tick {\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .marker {\n            stroke: var(--accent);\n            stroke-width: 2px;\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"sr-only\">Simulation of a Bridge connecting Evidence and Claim based on Warrant Acceptance</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-wrapper\" aria-label=\"A diagram showing Evidence and Claim on separate cliffs, with a bridge structure that changes integrity based on a variable level of acceptance.\">\n            <svg class=\"fig-svg\" viewBox=\"0 0 400 220\">\n                <!-- Cliffs -->\n                <path d=\"M 0 160 L 100 160 L 100 220 L 0 220 Z\" fill=\"#eeebe6\" stroke=\"none\" />\n                <path d=\"M 300 160 L 400 160 L 400 220 L 300 220 Z\" fill=\"#eeebe6\" stroke=\"none\" />\n                <line x1=\"100\" y1=\"160\" x2=\"100\" y2=\"220\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"300\" y1=\"160\" x2=\"300\" y2=\"220\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Labels for Landmasses -->\n                <text x=\"50\" y=\"185\" text-anchor=\"middle\" class=\"label-bold\">Evidence</text>\n                <text x=\"350\" y=\"185\" text-anchor=\"middle\" class=\"label-bold\">Claim</text>\n\n                <!-- The Bridge Structure (Warrant) -->\n                <g id=\"bridge-group\">\n                    <!-- Main Span -->\n                    <line id=\"bridge-main\" x1=\"102\" y1=\"160\" x2=\"298\" y2=\"160\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-dasharray=\"0\" />\n                    \n                    <!-- Support Girders -->\n                    <path id=\"bridge-structure\" d=\"M 100 160 L 150 130 L 200 160 L 250 130 L 300 160\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"1.5\" />\n                    <line id=\"bridge-vert-1\" x1=\"150\" y1=\"130\" x2=\"150\" y2=\"160\" stroke=\"var(--accent)\" stroke-width=\"1\" opacity=\"0.6\" />\n                    <line id=\"bridge-vert-2\" x1=\"250\" y1=\"130\" x2=\"250\" y2=\"160\" stroke=\"var(--accent)\" stroke-width=\"1\" opacity=\"0.6\" />\n                </g>\n\n                <!-- Debris (only visible when low acceptance) -->\n                <g id=\"debris-group\" opacity=\"0\"></g>\n\n                <!-- Warrant Label -->\n                <text x=\"200\" y=\"115\" text-anchor=\"middle\" class=\"label-serif\">Warrant</text>\n\n                <!-- Axis for Sweep -->\n                <g transform=\"translate(100, 210)\">\n                    <line x1=\"0\" y1=\"0\" x2=\"200\" y2=\"0\" class=\"axis-line\" />\n                    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"5\" class=\"axis-tick\" />\n                    <line x1=\"100\" y1=\"0\" x2=\"100\" y2=\"5\" class=\"axis-tick\" />\n                    <line x1=\"200\" y1=\"0\" x2=\"200\" y2=\"5\" class=\"axis-tick\" />\n                    <text x=\"0\" y=\"15\" text-anchor=\"middle\" class=\"label-serif\" style=\"font-size: 10px; font-style: normal;\">Reject</text>\n                    <text x=\"200\" y=\"15\" text-anchor=\"middle\" class=\"label-serif\" style=\"font-size: 10px; font-style: normal;\">Accept</text>\n                    <line id=\"axis-marker\" x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"4\" class=\"marker\" />\n                </g>\n            </svg>\n        </div>\n\n        <div class=\"readout\">\n            <span>Status: <span id=\"status-val\" style=\"color: var(--ink); font-weight: 500;\">-</span></span>\n            <span>Integrity: <span id=\"integrity-val\" style=\"color: var(--ink); font-weight: 500;\">0%</span></span>\n        </div>\n\n        <div class=\"caption\">Connection integrity across levels of audience agreement</div>\n    </div>\n\n    <script>\n        const bridgeMain = document.getElementById('bridge-main');\n        const bridgeStructure = document.getElementById('bridge-structure');\n        const bridgeVert1 = document.getElementById('bridge-vert-1');\n        const bridgeVert2 = document.getElementById('bridge-vert-2');\n        const axisMarker = document.getElementById('axis-marker');\n        const statusVal = document.getElementById('status-val');\n        const integrityVal = document.getElementById('integrity-val');\n        const debrisGroup = document.getElementById('debris-group');\n\n        // Seeded random for debris\n        function seededRandom(seed) {\n            const x = Math.sin(seed) * 10000;\n            return x - Math.floor(x);\n        }\n\n        // Initialize debris particles once\n        for (let i = 0; i < 12; i++) {\n            const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n            line.setAttribute(\"x1\", 120 + seededRandom(i) * 160);\n            line.setAttribute(\"y1\", 160 + seededRandom(i+20) * 10);\n            line.setAttribute(\"x2\", 125 + seededRandom(i) * 160 + (seededRandom(i+5)-0.5)*10);\n            line.setAttribute(\"y2\", 165 + seededRandom(i+20) * 10 + (seededRandom(i+7)-0.5)*10);\n            line.setAttribute(\"stroke\", \"var(--accent)\");\n            line.setAttribute(\"stroke-width\", \"1.5\");\n            debrisGroup.appendChild(line);\n        }\n\n        let startTime = null;\n        const duration = 8000; // 8 seconds for full cycle\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const elapsed = timestamp - startTime;\n            \n            // Oscillate 0 to 1 and back\n            const progress = (elapsed % duration) / duration;\n            const t = 0.5 - 0.5 * Math.cos(progress * 2 * Math.PI); // Smooth ease in/out 0->1->0\n\n            // Bridge appearance based on t\n            // t = 0 is \"Reject\", t = 1 is \"Accept\"\n            \n            // 1. Move Marker\n            axisMarker.setAttribute('x1', t * 200);\n            axisMarker.setAttribute('x2', t * 200);\n\n            // 2. Main Span: Solidify\n            // At low t, dash it out or make it thin/broken\n            if (t < 0.3) {\n                const dashLen = Math.max(0, (t - 0.1) * 50);\n                bridgeMain.setAttribute('stroke-dasharray', `${dashLen} ${10 - dashLen}`);\n                bridgeMain.setAttribute('opacity', Math.max(0.2, t * 3));\n            } else {\n                bridgeMain.setAttribute('stroke-dasharray', 'none');\n                bridgeMain.setAttribute('opacity', '1');\n            }\n\n            // 3. Structure\n            // Collapse/Deform the structure slightly at low t\n            const collapseY = (1 - t) * 15;\n            bridgeStructure.setAttribute('d', `M 100 160 L 150 ${130 + collapseY} L 200 160 L 250 ${130 + collapseY} L 300 160`);\n            bridgeVert1.setAttribute('y1', 130 + collapseY);\n            bridgeVert2.setAttribute('y1', 130 + collapseY);\n            \n            const structuralOpacity = Math.max(0.1, t);\n            bridgeStructure.setAttribute('opacity', structuralOpacity);\n            bridgeVert1.setAttribute('opacity', structuralOpacity * 0.6);\n            bridgeVert2.setAttribute('opacity', structuralOpacity * 0.6);\n\n            // 4. Debris\n            // Show debris when t is low\n            debrisGroup.setAttribute('opacity', (1 - t) * 0.8);\n            const debrisYOffset = (1 - t) * 20;\n            debrisGroup.setAttribute('transform', `translate(0, ${debrisYOffset})`);\n\n            // 5. Readouts\n            const integrity = Math.round(t * 100);\n            integrityVal.textContent = `${integrity}%`;\n            \n            if (t > 0.8) statusVal.textContent = \"Stable\";\n            else if (t > 0.4) statusVal.textContent = \"Unstable\";\n            else statusVal.textContent = \"Fragmented\";\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n            const ro = new ResizeObserver(reportHeight);\n            ro.observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the evidence provided relies on a principle or value that the audience does not accept as valid for that claim."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Structure and Flow Comprehensive Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the CARS model, what is the primary function of Move 2 ('Establishing a Niche')?",
+     "options": [
+      "To provide a broad summary of every historical fact related to the topic.",
+      "To identify a gap, problem, or contradiction in existing research.",
+      "To introduce the author's personal biography and qualifications.",
+      "To list the specific findings and data results of the current study."
+     ],
+     "explanation": "Move 2 is designed to create intellectual tension by showing what is missing or problematic in the current 'territory,' which justifies the need for the new research.",
+     "correctAnswers": [
+      "To identify a gap, problem, or contradiction in existing research."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are typical linguistic markers used to signal a 'gap' in academic writing?",
+     "options": [
+      "However",
+      "Remains unclear",
+      "Has yet to be addressed",
+      "It is well known that",
+      "In addition to"
+     ],
+     "explanation": "These phrases signal a pivot from what is known (Move 1) to what is missing or contested (Move 2). 'It is well known that' is a centrality claim for Move 1.",
+     "correctAnswers": [
+      "However",
+      "Remains unclear",
+      "Has yet to be addressed"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "How should an academic conclusion relate to the 'funnel' structure of an introduction?",
+     "options": [
+      "It should exactly mirror the introduction by repeating the same sentences in reverse order.",
+      "It should be an inverted funnel, moving from specific findings to broader implications.",
+      "It should maintain a narrow focus on specific data points without mentioning the field.",
+      "It should introduce entirely new data and arguments not discussed in the body."
+     ],
+     "explanation": "While an introduction narrows down to a thesis, a conclusion synthesizes findings to show how they affect the broader scholarly 'wall of knowledge.'",
+     "correctAnswers": [
+      "It should be an inverted funnel, moving from specific findings to broader implications."
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Effective 'signposting' in a research paper serves which of the following purposes?",
+     "options": [
+      "Reducing the reader's cognitive load.",
+      "Acting as a 'roadmap' for upcoming arguments.",
+      "Linking previous points to the next through logic-bridges.",
+      "Providing 'spoilers' that ruin the intellectual surprise of the conclusion.",
+      "Hiding the logical flaws in a poorly organized argument."
+     ],
+     "explanation": "Signposting manages the reader's focus and makes the 'invisible logic' visible; it is not meant to hide flaws or treat the paper like a mystery novel.",
+     "correctAnswers": [
+      "Reducing the reader's cognitive load.",
+      "Acting as a 'roadmap' for upcoming arguments.",
+      "Linking previous points to the next through logic-bridges."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "Why is 'nominalization' often discouraged in clear academic writing?",
+     "options": [
+      "It makes sentences too short and simple for scholarly work.",
+      "It turns actions into abstract nouns, often hiding the 'who' and 'what' of a sentence.",
+      "It forces the writer to use too many active verbs.",
+      "It is a form of hedging that makes the author sound uncertain."
+     ],
+     "explanation": "Nominalization (e.g., using 'interference' instead of 'interfere') can make prose dense and 'sticky' by burying the main action in noun forms.",
+     "correctAnswers": [
+      "It turns actions into abstract nouns, often hiding the 'who' and 'what' of a sentence."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "When organizing the body of a paper using a 'Thematic' structure, what must a writer do to maintain cohesion?",
+     "options": [
+      "Ensure there is a conceptual link binding the categories together.",
+      "Signal transitions so the reader doesn't feel they are starting a new paper every few pages.",
+      "Sequence themes logically, such as placing foundational definitions before complex applications.",
+      "List facts in the order they were discovered during the research process.",
+      "Avoid using topic sentences to keep the reader guessing."
+     ],
+     "explanation": "Thematic structures require deliberate 'logical sequencing' and transitions to avoid becoming a disjointed 'laundry list' of facts.",
+     "correctAnswers": [
+      "Ensure there is a conceptual link binding the categories together.",
+      "Signal transitions so the reader doesn't feel they are starting a new paper every few pages.",
+      "Sequence themes logically, such as placing foundational definitions before complex applications."
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary danger of a 'Chronological' body structure in a scholarly essay?",
+     "options": [
+      "It is impossible to use for historical topics.",
+      "It often leads to a simple 'history lesson' rather than an analytical argument.",
+      "It requires the writer to use the CARS model in every paragraph.",
+      "It forces the reader to read the conclusion first."
+     ],
+     "explanation": "In academic writing, chronology must be analytical—highlighting how X led to Y—rather than just being a 'what happened next' list.",
+     "correctAnswers": [
+      "It often leads to a simple 'history lesson' rather than an analytical argument."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A strong Topic Sentence should achieve which of the following?",
+     "options": [
+      "Summarize the main claim of the paragraph.",
+      "Connect the paragraph's idea back to the overall thesis.",
+      "Provide a transition from the previous paragraph.",
+      "Contain at least three citations to demonstrate authority.",
+      "Be placed exclusively at the very end of the paragraph."
+     ],
+     "explanation": "Topic sentences act as micro-roadmaps, anchoring the paragraph's specific point within the larger argument.",
+     "correctAnswers": [
+      "Summarize the main claim of the paragraph.",
+      "Connect the paragraph's idea back to the overall thesis.",
+      "Provide a transition from the previous paragraph."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "Which sentence demonstrates the best use of the 'Old-to-New' flow to follow this sentence: 'Recent studies have focused on the impact of microplastics on marine biodiversity.'?",
+     "options": [
+      "Marine biodiversity is declining at an alarming rate worldwide due to many factors.",
+      "This impact is most visible in coral reef ecosystems, where species richness is plummeting.",
+      "Scientists are also looking at how carbon emissions affect the temperature of the oceans.",
+      "A major problem in modern environmental science is the lack of funding for long-term studies."
+     ],
+     "explanation": "The phrase 'This impact' connects back to the previous sentence's ending ('impact of microplastics'), fulfilling the Old-to-New requirement.",
+     "correctAnswers": [
+      "This impact is most visible in coral reef ecosystems, where species richness is plummeting."
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "Identify the 'hedged' claims among the following statements:",
+     "options": [
+      "The data proves that temperature is the only factor in plant growth.",
+      "It is possible that the rise in temperature contributed to the observed growth.",
+      "The results suggest a correlation between temperature and growth.",
+      "Temperature clearly and undeniably causes plants to grow faster.",
+      "One interpretation of the data is that temperature plays a role in growth."
+     ],
+     "explanation": "Hedging uses words like 'possible,' 'suggests,' and 'interpretation' to avoid making over-generalized or absolute claims that cannot be strictly proven.",
+     "correctAnswers": [
+      "It is possible that the rise in temperature contributed to the observed growth.",
+      "The results suggest a correlation between temperature and growth.",
+      "One interpretation of the data is that temperature plays a role in growth."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "In the context of a conclusion, what are 'residual questions'?",
+     "options": [
+      "Questions that the author forgot to answer during the research process.",
+      "New questions that only became visible because the current paper answered the old ones.",
+      "Points of confusion that the reader likely still has due to poor writing.",
+      "A list of limitations that prove the research was a failure."
+     ],
+     "explanation": "Residual questions frame 'future research' as a logical progression of the current work's success, not a list of its failures.",
+     "correctAnswers": [
+      "New questions that only became visible because the current paper answered the old ones."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'Directional' signposting?",
+     "options": [
+      "Having established the economic causes, we can now turn to the social effects.",
+      "This indicates that the experiment was a success.",
+      "In the next section, the paper evaluates the impact of policy changes.",
+      "Crucially, this implies a shift in public opinion.",
+      "Previously, we examined the role of nitrogen; here, we focus on oxygen."
+     ],
+     "explanation": "Directional signposting explicitly tells the reader where the argument has been and where it is going next.",
+     "correctAnswers": [
+      "Having established the economic causes, we can now turn to the social effects.",
+      "In the next section, the paper evaluates the impact of policy changes.",
+      "Previously, we examined the role of nitrogen; here, we focus on oxygen."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the primary purpose of a 'Roadmap' sentence in an introduction?",
+     "options": [
+      "To provide a detailed bibliography of all sources used.",
+      "To explicitly state the order of the main arguments that will follow.",
+      "To act as the final 'hook' to grab a general audience's attention.",
+      "To explain the author's personal interest in the research topic."
+     ],
+     "explanation": "A roadmap is a macro-signpost that allows the reader to prepare 'mental bins' for the information they are about to receive.",
+     "correctAnswers": [
+      "To explicitly state the order of the main arguments that will follow."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "What are the common pitfalls when writing a conclusion?",
+     "options": [
+      "The Circular Trap: merely paraphrasing the introduction.",
+      "Failing to address the 'So What?' question.",
+      "Suggesting future research that is a 'strategic hand-off'.",
+      "Introducing completely new evidence that belongs in the body.",
+      "Synthesizing points to show a new, unified understanding."
+     ],
+     "explanation": "Repetition, lack of significance (So What?), and new data are common errors. Synthesis and strategic hand-offs are actually hallmarks of good conclusions.",
+     "correctAnswers": [
+      "The Circular Trap: merely paraphrasing the introduction.",
+      "Failing to address the 'So What?' question.",
+      "Introducing completely new evidence that belongs in the body."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "When a writer 'Occupies the Niche' (Move 3), what are they doing?",
+     "options": [
+      "Summarizing the existing literature one last time.",
+      "Pointing out a major flaw in a competitor's research.",
+      "Announcing their own research objective or thesis as a solution to a gap.",
+      "Leaving the topic to discuss a related field of study."
+     ],
+     "explanation": "Move 3 is the logical conclusion of Move 2; it presents the author's work as the specific thing that fills the identified 'hole' in the research.",
+     "correctAnswers": [
+      "Announcing their own research objective or thesis as a solution to a gap."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "How does a 'Point-by-Point' comparative structure differ from a 'Side-by-Side' structure?",
+     "options": [
+      "Point-by-Point is much easier to write but less sophisticated.",
+      "Side-by-Side integrates two subjects within each paragraph.",
+      "Point-by-Point forces the writer to synthesize both subjects across shared criteria.",
+      "There is no difference; the terms are interchangeable in academic writing."
+     ],
+     "explanation": "Point-by-point integration is usually considered more sophisticated because it requires constant synthesis rather than just reporting on A and then B.",
+     "correctAnswers": [
+      "Point-by-Point forces the writer to synthesize both subjects across shared criteria."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "Which of the following is an example of an 'Evaluative' signpost?",
+     "options": [
+      "Next, we will discuss X.",
+      "Crucially, this result suggests that the initial hypothesis was too broad.",
+      "Chapter 2 contains the methodology.",
+      "In conclusion, the paper has shown Y."
+     ],
+     "explanation": "Evaluative signposts don't just show direction; they tell the reader how to weigh or value the information being presented.",
+     "correctAnswers": [
+      "Crucially, this result suggests that the initial hypothesis was too broad."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "If a reader asks 'So what?' after reading a research introduction, which move was likely missing or weak?",
+     "options": [
+      "Move 1 (Establishing a Territory)",
+      "Move 2 (Establishing a Niche)",
+      "Move 3 (Occupying the Niche)",
+      "The Roadmap"
+     ],
+     "explanation": "Move 2 provides the intellectual 'hook' and tension; without it, the reader has no reason to care about the author's specific contribution.",
+     "correctAnswers": [
+      "Move 2 (Establishing a Niche)"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "As the simulation demonstrates the 'Old-to-New' flow by rearranging sentence components over time, why does the second version of the paragraph feel more 'cohesive' than the first?",
+     "options": [
+      "Because the second version places the most complex technical terms at the very beginning of every sentence.",
+      "Because the second version creates a chain where the 'new' information of one sentence becomes the 'old' anchor for the next.",
+      "Because the first version used too many active verbs, which generally confuses academic readers.",
+      "Because the simulation shows that shorter sentences are always more scholarly regardless of their order."
+     ],
+     "explanation": "Cohesion is achieved when the 'tail' of one sentence (new info) matches the 'head' of the next (old info), creating a logical bridge for the reader.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Information Flow and Cohesion Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n            color: var(--ink);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 24px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 32px;\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .section {\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .label {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-style: italic;\n            font-size: 13px;\n            color: var(--muted);\n            border-bottom: 1px solid var(--rule);\n            padding-bottom: 4px;\n            display: flex;\n            justify-content: space-between;\n        }\n\n        .paragraph-box {\n            position: relative;\n            height: 120px;\n            font-size: clamp(14px, 4vw, 17px);\n            line-height: 1.6;\n            padding: 8px 0;\n        }\n\n        .sentence {\n            position: absolute;\n            width: 100%;\n            white-space: nowrap;\n        }\n\n        .word {\n            display: inline-block;\n            position: relative;\n        }\n\n        .highlight-box {\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n            background: var(--accent);\n            opacity: 0;\n            border-radius: 2px;\n            z-index: -1;\n        }\n\n        .chain-svg {\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n            pointer-events: none;\n            overflow: visible;\n        }\n\n        .chain-line {\n            stroke: var(--accent);\n            stroke-width: 1.5;\n            fill: none;\n            stroke-dasharray: 4 2;\n            opacity: 0;\n        }\n\n        .ghost-word {\n            position: absolute;\n            color: var(--accent);\n            font-weight: 600;\n            opacity: 0;\n            pointer-events: none;\n        }\n\n        .axis-container {\n            margin-top: 10px;\n            width: 100%;\n        }\n\n        .axis-line {\n            height: 1px;\n            background: var(--rule);\n            position: relative;\n            margin: 20px 0 10px 0;\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: -4px;\n            width: 1px;\n            height: 9px;\n            background: var(--rule);\n        }\n\n        .axis-label {\n            position: absolute;\n            top: 10px;\n            font-size: 10px;\n            color: var(--muted);\n            transform: translateX(-50%);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .axis-marker {\n            position: absolute;\n            top: -8px;\n            width: 2px;\n            height: 17px;\n            background: var(--accent);\n            transform: translateX(-1px);\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"sr-only\">Visual comparison of information sequence in two paragraph versions</h1>\n    \n    <div class=\"container\">\n        <!-- Version A -->\n        <div class=\"section\">\n            <div class=\"label\">\n                <span>Version A</span>\n                <span id=\"timer-a\" style=\"font-variant-numeric: tabular-nums;\">0.0s</span>\n            </div>\n            <div class=\"paragraph-box\" id=\"box-a\">\n                <div class=\"sentence\" style=\"top: 0;\">Tropical storms derive energy from <span class=\"word\">warm oceans</span>.</div>\n                <div class=\"sentence\" style=\"top: 40px;\"><span class=\"word\">Low pressure</span> zones trigger their initial formation.</div>\n                <div class=\"sentence\" style=\"top: 80px;\"><span class=\"word\">High wind speeds</span> characterize the mature system.</div>\n            </div>\n        </div>\n\n        <!-- Version B -->\n        <div class=\"section\">\n            <div class=\"label\">\n                <span>Version B</span>\n                <span id=\"timer-b\" style=\"font-variant-numeric: tabular-nums;\">0.0s</span>\n            </div>\n            <div class=\"paragraph-box\" id=\"box-b\">\n                <svg class=\"chain-svg\" id=\"svg-b\"></svg>\n                <div class=\"sentence\" style=\"top: 0;\">Tropical storms derive energy from <span class=\"word\" id=\"b-w1\">warm oceans</span>.</div>\n                <div class=\"sentence\" style=\"top: 40px;\"><span class=\"word\" id=\"b-w2\">These oceans</span> must exceed 26°C to fuel the storm.</div>\n                <div class=\"sentence\" style=\"top: 80px;\"><span class=\"word\" id=\"b-w3\">This fuel</span> generates the system's intense convection.</div>\n            </div>\n        </div>\n\n        <div class=\"axis-container\">\n            <div class=\"axis-line\">\n                <div class=\"axis-tick\" style=\"left: 0%\"></div>\n                <div class=\"axis-label\" style=\"left: 0%\">Start</div>\n                <div class=\"axis-tick\" style=\"left: 50%\"></div>\n                <div class=\"axis-label\" style=\"left: 50%\">Cycle Midpoint</div>\n                <div class=\"axis-tick\" style=\"left: 100%\"></div>\n                <div class=\"axis-label\" style=\"left: 100%\">End</div>\n                <div id=\"progress-marker\" class=\"axis-marker\"></div>\n            </div>\n            <div style=\"text-align: center; font-family: Georgia, serif; font-style: italic; font-size: 12px; color: var(--muted); margin-top: 15px;\">\n                Sequence progression loop\n            </div>\n        </div>\n    </div>\n\n    <script>\n        const svg = document.getElementById('svg-b');\n        const marker = document.getElementById('progress-marker');\n        const timerA = document.getElementById('timer-a');\n        const timerB = document.getElementById('timer-b');\n\n        // Text elements for Version B\n        const bW1 = document.getElementById('b-w1');\n        const bW2 = document.getElementById('b-w2');\n        const bW3 = document.getElementById('b-w3');\n\n        function createGhost(text, startEl) {\n            const rect = startEl.getBoundingClientRect();\n            const boxRect = document.getElementById('box-b').getBoundingClientRect();\n            const ghost = document.createElement('div');\n            ghost.className = 'ghost-word';\n            ghost.textContent = text;\n            ghost.style.left = (rect.left - boxRect.left) + 'px';\n            ghost.style.top = (rect.top - boxRect.top) + 'px';\n            document.getElementById('box-b').appendChild(ghost);\n            return ghost;\n        }\n\n        const ghosts = [];\n        let startTime = null;\n        const duration = 8000; // 8 second loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            let elapsed = (timestamp - startTime) % duration;\n            let p = elapsed / duration;\n\n            // Update Progress Marker\n            marker.style.left = (p * 100) + '%';\n            timerA.textContent = (elapsed / 1000).toFixed(1) + 's';\n            timerB.textContent = (elapsed / 1000).toFixed(1) + 's';\n\n            // Reset Version B animations\n            svg.innerHTML = '';\n            document.querySelectorAll('.ghost-word').forEach(g => g.remove());\n            [bW1, bW2, bW3].forEach(el => el.style.color = 'inherit');\n\n            // Phase 1: Link 1 (warm oceans -> These oceans)\n            // Time: 10% to 40%\n            if (p > 0.1 && p < 0.45) {\n                let localP = Math.min(1, (p - 0.1) / 0.3);\n                drawLink(bW1, bW2, localP, \"warm oceans\");\n            }\n\n            // Phase 2: Link 2 (fuel -> This fuel)\n            // Time: 50% to 85%\n            if (p > 0.5 && p < 0.85) {\n                let localP = Math.min(1, (p - 0.5) / 0.3);\n                drawLink(bW2, bW3, localP, \"this fuel\");\n            }\n\n            requestAnimationFrame(animate);\n        }\n\n        function drawLink(fromEl, toEl, p, text) {\n            const boxRect = document.getElementById('box-b').getBoundingClientRect();\n            const r1 = fromEl.getBoundingClientRect();\n            const r2 = toEl.getBoundingClientRect();\n\n            const x1 = r1.left - boxRect.left + r1.width / 2;\n            const y1 = r1.top - boxRect.top + r1.height / 2;\n            const x2 = r2.left - boxRect.left + r2.width / 2;\n            const y2 = r2.top - boxRect.top + r2.height / 2;\n\n            // Highlight source\n            fromEl.style.color = `rgba(76, 102, 152, ${Math.min(1, p * 2)})`;\n\n            // Draw line\n            if (p > 0.1) {\n                const pathP = Math.min(1, (p - 0.1) / 0.6);\n                const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"path\");\n                const cp1y = y1 + (y2 - y1) * 0.5;\n                const d = `M ${x1} ${y1} C ${x1} ${cp1y}, ${x2} ${y1}, ${x2} ${y2}`;\n                line.setAttribute(\"d\", d);\n                line.setAttribute(\"class\", \"chain-line\");\n                line.style.opacity = Math.sin(pathP * Math.PI) * 0.6;\n                svg.appendChild(line);\n\n                // Ghost word movement\n                const ghost = document.createElement('div');\n                ghost.className = 'ghost-word';\n                ghost.textContent = text;\n                ghost.style.left = (x1 + (x2 - x1) * pathP - r1.width / 2) + 'px';\n                ghost.style.top = (y1 + (y2 - y1) * pathP - r1.height / 2) + 'px';\n                ghost.style.opacity = Math.sin(pathP * Math.PI);\n                document.getElementById('box-b').appendChild(ghost);\n            }\n\n            // Highlight target\n            if (p > 0.8) {\n                toEl.style.color = `rgba(76, 102, 152, ${(p - 0.8) * 5})`;\n            }\n        }\n\n        // Height reporting\n        const observer = new ResizeObserver(() => {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch(e) {}\n        });\n        observer.observe(document.body);\n\n        window.onload = () => {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch(e) {}\n            requestAnimationFrame(animate);\n        };\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the second version creates a chain where the 'new' information of one sentence becomes the 'old' anchor for the next."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Working with Sources Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are researching the environmental impact of mercury in oceans, but your search for 'Mercury' is returning thousands of irrelevant results about astronomy. Which Boolean operation is the most efficient 'surgical tool' to fix this?",
+     "options": [
+      "Mercury AND Oceans",
+      "Mercury OR Planet",
+      "Mercury NOT Planet",
+      "Mercury AND NOT Science"
+     ],
+     "explanation": "The 'NOT' operator is specifically used to exclude terms that are irrelevant to the research context, effectively slicing off data related to synonyms or homonyms like the planet Mercury.",
+     "correctAnswers": [
+      "Mercury NOT Planet"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When evaluating a source using the CRAAP test, which of the following actions best exemplify 'lateral reading'?",
+     "options": [
+      "Checking the 'About Us' page of the website to see the author's biography.",
+      "Opening a new tab to search for the organization's funding sources on a third-party site.",
+      "Searching for the author's name in an academic database to see their expertise in other fields.",
+      "Analyzing the professional aesthetic and font choice of the PDF document.",
+      "Checking Wikipedia or a news site to see if the organization has a history of 'shadow advocacy'."
+     ],
+     "explanation": "Lateral reading involves leaving the source to verify its authority via external consensus, rather than relying on the source's own self-presentation (vertical reading).",
+     "correctAnswers": [
+      "Opening a new tab to search for the organization's funding sources on a third-party site.",
+      "Searching for the author's name in an academic database to see their expertise in other fields.",
+      "Checking Wikipedia or a news site to see if the organization has a history of 'shadow advocacy'."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In the context of database searching, while keywords are terms we generate, ____ are the official 'labels' or descriptors the database uses to categorize content.",
+     "placeholder": "Enter terminology...",
+     "correctAnswers": [
+      "Subject Headings",
+      "Controlled Vocabularies",
+      "Descriptors"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A researcher is studying the history of medicine and finds a 19th-century medical textbook. According to the lesson on primary and secondary sources, how should this textbook be classified?",
+     "options": [
+      "It is always a secondary source because it is a book.",
+      "It is a primary source for the historian because it is an artifact of that era's beliefs.",
+      "It is a secondary source because it summarizes earlier medical knowledge.",
+      "It is neither primary nor secondary until it is peer-reviewed."
+     ],
+     "explanation": "The status of a source depends on the research question; for a historian, the textbook is an original artifact/witness of its time, making it a primary source.",
+     "correctAnswers": [
+      "It is a primary source for the historian because it is an artifact of that era's beliefs."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Comparison between a popular magazine and a peer-reviewed journal article.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/exam/images/unit4-q5.png"
+     },
+     "prompt": "Which of the following are distinct 'fingerprints' of a peer-reviewed scholarly article as opposed to a professional trade article or popular magazine?",
+     "options": [
+      "A detailed methodology section",
+      "High-quality advertisements for industry tools",
+      "A list of references or a bibliography",
+      "An abstract summarizing the research",
+      "A glossy layout with multiple photographs"
+     ],
+     "explanation": "Scholarly articles are characterized by formal structures including abstracts, methods, and citations which are often absent in popular or trade media.",
+     "correctAnswers": [
+      "A detailed methodology section",
+      "A list of references or a bibliography",
+      "An abstract summarizing the research"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When a student strings together summaries of secondary sources without contributing their own analytical voice, they are engaging in a practice called ____.",
+     "placeholder": "One word...",
+     "correctAnswers": [
+      "patchwriting"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary purpose of the 'blind' nature of the peer-review process?",
+     "options": [
+      "To prevent the author from knowing who the editor is.",
+      "To ensure the work is evaluated on its own merit rather than the author's reputation.",
+      "To allow reviewers to use informal language in their critiques.",
+      "To speed up the publication process by avoiding direct debate."
+     ],
+     "explanation": "Double-blind review minimizes bias by hiding identities, ensuring that the quality of the research is the sole focus of the evaluation.",
+     "correctAnswers": [
+      "To ensure the work is evaluated on its own merit rather than the author's reputation."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "You are using the 'Broaden-then-Narrow' strategy after getting zero results for a very specific query. Which steps would be appropriate to take next?",
+     "options": [
+      "Remove one of the 'AND' constraints to widen the search.",
+      "Add more 'NOT' terms to exclude irrelevant sub-topics.",
+      "Brainstorm synonyms and join them with 'OR' operators.",
+      "Use a 'Subject Heading' found in a related article to re-run the search.",
+      "Add more 'AND' operators to make the query even more specific."
+     ],
+     "explanation": "Broadening involves reducing restrictive 'AND's, expanding terminology with 'OR', or using high-level descriptors (Subject Headings).",
+     "correctAnswers": [
+      "Remove one of the 'AND' constraints to widen the search.",
+      "Brainstorm synonyms and join them with 'OR' operators.",
+      "Use a 'Subject Heading' found in a related article to re-run the search."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The process where we move away from 'finding sources that agree with me' toward finding sources with the ____ to speak on a topic is an act of intellectual self-defense.",
+     "placeholder": "Enter a CRAAP term...",
+     "correctAnswers": [
+      "authority",
+      "expertise",
+      "credibility"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A student finds a report on the benefits of a new medication, but lateral reading reveals the study was funded by the pharmaceutical company that sells it. Which CRAAP test category is most directly impacted?",
+     "options": [
+      "Currency",
+      "Relevance",
+      "Authority",
+      "Purpose"
+     ],
+     "explanation": "The 'Purpose' category investigates why the information exists and checks for 'shadow advocacy' or bias resulting from funding.",
+     "correctAnswers": [
+      "Purpose"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'Primary Sources' in their respective fields?",
+     "options": [
+      "A diary entry from a soldier during the Civil War.",
+      "A peer-reviewed journal article analyzing the causes of the Civil War.",
+      "Raw data output from a DNA sequencer in a biology lab.",
+      "A textbook chapter about the structure of DNA.",
+      "The original technical specifications for the first internet protocol."
+     ],
+     "explanation": "Primary sources are 'raw materials' or direct artifacts; interpretations or summaries of those materials are secondary.",
+     "correctAnswers": [
+      "A diary entry from a soldier during the Civil War.",
+      "Raw data output from a DNA sequencer in a biology lab.",
+      "The original technical specifications for the first internet protocol."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In the peer-review process, the experts who critique a manuscript are usually ____, meaning they do not know the identity of the author.",
+     "placeholder": "Descriptive term...",
+     "correctAnswers": [
+      "anonymous",
+      "blind"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "The Knowledge Pyramid hierarchy.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/exam/images/unit4-q13.png"
+     },
+     "prompt": "In the 'Knowledge Pyramid,' where would you place a professional trade publication that explains 'how to' perform a specific audit technique?",
+     "options": [
+      "At the base (Popular)",
+      "In the middle (Professional/Trade)",
+      "At the apex (Scholarly)",
+      "Outside the pyramid entirely"
+     ],
+     "explanation": "Trade publications sit between popular and scholarly; they are accurate for professionals but lack the 'why' and theoretical rigor of peer-reviewed work.",
+     "correctAnswers": [
+      "In the middle (Professional/Trade)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why should a researcher avoid relying solely on a secondary source's summary of a primary text?",
+     "options": [
+      "The secondary source might misinterpret or selectively use the primary data.",
+      "It leads to 'patchwriting' and a lack of original analytical voice.",
+      "Secondary sources are always biased, while primary sources are objective.",
+      "High-level scholarship requires a direct encounter with the primary evidence.",
+      "Primary sources are only valid if they are found within secondary sources."
+     ],
+     "explanation": "Relying on others' summaries (the 'Secondary Source Trap') distances the researcher from the raw evidence and limits their ability to offer original interpretation.",
+     "correctAnswers": [
+      "The secondary source might misinterpret or selectively use the primary data.",
+      "It leads to 'patchwriting' and a lack of original analytical voice.",
+      "High-level scholarship requires a direct encounter with the primary evidence."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Why is it an error to use a book review found in a prestigious academic journal as evidence for a scientific claim?",
+     "options": [
+      "The journal itself is likely not peer-reviewed.",
+      "Book reviews are usually written by journalists, not experts.",
+      "Book reviews have not undergone the double-blind review process that research articles have.",
+      "Book reviews are primary sources and cannot be used to support claims."
+     ],
+     "explanation": "Journals contain 'Front Matter' and book reviews that do not undergo the rigorous peer-review 'trial by fire' applied to research articles.",
+     "correctAnswers": [
+      "Book reviews have not undergone the double-blind review process that research articles have."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which of the following describes the relationship between primary and secondary sources correctly?",
+     "options": [
+      "Secondary sources act as 'lenses' or intellectual frameworks for viewing primary data.",
+      "Primary sources are used as conversational partners while secondary sources are raw evidence.",
+      "Secondary sources provide the 'Conversation,' while primary sources provide the 'Evidence.'",
+      "A source can change from secondary to primary depending on the research question.",
+      "Primary sources must always be summarized before they are analyzed."
+     ],
+     "explanation": "Primary sources are the raw material; secondary sources provide the scholarly context and debate surrounding that material.",
+     "correctAnswers": [
+      "Secondary sources act as 'lenses' or intellectual frameworks for viewing primary data.",
+      "Secondary sources provide the 'Conversation,' while primary sources provide the 'Evidence.'",
+      "A source can change from secondary to primary depending on the research question."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "In a nested search string like '(Instagram OR TikTok) AND Depression', what is the function of the parentheses?",
+     "options": [
+      "They tell the database to search for the words in that exact order.",
+      "They prioritize the 'OR' operation so the database creates a single concept-set before applying the 'AND'.",
+      "They indicate that the words inside are less important than the words outside.",
+      "They are used to exclude 'Instagram' and 'TikTok' from the results."
+     ],
+     "explanation": "Parentheses organize complex searches by grouping synonyms together, ensuring the 'OR' expansion happens before the 'AND' restriction.",
+     "correctAnswers": [
+      "They prioritize the 'OR' operation so the database creates a single concept-set before applying the 'AND'."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Based on the simulation of the Boolean 'AND' operator, why does the number of results change as more terms are added to the search string?",
+     "options": [
+      "Because each added term acts as a filter that requires the document to contain all specified concepts simultaneously.",
+      "Because the database treats each new term as a synonym, expanding the total pool of possible matches.",
+      "Because adding terms increases the mathematical probability that any single word will be found in a document.",
+      "Because the 'AND' operator is used to exclude specific words that the user does not want to see."
+     ],
+     "explanation": "The simulation shows that as 'AND' terms are added, the overlapping area (the intersection) of the circles shrinks, meaning fewer documents can satisfy all criteria.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Boolean Set Logic Phenomenon</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 100%;\n            box-sizing: border-box;\n            padding: 16px;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            max-width: 400px;\n            position: relative;\n        }\n\n        .logic-fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        /* Figure Styling */\n        .set-circle {\n            stroke: var(--ink);\n            stroke-width: 1.5px;\n            fill: none;\n        }\n\n        .set-label {\n            font-family: Georgia, serif;\n            font-size: 14px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .highlight-area {\n            fill: var(--accent);\n            fill-opacity: 0.2;\n            stroke: none;\n            transition: fill-opacity 0.3s ease;\n        }\n\n        .active-intersection {\n            fill: var(--accent);\n            fill-opacity: 0.8;\n            stroke: var(--accent);\n            stroke-width: 1px;\n        }\n\n        .axis-container {\n            width: 100%;\n            max-width: 400px;\n            margin-top: 20px;\n            padding: 0 10px;\n            box-sizing: border-box;\n        }\n\n        .axis-line {\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .axis-tick {\n            stroke: var(--rule);\n            stroke-width: 1px;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            fill: var(--muted);\n            text-anchor: middle;\n        }\n\n        .axis-marker {\n            stroke: var(--ink);\n            stroke-width: 2px;\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: space-between;\n            width: 100%;\n            max-width: 400px;\n            margin-top: 12px;\n            font-size: 12px;\n            color: var(--muted);\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 2px;\n        }\n\n        .readout-value {\n            font-family: -apple-system, sans-serif;\n            font-variant-numeric: tabular-nums;\n            color: var(--ink);\n            font-weight: 500;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-style: italic;\n            font-size: 11px;\n        }\n\n        .term-indicator {\n            display: flex;\n            gap: 8px;\n            margin-top: 10px;\n            font-size: 12px;\n            font-family: Georgia, serif;\n            font-style: italic;\n        }\n\n        .term {\n            padding: 2px 6px;\n            border: 1px solid var(--rule);\n            border-radius: 2px;\n            color: var(--muted);\n        }\n\n        .term.active {\n            color: var(--accent);\n            border-color: var(--accent);\n            background: rgba(76, 102, 150, 0.05);\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Boolean AND Logic Simulation showing narrowing search results</h1>\n\n    <div class=\"container\">\n        <!-- Figure -->\n        <div class=\"fig-wrapper\" aria-label=\"A Venn diagram showing three intersecting sets A, B, and C. The highlighted area changes as logic terms are added.\">\n            <svg class=\"logic-fig\" viewBox=\"0 0 200 160\">\n                <!-- Definitions for clipping intersections -->\n                <defs>\n                    <circle id=\"circleA\" cx=\"75\" cy=\"65\" r=\"45\" />\n                    <circle id=\"circleB\" cx=\"125\" cy=\"65\" r=\"45\" />\n                    <circle id=\"circleC\" cx=\"100\" cy=\"110\" r=\"45\" />\n                    \n                    <clipPath id=\"clipA\"><use xlink:href=\"#circleA\" /></clipPath>\n                    <clipPath id=\"clipB\"><use xlink:href=\"#circleB\" /></clipPath>\n                    <clipPath id=\"clipC\"><use xlink:href=\"#circleC\" /></clipPath>\n                </defs>\n\n                <!-- Base Circles -->\n                <use xlink:href=\"#circleA\" class=\"set-circle\" />\n                <use xlink:href=\"#circleB\" class=\"set-circle\" />\n                <use xlink:href=\"#circleC\" class=\"set-circle\" />\n\n                <!-- Intersection Highlights (Dynamic) -->\n                <!-- Only Circle A -->\n                <path id=\"pathA\" d=\"M 75,20 A 45,45 0 1,1 74.9,20 Z\" class=\"highlight-area\" />\n                \n                <!-- Intersection A & B -->\n                <g clip-path=\"url(#clipA)\">\n                    <use id=\"fillAB\" xlink:href=\"#circleB\" class=\"highlight-area\" style=\"display: none;\" />\n                </g>\n\n                <!-- Intersection A & B & C -->\n                <g clip-path=\"url(#clipA)\">\n                    <g clip-path=\"url(#clipB)\">\n                        <use id=\"fillABC\" xlink:href=\"#circleC\" class=\"highlight-area\" style=\"display: none;\" />\n                    </g>\n                </g>\n\n                <!-- Labels -->\n                <text x=\"35\" y=\"45\" class=\"set-label\">A</text>\n                <text x=\"165\" y=\"45\" class=\"set-label\">B</text>\n                <text x=\"100\" y=\"155\" class=\"set-label\" text-anchor=\"middle\">C</text>\n            </svg>\n        </div>\n\n        <!-- Progress Axis -->\n        <div class=\"axis-container\">\n            <svg viewBox=\"0 0 300 30\" style=\"width: 100%; height: auto; display: block;\">\n                <line x1=\"20\" y1=\"15\" x2=\"280\" y2=\"15\" class=\"axis-line\" />\n                \n                <!-- Ticks -->\n                <line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"20\" class=\"axis-tick\" />\n                <text x=\"20\" y=\"28\" class=\"axis-label\">Term A</text>\n                \n                <line x1=\"150\" y1=\"10\" x2=\"150\" y2=\"20\" class=\"axis-tick\" />\n                <text x=\"150\" y=\"28\" class=\"axis-label\">A AND B</text>\n                \n                <line x1=\"280\" y1=\"10\" x2=\"280\" y2=\"20\" class=\"axis-tick\" />\n                <text x=\"280\" y=\"28\" class=\"axis-label\">A AND B AND C</text>\n\n                <!-- Indicator Marker -->\n                <line id=\"axis-marker\" x1=\"20\" y1=\"8\" x2=\"20\" y2=\"22\" class=\"axis-marker\" />\n            </svg>\n        </div>\n\n        <div class=\"term-indicator\">\n            <span id=\"label-a\" class=\"term\">Term A</span>\n            <span id=\"label-b\" class=\"term\">Term B</span>\n            <span id=\"label-c\" class=\"term\">Term C</span>\n        </div>\n\n        <!-- Readouts -->\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Match Area</span>\n                <span id=\"count-readout\" class=\"readout-value\">6361</span>\n            </div>\n            <div class=\"readout-item\" style=\"text-align: right;\">\n                <span class=\"readout-label\">Set Overlap</span>\n                <span id=\"overlap-readout\" class=\"readout-value\">Primary</span>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        const marker = document.getElementById('axis-marker');\n        const countText = document.getElementById('count-readout');\n        const overlapText = document.getElementById('overlap-readout');\n        \n        const pathA = document.getElementById('pathA');\n        const fillAB = document.getElementById('fillAB');\n        const fillABC = document.getElementById('fillABC');\n\n        const labelA = document.getElementById('label-a');\n        const labelB = document.getElementById('label-b');\n        const labelC = document.getElementById('label-c');\n\n        let startTime = null;\n        const duration = 9000; // 9 seconds for full loop\n\n        function animate(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) % duration;\n            const t = progress / duration; // 0 to 1\n\n            // Map progress to the three states\n            // 0.0 - 0.33: Just A\n            // 0.33 - 0.66: A AND B\n            // 0.66 - 1.0: A AND B AND C\n            \n            let xPos, count, overlapLabel;\n            \n            if (t < 0.33) {\n                // Stage 1: Just A\n                xPos = 20 + (t / 0.33) * 0; // Hold at A\n                count = 6361;\n                overlapLabel = \"Single Set\";\n                \n                pathA.style.display = \"block\";\n                pathA.classList.add('active-intersection');\n                fillAB.style.display = \"none\";\n                fillABC.style.display = \"none\";\n                \n                labelA.classList.add('active');\n                labelB.classList.remove('active');\n                labelC.classList.remove('active');\n                \n                marker.setAttribute('x1', 20);\n                marker.setAttribute('x2', 20);\n            } else if (t < 0.66) {\n                // Stage 2: A AND B\n                xPos = 150;\n                count = 1754;\n                overlapLabel = \"Intersection\";\n                \n                pathA.style.display = \"none\";\n                fillAB.style.display = \"block\";\n                fillAB.classList.add('active-intersection');\n                fillABC.style.display = \"none\";\n\n                labelA.classList.add('active');\n                labelB.classList.add('active');\n                labelC.classList.remove('active');\n\n                marker.setAttribute('x1', 150);\n                marker.setAttribute('x2', 150);\n            } else {\n                // Stage 3: A AND B AND C\n                xPos = 280;\n                count = 522;\n                overlapLabel = \"Specific Match\";\n                \n                pathA.style.display = \"none\";\n                fillAB.style.display = \"none\";\n                fillABC.style.display = \"block\";\n                fillABC.classList.add('active-intersection');\n\n                labelA.classList.add('active');\n                labelB.classList.add('active');\n                labelC.classList.add('active');\n\n                marker.setAttribute('x1', 280);\n                marker.setAttribute('x2', 280);\n            }\n\n            countText.textContent = count;\n            overlapText.textContent = overlapLabel;\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because each added term acts as a filter that requires the document to contain all specified concepts simultaneously."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Revision and Academic Genres Comprehensive Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the 'Hierarchy of Revision' introduced in the Global Revision session, which element forms the foundational 'base' of the pyramid that must be secured first?",
+     "options": [
+      "Sentence-level rhythm and flow",
+      "The Thesis and Argumentative Arc",
+      "Citation consistency and bibliography",
+      "Spelling and punctuation"
+     ],
+     "explanation": "The hierarchy places the thesis and argument at the top/foundation of the logic; if the claim is shaky, the rest of the paper is at risk regardless of how well-written individual sentences are.",
+     "correctAnswers": [
+      "The Thesis and Argumentative Arc"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When using the 'Big Three' filters for global critique, which of the following represent the geometric metaphors used to evaluate a draft's functionality?",
+     "options": [
+      "A circle representing Unity",
+      "A triangle representing Persuasion",
+      "A vertical line representing Development",
+      "A chain representing Coherence",
+      "A square representing Evidence"
+     ],
+     "explanation": "Unity checks if everything leads back to the center (circle), Development checks the depth of evidence (vertical line), and Coherence checks the links between ideas (chain).",
+     "correctAnswers": [
+      "A circle representing Unity",
+      "A vertical line representing Development",
+      "A chain representing Coherence"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The phenomenon where a writer refuses to delete a well-written paragraph even when it no longer fits the paper's logical flow is known as the ____.",
+     "explanation": "The 'sunken cost fallacy' describes the psychological difficulty of removing work that required effort but no longer serves the global revision plan.",
+     "placeholder": "Enter the fallacy name",
+     "correctAnswers": [
+      "sunken cost fallacy"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary diagnostic purpose of a 'Reverse Outline' during the revision phase?",
+     "options": [
+      "To create a blueprint before writing the first draft",
+      "To check for spelling errors in topic sentences",
+      "To objectively map the logic of an existing draft by extracting main claims",
+      "To summarize the entire paper into a single paragraph for the conclusion"
+     ],
+     "explanation": "Reverse outlining is an 'X-ray' for already written work to see if the actual structure matches the intended logical chain.",
+     "correctAnswers": [
+      "To objectively map the logic of an existing draft by extracting main claims"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "During the 'Systematic Hunt' phase of proofreading, which strategies are recommended to manage cognitive load?",
+     "options": [
+      "Perform a single pass to find all types of errors simultaneously",
+      "Conduct one pass specifically for comma splices",
+      "Conduct one pass specifically for subject-verb agreement",
+      "Conduct one pass for high-frequency 'clutter words'",
+      "Use AI tools as the final arbiter of nuance"
+     ],
+     "explanation": "The systematic hunt involves layered passes for specific error types because the brain cannot effectively process multiple error types at once.",
+     "correctAnswers": [
+      "Conduct one pass specifically for comma splices",
+      "Conduct one pass specifically for subject-verb agreement",
+      "Conduct one pass for high-frequency 'clutter words'"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'Diagnostic Read-Aloud' technique uses ____ to catch errors that the eyes might skip because they see the 'intended' text instead of the 'actual' text.",
+     "explanation": "Hearing the text engages different cognitive processes that reveal awkward phrasing or missing words that the eyes gloss over.",
+     "placeholder": "Name the mechanism",
+     "correctAnswers": [
+      "cognitive psychology",
+      "sound",
+      "auditory feedback"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the context of editing, what does the term 'Reader Friction' refer to?",
+     "options": [
+      "The disagreement between the author and the peer reviewer",
+      "Micro-stoppages caused by grammatical or citation errors that erode authorial authority",
+      "The physical difficulty of reading a printed manuscript",
+      "The use of controversial arguments that provoke the reader"
+     ],
+     "explanation": "Technical errors create small interruptions that distract the reader and make them doubt the validity of the underlying logic.",
+     "correctAnswers": [
+      "Micro-stoppages caused by grammatical or citation errors that erode authorial authority"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "According to the session on feedback, what are the two common 'traps' students fall into when receiving critiques?",
+     "options": [
+      "Blind obedience",
+      "Defensive rejection",
+      "Reverse outlining",
+      "Structural pruning",
+      "Nominalization"
+     ],
+     "explanation": "Students often either change everything without question (blind obedience) or ignore valid feedback to protect their ego (defensive rejection).",
+     "correctAnswers": [
+      "Blind obedience",
+      "Defensive rejection"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the 'Handshake' metaphor for citation integrity, every in-text signal must have a corresponding ____ in the bibliography.",
+     "explanation": "The 'Handshake' ensures traceability by requiring a 1:1 match between text mentions and reference list items.",
+     "correctAnswers": [
+      "reference entry",
+      "matching entry",
+      "citation"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "When dealing with conflicting feedback from two different reviewers, what is the best course of action?",
+     "options": [
+      "Follow the advice of the most senior reviewer",
+      "Ignore both reviewers to remain neutral",
+      "Look for the 'problem behind the problem' to identify the underlying lack of clarity",
+      "Try to incorporate both suggestions even if they contradict each other"
+     ],
+     "explanation": "Conflicting feedback often points to a deeper symptom: if two people are confused in different ways, the original explanation is likely the root issue.",
+     "correctAnswers": [
+      "Look for the 'problem behind the problem' to identify the underlying lack of clarity"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "image": {
+      "alt": "Three-column Response to Reviewers table",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/exam/images/unit5-q11.png"
+     },
+     "prompt": "In the 'Response to Reviewers' technique, which of the following columns are part of the three-column table used to justify changes?",
+     "options": [
+      "Reviewer Comment",
+      "Author's Emotional State",
+      "Action Taken",
+      "Rationale",
+      "Word Count Change"
+     ],
+     "explanation": "The table forces the author to articulate what was changed and, crucially, why, ensuring they maintain authorial control.",
+     "correctAnswers": [
+      "Reviewer Comment",
+      "Action Taken",
+      "Rationale"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process of 'un-clogging' clunky academic sentences often involves identifying the 'nominalization' or ____ nouns and replacing them with active subjects and verbs.",
+     "explanation": "Nominalization turns verbs into nouns, making sentences dense and 'clogged'; the fix is returning to active subjects and verbs.",
+     "placeholder": "Describe the type of noun",
+     "correctAnswers": [
+      "noun-heavy",
+      "heavy"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why should 'Global/Substantive' feedback be addressed before 'Local/Stylistic' feedback?",
+     "options": [
+      "Stylistic errors are harder to fix",
+      "Global changes may render earlier stylistic edits irrelevant or obsolete",
+      "Local errors are more likely to cause reader friction",
+      "Peer reviewers only care about substantive arguments"
+     ],
+     "explanation": "If the logic of a section changes or it is deleted during global revision, time spent polishing its prose is wasted.",
+     "correctAnswers": [
+      "Global changes may render earlier stylistic edits irrelevant or obsolete"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of structural 'pathologies' that can be identified through reverse outlining?",
+     "options": [
+      "Circular reasoning (restating point A as point D)",
+      "Logical leaps (missing links between claims)",
+      "Dangling modifiers in the third paragraph",
+      "Redundancies where claims are repeated without new evidence",
+      "Inconsistent font usage"
+     ],
+     "explanation": "Pathologies are structural/logical flaws visible in the map of the argument, unlike grammatical errors or formatting issues.",
+     "correctAnswers": [
+      "Circular reasoning (restating point A as point D)",
+      "Logical leaps (missing links between claims)",
+      "Redundancies where claims are repeated without new evidence"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "When a paragraph contains two distinct claims, it is referred to in the Reverse Outlining session as a ____.",
+     "explanation": "Paragraphs should ideally contain a single primary claim; having multiple indicates a lack of organizational focus.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "structural fracture"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "If a student struggles to distill a paragraph into one punchy sentence for a reverse outline, what does this usually indicate?",
+     "options": [
+      "The paragraph is a masterwork of complex rhetoric",
+      "The student needs a better vocabulary",
+      "The paragraph lacks a clear topic sentence or is attempting to cover too many claims",
+      "The student is too far removed from the text"
+     ],
+     "explanation": "The reverse outline functions as an X-ray; inability to distill a point reveals a 'structural fracture' or lack of focus in the writing.",
+     "correctAnswers": [
+      "The paragraph lacks a clear topic sentence or is attempting to cover too many claims"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "According to the course, why is global revision considered vital for professional mastery?",
+     "options": [
+      "It ensures the research is persuasive rather than just finished",
+      "It focuses on the skeleton of the argument rather than fluent surface prose",
+      "It allows the writer to correct logic gaps hidden by good grammar",
+      "It is the only stage where citation formatting is checked",
+      "It requires re-seeing the work through the eyes of a skeptical reader"
+     ],
+     "explanation": "Global revision is strategic; it focuses on the internal structure and persuasive power of the argument rather than technical polish.",
+     "correctAnswers": [
+      "It ensures the research is persuasive rather than just finished",
+      "It focuses on the skeleton of the argument rather than fluent surface prose",
+      "It allows the writer to correct logic gaps hidden by good grammar",
+      "It requires re-seeing the work through the eyes of a skeptical reader"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Why does the 'Reverse Outline' process effectively identify logical gaps in a draft as the 'flesh' of the rhetoric is removed?",
+     "options": [
+      "Because the absence of supporting evidence becomes visible once flowery transitions are stripped away.",
+      "Because adding more paragraphs automatically increases the density of the final list of claims.",
+      "Because the writer is forced to read the draft faster, simulating the experience of a skeptical reader.",
+      "Because the process of numbering paragraphs forces the brain to reorganize the conclusion first."
+     ],
+     "explanation": "Stripping away rhetoric leaves only the 'logical bone structure,' making it clear if a claim lacks a preceding foundation or evidence.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Reverse Outlining and Structural Integrity Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Claim Color */\n            --amber: #c47c00;  /* Rhetoric Color */\n            --gap-color: #e0dcd5;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n            background: var(--bg);\n        }\n\n        .controls {\n            width: 100%;\n            margin-top: 24px;\n            display: flex;\n            flex-direction: column;\n            gap: 8px;\n        }\n\n        .axis-container {\n            position: relative;\n            height: 40px;\n            width: 100%;\n        }\n\n        .axis-line {\n            position: absolute;\n            top: 20px;\n            left: 0;\n            right: 0;\n            height: 1px;\n            background: var(--rule);\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: 15px;\n            width: 1px;\n            height: 10px;\n            background: var(--muted);\n        }\n\n        .axis-label {\n            position: absolute;\n            top: 28px;\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n            font-style: italic;\n            transform: translateX(-50%);\n        }\n\n        .axis-marker {\n            position: absolute;\n            top: 12px;\n            width: 1px;\n            height: 16px;\n            background: var(--ink);\n            z-index: 2;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-size: 13px;\n            color: var(--muted);\n            font-style: italic;\n            margin-top: 12px;\n            text-align: center;\n        }\n\n        .readout {\n            font-family: -apple-system, sans-serif;\n            font-variant-numeric: tabular-nums;\n            font-size: 12px;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        /* Styling the range input to look like part of the figure or be subtle */\n        input[type=range] {\n            -webkit-appearance: none;\n            width: 100%;\n            background: transparent;\n            cursor: pointer;\n            position: absolute;\n            top: 12px;\n            height: 16px;\n            z-index: 3;\n            margin: 0;\n            opacity: 0; /* Hidden but interactive over the axis */\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of structural integrity in a document during reverse outlining</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"0 0 400 320\" aria-label=\"Visual representation of sentences in a document turning into a structural skeleton\">\n            <!-- Document Frame -->\n            <rect x=\"80\" y=\"10\" width=\"240\" height=\"280\" rx=\"2\" fill=\"none\" stroke=\"#d8d5d0\" stroke-width=\"1\" />\n            \n            <g id=\"sentences-group\"></g>\n            \n            <!-- Linkages (Chain) -->\n            <g id=\"chain-group\"></g>\n\n            <!-- Legend -->\n            <g transform=\"translate(80, 305)\">\n                <rect x=\"0\" y=\"0\" width=\"8\" height=\"8\" fill=\"var(--accent)\" />\n                <text x=\"12\" y=\"8\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" font-style=\"italic\">Core Claim</text>\n                \n                <rect x=\"85\" y=\"0\" width=\"8\" height=\"8\" fill=\"var(--amber)\" fill-opacity=\"0.6\" />\n                <text x=\"97\" y=\"8\" font-family=\"Georgia, serif\" font-size=\"10\" fill=\"var(--muted)\" font-style=\"italic\">Rhetoric/Detail</text>\n            </g>\n        </svg>\n\n        <div class=\"controls\">\n            <div class=\"readout\">Document View: <span id=\"state-label\">Full Text</span></div>\n            <div class=\"axis-container\">\n                <div class=\"axis-line\"></div>\n                <!-- Ticks -->\n                <div class=\"axis-tick\" style=\"left: 0%;\"></div>\n                <div class=\"axis-tick\" style=\"left: 50%;\"></div>\n                <div class=\"axis-tick\" style=\"left: 100%;\"></div>\n                <!-- Labels -->\n                <div class=\"axis-label\" style=\"left: 0%;\">Full Text</div>\n                <div class=\"axis-label\" style=\"left: 50%;\">Transition</div>\n                <div class=\"axis-label\" style=\"left: 100%;\">Skeleton</div>\n                <!-- Current Position Marker -->\n                <div class=\"axis-marker\" id=\"marker\"></div>\n                <!-- The actual invisible control -->\n                <input type=\"range\" id=\"param-slider\" min=\"0\" max=\"1\" step=\"0.001\" value=\"0\">\n            </div>\n        </div>\n\n        <div class=\"caption\">Relationship between sentences as non-essential content is removed.</div>\n    </div>\n\n    <script>\n        const sentencesGroup = document.getElementById('sentences-group');\n        const chainGroup = document.getElementById('chain-group');\n        const slider = document.getElementById('param-slider');\n        const marker = document.getElementById('marker');\n        const stateLabel = document.getElementById('state-label');\n\n        // Sentence Data: [isClaim, widthPercent, yOffset]\n        const sentenceData = [\n            { isClaim: true,  w: 180, y: 30 },\n            { isClaim: false, w: 140, y: 50 },\n            { isClaim: false, w: 160, y: 70 },\n            { isClaim: true,  w: 190, y: 90 },\n            { isClaim: false, w: 120, y: 110 },\n            { isClaim: true,  w: 175, y: 130 },\n            { isClaim: false, w: 150, y: 150 },\n            { isClaim: false, w: 140, y: 170 },\n            { isClaim: true,  w: 185, y: 190 },\n            { isClaim: false, w: 130, y: 210 },\n            { isClaim: true,  w: 160, y: 230 },\n            { isClaim: false, w: 150, y: 250 },\n            { isClaim: true,  w: 180, y: 270 }\n        ];\n\n        let t = 0;\n        let isUserInteracting = false;\n        let startTime = Date.now();\n\n        function createElements() {\n            sentenceData.forEach((s, i) => {\n                const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n                rect.setAttribute(\"x\", 110);\n                rect.setAttribute(\"y\", s.y);\n                rect.setAttribute(\"width\", s.w);\n                rect.setAttribute(\"height\", 8);\n                rect.setAttribute(\"rx\", 2);\n                rect.setAttribute(\"id\", `s-${i}`);\n                sentencesGroup.appendChild(rect);\n\n                if (i < sentenceData.length - 1) {\n                    const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n                    line.setAttribute(\"x1\", 100);\n                    line.setAttribute(\"x2\", 100);\n                    line.setAttribute(\"y1\", s.y + 8);\n                    line.setAttribute(\"y2\", sentenceData[i+1].y);\n                    line.setAttribute(\"stroke-width\", 1.5);\n                    line.setAttribute(\"id\", `l-${i}`);\n                    chainGroup.appendChild(line);\n                }\n            });\n        }\n\n        function update(val) {\n            t = val;\n            marker.style.left = `${t * 100}%`;\n            \n            if (t < 0.1) stateLabel.textContent = \"Full Text\";\n            else if (t > 0.9) stateLabel.textContent = \"Skeleton\";\n            else stateLabel.textContent = \"Filtering Structure...\";\n\n            sentenceData.forEach((s, i) => {\n                const rect = document.getElementById(`s-${i}`);\n                if (s.isClaim) {\n                    rect.setAttribute(\"fill\", \"var(--accent)\");\n                    // Claims might shift slightly closer together to show the \"outline\" feel\n                    const targetY = 30 + (i * 12); \n                    const currentY = s.y - (s.y - targetY) * t;\n                    rect.setAttribute(\"y\", currentY);\n                } else {\n                    rect.setAttribute(\"fill\", \"var(--amber)\");\n                    rect.setAttribute(\"fill-opacity\", 1 - t);\n                    rect.setAttribute(\"opacity\", 1 - t);\n                }\n\n                if (i < sentenceData.length - 1) {\n                    const line = document.getElementById(`l-${i}`);\n                    const nextS = sentenceData[i+1];\n                    \n                    const y1 = parseFloat(document.getElementById(`s-${i}`).getAttribute(\"y\")) + 8;\n                    const y2 = parseFloat(document.getElementById(`s-${i+1}`).getAttribute(\"y\"));\n                    \n                    line.setAttribute(\"y1\", y1);\n                    line.setAttribute(\"y2\", y2);\n\n                    // If both are claims, structural link is strong\n                    // If one is rhetoric, the link \"breaks\" as it disappears\n                    if (s.isClaim && nextS.isClaim) {\n                        line.setAttribute(\"stroke\", \"var(--accent)\");\n                        line.setAttribute(\"stroke-dasharray\", \"none\");\n                        line.setAttribute(\"opacity\", 0.6);\n                    } else {\n                        line.setAttribute(\"stroke\", \"var(--muted)\");\n                        line.setAttribute(\"opacity\", 0.3 * (1 - t));\n                        \n                        // Show \"Broken Link\" visual if a gap forms between two remaining claims\n                        // This happens implicitly as the rhetoric fades.\n                    }\n                }\n            });\n\n            // Special handling for gaps between remaining claims\n            // Let's identify 'islands' of claims and draw dashed broken lines between them\n            const claimsIndices = sentenceData.map((s, i) => s.isClaim ? i : null).filter(i => i !== null);\n            for(let j=0; j < claimsIndices.length - 1; j++) {\n                const idxA = claimsIndices[j];\n                const idxB = claimsIndices[j+1];\n                if (idxB - idxA > 1) {\n                    // There were rhetoric sentences between these claims\n                    // Ensure a dashed line exists between them that gets stronger as t increases\n                    let bridgeId = `bridge-${idxA}-${idxB}`;\n                    let bridge = document.getElementById(bridgeId);\n                    if (!bridge) {\n                        bridge = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n                        bridge.setAttribute(\"id\", bridgeId);\n                        bridge.setAttribute(\"stroke\", \"#d8d5d0\");\n                        bridge.setAttribute(\"stroke-width\", \"1\");\n                        bridge.setAttribute(\"stroke-dasharray\", \"3,3\");\n                        chainGroup.appendChild(bridge);\n                    }\n                    const yA = parseFloat(document.getElementById(`s-${idxA}`).getAttribute(\"y\")) + 8;\n                    const yB = parseFloat(document.getElementById(`s-${idxB}`).getAttribute(\"y\"));\n                    bridge.setAttribute(\"x1\", 100);\n                    bridge.setAttribute(\"x2\", 100);\n                    bridge.setAttribute(\"y1\", yA);\n                    bridge.setAttribute(\"y2\", yB);\n                    bridge.setAttribute(\"opacity\", t);\n                }\n            }\n        }\n\n        function animate() {\n            if (!isUserInteracting) {\n                const elapsed = (Date.now() - startTime) / 1000;\n                const loopDuration = 10;\n                const progress = (elapsed % loopDuration) / loopDuration;\n                // Ping-pong ease\n                const val = 0.5 - 0.5 * Math.cos(progress * 2 * Math.PI);\n                slider.value = val;\n                update(val);\n            }\n            requestAnimationFrame(animate);\n        }\n\n        slider.addEventListener('input', () => {\n            isUserInteracting = true;\n            update(parseFloat(slider.value));\n        });\n\n        // Initial setup\n        createElements();\n        update(0);\n        requestAnimationFrame(animate);\n\n        // Height reporting\n        const reportHeight = () => {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        };\n\n        window.addEventListener('load', reportHeight);\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the absence of supporting evidence becomes visible once flowery transitions are stripped away."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "b34da568-7691-4f2f-94c1-672e028f4c21"
+}

@@ -1,0 +1,321 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the first stage of your course project! Over the next few units, you will build a High-Performance Logistics Router—a sophisticated engine capable of managing global shipment data and finding the fastest delivery paths. To kick things off, we are starting at the absolute foundation of high-performance computing: memory management. Because logistics data can grow from a few parcels to millions of items, we cannot rely on fixed-size arrays that 'hit a wall.' Today, you will build the 'ShipmentBuffer,' a custom dynamic array that automatically grows its capacity to ensure your system never runs out of space while maintaining lightning-fast performance.",
+     "step_title": "Project kick-off",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief explanation (2-3 sentences) defining 'size' vs. 'capacity' and why tracking both is essential for a dynamic array implementation. Good work will correctly identify that size is the logical count and capacity is the physical memory limit."
+     },
+     "step_body": "To begin, you need to set up the skeleton of your class. Based on our lecture on memory layout, remember that a dynamic array needs three core components: a pointer/reference to a physical array, a 'size' variable (how many items are currently inside), and a 'capacity' variable (the total space currently allocated in RAM). Create your class—let's call it `ShipmentBuffer`—and initialize it with a small starting capacity. Why do we need to track both size and capacity? Write a brief explanation of the difference between these two variables in terms of memory layout.",
+     "step_title": "Define the ShipmentBuffer",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Now for the 'dynamic' part! Implement an `add` method. When the buffer is full (size == capacity), you must perform a 'resize' operation: allocate a new, larger array, copy the existing shipment IDs over, and update your reference. To maintain O(1) amortized time, we use geometric resizing—usually doubling the capacity. In your code, implement this doubling logic. Avoid the 'brick wall' problem we discussed by ensuring the new block of memory is requested before the old one is discarded.",
+     "step_title": "Implement geometric resizing",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit an explanation of 'amortized O(1)' and a prediction of the Big-O complexity if the array only grew by +1 at each resize. Good work clearly identifies that +1 growth leads to O(n^2) total time for n insertions."
+     },
+     "step_body": "You've implemented the code, but let's apply our Big-O knowledge. Most insertions into your `ShipmentBuffer` are simple O(1) operations. However, the resize step takes O(n) because you have to copy every element. Using the 'Asymptotic Analysis' we learned, explain why we claim that adding to a dynamic array is 'O(1) amortized.' What would happen to our efficiency if we only increased the capacity by +1 instead of doubling it?",
+     "step_title": "Analyze insertion complexity",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your ShipmentBuffer class file (C++ or Java). The implementation must demonstrate a functional 'add' method with automatic capacity doubling and index-based access. Criteria: Correct geometric resizing logic and use of contiguous memory (array-based)."
+     },
+     "step_body": "It is time to finalize your first deliverable. Ensure your class includes the core logic for adding elements, the resizing mechanism, and a way to access elements by index (honoring the Random Access Formula). This buffer will serve as the underlying storage for every other component in our Logistics Router, from the shipment tracker to the route optimizer. Double-check that your resizing logic doesn't have an 'off-by-one' error!",
+     "step_title": "Submit your ShipmentBuffer",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "c8a74587-15e8-4c89-bd98-fb291a215a9d",
+   "stage_title": "Memory-Efficient Buffer Implementation",
+   "parent_project_id": "8cfbda21-726c-496a-8bc1-3176943901b1",
+   "stage_description": "Implement a custom dynamic array class that uses geometric resizing to store raw shipment IDs, ensuring O(1) amortized insertion time.",
+   "deliverable_increment": "A 'ShipmentBuffer' class with automated resizing and basic complexity analysis documentation."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous session, we explored the 'magic' of Hashing—how a deterministic hash function can turn an arbitrary key like a tracking code into a specific array index. You've also already built a 'ShipmentBuffer' to handle dynamic memory. Now, we are going to combine these concepts. To reach that O(1) lookup speed for our Logistics Router, we need more than just a list; we need a 'ShipmentTracker' that uses a hash map to find any package instantly, even as our logistics network scales to thousands of entries.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief description or a code snippet of your Node structure. A good response will include the key (tracking code), the value (shipment data), and a pointer/reference to the next node."
+     },
+     "step_body": "Since we are implementing 'separate chaining' to handle collisions, our hash table won't just store shipments directly in the array. Instead, each index in our array will point to the head of a linked list (a bucket). This way, if two different tracking codes hash to the same index, we simply add the new shipment to that list. Start by defining your internal 'Node' or 'Entry' structure. It should hold the shipment's unique string tracking code, the shipment data object, and a pointer to the next node in the chain. What specific fields will your Node class/struct contain to ensure you can both identify the shipment and resolve a collision?",
+     "step_title": "Define the tracking node",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the logic or pseudo-code for your hash function. Criteria for success: the function must be deterministic (same input always gives same output) and stay within the bounds of the 0-100 index range."
+     },
+     "step_body": "Now, let's build the 'translator.' You need a function that takes a string tracking code and returns an integer index. Use the 'Modulo' method we discussed. Remember: to minimize collisions, it's best to use a prime number for your table size. For this task, assume a table size of 101. Your function should iterate through the characters of the string tracking code, perhaps summing their ASCII values or using a polynomial rolling hash, and then apply 'mod 101'.",
+     "step_title": "Implement the hash function",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "With the hash function ready, implement the 'put' or 'insert' method. When a new shipment arrives, hash its code to find the correct bucket. First, traverse that bucket's list to see if the tracking code already exists (in which case, update the record). If it doesn't exist, 'push' a new node onto the front of that list. This is similar to the Stack logic you learned: adding to the head is an O(1) operation. Ensure your tracker handles the transition from a tracking code to a specific memory address in the bucket array.",
+     "step_title": "Build the put operation",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'ShipmentTracker' implementation (source file or PDF). Good work will show a working hash function, an array of pointers/references to Nodes, and logic that correctly traverses a chain to find or insert a specific tracking code."
+     },
+     "step_body": "It's time to finalize the 'ShipmentTracker' module. This module should integrate your hash table array, the collision resolution logic (separate chaining), and a 'get' method that retrieves shipment details by tracking code. If the code isn't found, it should return a null or an error. This structure is what allows our router to find package locations in constant time, regardless of how many shipments are in the system.",
+     "step_title": "Submit the ShipmentTracker",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Type a brief reflection on how hash collisions affect time complexity. A good answer identifies that a high collision rate turns O(1) lookup into O(n) linear search within a single bucket."
+     },
+     "step_body": "You've successfully implemented a hash map! Think back to our session on Queues and Stacks where we discussed O(1) versus O(n) performance. In your current ShipmentTracker, what would happen to the search speed if your hash function was 'bad' and mapped every single tracking code to index 0? How does separate chaining prevent the data from being lost, even if it slows down the performance?",
+     "step_title": "Reflect on performance",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "3d08cb79-314e-49d0-b9e9-3f3bc6aef44b",
+   "stage_title": "Real-time Shipment Tracker",
+   "parent_project_id": "8cfbda21-726c-496a-8bc1-3176943901b1",
+   "stage_description": "Create a hash map using separate chaining to store and retrieve shipment details instantly by their unique tracking codes.",
+   "deliverable_increment": "A 'ShipmentTracker' module featuring a custom hash table and collision resolution logic."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built the foundation of our logistics engine: the `ShipmentBuffer` for resizing storage and the `ShipmentTracker` for quick ID-based lookups. Now, we move from simple storage to active scheduling. In our lectures on Binary Heaps, you learned that we don't always need a perfectly sorted list; we just need to know who is 'next' in line. Today, you will begin building the `DeliveryScheduler`, which uses a Min-Heap to ensure that the shipment with the earliest deadline is always at the top of the queue. This is a critical step toward the Dijkstra-driven router you'll build later.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short text description of your priority logic. Explain which field you will compare and how you'll break a 'tie' between two shipments with identical deadlines (e.g., using shipment ID or arrival time)."
+     },
+     "step_body": "A heap needs a clear rule for 'priority' to maintain its structure. For our logistics system, a 'Min-Heap' property means the root should always be the shipment with the smallest (earliest) deadline timestamp. Before you write the code, think about your `Shipment` object. How will you compare two shipments? In your chosen language (C++ or Java), you'll need to implement a comparison method or operator. Write a brief explanation of how you will handle cases where two shipments have the exact same deadline.",
+     "step_title": "Design the Shipment Priority",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Recall from the 'Binary Heaps' session that we can represent a tree as a flat array without pointers. Start by creating your `DeliveryScheduler` class. Inside, initialize a private array or a list (you can reuse your `ShipmentBuffer` logic here!) to hold the shipment data. Use the index math we derived in class: for a node at index `i`, its children are at `2i + 1` and `2i + 2`. Set up the class structure and the constructor that initializes this internal buffer.",
+     "step_title": "Initialize the Heap Array",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the code snippet for your `bubbleUp` (or `siftUp`) method. Good work will correctly implement the parent index calculation and the recursive or iterative swap logic until the heap property is satisfied."
+     },
+     "step_body": "To add a new shipment, we place it at the first available leaf (the end of the array) and 'Bubble-Up' until the Min-Heap property is restored. This involves comparing the new shipment's deadline with its parent at `floor((i - 1) / 2)`. If the new shipment is more urgent (smaller deadline), they swap. Write the `insert(Shipment s)` method and its helper `bubbleUp(int index)`. This ensures that even as we add thousands of shipments, the most urgent one is always at index 0 in O(log n) time.",
+     "step_title": "Implement the Bubble-Up logic",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "When a shipment is dispatched, we remove the root (index 0). To fill the gap, we move the last element in the array to the root and 'Sift-Down' (or 'Heapify') to push it to its correct position. Compare the new root with its smallest child; if the child is more urgent, swap them. Repeat this until the element is smaller than both its children. This is the core engine of your scheduler. Implement the `extractMin()` method and the `siftDown(int index)` helper.",
+     "step_title": "Implement the Sift-Down logic",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your completed `DeliveryScheduler` source file. It must include the insert and extract functions, correctly use index-based math for tree navigation, and maintain the Min-Heap property for shipment deadlines."
+     },
+     "step_body": "You now have the structural components of a high-performance priority queue: array-based storage, insertion with `bubbleUp`, and extraction with `siftDown`. This component is what will allow your final router to process 'next-best' paths and urgent deliveries. Combine your code into the final `DeliveryScheduler` class and verify that calling `extractMin()` repeatedly returns shipments in increasing order of their deadlines.",
+     "step_title": "Submit the Delivery Scheduler",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "b11f0bbd-ab90-4ddf-be62-d6122b104102",
+   "stage_title": "Priority Delivery Scheduler",
+   "parent_project_id": "8cfbda21-726c-496a-8bc1-3176943901b1",
+   "stage_description": "Develop a binary min-heap to manage delivery requests, ensuring the shipments with the earliest deadlines are always processed first.",
+   "deliverable_increment": "A 'DeliveryScheduler' component that implements a priority queue for shipment objects."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built a buffer for storage, a hash tracker for lookups, and a priority queue for scheduling. While your Priority Delivery Scheduler is great for finding the 'most urgent' shipment, it isn't designed to organize your entire historical archive. Having learned about O(N^2) baseline sorts like Insertion Sort and the high-performance O(N log N) logic of Merge Sort and Quicksort, you are now ready to build the 'DataAnalytics' utility. This module will allow the logistics engine to generate sorted reports of millions of shipments by destination zone or timestamp efficiently.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short text response outlining your 'DataAnalytics' class structure and a 2-3 sentence justification of when you would choose Merge Sort over Quicksort for shipment data."
+     },
+     "step_body": "Before coding the algorithms, we need a structure that can handle different sorting criteria (like sorting by ZIP code vs. sorting by weight). Create a class named 'DataAnalytics'. Inside, define a method signature for your hybrid sort that accepts an array (or your custom ShipmentBuffer) and a comparator. To start, write out a brief plan: which scenarios in our logistics system would benefit more from Merge Sort’s 'stability' (preserving order of equal items) versus Quicksort’s 'in-place' memory efficiency?",
+     "step_title": "Design the analytics interface",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Merge Sort is excellent for large datasets where stability matters. Start by implementing the 'merge' helper function. Remember the 'Two-Pointer' technique we discussed: you have two sorted sub-arrays and you must pick the smaller element from either side to move into a temporary buffer. Be careful with the 'cleanup' phase—once one sub-array is exhausted, you must copy all remaining elements from the other. This is where most off-by-one errors occur, so trace your pointer logic carefully.",
+     "step_title": "Implement the Merge mechanic",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the code snippet for your 'partition' function. Good work will show a clear pointer-based swap logic and the inclusion of a randomized pivot selection to avoid O(N^2) worst cases."
+     },
+     "step_body": "Now, let's implement the core of Quicksort: the Partition. We will use the Lomuto Partitioning scheme. Pick a pivot (start with the last element for now) and use a 'slow runner' and 'fast runner' pointer to reorganize the array. All elements smaller than the pivot should end up on the left. Don't forget the final step: swapping the pivot into its permanent home between the two zones. To make this robust for real-world logistics data, add a line of code that picks a random index as the pivot and swaps it to the end before you begin partitioning.",
+     "step_title": "Build the Partition logic",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "With your helpers ready, implement the full recursive 'sort' method in your DataAnalytics utility. For an extra performance boost, try making it a hybrid: use Quicksort/Merge Sort for large partitions, but if a partition size drops below a small threshold (like 10 elements), switch to Insertion Sort. This is a common industry optimization because the overhead of recursion isn't worth it for tiny arrays. Ensure your utility can sort a collection of at least 1,000 simulated shipment objects without errors.",
+     "step_title": "Assemble the hybrid utility",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'DataAnalytics' source file (.java or .cpp). The submission should include functional implementations of both Merge Sort and Quicksort logic, handle edge cases like empty buffers, and demonstrate O(N log N) complexity."
+     },
+     "step_body": "It's time to finalize the 'DataAnalytics' utility. Ensure your code is well-commented, explaining where the divide-and-conquer steps occur. This utility is the 'brain' that will later allow our Logistics Router to analyze bottlenecks and optimize paths based on sorted historical data. Double-check that your Merge Sort implementation correctly uses a temporary array to maintain O(N log N) performance.",
+     "step_title": "Submit your analytics utility",
+     "need_response": true
+    },
+    {
+     "step_id": "step7",
+     "metadata": {},
+     "step_body": "Great work! You now have a high-performance sorting tool. As a final thought, look at your Merge Sort implementation. It requires extra memory (O(N) space) for that temporary buffer. In a memory-constrained environment like an embedded logistics scanner, how would this impact your choice between Merge Sort and Quicksort? You've now completed the primary data-handling components of the project; next, we will tackle the Dijkstra-driven route optimizer!",
+     "step_title": "Reflect on space-time trade-offs",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "13d9cb7e-7b6a-49b2-90c4-c7a23d705636",
+   "stage_title": "Multi-Criteria Logistics Sorter",
+   "parent_project_id": "8cfbda21-726c-496a-8bc1-3176943901b1",
+   "stage_description": "Implement a Quicksort and Merge Sort hybrid to organize large volumes of historical shipment data by timestamp and destination zone.",
+   "deliverable_increment": "A 'DataAnalytics' utility that sorts and searches shipment logs using O(n log n) algorithms."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the final stage of the routing engine! Previously, you built the 'DeliveryScheduler' using heaps and sorted logs with 'DataAnalytics'. Now, we move from linear data to complex networks. In your logistics system, distribution centers are vertices and the roads between them are weighted edges (representing distance or fuel cost). Your first task is to define the graph structure. Since our logistics network is likely 'sparse' (not every city connects directly to every other city), you should implement an Adjacency List to represent the map efficiently without wasting memory on empty connections.",
+     "step_title": "Map the distribution network",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief description of the data structures used to store the graph (vertices, edges, and weights). Criteria for success: Identification of an Adjacency List-style structure and a clear justification based on memory efficiency for sparse data."
+     },
+     "step_body": "To build the 'PathFinder' engine, start by creating a class that can load a list of cities and their connections. You will need a way to store the 'weight' of each edge, as Dijkstra’s algorithm relies on these values to calculate the 'cheapest' route. Think back to our session on weighted graphs: every edge should have a numeric value representing the cost. How will you represent the relationship between a city and its neighbors while keeping track of the cost to travel to each one? Briefly describe the data structures you've chosen for your PathFinder's internal graph representation (e.g., a Map of Lists, an Array of linked objects) and why they fit a sparse logistics network.",
+     "step_title": "Define the PathFinder class",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Dijkstra's algorithm is 'greedy'—it always chooses the closest unvisited node to explore next. To do this efficiently at scale, we use a Min-Priority Queue. Fortunately, you already built a 'DeliveryScheduler' in the previous unit! You can repurpose that heap logic here. In this step, integrate your Priority Queue into the PathFinder logic. It will store 'potential' paths, always keeping the path with the current lowest cumulative cost at the top. This ensures that when we 'relax' an edge, we are always working from the most promising lead.",
+     "step_title": "Integrate the Priority Queue",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "Now, write the core 'findShortestPath' method. It should initialize the distance to the starting city as 0 and all others as infinity. As you traverse the graph, update (relax) the distances to neighboring cities. Remember the crucial check we discussed in the lecture: only update a neighbor's distance if the new path you found is strictly shorter than the one currently recorded. You must also keep track of 'visited' nodes to prevent infinite loops and ensure the algorithm terminates once the shortest path to the destination is finalized.",
+     "step_title": "Implement Dijkstra's logic",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "file",
+      "response_instruction": "Upload your 'PathFinder' source code (C++ or Java). Criteria for success: Correct implementation of Dijkstra's algorithm using a Priority Queue, proper graph representation using an Adjacency List, and logic to reconstruct the shortest path from source to destination."
+     },
+     "step_body": "It's time to finalize your 'PathFinder' deliverable. Ensure your engine can take a source city and a destination city as input and return the total minimum cost and the sequence of cities visited. This component is the 'brain' of your Logistics Router, combining your custom memory buffers, priority heaps, and graph theory into a high-performance tool. Before submitting, double-check that your algorithm correctly handles cases where two cities might not be connected at all (returning infinity or an empty path).",
+     "step_title": "Submit the PathFinder engine",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a short reflection on the time complexity of your implementation and the impact of your data structure choices on performance. Criteria for success: Correct identification of the complexity and a logical explanation of the trade-off between matrices and lists."
+     },
+     "step_body": "Great work! You now have a functional logistics router. To wrap up this stage, consider the time complexity of your implementation. Because we used a Binary Heap (Priority Queue) and an Adjacency List, your PathFinder should operate at O((E + V) log V) time. Why does the 'log V' factor appear here, and how would the performance change if we had used a simple Adjacency Matrix instead of a List for a very large, sparse network? Reflecting on these trade-offs is what separates a coder from a high-performance engineer.",
+     "step_title": "Analyze routing performance",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "42ef54aa-76f6-4b0a-a8cc-153f5515eea1",
+   "stage_title": "Optimal Route Optimizer",
+   "parent_project_id": "8cfbda21-726c-496a-8bc1-3176943901b1",
+   "stage_description": "Represent the delivery network as a weighted graph and implement Dijkstra's algorithm to find the most cost-effective path between distribution centers.",
+   "deliverable_increment": "A 'PathFinder' engine that calculates shortest routes across a provided graph of city nodes and connections."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "8cfbda21-726c-496a-8bc1-3176943901b1",
+   "project_name": "High-Performance Logistics Router",
+   "final_deliverable": "A comprehensive C++ or Java-based Logistics Management System that includes custom-built dynamic arrays, a hash-map based shipment tracker, a priority-based scheduling heap, and a Dijkstra-driven route optimizer.",
+   "project_description": "Build a robust, memory-efficient logistics engine that processes shipment data, manages priority queues for delivery, and calculates optimal delivery paths across a simulated network."
+  }
+ ],
+ "courseUuid": "37754512-44e0-4afe-8c14-2d0e02bdee60"
+}

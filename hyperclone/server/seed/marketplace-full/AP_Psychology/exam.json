@@ -1,0 +1,1271 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Examination: Biological Bases of Behavior",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In a study of human height, a student with a genetic blueprint for being tall remains short due to severe childhood malnutrition. Which concept describes the student's actual physical height?",
+     "options": [
+      "Genotype",
+      "Phenotype",
+      "Heritability",
+      "Inclusive Fitness"
+     ],
+     "explanation": "The phenotype is the observable physical or behavioral expression of a trait, whereas the genotype is the underlying genetic blueprint.",
+     "correctAnswers": [
+      "Phenotype"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the lesson on Heredity and Environment, which of the following statements accurately describe the relationship between genes and behavior?",
+     "options": [
+      "Genes and environment are independent variables that do not interact.",
+      "Environmental stressors can act as catalysts for genetic predispositions.",
+      "The phenotype is a direct, unmediated dictation of the genotype.",
+      "Genes provide a 'menu' of responses, and the environment influences which is selected.",
+      "Genetic determinism suggests that evolved traits cannot be modified by culture."
+     ],
+     "explanation": "The course emphasizes gene-environment interaction (the 'swirling cloud' metaphor) and rejects genetic determinism in favor of a flexible menu of responses.",
+     "correctAnswers": [
+      "Environmental stressors can act as catalysts for genetic predispositions.",
+      "Genes provide a 'menu' of responses, and the environment influences which is selected."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The population measure that estimates how much of the variation in a trait is due to genetic differences is known as the ____ coefficient.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "heritability"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Bar chart comparing twin correlations",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d3943319-34ff-43fd-9908-ebdf3cdc99a9/exam/images/unit1-q4.png"
+     },
+     "prompt": "A researcher finds that the correlation for extraversion is 0.70 in identical twins (MZ) and 0.40 in fraternal twins (DZ). Using the heritability formula provided in the lessons, what is the calculated heritability coefficient?",
+     "options": [
+      "0.30",
+      "0.60",
+      "1.10",
+      "0.15"
+     ],
+     "explanation": "Using the formula h² = 2(rMZ - rDZ), we calculate 2(0.70 - 0.40) = 2(0.30) = 0.60.",
+     "correctAnswers": [
+      "0.60"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are potential limitations or critiques of twin and adoption studies mentioned in the material?",
+     "options": [
+      "The Equal Environments Assumption might be violated if identical twins are treated more similarly than fraternal twins.",
+      "Selective placement in adoption may lead to children being placed in homes similar to their biological backgrounds.",
+      "Identical twins only share 50% of their genetic material, making them poor subjects for genetic research.",
+      "Heritability coefficients tell us exactly what percentage of an individual's intelligence is inherited.",
+      "Adoption studies cannot isolate the genetic variable because they lack a control group."
+     ],
+     "explanation": "The lessons explicitly discuss the Equal Environments Assumption in twin studies and selective placement in adoption studies as methodological challenges.",
+     "correctAnswers": [
+      "The Equal Environments Assumption might be violated if identical twins are treated more similarly than fraternal twins.",
+      "Selective placement in adoption may lead to children being placed in homes similar to their biological backgrounds."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The evolutionary theory explaining why individuals might sacrifice their own safety to help a genetic relative is called ____.",
+     "placeholder": "Two-word term",
+     "correctAnswers": [
+      "kin selection",
+      "inclusive fitness"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "An evolutionary psychologist would argue that our modern craving for high-calorie fats and sugars is a result of:",
+     "options": [
+      "A maladaptation that served no purpose in the ancestral environment.",
+      "An ancestral adaptation to environments where food was scarce and unpredictable.",
+      "The Naturalistic Fallacy in modern dietary choices.",
+      "Inclusive fitness strategies for energy conservation."
+     ],
+     "explanation": "Traits that were adaptive in the Environment of Evolutionary Adaptedness (EEA), like fat-seeking, may become maladaptive in modern cityscapes.",
+     "correctAnswers": [
+      "An ancestral adaptation to environments where food was scarce and unpredictable."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In the organizational analogy of the nervous system, which of the following pairings are correct?",
+     "options": [
+      "Central Nervous System : Corporate Headquarters",
+      "Peripheral Nervous System : Field Agents and Communication Cables",
+      "Spinal Cord : Passive cable with no processing power",
+      "Brain : The only site where decisions are made",
+      "Nervous System : A global enterprise"
+     ],
+     "explanation": "The CNS is the headquarters and the PNS consists of the field agents/cables. Note that the spinal cord is described as an active processing hub, not a passive cable.",
+     "correctAnswers": [
+      "Central Nervous System : Corporate Headquarters",
+      "Peripheral Nervous System : Field Agents and Communication Cables",
+      "Nervous System : A global enterprise"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In the analogy 'Genes load the gun, but the ____ pulls the trigger,' which factor is responsible for manifesting a genetic predisposition?",
+     "placeholder": "One word",
+     "correctAnswers": [
+      "environment"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "According to Parental Investment Theory, which group is typically more selective when choosing mates due to a higher biological resource commitment?",
+     "options": [
+      "The sex with lower parental investment",
+      "The sex with higher parental investment (typically females)",
+      "Both sexes invest equally, so selectivity is identical",
+      "Only individuals with low genetic vulnerability"
+     ],
+     "explanation": "Trivers' theory suggests that the sex investing more (limited ova, gestation) must be more selective to ensure offspring survival.",
+     "correctAnswers": [
+      "The sex with higher parental investment (typically females)"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Identify the TRUE statements regarding the Genotype vs. Phenotype distinction.",
+     "options": [
+      "The genotype is the 'silent' biological blueprint.",
+      "Malnutrition can prevent a genotype from being fully realized in the phenotype.",
+      "Two individuals with the same phenotype must have the same genotype.",
+      "The phenotype includes only physical traits, not behavioral ones.",
+      "The 'swirling cloud' in the lesson diagram represents the environment."
+     ],
+     "explanation": "Genotype is the DNA blueprint; Phenotype includes both physical and behavioral traits and is influenced by the environment (the swirling cloud).",
+     "correctAnswers": [
+      "The genotype is the 'silent' biological blueprint.",
+      "Malnutrition can prevent a genotype from being fully realized in the phenotype.",
+      "The 'swirling cloud' in the lesson diagram represents the environment."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If a heritability coefficient is 1.0, it means that 100% of the ____ in a trait within a population is due to genetic differences.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "variation",
+      "variance",
+      "variability"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why are phobias of spiders more common than phobias of electrical outlets, despite the latter being more dangerous in the modern world?",
+     "options": [
+      "Spiders are more visually complex than outlets.",
+      "Electrical outlets are a product of modern culture, whereas spiders were an ancestral threat.",
+      "Genetic determinism makes us afraid of everything that crawls.",
+      "The Naturalistic Fallacy suggests spiders are 'naturally' more frightening."
+     ],
+     "explanation": "The human mind remains partially adapted to ancestral threats (spiders/snakes) from the EEA, whereas modern threats haven't existed long enough for evolutionary selection.",
+     "correctAnswers": [
+      "Electrical outlets are a product of modern culture, whereas spiders were an ancestral threat."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are components of the Central Nervous System (CNS)?",
+     "options": [
+      "The Brain",
+      "The Spinal Cord",
+      "The Autonomic Nervous System",
+      "Sensory Neurons in the skin",
+      "Motor Neurons in the muscles"
+     ],
+     "explanation": "The CNS is defined strictly as the brain and spinal cord; all other nerves belong to the Peripheral Nervous System.",
+     "correctAnswers": [
+      "The Brain",
+      "The Spinal Cord"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "A child touches a hot stove and immediately pulls their hand back before the brain even registers the pain. Move the 'Signal' to the correct location in this neural circuit to demonstrate where this decision was processed.",
+     "options": [
+      "The Motor Cortex",
+      "The Spinal Cord",
+      "The Thalamus",
+      "The Sensory Peripheral Nerve"
+     ],
+     "explanation": "Reflex arcs allow for split-second survival decisions to be processed in the spinal cord without waiting for the brain's input.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Neural Pathway Interactive</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #666666;\n    --accent: #4C6696;\n    --accent-soft: #f1f5f9;\n    --accent-strong: #3a4f78;\n    --glow: #ff9800;\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    color: var(--fg);\n    overflow: hidden;\n    user-select: none;\n    -webkit-user-select: none;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n\n  .widget-container {\n    width: 100%;\n    max-width: 640px;\n    margin: 0 auto;\n    padding: 12px;\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 8px;\n  }\n\n  .stage {\n    width: 100%;\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 12px;\n    box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n    position: relative;\n    overflow: hidden;\n    touch-action: none;\n  }\n\n  .stage-svg {\n    width: 100%;\n    height: auto;\n    display: block;\n  }\n\n  /* Interaction Hint & Readout */\n  .info-bar {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n    padding: 2px 8px;\n    box-sizing: border-box;\n    font-size: 12px;\n    color: var(--muted-fg);\n  }\n\n  .hint-text {\n    font-weight: 500;\n  }\n\n  .status-text {\n    text-align: right;\n    font-weight: 600;\n    color: var(--accent);\n  }\n\n  /* Pathway styles */\n  .nerve-path {\n    fill: none;\n    stroke: #d0d5dd;\n    stroke-width: 3;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n  }\n\n  .nerve-path-active {\n    fill: none;\n    stroke: var(--accent);\n    stroke-width: 3.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-dasharray: 8 4;\n    animation: flow 1.5s linear infinite;\n    opacity: 0;\n    transition: opacity 0.3s;\n  }\n\n  @keyframes flow {\n    to { stroke-dashoffset: -12; }\n  }\n\n  /* Drop zones */\n  .drop-zone {\n    cursor: pointer;\n    outline: none;\n  }\n  .drop-zone-ring {\n    fill: var(--surface);\n    stroke: var(--border);\n    stroke-width: 2;\n    stroke-dasharray: 4 3;\n    transition: all 0.25s cubic-bezier(.4,0,.2,1);\n  }\n  .drop-zone:hover .drop-zone-ring,\n  .drop-zone:focus-visible .drop-zone-ring {\n    stroke: var(--accent);\n    fill: var(--accent-soft);\n    stroke-dasharray: none;\n  }\n  .drop-zone.active .drop-zone-ring {\n    stroke: var(--accent);\n    fill: var(--accent-soft);\n    stroke-dasharray: none;\n    stroke-width: 3;\n  }\n\n  .drop-label {\n    font-size: 11px;\n    font-weight: 600;\n    fill: var(--muted-fg);\n    transition: fill 0.25s;\n    pointer-events: none;\n  }\n  .drop-zone.active .drop-label {\n    fill: var(--accent-strong);\n  }\n\n  /* Interactive Token */\n  #signal-token {\n    cursor: grab;\n    touch-action: none;\n  }\n  #signal-token:active {\n    cursor: grabbing;\n  }\n  .signal-glow {\n    fill: var(--glow);\n    opacity: 0.3;\n    animation: pulse 2s infinite ease-in-out;\n  }\n  @keyframes pulse {\n    0%, 100% { transform: scale(1); opacity: 0.25; }\n    50% { transform: scale(1.3); opacity: 0.55; }\n  }\n\n  /* Hand retraction animation */\n  #hand-arm {\n    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  }\n\n  /* Stove heat waves */\n  .heat-wave {\n    fill: none;\n    stroke: #ff6b6b;\n    stroke-width: 2;\n    stroke-linecap: round;\n    animation: waveUp 1.2s infinite ease-in-out;\n    opacity: 0;\n  }\n  .heat-wave:nth-child(2) { animation-delay: 0.4s; }\n  .heat-wave:nth-child(3) { animation-delay: 0.8s; }\n\n  @keyframes waveUp {\n    0% { transform: translateY(5px); opacity: 0; }\n    50% { opacity: 0.8; }\n    100% { transform: translateY(-10px); opacity: 0; }\n  }\n\n  /* Lock state support */\n  .locked {\n    pointer-events: none !important;\n  }\n  .locked #signal-token {\n    cursor: default;\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"sr-only\">Interactive Neural Pathway Model - Sensory Signal Processing</h1>\n\n<div class=\"widget-container\">\n  <div class=\"stage\" id=\"interactive-stage\">\n    <svg class=\"stage-svg\" viewBox=\"0 0 580 290\">\n      <defs>\n        <!-- Gradients -->\n        <linearGradient id=\"stoveGrad\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n          <stop offset=\"0%\" stop-color=\"#4a4a4a\"/>\n          <stop offset=\"100%\" stop-color=\"#2b2b2b\"/>\n        </linearGradient>\n        <linearGradient id=\"brainGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n          <stop offset=\"0%\" stop-color=\"#fbe9e7\"/>\n          <stop offset=\"100%\" stop-color=\"#ffccbc\"/>\n        </linearGradient>\n      </defs>\n\n      <!-- Background design details -->\n      <rect width=\"580\" height=\"290\" fill=\"#faf9f7\" />\n      <rect x=\"10\" y=\"10\" width=\"560\" height=\"270\" rx=\"8\" fill=\"#fcfbf9\" stroke=\"#f1efe9\" stroke-width=\"2\" />\n\n      <!-- Neural Circuit Paths (Static & Active overlay) -->\n      <!-- Arm to Spinal Cord Pathway -->\n      <path class=\"nerve-path\" d=\"M 65 195 C 100 170, 160 150, 240 190\" />\n      <path id=\"path-sensory\" class=\"nerve-path-active\" d=\"M 65 195 C 100 170, 160 150, 240 190\" />\n\n      <!-- Spinal Cord Reflex Arc Return to Muscle -->\n      <path class=\"nerve-path\" stroke-dasharray=\"3 3\" d=\"M 240 190 C 180 195, 110 200, 80 205\" />\n      <path id=\"path-reflex\" class=\"nerve-path-active\" stroke-dasharray=\"3 3\" d=\"M 240 190 C 180 195, 110 200, 80 205\" />\n\n      <!-- Spinal Cord up to Brain Pathway -->\n      <path class=\"nerve-path\" d=\"M 240 190 C 310 180, 380 130, 430 115\" />\n      <path id=\"path-ascending\" class=\"nerve-path-active\" d=\"M 240 190 C 310 180, 380 130, 430 115\" />\n\n      <!-- Thalamus to Motor Cortex Pathway -->\n      <path class=\"nerve-path\" d=\"M 430 115 C 445 100, 455 75, 470 65\" />\n      <path id=\"path-cortex\" class=\"nerve-path-active\" d=\"M 430 115 C 445 100, 455 75, 470 65\" />\n\n      <!-- STOVE & HEAT -->\n      <g transform=\"translate(15, 205)\">\n        <!-- Stove base -->\n        <rect x=\"0\" y=\"15\" width=\"70\" height=\"40\" rx=\"4\" fill=\"url(#stoveGrad)\" />\n        <ellipse cx=\"35\" cy=\"15\" rx=\"35\" ry=\"8\" fill=\"#e0e0e0\" stroke=\"#b3b3b3\" stroke-width=\"1\" />\n        <ellipse cx=\"35\" cy=\"15\" rx=\"25\" ry=\"5\" fill=\"#ff5722\" opacity=\"0.8\" />\n        <circle cx=\"35\" cy=\"15\" r=\"12\" fill=\"#ffeb3b\" opacity=\"0.6\" />\n        <!-- Heat Waves -->\n        <g transform=\"translate(35, 5)\">\n          <path class=\"heat-wave\" d=\"M -10 0 Q -5 -8, -8 -15 T -5 -25\" />\n          <path class=\"heat-wave\" d=\"M 0 0 Q 5 -8, 2 -15 T 5 -25\" />\n          <path class=\"heat-wave\" d=\"M 10 0 Q 5 -8, 8 -15 T 5 -25\" />\n        </g>\n      </g>\n\n      <!-- HAND AND ARM (Draggable target interaction reacts to Spinal Cord activation) -->\n      <g id=\"hand-arm\">\n        <!-- Arm & Hand sleeve / bone representation -->\n        <path d=\"M 140 145 C 120 155, 90 175, 75 190 C 70 195, 60 197, 50 195 C 45 193, 45 185, 52 182 C 60 175, 78 160, 95 145 C 110 132, 130 128, 145 130\" fill=\"#fbe9e7\" stroke=\"#d84315\" stroke-width=\"2\" />\n        <!-- Finger touching the element -->\n        <circle cx=\"50\" cy=\"195\" r=\"4\" fill=\"#ff7043\" />\n      </g>\n\n      <!-- SPINAL CORD DIAGRAM (Cross section simplified) -->\n      <g transform=\"translate(200, 160)\">\n        <rect width=\"80\" height=\"60\" rx=\"10\" fill=\"#f5f5f5\" stroke=\"#ccc\" stroke-width=\"1.5\" />\n        <!-- Butterfly gray matter shape -->\n        <path d=\"M 25 30 Q 35 20, 40 30 Q 45 20, 55 30 Q 50 40, 55 50 Q 45 42, 40 48 Q 35 42, 25 50 Q 30 40, 25 30 Z\" fill=\"#d7ccc8\" stroke=\"#8d6e63\" stroke-width=\"1.5\" />\n      </g>\n\n      <!-- BRAIN DIAGRAM -->\n      <g transform=\"translate(390, 15)\">\n        <!-- Brain outer profile -->\n        <path d=\"M 50 100 C 15 100, 10 60, 30 40 C 40 20, 80 15, 110 30 C 140 40, 145 80, 115 110 C 100 125, 75 125, 65 115 C 58 108, 55 108, 50 100 Z\" fill=\"url(#brainGrad)\" stroke=\"#ff8a80\" stroke-width=\"2\" opacity=\"0.9\" />\n        <!-- Cerebellum -->\n        <path d=\"M 105 105 C 120 105, 130 120, 115 130 C 100 135, 95 120, 105 105 Z\" fill=\"#ffab91\" stroke=\"#ff8a80\" stroke-width=\"1\" />\n        <!-- Brainstem -->\n        <path d=\"M 75 115 L 75 140 L 60 140 L 65 115 Z\" fill=\"#ffccbc\" />\n      </g>\n\n      <!-- DROP TARGETS (The 4 Options) -->\n      <!-- 1. Sensory Peripheral Nerve -->\n      <g class=\"drop-zone\" id=\"zone-nerve\" data-option=\"The Sensory Peripheral Nerve\" transform=\"translate(130, 145)\" tabindex=\"0\" role=\"button\" aria-label=\"Drop target: The Sensory Peripheral Nerve\">\n        <circle class=\"drop-zone-ring\" cx=\"0\" cy=\"0\" r=\"18\" />\n        <text class=\"drop-label\" x=\"0\" y=\"-24\" text-anchor=\"middle\">Sensory Nerve</text>\n      </g>\n\n      <!-- 2. The Spinal Cord -->\n      <g class=\"drop-zone\" id=\"zone-spinal\" data-option=\"The Spinal Cord\" transform=\"translate(240, 190)\" tabindex=\"0\" role=\"button\" aria-label=\"Drop target: The Spinal Cord\">\n        <circle class=\"drop-zone-ring\" cx=\"0\" cy=\"0\" r=\"18\" />\n        <text class=\"drop-label\" x=\"0\" y=\"30\" text-anchor=\"middle\">Spinal Cord</text>\n      </g>\n\n      <!-- 3. The Thalamus -->\n      <g class=\"drop-zone\" id=\"zone-thalamus\" data-option=\"The Thalamus\" transform=\"translate(435, 115)\" tabindex=\"0\" role=\"button\" aria-label=\"Drop target: The Thalamus\">\n        <circle class=\"drop-zone-ring\" cx=\"0\" cy=\"0\" r=\"18\" />\n        <text class=\"drop-label\" x=\"-15\" y=\"-24\" text-anchor=\"middle\">Thalamus</text>\n      </g>\n\n      <!-- 4. The Motor Cortex -->\n      <g class=\"drop-zone\" id=\"zone-cortex\" data-option=\"The Motor Cortex\" transform=\"translate(470, 55)\" tabindex=\"0\" role=\"button\" aria-label=\"Drop target: The Motor Cortex\">\n        <circle class=\"drop-zone-ring\" cx=\"0\" cy=\"0\" r=\"18\" />\n        <text class=\"drop-label\" x=\"25\" y=\"-24\" text-anchor=\"middle\">Motor Cortex</text>\n      </g>\n\n      <!-- DRAGGABLE SIGNAL TOKEN -->\n      <g id=\"signal-token\" transform=\"translate(50, 195)\">\n        <circle class=\"signal-glow\" cx=\"0\" cy=\"0\" r=\"18\" />\n        <circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#ffb300\" stroke=\"#fff\" stroke-width=\"2\" />\n        <circle cx=\"0\" cy=\"0\" r=\"3\" fill=\"#fff\" />\n      </g>\n    </svg>\n  </div>\n\n  <div class=\"info-bar\">\n    <div class=\"hint-text\">Drag the glowing Signal to investigate the circuit pathways</div>\n    <div class=\"status-text\" id=\"status-readout\">Signal: At Stove</div>\n  </div>\n</div>\n\n<script>\n  // Elements\n  const stage = document.getElementById('interactive-stage');\n  const token = document.getElementById('signal-token');\n  const handArm = document.getElementById('hand-arm');\n  const statusReadout = document.getElementById('status-readout');\n  const dropZones = document.querySelectorAll('.drop-zone');\n\n  // Interactive state\n  let currentSelection = null;\n  let isDragging = false;\n  let isLocked = false;\n  let dragOffset = { x: 0, y: 0 };\n  \n  // Starting position of the signal token\n  const defaultPos = { x: 50, y: 195 };\n\n  // Map option targets for easy lookup & geometry mapping\n  const zones = Array.from(dropZones).map(el => {\n    const opt = el.getAttribute('data-option');\n    const transform = el.getAttribute('transform');\n    const coords = transform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    return {\n      element: el,\n      option: opt,\n      x: parseFloat(coords[1]),\n      y: parseFloat(coords[2])\n    };\n  });\n\n  // Init & Height reporting\n  function reportHeight() {\n    try {\n      const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n      parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n    } catch (e) {}\n  }\n  window.addEventListener('load', reportHeight);\n  window.addEventListener('resize', reportHeight);\n  new ResizeObserver(reportHeight).observe(document.body);\n\n  // Set visual transform of token\n  function setTokenPos(x, y) {\n    token.setAttribute('transform', `translate(${x}, ${y})`);\n  }\n\n  // Handle snapping & path animation updates based on state\n  function updateState(selectedZone) {\n    // Remove active styling from all zones and paths\n    dropZones.forEach(z => z.classList.remove('active'));\n    document.querySelectorAll('.nerve-path-active').forEach(p => p.style.opacity = 0);\n\n    // Reset hand position\n    handArm.style.transform = 'none';\n\n    if (selectedZone) {\n      selectedZone.element.classList.add('active');\n      setTokenPos(selectedZone.x, selectedZone.y);\n      statusReadout.textContent = `Signal in: ${selectedZone.option}`;\n      currentSelection = selectedZone.option;\n\n      // Biological Pathway Visual Response\n      if (selectedZone.option === \"The Sensory Peripheral Nerve\") {\n        document.getElementById('path-sensory').style.opacity = 1;\n      } else if (selectedZone.option === \"The Spinal Cord\") {\n        document.getElementById('path-sensory').style.opacity = 1;\n        document.getElementById('path-reflex').style.opacity = 1;\n        // Trigger retraction\n        handArm.style.transform = 'translate(25px, -35px) rotate(-12deg)';\n      } else if (selectedZone.option === \"The Thalamus\") {\n        document.getElementById('path-sensory').style.opacity = 1;\n        document.getElementById('path-ascending').style.opacity = 1;\n      } else if (selectedZone.option === \"The Motor Cortex\") {\n        document.getElementById('path-sensory').style.opacity = 1;\n        document.getElementById('path-ascending').style.opacity = 1;\n        document.getElementById('path-cortex').style.opacity = 1;\n      }\n\n      // Fire Answer choice up to parent frame\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: currentSelection }, '*');\n      } catch (e) {}\n    } else {\n      setTokenPos(defaultPos.x, defaultPos.y);\n      statusReadout.textContent = \"Signal: At Stove\";\n      currentSelection = null;\n    }\n  }\n\n  // Pointer Events for Draggable Token\n  token.addEventListener('pointerdown', (e) => {\n    if (isLocked) return;\n    isDragging = true;\n    token.setPointerCapture(e.pointerId);\n\n    // Coordinate conversion\n    const svg = stage.querySelector('svg');\n    const pt = svg.createSVGPoint();\n    pt.x = e.clientX;\n    pt.y = e.clientY;\n    const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());\n\n    // Calculate offset based on current transform\n    const currentTransform = token.getAttribute('transform');\n    const coords = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    const currX = coords ? parseFloat(coords[1]) : defaultPos.x;\n    const currY = coords ? parseFloat(coords[2]) : defaultPos.y;\n\n    dragOffset.x = svgP.x - currX;\n    dragOffset.y = svgP.y - currY;\n    \n    e.preventDefault();\n  });\n\n  token.addEventListener('pointermove', (e) => {\n    if (!isDragging || isLocked) return;\n    const svg = stage.querySelector('svg');\n    const pt = svg.createSVGPoint();\n    pt.x = e.clientX;\n    pt.y = e.clientY;\n    const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());\n\n    let targetX = svgP.x - dragOffset.x;\n    let targetY = svgP.y - dragOffset.y;\n\n    // Bounds constraint\n    targetX = Math.max(10, Math.min(570, targetX));\n    targetY = Math.max(10, Math.min(280, targetY));\n\n    setTokenPos(targetX, targetY);\n  });\n\n  token.addEventListener('pointerup', (e) => {\n    if (!isDragging) return;\n    isDragging = false;\n    token.releasePointerCapture(e.pointerId);\n\n    // Find nearest drop zone\n    const currentTransform = token.getAttribute('transform');\n    const coords = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    const currX = parseFloat(coords[1]);\n    const currY = parseFloat(coords[2]);\n\n    let nearest = null;\n    let minDist = 45; // snapping threshold in SVG px\n\n    zones.forEach(z => {\n      const dist = Math.hypot(z.x - currX, z.y - currY);\n      if (dist < minDist) {\n        minDist = dist;\n        nearest = z;\n      }\n    });\n\n    updateState(nearest);\n  });\n\n  // Keyboard accessibility\n  dropZones.forEach(zoneEl => {\n    zoneEl.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === ' ' || e.key === 'Enter') {\n        e.preventDefault();\n        const optionText = zoneEl.getAttribute('data-option');\n        const targetZone = zones.find(z => z.option === optionText);\n        updateState(targetZone);\n      }\n    });\n  });\n\n  // Lock Support Hook\n  window.addEventListener('message', (e) => {\n    if (e.data && e.data.type === 'hk-practice-lock') {\n      isLocked = true;\n      stage.classList.add('locked');\n      dropZones.forEach(z => z.setAttribute('tabindex', '-1'));\n    }\n  });\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The Spinal Cord"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Examination: Cognition",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A researcher presents a participant with a series of rapidly flashing lights in a dark room. Although the lights are stationary and simply blink in sequence, the participant reports seeing a single light 'jumping' from one location to another. Which phenomenon is being demonstrated?",
+     "options": [
+      "Stroboscopic movement",
+      "The phi phenomenon",
+      "Retinal disparity",
+      "Shape constancy"
+     ],
+     "explanation": "The phi phenomenon is the illusion of motion created when separate stationary lights blink on and off in a rapid sequence. This differs from stroboscopic movement, which involves a rapid series of slightly different still images, like a flipbook.",
+     "correctAnswers": [
+      "The phi phenomenon"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Diagram of retinal disparity and convergence.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d3943319-34ff-43fd-9908-ebdf3cdc99a9/exam/images/unit2-q2.png"
+     },
+     "prompt": "Which of the following are binocular cues that the brain uses to perceive depth and distance?",
+     "options": [
+      "Retinal disparity",
+      "Convergence",
+      "Linear perspective",
+      "Interposition",
+      "Relative size"
+     ],
+     "explanation": "Retinal disparity and convergence both require the use of two eyes (binocular). Linear perspective, interposition, and relative size are all monocular cues that can be perceived with just one eye.",
+     "correctAnswers": [
+      "Retinal disparity",
+      "Convergence"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The cognitive tendency to perceive a whole, complete object even when the sensory input is missing parts or is interrupted by gaps is known as the Gestalt principle of ____.",
+     "placeholder": "Enter principle name",
+     "correctAnswers": [
+      "closure"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "As a car drives away from you, the image it projects onto your retina becomes significantly smaller. However, you do not perceive the car as physically shrinking in size. This stability in perception is due to:",
+     "options": [
+      "Size constancy",
+      "Bottom-up processing",
+      "The Ames room illusion",
+      "Relative clarity"
+     ],
+     "explanation": "Size constancy allows us to perceive objects as having a constant size even while our distance from them varies, changing the size of the image on our retinas.",
+     "correctAnswers": [
+      "Size constancy"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Identify the scenarios that primarily involve 'top-down' processing:",
+     "options": [
+      "Recognizing a misspelled word in a sentence because you expected it to be there",
+      "Feeling the sharp prick of a needle on your skin for the first time",
+      "Interpreting a blurry shape in a dark forest as a bear because you are afraid of bears",
+      "A computer scanning a barcode to identify a product price",
+      "Hearing a new song for the first time and noticing the individual drum beats"
+     ],
+     "explanation": "Top-down processing uses prior knowledge, expectations, and context to interpret sensory information. Feeling a needle prick or hearing raw beats are bottom-up processes driven by the sensory input itself.",
+     "correctAnswers": [
+      "Recognizing a misspelled word in a sentence because you expected it to be there",
+      "Interpreting a blurry shape in a dark forest as a bear because you are afraid of bears"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The inability to see that a heavy frying pan could be used as a hammer to drive a nail into the wall is an example of ____.",
+     "placeholder": "Enter cognitive bias",
+     "correctAnswers": [
+      "functional fixedness"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Which problem-solving strategy guarantees a correct solution but is often slow and inefficient?",
+     "options": [
+      "Heuristic",
+      "Algorithm",
+      "Insight",
+      "Mental set"
+     ],
+     "explanation": "Algorithms are step-by-step procedures that guarantee a result, whereas heuristics are mental shortcuts that are faster but prone to error.",
+     "correctAnswers": [
+      "Algorithm"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are considered obstacles to effective problem-solving?",
+     "options": [
+      "Functional fixedness",
+      "Mental sets",
+      "The availability heuristic",
+      "Algorithms",
+      "Prototypes"
+     ],
+     "explanation": "Functional fixedness and mental sets limit our ability to see new solutions, and the availability heuristic can lead to biased judgments based on ease of recall.",
+     "correctAnswers": [
+      "Functional fixedness",
+      "Mental sets",
+      "The availability heuristic"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The physical sensation of eye muscles straining as they turn inward to look at a nearby object provides a depth cue called ____.",
+     "placeholder": "Enter cue name",
+     "correctAnswers": [
+      "convergence"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "You are asked to think of a 'fruit.' You immediately think of an apple rather than a tomato or a dragonfruit. In cognitive psychology, the apple serves as a(n):",
+     "options": [
+      "Algorithm",
+      "Heuristic",
+      "Prototype",
+      "Phoneme"
+     ],
+     "explanation": "A prototype is the 'best example' or most representative member of a category. Because apples are central to most people's concept of 'fruit,' they are classified faster than non-prototypical fruits like tomatoes.",
+     "correctAnswers": [
+      "Prototype"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which statements accurately describe 'Insight' in problem-solving?",
+     "options": [
+      "It is a gradual, step-by-step logical progression",
+      "It is often characterized by a sudden 'Aha!' moment",
+      "It involves a burst of activity in the right temporal lobe",
+      "It is the same as using a trial-and-error algorithm",
+      "It involves reorganizing the elements of a problem in a new way"
+     ],
+     "explanation": "Insight is sudden and involves neural bursts and cognitive reorganization, unlike the slow, methodical nature of algorithms or trial-and-error.",
+     "correctAnswers": [
+      "It is often characterized by a sudden 'Aha!' moment",
+      "It involves a burst of activity in the right temporal lobe",
+      "It involves reorganizing the elements of a problem in a new way"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When we approach a problem by using a rule-of-thumb or a 'mental shortcut' that has worked in the past, we are using a(n) ____.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "heuristic"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Illustration of linear perspective.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d3943319-34ff-43fd-9908-ebdf3cdc99a9/exam/images/unit2-q13.png"
+     },
+     "prompt": "Which monocular depth cue is being utilized when an artist draws parallel railroad tracks that appear to converge in the distance?",
+     "options": [
+      "Interposition",
+      "Relative size",
+      "Linear perspective",
+      "Retinal disparity"
+     ],
+     "explanation": "Linear perspective is the monocular cue where parallel lines appear to meet in the distance, providing a sense of depth on a 2D surface.",
+     "correctAnswers": [
+      "Linear perspective"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of monocular cues for depth perception?",
+     "options": [
+      "Relative size",
+      "Relative clarity",
+      "Interposition",
+      "Retinal disparity",
+      "Convergence"
+     ],
+     "explanation": "Relative size, clarity, and interposition can all be perceived with one eye, whereas disparity and convergence require two.",
+     "correctAnswers": [
+      "Relative size",
+      "Relative clarity",
+      "Interposition"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Adjust the environment to successfully demonstrate the Ames Room illusion to an observer.",
+     "options": [
+      "Keep the floor level and the back wall parallel to the viewer",
+      "Slant the floor and back wall while maintaining a rectangular appearance from a peephole",
+      "Place both people at the exact same distance from the camera",
+      "Use binocular viewing to emphasize the depth of the room"
+     ],
+     "explanation": "The Ames Room works by manipulating monocular depth cues; the room is actually trapezoidal with a sloping floor, but from a specific peephole, it looks rectangular, forcing the brain to interpret height differences as actual physical size changes.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Ames Room Illusion Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      min-height: 100vh;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 580px;\n      background: var(--surface);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      padding: 14px;\n      box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Double-panel visualization stage */\n    .visualizer-stage {\n      display: grid;\n      grid-template-columns: 1fr 1.1fr;\n      gap: 12px;\n      background: var(--stage);\n      border-radius: 8px;\n      padding: 10px;\n      border: 1px solid var(--border);\n    }\n\n    .panel {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      background: var(--surface);\n      border-radius: 6px;\n      padding: 8px;\n      border: 1px solid rgba(0,0,0,0.04);\n    }\n\n    .panel-title {\n      font-size: 11px;\n      font-weight: 600;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      color: var(--muted-fg);\n      margin-bottom: 6px;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      max-height: 160px;\n      display: block;\n    }\n\n    /* Slider / Tuning Section */\n    .controls-section {\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n    }\n\n    .slider-container {\n      position: relative;\n      padding: 10px 0;\n    }\n\n    .slider-track {\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n      position: relative;\n    }\n\n    .slider-fill {\n      height: 100%;\n      background: var(--accent);\n      border-radius: 3px;\n      width: 0%;\n      transition: width 0.2s cubic-bezier(.4,0,.2,1);\n    }\n\n    .slider-stops {\n      position: absolute;\n      top: 50%;\n      left: 0;\n      width: 100%;\n      transform: translateY(-50%);\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n      padding: 0 4px;\n    }\n\n    .slider-stop {\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: #c5c5c5;\n      border: 2px solid var(--surface);\n      transition: background 0.2s;\n    }\n\n    .slider-stop.active {\n      background: var(--accent);\n    }\n\n    .slider-handle {\n      position: absolute;\n      top: 50%;\n      left: 0%;\n      transform: translate(-50%, -50%);\n      width: 20px;\n      height: 20px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 3px solid var(--accent);\n      box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n      cursor: grab;\n      touch-action: none;\n      transition: left 0.2s cubic-bezier(.34,1.56,.64,1), transform 0.1s;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: translate(-50%, -50%) scale(1.15);\n      box-shadow: 0 3px 8px rgba(76,102,150,0.3);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent-strong);\n      outline-offset: 2px;\n    }\n\n    .option-description-box {\n      background: var(--accent-soft);\n      border-left: 3px solid var(--accent);\n      border-radius: 4px;\n      padding: 8px 12px;\n      min-height: 48px;\n      display: flex;\n      align-items: center;\n      transition: background 0.2s;\n    }\n\n    .option-text {\n      font-size: 13px;\n      line-height: 1.4;\n      font-weight: 500;\n      color: var(--accent-strong);\n    }\n\n    .action-hint {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -4px;\n    }\n\n    /* Interactive state locking */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.85;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Ames Room Illusion - Interactive Visualizer</h1>\n\n  <div class=\"widget-container\" id=\"widget\">\n    \n    <!-- Visualizer Stage -->\n    <div class=\"visualizer-stage\">\n      \n      <!-- Panel 1: Overhead Map Setup -->\n      <div class=\"panel\">\n        <div class=\"panel-title\">Room Layout (Top-Down)</div>\n        <svg class=\"stage-svg\" viewBox=\"0 0 120 120\" id=\"map-svg\">\n          <!-- Room Floor/Grid Representation -->\n          <polygon id=\"map-floor\" points=\"20,20 100,20 100,80 20,80\" fill=\"#fcfbf9\" stroke=\"#ccc\" stroke-width=\"1.5\" />\n          \n          <!-- Observers & Sightlines -->\n          <g id=\"map-sightlines\" stroke=\"#4C6696\" stroke-dasharray=\"2,2\" stroke-width=\"1\"></g>\n          <g id=\"map-observer\"></g>\n          \n          <!-- People indicators -->\n          <circle id=\"map-person-left\" cx=\"25\" cy=\"25\" r=\"4.5\" fill=\"#e05d5d\" stroke=\"#fff\" stroke-width=\"1\" />\n          <text id=\"lbl-left\" x=\"25\" y=\"22\" font-size=\"7\" font-weight=\"bold\" fill=\"#e05d5d\" text-anchor=\"middle\">L</text>\n          \n          <circle id=\"map-person-right\" cx=\"95\" cy=\"25\" r=\"4.5\" fill=\"#3fa374\" stroke=\"#fff\" stroke-width=\"1\" />\n          <text id=\"lbl-right\" x=\"95\" y=\"22\" font-size=\"7\" font-weight=\"bold\" fill=\"#3fa374\" text-anchor=\"middle\">R</text>\n        </svg>\n      </div>\n\n      <!-- Panel 2: Observer's View (Perspective) -->\n      <div class=\"panel\">\n        <div class=\"panel-title\" id=\"perspective-title\">Observer's View</div>\n        <svg class=\"stage-svg\" viewBox=\"0 0 140 120\" id=\"view-svg\">\n          <!-- Back Wall Frame -->\n          <polygon id=\"room-backwall\" points=\"25,25 115,25 115,95 25,95\" fill=\"#f5f4f0\" stroke=\"#b0b0b0\" stroke-width=\"1.5\" />\n          \n          <!-- Perspective Corner Lines (Floor/Ceiling limits) -->\n          <line id=\"floor-left\" x1=\"0\" y1=\"120\" x2=\"25\" y2=\"95\" stroke=\"#ccc\" stroke-width=\"1.5\" />\n          <line id=\"floor-right\" x1=\"140\" y1=\"120\" x2=\"115\" y2=\"95\" stroke=\"#ccc\" stroke-width=\"1.5\" />\n          <line id=\"ceiling-left\" x1=\"0\" y1=\"0\" x2=\"25\" y2=\"25\" stroke=\"#ccc\" stroke-width=\"1.5\" />\n          <line id=\"ceiling-right\" x1=\"140\" y1=\"0\" x2=\"115\" y2=\"25\" stroke=\"#ccc\" stroke-width=\"1.5\" />\n\n          <!-- Left Person (L) -->\n          <g id=\"person-left-container\" transform=\"translate(35, 75)\">\n            <!-- Simple stylized avatar L -->\n            <circle cx=\"0\" cy=\"-24\" r=\"7\" fill=\"#e05d5d\" />\n            <rect x=\"-5\" y=\"-15\" width=\"10\" height=\"20\" rx=\"3\" fill=\"#e05d5d\" />\n            <text x=\"0\" y=\"-8\" font-size=\"8\" fill=\"#fff\" font-weight=\"bold\" text-anchor=\"middle\">L</text>\n          </g>\n\n          <!-- Right Person (R) -->\n          <g id=\"person-right-container\" transform=\"translate(105, 75)\">\n            <!-- Simple stylized avatar R -->\n            <circle cx=\"0\" cy=\"-24\" r=\"7\" fill=\"#3fa374\" />\n            <rect x=\"-5\" y=\"-15\" width=\"10\" height=\"20\" rx=\"3\" fill=\"#3fa374\" />\n            <text x=\"0\" y=\"-8\" font-size=\"8\" fill=\"#fff\" font-weight=\"bold\" text-anchor=\"middle\">R</text>\n          </g>\n        </svg>\n      </div>\n\n    </div>\n\n    <!-- Interactive Slider -->\n    <div class=\"controls-section\">\n      <div class=\"slider-container\" id=\"slider-box\">\n        <div class=\"slider-track\" id=\"slider-track\">\n          <div class=\"slider-fill\" id=\"slider-fill\"></div>\n        </div>\n        <div class=\"slider-stops\">\n          <div class=\"slider-stop active\" style=\"left: 0%\"></div>\n          <div class=\"slider-stop\" style=\"left: 33.333%\"></div>\n          <div class=\"slider-stop\" style=\"left: 66.666%\"></div>\n          <div class=\"slider-stop\" style=\"left: 100%\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"slider-handle\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"0\" aria-label=\"Room setup slider\" tabindex=\"0\"></div>\n      </div>\n\n      <!-- Description of Current Active State / Choice -->\n      <div class=\"option-description-box\">\n        <div class=\"option-text\" id=\"option-desc\"> Drag slider to align the configuration...</div>\n      </div>\n\n      <div class=\"action-hint\">Drag the slider to adjust the room setup and viewing angle</div>\n    </div>\n\n  </div>\n\n  <script>\n    // Exact option strings mapped\n    const options = [\n      \"Keep the floor level and the back wall parallel to the viewer\",\n      \"Slant the floor and back wall while maintaining a rectangular appearance from a peephole\",\n      \"Place both people at the exact same distance from the camera\",\n      \"Use binocular viewing to emphasize the depth of the room\"\n    ];\n\n    let currentIndex = -1; // Starts uncommitted until student interacts\n    let isLocked = false;\n\n    // DOM Elements\n    const widget = document.getElementById('widget');\n    const sliderBox = document.getElementById('slider-box');\n    const sliderTrack = document.getElementById('slider-track');\n    const sliderFill = document.getElementById('slider-fill');\n    const sliderHandle = document.getElementById('slider-handle');\n    const sliderStops = document.querySelectorAll('.slider-stop');\n    const optionDesc = document.getElementById('option-desc');\n\n    // SVG Elements\n    const mapFloor = document.getElementById('map-floor');\n    const mapSightlines = document.getElementById('map-sightlines');\n    const mapObserver = document.getElementById('map-observer');\n    const mapPersonLeft = document.getElementById('map-person-left');\n    const mapPersonRight = document.getElementById('map-person-right');\n    const lblLeft = document.getElementById('lbl-left');\n    const lblRight = document.getElementById('lbl-right');\n\n    const roomBackwall = document.getElementById('room-backwall');\n    const personLeftContainer = document.getElementById('person-left-container');\n    const personRightContainer = document.getElementById('person-right-container');\n    const perspectiveTitle = document.getElementById('perspective-title');\n\n    // Update Visuals based on selected configuration state (0-3)\n    function updateVisuals(index) {\n      if (index < 0 || index > 3) return;\n\n      // Update Slider active indicators\n      sliderStops.forEach((stop, i) => {\n        stop.classList.toggle('active', i === index);\n      });\n      const pct = (index / 3) * 100;\n      sliderHandle.style.left = `${pct}%`;\n      sliderFill.style.width = `${pct}%`;\n      sliderHandle.setAttribute('aria-valuenow', index);\n\n      // Set Option Text\n      optionDesc.textContent = options[index];\n\n      // Update SVG Graphics\n      if (index === 0) {\n        // Parallel & Level\n        mapFloor.setAttribute('points', '20,25 100,25 100,80 20,80');\n        mapPersonLeft.setAttribute('cx', '25'); mapPersonLeft.setAttribute('cy', '25');\n        mapPersonRight.setAttribute('cx', '95'); mapPersonRight.setAttribute('cy', '25');\n        lblLeft.setAttribute('x', '25'); lblLeft.setAttribute('y', '19');\n        lblRight.setAttribute('x', '95'); lblRight.setAttribute('y', '19');\n\n        // Observer (Single peephole)\n        mapObserver.innerHTML = `<circle cx=\"60\" cy=\"110\" r=\"4\" fill=\"#4C6696\"/><path d=\"M55,110 L60,102 L65,110 Z\" fill=\"#4C6696\" />`;\n        mapSightlines.innerHTML = `<line x1=\"60\" y1=\"102\" x2=\"25\" y2=\"25\" /><line x1=\"60\" y1=\"102\" x2=\"95\" y2=\"25\" />`;\n\n        // Observer View (Flat normal wall)\n        roomBackwall.setAttribute('points', '25,25 115,25 115,95 25,95');\n        roomBackwall.setAttribute('fill', '#f5f4f0');\n        personLeftContainer.setAttribute('transform', 'translate(38, 95) scale(1)');\n        personRightContainer.setAttribute('transform', 'translate(102, 95) scale(1)');\n        perspectiveTitle.textContent = \"Observer's View (Normal)\";\n\n      } else if (index === 1) {\n        // Ames Room Ideal Setup (Far-left corner deep, right corner close, floor slanted, looks rectangular)\n        mapFloor.setAttribute('points', '10,15 110,45 100,80 20,80');\n        mapPersonLeft.setAttribute('cx', '13'); mapPersonLeft.setAttribute('cy', '16');\n        mapPersonRight.setAttribute('cx', '105'); mapPersonRight.setAttribute('cy', '43');\n        lblLeft.setAttribute('x', '13'); lblLeft.setAttribute('y', '11');\n        lblRight.setAttribute('x', '105'); lblRight.setAttribute('y', '38');\n\n        // Observer (Peephole alignment)\n        mapObserver.innerHTML = `<circle cx=\"60\" cy=\"110\" r=\"4\" fill=\"#4C6696\"/><path d=\"M55,110 L60,102 L65,110 Z\" fill=\"#4C6696\" />`;\n        mapSightlines.innerHTML = `<line x1=\"60\" y1=\"102\" x2=\"13\" y2=\"16\" /><line x1=\"60\" y1=\"102\" x2=\"105\" y2=\"43\" />`;\n\n        // Perspective view: forced rectangular representation but left scale is very small, right is very large\n        roomBackwall.setAttribute('points', '25,25 115,25 115,95 25,95'); // Appears normal!\n        roomBackwall.setAttribute('fill', '#f0ede6');\n        personLeftContainer.setAttribute('transform', 'translate(38, 95) scale(0.55)');\n        personRightContainer.setAttribute('transform', 'translate(102, 95) scale(1.45)');\n        perspectiveTitle.textContent = \"Observer's View (Illusory)\";\n\n      } else if (index === 2) {\n        // People at same distance, room skewed\n        mapFloor.setAttribute('points', '10,15 110,45 100,80 20,80');\n        mapPersonLeft.setAttribute('cx', '35'); mapPersonLeft.setAttribute('cy', '25');\n        mapPersonRight.setAttribute('cx', '85'); mapPersonRight.setAttribute('cy', '25');\n        lblLeft.setAttribute('x', '35'); lblLeft.setAttribute('y', '20');\n        lblRight.setAttribute('x', '85'); lblRight.setAttribute('y', '20');\n\n        // Observer\n        mapObserver.innerHTML = `<circle cx=\"60\" cy=\"110\" r=\"4\" fill=\"#4C6696\"/><path d=\"M55,110 L60,102 L65,110 Z\" fill=\"#4C6696\" />`;\n        mapSightlines.innerHTML = `<line x1=\"60\" y1=\"102\" x2=\"35\" y2=\"25\" /><line x1=\"60\" y1=\"102\" x2=\"85\" y2=\"25\" />`;\n\n        // View: Room is visibly skewed but people are identical size\n        roomBackwall.setAttribute('points', '15,10 125,40 125,110 15,80');\n        roomBackwall.setAttribute('fill', '#eae8e2');\n        personLeftContainer.setAttribute('transform', 'translate(38, 70) scale(1)');\n        personRightContainer.setAttribute('transform', 'translate(102, 95) scale(1)');\n        perspectiveTitle.textContent = \"Observer's View (Distorted)\";\n\n      } else if (index === 3) {\n        // Binocular viewing (Breaks illusion, shows true slanted setup)\n        mapFloor.setAttribute('points', '10,15 110,45 100,80 20,80');\n        mapPersonLeft.setAttribute('cx', '13'); mapPersonLeft.setAttribute('cy', '16');\n        mapPersonRight.setAttribute('cx', '105'); mapPersonRight.setAttribute('cy', '43');\n        lblLeft.setAttribute('x', '13'); lblLeft.setAttribute('y', '11');\n        lblRight.setAttribute('x', '105'); lblRight.setAttribute('y', '38');\n\n        // Observer has two eyes (binocular sightlines)\n        mapObserver.innerHTML = `\n          <circle cx=\"54\" cy=\"110\" r=\"3\" fill=\"#4C6696\"/>\n          <circle cx=\"66\" cy=\"110\" r=\"3\" fill=\"#4C6696\"/>\n        `;\n        mapSightlines.innerHTML = `\n          <line x1=\"54\" y1=\"110\" x2=\"13\" y2=\"16\" />\n          <line x1=\"66\" y1=\"110\" x2=\"105\" y2=\"43\" />\n          <line x1=\"54\" y1=\"110\" x2=\"105\" y2=\"43\" stroke=\"#8da0c4\" />\n          <line x1=\"66\" y1=\"110\" x2=\"13\" y2=\"16\" stroke=\"#8da0c4\" />\n        `;\n\n        // Since binocular vision works, the depth is emphasized and we see it is skewed\n        roomBackwall.setAttribute('points', '15,10 125,40 125,110 15,80');\n        roomBackwall.setAttribute('fill', '#eae8e2');\n        personLeftContainer.setAttribute('transform', 'translate(38, 70) scale(0.6)');\n        personRightContainer.setAttribute('transform', 'translate(102, 95) scale(1.3)');\n        perspectiveTitle.textContent = \"Observer's View (Depth Perceived)\";\n      }\n\n      // Send height update\n      sendHeight();\n    }\n\n    // Slider Interaction Logic\n    function handlePointer(clientX) {\n      if (isLocked) return;\n      const rect = sliderTrack.getBoundingClientRect();\n      const relativeX = Math.max(0, Math.min(clientX - rect.left, rect.width));\n      const percentage = relativeX / rect.width;\n      \n      // Determine nearest discrete stop\n      const stopIndex = Math.min(3, Math.max(0, Math.round(percentage * 3)));\n      if (stopIndex !== currentIndex) {\n        currentIndex = stopIndex;\n        updateVisuals(currentIndex);\n        // Post Answer immediately to parent\n        parent.postMessage({ type: 'hk-practice-answer', value: options[currentIndex] }, '*');\n      }\n    }\n\n    sliderBox.addEventListener('pointerdown', function(e) {\n      if (isLocked) return;\n      sliderBox.setPointerCapture(e.pointerId);\n      handlePointer(e.clientX);\n      \n      function onPointerMove(ev) {\n        handlePointer(ev.clientX);\n      }\n      function onPointerUp(ev) {\n        sliderBox.releasePointerCapture(ev.pointerId);\n        sliderBox.removeEventListener('pointermove', onPointerMove);\n        sliderBox.removeEventListener('pointerup', onPointerUp);\n      }\n      sliderBox.addEventListener('pointermove', onPointerMove);\n      sliderBox.addEventListener('pointerup', onPointerUp);\n    });\n\n    // Keyboard navigation\n    sliderHandle.addEventListener('keydown', function(e) {\n      if (isLocked) return;\n      let nextIndex = currentIndex === -1 ? 0 : currentIndex;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        nextIndex = Math.min(3, nextIndex + 1);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        nextIndex = Math.max(0, nextIndex - 1);\n      } else {\n        return;\n      }\n      e.preventDefault();\n      if (nextIndex !== currentIndex) {\n        currentIndex = nextIndex;\n        updateVisuals(currentIndex);\n        parent.postMessage({ type: 'hk-practice-answer', value: options[currentIndex] }, '*');\n      }\n    });\n\n    // Height reporter\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', () => {\n      // Default / Init (Start with the first state but uncommitted till click, or start active on 0)\n      currentIndex = 0;\n      updateVisuals(currentIndex);\n      sendHeight();\n    });\n\n    // Resize observer\n    if (window.ResizeObserver) {\n      new ResizeObserver(sendHeight).observe(document.body);\n    }\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        widget.classList.add('locked');\n        sliderHandle.setAttribute('tabindex', '-1');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Slant the floor and back wall while maintaining a rectangular appearance from a peephole"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Examination: Development and Learning",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A researcher is studying the development of logical reasoning by testing a group of 10-year-olds in 2024, and plans to test this same group again in 2034 and 2044. Which research design is being utilized?",
+     "options": [
+      "Cross-sectional design",
+      "Longitudinal design",
+      "Cross-sequential design",
+      "Meta-analysis design"
+     ],
+     "explanation": "A longitudinal design tracks the same cohort of individuals repeatedly over a long span of time to observe developmental trajectories.",
+     "correctAnswers": [
+      "Longitudinal design"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of the embryonic stage of prenatal development?",
+     "options": [
+      "It occurs from week 3 through week 8 post-conception.",
+      "It is the period of organogenesis.",
+      "It is the stage where the zygote implants into the uterine wall.",
+      "It is the period of highest vulnerability to teratogens.",
+      "It is characterized primarily by the refinement of finished organ systems."
+     ],
+     "explanation": "The embryonic stage is defined by the formation of basic structures (organogenesis) and extreme sensitivity to environmental interference; implantation occurs earlier in the germinal stage.",
+     "correctAnswers": [
+      "It occurs from week 3 through week 8 post-conception.",
+      "It is the period of organogenesis.",
+      "It is the period of highest vulnerability to teratogens."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "An infant's ability to control their head and neck before they can sit up or walk is an example of the ____ trend of motor development.",
+     "placeholder": "Enter trend name",
+     "correctAnswers": [
+      "cephalocaudal"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Brain diagram showing the limbic system and prefrontal cortex.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d3943319-34ff-43fd-9908-ebdf3cdc99a9/exam/images/unit3-q4.png"
+     },
+     "prompt": "According to the biological explanation of adolescent risk-taking, why do teenagers often engage in impulsive behaviors in social situations?",
+     "options": [
+      "The prefrontal cortex matures faster than the limbic system.",
+      "They have not yet developed a moral understanding of right and wrong.",
+      "The limbic system is hyper-reactive while the prefrontal cortex is still developing.",
+      "Fluid intelligence peaks too late to assist in social decision-making."
+     ],
+     "explanation": "The 'neural mismatch' involves a rapidly maturing socioemotional limbic system and a slower-maturing prefrontal cortex responsible for impulse control.",
+     "correctAnswers": [
+      "The limbic system is hyper-reactive while the prefrontal cortex is still developing."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "In Pavlov's classical conditioning experiments with dogs, which of the following were true before conditioning occurred?",
+     "options": [
+      "The meat powder was the Unconditioned Stimulus (UCS).",
+      "The bell was a Neutral Stimulus (NS).",
+      "Salivation to the bell was the Conditioned Response (CR).",
+      "Salivation to the meat was the Unconditioned Response (UCR).",
+      "The bell was the Unconditioned Stimulus (UCS)."
+     ],
+     "explanation": "Before conditioning, the meat naturally triggers salivation (UCS -> UCR), and the bell (NS) triggers no specific response.",
+     "correctAnswers": [
+      "The meat powder was the Unconditioned Stimulus (UCS).",
+      "The bell was a Neutral Stimulus (NS).",
+      "Salivation to the meat was the Unconditioned Response (UCR)."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In Piaget's theory, the process of modifying an existing schema to fit new, conflicting information is known as ____.",
+     "placeholder": "Term",
+     "correctAnswers": [
+      "accommodation"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "An 80-year-old struggles to learn a complex new software but excels at a crossword puzzle requiring deep vocabulary. This demonstrates the decline of ____ and the stability of ____.",
+     "options": [
+      "crystallized intelligence; fluid intelligence",
+      "fluid intelligence; crystallized intelligence",
+      "proximodistal growth; cephalocaudal growth",
+      "assimilation; accommodation"
+     ],
+     "explanation": "Fluid intelligence (processing speed/novel problem solving) tends to decline with age, while crystallized intelligence (accumulated knowledge) remains stable or grows.",
+     "correctAnswers": [
+      "fluid intelligence; crystallized intelligence"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of Negative Reinforcement?",
+     "options": [
+      "Taking an aspirin to get rid of a headache.",
+      "Putting on a seatbelt to stop an annoying buzzing sound.",
+      "Getting a speeding ticket to stop you from driving too fast.",
+      "Applying sunscreen to avoid getting a painful sunburn.",
+      "Losing phone privileges because of a bad grade."
+     ],
+     "explanation": "Negative reinforcement involves removing an unpleasant stimulus to increase a behavior. Speeding tickets and losing privileges are forms of punishment.",
+     "correctAnswers": [
+      "Taking an aspirin to get rid of a headache.",
+      "Putting on a seatbelt to stop an annoying buzzing sound.",
+      "Applying sunscreen to avoid getting a painful sunburn."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "An environmental agent such as a virus or drug that can cause harm to a developing fetus is known as a ____.",
+     "placeholder": "Scientific term",
+     "correctAnswers": [
+      "teratogen"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A child is given a gold star every time they finish five math problems. This is an example of which reinforcement schedule?",
+     "options": [
+      "Fixed-ratio",
+      "Variable-ratio",
+      "Fixed-interval",
+      "Variable-interval"
+     ],
+     "explanation": "Fixed-ratio schedules provide reinforcement after a set number of correct responses.",
+     "correctAnswers": [
+      "Fixed-ratio"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Identify the potential drawbacks of using a cross-sectional research design.",
+     "options": [
+      "It is very expensive and time-consuming.",
+      "It is prone to cohort effects.",
+      "It cannot distinguish between age differences and historical differences.",
+      "It suffers from high participant attrition over many years.",
+      "It provides only a snapshot rather than individual trajectories."
+     ],
+     "explanation": "Cross-sectional designs are efficient but limited by cohort effects; high attrition and high costs are actually drawbacks of longitudinal designs.",
+     "correctAnswers": [
+      "It is prone to cohort effects.",
+      "It cannot distinguish between age differences and historical differences.",
+      "It provides only a snapshot rather than individual trajectories."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The 'Strange Situation' procedure developed by Mary Ainsworth is used to measure the quality of ____ between an infant and caregiver.",
+     "placeholder": "Social bond term",
+     "correctAnswers": [
+      "attachment"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In Albert Bandura's Bobo Doll experiment, what was the primary finding regarding learning?",
+     "options": [
+      "Children only learn through direct reinforcement of their own behavior.",
+      "Children can learn aggressive behaviors through observation and modeling.",
+      "Classical conditioning is the primary driver of social interactions.",
+      "Children are born with an innate schema for aggression."
+     ],
+     "explanation": "Bandura demonstrated observational learning, where children imitated the aggressive actions of an adult model.",
+     "correctAnswers": [
+      "Children can learn aggressive behaviors through observation and modeling."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of Fixed-Interval reinforcement schedules?",
+     "options": [
+      "Receiving a paycheck every Friday.",
+      "A student getting a surprise pop quiz.",
+      "Checking the oven as the timer for cookies nears zero.",
+      "Winning money on a slot machine.",
+      "A rat receiving a pellet for the first lever press after 30 seconds."
+     ],
+     "explanation": "Fixed-interval schedules reinforce the first response after a specific, predictable amount of time has passed.",
+     "correctAnswers": [
+      "Receiving a paycheck every Friday.",
+      "Checking the oven as the timer for cookies nears zero.",
+      "A rat receiving a pellet for the first lever press after 30 seconds."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "image": {
+      "alt": "Piagetian conservation task with water beakers.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d3943319-34ff-43fd-9908-ebdf3cdc99a9/exam/images/unit3-q15.png"
+     },
+     "prompt": "If a child can solve conservation tasks (understanding that volume stays the same despite container shape) but cannot yet think abstractly about hypothetical philosophies, which Piagetian stage are they in?",
+     "options": [
+      "Sensorimotor",
+      "Preoperational",
+      "Concrete Operational",
+      "Formal Operational"
+     ],
+     "explanation": "The Concrete Operational stage is characterized by the mastery of conservation and logical thought about concrete objects, but abstract reasoning develops in the Formal Operational stage.",
+     "correctAnswers": [
+      "Concrete Operational"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "What are the core components of Vygotsky's sociocultural theory of development?",
+     "options": [
+      "The Zone of Proximal Development (ZPD)",
+      "Biological maturation as the sole driver of growth",
+      "The role of social interaction and culture",
+      "Scaffolding provided by more knowledgeable others",
+      "Fixed stages of cognitive development"
+     ],
+     "explanation": "Vygotsky emphasized social context, ZPD, and scaffolding, unlike Piaget who focused more on individual biological maturation stages.",
+     "correctAnswers": [
+      "The Zone of Proximal Development (ZPD)",
+      "The role of social interaction and culture",
+      "Scaffolding provided by more knowledgeable others"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "A child touches a hot stove and quickly pulls their hand away. This immediate, unlearned response is best categorized as a(n):",
+     "options": [
+      "Reflex",
+      "Operant behavior",
+      "Conditioned response",
+      "Secondary reinforcer"
+     ],
+     "explanation": "Reflexes are hardwired, involuntary responses to specific stimuli that occur without prior learning.",
+     "correctAnswers": [
+      "Reflex"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Adjust the stimulus-response apparatus to demonstrate the process of 'Extinction' in classical conditioning.",
+     "options": [
+      "Present the CS alone repeatedly",
+      "Present the UCS alone repeatedly",
+      "Present the CS followed by the UCS",
+      "Wait for a long period without any stimuli"
+     ],
+     "explanation": "Extinction occurs when the Conditioned Stimulus (CS) is presented repeatedly without the Unconditioned Stimulus (UCS), causing the Conditioned Response to weaken.",
+     "animationHtml": "<!DOCTYPE html>`\n`<html lang=\"en\">`\n`<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">`\n  `<meta charset=\"utf-8\">`\n  `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">`\n  `<title>Classical Conditioning Extinction Interactive</title>`\n  `<style>`\n    `:root {`\n      `--bg: #faf9f7;`\n      `--surface: #ffffff;`\n      `--stage: #f3f1ec;`\n      `--border: #e2e2e2;`\n      `--fg: #1f1f1f;`\n      `--muted-fg: #666666;`\n      `--accent: #4C6696;`\n      `--accent-soft: #f5f8fc;`\n      `--accent-strong: #3a4f78;`\n      `--drool: #7ac1eb;`\n    `}`\n\n    `html, body {`\n      `background: var(--bg);`\n      `margin: 0;`\n      `padding: 0;`\n      `font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;`\n      `color: var(--fg);`\n      `-webkit-user-select: none;`\n      `user-select: none;`\n      `overflow: hidden;`\n    `}`\n\n    `.widget-container {`\n      `width: 100%;`\n      `max-width: 580px;`\n      `margin: 0 auto;`\n      `box-sizing: border-box;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 12px;`\n    `}`\n\n    `.visually-hidden {`\n      `position: absolute;`\n      `width: 1px;`\n      `height: 1px;`\n      `padding: 0;`\n      `margin: -1px;`\n      `overflow: hidden;`\n      `clip: rect(0, 0, 0, 0);`\n      `border: 0;`\n    `}`\n\n    `/* Stage Styling */`\n    `.stage {`\n      `background: var(--stage);`\n      `border-radius: 12px;`\n      `height: 180px;`\n      `position: relative;`\n      `overflow: hidden;`\n      `border: 1px solid var(--border);`\n    `}`\n\n    `.stage-svg {`\n      `width: 100%;`\n      `height: 100%;`\n      `display: block;`\n    `}`\n\n    `/* Draggable elements */`\n    `.draggable {`\n      `cursor: grab;`\n      `touch-action: none;`\n    `}`\n    `.draggable:active {`\n      `cursor: grabbing;`\n    `}`\n\n    `/* Locked / Disabled state */`\n    `.locked {`\n      `opacity: 0.3;`\n      `pointer-events: none;`\n    `}`\n\n    `/* Control Slider */`\n    `.control-panel {`\n      `background: var(--surface);`\n      `border: 1px solid var(--border);`\n      `border-radius: 12px;`\n      `padding: 12px;`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 8px;`\n    `}`\n\n    `.slider-track-container {`\n      `position: relative;`\n      `height: 36px;`\n      `display: flex;`\n      `align-items: center;`\n      `background: var(--stage);`\n      `border-radius: 18px;`\n      `padding: 0 4px;`\n      `cursor: pointer;`\n    `}`\n\n    `.slider-track {`\n      `position: absolute;`\n      `left: 18px;`\n      `right: 18px;`\n      `height: 4px;`\n      `background: var(--border);`\n      `border-radius: 2px;`\n    `}`\n\n    `.slider-ticks {`\n      `position: absolute;`\n      `left: 18px;`\n      `right: 18px;`\n      `display: flex;`\n      `justify-content: space-between;`\n      `pointer-events: none;`\n    `}`\n\n    `.tick {`\n      `width: 8px;`\n      `height: 8px;`\n      `border-radius: 50%;`\n      `background: var(--border);`\n      `transform: translateY(-2px);`\n      `transition: background 0.2s;`\n    `}`\n\n    `.tick.active {`\n      `background: var(--accent);`\n    `}`\n\n    `.slider-handle {`\n      `position: absolute;`\n      `width: 28px;`\n      `height: 28px;`\n      `border-radius: 50%;`\n      `background: var(--accent);`\n      `box-shadow: 0 2px 6px rgba(0,0,0,0.15);`\n      `cursor: grab;`\n      `touch-action: none;`\n      `z-index: 10;`\n      `display: flex;`\n      `align-items: center;`\n      `justify-content: center;`\n      `transition: background-color 0.15s, transform 0.1s;`\n    `}`\n    `.slider-handle:active {`\n      `cursor: grabbing;`\n      `background: var(--accent-strong);`\n      `transform: scale(1.05);`\n    `}`\n\n    `.slider-handle::after {`\n      `content: \"\";`\n      `width: 10px;`\n      `height: 10px;`\n      `border-radius: 50%;`\n      `background: #fff;`\n    `}`\n\n    `/* Option labels */`\n    `.options-list {`\n      `display: flex;`\n      `flex-direction: column;`\n      `gap: 6px;`\n    `}`\n\n    `.option-card {`\n      `padding: 8px 12px;`\n      `border-radius: 8px;`\n      `border: 1.5px solid var(--border);`\n      `background: var(--surface);`\n      `font-size: 13px;`\n      `font-weight: 500;`\n      `color: var(--muted-fg);`\n      `transition: all 0.2s ease;`\n      `cursor: pointer;`\n    `}`\n\n    `.option-card.selected {`\n      `border-color: var(--accent);`\n      `background: var(--accent-soft);`\n      `color: var(--accent-strong);`\n    `}`\n\n    `.hint-text {`\n      `font-size: 11px;`\n      `color: var(--muted-fg);`\n      `text-align: center;`\n      `margin-top: 2px;`\n    `}`\n\n    `/* Lock utility */`\n    `.disabled-state {`\n      `pointer-events: none !important;`\n    `}`\n  `</style>`\n`</head>`\n`<body>`\n\n  `<h1 class=\"visually-hidden\">Classical Conditioning Extinction Interactive Simulator</h1>`\n\n  `<div class=\"widget-container\" id=\"widgetContainer\">`\n    `<!-- Interactive Stage -->`\n    `<div class=\"stage\" id=\"stage\">`\n      `<svg class=\"stage-svg\" viewBox=\"0 0 500 180\" xmlns=\"http://www.w3.org/2000/svg\">`\n        `<!-- Lab Bench / Background Line -->`\n        `<line x1=\"20\" y1=\"150\" x2=\"480\" y2=\"150\" stroke=\"#ccc\" stroke-width=\"3\" stroke-linecap=\"round\" />`\n\n        `<!-- Salivation Meter Group -->`\n        `<g transform=\"translate(430, 20)\">`\n          `<!-- Meter background (test tube style) -->`\n          `<rect x=\"0\" y=\"0\" width=\"22\" height=\"110\" rx=\"11\" fill=\"#e2e2e2\" />`\n          `<!-- Meter liquid -->`\n          `<rect id=\"meterLiquid\" x=\"3\" y=\"10\" width=\"16\" height=\"90\" rx=\"8\" fill=\"var(--drool)\" transform=\"scale(1, 1)\" style=\"transform-origin: bottom; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);\" />`\n          `<!-- Meter ticks -->`\n          `<line x1=\"4\" y1=\"32\" x2=\"18\" y2=\"32\" stroke=\"#fff\" stroke-width=\"1.5\" />`\n          `<!-- Icon / Label -->`\n          `<text x=\"-20\" y=\"60\" fill=\"var(--muted-fg)\" font-size=\"9\" font-weight=\"bold\" transform=\"rotate(-90 -20 60)\" text-anchor=\"middle\">SALIVATION</text>`\n        `</g>`\n\n        `<!-- Dog Group -->`\n        `<g id=\"dog\" transform=\"translate(260, 60)\">`\n          `<!-- Dog Body/Neck -->`\n          `<path d=\"M 20,80 Q 20,40 50,40 L 90,40 Q 100,40 100,90\" fill=\"#d7ccc8\" />`\n          `<!-- Head -->`\n          `<ellipse cx=\"45\" cy=\"40\" rx=\"35\" ry=\"25\" fill=\"#efe5fd\" />`\n          `<ellipse cx=\"45\" cy=\"40\" rx=\"30\" ry=\"22\" fill=\"#d7ccc8\" />`\n          `<!-- Ears -->`\n          `<path d=\"M 15,25 Q 0,10 5,35\" fill=\"#8d6e63\" stroke=\"#8d6e63\" stroke-width=\"2\" />`\n          `<path d=\"M 75,25 Q 90,10 85,35\" fill=\"#8d6e63\" stroke=\"#8d6e63\" stroke-width=\"2\" />`\n          `<!-- Eyes -->`\n          `<circle cx=\"33\" cy=\"35\" r=\"3.5\" fill=\"#1f1f1f\" />`\n          `<circle cx=\"57\" cy=\"35\" r=\"3.5\" fill=\"#1f1f1f\" />`\n          `<!-- Snout -->`\n          `<ellipse cx=\"45\" cy=\"48\" rx=\"12\" ry=\"8\" fill=\"#bcaaa4\" />`\n          `<polygon points=\"41,44 49,44 45,49\" fill=\"#1f1f1f\" />`\n          `<!-- Mouth / Tongue (drooling state) -->`\n          `<path id=\"mouth\" d=\"M 38,52 Q 45,54 52,52\" stroke=\"#1f1f1f\" stroke-width=\"2\" fill=\"none\" />`\n          `<path id=\"tongue\" d=\"M 42,53 Q 45,68 48,53 Z\" fill=\"#ff8a80\" style=\"display: none;\" />`\n          `<!-- Drool drop -->`\n          `<circle id=\"droolDrop\" cx=\"45\" cy=\"65\" r=\"3\" fill=\"var(--drool)\" style=\"display: none;\" />`\n        `</g>`\n\n        `<!-- Food Bowl Group (UCS) -->`\n        `<g id=\"foodBowl\" class=\"draggable\" transform=\"translate(150, 115)\">`\n          `<rect x=\"-25\" y=\"-15\" width=\"50\" height=\"30\" fill=\"transparent\" /> <!-- Interaction buffer -->`\n          `<path d=\"M -20,10 L -15,-5 L 15,-5 L 20,10 Z\" fill=\"#cfd8dc\" stroke=\"#90a4ae\" stroke-width=\"2\" />`\n          `<ellipse cx=\"0\" cy=\"-5\" rx=\"15\" ry=\"5\" fill=\"#8d6e63\" />`\n          `<!-- Food kibbles -->`\n          `<circle cx=\"-5\" cy=\"-6\" r=\"2.5\" fill=\"#5d4037\" />`\n          `<circle cx=\"4\" cy=\"-7\" r=\"2.5\" fill=\"#5d4037\" />`\n          `<circle cx=\"0\" cy=\"-4\" r=\"2\" fill=\"#5d4037\" />`\n          `<text x=\"0\" y=\"22\" font-size=\"9\" fill=\"var(--muted-fg)\" text-anchor=\"middle\" font-weight=\"bold\">FOOD (UCS)</text>`\n        `</g>`\n\n        `<!-- Bell Group (CS) -->`\n        `<g id=\"bell\" class=\"draggable\" transform=\"translate(60, 115)\">`\n          `<rect x=\"-25\" y=\"-25\" width=\"50\" height=\"45\" fill=\"transparent\" /> <!-- Interaction buffer -->`\n          `<!-- Handle -->`\n          `<rect x=\"-3\" y=\"-22\" width=\"6\" height=\"15\" rx=\"2\" fill=\"#8d6e63\" />`\n          `<!-- Dome -->`\n          `<path d=\"M -12,2 C -12,-8 12,-8 12,2 Z\" fill=\"#ffd54f\" stroke=\"#ffb300\" stroke-width=\"2\" />`\n          `<rect x=\"-14\" y=\"2\" width=\"28\" height=\"4\" rx=\"1\" fill=\"#ffb300\" />`\n          `<!-- Clapper -->`\n          `<circle cx=\"0\" cy=\"9\" r=\"2.5\" fill=\"#ffb300\" />`\n          `<text x=\"0\" y=\"22\" font-size=\"9\" fill=\"var(--muted-fg)\" text-anchor=\"middle\" font-weight=\"bold\">BELL (CS)</text>`\n          `<!-- Soundwaves (hidden by default) -->`\n          `<path id=\"soundwaveL\" d=\"M -18,-5 Q -25,-12 -18,-19\" stroke=\"#ffb300\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" style=\"display: none;\" />`\n          `<path id=\"soundwaveR\" d=\"M 18,-5 Q 25,-12 18,-19\" stroke=\"#ffb300\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\" style=\"display: none;\" />`\n        `</g>`\n\n        `<!-- Clock Group (for Wait protocol) -->`\n        `<g id=\"waitClock\" transform=\"translate(100, -50)\" style=\"opacity: 0; transition: transform 0.4s, opacity 0.4s;\">`\n          `<circle cx=\"0\" cy=\"0\" r=\"20\" fill=\"#fff\" stroke=\"var(--border)\" stroke-width=\"2\" />`\n          `<line id=\"clockHour\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-10\" stroke=\"var(--fg)\" stroke-width=\"2.5\" stroke-linecap=\"round\" />`\n          `<line id=\"clockMin\" x1=\"0\" y1=\"0\" x2=\"8\" y2=\"0\" stroke=\"var(--fg)\" stroke-width=\"1.5\" stroke-linecap=\"round\" />`\n        `</g>`\n      `</svg>`\n    `</div>`\n\n    `<!-- Interactive Controls / Answer Options Selector -->`\n    `<div class=\"control-panel\">`\n      `<div class=\"slider-track-container\" id=\"sliderTrack\">`\n        `<div class=\"slider-track\"></div>`\n        `<div class=\"slider-ticks\" id=\"sliderTicks\"></div>`\n        `<div class=\"slider-handle\" id=\"sliderHandle\"></div>`\n      `</div>`\n\n      `<div class=\"options-list\" id=\"optionsList\">`\n        `<!-- Rendered via JS -->`\n      `</div>`\n    `</div>`\n\n    `<div class=\"hint-text\">`\n      `Drag the slider to test a method. Interact by dragging active items to the dog!`\n    `</div>`\n  `</div>`\n\n  `<script>`\n    `const OPTIONS = [`\n      `\"Present the CS alone repeatedly\",`\n      `\"Present the UCS alone repeatedly\",`\n      `\"Present the CS followed by the UCS\",`\n      `\"Wait for a long period without any stimuli\"`\n    `];`\n\n    `// App State`\n    `let activeIndex = 0;`\n    `let salivationLevel = 0.8; // 0 to 1`\n    `let ringCount = 0;`\n    `let isLocked = false;`\n\n    `// DOM Elements`\n    `const sliderTrack = document.getElementById('sliderTrack');`\n    `const sliderTicks = document.getElementById('sliderTicks');`\n    `const sliderHandle = document.getElementById('sliderHandle');`\n    `const optionsList = document.getElementById('optionsList');`\n    `const meterLiquid = document.getElementById('meterLiquid');`\n    `const dogHead = document.getElementById('dog');`\n    `const mouth = document.getElementById('mouth');`\n    `const tongue = document.getElementById('tongue');`\n    `const droolDrop = document.getElementById('droolDrop');`\n    `const bell = document.getElementById('bell');`\n    `const foodBowl = document.getElementById('foodBowl');`\n    `const waitClock = document.getElementById('waitClock');`\n    `const clockHour = document.getElementById('clockHour');`\n    `const clockMin = document.getElementById('clockMin');`\n    `const soundwaveL = document.getElementById('soundwaveL');`\n    `const soundwaveR = document.getElementById('soundwaveR');`\n\n    `// Initial positions for reset`\n    `const initialPositions = {`\n      `bell: { x: 60, y: 115 },`\n      `food: { x: 150, y: 115 }`\n    `};`\n\n    `// Render Ticks`\n    `OPTIONS.forEach((_, idx) => {`\n      `const tick = document.createElement('div');`\n      `tick.className = 'tick' + (idx === 0 ? ' active' : '');`\n      `sliderTicks.appendChild(tick);`\n    `});`\n\n    `// Render Option Cards`\n    `OPTIONS.forEach((opt, idx) => {`\n      `const card = document.createElement('div');`\n      `card.className = 'option-card' + (idx === 0 ? ' selected' : '');`\n      `card.textContent = opt;`\n      `card.addEventListener('click', () => {`\n        `if (!isLocked) selectIndex(idx);`\n      `});`\n      `optionsList.appendChild(card);`\n    `});`\n\n    `// Sync Salivation Meter`\n    `function updateMeter() {`\n      `meterLiquid.setAttribute('transform', \\`scale(1, \\${salivationLevel})\\`);`\n      `if (salivationLevel > 0.4) {`\n        `tongue.style.display = 'block';`\n        `droolDrop.style.display = 'block';`\n      `} else {`\n        `tongue.style.display = 'none';`\n        `droolDrop.style.display = 'none';`\n      `}`\n    `}`\n\n    `// Select active protocol index`\n    `function selectIndex(idx) {`\n      `activeIndex = idx;`\n      `updateSliderUI();`\n      `updateStageSetup();`\n      `reportAnswer();`\n    `}`\n\n    `// Update Slider UI positions`\n    `function updateSliderUI() {`\n      `const percent = (activeIndex / (OPTIONS.length - 1)) * 100;`\n      `sliderHandle.style.left = \\`calc(\\${percent}% - 14px)\\`;`\n\n      `// Update ticks`\n      `document.querySelectorAll('.tick').forEach((tick, idx) => {`\n        `tick.classList.toggle('active', idx === activeIndex);`\n      `});`\n\n      `// Update active card class`\n      `document.querySelectorAll('.option-card').forEach((card, idx) => {`\n        `card.classList.toggle('selected', idx === activeIndex);`\n      `});`\n    `}`\n\n    `// Handle live dragging of the slider handle`\n    `let isDraggingSlider = false;`\n    `sliderHandle.addEventListener('pointerdown', (e) => {`\n      `if (isLocked) return;`\n      `isDraggingSlider = true;`\n      `sliderHandle.setPointerCapture(e.pointerId);`\n      `e.stopPropagation();`\n    `});`\n\n    `window.addEventListener('pointermove', (e) => {`\n      `if (!isDraggingSlider) return;`\n      `const rect = sliderTrack.getBoundingClientRect();`\n      `const x = e.clientX - rect.left - 18;`\n      `const width = rect.width - 36;`\n      `let percent = x / width;`\n      `percent = Math.max(0, Math.min(1, percent));`\n      `const step = Math.round(percent * (OPTIONS.length - 1));`\n      `if (step !== activeIndex) {`\n        `selectIndex(step);`\n      `}`\n    `});`\n\n    `window.addEventListener('pointerup', () => {`\n      `isDraggingSlider = false;`\n    `});`\n\n    `// Apply interactive permissions based on protocol selection`\n    `let clockInterval;`\n    `function updateStageSetup() {`\n      `clearInterval(clockInterval);`\n      `resetPositions();`\n\n      `// Reset dog state based on selection`\n      `if (activeIndex === 0) { // CS alone`\n        `salivationLevel = 0.8;`\n        `ringCount = 0;`\n        `bell.classList.remove('locked');`\n        `foodBowl.classList.add('locked');`\n        `waitClock.style.opacity = '0';`\n        `waitClock.setAttribute('transform', 'translate(100, -50)');`\n      `} else if (activeIndex === 1) { // UCS alone`\n        `salivationLevel = 0.8;`\n        `bell.classList.add('locked');`\n        `foodBowl.classList.remove('locked');`\n        `waitClock.style.opacity = '0';`\n        `waitClock.setAttribute('transform', 'translate(100, -50)');`\n      `} else if (activeIndex === 2) { // CS followed by UCS`\n        `salivationLevel = 0.8;`\n        `ringCount = 0;`\n        `bell.classList.remove('locked');`\n        `foodBowl.classList.remove('locked');`\n        `waitClock.style.opacity = '0';`\n        `waitClock.setAttribute('transform', 'translate(100, -50)');`\n      `} else if (activeIndex === 3) { // Wait`\n        `salivationLevel = 0.8;`\n        `bell.classList.add('locked');`\n        `foodBowl.classList.add('locked');`\n        `// Trigger clock animation and gradual salivation change (spontaneous / static)`\n        `waitClock.setAttribute('transform', 'translate(100, 40)');`\n        `waitClock.style.opacity = '1';`\n        `let angle = 0;`\n        `clockInterval = setInterval(() => {`\n          `angle += 10;`\n          `clockMin.setAttribute('transform', \\`rotate(\\${angle * 6})\\`);`\n          `clockHour.setAttribute('transform', \\`rotate(\\${angle})\\`);`\n          `// Slow decay during wait`\n          `if (salivationLevel > 0.4) {`\n            `salivationLevel -= 0.01;`\n            `updateMeter();`\n          `}`\n        `}, 80);`\n      `}`\n      `updateMeter();`\n    `}`\n\n    `// Drag-to-place setup for Bell & Food`\n    `setupDrag(bell, initialPositions.bell, (x, y) => {`\n      `// Target detection (Dog is at x: 260-360)`\n      `if (x > 180 && x < 350) {`\n        `triggerBellEffect();`\n        `return true; // Snap back`\n      `}`\n      `return false;`\n    `});`\n\n    `setupDrag(foodBowl, initialPositions.food, (x, y) => {`\n      `if (x > 180 && x < 350) {`\n        `triggerFoodEffect();`\n        `return true;`\n      `}`\n      `return false;`\n    `});`\n\n    `function triggerBellEffect() {`\n      `// Ring animation`\n      `soundwaveL.style.display = 'block';`\n      `soundwaveR.style.display = 'block';`\n      `setTimeout(() => {`\n        `soundwaveL.style.display = 'none';`\n        `soundwaveR.style.display = 'none';`\n      `}, 600);`\n\n      `if (activeIndex === 0) {`\n        `// CS alone reduces salivation (Extinction)`\n        `ringCount++;`\n        `salivationLevel = Math.max(0, 0.8 - (ringCount * 0.25));`\n      `} else if (activeIndex === 2) {`\n        `// CS followed by UCS requires food sequence`\n        `ringCount = 1;`\n      `}`\n      `updateMeter();`\n    `}`\n\n    `function triggerFoodEffect() {`\n      `if (activeIndex === 1) {`\n        `// UCS alone keeps it saturated`\n        `salivationLevel = 1.0;`\n      `} else if (activeIndex === 2) {`\n        `if (ringCount === 1) {`\n          `// Proper sequence maintains conditioning`\n          `salivationLevel = 1.0;`\n          `ringCount = 0;`\n        `}`\n      `}`\n      `updateMeter();`\n    `}`\n\n    `function resetPositions() {`\n      `bell.setAttribute('transform', \\`translate(\\${initialPositions.bell.x}, \\${initialPositions.bell.y})\\`);`\n      `foodBowl.setAttribute('transform', \\`translate(\\${initialPositions.food.x}, \\${initialPositions.food.y})\\`);`\n    `}`\n\n    `function setupDrag(elem, initial, onDrop) {`\n      `let startX = 0, startY = 0;`\n      `let currentX = initial.x, currentY = initial.y;`\n      `let isDragging = false;`\n\n      `elem.addEventListener('pointerdown', (e) => {`\n        `if (isLocked || elem.classList.contains('locked')) return;`\n        `isDragging = true;`\n        `elem.setPointerCapture(e.pointerId);`\n        `// Transform coordinate mapping`\n        `const svg = elem.ownerSVGElement;`\n        `const rect = svg.getBoundingClientRect();`\n        `const clickX = ((e.clientX - rect.left) / rect.width) * 500;`\n        `const clickY = ((e.clientY - rect.top) / rect.height) * 180;`\n        `startX = clickX - currentX;`\n        `startY = clickY - currentY;`\n        `e.stopPropagation();`\n      `});`\n\n      `elem.addEventListener('pointermove', (e) => {`\n        `if (!isDragging) return;`\n        `const svg = elem.ownerSVGElement;`\n        `const rect = svg.getBoundingClientRect();`\n        `const clickX = ((e.clientX - rect.left) / rect.width) * 500;`\n        `const clickY = ((e.clientY - rect.top) / rect.height) * 180;`\n        `currentX = clickX - startX;`\n        `currentY = clickY - startY;`\n        `elem.setAttribute('transform', \\`translate(\\${currentX}, \\${currentY})\\`);`\n      `});`\n\n      `elem.addEventListener('pointerup', () => {`\n        `if (!isDragging) return;`\n        `isDragging = false;`\n        `const snapped = onDrop(currentX, currentY);`\n        `// Animate snap back`\n        `currentX = initial.x;`\n        `currentY = initial.y;`\n        `elem.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';`\n        `elem.setAttribute('transform', \\`translate(\\${currentX}, \\${currentY})\\`);`\n        `setTimeout(() => { elem.style.transition = ''; }, 300);`\n      `});`\n    `}`\n\n    `// Answer and Height Messaging`\n    `function reportAnswer() {`\n      `if (window.parent) {`\n        `window.parent.postMessage({`\n          `type: 'hk-practice-answer',`\n          `value: OPTIONS[activeIndex]`\n        `}, '*');`\n      `}`\n    `}`\n\n    `function reportHeight() {`\n      `if (window.parent) {`\n        `const height = Math.ceil(document.getElementById('widgetContainer').getBoundingClientRect().height);`\n        `window.parent.postMessage({`\n          `type: 'hk-anim-height',`\n          `height: height`\n        `}, '*');`\n      `}`\n    `}`\n\n    `// Lock command integration`\n    `window.addEventListener('message', (e) => {`\n      `if (e.data && e.data.type === 'hk-practice-lock') {`\n        `isLocked = true;`\n        `document.getElementById('widgetContainer').classList.add('disabled-state');`\n        `clearInterval(clockInterval);`\n      `}`\n    `});`\n\n    `window.addEventListener('load', () => {`\n      `selectIndex(0);`\n      `reportHeight();`\n      `// Setup resize observer`\n      `try {`\n        `new ResizeObserver(reportHeight).observe(document.body);`\n      `} catch (e) {}`\n    `});`\n  `</script>`\n`</body>`\n`</html>",
+     "correctAnswers": [
+      "Present the CS alone repeatedly"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Examination: Social Psychology and Personality",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "While watching a coworker struggle with a new software system, Sarah thinks, 'He is just not tech-savvy.' However, when Sarah struggles with the same software later that day, she blames the 'confusing user interface.' Which psychological concept best explains this discrepancy?",
+     "options": [
+      "Self-serving bias",
+      "Actor-observer asymmetry",
+      "Just-world phenomenon",
+      "Normative social influence"
+     ],
+     "explanation": "Actor-observer asymmetry explains the tendency to attribute others' behavior to internal traits (dispositional) while attributing our own behavior to external situations (situational).",
+     "correctAnswers": [
+      "Actor-observer asymmetry"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "According to the Elaboration Likelihood Model (ELM), which of the following scenarios would likely lead to a 'central route' to persuasion? Select all that apply.",
+     "options": [
+      "A car commercial emphasizing fuel economy and safety ratings to a cautious buyer.",
+      "A perfume ad featuring a famous actress without mentioning the scent's ingredients.",
+      "A political debate watched by a voter who is deeply invested in the policy outcome.",
+      "A billboard with a catchy jingle and bright colors passed by a tired driver."
+     ],
+     "explanation": "The central route requires high motivation and cognitive capacity; factual data (fuel economy) and personal relevance (invested voter) trigger this deep processing.",
+     "correctAnswers": [
+      "A car commercial emphasizing fuel economy and safety ratings to a cautious buyer.",
+      "A political debate watched by a voter who is deeply invested in the policy outcome."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Festinger and Carlsmith's 1959 experiment, the group paid $1 to lie about a boring task reported enjoying it more than the $20 group due to ____.",
+     "placeholder": "Enter the psychological term",
+     "correctAnswers": [
+      "insufficient justification",
+      "cognitive dissonance",
+      "insufficient external justification"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Which compliance technique involves making a large, unreasonable request that is expected to be refused, followed by a smaller, more reasonable request?",
+     "options": [
+      "Foot-in-the-door",
+      "Low-ball technique",
+      "Door-in-the-face",
+      "Central route persuasion"
+     ],
+     "explanation": "Door-in-the-face relies on social reciprocity; after the first refusal, the second request feels like a compromise the target should accept.",
+     "correctAnswers": [
+      "Door-in-the-face"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which factors were found by Milgram and Asch to decrease the likelihood of conformity or obedience? Select all that apply.",
+     "options": [
+      "The presence of a dissenting peer or 'ally' in the group.",
+      "Increasing the distance between the authority figure and the participant.",
+      "The authority figure being perceived as highly prestigious.",
+      "Moving the experiment to a less prestigious location.",
+      "Ensuring the group is unanimous in their incorrect answer."
+     ],
+     "explanation": "Dissenters break group unanimity (Asch), while distance and lack of institutional prestige reduce the perceived power of the authority (Milgram).",
+     "correctAnswers": [
+      "The presence of a dissenting peer or 'ally' in the group.",
+      "Increasing the distance between the authority figure and the participant.",
+      "Moving the experiment to a less prestigious location."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ refers to our tendency to overemphasize internal personality traits and underestimate situational factors when explaining the behavior of others.",
+     "placeholder": "Enter the three-word term",
+     "correctAnswers": [
+      "Fundamental Attribution Error",
+      "FAE"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A salesperson agrees to sell you a laptop for $800. After you agree, they inform you that the battery and charger are sold separately for an extra $150. This is an example of:",
+     "options": [
+      "Foot-in-the-door",
+      "Door-in-the-face",
+      "Low-ball technique",
+      "Normative influence"
+     ],
+     "explanation": "Low-balling involves changing the terms of an agreement after a commitment has already been made.",
+     "correctAnswers": [
+      "Low-ball technique"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "According to the ABC model, which components make up an individual's attitude? Select all that apply.",
+     "options": [
+      "Affective",
+      "Behavioral",
+      "Cognitive",
+      "Developmental"
+     ],
+     "explanation": "The ABC model stands for Affect (feelings), Behavior (actions), and Cognition (beliefs).",
+     "correctAnswers": [
+      "Affective",
+      "Behavioral",
+      "Cognitive"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When we conform because we genuinely believe the group has more accurate information than we do, it is called ____ social influence.",
+     "placeholder": "Enter one word",
+     "correctAnswers": [
+      "informational"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of Asch's line comparison test.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d3943319-34ff-43fd-9908-ebdf3cdc99a9/exam/images/unit4-q10.png"
+     },
+     "prompt": "In Solomon Asch's study, why did participants often give the wrong answer even when they knew it was incorrect?",
+     "options": [
+      "Informational social influence",
+      "Normative social influence",
+      "Cognitive dissonance",
+      "Self-serving bias"
+     ],
+     "explanation": "Normative influence is the desire to fit in and avoid rejection, even when the individual knows the group is wrong.",
+     "correctAnswers": [
+      "Normative social influence"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Identify the three pathways an individual might use to resolve cognitive dissonance when their actions contradict their beliefs.",
+     "options": [
+      "Change the behavior to match the belief.",
+      "Change the belief to match the behavior.",
+      "Add new constant justifying cognitions.",
+      "Increase the importance of the internal conflict."
+     ],
+     "explanation": "To reduce tension, one must either change the act, change the thought, or rationalize the discrepancy with new information.",
+     "correctAnswers": [
+      "Change the behavior to match the belief.",
+      "Change the belief to match the behavior.",
+      "Add new constant justifying cognitions."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ technique works because our desire for self-consistency makes us likely to agree to a large request after agreeing to a small one.",
+     "placeholder": "Enter the hyphenated term",
+     "correctAnswers": [
+      "foot-in-the-door"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "If a student attributes their 'A' on a test to their high intelligence but their 'F' on another test to the teacher being 'unfair,' they are demonstrating:",
+     "options": [
+      "Fundamental Attribution Error",
+      "Self-serving bias",
+      "Actor-observer asymmetry",
+      "Informational social influence"
+     ],
+     "explanation": "Self-serving bias is the tendency to take personal credit for success while blaming external factors for failure to protect self-esteem.",
+     "correctAnswers": [
+      "Self-serving bias"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'peripheral' cues in advertising? Select all that apply.",
+     "options": [
+      "A chart comparing battery life across three models.",
+      "A celebrity endorsement of a beverage.",
+      "Pleasant background music in a commercial.",
+      "An attractive model holding a phone.",
+      "The technical specifications of a camera lens."
+     ],
+     "explanation": "Peripheral cues are surface-level triggers like attractiveness or music that don't require deep logical processing.",
+     "correctAnswers": [
+      "A celebrity endorsement of a beverage.",
+      "Pleasant background music in a commercial.",
+      "An attractive model holding a phone."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In the ELM model, if an audience is tired or distracted, they are most likely to be persuaded via the ____ route.",
+     "placeholder": "Enter one word",
+     "correctAnswers": [
+      "peripheral"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Which route to persuasion is characterized by high elaboration and results in long-lasting attitude change?",
+     "options": [
+      "Peripheral route",
+      "Horizontal route",
+      "Central route",
+      "Vertical route"
+     ],
+     "explanation": "The central route involves deep processing (high elaboration) of the message's content.",
+     "correctAnswers": [
+      "Central route"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "Identify the psychological phenomenon that leads a person to blame a victim for their own misfortune to maintain a sense of security.",
+     "options": [
+      "Fundamental Attribution Error",
+      "Self-Serving Bias",
+      "Just-World Phenomenon",
+      "Cognitive Dissonance"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Psychological Phenomena Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n      \n      --just-world: #4C6696;\n      --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    }\n\n    * {\n      box-sizing: border-box;\n      -webkit-tap-highlight-color: transparent;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: var(--font-sans);\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      align-items: center;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      width: 100%;\n      height: 150px;\n      background: var(--stage);\n      border-radius: 12px;\n      position: relative;\n      overflow: hidden;\n      border: 1px solid var(--border);\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Instructions & Token Row */\n    .control-row {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      width: 100%;\n      gap: 12px;\n      height: 50px;\n    }\n\n    .instruction {\n      font-size: 13px;\n      color: var(--muted-fg);\n      max-width: 60%;\n      line-height: 1.3;\n    }\n\n    .token-well {\n      width: 80px;\n      height: 48px;\n      border: 2px dashed var(--border);\n      border-radius: 24px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      background: rgba(255,255,255,0.5);\n      position: relative;\n    }\n\n    .draggable-token {\n      width: 38px;\n      height: 38px;\n      background: #e05d5d;\n      border-radius: 50%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: white;\n      box-shadow: 0 2px 6px rgba(224, 93, 93, 0.4);\n      cursor: grab;\n      position: absolute;\n      z-index: 10;\n      touch-action: none;\n      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;\n    }\n\n    .draggable-token:active {\n      cursor: grabbing;\n    }\n\n    .draggable-token.dragging {\n      transform: scale(1.1);\n      box-shadow: 0 6px 14px rgba(0,0,0,0.15);\n      transition: none;\n    }\n\n    /* Targets Grid */\n    .targets-grid {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n      width: 100%;\n    }\n\n    .target-zone {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      padding: 10px 8px;\n      text-align: center;\n      font-size: 12px;\n      font-weight: 600;\n      color: var(--fg);\n      cursor: pointer;\n      transition: all 0.2s ease;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      min-height: 44px;\n      outline: none;\n    }\n\n    .target-zone:hover {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n    }\n\n    .target-zone:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: -2px;\n    }\n\n    .target-zone.drag-hover {\n      border-color: var(--accent-strong);\n      background: var(--accent-soft);\n      transform: scale(1.02);\n    }\n\n    .target-zone.active {\n      border: 2px solid var(--accent);\n      background: var(--accent-soft);\n      color: var(--accent-strong);\n    }\n\n    /* Scale Animation Styles */\n    .scale-arm, .scale-pan-left, .scale-pan-right, .character-face, .thought-bubble, .effect-element {\n      transition: all 0.4s cubic-bezier(.25,.8,.25,1);\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Psychological Phenomena Explorer</h1>\n\n  <div class=\"widget-container\">\n    <!-- Visual Stage representing the dynamic concept states -->\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 320 150\">\n        <!-- Background elements -->\n        <g id=\"stage-bg\">\n          <line x1=\"20\" y1=\"130\" x2=\"300\" y2=\"130\" stroke=\"#dcd9d2\" stroke-width=\"2\" />\n        </g>\n\n        <!-- Dynamic Scene Group -->\n        <g id=\"scene-content\">\n          <!-- Scale Stand -->\n          <path d=\"M 160,130 L 160,80\" stroke=\"#757575\" stroke-width=\"4\" stroke-linecap=\"round\" />\n          <path d=\"M 145,130 L 175,130\" stroke=\"#555\" stroke-width=\"6\" stroke-linecap=\"round\" />\n          <circle cx=\"160\" cy=\"80\" r=\"4\" fill=\"#333\" />\n\n          <!-- Scale Arm -->\n          <line id=\"scale-arm\" class=\"scale-arm\" x1=\"100\" y1=\"80\" x2=\"220\" y2=\"80\" stroke=\"#757575\" stroke-width=\"3\" stroke-linecap=\"round\" />\n\n          <!-- Left Pan (Good Deeds / Reward) -->\n          <g id=\"left-pan-group\" class=\"scale-pan-left\">\n            <line x1=\"100\" y1=\"80\" x2=\"100\" y2=\"105\" stroke=\"#aaa\" stroke-width=\"1.5\" />\n            <path d=\"M 85,105 L 115,105\" stroke=\"#444\" stroke-width=\"3\" stroke-linecap=\"round\" />\n            <!-- Good Deeds Indicators -->\n            <circle cx=\"95\" cy=\"100\" r=\"4\" fill=\"#8cb88f\" />\n            <circle cx=\"105\" cy=\"100\" r=\"5\" fill=\"#8cb88f\" />\n            <text x=\"100\" y=\"117\" font-size=\"8\" text-anchor=\"middle\" font-weight=\"bold\" fill=\"#5a7a5c\">Good Deeds</text>\n          </g>\n\n          <!-- Right Pan (Bad Deeds / Penalty) -->\n          <g id=\"right-pan-group\" class=\"scale-pan-right\">\n            <line x1=\"220\" y1=\"80\" x2=\"220\" y2=\"105\" stroke=\"#aaa\" stroke-width=\"1.5\" />\n            <path d=\"M 205,105 L 235,105\" stroke=\"#444\" stroke-width=\"3\" stroke-linecap=\"round\" />\n            <text x=\"220\" y=\"117\" font-size=\"8\" text-anchor=\"middle\" font-weight=\"bold\" fill=\"#9c5353\">Bad Deeds</text>\n            <!-- Draggable destination slot representation inside Right Pan -->\n            <circle id=\"target-slot\" cx=\"220\" cy=\"98\" r=\"6\" fill=\"none\" stroke=\"#e05d5d\" stroke-dasharray=\"2 2\" stroke-width=\"1.5\" opacity=\"0.7\" />\n          </g>\n\n          <!-- Character -->\n          <g id=\"character\" transform=\"translate(160, 48)\">\n            <!-- Body -->\n            <path d=\"M -10,25 C -10,12 10,12 10,25 Z\" fill=\"#4C6696\" />\n            <!-- Head -->\n            <circle cx=\"0\" cy=\"8\" r=\"9\" fill=\"#fce4d6\" stroke=\"#4C6696\" stroke-width=\"1.5\" />\n            <!-- Face features changing dynamically -->\n            <g id=\"character-face\" class=\"character-face\">\n              <!-- Neutral eyes -->\n              <circle cx=\"-3\" cy=\"7\" r=\"1\" fill=\"#333\" />\n              <circle cx=\"3\" cy=\"7\" r=\"1\" fill=\"#333\" />\n              <!-- Confused mouth -->\n              <path d=\"M -2,11 Q 0,9 2,11\" stroke=\"#333\" stroke-width=\"1\" fill=\"none\" />\n            </g>\n            \n            <!-- Dynamic thought bubble / label above head -->\n            <g id=\"thought-bubble\" class=\"thought-bubble\" opacity=\"0\" transform=\"translate(0, -18)\">\n              <rect x=\"-45\" y=\"-12\" width=\"90\" height=\"18\" rx=\"4\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n              <polygon points=\"0,6 -3,11 3,6\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1\" />\n              <!-- Masking the line of the bubble arrow -->\n              <polygon points=\"-2,5 2,5 0,7\" fill=\"#ffffff\" />\n              <text id=\"thought-text\" x=\"0\" y=\"0\" font-size=\"8\" text-anchor=\"middle\" font-weight=\"bold\" fill=\"#334155\">Just World?</text>\n            </g>\n          </g>\n\n          <!-- Floating decorative/explanatory elements -->\n          <g id=\"extra-effects\"></g>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Active element controller / Information -->\n    <div class=\"control-row\">\n      <div class=\"instruction\">Drag the <strong>Unfortunate Event</strong> into the scene or a category below:</div>\n      <div class=\"token-well\" id=\"token-well\">\n        <div class=\"draggable-token\" id=\"draggable-token\" draggable=\"true\" aria-grabbed=\"false\" tabindex=\"0\" aria-label=\"Unfortunate Event Token. Press Enter or Space to cycle choices.\">\n          <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <path d=\"M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z\"/>\n            <line x1=\"12\" y1=\"9\" x2=\"12\" y2=\"13\"/>\n            <line x1=\"12\" y1=\"17\" x2=\"12.01\" y2=\"17\"/>\n          </svg>\n        </div>\n      </div>\n    </div>\n\n    <!-- Target options -->\n    <div class=\"targets-grid\" id=\"targets-grid\">\n      <div class=\"target-zone\" id=\"zone-0\" data-option=\"Fundamental Attribution Error\" tabindex=\"0\" role=\"button\">Fundamental Attribution Error</div>\n      <div class=\"target-zone\" id=\"zone-1\" data-option=\"Self-Serving Bias\" tabindex=\"0\" role=\"button\">Self-Serving Bias</div>\n      <div class=\"target-zone\" id=\"zone-2\" data-option=\"Just-World Phenomenon\" tabindex=\"0\" role=\"button\">Just-World Phenomenon</div>\n      <div class=\"target-zone\" id=\"zone-3\" data-option=\"Cognitive Dissonance\" tabindex=\"0\" role=\"button\">Cognitive Dissonance</div>\n    </div>\n  </div>\n\n  <script>\n    const token = document.getElementById('draggable-token');\n    const tokenWell = document.getElementById('token-well');\n    const zones = document.querySelectorAll('.target-zone');\n    const scaleArm = document.getElementById('scale-arm');\n    const leftPan = document.getElementById('left-pan-group');\n    const rightPan = document.getElementById('right-pan-group');\n    const face = document.getElementById('character-face');\n    const thoughtBubble = document.getElementById('thought-bubble');\n    const thoughtText = document.getElementById('thought-text');\n    const extraEffects = document.getElementById('extra-effects');\n\n    let currentOption = null;\n    let isLocked = false;\n    let isDragging = false;\n    let dragOffset = { x: 0, y: 0 };\n    let startPos = { x: 0, y: 0 };\n\n    // Set initial position of the token relative to parent well\n    function resetTokenPosition() {\n      token.style.left = '19px';\n      token.style.top = '3px';\n      token.classList.remove('dragging');\n    }\n    resetTokenPosition();\n\n    // Map options to visual animations inside the SVG stage\n    function updateVisualStage(option) {\n      // Clear extra effects first\n      extraEffects.innerHTML = '';\n      \n      if (!option) {\n        // Default\n        scaleArm.setAttribute('transform', 'rotate(10, 160, 80)');\n        leftPan.setAttribute('transform', 'translate(0, -10)');\n        rightPan.setAttribute('transform', 'translate(0, 10)');\n        face.innerHTML = `\n          <circle cx=\"-3\" cy=\"7\" r=\"1\" fill=\"#333\" />\n          <circle cx=\"3\" cy=\"7\" r=\"1\" fill=\"#333\" />\n          <path d=\"M -2,11 Q 0,9 2,11\" stroke=\"#333\" stroke-width=\"1\" fill=\"none\" />\n        `;\n        thoughtBubble.setAttribute('opacity', '0');\n        return;\n      }\n\n      switch(option) {\n        case 'Just-World Phenomenon':\n          // Perfectly balanced scale\n          scaleArm.setAttribute('transform', 'rotate(0, 160, 80)');\n          leftPan.setAttribute('transform', 'translate(0, 0)');\n          rightPan.setAttribute('transform', 'translate(0, 0)');\n          // Happy / relieved face\n          face.innerHTML = `\n            <path d=\"M -5,7 Q -3,5 -1,7\" stroke=\"#333\" stroke-width=\"1\" fill=\"none\" />\n            <path d=\"M 1,7 Q 3,5 5,7\" stroke=\"#333\" stroke-width=\"1\" fill=\"none\" />\n            <path d=\"M -3,11 Q 0,13 3,11\" stroke=\"#333\" stroke-width=\"1\" fill=\"none\" />\n          `;\n          thoughtText.textContent = \"Balance Restored!\";\n          thoughtBubble.setAttribute('opacity', '1');\n          \n          // Show unfortunate event sitting nicely in the Bad Deeds pan\n          extraEffects.innerHTML = `\n            <circle cx=\"220\" cy=\"98\" r=\"6\" fill=\"#e05d5d\" />\n            <path d=\"M218.5,95 L221.5,101\" stroke=\"white\" stroke-width=\"1\" />\n            <path d=\"M221.5,95 L218.5,101\" stroke=\"white\" stroke-width=\"1\" />\n          `;\n          break;\n\n        case 'Fundamental Attribution Error':\n          // Heavy skew towards judging character\n          scaleArm.setAttribute('transform', 'rotate(-15, 160, 80)');\n          leftPan.setAttribute('transform', 'translate(0, 5)');\n          rightPan.setAttribute('transform', 'translate(0, -15)');\n          // Angry pointing gesture / critical eye look\n          face.innerHTML = `\n            <path d=\"M -5,5 L -2,6\" stroke=\"#333\" stroke-width=\"1.2\" />\n            <path d=\"M 5,5 L 2,6\" stroke=\"#333\" stroke-width=\"1.2\" />\n            <circle cx=\"-3\" cy=\"8\" r=\"1\" fill=\"#333\" />\n            <circle cx=\"3\" cy=\"8\" r=\"1\" fill=\"#333\" />\n            <path d=\"M -3,12 Q 0,10 3,12\" stroke=\"#333\" stroke-width=\"1\" fill=\"none\" />\n          `;\n          thoughtText.textContent = \"They made a mistake!\";\n          thoughtBubble.setAttribute('opacity', '1');\n          \n          // An arrow pointing strongly from external to the internal character\n          extraEffects.innerHTML = `\n            <path d=\"M 120,50 L 140,50\" stroke=\"#4C6696\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n            <text x=\"130\" y=\"44\" font-size=\"7\" fill=\"#4C6696\" text-anchor=\"middle\">Internal Flaw</text>\n          `;\n          break;\n\n        case 'Self-Serving Bias':\n          // Self-protective posture\n          scaleArm.setAttribute('transform', 'rotate(15, 160, 80)');\n          leftPan.setAttribute('transform', 'translate(0, -15)');\n          rightPan.setAttribute('transform', 'translate(0, 5)');\n          // Smug/Deflecting face\n          face.innerHTML = `\n            <path d=\"M -4,7 Q -2,6 0,7\" stroke=\"#333\" stroke-width=\"1\" />\n            <path d=\"M 1,7 Q 3,6 5,7\" stroke=\"#333\" stroke-width=\"1\" />\n            <path d=\"M -2,12 Q 2,12 4,11\" stroke=\"#333\" stroke-width=\"1.2\" fill=\"none\" />\n          `;\n          thoughtText.textContent = \"Not my fault!\";\n          thoughtBubble.setAttribute('opacity', '1');\n\n          // Cloud representing bad luck/external forces\n          extraEffects.innerHTML = `\n            <path d=\"M 240,40 Q 245,35 255,38 Q 265,35 270,42 Q 275,45 270,52 L 240,52 Z\" fill=\"#cbd5e1\" />\n            <text x=\"255\" y=\"48\" font-size=\"7\" fill=\"#475569\" text-anchor=\"middle\">Bad Luck</text>\n          `;\n          break;\n\n        case 'Cognitive Dissonance':\n          // Shaking/vibrating look\n          scaleArm.setAttribute('transform', 'rotate(2, 160, 80)');\n          leftPan.setAttribute('transform', 'translate(0, -2)');\n          rightPan.setAttribute('transform', 'translate(0, 2)');\n          // Dizzy/confused face\n          face.innerHTML = `\n            <path d=\"M -4,6 L -2,8 M -2,6 L -4,8\" stroke=\"#333\" stroke-width=\"1\" />\n            <path d=\"M 2,6 L 4,8 M 4,6 L 2,8\" stroke=\"#333\" stroke-width=\"1\" />\n            <circle cx=\"0\" cy=\"12\" r=\"2.5\" fill=\"none\" stroke=\"#333\" stroke-width=\"1\" />\n          `;\n          thoughtText.textContent = \"Mismatch!\";\n          thoughtBubble.setAttribute('opacity', '1');\n\n          // Conflicting lightning and thought sparks\n          extraEffects.innerHTML = `\n            <path d=\"M 160,10 L 163,18 L 158,18 L 162,25\" fill=\"none\" stroke=\"#eab308\" stroke-width=\"1.5\" />\n          `;\n          break;\n      }\n    }\n\n    // Initialize Default View\n    updateVisualStage(null);\n\n    // Communicate state change to LMS\n    function selectOption(option) {\n      if (isLocked) return;\n      currentOption = option;\n\n      // Update UI active states\n      zones.forEach(zone => {\n        if (zone.getAttribute('data-option') === option) {\n          zone.classList.add('active');\n        } else {\n          zone.classList.remove('active');\n        }\n      });\n\n      updateVisualStage(option);\n\n      // Report answer to parent\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: option }, '*');\n      } catch (e) {\n        console.error(e);\n      }\n    }\n\n    // Drag-and-drop orchestration using Pointer Events\n    token.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      token.classList.add('dragging');\n      token.setPointerCapture(e.pointerId);\n\n      const rect = token.getBoundingClientRect();\n      dragOffset.x = e.clientX - rect.left;\n      dragOffset.y = e.clientY - rect.top;\n\n      const wellRect = tokenWell.getBoundingClientRect();\n      startPos.x = rect.left - wellRect.left;\n      startPos.y = rect.top - wellRect.top;\n    });\n\n    token.addEventListener('pointermove', (e) => {\n      if (!isDragging) return;\n      \n      const wellRect = tokenWell.getBoundingClientRect();\n      const newX = e.clientX - wellRect.left - dragOffset.x;\n      const newY = e.clientY - wellRect.top - dragOffset.y;\n\n      token.style.left = `${newX}px`;\n      token.style.top = `${newY}px`;\n\n      // Visual feedback for intersecting target zones\n      const tokenRect = token.getBoundingClientRect();\n      const tokenCenterX = tokenRect.left + tokenRect.width / 2;\n      const tokenCenterY = tokenRect.top + tokenRect.height / 2;\n\n      zones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        if (\n          tokenCenterX >= zoneRect.left &&\n          tokenCenterX <= zoneRect.right &&\n          tokenCenterY >= zoneRect.top &&\n          tokenCenterY <= zoneRect.bottom\n        ) {\n          zone.classList.add('drag-hover');\n        } else {\n          zone.classList.remove('drag-hover');\n        }\n      });\n    });\n\n    token.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      token.classList.remove('dragging');\n\n      // Drop detection\n      const tokenRect = token.getBoundingClientRect();\n      const tokenCenterX = tokenRect.left + tokenRect.width / 2;\n      const tokenCenterY = tokenRect.top + tokenRect.height / 2;\n      let matchedOption = null;\n\n      zones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        zone.classList.remove('drag-hover');\n        if (\n          tokenCenterX >= zoneRect.left &&\n          tokenCenterX <= zoneRect.right &&\n          tokenCenterY >= zoneRect.top &&\n          tokenCenterY <= zoneRect.bottom\n        ) {\n          matchedOption = zone.getAttribute('data-option');\n        }\n      });\n\n      if (matchedOption) {\n        selectOption(matchedOption);\n      }\n      \n      // Always snap back elegantly to well\n      resetTokenPosition();\n    });\n\n    // Support tapping/clicking on target zones directly\n    zones.forEach(zone => {\n      zone.addEventListener('click', () => {\n        if (isLocked) return;\n        selectOption(zone.getAttribute('data-option'));\n      });\n\n      zone.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          selectOption(zone.getAttribute('data-option'));\n        }\n      });\n    });\n\n    // Keyboard support for token cycling options\n    token.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'Enter' || e.key === ' ') {\n        e.preventDefault();\n        const availableOptions = Array.from(zones).map(z => z.getAttribute('data-option'));\n        let nextIndex = 0;\n        if (currentOption) {\n          nextIndex = (availableOptions.indexOf(currentOption) + 1) % availableOptions.length;\n        }\n        selectOption(availableOptions[nextIndex]);\n      }\n    });\n\n    // Height reporting for the host layout\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {\n        console.error(e);\n      }\n    }\n\n    window.addEventListener('load', sendHeight);\n    const resizeObserver = new ResizeObserver(sendHeight);\n    resizeObserver.observe(document.body);\n\n    // Host Locking Protocol\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        token.style.cursor = 'default';\n        token.setAttribute('tabindex', '-1');\n        zones.forEach(zone => {\n          zone.style.cursor = 'default';\n          zone.setAttribute('tabindex', '-1');\n        });\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Just-World Phenomenon"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Examination: Mental and Physical Health",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During a high-stakes exam, a student's heart rate increases and their digestion slows down. Which biological pathway is primarily responsible for this immediate, rapid-response reaction?",
+     "options": [
+      "The Hypothalamic-Pituitary-Adrenal (HPA) axis",
+      "The Sympathetic Nervous System (SNS) pathway",
+      "The Parasympathetic Nervous System (PNS) pathway",
+      "The Lymphocyte Inhibition pathway"
+     ],
+     "explanation": "The SNS is the body's 'fight-or-flight' mechanism that triggers immediate physical changes via adrenaline, whereas the HPA axis is a slower, sustained response system.",
+     "correctAnswers": [
+      "The Sympathetic Nervous System (SNS) pathway"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "Graph of General Adaptation Syndrome showing a dip in alarm, a rise in resistance, and a final drop in exhaustion.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d3943319-34ff-43fd-9908-ebdf3cdc99a9/exam/images/unit5-q2.png"
+     },
+     "prompt": "According to Hans Selye’s General Adaptation Syndrome (GAS), which of the following occur during the 'Resistance' phase?",
+     "options": [
+      "The body attempts to cope with a persistent stressor",
+      "The HPA axis triggers the release of cortisol",
+      "The immune system's resources are completely depleted",
+      "The amygdala first registers a sudden, unexpected threat",
+      "Glucose is released into the bloodstream to maintain alertness"
+     ],
+     "explanation": "The Resistance phase involves sustained coping via the HPA axis and cortisol; depletion occurs in the Exhaustion phase, while initial registration of threat occurs in the Alarm phase.",
+     "correctAnswers": [
+      "The body attempts to cope with a persistent stressor",
+      "The HPA axis triggers the release of cortisol",
+      "Glucose is released into the bloodstream to maintain alertness"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When an individual experiences chronic stress, the prolonged elevation of cortisol inhibits the production of ____, which explains why they become more susceptible to illness.",
+     "explanation": "Cortisol suppresses the immune system specifically by reducing the production of lymphocytes, the white blood cells responsible for fighting infection.",
+     "placeholder": "type of immune cell",
+     "correctAnswers": [
+      "lymphocytes",
+      "white blood cells"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "An individual loses their job due to company-wide layoffs. They decide to update their resume and contact a headhunter. This is an example of which coping style?",
+     "options": [
+      "Emotion-focused coping",
+      "Problem-focused coping",
+      "Passive avoidance",
+      "External locus of control"
+     ],
+     "explanation": "Problem-focused coping targets the stressor directly to change the situation, while emotion-focused coping would target the feelings associated with the job loss.",
+     "correctAnswers": [
+      "Problem-focused coping"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following beliefs are characteristic of an 'Internal Locus of Control'?",
+     "options": [
+      "Personal effort directly influences success",
+      "Life outcomes are primarily a matter of luck or fate",
+      "I am the steering wheel of my own destiny",
+      "Health is mostly determined by powerful others like doctors",
+      "Active problem-solving can mitigate stressful events"
+     ],
+     "explanation": "Internal locus of control is the belief that one's own actions and efforts determine outcomes, whereas luck and powerful others are external factors.",
+     "correctAnswers": [
+      "Personal effort directly influences success",
+      "I am the steering wheel of my own destiny",
+      "Active problem-solving can mitigate stressful events"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ describes the human tendency to return to a stable baseline level of happiness despite major positive or negative life changes.",
+     "explanation": "The hedonic treadmill explains why the high of a promotion or the low of a setback eventually fades as we adapt back to our 'set point' of happiness.",
+     "placeholder": "concept name",
+     "correctAnswers": [
+      "hedonic treadmill",
+      "hedonic adaptation"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A student fails a math test and thinks, 'I'm just bad at school, and I'll probably fail my other subjects too.' Which dimension of the pessimistic explanatory style is this student demonstrating?",
+     "options": [
+      "Personalization",
+      "Permanence",
+      "Pervasiveness",
+      "Practicality"
+     ],
+     "explanation": "Pervasiveness refers to the belief that a failure in one area will spread to all other areas of life ('ruin everything').",
+     "correctAnswers": [
+      "Pervasiveness"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "In the PERMA model of well-being, which of the following are distinct pillars used to assess human flourishing?",
+     "options": [
+      "Positive Emotion",
+      "Material Wealth",
+      "Engagement (Flow)",
+      "Relationships",
+      "Absence of Conflict"
+     ],
+     "explanation": "PERMA stands for Positive Emotion, Engagement, Relationships, Meaning, and Accomplishment. Wealth and absence of conflict are not specific pillars of this model.",
+     "correctAnswers": [
+      "Positive Emotion",
+      "Engagement (Flow)",
+      "Relationships"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "According to the DSM-5, a ____ is a group of symptoms that consistently occur together to characterize a specific disorder.",
+     "explanation": "The DSM-5 groups complex human suffering into discrete clusters of symptoms known as syndromes to ensure diagnostic reliability.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "syndrome",
+      "cluster"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Martin Seligman’s Positive Psychology paradigm is primarily distinguished from traditional clinical psychology by its focus on:",
+     "options": [
+      "Diagnosing psychopathology using the DSM-5",
+      "Moving individuals from a neutral state to a state of flourishing",
+      "Reducing the severity of symptoms in depressed patients",
+      "Using biomedical treatments to stabilize mood"
+     ],
+     "explanation": "Traditional psychology often focuses on treating illness (moving from negative to zero), whereas Positive Psychology focuses on human strengths and flourishing (moving from zero to positive).",
+     "correctAnswers": [
+      "Moving individuals from a neutral state to a state of flourishing"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What are the primary benefits of using a standardized diagnostic system like the DSM-5?",
+     "options": [
+      "It eliminates the need for clinical judgment",
+      "It facilitates consistent research across different locations",
+      "It provides a common language for clinicians to communicate",
+      "It ensures that labels never lead to social stigma",
+      "It helps in standardizing treatment protocols"
+     ],
+     "explanation": "While diagnostic systems help with communication, research, and treatment, they do not eliminate clinical judgment and can unfortunately contribute to stigma.",
+     "correctAnswers": [
+      "It facilitates consistent research across different locations",
+      "It provides a common language for clinicians to communicate",
+      "It helps in standardizing treatment protocols"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ pathway involves the hypothalamus signaling the adrenal medulla to release catecholamines like adrenaline for an immediate stress response.",
+     "explanation": "The SAM pathway is the rapid, catecholamine-driven response, distinct from the slower HPA axis.",
+     "placeholder": "pathway name",
+     "correctAnswers": [
+      "sympathetic-adrenal-medullary",
+      "SAM"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A person washes their hands 50 times a day to the point where they cannot keep a job. Which of the '4 Ds' of abnormality is most clearly demonstrated by this loss of employment?",
+     "options": [
+      "Deviance",
+      "Distress",
+      "Dysfunction",
+      "Danger"
+     ],
+     "explanation": "Dysfunction refers to the impairment of daily operations, such as the ability to maintain a job or social relationships, due to psychological symptoms.",
+     "correctAnswers": [
+      "Dysfunction"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Regarding the 4 Ds of abnormality, why is 'Deviance' alone insufficient for a diagnosis?",
+     "options": [
+      "Statistical rarity can include positive traits like high IQ",
+      "Cultural norms change over time",
+      "Deviant behavior is always dangerous",
+      "Eccentric behavior does not always cause dysfunction",
+      "Distress is always present in deviant individuals"
+     ],
+     "explanation": "Deviance is insufficient because it can include positive traits, it is culturally relative, and it doesn't always impair one's life (dysfunction).",
+     "correctAnswers": [
+      "Statistical rarity can include positive traits like high IQ",
+      "Cultural norms change over time",
+      "Eccentric behavior does not always cause dysfunction"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Which component of the PERMA model describes the state of being completely absorbed in a challenging and rewarding activity, often called 'flow'?",
+     "options": [
+      "Positive Emotion",
+      "Engagement",
+      "Meaning",
+      "Accomplishment"
+     ],
+     "explanation": "Engagement refers specifically to 'flow,' the deep absorption in an activity where time seems to disappear.",
+     "correctAnswers": [
+      "Engagement"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which biological markers would be most elevated during the 'Exhaustion' phase of the GAS after months of chronic stress?",
+     "options": [
+      "Catecholamines (Adrenaline)",
+      "Cortisol",
+      "ACTH (Adrenocorticotropic hormone)",
+      "Lymphocyte count",
+      "Glutamate"
+     ],
+     "explanation": "The HPA axis remains active during chronic stress, leading to high levels of ACTH and cortisol. Lymphocyte counts would be suppressed (low), not elevated.",
+     "correctAnswers": [
+      "Cortisol",
+      "ACTH (Adrenocorticotropic hormone)"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "If a therapist is using a diagnostic checklist to ensure their patient in London would receive the same diagnosis as a patient in Paris, they are primarily concerned with:",
+     "options": [
+      "The Hedonic Treadmill",
+      "Subjective Well-being",
+      "Diagnostic Reliability",
+      "The 4th D: Danger"
+     ],
+     "explanation": "Reliability in diagnosis means that different clinicians using the same criteria will reach the same diagnosis for the same patient profile.",
+     "correctAnswers": [
+      "Diagnostic Reliability"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Observe the physiological state of the character. Adjust the 'Stress Duration' slider to see how the body's resistance changes over time according to Selye's General Adaptation Syndrome. Identify the phase where the body's resources have finally failed.",
+     "options": [
+      "Alarm Reaction",
+      "Resistance Phase",
+      "Exhaustion Phase",
+      "Baseline Homeostasis"
+     ],
+     "explanation": "In Selye's GAS model, the Exhaustion phase is characterized by a plummeting of resistance and depletion of resources following prolonged stress.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>General Adaptation Syndrome Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --baseline-color: #888888;\n      --alarm-color: #e67e22;\n      --resistance-color: #2ecc71;\n      --exhaustion-color: #e74c3c;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .interactive-stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px;\n      display: grid;\n      grid-template-columns: 110px 1fr;\n      gap: 12px;\n      align-items: center;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n    }\n\n    /* Character Column */\n    .character-box {\n      background: var(--stage);\n      border-radius: 8px;\n      height: 140px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n      overflow: hidden;\n      border: 1px solid rgba(0,0,0,0.03);\n    }\n\n    .silhouette {\n      width: 60px;\n      height: 90px;\n      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .status-badge {\n      font-size: 11px;\n      font-weight: 700;\n      text-transform: uppercase;\n      padding: 2px 6px;\n      border-radius: 4px;\n      margin-top: 4px;\n      text-align: center;\n      letter-spacing: 0.5px;\n      max-width: 90%;\n      white-space: nowrap;\n      overflow: hidden;\n      text-overflow: ellipsis;\n    }\n\n    /* Graph Column */\n    .graph-box {\n      position: relative;\n      height: 140px;\n    }\n\n    .graph-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Controls */\n    .control-panel {\n      display: flex;\n      flex-direction: column;\n      gap: 6px;\n    }\n\n    .slider-container {\n      position: relative;\n      width: 100%;\n      height: 32px;\n      display: flex;\n      align-items: center;\n      cursor: pointer;\n      touch-action: none;\n    }\n\n    .slider-track {\n      position: absolute;\n      left: 0;\n      right: 0;\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n      overflow: hidden;\n    }\n\n    .slider-track-fill {\n      position: absolute;\n      left: 0;\n      height: 100%;\n      background: var(--accent);\n      width: 0%;\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 24px;\n      height: 24px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 2px solid var(--accent);\n      box-shadow: 0 2px 4px rgba(0,0,0,0.15);\n      cursor: grab;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: transform 0.1s ease, border-color 0.2s;\n      outline: none;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: scale(1.15);\n      border-color: var(--accent-strong);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .slider-ticks {\n      display: flex;\n      justify-content: space-between;\n      padding: 0 4px;\n    }\n\n    .tick-label {\n      font-size: 11px;\n      color: var(--muted-fg);\n      font-weight: 500;\n    }\n\n    .hint-text {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin: 2px 0 0 0;\n    }\n\n    /* Active State styles dynamically applied */\n    .state-baseline { color: var(--baseline-color); }\n    .state-alarm { color: var(--alarm-color); }\n    .state-resistance { color: var(--resistance-color); }\n    .state-exhaustion { color: var(--exhaustion-color); }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">General Adaptation Syndrome Interactive Graph</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"interactive-stage\">\n      \n      <!-- Left: Character State -->\n      <div class=\"character-box\" id=\"characterBox\">\n        <!-- SVG Silhouettes switched by JS -->\n        <svg class=\"silhouette\" viewBox=\"0 0 60 90\" id=\"silhouetteSvg\">\n          <!-- Baseline Pose -->\n          <g id=\"pose-baseline\" class=\"pose\">\n            <circle cx=\"30\" cy=\"22\" r=\"8\" fill=\"#888888\" />\n            <path d=\"M30 30 L30 55 M30 35 L18 48 M30 35 L42 48 M30 55 L22 80 M30 55 L38 80\" stroke=\"#888888\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n          </g>\n          <!-- Alarm Pose -->\n          <g id=\"pose-alarm\" class=\"pose\" style=\"display:none;\">\n            <circle cx=\"30\" cy=\"20\" r=\"8\" fill=\"var(--alarm-color)\" />\n            <path d=\"M30 28 L30 53 M30 33 L14 24 M30 33 L46 24 M30 53 L20 78 M30 53 L40 78\" stroke=\"var(--alarm-color)\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n            <!-- Surprise spikes -->\n            <path d=\"M15 15 L18 18 M45 15 L42 18\" stroke=\"var(--alarm-color)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n          </g>\n          <!-- Resistance Pose -->\n          <g id=\"pose-resistance\" class=\"pose\" style=\"display:none;\">\n            <circle cx=\"30\" cy=\"22\" r=\"8\" fill=\"var(--resistance-color)\" />\n            <path d=\"M30 30 L30 55 M30 35 Q15 32 16 20 M30 35 Q45 32 44 20 M30 55 L22 80 M30 55 L38 80\" stroke=\"var(--resistance-color)\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n          </g>\n          <!-- Exhaustion Pose -->\n          <g id=\"pose-exhaustion\" class=\"pose\" style=\"display:none;\">\n            <circle cx=\"26\" cy=\"28\" r=\"8\" fill=\"var(--exhaustion-color)\" />\n            <path d=\"M26 36 L24 58 M25 40 L16 52 M25 40 L32 52 M24 58 L18 80 M24 58 L30 80\" stroke=\"var(--exhaustion-color)\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n          </g>\n        </svg>\n        <div class=\"status-badge\" id=\"statusBadge\">Baseline</div>\n      </div>\n\n      <!-- Right: Line Graph -->\n      <div class=\"graph-box\">\n        <svg class=\"graph-svg\" viewBox=\"0 0 240 140\" id=\"graphSvg\">\n          <!-- Background grid lines -->\n          <line x1=\"10\" y1=\"90\" x2=\"230\" y2=\"90\" stroke=\"#f0f0f0\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\" />\n          <text x=\"12\" y=\"86\" fill=\"#aaa\" font-size=\"8\" font-weight=\"bold\">BASELINE</text>\n\n          <!-- The main response path -->\n          <!-- Segment 0: Homeostasis (10,90) -> (30,90) -->\n          <!-- Segment 1: Alarm Dip to Peak (30,90) -> (45,105) -> (85,30) -->\n          <!-- Segment 2: Resistance (85,30) -> (155,30) -->\n          <!-- Segment 3: Exhaustion (155,30) -> (215,125) -> (230,125) -->\n          <path d=\"M 10 90 L 30 90 Q 45 105 55 80 T 85 30 L 155 30 C 185 30 195 125 220 125 L 230 125\" fill=\"none\" stroke=\"#e2e2e2\" stroke-width=\"4\" stroke-linecap=\"round\" />\n          \n          <!-- Colored overlay path driven by percentage -->\n          <path id=\"activePath\" d=\"M 10 90 L 30 90 Q 45 105 55 80 T 85 30 L 155 30 C 185 30 195 125 220 125 L 230 125\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-dasharray=\"300\" stroke-dashoffset=\"300\" />\n\n          <!-- Vertical Time Tracker line -->\n          <line id=\"trackerLine\" x1=\"10\" y1=\"10\" x2=\"10\" y2=\"130\" stroke=\"var(--accent)\" stroke-width=\"1.5\" stroke-dasharray=\"2,2\" />\n          <circle id=\"trackerDot\" cx=\"10\" cy=\"90\" r=\"5\" fill=\"var(--accent)\" stroke=\"#fff\" stroke-width=\"1.5\" />\n          \n          <!-- Labels along the time axis -->\n          <text x=\"10\" y=\"138\" fill=\"#aaa\" font-size=\"8\">Start</text>\n          <text x=\"230\" y=\"138\" fill=\"#aaa\" font-size=\"8\" text-anchor=\"end\">Time</text>\n        </svg>\n      </div>\n\n    </div>\n\n    <!-- Interactive Slider -->\n    <div class=\"control-panel\">\n      <div class=\"slider-container\" id=\"sliderContainer\" role=\"slider\" aria-label=\"Stress Duration\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\" tabindex=\"0\">\n        <div class=\"slider-track\">\n          <div class=\"slider-track-fill\" id=\"trackFill\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"sliderHandle\"></div>\n      </div>\n      <div class=\"slider-ticks\">\n        <span class=\"tick-label\">0%</span>\n        <span class=\"tick-label\">Stress Duration</span>\n        <span class=\"tick-label\">100%</span>\n      </div>\n    </div>\n\n    <p class=\"hint-text\">Drag the slider forward in time to explore the stress cycle.</p>\n  </div>\n\n  <script>\n    const options = [\n      \"Baseline Homeostasis\",\n      \"Alarm Reaction\",\n      \"Resistance Phase\",\n      \"Exhaustion Phase\"\n    ];\n\n    let currentValue = 0;\n    let currentOption = \"\";\n    let isLocked = false;\n\n    const sliderContainer = document.getElementById('sliderContainer');\n    const sliderHandle = document.getElementById('sliderHandle');\n    const trackFill = document.getElementById('trackFill');\n    const activePath = document.getElementById('activePath');\n    const trackerLine = document.getElementById('trackerLine');\n    const trackerDot = document.getElementById('trackerDot');\n    const statusBadge = document.getElementById('statusBadge');\n    const poses = {\n      baseline: document.getElementById('pose-baseline'),\n      alarm: document.getElementById('pose-alarm'),\n      resistance: document.getElementById('pose-resistance'),\n      exhaustion: document.getElementById('pose-exhaustion')\n    };\n\n    // Path measurement to place tracker dot precisely\n    const pathLength = activePath.getTotalLength();\n\n    // Set initial display\n    updateState(0);\n\n    // Height Reporting Helper\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        sliderContainer.style.pointerEvents = 'none';\n        sliderHandle.style.cursor = 'default';\n        sliderContainer.removeAttribute('tabindex');\n      }\n    });\n\n    // Interaction handling\n    let isDragging = false;\n\n    sliderContainer.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      sliderContainer.setPointerCapture(e.pointerId);\n      updateValueFromPointer(e);\n    });\n\n    sliderContainer.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n      updateValueFromPointer(e);\n    });\n\n    window.addEventListener('pointerup', () => {\n      isDragging = false;\n    });\n\n    // Keyboard support\n    sliderContainer.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        updateValue(Math.min(100, currentValue + 5));\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        updateValue(Math.max(0, currentValue - 5));\n      }\n    });\n\n    function updateValueFromPointer(e) {\n      const rect = sliderContainer.getBoundingClientRect();\n      const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));\n      const percentage = Math.round((x / rect.width) * 100);\n      updateValue(percentage);\n    }\n\n    function updateValue(val) {\n      currentValue = val;\n      sliderContainer.setAttribute('aria-valuenow', val);\n      \n      // Update UI slider position\n      sliderHandle.style.left = `calc(${val}% - 12px)`;\n      trackFill.style.width = `${val}%`;\n\n      // Determine active option segment\n      let activeState = \"\";\n      let optionSelected = \"\";\n\n      if (val < 15) {\n        activeState = \"baseline\";\n        optionSelected = options[0];\n      } else if (val < 45) {\n        activeState = \"alarm\";\n        optionSelected = options[1];\n      } else if (val < 78) {\n        activeState = \"resistance\";\n        optionSelected = options[2];\n      } else {\n        activeState = \"exhaustion\";\n        optionSelected = options[3];\n      }\n\n      updateState(val, activeState, optionSelected);\n    }\n\n    function updateState(val, state, option) {\n      // 1. Update Graph line progress\n      const progress = val / 100;\n      activePath.style.strokeDashoffset = pathLength - (pathLength * progress);\n\n      // Get precise coordinates of the dot from path\n      const point = activePath.getPointAtLength(pathLength * progress);\n      trackerLine.setAttribute('x1', point.x);\n      trackerLine.setAttribute('x2', point.x);\n      trackerDot.setAttribute('cx', point.x);\n      trackerDot.setAttribute('cy', point.y);\n\n      if (!state) return; // Initial load skip\n\n      // 2. Update status badge text and class\n      statusBadge.textContent = option;\n      statusBadge.className = `status-badge state-${state}`;\n\n      // 3. Switch Silhouettes\n      Object.keys(poses).forEach(p => {\n        poses[p].style.display = (p === state) ? 'block' : 'none';\n      });\n\n      // 4. Update graph path color based on state\n      let colorVar = '--baseline-color';\n      if (state === 'alarm') colorVar = '--alarm-color';\n      else if (state === 'resistance') colorVar = '--resistance-color';\n      else if (state === 'exhaustion') colorVar = '--exhaustion-color';\n      activePath.style.stroke = `var(${colorVar})`;\n      trackerDot.style.fill = `var(${colorVar})`;\n      trackerLine.style.stroke = `var(${colorVar})`;\n\n      // 5. Post Answer if changed\n      if (currentOption !== option) {\n        currentOption = option;\n        parent.postMessage({ type: 'hk-practice-answer', value: option }, '*');\n      }\n    }\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Exhaustion Phase"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "08038e4f-2073-4254-806a-7542c8d38c1a"
+}

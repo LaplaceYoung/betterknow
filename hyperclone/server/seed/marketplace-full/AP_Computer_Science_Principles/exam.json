@@ -1,0 +1,1253 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Exam: Creative Development",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following would be strictly classified as a computing innovation according to the AP CSP framework?",
+     "options": [
+      "A mechanical combination padlock used for lockers",
+      "A high-intensity LED flashlight with a physical toggle switch",
+      "A smart biometric door lock that uses a matching algorithm",
+      "A traditional analog wristwatch with copper gears"
+     ],
+     "explanation": "A computing innovation must include a computer or program code as an integral part of its functionality. While the other items are innovations, only the biometric lock relies on data representation and program logic (the matching algorithm).",
+     "correctAnswers": [
+      "A smart biometric door lock that uses a matching algorithm"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "In the Input-Process-Output (IPO) model, which of the following represent the 'Process' phase for a smart thermostat?",
+     "options": [
+      "The ambient temperature sensor reading 72 degrees",
+      "Comparing the current temperature to the user's target temperature",
+      "Checking if the heating system should be triggered based on logic",
+      "Sending a signal to turn on the furnace",
+      "The user adjusting the temperature via a mobile app"
+     ],
+     "explanation": "Processing involves the internal transformation or calculation of data. Comparing values and executing logic are processes, while sensor readings and app adjustments are inputs, and triggering the furnace is an output.",
+     "correctAnswers": [
+      "Comparing the current temperature to the user's target temperature",
+      "Checking if the heating system should be triggered based on logic"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In pair programming, the ____ is the person who focuses on the big-picture strategy, anticipates logical errors, and reviews the code as it is being written.",
+     "explanation": "The Navigator watches the Driver write code, providing real-time peer review and strategic planning, which helps reduce bugs and improve design.",
+     "placeholder": "Enter role name",
+     "correctAnswers": [
+      "Navigator"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "A developer is building a fitness application. The app allows users to log their runs and displays a map of their route. What is the most likely overall 'Purpose' of this program?",
+     "options": [
+      "To calculate the GPS coordinates of the user every five seconds",
+      "To render a visual map using a third-party API",
+      "To encourage a healthy and active lifestyle through progress tracking",
+      "To store numerical data in a cloud-based database"
+     ],
+     "explanation": "The 'Purpose' refers to the human-centric problem the software solves (the 'Why'). Calculating coordinates and rendering maps are 'Functions' (the technical 'How').",
+     "correctAnswers": [
+      "To encourage a healthy and active lifestyle through progress tracking"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'Non-Physical' components of a computing innovation like a smartwatch?",
+     "options": [
+      "The heart rate sensor hardware",
+      "The mobile application source code",
+      "The wireless transmission protocols (Bluetooth/Wi-Fi)",
+      "the OLED touchscreen display",
+      "The device's Operating System"
+     ],
+     "explanation": "Non-physical components include software, protocols, and data structures. Sensors and screens are physical hardware components.",
+     "correctAnswers": [
+      "The mobile application source code",
+      "The wireless transmission protocols (Bluetooth/Wi-Fi)",
+      "The device's Operating System"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If a program runs without crashing but produces the wrong mathematical result, it is said to have a ____ error.",
+     "explanation": "A logic error occurs when the code's syntax and runtime behavior are correct, but the underlying algorithm or calculation is flawed, leading to incorrect output.",
+     "placeholder": "Type of error",
+     "correctAnswers": [
+      "logic",
+      "logical"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary technical benefit of having a diverse development team?",
+     "options": [
+      "It guarantees that the project will be finished in half the time",
+      "It helps identify and prevent algorithmic bias during the design phase",
+      "It eliminates the need for any formal testing or debugging",
+      "It ensures the program will run on any operating system without changes"
+     ],
+     "explanation": "Diverse teams bring different perspectives that can uncover assumptions—such as facial recognition biases—that a homogeneous group might overlook.",
+     "correctAnswers": [
+      "It helps identify and prevent algorithmic bias during the design phase"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following practices contribute to the 'iterative' nature of the development process?",
+     "options": [
+      "Developing a single final version and releasing it without testing",
+      "Constantly refining a program based on feedback and testing",
+      "Repeating a cycle of designing, implementing, and evaluating code",
+      "Writing all code in one sitting to ensure consistency",
+      "Modifying code after discovering a logical error during a trial run"
+     ],
+     "explanation": "Iterative development is a repetitive cycle where feedback and testing lead to continuous improvements and refinements.",
+     "correctAnswers": [
+      "Constantly refining a program based on feedback and testing",
+      "Repeating a cycle of designing, implementing, and evaluating code",
+      "Modifying code after discovering a logical error during a trial run"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'Driver' in pair programming is the person who is currently ____.",
+     "explanation": "The Driver is responsible for the manual act of writing the code and focusing on syntax, while the Navigator provides guidance.",
+     "placeholder": "Action or role",
+     "correctAnswers": [
+      "typing",
+      "writing the code",
+      "at the keyboard"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "When moving from a 'User Pain Point' to a 'Program Requirement,' which of these is the most effective requirement for an accessibility-focused app?",
+     "options": [
+      "The app should be easy for everyone to use",
+      "The app should look nice even in bright sunlight",
+      "All interactive buttons must have a minimum clickable area of 48x48 pixels",
+      "The developer should consider adding a dark mode later"
+     ],
+     "explanation": "Effective requirements must be specific, measurable, and actionable. 'Easy to use' is subjective, while a specific pixel size is a verifiable benchmark.",
+     "correctAnswers": [
+      "All interactive buttons must have a minimum clickable area of 48x48 pixels"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which items are typically included in a program's documentation to assist other developers?",
+     "options": [
+      "The history of every coffee break taken by the developer",
+      "An explanation of how a specific complex algorithm works",
+      "A description of the program's purpose and function",
+      "A list of inputs and their expected outputs",
+      "The personal home address of the lead programmer"
+     ],
+     "explanation": "Documentation focuses on the 'How' and 'Why' of the code, explaining logic, purpose, and usage patterns to ensure maintainability.",
+     "correctAnswers": [
+      "An explanation of how a specific complex algorithm works",
+      "A description of the program's purpose and function",
+      "A list of inputs and their expected outputs"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A program that uses a loop to find the highest score in a list is an example of an ____.",
+     "explanation": "An algorithm is a finite set of instructions used to solve a problem or perform a calculation, such as finding a maximum value in a set.",
+     "placeholder": "Definition term",
+     "correctAnswers": [
+      "algorithm"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why is 'incremental development' specifically encouraged for the AP Create Performance Task?",
+     "options": [
+      "It allows the programmer to write the entire program in one day",
+      "It makes it easier to isolate and fix bugs as small pieces of code are added",
+      "It removes the requirement to use lists or loops in the code",
+      "It is the only way to ensure the program is physically small"
+     ],
+     "explanation": "By building and testing small sections of a program at a time (incrementally), developers can quickly identify which new section caused an error.",
+     "correctAnswers": [
+      "It makes it easier to isolate and fix bugs as small pieces of code are added"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "What are the common sources of feedback used during the development of a computing innovation?",
+     "options": [
+      "Peer reviews from other programmers",
+      "Observations from user testing sessions",
+      "Data from automated error logs",
+      "Consultations with subject matter experts",
+      "Reading historical fiction novels"
+     ],
+     "explanation": "Feedback comes from users, peers, technical data, and experts. Non-related literature does not provide feedback for development.",
+     "correctAnswers": [
+      "Peer reviews from other programmers",
+      "Observations from user testing sessions",
+      "Data from automated error logs",
+      "Consultations with subject matter experts"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "In the context of the AP Create Task, which of the following is a requirement for the 'List' (Array) being used?",
+     "options": [
+      "The list must contain at least 100 items",
+      "The list must be displayed on the screen at all times",
+      "The data in the list must be used to manage program complexity",
+      "The list must only contain numerical data"
+     ],
+     "explanation": "The AP rubric requires that the student shows how the list manages complexity; for example, by showing that without the list, the program would require many individual variables.",
+     "correctAnswers": [
+      "The data in the list must be used to manage program complexity"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "When documenting a program for the AP Create Task, students must identify:",
+     "options": [
+      "The name of the programming language used",
+      "The purpose of the program",
+      "The input and output of the program",
+      "The exact number of lines written",
+      "The names of all students in the class"
+     ],
+     "explanation": "The AP Create Task written response specifically asks for the purpose, function, and description of inputs/outputs.",
+     "correctAnswers": [
+      "The purpose of the program",
+      "The input and output of the program"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "You are debugging a program where a user enters their age to see if they can vote. Drag the software development stage blocks into the correct iterative order to fix a bug discovered during testing.",
+     "options": [
+      "Design -> Code -> Test -> Refine",
+      "Test -> Design -> Code -> Refine",
+      "Code -> Design -> Refine -> Test",
+      "Refine -> Test -> Code -> Design"
+     ],
+     "explanation": "The iterative cycle starts with planning (Design), then implementing (Code), then checking for errors (Test), and finally adjusting based on results (Refine).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Workflow Conveyor Belt</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --color-design: #3b82f6;\n      --color-code: #f59e0b;\n      --color-test: #10b981;\n      --color-refine: #8b5cf6;\n    }\n\n    * {\n      box-sizing: border-box;\n      -webkit-tap-highlight-color: transparent;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n      margin: 0;\n      padding: 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      min-height: 100vh;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 16px;\n      padding: 20px;\n      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);\n      display: flex;\n      flex-direction: column;\n      gap: 24px;\n    }\n\n    /* Conveyor Belt Stage */\n    .stage {\n      background: var(--stage);\n      border-radius: 12px;\n      height: 130px;\n      position: relative;\n      overflow: hidden;\n      display: flex;\n      flex-direction: column;\n      justify-content: flex-end;\n      padding-bottom: 24px;\n    }\n\n    .conveyor-belt {\n      height: 12px;\n      background: #333;\n      margin: 0 20px;\n      border-radius: 6px;\n      position: relative;\n      box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);\n    }\n\n    .conveyor-rollers {\n      position: absolute;\n      top: 12px;\n      left: 30px;\n      right: 30px;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .roller {\n      width: 14px;\n      height: 14px;\n      border-radius: 50%;\n      background: repeating-conic-gradient(from 0deg, #666 0deg 90deg, #999 90deg 180deg);\n      box-shadow: 0 1px 2px rgba(0,0,0,0.2);\n    }\n\n    .roller.spinning {\n      animation: spin 0.6s cubic-bezier(.4,0,.2,1);\n    }\n\n    @keyframes spin {\n      to { transform: rotate(360deg); }\n    }\n\n    /* Blocks Area */\n    .blocks-container {\n      position: absolute;\n      top: 15px;\n      left: 20px;\n      right: 20px;\n      height: 64px;\n    }\n\n    .block {\n      position: absolute;\n      width: calc(25% - 6px);\n      height: 56px;\n      border-radius: 8px;\n      color: white;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      font-weight: 600;\n      font-size: 13px;\n      gap: 4px;\n      box-shadow: 0 3px 6px rgba(0,0,0,0.15);\n      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);\n    }\n\n    .block svg {\n      width: 16px;\n      height: 16px;\n      fill: currentColor;\n    }\n\n    .block-design { background: var(--color-design); }\n    .block-code { background: var(--color-code); }\n    .block-test { background: var(--color-test); }\n    .block-refine { background: var(--color-refine); }\n\n    /* Interactive Selector / Lever */\n    .control-panel {\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    .hint-text {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n    }\n\n    .slider-container {\n      position: relative;\n      height: 48px;\n      background: var(--stage);\n      border-radius: 24px;\n      padding: 0 24px;\n      display: flex;\n      align-items: center;\n    }\n\n    .slider-track {\n      position: absolute;\n      left: 24px;\n      right: 24px;\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n    }\n\n    .slider-notches {\n      position: absolute;\n      left: 24px;\n      right: 24px;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .notch {\n      width: 10px;\n      height: 10px;\n      background: var(--border);\n      border-radius: 50%;\n      transform: translateY(-2px);\n      transition: background 0.2s;\n    }\n\n    .notch.active {\n      background: var(--accent);\n      box-shadow: 0 0 0 4px var(--accent-soft);\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 32px;\n      height: 32px;\n      background: var(--accent);\n      border-radius: 50%;\n      cursor: grab;\n      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n      transition: transform 0.1s, background-color 0.2s;\n      z-index: 10;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      left: 24px;\n      transform: translateX(-16px);\n      touch-action: none;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n      transform: translateX(-16px) scale(1.1);\n    }\n\n    .slider-handle::after {\n      content: '';\n      width: 12px;\n      height: 12px;\n      background: white;\n      border-radius: 50%;\n    }\n\n    .options-display {\n      display: grid;\n      grid-template-columns: 1fr;\n      gap: 6px;\n    }\n\n    .option-card {\n      padding: 10px 14px;\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      font-size: 13px;\n      font-weight: 500;\n      text-align: center;\n      background: var(--surface);\n      cursor: pointer;\n      transition: all 0.2s ease;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n    }\n\n    .option-card.active {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n      color: var(--accent-strong);\n      box-shadow: 0 2px 4px rgba(0,0,0,0.02);\n    }\n\n    .option-card span {\n      color: var(--muted-fg);\n    }\n\n    .option-card.active span {\n      color: var(--accent);\n    }\n\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Software Iteration Cycle Interactive Conveyor Belt</h1>\n\n  <div class=\"widget-container\" id=\"widget\">\n    <!-- Conveyor Stage -->\n    <div class=\"stage\">\n      <div class=\"blocks-container\" id=\"blocks-container\">\n        <!-- Design Block -->\n        <div class=\"block block-design\" id=\"block-design\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z\"/></svg>\n          Design\n        </div>\n        <!-- Code Block -->\n        <div class=\"block block-code\" id=\"block-code\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\"/></svg>\n          Code\n        </div>\n        <!-- Test Block -->\n        <div class=\"block block-test\" id=\"block-test\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>\n          Test\n        </div>\n        <!-- Refine Block -->\n        <div class=\"block block-refine\" id=\"block-refine\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n          Refine\n        </div>\n      </div>\n      <div class=\"conveyor-belt\"></div>\n      <div class=\"conveyor-rollers\" id=\"rollers\">\n        <div class=\"roller\"></div>\n        <div class=\"roller\"></div>\n        <div class=\"roller\"></div>\n        <div class=\"roller\"></div>\n        <div class=\"roller\"></div>\n      </div>\n    </div>\n\n    <!-- Controls -->\n    <div class=\"control-panel\">\n      <div class=\"hint-text\">Slide to change the conveyor sequence</div>\n      \n      <div class=\"slider-container\" id=\"slider-container\">\n        <div class=\"slider-track\"></div>\n        <div class=\"slider-notches\" id=\"notches\">\n          <div class=\"notch active\"></div>\n          <div class=\"notch\"></div>\n          <div class=\"notch\"></div>\n          <div class=\"notch\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"slider-handle\" tabindex=\"0\" aria-label=\"Workflow Preset Slider\"></div>\n      </div>\n\n      <div class=\"options-display\">\n        <div class=\"option-card\" data-index=\"0\">Design <span>➔</span> Code <span>➔</span> Test <span>➔</span> Refine</div>\n        <div class=\"option-card\" data-index=\"1\">Test <span>➔</span> Design <span>➔</span> Code <span>➔</span> Refine</div>\n        <div class=\"option-card\" data-index=\"2\">Code <span>➔</span> Design <span>➔</span> Refine <span>➔</span> Test</div>\n        <div class=\"option-card\" data-index=\"3\">Refine <span>➔</span> Test <span>➔</span> Code <span>➔</span> Design</div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // State & Config\n    const OPTIONS = [\n      \"Design -> Code -> Test -> Refine\",\n      \"Test -> Design -> Code -> Refine\",\n      \"Code -> Design -> Refine -> Test\",\n      \"Refine -> Test -> Code -> Design\"\n    ];\n\n    // Mappings of blocks [Design, Code, Test, Refine] to slot positions (0-3)\n    const POSITIONS = [\n      [0, 1, 2, 3], // Design -> Code -> Test -> Refine\n      [1, 2, 0, 3], // Test -> Design -> Code -> Refine\n      [1, 0, 3, 2], // Code -> Design -> Refine -> Test\n      [3, 2, 1, 0]  // Refine -> Test -> Code -> Design\n    ];\n\n    let currentIndex = -1;\n    let isDragging = false;\n    let isLocked = false;\n\n    // DOM Elements\n    const widget = document.getElementById('widget');\n    const container = document.getElementById('slider-container');\n    const handle = document.getElementById('slider-handle');\n    const notches = document.querySelectorAll('.notch');\n    const optionCards = document.querySelectorAll('.option-card');\n    const rollers = document.querySelectorAll('.roller');\n    \n    const blocks = {\n      design: document.getElementById('block-design'),\n      code: document.getElementById('block-code'),\n      test: document.getElementById('block-test'),\n      refine: document.getElementById('block-refine')\n    };\n\n    // Initialize Layout\n    function updateLayout(index) {\n      if (index === currentIndex) return;\n      currentIndex = index;\n\n      // Update Conveyor Blocks\n      const posMap = POSITIONS[index];\n      const blockKeys = ['design', 'code', 'test', 'refine'];\n      \n      blockKeys.forEach((key, i) => {\n        const slot = posMap[i];\n        const offsetPct = slot * 25;\n        blocks[key].style.transform = `translateX(calc(${offsetPct}% + ${slot * 2}px))`;\n      });\n\n      // Spin Rollers\n      rollers.forEach(roller => {\n        roller.classList.remove('spinning');\n        void roller.offsetWidth; // Trigger reflow\n        roller.classList.add('spinning');\n      });\n\n      // Update Slider Visuals\n      const containerWidth = container.getBoundingClientRect().width - 48; // Padding offset\n      const step = containerWidth / 3;\n      handle.style.left = `${24 + index * step}px`;\n\n      notches.forEach((notch, idx) => {\n        notch.classList.toggle('active', idx === index);\n      });\n\n      // Update Option Cards\n      optionCards.forEach((card, idx) => {\n        card.classList.toggle('active', idx === index);\n      });\n\n      // Post Answer\n      parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');\n    }\n\n    // Handle Dragging\n    function handlePointerMove(e) {\n      if (!isDragging || isLocked) return;\n      const rect = container.getBoundingClientRect();\n      const padding = 24;\n      const trackWidth = rect.width - (padding * 2);\n      const clientX = e.clientX || (e.touches && e.touches[0].clientX);\n      \n      let relativeX = clientX - rect.left - padding;\n      relativeX = Math.max(0, Math.min(relativeX, trackWidth));\n\n      // Live position of handle during drag\n      handle.style.left = `${padding + relativeX}px`;\n\n      // Find closest notch\n      const percentage = relativeX / trackWidth;\n      const closestIndex = Math.min(3, Math.max(0, Math.round(percentage * 3)));\n      \n      if (closestIndex !== currentIndex) {\n        updateLayout(closestIndex);\n      }\n    }\n\n    function initSlider() {\n      handle.addEventListener('pointerdown', (e) => {\n        if (isLocked) return;\n        isDragging = true;\n        handle.setPointerCapture(e.pointerId);\n      });\n\n      handle.addEventListener('pointermove', handlePointerMove);\n\n      const stopDrag = (e) => {\n        if (!isDragging) return;\n        isDragging = false;\n        // Snap to closest position\n        updateLayout(currentIndex);\n      };\n\n      handle.addEventListener('pointerup', stopDrag);\n      handle.addEventListener('pointercancel', stopDrag);\n\n      // Tap on track\n      container.addEventListener('pointerdown', (e) => {\n        if (isLocked || e.target === handle) return;\n        const rect = container.getBoundingClientRect();\n        const padding = 24;\n        const relativeX = e.clientX - rect.left - padding;\n        const percentage = relativeX / (rect.width - padding * 2);\n        const closestIndex = Math.min(3, Math.max(0, Math.round(percentage * 3)));\n        updateLayout(closestIndex);\n      });\n\n      // Tap on Option Cards\n      optionCards.forEach(card => {\n        card.addEventListener('click', () => {\n          if (isLocked) return;\n          const idx = parseInt(card.getAttribute('data-index'));\n          updateLayout(idx);\n        });\n      });\n\n      // Keyboard Controls\n      handle.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n          updateLayout(Math.min(3, currentIndex + 1));\n        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n          updateLayout(Math.max(0, currentIndex - 1));\n        }\n      });\n    }\n\n    // Host PostMessage Integrations\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        widget.classList.add('locked');\n        handle.removeAttribute('tabindex');\n      }\n    });\n\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    // Init Execution\n    window.addEventListener('load', () => {\n      initSlider();\n      updateLayout(0); // Start with first preset\n      reportHeight();\n      \n      // Setup height observer\n      const resizeObserver = new ResizeObserver(() => reportHeight());\n      resizeObserver.observe(document.body);\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Design -> Code -> Test -> Refine"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Exam: Data Representation and Analysis",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "If a computer system uses 8-bit bytes, what is the maximum number of unique patterns or values that a single byte can represent?",
+     "options": [
+      "128",
+      "255",
+      "256",
+      "1024"
+     ],
+     "explanation": "A byte consists of 8 bits, and since each bit has 2 possible states, the total number of combinations is 2 to the power of 8 (2^8), which equals 256.",
+     "correctAnswers": [
+      "256"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A student is converting the decimal number 45 into binary. Which of the following statements correctly describe the place values and bits involved in this 8-bit conversion?",
+     "options": [
+      "The 64s place will contain a 0.",
+      "The 32s place will contain a 1.",
+      "The 1s place (2^0) will contain a 1.",
+      "The 16s place will contain a 1.",
+      "The 2s place will contain a 1."
+     ],
+     "explanation": "To represent 45, we take 32 + 8 + 4 + 1. Therefore, the 32, 8, 4, and 1 columns are '1', while 64, 16, and 2 are '0'.",
+     "correctAnswers": [
+      "The 64s place will contain a 0.",
+      "The 32s place will contain a 1.",
+      "The 1s place (2^0) will contain a 1."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A developer is calculating storage needs. To convert a value from bits to bytes, you must perform the mathematical operation of dividing the bit count by ____.",
+     "placeholder": "Enter a number",
+     "correctAnswers": [
+      "8"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "An engineer opens an MP3 audio file in a basic text editor. Instead of hearing music, they see a series of random characters and symbols like 'ÿû' and '@#'. Why does this occur?",
+     "options": [
+      "The file was corrupted during the download process.",
+      "The text editor is interpreting audio binary patterns using ASCII/Unicode standards.",
+      "The computer's hardware cannot process binary data that lacks a file extension.",
+      "Binary data for audio is physically stored on different transistors than text data."
+     ],
+     "explanation": "This demonstrates data abstraction; the same bits can be interpreted as sound by a media player or as text by a word processor. The hardware doesn't change, only the software's decoding context.",
+     "correctAnswers": [
+      "The text editor is interpreting audio binary patterns using ASCII/Unicode standards."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the differences between ASCII and Unicode (UTF-8)?",
+     "options": [
+      "ASCII is limited to 128 characters, while Unicode can represent over a million.",
+      "Unicode UTF-8 uses a variable-width encoding for efficiency.",
+      "ASCII characters are completely incompatible with Unicode systems.",
+      "Unicode was developed specifically to include emojis and non-Latin alphabets.",
+      "ASCII requires 4 bytes per character, whereas Unicode requires only 1."
+     ],
+     "explanation": "ASCII is a subset of Unicode, meaning the first 128 characters of Unicode are identical to ASCII. Unicode's variable-width allows it to be efficient while supporting global characters.",
+     "correctAnswers": [
+      "ASCII is limited to 128 characters, while Unicode can represent over a million.",
+      "Unicode UTF-8 uses a variable-width encoding for efficiency.",
+      "Unicode was developed specifically to include emojis and non-Latin alphabets."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A text message is compressed using a technique where repeated patterns are replaced with shorter symbols, but the original text can be perfectly restored. This is known as ____ compression.",
+     "placeholder": "Type compression type",
+     "correctAnswers": [
+      "lossless"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of an RGB pixel with the Green channel active.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/535a0517-75a8-4059-9b3a-729187984d16/exam/images/unit2-q7.png"
+     },
+     "prompt": "In a standard RGB color model, each pixel is represented by 24 bits (8 bits per color channel). If a specific pixel has the binary value 00000000 11111111 00000000, what color will be displayed?",
+     "options": [
+      "Pure Red",
+      "Pure Green",
+      "Pure Blue",
+      "White"
+     ],
+     "explanation": "In RGB, the sequence is Red, Green, Blue. The middle byte (Green) is set to its maximum value (255 in decimal), while Red and Blue are at 0.",
+     "correctAnswers": [
+      "Pure Green"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following would be considered 'metadata' for a digital photograph taken on a smartphone?",
+     "options": [
+      "The date and time the photo was captured.",
+      "The GPS coordinates of the location.",
+      "The actual RGB values of the pixels in the center of the image.",
+      "The type of camera and lens settings used.",
+      "The file size of the image."
+     ],
+     "explanation": "Metadata is 'data about data.' It provides context (when, where, how) rather than the content (the actual pixel colors) of the image.",
+     "correctAnswers": [
+      "The date and time the photo was captured.",
+      "The GPS coordinates of the location.",
+      "The type of camera and lens settings used.",
+      "The file size of the image."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In character encoding, the lowercase 'a' (97) and uppercase 'A' (65) differ by exactly ____ bit(s) in their binary representation.",
+     "placeholder": "Number",
+     "correctAnswers": [
+      "1",
+      "one"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which statement best describes a characteristic of Lossy Compression?",
+     "options": [
+      "It allows for the original data to be reconstructed bit-for-bit.",
+      "It is typically used for executable programs and text documents.",
+      "It removes redundant or less noticeable information to significantly reduce file size.",
+      "It increases the quality of an image as the file size decreases."
+     ],
+     "explanation": "Lossy compression achieves high compression ratios by discarding data that is less perceptible to humans, making it ideal for media but not for text or code.",
+     "correctAnswers": [
+      "It removes redundant or less noticeable information to significantly reduce file size."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A researcher is cleaning a large dataset of weather temperatures before analysis. Which of the following tasks are part of the 'Data Cleaning' process?",
+     "options": [
+      "Removing duplicate entries recorded by a malfunctioning sensor.",
+      "Correcting inconsistent formats (e.g., '25C' vs '25 Celsius').",
+      "Creating a pie chart to visualize the distribution of temperatures.",
+      "Filtering out irrelevant data from a different city.",
+      "Calculating the average temperature of the entire month."
+     ],
+     "explanation": "Data cleaning focuses on fixing errors, inconsistencies, and redundancies. Visualization and calculation (averages) are parts of data analysis, not cleaning.",
+     "correctAnswers": [
+      "Removing duplicate entries recorded by a malfunctioning sensor.",
+      "Correcting inconsistent formats (e.g., '25C' vs '25 Celsius').",
+      "Filtering out irrelevant data from a different city."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "What is the primary risk of using an 'uncleaned' dataset for data analysis and visualization?",
+     "options": [
+      "The file size will be too large for a standard computer to open.",
+      "The visualization software will automatically delete the file.",
+      "The analysis might lead to false conclusions due to outliers or incorrect entries.",
+      "Metadata will be permanently deleted from the raw data."
+     ],
+     "explanation": "Inaccurate or messy data leads to 'garbage in, garbage out,' where the resulting insights are misleading or wrong.",
+     "correctAnswers": [
+      "The analysis might lead to false conclusions due to outliers or incorrect entries."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Which of the following binary sequences represent the decimal value 10?",
+     "options": [
+      "00001010",
+      "1010",
+      "00010010",
+      "1001",
+      "01010"
+     ],
+     "explanation": "The value 10 is 8 (2^3) + 2 (2^1). Leading zeros do not change the mathematical value of the sequence.",
+     "correctAnswers": [
+      "00001010",
+      "1010",
+      "01010"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "If you add one bit to a binary number, how does the number of possible unique values change?",
+     "options": [
+      "It increases by 1.",
+      "It stays the same.",
+      "It doubles.",
+      "It increases by 10."
+     ],
+     "explanation": "Adding a bit represents another power of 2. For example, 3 bits give 8 values, while 4 bits give 16 values.",
+     "correctAnswers": [
+      "It doubles."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "A technician needs to find the largest power of 2 that can be subtracted from the decimal value 100 to begin a binary conversion. Drag the selector to the correct power of 2.",
+     "options": [
+      "32",
+      "64",
+      "128",
+      "256"
+     ],
+     "explanation": "64 is the largest power of two that is less than or equal to 100. The next power of two is 128, which exceeds the target value.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Binary Scale Practice</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 20px;\n    }\n\n    /* Comparison Stage */\n    .stage {\n      width: 100%;\n      max-width: 440px;\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 20px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 16px;\n    }\n\n    .comparison-box {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n    }\n\n    .label-row {\n      display: flex;\n      justify-content: space-between;\n      font-size: 13px;\n      color: var(--muted-fg);\n      font-weight: 500;\n    }\n\n    .target-val {\n      color: var(--fg);\n      font-weight: 600;\n    }\n\n    /* Visual Bar Comparison */\n    .bar-container {\n      position: relative;\n      width: 100%;\n      height: 48px;\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      overflow: visible;\n    }\n\n    /* The target 100 boundary */\n    .target-marker {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 70%; /* 100 is positioned at 70% of the bar width to allow room for overflow up to 256 */\n      width: 2px;\n      background: var(--fg);\n      z-index: 2;\n    }\n\n    .target-marker::after {\n      content: 'Target: 100';\n      position: absolute;\n      top: -18px;\n      left: 50%;\n      transform: translateX(-50%);\n      font-size: 10px;\n      font-weight: bold;\n      color: var(--fg);\n      white-space: nowrap;\n    }\n\n    .fill-bar {\n      position: absolute;\n      top: 4px;\n      bottom: 4px;\n      left: 4px;\n      background: var(--accent);\n      border-radius: 4px;\n      transition: width 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);\n      z-index: 1;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n      padding-right: 8px;\n      box-sizing: border-box;\n      min-width: 8px;\n    }\n\n    .fill-bar.overflow {\n      background: var(--accent-strong);\n    }\n\n    .bar-value-label {\n      color: #ffffff;\n      font-size: 12px;\n      font-weight: bold;\n      font-variant-numeric: tabular-nums;\n    }\n\n    /* Slider Scale Controls */\n    .slider-container {\n      width: 100%;\n      max-width: 440px;\n      padding: 10px 10px 24px 10px;\n      box-sizing: border-box;\n      position: relative;\n    }\n\n    .slider-track-wrap {\n      position: relative;\n      height: 40px;\n      display: flex;\n      align-items: center;\n      cursor: pointer;\n      touch-action: none;\n    }\n\n    .slider-track {\n      width: 100%;\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n      position: relative;\n    }\n\n    .slider-ticks {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .tick {\n      position: absolute;\n      width: 12px;\n      height: 12px;\n      background: var(--border);\n      border-radius: 50%;\n      top: 50%;\n      transform: translate(-50%, -50%);\n      transition: var(--transition);\n    }\n\n    .tick.active {\n      background: var(--accent);\n      transform: translate(-50%, -50%) scale(1.2);\n    }\n\n    .tick-label {\n      position: absolute;\n      top: 20px;\n      left: 50%;\n      transform: translateX(-50%);\n      font-size: 13px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      transition: var(--transition);\n    }\n\n    .tick.active .tick-label {\n      color: var(--fg);\n      font-size: 14px;\n    }\n\n    .slider-handle {\n      position: absolute;\n      width: 28px;\n      height: 28px;\n      background: var(--surface);\n      border: 3px solid var(--accent);\n      border-radius: 50%;\n      top: 50%;\n      transform: translate(-50%, -50%);\n      cursor: grab;\n      box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n      z-index: 3;\n      transition: transform 0.1s ease, box-shadow 0.1s ease;\n      touch-action: none;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      transform: translate(-50%, -50%) scale(1.15);\n      box-shadow: 0 4px 10px rgba(0,0,0,0.2);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .hint-text {\n      font-size: 12px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: -4px;\n    }\n\n    /* Disabled state */\n    .locked {\n      pointer-events: none !important;\n    }\n    .locked .slider-handle {\n      border-color: var(--muted-fg);\n      cursor: default;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Binary Scale: Fits into 100</h1>\n\n  <div class=\"widget-container\" id=\"widget\">\n    \n    <!-- Visual Stage -->\n    <div class=\"stage\">\n      <div class=\"comparison-box\">\n        <div class=\"label-row\">\n          <span>Binary Value Comparison</span>\n          <span>Target: <span class=\"target-val\">100</span></span>\n        </div>\n        <div class=\"bar-container\">\n          <div class=\"target-marker\"></div>\n          <div class=\"fill-bar\" id=\"fillBar\" style=\"width: 11.2%;\">\n            <span class=\"bar-value-label\" id=\"barVal\">16</span>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Slider Scale -->\n    <div class=\"slider-container\">\n      <div class=\"slider-track-wrap\" id=\"trackWrap\" role=\"slider\" aria-label=\"Power of 2 Selector\" aria-valuemin=\"16\" aria-valuemax=\"256\" aria-valuenow=\"16\" tabindex=\"0\">\n        <div class=\"slider-track\">\n          <div class=\"slider-ticks\" id=\"ticksContainer\"></div>\n        </div>\n        <div class=\"slider-handle\" id=\"handle\" style=\"left: 0%;\"></div>\n      </div>\n    </div>\n\n    <div class=\"hint-text\">Drag the selector along the powers of 2 scale</div>\n  </div>\n\n  <script>\n    const steps = [16, 32, 64, 128, 256];\n    const options = [\"32\", \"64\", \"128\", \"256\"];\n    let currentIndex = 0;\n    let isDragging = false;\n    let startX = 0;\n    let startLeftPercent = 0;\n    let hasInteracted = false;\n\n    const widget = document.getElementById('widget');\n    const trackWrap = document.getElementById('trackWrap');\n    const handle = document.getElementById('handle');\n    const fillBar = document.getElementById('fillBar');\n    const barVal = document.getElementById('barVal');\n    const ticksContainer = document.getElementById('ticksContainer');\n\n    // Create ticks dynamically\n    steps.forEach((step, idx) => {\n      const pct = (idx / (steps.length - 1)) * 100;\n      const tick = document.createElement('div');\n      tick.className = `tick ${idx === currentIndex ? 'active' : ''}`;\n      tick.style.left = `${pct}%`;\n      tick.innerHTML = `<span class=\"tick-label\">${step}</span>`;\n      ticksContainer.appendChild(tick);\n    });\n\n    const ticks = document.querySelectorAll('.tick');\n\n    function updateUI(index) {\n      currentIndex = index;\n      const val = steps[index];\n      const pct = (index / (steps.length - 1)) * 100;\n\n      // Update handle position\n      handle.style.left = `${pct}%`;\n\n      // Update ticks active classes\n      ticks.forEach((t, idx) => {\n        if (idx === index) {\n          t.classList.add('active');\n        } else {\n          t.classList.remove('active');\n        }\n      });\n\n      // Update comparison bar\n      // Target 100 is at 70% of the container width. \n      // Ratio: width = (val / 100) * 70%.\n      let barWidthPct = (val / 100) * 70;\n      // Cap at 100% minus safety padding\n      if (barWidthPct > 98) barWidthPct = 98;\n      fillBar.style.width = `${barWidthPct}%`;\n      barVal.textContent = val;\n\n      if (val > 100) {\n        fillBar.classList.add('overflow');\n      } else {\n        fillBar.classList.remove('overflow');\n      }\n\n      // Update ARIA\n      trackWrap.setAttribute('aria-valuenow', val);\n\n      // Report answer if it is one of the distinct options\n      if (hasInteracted && options.includes(val.toString())) {\n        parent.postMessage({ type: 'hk-practice-answer', value: val.toString() }, '*');\n      }\n    }\n\n    // Pointer Dragging Logic\n    function getPointerX(e) {\n      return e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);\n    }\n\n    function onPointerDown(e) {\n      if (widget.classList.contains('locked')) return;\n      isDragging = true;\n      hasInteracted = true;\n      trackWrap.focus();\n      \n      const rect = trackWrap.getBoundingClientRect();\n      const clickX = getPointerX(e) - rect.left;\n      const pct = Math.max(0, Math.min(100, (clickX / rect.width) * 100));\n      \n      // Snap to closest step immediately on down\n      const closestIdx = getClosestStepIndex(pct);\n      updateUI(closestIdx);\n\n      // Setup offsets\n      startX = getPointerX(e);\n      startLeftPercent = (closestIdx / (steps.length - 1)) * 100;\n\n      window.addEventListener('pointermove', onPointerMove);\n      window.addEventListener('pointerup', onPointerUp);\n      e.preventDefault();\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging) return;\n      const rect = trackWrap.getBoundingClientRect();\n      const deltaX = getPointerX(e) - startX;\n      const deltaPct = (deltaX / rect.width) * 100;\n      const currentPct = Math.max(0, Math.min(100, startLeftPercent + deltaPct));\n      \n      const closestIdx = getClosestStepIndex(currentPct);\n      if (closestIdx !== currentIndex) {\n        updateUI(closestIdx);\n      }\n    }\n\n    function onPointerUp() {\n      isDragging = false;\n      window.removeEventListener('pointermove', onPointerMove);\n      window.removeEventListener('pointerup', onPointerUp);\n    }\n\n    function getClosestStepIndex(pct) {\n      let closestIdx = 0;\n      let minDiff = Infinity;\n      steps.forEach((_, idx) => {\n        const stepPct = (idx / (steps.length - 1)) * 100;\n        const diff = Math.abs(stepPct - pct);\n        if (diff < minDiff) {\n          minDiff = diff;\n          closestIdx = idx;\n        }\n      });\n      return closestIdx;\n    }\n\n    // Track click fallback\n    trackWrap.addEventListener('pointerdown', onPointerDown);\n\n    // Keyboard support\n    trackWrap.addEventListener('keydown', (e) => {\n      if (widget.classList.contains('locked')) return;\n      hasInteracted = true;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        if (currentIndex < steps.length - 1) {\n          updateUI(currentIndex + 1);\n        }\n        e.preventDefault();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        if (currentIndex > 0) {\n          updateUI(currentIndex - 1);\n        }\n        e.preventDefault();\n      }\n    });\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        widget.classList.add('locked');\n        trackWrap.removeAttribute('tabindex');\n      }\n    });\n\n    // Height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Initialize UI\n    updateUI(0);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "64"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Exam: Algorithms and Programming",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Consider the following code segment: \n`val1 ← 10` \n`val2 ← 5` \n`val1 ← val1 + val2` \n`val2 ← val1 - val2` \n`val1 ← val1 - val2` \nWhat are the final values of `val1` and `val2`?",
+     "options": [
+      "val1 = 10, val2 = 5",
+      "val1 = 5, val2 = 10",
+      "val1 = 15, val2 = 5",
+      "val1 = 5, val2 = 5"
+     ],
+     "explanation": "This is a classic arithmetic swap. First, val1 becomes 15. Then val2 becomes 15 - 5 = 10. Finally, val1 becomes 15 - 10 = 5. The values are swapped without a temporary variable.",
+     "correctAnswers": [
+      "val1 = 5, val2 = 10"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A student is designing a program to track weather data. Which of the following data types would be most appropriate for the specific data points mentioned?",
+     "options": [
+      "A Boolean to track if it is currently raining.",
+      "An Integer to track the exact wind speed measured as 14.7 mph.",
+      "A String to store the name of the observation city.",
+      "A Float to store the number of days in the current month."
+     ],
+     "explanation": "Booleans are perfect for binary states like 'is raining'. Strings are correct for text. Wind speed with decimals requires a Float, and days in a month should be an Integer since you cannot have a fraction of a day in this context.",
+     "correctAnswers": [
+      "A Boolean to track if it is currently raining.",
+      "A String to store the name of the observation city."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In computer science, the statement `x ← 10` is not a statement of equality, but rather an instruction where the value 10 is copied into the memory location named x. This process is known as ____.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "assignment",
+      "variable assignment"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the result of the expression `17 MOD 5`?",
+     "options": [
+      "3",
+      "2",
+      "0.4",
+      "1"
+     ],
+     "explanation": "The modulus operator returns the remainder of a division. 17 divided by 5 is 3 with a remainder of 2.",
+     "correctAnswers": [
+      "2"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following statements about the 'Sequential Execution Model' are true?",
+     "options": [
+      "The computer executes statements one at a time from top to bottom.",
+      "A line of code can retroactively change the result of a line that already finished executing.",
+      "All lines in a program block run simultaneously to save time.",
+      "The current state of a program depends on the order in which operations were performed."
+     ],
+     "explanation": "Programs are strictly sequential and linear; they do not run simultaneously by default, and they cannot change the past state of finished lines.",
+     "correctAnswers": [
+      "The computer executes statements one at a time from top to bottom.",
+      "The current state of a program depends on the order in which operations were performed."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "If a linear search takes a maximum of 1,000 steps to find a value in a list of 1,000 items, a binary search would take a maximum of approximately ____ steps for the same list.",
+     "placeholder": "Number of steps",
+     "correctAnswers": [
+      "10"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a binary search algorithm, what is the prerequisite for the list being searched?",
+     "options": [
+      "The list must contain only integers.",
+      "The list must be sorted.",
+      "The list must have an even number of elements.",
+      "The list must be shorter than 100 items."
+     ],
+     "explanation": "Binary search works by splitting the search space in half based on whether the target is higher or lower than the midpoint, which is only possible if the data is sorted.",
+     "correctAnswers": [
+      "The list must be sorted."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Why do programmers use procedural abstraction (creating procedures/functions)?",
+     "options": [
+      "To reduce code duplication by reusing logic.",
+      "To make the program run faster on the CPU.",
+      "To hide complex details and focus on high-level logic.",
+      "To ensure that variables inside the procedure can be accessed from anywhere in the program."
+     ],
+     "explanation": "Abstraction is about managing complexity and reusability. It does not necessarily speed up the CPU, and 'local' variables in procedures are actually hidden from the rest of the program.",
+     "correctAnswers": [
+      "To reduce code duplication by reusing logic.",
+      "To hide complex details and focus on high-level logic."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A procedure is called with specific values known as ____, which are assigned to the procedure's parameters.",
+     "placeholder": "Term for values passed",
+     "correctAnswers": [
+      "arguments"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A programmer writes: `val ← \"42\"`. What will happen if they then try to execute `val ← val + 1` in a strict data-type environment?",
+     "options": [
+      "The value of val becomes 43.",
+      "The value of val becomes \"421\".",
+      "An error occurs because you cannot add an integer to a string.",
+      "The value of val becomes \"43\"."
+     ],
+     "explanation": "In most strict environments, the string \"42\" is text, not a number, and mathematical operations cannot be performed on text.",
+     "correctAnswers": [
+      "An error occurs because you cannot add an integer to a string."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of program 'Inputs'?",
+     "options": [
+      "A temperature sensor reading a value of 72 degrees.",
+      "A message printed to the console window.",
+      "A user clicking a 'Submit' button on a form.",
+      "The computer speakers playing a beep sound.",
+      "A data file being read from the hard drive."
+     ],
+     "explanation": "Inputs are data entering the program from the outside world (sensors, users, files). Printing to console and playing sounds are outputs.",
+     "correctAnswers": [
+      "A temperature sensor reading a value of 72 degrees.",
+      "A user clicking a 'Submit' button on a form.",
+      "A data file being read from the hard drive."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The logical structure that allows a program to choose different paths of execution based on a condition is called ____.",
+     "placeholder": "Logic structure name",
+     "correctAnswers": [
+      "selection",
+      "conditionals",
+      "if-statements"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In AP Pseudocode, what is the result of the following? \n`x ← 5` \n`y ← 10` \n`x ← y` \n`y ← x` \n`DISPLAY(x + y)`",
+     "options": [
+      "15",
+      "20",
+      "10",
+      "5"
+     ],
+     "explanation": "After `x ← y`, x is 10. Then `y ← x` sets y to the current value of x (which is 10). Both are now 10, so 10 + 10 = 20.",
+     "correctAnswers": [
+      "20"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following loop structures are commonly used for 'Iteration' in programming?",
+     "options": [
+      "A Repeat-Until loop that runs until a condition is true.",
+      "A For-Each loop that traverses every item in a list.",
+      "An If-Else statement that checks a condition once.",
+      "A While loop that runs as long as a condition remains true."
+     ],
+     "explanation": "Loops are for iteration (repetition). If-Else is a selection statement for making decisions, not for repeating code.",
+     "correctAnswers": [
+      "A Repeat-Until loop that runs until a condition is true.",
+      "A For-Each loop that traverses every item in a list.",
+      "A While loop that runs as long as a condition remains true."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "A robot is moving through a 1D list of indices [0, 1, 2, 3, 4, 5, 6]. Drag the robot to the position it would occupy after executing a Binary Search for the value 5, assuming it starts by checking the exact midpoint (rounding down for even lengths).",
+     "options": [
+      "Index 1",
+      "Index 3",
+      "Index 5",
+      "Index 6"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Binary Search Robot</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      margin: 0;\n      padding: 16px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      min-height: 100vh;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 500px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 20px;\n      box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n    }\n\n    /* 1D Grid styling */\n    .array-container {\n      display: flex;\n      justify-content: space-between;\n      gap: 6px;\n      background: var(--stage);\n      padding: 12px;\n      border-radius: 8px;\n      position: relative;\n    }\n\n    .array-cell {\n      flex: 1;\n      aspect-ratio: 1;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 6px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n      transition: background-color 0.2s, border-color 0.2s;\n    }\n\n    .array-cell.disabled {\n      background: #ebe9e4;\n      opacity: 0.5;\n    }\n\n    .cell-index {\n      font-size: 11px;\n      color: var(--muted-fg);\n      position: absolute;\n      top: 4px;\n      left: 6px;\n      font-weight: 600;\n    }\n\n    .cell-value {\n      font-size: 18px;\n      font-weight: bold;\n      color: var(--fg);\n      margin-top: 8px;\n    }\n\n    /* Target drop zones */\n    .drop-zone {\n      position: absolute;\n      top: 0;\n      left: 0;\n      right: 0;\n      bottom: 0;\n      border-radius: 6px;\n      border: 2px dashed transparent;\n      display: flex;\n      align-items: flex-end;\n      justify-content: center;\n      padding-bottom: 6px;\n      cursor: pointer;\n    }\n\n    .cell-target .drop-zone {\n      border-color: var(--accent);\n      background: rgba(76, 102, 150, 0.03);\n    }\n\n    .cell-target.active {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n      box-shadow: 0 0 0 2px var(--accent);\n    }\n\n    /* Robot / Token container */\n    .robot-home {\n      height: 80px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      border-top: 1px dashed var(--border);\n      padding-top: 10px;\n      position: relative;\n    }\n\n    .robot-token {\n      width: 50px;\n      height: 50px;\n      background: var(--accent);\n      border-radius: 50px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      cursor: grab;\n      box-shadow: 0 4px 8px rgba(76, 102, 150, 0.3);\n      position: absolute;\n      touch-action: none;\n      z-index: 10;\n      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;\n    }\n\n    .robot-token:active {\n      cursor: grabbing;\n    }\n\n    .robot-token.dragging {\n      transition: none;\n      box-shadow: 0 8px 16px rgba(76, 102, 150, 0.4);\n      transform: scale(1.08);\n    }\n\n    .robot-svg {\n      width: 32px;\n      height: 32px;\n      fill: #ffffff;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Binary Search Robot Simulation</h1>\n\n  <div id=\"widget-container\">\n    <p class=\"action-hint\">Drag the robot onto the final target index of the binary search</p>\n\n    <!-- 1D List visualization -->\n    <div class=\"array-container\" id=\"array-track\">\n      <!-- Index 0 (Disabled) -->\n      <div class=\"array-cell disabled\">\n        <span class=\"cell-index\">0</span>\n        <span class=\"cell-value\">0</span>\n      </div>\n      <!-- Index 1 (Option) -->\n      <div class=\"array-cell cell-target\" data-option=\"Index 1\" data-index=\"1\">\n        <span class=\"cell-index\">1</span>\n        <span class=\"cell-value\">1</span>\n        <div class=\"drop-zone\"></div>\n      </div>\n      <!-- Index 2 (Disabled) -->\n      <div class=\"array-cell disabled\">\n        <span class=\"cell-index\">2</span>\n        <span class=\"cell-value\">2</span>\n      </div>\n      <!-- Index 3 (Option) -->\n      <div class=\"array-cell cell-target\" data-option=\"Index 3\" data-index=\"3\">\n        <span class=\"cell-index\">3</span>\n        <span class=\"cell-value\">3</span>\n        <div class=\"drop-zone\"></div>\n      </div>\n      <!-- Index 4 (Disabled) -->\n      <div class=\"array-cell disabled\">\n        <span class=\"cell-index\">4</span>\n        <span class=\"cell-value\">4</span>\n      </div>\n      <!-- Index 5 (Option) -->\n      <div class=\"array-cell cell-target\" data-option=\"Index 5\" data-index=\"5\">\n        <span class=\"cell-index\">5</span>\n        <span class=\"cell-value\">5</span>\n        <div class=\"drop-zone\"></div>\n      </div>\n      <!-- Index 6 (Option) -->\n      <div class=\"array-cell cell-target\" data-option=\"Index 6\" data-index=\"6\">\n        <span class=\"cell-index\">6</span>\n        <span class=\"cell-value\">6</span>\n        <div class=\"drop-zone\"></div>\n      </div>\n    </div>\n\n    <!-- Robot Spawn Area -->\n    <div class=\"robot-home\" id=\"spawn-area\">\n      <div class=\"robot-token\" id=\"robot\" tabindex=\"0\" role=\"slider\" aria-label=\"Robot index slider\" aria-valuemin=\"1\" aria-valuemax=\"6\">\n        <!-- Minimal SVG Robot Icon -->\n        <svg class=\"robot-svg\" viewBox=\"0 0 24 24\">\n          <path d=\"M19,8H17.82A4.89,4.89,0,0,0,13,4V3h1a1,1,0,0,0,0-2H10a1,1,0,0,0,0,2h1V4A4.89,4.89,0,0,0,6.18,8H5a3,3,0,0,0-3,3v3a3,3,0,0,0,3,3h.18A4.89,4.89,0,0,0,10,20v1H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2H14V20a4.89,4.89,0,0,0,3.82-3H18a3,3,0,0,0,3-3V11A3,3,0,0,0,19,8ZM8,12a1.5,1.5,0,1,1,1.5-1.5,1.5,1.5,0,0,1-1.5,1.5Zm8,0a1.5,1.5,0,1,1,1.5-1.5,1.5,1.5,0,0,1-1.5,1.5Z\"/>\n        </svg>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    const robot = document.getElementById('robot');\n    const spawnArea = document.getElementById('spawn-area');\n    const targets = document.querySelectorAll('.cell-target');\n    let activeOption = null;\n    let isLocked = false;\n\n    // Position State\n    let currentX = 0;\n    let currentY = 0;\n    let startX = 0;\n    let startY = 0;\n\n    // Reset/Initialize position of Robot in home\n    function resetRobotToHome() {\n      const homeRect = spawnArea.getBoundingClientRect();\n      const robotRect = robot.getBoundingClientRect();\n      const x = (homeRect.width - robotRect.width) / 2;\n      const y = (homeRect.height - robotRect.height) / 2;\n      setRobotPos(x, y);\n    }\n\n    function setRobotPos(x, y) {\n      currentX = x;\n      currentY = y;\n      robot.style.left = `${x}px`;\n      robot.style.top = `${y}px`;\n    }\n\n    // Initialize layout\n    window.addEventListener('load', () => {\n      resetRobotToHome();\n      reportHeight();\n    });\n\n    window.addEventListener('resize', () => {\n      if (!activeOption) {\n        resetRobotToHome();\n      } else {\n        const activeCell = document.querySelector(`.cell-target[data-option=\"${activeOption}\"]`);\n        snapToCell(activeCell);\n      }\n      reportHeight();\n    });\n\n    // Drag Logic\n    robot.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      robot.setPointerCapture(e.pointerId);\n      robot.classList.add('dragging');\n\n      const robotRect = robot.getBoundingClientRect();\n      startX = e.clientX - robotRect.left;\n      startY = e.clientY - robotRect.top;\n    });\n\n    robot.addEventListener('pointermove', (e) => {\n      if (!robot.classList.contains('dragging')) return;\n\n      const containerRect = spawnArea.parentElement.getBoundingClientRect();\n      // Calculate position relative to container\n      const x = e.clientX - containerRect.left - startX;\n      const y = e.clientY - containerRect.top - startY;\n\n      // Update position (absolute positioning within container context)\n      robot.style.left = `${x}px`;\n      robot.style.top = `${y}px`;\n\n      // Visual feedback: check for overlap\n      checkOverlap(e.clientX, e.clientY);\n    });\n\n    robot.addEventListener('pointerup', (e) => {\n      if (!robot.classList.contains('dragging')) return;\n      robot.classList.remove('dragging');\n      robot.releasePointerCapture(e.pointerId);\n\n      findBestDrop(e.clientX, e.clientY);\n    });\n\n    function checkOverlap(pointerX, pointerY) {\n      targets.forEach(cell => {\n        const rect = cell.getBoundingClientRect();\n        if (pointerX >= rect.left && pointerX <= rect.right &&\n            pointerY >= rect.top && pointerY <= rect.bottom) {\n          cell.classList.add('active');\n        } else {\n          cell.classList.remove('active');\n        }\n      });\n    }\n\n    function findBestDrop(pointerX, pointerY) {\n      let matchedCell = null;\n\n      targets.forEach(cell => {\n        const rect = cell.getBoundingClientRect();\n        if (pointerX >= rect.left && pointerX <= rect.right &&\n            pointerY >= rect.top && pointerY <= rect.bottom) {\n          matchedCell = cell;\n        }\n      });\n\n      if (matchedCell) {\n        snapToCell(matchedCell);\n      } else {\n        // Return to home\n        resetRobotToHome();\n        if (activeOption !== null) {\n          activeOption = null;\n          targets.forEach(c => c.classList.remove('active'));\n        }\n      }\n    }\n\n    function snapToCell(cell) {\n      targets.forEach(c => c.classList.remove('active'));\n      cell.classList.add('active');\n\n      const containerRect = spawnArea.parentElement.getBoundingClientRect();\n      const cellRect = cell.getBoundingClientRect();\n      const robotRect = robot.getBoundingClientRect();\n\n      // Position centered over the cell\n      const x = cellRect.left - containerRect.left + (cellRect.width - robotRect.width) / 2;\n      const y = cellRect.top - containerRect.top + (cellRect.height - robotRect.height) / 2;\n\n      setRobotPos(x, y);\n\n      const option = cell.getAttribute('data-option');\n      if (activeOption !== option) {\n        activeOption = option;\n        parent.postMessage({ type: 'hk-practice-answer', value: option }, '*');\n      }\n    }\n\n    // Keyboard support\n    const targetOptions = [\"Index 1\", \"Index 3\", \"Index 5\", \"Index 6\"];\n    let currentIdx = -1;\n\n    robot.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        currentIdx = Math.min(currentIdx + 1, targetOptions.length - 1);\n        const cell = document.querySelector(`.cell-target[data-option=\"${targetOptions[currentIdx]}\"]`);\n        snapToCell(cell);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        currentIdx = Math.max(currentIdx - 1, 0);\n        const cell = document.querySelector(`.cell-target[data-option=\"${targetOptions[currentIdx]}\"]`);\n        snapToCell(cell);\n      }\n    });\n\n    // Lock support\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        robot.style.pointerEvents = 'none';\n        robot.style.cursor = 'default';\n      }\n    });\n\n    // Height reporter\n    function reportHeight() {\n      try {\n        parent.postMessage({ \n          type: 'hk-anim-height', \n          height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n        }, '*');\n      } catch (e) {}\n    }\n\n    new ResizeObserver(reportHeight).observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Index 5"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Exam: Computer Systems and Networks",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which component acts as the 'volatile workspace' where programs must be moved before the CPU can execute their instructions?",
+     "options": [
+      "Hard Drive / SSD",
+      "Random Access Memory (RAM)",
+      "Motherboard Bus Controller",
+      "Video Card Frame Buffer"
+     ],
+     "explanation": "RAM is the volatile, high-speed workspace used by the CPU. While programs are stored permanently on non-volatile drives, they must be copied to RAM for active processing.",
+     "correctAnswers": [
+      "Random Access Memory (RAM)"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A user clicks a key on their keyboard. Which of the following events occur as that signal travels through the system hardware?",
+     "options": [
+      "The signal is held in RAM while an interrupt alerts the CPU",
+      "The keyboard sends a binary pattern through a motherboard bus",
+      "The CPU writes updated data to the frame buffer in RAM",
+      "The input device communicates directly with the monitor to reduce lag",
+      "The OS bypasses the CPU to write directly to the hard drive"
+     ],
+     "explanation": "Data moves from the keyboard to the bus, into RAM, and is processed by the CPU before being sent to the frame buffer for display. Input devices never communicate directly with output devices without CPU/RAM mediation.",
+     "correctAnswers": [
+      "The signal is held in RAM while an interrupt alerts the CPU",
+      "The keyboard sends a binary pattern through a motherboard bus",
+      "The CPU writes updated data to the frame buffer in RAM"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "single",
+     "prompt": "At the lowest level of the abstraction stack, how does the physical hardware represent and process data?",
+     "options": [
+      "By interpreting high and low electrical voltages through silicon transistors",
+      "By running high-level system calls directly on the motherboard",
+      "By converting Python code into logic gate diagrams in real-time",
+      "By using the Operating System to modulate fiber optic light pulses"
+     ],
+     "explanation": "The lowest level consists of physical silicon and electricity. Transistors form logic gates that interpret voltage levels as binary bits.",
+     "correctAnswers": [
+      "By interpreting high and low electrical voltages through silicon transistors"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "multiple",
+     "prompt": "Which of the following are primary responsibilities of the Operating System (OS)?",
+     "options": [
+      "Managing hardware resources like CPU time and RAM allocation",
+      "Rendering the HTML and CSS of a specific web page",
+      "Enforcing file permissions and managing the file system",
+      "Providing drivers to facilitate communication with devices",
+      "Calculating the internal physics logic for a 3D video game"
+     ],
+     "explanation": "The OS acts as a resource manager and intermediary. Application-specific tasks like web rendering or game logic are handled in the 'User Space' by the applications themselves.",
+     "correctAnswers": [
+      "Managing hardware resources like CPU time and RAM allocation",
+      "Enforcing file permissions and managing the file system",
+      "Providing drivers to facilitate communication with devices"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "single",
+     "prompt": "In a system architecture, what is the primary danger of a 'Single Point of Failure' (SPOF)?",
+     "options": [
+      "It increases the cost of the electrical power supply",
+      "It forces the CPU to use secondary storage instead of RAM",
+      "If that one component fails, the entire system stops functioning",
+      "It prevents the system from using abstraction layers"
+     ],
+     "explanation": "A SPOF is a critical link in a linear chain. Without redundancy, the failure of this single part results in total system downtime.",
+     "correctAnswers": [
+      "If that one component fails, the entire system stops functioning"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "multiple",
+     "prompt": "Which strategies can be used to improve system reliability and mitigate physical hardware degradation?",
+     "options": [
+      "Implementing redundant power supplies in parallel",
+      "Using mirrored drive arrays (RAIDs)",
+      "Removing abstraction barriers to let applications touch hardware",
+      "Adding secondary network service providers",
+      "Replacing all binary logic with high-level code"
+     ],
+     "explanation": "Redundancy (duplicating critical components) ensures that if one part fails, the system continues to operate. Abstraction and code levels do not prevent physical hardware failure.",
+     "correctAnswers": [
+      "Implementing redundant power supplies in parallel",
+      "Using mirrored drive arrays (RAIDs)",
+      "Adding secondary network service providers"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "Why is the abstraction stack crucial for modern software development?",
+     "options": [
+      "It allows developers to write code without rewiring physical silicon for every update",
+      "It increases the physical speed of electricity through copper wires",
+      "It eliminates the need for an Operating System",
+      "It ensures that hardware never suffers from thermal stress"
+     ],
+     "explanation": "Abstraction provides protective boundaries and standard interfaces, so high-level changes don't require low-level physical re-engineering.",
+     "correctAnswers": [
+      "It allows developers to write code without rewiring physical silicon for every update"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are physical transmission paths used for the internet infrastructure?",
+     "options": [
+      "Fiber-optic cables using light pulses",
+      "Copper wires using electrical signals",
+      "Radio waves through the air",
+      "Virtual memory protocols",
+      "Operating System Kernels"
+     ],
+     "explanation": "Internet infrastructure relies on physical media to move bits. Virtual memory and Kernels are software abstractions, not physical transmission media.",
+     "correctAnswers": [
+      "Fiber-optic cables using light pulses",
+      "Copper wires using electrical signals",
+      "Radio waves through the air"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "single",
+     "prompt": "What is the key difference between how a web browser and an OS interact with memory?",
+     "options": [
+      "The browser manages physical RAM chips; the OS manages the code",
+      "The browser requests memory; the OS decides where it maps in physical RAM",
+      "The OS converts documents to PDF; the browser stores them in sectors",
+      "There is no difference; they both access hardware directly"
+     ],
+     "explanation": "Applications (like browsers) operate in User Space and must request resources from the OS, which performs the actual hardware allocation.",
+     "correctAnswers": [
+      "The browser requests memory; the OS decides where it maps in physical RAM"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "multiple",
+     "prompt": "A system architect is looking for Single Points of Failure in a data center. Which of the following would be flagged?",
+     "options": [
+      "A server connected to only one power grid source",
+      "A database stored on a single hard drive with no mirrors",
+      "A network with two different ISP providers",
+      "A building with only one fiber-optic line entering the premises",
+      "A CPU with multiple cooling fans"
+     ],
+     "explanation": "Single power sources, single drives, and single entry lines are all SPOFs. Redundant ISPs and multiple fans provide fault tolerance.",
+     "correctAnswers": [
+      "A server connected to only one power grid source",
+      "A database stored on a single hard drive with no mirrors",
+      "A building with only one fiber-optic line entering the premises"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "single",
+     "prompt": "When tracing the route of a keypress to a monitor, where is the 'frame buffer' located?",
+     "options": [
+      "Inside the physical keyboard switch",
+      "In a specific region of RAM",
+      "Inside the CPU's logic gates",
+      "On the hard drive's storage sectors"
+     ],
+     "explanation": "The CPU writes the processed image data to a frame buffer in RAM, which the video card then uses to update the monitor.",
+     "correctAnswers": [
+      "In a specific region of RAM"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "multiple",
+     "prompt": "Identify the factors that cause physical hardware to degrade over time as mentioned in the lesson.",
+     "options": [
+      "Thermal stress",
+      "Electromigration",
+      "Software updates",
+      "Power fluctuations",
+      "High-level abstraction"
+     ],
+     "explanation": "Physical factors like heat, electricity movement (electromigration), and power spikes cause wear and tear on silicon and circuits.",
+     "correctAnswers": [
+      "Thermal stress",
+      "Electromigration",
+      "Power fluctuations"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "How does software, which is logical, command hardware, which is physical?",
+     "options": [
+      "Through electrical charges that direct physical switches",
+      "By rewriting the physical properties of silicon on the fly",
+      "By bypassing the RAM to speak to the CPU directly",
+      "By converting bits into high-level programming languages"
+     ],
+     "explanation": "Software instructions are ultimately represented as electrical charges that toggle transistors (switches) within the hardware components.",
+     "correctAnswers": [
+      "Through electrical charges that direct physical switches"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Why is it incorrect to assume that a computer system is a 'perfect digital environment'?",
+     "options": [
+      "Digital abstractions are built on vulnerable physical substrates",
+      "Components are subject to the laws of physics and degradation",
+      "Binary digits can only be stored in non-volatile memory",
+      "Environmental factors like heat affect computational reliability",
+      "Logic gates can only process high-level languages"
+     ],
+     "explanation": "Computing is grounded in physical reality, meaning hardware can fail due to heat, wear, and physical instability despite the 'perfection' of logic.",
+     "correctAnswers": [
+      "Digital abstractions are built on vulnerable physical substrates",
+      "Components are subject to the laws of physics and degradation",
+      "Environmental factors like heat affect computational reliability"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Which of these is the most accurate hierarchy of the abstraction stack from 'closest to hardware' to 'closest to user'?",
+     "options": [
+      "Logic Gates -> Binary -> OS -> Web Browser",
+      "OS -> Logic Gates -> Binary -> Web Browser",
+      "Web Browser -> OS -> Binary -> Logic Gates",
+      "Binary -> OS -> Logic Gates -> Web Browser"
+     ],
+     "explanation": "Logic gates are the physical/logical bridge, binary represents the data, the OS manages those resources, and the browser is the high-level application the user sees.",
+     "correctAnswers": [
+      "Logic Gates -> Binary -> OS -> Web Browser"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Construct a fault-tolerant network path between the User and the Database by dragging the redundant connection to its proper place.",
+     "options": [
+      "Linear connection (User -> Router -> DB)",
+      "Partial Redundancy (User -> Router A/B -> DB)",
+      "Full Fault Tolerance (User -> Router A/B -> DB A/B)",
+      "Isolated (User -> Router A; DB -> Router B)"
+     ],
+     "explanation": "To eliminate all single points of failure, both the routing path and the storage destination must be duplicated so that no single component crash stops the data flow.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Fault Tolerance Network Builder</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --active-green: #4caf50;\n      --active-green-soft: #e8f5e9;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      user-select: none;\n      -webkit-user-select: none;\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      position: relative;\n      height: 220px;\n      overflow: hidden;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Toolbox Area */\n    .toolbox {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 10px;\n      display: flex;\n      justify-content: space-around;\n      align-items: center;\n      gap: 10px;\n    }\n\n    .toolbox-title {\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      color: var(--muted-fg);\n      font-weight: 600;\n      width: 100%;\n      text-align: center;\n      margin-bottom: 4px;\n    }\n\n    .toolbox-flex {\n      display: flex;\n      width: 100%;\n      justify-content: space-around;\n      gap: 8px;\n    }\n\n    /* Draggable Item */\n    .drag-item {\n      background: var(--surface);\n      border: 2px solid var(--border);\n      border-radius: 8px;\n      padding: 6px 12px;\n      cursor: grab;\n      display: flex;\n      align-items: center;\n      gap: 6px;\n      font-size: 13px;\n      font-weight: 500;\n      box-shadow: 0 2px 4px rgba(0,0,0,0.05);\n      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;\n      touch-action: none;\n      z-index: 10;\n    }\n\n    .drag-item:active {\n      cursor: grabbing;\n    }\n\n    .drag-item.dragging {\n      opacity: 0.9;\n      box-shadow: 0 8px 16px rgba(0,0,0,0.15);\n      border-color: var(--accent);\n      transform: scale(1.05);\n      position: absolute;\n      pointer-events: none;\n      z-index: 100;\n    }\n\n    .drag-item.placed {\n      display: none;\n    }\n\n    .drag-icon {\n      width: 16px;\n      height: 16px;\n      fill: var(--accent);\n    }\n\n    /* Control Panel for Cross Link */\n    .controls-row {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 6px 12px;\n    }\n\n    .control-label {\n      font-size: 12px;\n      font-weight: 500;\n      color: var(--fg);\n    }\n\n    /* Toggle Switch */\n    .switch {\n      position: relative;\n      display: inline-block;\n      width: 40px;\n      height: 20px;\n    }\n\n    .switch input {\n      opacity: 0;\n      width: 0;\n      height: 0;\n    }\n\n    .slider {\n      position: absolute;\n      cursor: pointer;\n      top: 0;\n      left: 0;\n      right: 0;\n      bottom: 0;\n      background-color: var(--border);\n      transition: .2s;\n      border-radius: 20px;\n    }\n\n    .slider:before {\n      position: absolute;\n      content: \"\";\n      height: 14px;\n      width: 14px;\n      left: 3px;\n      bottom: 3px;\n      background-color: white;\n      transition: .2s;\n      border-radius: 50%;\n    }\n\n    input:checked + .slider {\n      background-color: var(--accent);\n    }\n\n    input:checked + .slider:before {\n      transform: translateX(20px);\n    }\n\n    /* Status Indicator */\n    .status-text {\n      font-size: 11px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: 4px;\n    }\n\n    .status-highlight {\n      font-weight: 600;\n      color: var(--accent);\n    }\n\n    /* Target Slot Styling in SVG */\n    .slot-rect {\n      fill: var(--surface);\n      stroke: var(--border);\n      stroke-dasharray: 4 4;\n      transition: fill 0.2s, stroke 0.2s;\n    }\n\n    .slot-active {\n      stroke: var(--accent);\n      fill: var(--accent-soft);\n    }\n\n    /* Utility disabled states */\n    .disabled {\n      pointer-events: none !important;\n      opacity: 0.6;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Network Redundancy Configurator</h1>\n\n  <div id=\"widget-container\">\n    <!-- Interactive Stage (SVG Diagram) -->\n    <div class=\"stage\" id=\"stage-area\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 220\">\n        <!-- Definitions for marker arrows -->\n        <defs>\n          <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n            <path d=\"M 0 2 L 8 5 L 0 8 z\" fill=\"#b0afac\" />\n          </marker>\n          <marker id=\"arrow-active\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n            <path d=\"M 0 2 L 8 5 L 0 8 z\" fill=\"#4C6696\" />\n          </marker>\n        </defs>\n\n        <!-- Static Connections (Default Path) -->\n        <!-- User to Router A -->\n        <path id=\"path-user-ra\" d=\"M 200,35 L 140,85\" stroke=\"#4C6696\" stroke-width=\"2.5\" marker-end=\"url(#arrow-active)\" />\n        \n        <!-- Router A to DB A -->\n        <path id=\"path-ra-dba\" d=\"M 140,115 L 140,165\" stroke=\"#4C6696\" stroke-width=\"2.5\" marker-end=\"url(#arrow-active)\" />\n\n        <!-- Potential Dynamic Paths (Dashed or Solid depending on configuration) -->\n        <!-- User to Router B -->\n        <path id=\"path-user-rb\" d=\"M 200,35 L 260,85\" stroke=\"#e2e2e2\" stroke-width=\"2\" stroke-dasharray=\"3 3\" marker-end=\"url(#arrow)\" />\n        \n        <!-- Router B to DB B -->\n        <path id=\"path-rb-dbb\" d=\"M 260,115 L 260,165\" stroke=\"#e2e2e2\" stroke-width=\"2\" stroke-dasharray=\"3 3\" marker-end=\"url(#arrow)\" />\n\n        <!-- Router A to DB B (Cross Link) -->\n        <path id=\"path-ra-dbb\" d=\"M 140,115 L 260,165\" stroke=\"#e2e2e2\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\" />\n\n        <!-- Router B to DB A (Cross Link) -->\n        <path id=\"path-rb-dba\" d=\"M 260,115 L 140,165\" stroke=\"#e2e2e2\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\" />\n\n        <!-- Nodes -->\n        <!-- User Node -->\n        <g transform=\"translate(200, 25)\">\n          <circle r=\"16\" fill=\"#ffffff\" stroke=\"#4C6696\" stroke-width=\"2\" />\n          <!-- User Icon -->\n          <path d=\"M -6,6 A 6,6 0 0,1 6,6 M -3,-2 A 3,3 0 1,1 3,-2\" fill=\"none\" stroke=\"#4C6696\" stroke-width=\"2\" stroke-linecap=\"round\" />\n          <text y=\"24\" font-size=\"10\" font-weight=\"bold\" fill=\"#1f1f1f\" text-anchor=\"middle\">User</text>\n        </g>\n\n        <!-- Router A Node -->\n        <g transform=\"translate(140, 100)\">\n          <rect x=\"-24\" y=\"-15\" width=\"48\" height=\"30\" rx=\"4\" fill=\"#ffffff\" stroke=\"#4C6696\" stroke-width=\"2\" />\n          <text font-size=\"10\" font-weight=\"bold\" fill=\"#4C6696\" text-anchor=\"middle\" dy=\"3\">Rtr A</text>\n        </g>\n\n        <!-- Database A Node -->\n        <g transform=\"translate(140, 180)\">\n          <rect x=\"-24\" y=\"-15\" width=\"48\" height=\"30\" rx=\"4\" fill=\"#ffffff\" stroke=\"#4C6696\" stroke-width=\"2\" />\n          <text font-size=\"10\" font-weight=\"bold\" fill=\"#4C6696\" text-anchor=\"middle\" dy=\"3\">DB A</text>\n        </g>\n\n        <!-- Target Slot: Router B -->\n        <g transform=\"translate(260, 100)\" id=\"slot-router\">\n          <rect class=\"slot-rect\" x=\"-24\" y=\"-15\" width=\"48\" height=\"30\" rx=\"4\" />\n          <text class=\"slot-label\" font-size=\"9\" fill=\"#888888\" text-anchor=\"middle\" dy=\"3\">+ Router B</text>\n          <!-- Router B placed node graphic (hidden by default) -->\n          <g id=\"placed-router\" style=\"display: none;\">\n            <rect x=\"-24\" y=\"-15\" width=\"48\" height=\"30\" rx=\"4\" fill=\"#ffffff\" stroke=\"#4C6696\" stroke-width=\"2\" />\n            <text font-size=\"10\" font-weight=\"bold\" fill=\"#4C6696\" text-anchor=\"middle\" dy=\"3\">Rtr B</text>\n            <!-- Small remove 'x' handle -->\n            <circle class=\"remove-btn\" cx=\"20\" cy=\"-12\" r=\"6\" fill=\"#888888\" style=\"cursor: pointer;\" />\n            <path d=\"M 18,-14 L 22,-10 M 22,-14 L 18,-10\" stroke=\"#ffffff\" stroke-width=\"1\" />\n          </g>\n        </g>\n\n        <!-- Target Slot: Database B -->\n        <g transform=\"translate(260, 180)\" id=\"slot-database\">\n          <rect class=\"slot-rect\" x=\"-24\" y=\"-15\" width=\"48\" height=\"30\" rx=\"4\" />\n          <text class=\"slot-label\" font-size=\"9\" fill=\"#888888\" text-anchor=\"middle\" dy=\"3\">+ DB B</text>\n          <!-- DB B placed node graphic (hidden by default) -->\n          <g id=\"placed-database\" style=\"display: none;\">\n            <rect x=\"-24\" y=\"-15\" width=\"48\" height=\"30\" rx=\"4\" fill=\"#ffffff\" stroke=\"#4C6696\" stroke-width=\"2\" />\n            <text font-size=\"10\" font-weight=\"bold\" fill=\"#4C6696\" text-anchor=\"middle\" dy=\"3\">DB B</text>\n            <circle class=\"remove-btn\" cx=\"20\" cy=\"-12\" r=\"6\" fill=\"#888888\" style=\"cursor: pointer;\" />\n            <path d=\"M 18,-14 L 22,-10 M 22,-14 L 18,-10\" stroke=\"#ffffff\" stroke-width=\"1\" />\n          </g>\n        </g>\n      </svg>\n    </div>\n\n    <!-- Switch controls -->\n    <div class=\"controls-row\">\n      <span class=\"control-label\">Cross-Connections (Mesh Paths)</span>\n      <label class=\"switch\">\n        <input type=\"checkbox\" id=\"cross-toggle\">\n        <span class=\"slider\"></span>\n      </label>\n    </div>\n\n    <!-- Draggables Source (Toolbox) -->\n    <div class=\"toolbox\" id=\"toolbox-area\">\n      <div style=\"width: 100%;\">\n        <div class=\"toolbox-title\">Drag redundant units to the network diagram</div>\n        <div class=\"toolbox-flex\">\n          <div class=\"drag-item\" id=\"drag-router\" draggable=\"true\" data-type=\"router\">\n            <svg class=\"drag-icon\" viewBox=\"0 0 24 24\"><path d=\"M19 13H5v-2h14v2z\"/></svg>\n            Router B\n          </div>\n          <div class=\"drag-item\" id=\"drag-database\" draggable=\"true\" data-type=\"database\">\n            <svg class=\"drag-icon\" viewBox=\"0 0 24 24\"><path d=\"M12 2C7.58 2 4 3.79 4 6v12c0 2.21 3.58 4 8 4s8-1.79 8-4V6c0-2.21-3.58-4-8-4z\"/></svg>\n            Database B\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Active Choice Text Area (No feedback, just name of current active state) -->\n    <div class=\"status-text\">\n      Current State: <span id=\"current-state-name\" class=\"status-highlight\">Linear connection</span>\n    </div>\n  </div>\n\n  <script>\n    // State Tracker\n    const state = {\n      routerBPlaced: false,\n      databaseBPlaced: false,\n      crossConnectsActive: false,\n      isLocked: false\n    };\n\n    // DOM Elements\n    const dragRouter = document.getElementById('drag-router');\n    const dragDatabase = document.getElementById('drag-database');\n    const crossToggle = document.getElementById('cross-toggle');\n    const stageArea = document.getElementById('stage-area');\n    const currentStateLabel = document.getElementById('current-state-name');\n    \n    const placedRouterG = document.getElementById('placed-router');\n    const placedDatabaseG = document.getElementById('placed-database');\n    const slotRouterRect = document.querySelector('#slot-router .slot-rect');\n    const slotDatabaseRect = document.querySelector('#slot-database .slot-rect');\n\n    // SVG Connection Paths\n    const pathUserRb = document.getElementById('path-user-rb');\n    const pathRbDbb = document.getElementById('path-rb-dbb');\n    const pathRaDbb = document.getElementById('path-ra-dbb');\n    const pathRbDba = document.getElementById('path-rb-dba');\n\n    // State String mapping\n    const OPTIONS = {\n      LINEAR: 'Linear connection (User -> Router -> DB)',\n      PARTIAL: 'Partial Redundancy (User -> Router A/B -> DB)',\n      FULL: 'Full Fault Tolerance (User -> Router A/B -> DB A/B)',\n      ISOLATED: 'Isolated (User -> Router A; DB -> Router B)'\n    };\n\n    // Determine current network pattern and report\n    function evaluateNetworkState() {\n      let currentOption = OPTIONS.LINEAR;\n\n      if (!state.routerBPlaced && !state.databaseBPlaced) {\n        currentOption = OPTIONS.LINEAR;\n      } else if (state.routerBPlaced && !state.databaseBPlaced) {\n        currentOption = OPTIONS.PARTIAL;\n      } else if (!state.routerBPlaced && state.databaseBPlaced) {\n        currentOption = OPTIONS.PARTIAL;\n      } else {\n        // Both placed\n        if (state.crossConnectsActive) {\n          currentOption = OPTIONS.FULL;\n        } else {\n          currentOption = OPTIONS.ISOLATED;\n        }\n      }\n\n      // Update Label\n      currentStateLabel.textContent = currentOption.split(' (')[0];\n\n      // Update Path Styles\n      updateNetworkVisualization();\n\n      // Post answer to host\n      parent.postMessage({ type: 'hk-practice-answer', value: currentOption }, '*');\n    }\n\n    function updateNetworkVisualization() {\n      // Router B Paths\n      if (state.routerBPlaced) {\n        pathUserRb.setAttribute('stroke', '#4C6696');\n        pathUserRb.setAttribute('stroke-width', '2.5');\n        pathUserRb.setAttribute('stroke-dasharray', 'none');\n        pathUserRb.setAttribute('marker-end', 'url(#arrow-active)');\n      } else {\n        pathUserRb.setAttribute('stroke', '#e2e2e2');\n        pathUserRb.setAttribute('stroke-width', '2');\n        pathUserRb.setAttribute('stroke-dasharray', '3 3');\n        pathUserRb.setAttribute('marker-end', 'url(#arrow)');\n      }\n\n      // DB B Paths\n      if (state.databaseBPlaced && state.routerBPlaced) {\n        pathRbDbb.setAttribute('stroke', '#4C6696');\n        pathRbDbb.setAttribute('stroke-width', '2.5');\n        pathRbDbb.setAttribute('stroke-dasharray', 'none');\n        pathRbDbb.setAttribute('marker-end', 'url(#arrow-active)');\n      } else {\n        pathRbDbb.setAttribute('stroke', '#e2e2e2');\n        pathRbDbb.setAttribute('stroke-width', '2');\n        pathRbDbb.setAttribute('stroke-dasharray', '3 3');\n        pathRbDbb.setAttribute('marker-end', 'url(#arrow)');\n      }\n\n      // Cross Links\n      if (state.routerBPlaced && state.databaseBPlaced && state.crossConnectsActive) {\n        pathRaDbb.setAttribute('stroke', '#4C6696');\n        pathRaDbb.setAttribute('stroke-width', '2');\n        pathRaDbb.setAttribute('stroke-dasharray', 'none');\n        pathRbDba.setAttribute('stroke', '#4C6696');\n        pathRbDba.setAttribute('stroke-width', '2');\n        pathRbDba.setAttribute('stroke-dasharray', 'none');\n      } else {\n        pathRaDbb.setAttribute('stroke', '#e2e2e2');\n        pathRaDbb.setAttribute('stroke-width', '1.5');\n        pathRaDbb.setAttribute('stroke-dasharray', '4 4');\n        pathRbDba.setAttribute('stroke', '#e2e2e2');\n        pathRbDba.setAttribute('stroke-width', '1.5');\n        pathRbDba.setAttribute('stroke-dasharray', '4 4');\n      }\n    }\n\n    // Toggle interaction\n    crossToggle.addEventListener('change', (e) => {\n      state.crossConnectsActive = e.target.checked;\n      evaluateNetworkState();\n    });\n\n    // Custom Drag-and-Drop Implementation\n    let activeDrag = null;\n    let dragOffset = { x: 0, y: 0 };\n    let ghostNode = null;\n\n    function handlePointerDown(e, dragElement) {\n      if (state.isLocked) return;\n      \n      activeDrag = dragElement;\n      const rect = dragElement.getBoundingClientRect();\n      dragOffset.x = e.clientX - rect.left;\n      dragOffset.y = e.clientY - rect.top;\n\n      // Create a visual clone for dragging\n      ghostNode = dragElement.cloneNode(true);\n      ghostNode.classList.add('dragging');\n      document.body.appendChild(ghostNode);\n      \n      updateGhostPosition(e.clientX, e.clientY);\n      dragElement.style.opacity = '0.4';\n\n      document.addEventListener('pointermove', handlePointerMove);\n      document.addEventListener('pointerup', handlePointerUp);\n      \n      // Highlight slot areas\n      const type = dragElement.getAttribute('data-type');\n      if (type === 'router') slotRouterRect.classList.add('slot-active');\n      if (type === 'database') slotDatabaseRect.classList.add('slot-active');\n    }\n\n    function updateGhostPosition(clientX, clientY) {\n      if (!ghostNode) return;\n      ghostNode.style.left = `${clientX - dragOffset.x}px`;\n      ghostNode.style.top = `${clientY - dragOffset.y}px`;\n    }\n\n    function handlePointerMove(e) {\n      if (!activeDrag) return;\n      updateGhostPosition(e.clientX, e.clientY);\n    }\n\n    function handlePointerUp(e) {\n      if (!activeDrag) return;\n\n      const type = activeDrag.getAttribute('data-type');\n      const stageRect = stageArea.getBoundingClientRect();\n      \n      // Check collision with the respective slot based on client coordinates\n      let droppedInSlot = false;\n\n      if (type === 'router' && !state.routerBPlaced) {\n        const slotRect = document.getElementById('slot-router').getBoundingClientRect();\n        if (e.clientX >= slotRect.left && e.clientX <= slotRect.right &&\n            e.clientY >= slotRect.top && e.clientY <= slotRect.bottom) {\n          state.routerBPlaced = true;\n          placedRouterG.style.display = 'block';\n          dragRouter.classList.add('placed');\n          droppedInSlot = true;\n        }\n      } else if (type === 'database' && !state.databaseBPlaced) {\n        const slotRect = document.getElementById('slot-database').getBoundingClientRect();\n        if (e.clientX >= slotRect.left && e.clientX <= slotRect.right &&\n            e.clientY >= slotRect.top && e.clientY <= slotRect.bottom) {\n          state.databaseBPlaced = true;\n          placedDatabaseG.style.display = 'block';\n          dragDatabase.classList.add('placed');\n          droppedInSlot = true;\n        }\n      }\n\n      // Cleanup\n      activeDrag.style.opacity = '1';\n      slotRouterRect.classList.remove('slot-active');\n      slotDatabaseRect.classList.remove('slot-active');\n      if (ghostNode) {\n        ghostNode.remove();\n        ghostNode = null;\n      }\n      activeDrag = null;\n\n      document.removeEventListener('pointermove', handlePointerMove);\n      document.removeEventListener('pointerup', handlePointerUp);\n\n      evaluateNetworkState();\n    }\n\n    // Bind pointer events for dragging\n    dragRouter.addEventListener('pointerdown', (e) => handlePointerDown(e, dragRouter));\n    dragDatabase.addEventListener('pointerdown', (e) => handlePointerDown(e, dragDatabase));\n\n    // Support removing placed nodes\n    document.querySelector('#placed-router .remove-btn').addEventListener('click', () => {\n      if (state.isLocked) return;\n      state.routerBPlaced = false;\n      placedRouterG.style.display = 'none';\n      dragRouter.classList.remove('placed');\n      evaluateNetworkState();\n    });\n\n    document.querySelector('#placed-database .remove-btn').addEventListener('click', () => {\n      if (state.isLocked) return;\n      state.databaseBPlaced = false;\n      placedDatabaseG.style.display = 'none';\n      dragDatabase.classList.remove('placed');\n      evaluateNetworkState();\n    });\n\n    // Keyboard Accessibility Support\n    const interactiveElements = [dragRouter, dragDatabase, crossToggle];\n    interactiveElements.forEach(el => {\n      el.setAttribute('tabindex', '0');\n    });\n\n    // Height change reporter helper\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', () => {\n      reportHeight();\n      evaluateNetworkState();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n\n    // Host System Lock Event Listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        state.isLocked = true;\n        document.getElementById('widget-container').classList.add('disabled');\n        dragRouter.classList.add('disabled');\n        dragDatabase.classList.add('disabled');\n        crossToggle.disabled = true;\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Full Fault Tolerance (User -> Router A/B -> DB A/B)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Exam: Impact of Computing",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following would be strictly classified as a 'computing innovation' according to the AP framework?",
+     "options": [
+      "A standard mechanical bicycle with a high-strength aluminum frame.",
+      "A smart sharing bicycle with GPS tracking and an app-controlled locking mechanism.",
+      "A high-speed carbon-fiber road bike with manual gear shifting.",
+      "A solar-powered light fixed to a bicycle handlebar using a simple circuit."
+     ],
+     "explanation": "A computing innovation must include a computer or program code as an integral part of its functionality. GPS tracking and app-controlled logic involve data processing, whereas the other options are mechanical or simple electrical improvements.",
+     "correctAnswers": [
+      "A smart sharing bicycle with GPS tracking and an app-controlled locking mechanism."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "image": {
+      "alt": "A diagram illustrating the feedback loop of a recommendation engine leading to a filter bubble.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/535a0517-75a8-4059-9b3a-729187984d16/exam/images/unit5-q2.png"
+     },
+     "prompt": "A social media platform uses an algorithmic feedback loop to prioritize content that maximizes user engagement. What are the likely unintended consequences of this design choice?",
+     "options": [
+      "Creation of 'filter bubbles' where users only see viewpoints similar to their own.",
+      "Increased social polarization as users are isolated from diverse perspectives.",
+      "A significant decrease in the total amount of time users spend on the platform.",
+      "Emergent behaviors that the developers may not have predicted during closed testing.",
+      "Absolute elimination of all malicious actors from the platform."
+     ],
+     "explanation": "Engagement-based algorithms often create echo chambers and polarization as unintended side effects. These are emergent properties of scaling the system to millions of users, which is often difficult to predict in testing environments.",
+     "correctAnswers": [
+      "Creation of 'filter bubbles' where users only see viewpoints similar to their own.",
+      "Increased social polarization as users are isolated from diverse perspectives.",
+      "Emergent behaviors that the developers may not have predicted during closed testing."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When an automated hiring AI is trained on historical data from a company that has primarily hired one demographic in the past, the algorithm may mathematically institutionalize ____.",
+     "explanation": "Algorithms are not naturally objective; they reflect the patterns found in their training data. If the input data contains historical human prejudices, the software will perpetuate those same biases.",
+     "placeholder": "type of bias",
+     "correctAnswers": [
+      "historical bias",
+      "human bias",
+      "systemic bias",
+      "biases"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In the context of the digital divide, why might a rural school struggle more than an urban school despite having the same physical laptops?",
+     "options": [
+      "The laptops in rural areas are naturally slower due to elevation.",
+      "The high cost of laying fiber-optic cables leads to lower bandwidth and infrastructure limits in rural areas.",
+      "Rural students are legally prohibited from using cloud-based research tools.",
+      "Urban schools use different programming languages that are more efficient."
+     ],
+     "explanation": "The digital divide is heavily influenced by geography and infrastructure. ISPs are less likely to invest in expensive fiber-optic expansion in sparsely populated rural areas, leading to a gap in high-speed access.",
+     "correctAnswers": [
+      "The high cost of laying fiber-optic cables leads to lower bandwidth and infrastructure limits in rural areas."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of public-key (asymmetric) encryption?",
+     "options": [
+      "A single shared secret key is used for both encryption and decryption.",
+      "The sender uses the recipient's public key to encrypt the message.",
+      "The recipient uses their private key to decrypt the message.",
+      "Public keys can be shared openly without compromising the security of the private key.",
+      "It is generally faster than symmetric encryption for large file transfers."
+     ],
+     "explanation": "Asymmetric encryption uses a pair of keys (public and private). Sharing a single key is symmetric encryption, and symmetric encryption is typically faster for large data sets.",
+     "correctAnswers": [
+      "The sender uses the recipient's public key to encrypt the message.",
+      "The recipient uses their private key to decrypt the message.",
+      "Public keys can be shared openly without compromising the security of the private key."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "A developer implements ____ by requiring a user to enter a password and then confirm their identity via a code sent to a separate physical device.",
+     "explanation": "MFA or 2FA increases security by requiring more than one 'factor' of evidence to verify the user's identity.",
+     "placeholder": "security method",
+     "correctAnswers": [
+      "Multi-factor authentication",
+      "MFA",
+      "Two-factor authentication",
+      "2FA"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A fitness app developer decides to process all biometric data locally on the user's phone and use randomized aggregation before sending data to the cloud. What is the primary trade-off being made?",
+     "options": [
+      "Higher personalization accuracy is sacrificed to increase user privacy and security.",
+      "The app will become more vulnerable to centralized data breaches.",
+      "The app will no longer require an internet connection to function.",
+      "The developer will be able to sell more granular user data to third parties."
+     ],
+     "explanation": "Processing data locally and using aggregation minimizes the risk of a centralized data breach (security/privacy) but prevents the server from building a perfect, granular profile for high personalization accuracy.",
+     "correctAnswers": [
+      "Higher personalization accuracy is sacrificed to increase user privacy and security."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Identify the factors that contribute to the 'Digital Divide' beyond just owning a device.",
+     "options": [
+      "Availability of high-speed fiber-optic or cellular infrastructure.",
+      "The relative cost of internet service compared to household income.",
+      "The speed at which light travels through vacuum.",
+      "Differences in digital literacy and the ability to use online tools for productivity.",
+      "The specific color of the ethernet cables used in a building."
+     ],
+     "explanation": "Infrastructure, affordability, and digital literacy are the primary components of the digital divide. Physical constants like the speed of light or cable colors do not define social access gaps.",
+     "correctAnswers": [
+      "Availability of high-speed fiber-optic or cellular infrastructure.",
+      "The relative cost of internet service compared to household income.",
+      "Differences in digital literacy and the ability to use online tools for productivity."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The principle that developers should minimize the amount of data they collect to reduce the impact of a potential data breach is known as proactive architectural ____.",
+     "explanation": "Data minimization is an ethical and technical strategy where developers only collect what is strictly necessary, thereby reducing the 'honeypot' risk.",
+     "placeholder": "strategy name",
+     "correctAnswers": [
+      "minimization",
+      "data minimization",
+      "security"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "How does the use of a Cloud-based Electronic Health Record (EHR) system primarily benefit a patient in an emergency?",
+     "options": [
+      "By encrypting the data so that even doctors cannot read it.",
+      "By reducing latency in data sharing, allowing specialists to view records instantly.",
+      "By ensuring that paper records are still the primary source of truth.",
+      "By preventing any other hospitals from seeing the patient's history."
+     ],
+     "explanation": "Cloud EHR systems allow for synchronous, low-latency communication, which is vital in emergencies compared to high-latency physical methods like mailing paper records.",
+     "correctAnswers": [
+      "By reducing latency in data sharing, allowing specialists to view records instantly."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "image": {
+      "alt": "A diagram of a car deadheading in a city while public transit is underutilized.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/535a0517-75a8-4059-9b3a-729187984d16/exam/images/unit5-q11.png"
+     },
+     "prompt": "An urban ride-sharing app is designed to reduce traffic. Which of the following describe the 'ride-share paradox' where traffic actually increases?",
+     "options": [
+      "Users switch from walking or public transit to individual cars because the app is convenient.",
+      "Drivers 'deadhead' or cruise empty while waiting for the next ride request.",
+      "The app uses less data than traditional taxi dispatch systems.",
+      "The increased number of vehicles on the road outweighs the reduction in personal car ownership.",
+      "The app strictly limits the number of drivers allowed in the city center."
+     ],
+     "explanation": "The paradox occurs because convenient ride-sharing can pull people away from more efficient transit (subways/walking) and adds 'deadheading' miles to city streets.",
+     "correctAnswers": [
+      "Users switch from walking or public transit to individual cars because the app is convenient.",
+      "Drivers 'deadhead' or cruise empty while waiting for the next ride request.",
+      "The increased number of vehicles on the road outweighs the reduction in personal car ownership."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "A user receives an email that looks like it is from their bank, asking them to click a link and 'verify' their login credentials. This is an example of:",
+     "options": [
+      "Symmetric encryption",
+      "A DDoS attack",
+      "Phishing",
+      "A software patch"
+     ],
+     "explanation": "Phishing is a social engineering attack used to steal sensitive information like login credentials by masquerading as a trustworthy entity.",
+     "correctAnswers": [
+      "Phishing"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Under the Creative Commons BY-NC (Attribution-NonCommercial) license, what is a user permitted to do?",
+     "options": [
+      "Copy and redistribute the material.",
+      "Sell the material for a profit.",
+      "Remix and build upon the material.",
+      "Use the material without giving credit to the creator.",
+      "Use the material for a personal, non-profit blog."
+     ],
+     "explanation": "BY-NC allows redistribution and remixing as long as it is not for commercial purposes (non-profit) and attribution is given.",
+     "correctAnswers": [
+      "Copy and redistribute the material.",
+      "Remix and build upon the material.",
+      "Use the material for a personal, non-profit blog."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "If a developer wants to ensure a secret message can only be read by one specific person using public-key cryptography, which key should the SENDER use to encrypt the message?",
+     "options": [
+      "The sender's own private key.",
+      "The sender's own public key.",
+      "The recipient's public key.",
+      "The recipient's private key."
+     ],
+     "explanation": "To ensure only the recipient can read the message, the sender must use the recipient's public key. Only the recipient's corresponding private key can then decrypt it.",
+     "correctAnswers": [
+      "The recipient's public key."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Which groups might be negatively impacted by an AI hiring tool that analyzes 'emotional sentiment' from video interviews?",
+     "options": [
+      "Candidates from rural areas with low-bandwidth internet causing video lag.",
+      "Candidates whose cultural expressions of emotion differ from the training data.",
+      "Candidates who use the most recent version of the web browser.",
+      "Candidates with disabilities that affect facial expressions or speech patterns.",
+      "Candidates who have high-speed fiber-optic connections."
+     ],
+     "explanation": "Video lag can disrupt sentiment analysis, and algorithms trained on narrow datasets often fail to account for cultural or physical diversity in expression.",
+     "correctAnswers": [
+      "Candidates from rural areas with low-bandwidth internet causing video lag.",
+      "Candidates whose cultural expressions of emotion differ from the training data.",
+      "Candidates with disabilities that affect facial expressions or speech patterns."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "A developer needs to choose a licensing model for their new software. They want to allow others to modify and redistribute the code, but they strictly require that any derivative works MUST also be released under the same open-source terms. Which license state should they select?",
+     "options": [
+      "Public Domain",
+      "Creative Commons Non-Commercial (CC BY-NC)",
+      "Copyleft / Creative Commons Share-Alike (CC BY-SA)",
+      "All Rights Reserved / Proprietary"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>License Workbench</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --z1-color: #7d9bbd;\n      --z2-color: #d68c45;\n      --z3-color: #5b9279;\n      --z4-color: #b33939;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .wrapper {\n      width: 100%;\n      max-width: 500px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .instruction {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n    }\n\n    /* Workbench Stage */\n    .workbench {\n      position: relative;\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      height: 290px;\n      overflow: hidden;\n    }\n\n    /* Shelf where source code block originates */\n    .source-shelf {\n      position: absolute;\n      top: 12px;\n      left: 12px;\n      right: 12px;\n      height: 64px;\n      background: var(--surface);\n      border: 1px dashed var(--border);\n      border-radius: 8px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    /* Draggable Source Code Block */\n    .source-code-block {\n      position: absolute;\n      width: 120px;\n      height: 44px;\n      background: var(--surface);\n      border: 2px solid var(--accent);\n      border-radius: 6px;\n      box-shadow: 0 3px 6px rgba(0,0,0,0.08);\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-weight: 600;\n      font-size: 13px;\n      color: var(--fg);\n      cursor: grab;\n      touch-action: none;\n      z-index: 10;\n      /* Using absolute coordinates updated by JS */\n      left: calc(50% - 60px);\n      top: 22px;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .source-code-block:focus-visible {\n      outline: 2px solid var(--accent-strong);\n      outline-offset: 2px;\n    }\n\n    .source-code-block.dragging {\n      cursor: grabbing;\n      box-shadow: 0 8px 16px rgba(0,0,0,0.15);\n      transform: scale(1.05);\n      transition: none; /* No transition during live dragging */\n    }\n\n    .source-code-block svg {\n      width: 16px;\n      height: 16px;\n      margin-right: 6px;\n      fill: var(--accent);\n    }\n\n    /* Licensing Zones Grid */\n    .zones-grid {\n      position: absolute;\n      bottom: 12px;\n      left: 12px;\n      right: 12px;\n      height: 180px;\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      grid-template-rows: repeat(2, 1fr);\n      gap: 10px;\n    }\n\n    .zone {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 8px;\n      box-sizing: border-box;\n      text-align: center;\n      position: relative;\n      transition: all 0.2s cubic-bezier(.4,0,.2,1);\n    }\n\n    .zone-title {\n      font-size: 11px;\n      font-weight: 700;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      margin-bottom: 2px;\n      pointer-events: none;\n    }\n\n    .zone-desc {\n      font-size: 11px;\n      color: var(--muted-fg);\n      line-height: 1.2;\n      pointer-events: none;\n    }\n\n    /* Active & Overlap states */\n    .zone.hovered {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n      transform: scale(1.02);\n    }\n\n    .zone.selected {\n      border-style: solid;\n      background: var(--surface);\n    }\n\n    /* Specific zone styles when selected */\n    .zone[data-option=\"Public Domain\"].selected {\n      border-color: var(--z1-color);\n      box-shadow: inset 0 0 0 1px var(--z1-color);\n    }\n    .zone[data-option=\"Creative Commons Non-Commercial (CC BY-NC)\"].selected {\n      border-color: var(--z2-color);\n      box-shadow: inset 0 0 0 1px var(--z2-color);\n    }\n    .zone[data-option=\"Copyleft / Creative Commons Share-Alike (CC BY-SA)\"].selected {\n      border-color: var(--z3-color);\n      box-shadow: inset 0 0 0 1px var(--z3-color);\n    }\n    .zone[data-option=\"All Rights Reserved / Proprietary\"].selected {\n      border-color: var(--z4-color);\n      box-shadow: inset 0 0 0 1px var(--z4-color);\n    }\n\n    /* Interactive visuals inside zones */\n    .zone-icon {\n      width: 24px;\n      height: 24px;\n      margin-bottom: 4px;\n      fill: var(--muted-fg);\n      opacity: 0.6;\n      transition: all 0.2s ease;\n    }\n    .zone.selected .zone-icon {\n      opacity: 1;\n    }\n    \n    .zone[data-option=\"Public Domain\"].selected .zone-icon { fill: var(--z1-color); }\n    .zone[data-option=\"Creative Commons Non-Commercial (CC BY-NC)\"].selected .zone-icon { fill: var(--z2-color); }\n    .zone[data-option=\"Copyleft / Creative Commons Share-Alike (CC BY-SA)\"].selected .zone-icon { fill: var(--z3-color); }\n    .zone[data-option=\"All Rights Reserved / Proprietary\"].selected .zone-icon { fill: var(--z4-color); }\n\n    /* Recursive copyleft animation */\n    @keyframes spin-slow {\n      from { transform: rotate(0deg); }\n      to { transform: rotate(360deg); }\n    }\n    .zone[data-option=\"Copyleft / Creative Commons Share-Alike (CC BY-SA)\"].selected .zone-icon {\n      animation: spin-slow 6s linear infinite;\n    }\n\n    /* Locked shaking / lock animation */\n    @keyframes lock-bounce {\n      0%, 100% { transform: translateY(0); }\n      50% { transform: translateY(-2px); }\n    }\n    .zone[data-option=\"All Rights Reserved / Proprietary\"].selected .zone-icon {\n      animation: lock-bounce 2s ease infinite;\n    }\n\n    /* Keyboard mode focus overlay */\n    .source-code-block:focus-visible {\n      box-shadow: 0 0 0 3px rgba(76,102,150,0.4);\n    }\n\n    /* Read only state */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Licensing Workbench</h1>\n\n  <div class=\"wrapper\">\n    <p class=\"instruction\">Drag the Source Code block into a Licensing Zone</p>\n\n    <div class=\"workbench\" id=\"workbench\">\n      <!-- Origin shelf -->\n      <div class=\"source-shelf\" id=\"shelf\"></div>\n\n      <!-- Draggable block -->\n      <div \n        class=\"source-code-block\" \n        id=\"codeBlock\" \n        draggable=\"false\"\n        tabindex=\"0\"\n        aria-label=\"Source code block. Use arrow keys to cycle between licensing options.\"\n      >\n        <svg viewBox=\"0 0 24 24\">\n          <path d=\"M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\"/>\n        </svg>\n        <span>src/main.js</span>\n      </div>\n\n      <!-- Licensing Zones -->\n      <div class=\"zones-grid\" id=\"zonesGrid\">\n        \n        <div class=\"zone\" data-option=\"Public Domain\" id=\"zone-1\">\n          <svg class=\"zone-icon\" viewBox=\"0 0 24 24\">\n            <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z\"/>\n          </svg>\n          <div class=\"zone-title\">Public Domain</div>\n          <div class=\"zone-desc\">Free for all. No restrictions.</div>\n        </div>\n\n        <div class=\"zone\" data-option=\"Creative Commons Non-Commercial (CC BY-NC)\" id=\"zone-2\">\n          <svg class=\"zone-icon\" viewBox=\"0 0 24 24\">\n            <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 4h-2v2h2V6zm0 4h-2v8h2v-8z M12 18c-3.31 0-6-2.69-6-6h1.5c0 2.48 2.02 4.5 4.5 4.5S16.5 14.48 16.5 12h1.5c0 3.31-2.69 6-6 6zm4.5-9h-9v1.5h9V9z\"/>\n          </svg>\n          <div class=\"zone-title\">Non-Commercial</div>\n          <div class=\"zone-desc\">No commercial use allowed.</div>\n        </div>\n\n        <div class=\"zone\" data-option=\"Copyleft / Creative Commons Share-Alike (CC BY-SA)\" id=\"zone-3\">\n          <svg class=\"zone-icon\" viewBox=\"0 0 24 24\">\n            <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.88 11.64L12 15l-3.88-3.36 1.43-1.41L12 12.18l2.45-2.12 1.43 1.41-3.88 3.36V7.5c2.48 0 4.5 2.02 4.5 4.5H18c0-3.31-2.69-6-6-6S6 8.69 6 12s2.69 6 6 6h1.88v-4.36z\"/>\n          </svg>\n          <div class=\"zone-title\">Share-Alike</div>\n          <div class=\"zone-desc\">Recursive freedom. Must stay open.</div>\n        </div>\n\n        <div class=\"zone\" data-option=\"All Rights Reserved / Proprietary\" id=\"zone-4\">\n          <svg class=\"zone-icon\" viewBox=\"0 0 24 24\">\n            <path d=\"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z\"/>\n          </svg>\n          <div class=\"zone-title\">Closed / Locked</div>\n          <div class=\"zone-desc\">All rights reserved. Proprietary.</div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <script>\n    const workbench = document.getElementById('workbench');\n    const codeBlock = document.getElementById('codeBlock');\n    const shelf = document.getElementById('shelf');\n    const zones = document.querySelectorAll('.zone');\n\n    let currentOption = null;\n    let isLocked = false;\n\n    // Track original design positions\n    const initialCoords = { x: 0, y: 0 };\n    \n    function updateInitialCoords() {\n      const shelfRect = shelf.getBoundingClientRect();\n      const workbenchRect = workbench.getBoundingClientRect();\n      const blockRect = codeBlock.getBoundingClientRect();\n      \n      initialCoords.x = (shelfRect.left + shelfRect.width / 2) - (workbenchRect.left) - (blockRect.width / 2);\n      initialCoords.y = (shelfRect.top + shelfRect.height / 2) - (workbenchRect.top) - (blockRect.height / 2);\n    }\n\n    // Set initial position of block\n    function resetBlockPosition() {\n      updateInitialCoords();\n      if (!currentOption) {\n        codeBlock.style.left = `${initialCoords.x}px`;\n        codeBlock.style.top = `${initialCoords.y}px`;\n      }\n    }\n\n    // Initialize position layout on load\n    window.addEventListener('load', () => {\n      resetBlockPosition();\n      reportHeight();\n    });\n\n    window.addEventListener('resize', () => {\n      resetBlockPosition();\n      // If an option is selected, snap to its new resized zone position\n      if (currentOption) {\n        snapToOption(currentOption, false);\n      }\n      reportHeight();\n    });\n\n    // Pointer Dragging Mechanics (Preserving offset to avoid jump)\n    let isDragging = false;\n    let startX, startY;\n    let blockStartX, blockStartY;\n\n    codeBlock.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      codeBlock.classList.add('dragging');\n      codeBlock.setPointerCapture(e.pointerId);\n\n      // Read current positional style values\n      blockStartX = parseFloat(codeBlock.style.left) || initialCoords.x;\n      blockStartY = parseFloat(codeBlock.style.top) || initialCoords.y;\n\n      startX = e.clientX;\n      startY = e.clientY;\n      \n      e.preventDefault();\n    });\n\n    codeBlock.addEventListener('pointermove', (e) => {\n      if (!isDragging) return;\n      \n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n\n      const newLeft = blockStartX + dx;\n      const newTop = blockStartY + dy;\n\n      codeBlock.style.left = `${newLeft}px`;\n      codeBlock.style.top = `${newTop}px`;\n\n      // Live overlap / hover check\n      checkOverlap();\n    });\n\n    codeBlock.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      codeBlock.classList.remove('dragging');\n      codeBlock.releasePointerCapture(e.pointerId);\n\n      // Determine drop target\n      const targetZone = getOverlappingZone();\n      if (targetZone) {\n        const option = targetZone.getAttribute('data-option');\n        snapToOption(option, true);\n      } else {\n        // Snap back to origin\n        currentOption = null;\n        zones.forEach(z => z.classList.remove('selected', 'hovered'));\n        snapToCoords(initialCoords.x, initialCoords.y);\n        reportAnswer(\"\");\n      }\n    });\n\n    function checkOverlap() {\n      const blockRect = codeBlock.getBoundingClientRect();\n      let bestZone = null;\n      let maxOverlap = 0;\n\n      zones.forEach(zone => {\n        const zoneRect = zone.getBoundingClientRect();\n        \n        // Calculate intersection rect\n        const xOverlap = Math.max(0, Math.min(blockRect.right, zoneRect.right) - Math.max(blockRect.left, zoneRect.left));\n        const yOverlap = Math.max(0, Math.min(blockRect.bottom, zoneRect.bottom) - Math.max(blockRect.top, zoneRect.top));\n        const overlapArea = xOverlap * yOverlap;\n\n        if (overlapArea > maxOverlap && overlapArea > 100) { // Require a small threshold\n          maxOverlap = overlapArea;\n          bestZone = zone;\n        }\n      });\n\n      zones.forEach(zone => {\n        if (zone === bestZone) {\n          zone.classList.add('hovered');\n        } else {\n          zone.classList.remove('hovered');\n        }\n      });\n    }\n\n    function getOverlappingZone() {\n      let activeZone = null;\n      zones.forEach(zone => {\n        if (zone.classList.contains('hovered')) {\n          activeZone = zone;\n        }\n      });\n      return activeZone;\n    }\n\n    function snapToOption(optionName, triggerReport = true) {\n      const zone = Array.from(zones).find(z => z.getAttribute('data-option') === optionName);\n      if (!zone) return;\n\n      zones.forEach(z => z.classList.remove('selected', 'hovered'));\n      zone.classList.add('selected');\n\n      const zoneRect = zone.getBoundingClientRect();\n      const workbenchRect = workbench.getBoundingClientRect();\n      const blockRect = codeBlock.getBoundingClientRect();\n\n      // Center of selected zone relative to the workbench stage\n      const targetX = (zoneRect.left + zoneRect.width / 2) - workbenchRect.left - (blockRect.width / 2);\n      const targetY = (zoneRect.top + zoneRect.height / 2) - workbenchRect.top - (blockRect.height / 2);\n\n      snapToCoords(targetX, targetY);\n\n      if (currentOption !== optionName) {\n        currentOption = optionName;\n        if (triggerReport) {\n          reportAnswer(optionName);\n        }\n      }\n    }\n\n    function snapToCoords(x, y) {\n      codeBlock.style.transition = 'left 0.2s cubic-bezier(.34,1.56,.64,1), top 0.2s cubic-bezier(.34,1.56,.64,1)';\n      codeBlock.style.left = `${x}px`;\n      codeBlock.style.top = `${y}px`;\n      \n      // Clean up transitions after snapping completes to prevent lag on next drag start\n      setTimeout(() => {\n        if (!isDragging) {\n          codeBlock.style.transition = '';\n        }\n      }, 210);\n    }\n\n    // Keyboard Fallback\n    const optionList = [\n      \"Public Domain\",\n      \"Creative Commons Non-Commercial (CC BY-NC)\",\n      \"Copyleft / Creative Commons Share-Alike (CC BY-SA)\",\n      \"All Rights Reserved / Proprietary\"\n    ];\n\n    codeBlock.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        e.preventDefault();\n        cycleOption(1);\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        e.preventDefault();\n        cycleOption(-1);\n      } else if (e.key === 'Escape') {\n        e.preventDefault();\n        currentOption = null;\n        zones.forEach(z => z.classList.remove('selected', 'hovered'));\n        snapToCoords(initialCoords.x, initialCoords.y);\n        reportAnswer(\"\");\n      }\n    });\n\n    function cycleOption(direction) {\n      let currentIndex = optionList.indexOf(currentOption);\n      let nextIndex = currentIndex + direction;\n\n      if (nextIndex < 0) nextIndex = optionList.length - 1;\n      if (nextIndex >= optionList.length) nextIndex = 0;\n\n      snapToOption(optionList[nextIndex], true);\n    }\n\n    // Host Platform Communication\n    function reportAnswer(value) {\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: value }, '*');\n      } catch (e) {\n        console.warn(\"Failed to post message\", e);\n      }\n    }\n\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {\n        console.warn(\"Failed to post height\", e);\n      }\n    }\n\n    // Listen for Lock signal\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        codeBlock.classList.add('locked');\n        codeBlock.setAttribute('tabindex', '-1');\n        document.querySelectorAll('.zone').forEach(z => z.classList.add('locked'));\n      }\n    });\n\n    // Height change tracker\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Copyleft / Creative Commons Share-Alike (CC BY-SA)"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "86044f35-876e-48ee-a77c-c433835050c1"
+}

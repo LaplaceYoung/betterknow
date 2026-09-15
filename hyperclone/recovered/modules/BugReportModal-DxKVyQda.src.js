@@ -1,0 +1,440 @@
+import { g as e, c as s, b as t, r as a, H as o, J as n, j as r } from "./index-TjoB2Buo.js";
+const l = ({
+  isOpen: l,
+  onClose: i,
+  conversationId: c,
+  conversationHistory: d,
+  initialComment: u,
+  commentPrefix: h,
+  title: p,
+  hideIdRow: m,
+  emailIdLabel: x,
+  includePageUrl: f
+}) => {
+  const {
+    t: k
+  } = t();
+  const [j, g] = a.useState(u ?? "");
+  const [v, b] = a.useState(false);
+  const [N, y] = a.useState(false);
+  const [w, C] = a.useState(false);
+  const [L, R] = a.useState([]);
+  const [M, B] = a.useState(false);
+  const T = a.useRef(null);
+  const S = a.useCallback(e => {
+    const s = Array.from(e);
+    R(e => {
+      const t = 5 - e.length;
+      if (t <= 0) {
+        return e;
+      }
+      const a = s.filter(e => o(e)).slice(0, t).map(e => ({
+        id: `${Date.now()}-${Math.random()}`,
+        file: e,
+        status: "pending"
+      }));
+      return [...e, ...a];
+    });
+  }, []);
+  const E = a.useCallback(async (e, s) => {
+    R(s => s.map(s => s.id === e ? {
+      ...s,
+      status: "uploading"
+    } : s));
+    try {
+      const t = await n(s);
+      R(s => s.map(s => s.id === e ? {
+        ...s,
+        status: "done",
+        url: t.url
+      } : s));
+    } catch (t) {
+      R(s => s.map(s => s.id === e ? {
+        ...s,
+        status: "error",
+        errorMsg: t instanceof Error ? t.message : k("chatResponse.attachmentUploadFailed")
+      } : s));
+    }
+  }, []);
+  a.useEffect(() => {
+    L.forEach(e => {
+      if (e.status === "pending") {
+        E(e.id, e.file);
+      }
+    });
+  }, [L, E]);
+  const D = a.useCallback(e => {
+    R(s => s.filter(s => s.id !== e));
+  }, []);
+  const F = a.useCallback(e => {
+    e.preventDefault();
+    B(true);
+  }, []);
+  const W = a.useCallback(e => {
+    e.preventDefault();
+    B(false);
+  }, []);
+  const $ = a.useCallback(e => {
+    e.preventDefault();
+    B(false);
+    if (e.dataTransfer.files.length > 0) {
+      S(e.dataTransfer.files);
+    }
+  }, [S]);
+  const P = () => {
+    const e = [];
+    d.forEach(s => {
+      e.push({
+        role: "user",
+        content: s.query
+      });
+      if (s.response) {
+        s.response.steps.forEach(s => {
+          s.blocks.forEach(s => {
+            var t;
+            if (s.type === "text" && ((t = s.data) == null ? undefined : t.text)) {
+              e.push({
+                role: "assistant",
+                content: s.data.text
+              });
+            }
+          });
+        });
+      }
+    });
+    return {
+      messages: e
+    };
+  };
+  const _ = () => {
+    i();
+    g(u ?? "");
+    R([]);
+  };
+  const z = L.some(e => e.status === "uploading");
+  const A = v || !j.trim() || z;
+  return r.jsxs(r.Fragment, {
+    children: [l && r.jsx("div", {
+      className: "talk-to-founders-overlay",
+      onClick: _,
+      children: r.jsxs("div", {
+        className: "talk-to-founders-modal" + (M ? " talk-to-founders-modal--drag-over" : ""),
+        onClick: e => e.stopPropagation(),
+        onDragOver: F,
+        onDragLeave: W,
+        onDrop: $,
+        children: [r.jsxs("div", {
+          className: "talk-to-founders-title-bar",
+          children: [r.jsxs("div", {
+            className: "talk-to-founders-title-left",
+            children: [r.jsx("img", {
+              src: "/pages/chatResponsePage/wrench.svg",
+              alt: "Bug",
+              className: "talk-to-founders-header-icon"
+            }), r.jsx("h2", {
+              className: "talk-to-founders-title",
+              children: p ?? k("chatResponse.reportABug")
+            })]
+          }), r.jsx("button", {
+            type: "button",
+            className: "talk-to-founders-close",
+            onClick: _,
+            "aria-label": "Close",
+            children: r.jsx("svg", {
+              width: "18",
+              height: "18",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              children: r.jsx("path", {
+                d: "M18 6L6 18M6 6L18 18"
+              })
+            })
+          })]
+        }), r.jsxs("div", {
+          className: "talk-to-founders-banner",
+          children: [r.jsxs("svg", {
+            className: "talk-to-founders-banner-icon",
+            width: "18",
+            height: "18",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            children: [r.jsx("circle", {
+              cx: "12",
+              cy: "12",
+              r: "10"
+            }), r.jsx("line", {
+              x1: "12",
+              y1: "8",
+              x2: "12",
+              y2: "12"
+            }), r.jsx("line", {
+              x1: "12",
+              y1: "16",
+              x2: "12.01",
+              y2: "16"
+            })]
+          }), r.jsx("span", {
+            className: "talk-to-founders-banner-text",
+            children: k("chatResponse.yourFeedback")
+          })]
+        }), r.jsxs("div", {
+          className: "talk-to-founders-compose",
+          children: [!m && r.jsxs("div", {
+            className: "talk-to-founders-compose-row",
+            children: [r.jsx("span", {
+              className: "talk-to-founders-compose-label bug-report-compose-label",
+              children: k("chatResponse.currentConversationId")
+            }), r.jsx("span", {
+              className: "talk-to-founders-compose-to-value",
+              children: c || k("chatResponse.notAvailable")
+            })]
+          }), r.jsxs("div", {
+            className: "talk-to-founders-compose-body-container",
+            children: [r.jsx("textarea", {
+              className: "talk-to-founders-compose-textarea",
+              value: j,
+              onChange: e => g(e.target.value),
+              placeholder: k("chatResponse.typeMessage")
+            }), r.jsxs("div", {
+              className: "talk-to-founders-dropzone" + (M ? " talk-to-founders-dropzone--over" : ""),
+              onClick: () => {
+                var e;
+                if ((e = T.current) == null) {
+                  return undefined;
+                } else {
+                  return e.click();
+                }
+              },
+              role: "button",
+              tabIndex: 0,
+              "aria-label": k("home.talkToFoundersModal.attachLabel"),
+              onKeyDown: e => {
+                var s;
+                if ((e.key === "Enter" || e.key === " ") && (s = T.current) != null) {
+                  s.click();
+                }
+              },
+              children: [r.jsx("svg", {
+                className: "talk-to-founders-dropzone-icon",
+                width: "18",
+                height: "18",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                children: r.jsx("path", {
+                  d: "M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+                })
+              }), r.jsx("span", {
+                className: "talk-to-founders-dropzone-text",
+                children: k("chatResponse.addAttachmentHint")
+              }), r.jsx("input", {
+                ref: T,
+                type: "file",
+                multiple: true,
+                accept: ".jpg,.jpeg,.png,.gif,.webp,.svg,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx",
+                style: {
+                  display: "none"
+                },
+                onChange: e => {
+                  if (e.target.files) {
+                    S(e.target.files);
+                  }
+                }
+              })]
+            }), L.length > 0 && r.jsx("ul", {
+              className: "talk-to-founders-attachments",
+              children: L.map(e => r.jsxs("li", {
+                className: `talk-to-founders-attachment-item talk-to-founders-attachment--${e.status}`,
+                children: [r.jsxs("svg", {
+                  width: "13",
+                  height: "13",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  className: "talk-to-founders-attachment-icon",
+                  children: [r.jsx("path", {
+                    d: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  }), r.jsx("polyline", {
+                    points: "14 2 14 8 20 8"
+                  })]
+                }), r.jsx("span", {
+                  className: "talk-to-founders-attachment-name",
+                  children: e.file.name
+                }), e.status === "uploading" && r.jsx("span", {
+                  className: "talk-to-founders-attachment-status",
+                  children: k("home.talkToFoundersModal.uploading")
+                }), e.status === "done" && r.jsx("svg", {
+                  width: "13",
+                  height: "13",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "#16a34a",
+                  strokeWidth: "2.5",
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  children: r.jsx("polyline", {
+                    points: "20 6 9 17 4 12"
+                  })
+                }), e.status === "error" && r.jsx("span", {
+                  className: "talk-to-founders-attachment-error",
+                  title: e.errorMsg,
+                  children: "!"
+                }), r.jsx("button", {
+                  type: "button",
+                  className: "talk-to-founders-attachment-remove",
+                  onClick: () => D(e.id),
+                  "aria-label": "Remove",
+                  children: r.jsx("svg", {
+                    width: "12",
+                    height: "12",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "2",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    children: r.jsx("path", {
+                      d: "M18 6L6 18M6 6L18 18"
+                    })
+                  })
+                })]
+              }, e.id))
+            })]
+          }), r.jsxs("div", {
+            className: "talk-to-founders-compose-actions",
+            children: [z && r.jsx("span", {
+              className: "talk-to-founders-upload-status",
+              children: k("home.talkToFoundersModal.uploadingFiles")
+            }), r.jsx("button", {
+              type: "button",
+              className: "talk-to-founders-send",
+              onClick: async () => {
+                if (c && j.trim() && !L.some(e => e.status === "uploading")) {
+                  b(true);
+                  try {
+                    const t = L.filter(e => e.status === "done" && e.url).map(e => e.url);
+                    const a = {
+                      user_comment: h ? `${h} ${j.trim()}` : j.trim(),
+                      conversation_id: c,
+                      ...(t.length > 0 && {
+                        attachment_urls: t
+                      }),
+                      ...(x && {
+                        id_label: x
+                      }),
+                      ...(f && /^https?:$/.test(window.location.protocol) && {
+                        page_url: window.location.href
+                      }),
+                      conversation_data: P()
+                    };
+                    if ((await (async t => {
+                      const a = e();
+                      if (!a) {
+                        throw new Error("No access token found");
+                      }
+                      const o = s("/api/v1/send_feedback");
+                      try {
+                        const e = await fetch(o, {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${a}`
+                          },
+                          body: JSON.stringify(t)
+                        });
+                        if (!e.ok) {
+                          const s = await e.json().catch(() => ({}));
+                          throw new Error(s.message || `HTTP error! status: ${e.status}`);
+                        }
+                        return await e.json();
+                      } catch (n) {
+                        throw n;
+                      }
+                    })(a)).success) {
+                      i();
+                      g(u ?? "");
+                      R([]);
+                      y(true);
+                      setTimeout(() => C(true), 3500);
+                      setTimeout(() => {
+                        y(false);
+                        C(false);
+                      }, 3800);
+                    }
+                  } catch (t) {} finally {
+                    b(false);
+                  }
+                }
+              },
+              disabled: A,
+              children: v ? r.jsx("span", {
+                children: k("chatResponse.submitting")
+              }) : r.jsxs(r.Fragment, {
+                children: [r.jsx("span", {
+                  children: k("chatResponse.submitReport")
+                }), r.jsxs("svg", {
+                  className: "talk-to-founders-send-icon",
+                  width: "14",
+                  height: "14",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  children: [r.jsx("line", {
+                    x1: "22",
+                    y1: "2",
+                    x2: "11",
+                    y2: "13"
+                  }), r.jsx("polygon", {
+                    points: "22 2 15 22 11 13 2 9 22 2"
+                  })]
+                })]
+              })
+            })]
+          })]
+        })]
+      })
+    }), N && r.jsx("div", {
+      className: "success-notification-overlay " + (w ? "exiting" : ""),
+      children: r.jsx("div", {
+        className: "success-notification " + (w ? "exiting" : ""),
+        children: r.jsxs("div", {
+          className: "success-notification-content",
+          children: [r.jsxs("div", {
+            className: "success-notification-title",
+            children: [r.jsx("div", {
+              className: "success-notification-title-icon",
+              children: r.jsx("img", {
+                src: "/pages/chatResponsePage/wrench.svg",
+                alt: "Wrench",
+                className: "success-notification-icon-svg"
+              })
+            }), r.jsx("span", {
+              children: k("chatResponse.reportSubmitted")
+            })]
+          }), r.jsx("div", {
+            className: "success-notification-message",
+            children: k("chatResponse.reportSubmittedMessage")
+          })]
+        })
+      })
+    })]
+  });
+};
+export { l as B };

@@ -1,0 +1,176 @@
+{
+ "director": "{\"thought\":\"I will choose the smallest useful learning action and then verify that it produced a response.\",\"tool\":\"generate_content\",\"args\":{}}",
+ "content": "## A clear starting point\n\nThe core idea is easier to learn in three moves: build an intuition, connect it to the formal definition, and test it with a small example. Start by asking what changes, what stays invariant, and what evidence would distinguish a correct explanation from a plausible one.\n\n### Try it\nExplain the idea back in one sentence, then apply it to a concrete case. That retrieval step turns recognition into understanding.",
+ "quiz": {
+  "title": "Quick knowledge check",
+  "questions": [
+   {
+    "question": "Which action best strengthens understanding?",
+    "answer_options": [
+     {
+      "index": 1,
+      "content": "Rereading only"
+     },
+     {
+      "index": 2,
+      "content": "Explaining and applying the idea"
+     },
+     {
+      "index": 3,
+      "content": "Skipping examples"
+     },
+     {
+      "index": 4,
+      "content": "Memorizing the title"
+     }
+    ],
+    "correct_answer": 2,
+    "explanation": "Retrieval plus application exposes gaps and builds transferable knowledge."
+   },
+   {
+    "question": "What does retrieval practice improve most?",
+    "answer_options": [
+     {
+      "index": 1,
+      "content": "Speed reading"
+     },
+     {
+      "index": 2,
+      "content": "Long-term recall"
+     },
+     {
+      "index": 3,
+      "content": "Skimming"
+     },
+     {
+      "index": 4,
+      "content": "Highlighting"
+     }
+    ],
+    "correct_answer": 2,
+    "explanation": "Active recall strengthens memory traces."
+   }
+  ]
+ },
+ "flashcards": {
+  "title": "Quick flashcards",
+  "cards": [
+   {
+    "question": "What is the fastest way to check understanding?",
+    "answer": "Explain the idea in your own words and apply it to a new example.",
+    "index": 1
+   },
+   {
+    "question": "What is retrieval practice?",
+    "answer": "Deliberately recalling information from memory to strengthen retention.",
+    "index": 2
+   }
+  ]
+ },
+ "course_questions": {
+  "questions": [
+   {
+    "question": "What is your current familiarity?",
+    "options": [
+     {
+      "title": "New",
+      "description": "I am starting from scratch."
+     },
+     {
+      "title": "Some experience",
+      "description": "I know the basics."
+     },
+     {
+      "title": "Advanced",
+      "description": "I want depth and practice."
+     }
+    ],
+    "is_multiple": false
+   },
+   {
+    "question": "What is your main goal?",
+    "options": [
+     {
+      "title": "Understand",
+      "description": "Build conceptual intuition."
+     },
+     {
+      "title": "Apply",
+      "description": "Solve real problems."
+     },
+     {
+      "title": "Review",
+      "description": "Prepare for an assessment."
+     }
+    ],
+    "is_multiple": true
+   },
+   {
+    "question": "Which format helps most?",
+    "options": [
+     {
+      "title": "Examples",
+      "description": "Learn through worked examples."
+     },
+     {
+      "title": "Projects",
+      "description": "Learn by building."
+     },
+     {
+      "title": "Exercises",
+      "description": "Learn through practice."
+     }
+    ],
+    "is_multiple": true
+   },
+   {
+    "question": "How much time can you spend?",
+    "options": [
+     {
+      "title": "15 minutes/day",
+      "description": "A focused overview."
+     },
+     {
+      "title": "30 minutes/day",
+      "description": "Balanced depth and practice."
+     },
+     {
+      "title": "60 minutes/day",
+      "description": "An intensive course."
+     }
+    ],
+    "is_multiple": false
+   }
+  ]
+ },
+ "course_plan": {
+  "title": "A Practical Learning Journey",
+  "description": "A concise course from first principles to confident application.",
+  "units": [
+   {
+    "title": "Foundations",
+    "sessions": [
+     "Build intuition",
+     "Learn the vocabulary"
+    ]
+   },
+   {
+    "title": "Application",
+    "sessions": [
+     "Work through an example",
+     "Practice independently"
+    ]
+   },
+   {
+    "title": "Mastery",
+    "sessions": [
+     "Connect the ideas",
+     "Complete a final challenge"
+    ]
+   }
+  ]
+ },
+ "board_brief": "# The Big Idea\n\n- Start with the question\n- Draw the relationship\n- Test it with an example",
+ "model_probe": "Model connection is healthy.",
+ "html_animation": "<!doctype html><html><body><main><h1>Concept animation</h1><p>The example moves from intuition to application.</p></main></body></html>"
+}

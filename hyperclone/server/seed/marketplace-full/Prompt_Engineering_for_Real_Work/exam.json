@@ -1,0 +1,1384 @@
+{
+ "exams": [
+  {
+   "title": "Unit 1 Assessment",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "What is the core shift in mindset when moving from 'conversing' to 'prompt engineering' as described in Session 1.1.1?",
+     "options": [
+      "Treating the AI as a conscious entity that understands intent",
+      "Moving from intuitive conversation to programming a deterministic autocomplete machine",
+      "Focusing on adding polite phrasing to improve AI cooperation",
+      "Prioritizing longer prompts to ensure the model has enough data"
+     ],
+     "explanation": "Prompt engineering is defined as a discipline of aligning probabilities to constrain the model's output, treating it as a statistical engine rather than a conscious being.",
+     "correctAnswers": [
+      "Moving from intuitive conversation to programming a deterministic autocomplete machine"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are the three architectural pillars of an 'engineered prompt' blueprint?",
+     "options": [
+      "Instructions",
+      "Context",
+      "Inputs",
+      "Polite Qualifiers",
+      "Heuristic Narratives"
+     ],
+     "explanation": "The three pillars—Instructions (rules), Context (knowledge), and Inputs (variable data)—form the standard blueprint to ensure clear attention boundaries.",
+     "correctAnswers": [
+      "Instructions",
+      "Context",
+      "Inputs"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When a prompt contains a 'blob of text' with no clear boundaries, the model's ____ mechanism distributes weight uniformly, leading to unpredictable outcomes.",
+     "explanation": "The attention mechanism is what allows the model to weigh different parts of a prompt; without structure, it fails to prioritize instructions over data.",
+     "placeholder": "mechanism name",
+     "correctAnswers": [
+      "attention"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why is the word 'neutral' considered superior to 'maybe' in a classification prompt?",
+     "options": [
+      "It is a shorter token that saves memory",
+      "It activates an objective subspace in the training data rather than conversational baggage",
+      "It sounds more professional to human readers",
+      "It allows the model more creative freedom in its response"
+     ],
+     "explanation": "Keywords like 'neutral' guide the model into a structured probability branch, whereas 'maybe' carries informal, high-variance baggage.",
+     "correctAnswers": [
+      "It activates an objective subspace in the training data rather than conversational baggage"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "According to the course material, what are the negative effects of using polite fillers like 'please' or 'could you kindly' in a prompt?",
+     "options": [
+      "They dilute the attention mechanism's focus",
+      "They waste valuable context window space",
+      "They make the model more likely to hallucinate facts",
+      "They decrease the signal-to-noise ratio of the instructions"
+     ],
+     "explanation": "Polite filler is identified as noise that occupies tokens and weakens the priority weights of actual imperatives.",
+     "correctAnswers": [
+      "They dilute the attention mechanism's focus",
+      "They waste valuable context window space",
+      "They decrease the signal-to-noise ratio of the instructions"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The practice of using ____-style tags like <instructions> or <input> helps prevent the model from confusing background data with direct commands.",
+     "explanation": "XML-style tags are effective delimiters because LLMs are trained on structured web data that uses such markers to separate code and content.",
+     "placeholder": "markup language",
+     "correctAnswers": [
+      "XML"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "A probability tree visualization showing the pruning of output paths.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d78c27f2-4c8e-4a55-aab3-469cb1a908ec/exam/images/unit1-q7.png"
+     },
+     "prompt": "What happens to the model's probability tree when you move from a vague prompt to one with strict structural boundaries?",
+     "options": [
+      "The tree expands to offer more creative possibilities",
+      "The branches leading to conversational fluff are pruned away",
+      "The model stops using probabilities and switches to logic gates",
+      "The tree becomes deeper but less accurate"
+     ],
+     "explanation": "Structural constraints physically restrict the tokens the model can select, effectively 'hacking away' undesirable probability branches.",
+     "correctAnswers": [
+      "The branches leading to conversational fluff are pruned away"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'High-Precision Analytical Verbs' that set clear execution boundaries?",
+     "options": [
+      "Audit",
+      "Tell me about",
+      "Reconcile",
+      "Write",
+      "Synthesize"
+     ],
+     "explanation": "Verbs like Audit, Reconcile, and Synthesize define specific operations, whereas 'Write' and 'Tell me about' are open-ended and passive.",
+     "correctAnswers": [
+      "Audit",
+      "Reconcile",
+      "Synthesize"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "An LLM does not 'think' like a human; it is a highly sophisticated ____ machine.",
+     "explanation": "The course defines LLMs as next-token prediction engines, or 'autocomplete machines', to shift the student's mental model toward probability.",
+     "placeholder": "word",
+     "correctAnswers": [
+      "autocomplete"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In the prompt transformation 'Write about sales data' to 'Identify top 3 declining categories and calculate percentage decrease', what has been added to improve the prompt?",
+     "options": [
+      "More polite context",
+      "Specific operational boundaries and data scope",
+      "A conversational persona",
+      "Increased word count for better comprehension"
+     ],
+     "explanation": "Moving from 'write about' to specific commands like 'identify' and 'calculate' replaces narrative drift with targeted analytic execution.",
+     "correctAnswers": [
+      "Specific operational boundaries and data scope"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "When diagnosing why a prompt failed, what actions are recommended in Session 1.1.3?",
+     "options": [
+      "Systematically isolating variables by swapping words",
+      "Adding more 'please' and 'thank you' to see if the model responds better",
+      "Observing the output distribution change after keyword swaps",
+      "Assuming synonyms are mathematically identical in vector space"
+     ],
+     "explanation": "Engineering involves isolating variables and observing how semantic changes affect the output distribution, rather than guessing or relying on synonyms.",
+     "correctAnswers": [
+      "Systematically isolating variables by swapping words",
+      "Observing the output distribution change after keyword swaps"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Replacing a passive verb with an active one ____ the probability space of the output tokens.",
+     "explanation": "Explicit, active verbs act as filters, narrowing the possibilities of what the model will generate next.",
+     "placeholder": "verb (e.g., expands, restricts)",
+     "correctAnswers": [
+      "restricts"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why is the 'blob of text' pattern dangerous in a production environment?",
+     "options": [
+      "It uses too many tokens for the API to process",
+      "It allows user input to potentially hijack system instructions (prompt injection)",
+      "It makes the prompt too short for the model to understand",
+      "It forces the model to use only its training data"
+     ],
+     "explanation": "Without delimiters, the model cannot distinguish between a developer's instruction and a user's input, which may contain adversarial commands like 'ignore previous requests'.",
+     "correctAnswers": [
+      "It allows user input to potentially hijack system instructions (prompt injection)"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which parts of the 'vague prompt' below should be removed or changed to improve it for a business pipeline? 'Please read this and tell me what you think. Be very creative and smart.'",
+     "options": [
+      "'Please'",
+      "'tell me what you think'",
+      "'Be very creative'",
+      "'read this'"
+     ],
+     "explanation": "Politeness, passive verbs ('tell me'), and requests for 'creativity' (which increases variance) are all obstacles to deterministic business outputs.",
+     "correctAnswers": [
+      "'Please'",
+      "'tell me what you think'",
+      "'Be very creative'"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The '____' pillar of the prompt blueprint contains the dynamic, variable data supplied at runtime.",
+     "explanation": "Inputs are the variable pieces of data (like a specific email or ticket) that change with every execution of the prompt template.",
+     "placeholder": "pillar name",
+     "correctAnswers": [
+      "Inputs"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is 'semantic drift' in the context of prompt debugging?",
+     "options": [
+      "When the model's training data becomes outdated",
+      "When similar human words (synonyms) lead to different mathematical trajectories in the model",
+      "When a prompt is translated into another language",
+      "When the user changes the topic of conversation mid-prompt"
+     ],
+     "explanation": "Semantic drift occurs because words that seem identical to humans can be distant in the model's high-dimensional vector space.",
+     "correctAnswers": [
+      "When similar human words (synonyms) lead to different mathematical trajectories in the model"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "According to the lesson on 'Defining the Task', a structured alternative to a vague prompt should include which three components?",
+     "options": [
+      "Core Action",
+      "Data Scope",
+      "Target Synthesis",
+      "Polite Salutation",
+      "General Interest"
+     ],
+     "explanation": "A precise task definition requires a specific action, a defined scope of data, and a clear goal for the final synthesis.",
+     "correctAnswers": [
+      "Core Action",
+      "Data Scope",
+      "Target Synthesis"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "Which component of the prompt blueprint contains the 'immutable ruleset and persona'?",
+     "options": [
+      "Context",
+      "Inputs",
+      "Instructions",
+      "Variable Placeholders"
+     ],
+     "explanation": "The Instructions block is where the developer defines the behavior, persona, and constraints that remain constant across runs.",
+     "correctAnswers": [
+      "Instructions"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "How does a model's 'attention mechanism' respond to a well-structured prompt versus a 'blob of text'?",
+     "options": [
+      "It distributes weight uniformly in a blob",
+      "It locks onto explicit imperative verbs in a structured prompt",
+      "It ignores delimiters in favor of conversational flow",
+      "It anchors weights to delimited blocks"
+     ],
+     "explanation": "Structure allows the attention mechanism to prioritize specific instructions and isolate data, whereas blobs cause weight to be spread thin.",
+     "correctAnswers": [
+      "It distributes weight uniformly in a blob",
+      "It locks onto explicit imperative verbs in a structured prompt",
+      "It anchors weights to delimited blocks"
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "The model is currently producing long-winded, conversational explanations for a simple classification task. Move the 'Instruction' block to the position that best prevents 'structural decay' and ensures the model anchors its attention on the output rules during the generation phase.",
+     "options": [
+      "At the very beginning, before a massive context block",
+      "Directly after the raw user input without delimiters",
+      "At the end of the prompt, following clear XML delimiters",
+      "Inside the middle of the reference context block"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Interactive Prompt Sequence Designer</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #757575;\n    --accent: #4C6696;\n    --accent-soft: #f0f4f8;\n    --accent-strong: #3a4f78;\n    --glow-color: rgba(76, 102, 150, 0.3);\n    --gold-glow: rgba(245, 166, 35, 0.4);\n    --gold: #f5a623;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  html, body {\n    background: var(--bg);\n    margin: 0;\n    padding: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n    color: var(--fg);\n    overflow: hidden;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n\n  .widget-container {\n    width: 100%;\n    max-width: 600px;\n    margin: 0 auto;\n    padding: 12px;\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n    user-select: none;\n    -webkit-user-select: none;\n  }\n\n  .layout {\n    display: grid;\n    grid-template-columns: 1fr 1.2fr;\n    gap: 16px;\n    align-items: start;\n  }\n\n  @media (max-width: 480px) {\n    .layout {\n      grid-template-columns: 1fr;\n      gap: 12px;\n    }\n    .widget-container {\n      max-height: 400px;\n    }\n  }\n\n  /* Left Panel */\n  .control-panel {\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 12px;\n    padding: 12px;\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n    box-shadow: 0 2px 8px rgba(0,0,0,0.04);\n  }\n\n  .hint-text {\n    font-size: 12px;\n    color: var(--muted-fg);\n    line-height: 1.4;\n  }\n\n  .card-dock {\n    background: var(--stage);\n    border: 2px dashed var(--border);\n    border-radius: 8px;\n    min-height: 80px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    padding: 4px;\n  }\n\n  /* Draggable Instruction Card */\n  .instruction-card {\n    background: var(--surface);\n    border: 2px solid var(--accent);\n    border-radius: 8px;\n    padding: 8px 12px;\n    cursor: grab;\n    width: 100%;\n    max-width: 220px;\n    box-shadow: 0 4px 12px rgba(76, 102, 150, 0.15);\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n    position: relative;\n    z-index: 10;\n    touch-action: none;\n  }\n\n  .instruction-card:active {\n    cursor: grabbing;\n  }\n\n  .instruction-card.dragging {\n    opacity: 0.9;\n    box-shadow: 0 8px 24px rgba(76, 102, 150, 0.25);\n    pointer-events: none;\n  }\n\n  .card-header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 11px;\n    font-weight: 700;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n    color: var(--accent-strong);\n  }\n\n  .card-header svg {\n    width: 14px;\n    height: 14px;\n    flex-shrink: 0;\n  }\n\n  .card-body {\n    font-size: 12px;\n    font-family: monospace;\n    background: var(--accent-soft);\n    padding: 4px 6px;\n    border-radius: 4px;\n    color: #2c3e50;\n    border-left: 3px solid var(--accent);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n\n  /* Right Panel: Prompt Stack */\n  .prompt-stack {\n    background: var(--stage);\n    border: 1px solid var(--border);\n    border-radius: 12px;\n    padding: 8px;\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n    max-height: 310px;\n    overflow-y: auto;\n    position: relative;\n  }\n\n  /* Generic Stack Block */\n  .stack-block {\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 6px;\n    padding: 6px 10px;\n    font-size: 11px;\n    font-weight: 600;\n    color: var(--fg);\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n  }\n\n  .block-meta {\n    font-size: 9px;\n    color: var(--muted-fg);\n    font-weight: normal;\n  }\n\n  .context-block {\n    background: #fdfdfd;\n    border-left: 3px solid #ccc;\n  }\n\n  .delimiter-block {\n    background: #f0f0f0;\n    font-family: monospace;\n    color: #444;\n    border: 1px dashed #ccc;\n  }\n\n  /* Drop Slots */\n  .slot-container {\n    border: 2px dashed var(--border);\n    background: rgba(255,255,255,0.4);\n    border-radius: 8px;\n    min-height: 40px;\n    display: flex;\n    flex-direction: column;\n    transition: all 0.2s ease;\n    padding: 2px;\n  }\n\n  .slot-label {\n    font-size: 9px;\n    font-weight: bold;\n    color: var(--muted-fg);\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n    padding: 2px 6px;\n  }\n\n  .slot-dropzone {\n    flex-grow: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 32px;\n    color: var(--muted-fg);\n    font-size: 11px;\n    pointer-events: none;\n    transition: all 0.2s ease;\n  }\n\n  .slot-container.hovered {\n    border-color: var(--accent);\n    background: var(--accent-soft);\n  }\n\n  .slot-container.active {\n    border: 2px solid var(--accent);\n    background: var(--surface);\n  }\n\n  .slot-container.active .slot-dropzone {\n    color: var(--fg);\n  }\n\n  /* Target Token Block */\n  .token-output {\n    background: #1f1f1f;\n    color: #fff;\n    border-color: #1f1f1f;\n    position: relative;\n    overflow: hidden;\n  }\n\n  .token-output .block-meta {\n    color: #aaa;\n  }\n\n  /* Bridge of Light (Anchored Attention) */\n  .bridge-container {\n    position: absolute;\n    bottom: 24px;\n    left: 8px;\n    right: 8px;\n    height: 40px;\n    pointer-events: none;\n    display: none;\n    z-index: 5;\n  }\n\n  .bridge-line {\n    width: 100%;\n    height: 100%;\n    stroke: var(--gold);\n    stroke-dasharray: 4 4;\n    animation: flow 1s linear infinite;\n  }\n\n  @keyframes flow {\n    to {\n      stroke-dashoffset: -20;\n    }\n  }\n\n  .show-bridge .bridge-container {\n    display: block;\n  }\n\n  .show-bridge .token-output {\n    box-shadow: 0 0 12px var(--gold-glow);\n    border-color: var(--gold);\n  }\n\n  .show-bridge .slot-container.active {\n    border-color: var(--gold);\n    box-shadow: 0 0 12px var(--gold-glow);\n  }\n\n  .attention-badge {\n    position: absolute;\n    bottom: 45px;\n    right: 12px;\n    background: var(--gold);\n    color: #000;\n    font-size: 9px;\n    font-weight: 800;\n    padding: 2px 6px;\n    border-radius: 10px;\n    box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n    display: none;\n    z-index: 100;\n    letter-spacing: 0.5px;\n    animation: pulse 1.5s infinite ease-in-out;\n  }\n\n  .show-bridge .attention-badge {\n    display: block;\n  }\n\n  @keyframes pulse {\n    0%, 100% { transform: scale(1); opacity: 0.9; }\n    50% { transform: scale(1.05); opacity: 1; }\n  }\n\n  /* Keyboard Focus Styling */\n  .instruction-card:focus-visible {\n    outline: 2px solid var(--accent);\n    outline-offset: 2px;\n  }\n\n  /* Disabled State */\n  body.locked .instruction-card {\n    cursor: default;\n    pointer-events: none !important;\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"sr-only\">Interactive prompt sequence builder. Place the instruction card in the optimal position of the prompt stack.</h1>\n\n<div class=\"widget-container\">\n  <div class=\"layout\">\n    \n    <!-- Left Interaction Dock -->\n    <div class=\"control-panel\">\n      <span class=\"hint-text\">Drag the <b>Instruction</b> block to a slot in the prompt stack to see its effect on generation attention:</span>\n      \n      <div class=\"card-dock\" id=\"origin-dock\">\n        <div id=\"draggable-card\" class=\"instruction-card\" draggable=\"false\" tabindex=\"0\" aria-label=\"Draggable Instruction Card: Classify POS/NEG\" role=\"button\">\n          <div class=\"card-header\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"4\" y1=\"9\" x2=\"20\" y2=\"9\"></line><line x1=\"4\" y1=\"15\" x2=\"20\" y2=\"15\"></line></svg>\n            <span>Instruction</span>\n          </div>\n          <div class=\"card-body\">Classify as POS/NEG</div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Right Prompt Stack -->\n    <div class=\"prompt-stack\" id=\"stack\">\n      \n      <!-- Slot 1 -->\n      <div class=\"slot-container\" data-option=\"At the very beginning, before a massive context block\" tabindex=\"0\" role=\"button\" aria-label=\"Slot 1: At the very beginning, before a massive context block\">\n        <div class=\"slot-label\">Slot 1: Before Context</div>\n        <div class=\"slot-dropzone\">Empty Slot</div>\n      </div>\n\n      <div class=\"stack-block context-block\">\n        <span>Reference Context</span>\n        <span class=\"block-meta\">1000+ Tokens</span>\n      </div>\n\n      <!-- Slot 2 -->\n      <div class=\"slot-container\" data-option=\"Inside the middle of the reference context block\" tabindex=\"0\" role=\"button\" aria-label=\"Slot 2: Inside the middle of the reference context block\">\n        <div class=\"slot-label\">Slot 2: Mid-Context</div>\n        <div class=\"slot-dropzone\">Empty Slot</div>\n      </div>\n\n      <div class=\"stack-block context-block\">\n        <span>Context (Continued)</span>\n        <span class=\"block-meta\">Reference Data</span>\n      </div>\n\n      <div class=\"stack-block\">\n        <span>Raw User Input</span>\n        <span class=\"block-meta\">Task target</span>\n      </div>\n\n      <!-- Slot 3 -->\n      <div class=\"slot-container\" data-option=\"Directly after the raw user input without delimiters\" tabindex=\"0\" role=\"button\" aria-label=\"Slot 3: Directly after the raw user input without delimiters\">\n        <div class=\"slot-label\">Slot 3: Post-Input</div>\n        <div class=\"slot-dropzone\">Empty Slot</div>\n      </div>\n\n      <div class=\"stack-block delimiter-block\">\n        <span>&lt;/context&gt; &lt;rules&gt;</span>\n        <span class=\"block-meta\">XML Boundaries</span>\n      </div>\n\n      <!-- Slot 4 -->\n      <div class=\"slot-container\" data-option=\"At the end of the prompt, following clear XML delimiters\" tabindex=\"0\" role=\"button\" aria-label=\"Slot 4: At the end of the prompt, following clear XML delimiters\">\n        <div class=\"slot-label\">Slot 4: Post-Delimiters</div>\n        <div class=\"slot-dropzone\">Empty Slot</div>\n      </div>\n\n      <!-- Target Token Output -->\n      <div class=\"stack-block token-output\">\n        <span>Generation Target</span>\n        <span class=\"block-meta\" style=\"font-weight:bold; color:var(--gold);\">[Next Token]</span>\n      </div>\n\n      <!-- Attention Bridge SVG Overlay -->\n      <div class=\"bridge-container\">\n        <svg width=\"100%\" height=\"100%\" viewBox=\"0 0 100 40\" preserveAspectRatio=\"none\">\n          <path d=\"M 50 0 L 50 40\" class=\"bridge-line\" stroke-width=\"4\" fill=\"none\"/>\n        </svg>\n      </div>\n      <div class=\"attention-badge\">ANCHORED ATTENTION</div>\n\n    </div>\n\n  </div>\n</div>\n\n<script>\n  const card = document.getElementById('draggable-card');\n  const slots = document.querySelectorAll('.slot-container');\n  const stack = document.getElementById('stack');\n  const originDock = document.getElementById('origin-dock');\n  \n  let isDragging = false;\n  let locked = false;\n  let activeSlot = null;\n  let startX = 0;\n  let startY = 0;\n\n  // Initialize height reporting\n  function reportHeight() {\n    try {\n      parent.postMessage({\n        type: 'hk-anim-height',\n        height: Math.ceil(document.documentElement.getBoundingClientRect().height)\n      }, '*');\n    } catch (e) {}\n  }\n\n  window.addEventListener('load', reportHeight);\n  const resizeObserver = new ResizeObserver(reportHeight);\n  resizeObserver.observe(document.body);\n\n  // Drag-and-drop mechanics using Pointer Events\n  card.addEventListener('pointerdown', (e) => {\n    if (locked) return;\n    isDragging = true;\n    card.classList.add('dragging');\n    card.setPointerCapture(e.pointerId);\n\n    const rect = card.getBoundingClientRect();\n    startX = e.clientX - rect.left;\n    startY = e.clientY - rect.top;\n    \n    // Prevent default touch scrolling during drag\n    e.preventDefault();\n  });\n\n  card.addEventListener('pointermove', (e) => {\n    if (!isDragging) return;\n\n    // Relative to viewport offset\n    const x = e.clientX - startX;\n    const y = e.clientY - startY;\n\n    // Absolute positioning visually during active drag\n    card.style.position = 'fixed';\n    card.style.left = `${x}px`;\n    card.style.top = `${y}px`;\n    card.style.width = '200px';\n\n    // Hit testing nearest slot\n    let hoveredSlot = null;\n    let minDistance = 9999;\n\n    slots.forEach(slot => {\n      const sRect = slot.getBoundingClientRect();\n      const sCenterX = sRect.left + sRect.width / 2;\n      const sCenterY = sRect.top + sRect.height / 2;\n\n      const dist = Math.hypot(e.clientX - sCenterX, e.clientY - sCenterY);\n      if (dist < minDistance && dist < 120) {\n        minDistance = dist;\n        hoveredSlot = slot;\n      }\n    });\n\n    slots.forEach(slot => {\n      if (slot === hoveredSlot) {\n        slot.classList.add('hovered');\n      } else {\n        slot.classList.remove('hovered');\n      }\n    });\n  });\n\n  card.addEventListener('pointerup', (e) => {\n    if (!isDragging) return;\n    isDragging = false;\n    card.classList.remove('dragging');\n    card.releasePointerCapture(e.pointerId);\n\n    // Reset fixed style\n    card.style.position = '';\n    card.style.left = '';\n    card.style.top = '';\n    card.style.width = '';\n\n    // Find dropped slot\n    let targetSlot = null;\n    let minDistance = 9999;\n\n    slots.forEach(slot => {\n      const sRect = slot.getBoundingClientRect();\n      const sCenterX = sRect.left + sRect.width / 2;\n      const sCenterY = sRect.top + sRect.height / 2;\n\n      const dist = Math.hypot(e.clientX - sCenterX, e.clientY - sCenterY);\n      if (dist < minDistance && dist < 120) {\n        minDistance = dist;\n        targetSlot = slot;\n      }\n      slot.classList.remove('hovered');\n    });\n\n    if (targetSlot) {\n      snapTo(targetSlot);\n    } else if (activeSlot) {\n      snapTo(activeSlot);\n    } else {\n      // Snap back to starting dock\n      originDock.appendChild(card);\n    }\n    reportHeight();\n  });\n\n  function snapTo(slot) {\n    activeSlot = slot;\n    slots.forEach(s => {\n      s.classList.remove('active');\n      const dropzone = s.querySelector('.slot-dropzone');\n      if (s !== slot) {\n        dropzone.textContent = 'Empty Slot';\n      }\n    });\n\n    slot.classList.add('active');\n    const dropzone = slot.querySelector('.slot-dropzone');\n    dropzone.innerHTML = '';\n    dropzone.appendChild(card);\n\n    const optionStr = slot.getAttribute('data-option');\n\n    // Visual effect: bridge of light at the end\n    if (optionStr === \"At the end of the prompt, following clear XML delimiters\") {\n      stack.classList.add('show-bridge');\n    } else {\n      stack.classList.remove('show-bridge');\n    }\n\n    // Submit answer to parent\n    try {\n      parent.postMessage({\n        type: 'hk-practice-answer',\n        value: optionStr\n      }, '*');\n    } catch (e) {}\n  }\n\n  // Keyboard accessibility\n  slots.forEach(slot => {\n    slot.addEventListener('click', () => {\n      if (locked) return;\n      snapTo(slot);\n    });\n    slot.addEventListener('keydown', (e) => {\n      if (locked) return;\n      if (e.key === 'Enter' || e.key === ' ') {\n        e.preventDefault();\n        snapTo(slot);\n      }\n    });\n  });\n\n  // Lock message listener\n  window.addEventListener('message', function(e) {\n    if (e.data && e.data.type === 'hk-practice-lock') {\n      locked = true;\n      document.body.classList.add('locked');\n      card.removeAttribute('tabindex');\n      slots.forEach(s => s.removeAttribute('tabindex'));\n    }\n  });\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "At the end of the prompt, following clear XML delimiters"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 2 Assessment",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to Session 2.1.1, what is the primary mistake prompt designers make when attempting to adjust the complexity of an output?",
+     "options": [
+      "Using too much domain-specific jargon",
+      "Using vague instructions like 'explain this simply'",
+      "Providing a structured comparison matrix",
+      "Defining the target audience's decision constraints"
+     ],
+     "explanation": "Vague instructions fail because the model defaults to median statistical weights; effective prompting requires explicit boundaries for the target audience profile.",
+     "correctAnswers": [
+      "Using vague instructions like 'explain this simply'"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When building a 'Tone Specification Matrix', which dimensions are used to lock down a repeatable communication style?",
+     "options": [
+      "Lexical Choices",
+      "Fictional Backstory",
+      "Stylistic Constraints",
+      "Conversational Guardrails",
+      "Emotional Intelligence Quotient"
+     ],
+     "explanation": "The Tone Specification Matrix focuses on concrete engineering rules—vocabulary, style, and guardrails—rather than subjective adjectives or fictional narratives.",
+     "correctAnswers": [
+      "Lexical Choices",
+      "Stylistic Constraints",
+      "Conversational Guardrails"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "Assigning a specific professional role acts as a ____ that activates thousands of latent rules and relationships embedded during pre-training.",
+     "explanation": "A role acts as a functional macro, focusing the model's attention on specialized coordinates within its semantic vector space.",
+     "placeholder": "Enter the specific term",
+     "correctAnswers": [
+      "functional macro"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What happens to the model's 'attention weights' when a prompt generates conversational filler like 'Certainly, here is the list'?",
+     "options": [
+      "Attention weights are increased for the actual data.",
+      "The filler acts as a semantic anchor for better formatting.",
+      "The filler competes with the target task for finite attention resources.",
+      "It helps the model understand the request more deeply."
+     ],
+     "explanation": "Conversational noise carries an 'attention tax,' diluting the focus the model can place on the structured data requirements.",
+     "correctAnswers": [
+      "The filler competes with the target task for finite attention resources."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A learner is experiencing 'constraint contradiction' in their prompt. Which of the following strategies are taught to resolve this?",
+     "options": [
+      "Establish a clear hierarchy of constraints.",
+      "Add more adjectives to clarify the desired tone.",
+      "Prioritize one constraint (e.g., conciseness) over another (e.g., empathy).",
+      "Remove the system context entirely."
+     ],
+     "explanation": "To resolve logic deadlocks in self-attention, you must explicitly rank constraints so the model knows which to prioritize when they conflict.",
+     "correctAnswers": [
+      "Establish a clear hierarchy of constraints.",
+      "Prioritize one constraint (e.g., conciseness) over another (e.g., empathy)."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "To ensure a model initiates output directly with a table, you should instruct it to start with structural ____ markers.",
+     "explanation": "Markdown markers like pipe symbols provide a semantic anchor that biases the model toward structured formatting immediately.",
+     "placeholder": "Format name",
+     "correctAnswers": [
+      "markdown"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the comparison between a 'Venture Capitalist' and a 'Risk Auditor', how does the same input lead to different outputs?",
+     "options": [
+      "The model uses different training data for each run.",
+      "The roles act as mathematical routing constraints on token probability.",
+      "The auditor persona is programmed to be more negative.",
+      "The model performs a web search for different keywords."
+     ],
+     "explanation": "Roles shift the probability distribution of the next-token prediction, prioritizing specialized frameworks and vocabularies associated with that persona.",
+     "correctAnswers": [
+      "The roles act as mathematical routing constraints on token probability."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of these are recommended ways to define a persona without creating 'narrative fluff' or 'bloat'?",
+     "options": [
+      "Specify domain knowledge level.",
+      "Write a detailed childhood history of the persona.",
+      "Define typical decision constraints.",
+      "Identify preferred vocabulary style."
+     ],
+     "explanation": "Structured parameters are more effective than narrative backstories, which waste context window tokens and dilute attention.",
+     "correctAnswers": [
+      "Specify domain knowledge level.",
+      "Define typical decision constraints.",
+      "Identify preferred vocabulary style."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "A 'caricature response' occurs when a persona is defined too ____, leading to stereotypical outputs.",
+     "explanation": "Superficial definitions cause the model to rely on dramatic stereotypes rather than expert-level reasoning constraints.",
+     "placeholder": "Adverb",
+     "correctAnswers": [
+      "superficially"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "When requesting a markdown table, what is a common pitfall mentioned regarding missing data?",
+     "options": [
+      "The model will crash the interface.",
+      "The model may hallucinate an entire row.",
+      "The model might break the table structure if no null-value instruction is given.",
+      "Markdown cannot represent missing data."
+     ],
+     "explanation": "Without explicit instructions on how to handle empty fields (like using 'N/A'), the model's formatting may become inconsistent or misaligned.",
+     "correctAnswers": [
+      "The model might break the table structure if no null-value instruction is given."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why is it important to use 'Negative Constraints' in a tone specification?",
+     "options": [
+      "They prevent the model's drift toward generic 'AI-speak'.",
+      "They help eliminate repetitive transitional phrases like 'In conclusion'.",
+      "They make the prompt longer and more impressive.",
+      "They explicitly restrict forbidden corporate jargon."
+     ],
+     "explanation": "Negative constraints are essential for pruning unwanted behaviors that are common in baseline LLM responses.",
+     "correctAnswers": [
+      "They prevent the model's drift toward generic 'AI-speak'.",
+      "They help eliminate repetitive transitional phrases like 'In conclusion'.",
+      "They explicitly restrict forbidden corporate jargon."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "When describing a technical system to a Business Manager, you should map technical terms like 'throttling' to ____ equivalents.",
+     "explanation": "Refactoring for a business audience requires translating infrastructure mechanics into terms of value, cost, or risk.",
+     "placeholder": "Type of equivalent",
+     "correctAnswers": [
+      "business-value"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What concept is represented by the spectrum drawn on the whiteboard in Session 2.1.1?",
+     "options": [
+      "Token Probability",
+      "Language Register",
+      "Context Window Size",
+      "Inference Speed"
+     ],
+     "explanation": "The Language Register spectrum illustrates the range from technical jargon to simplified language, showing how audience definition adjusts output complexity.",
+     "correctAnswers": [
+      "Language Register"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which elements are required to construct a 'Direct Output Pipeline' for data generation?",
+     "options": [
+      "Strict structural cues",
+      "Polite preambles",
+      "Specific markdown symbols",
+      "Removal of conversational filler"
+     ],
+     "explanation": "A direct output pipeline bypasses conversational noise by using strict cues and formatting markers to guide token generation.",
+     "correctAnswers": [
+      "Strict structural cues",
+      "Specific markdown symbols",
+      "Removal of conversational filler"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "How should a prompt designer handle the 'empathy vs. conciseness' conflict?",
+     "options": [
+      "Always choose empathy to sound human.",
+      "Set a priority mapping, such as 'Priority 1: Conciseness'.",
+      "Ask the model to decide which is better for the situation.",
+      "Use more exclamation marks to show friendliness briefly."
+     ],
+     "explanation": "Explicit priority mapping removes the logical deadlock when two stylistic goals conflict.",
+     "correctAnswers": [
+      "Set a priority mapping, such as 'Priority 1: Conciseness'."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "Adjust the prompt's 'Attention Weights' to correctly balance a conflict between 'High Empathy' and 'Strict Conciseness' based on the lesson's priority mapping.",
+     "options": [
+      "Empathy High / Conciseness Low (Deadlock)",
+      "Empathy Low / Conciseness High (Direct)",
+      "Balanced Middle (Generic Drift)",
+      "Both Maximum (Attention Tax Violation)"
+     ],
+     "explanation": "To resolve constraint contradiction, one attribute must be prioritized. Reducing empathy tokens in favor of conciseness ensures the model delivers the solution immediately without structural confusion.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Attention Weights Console</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --warning: #d97706;\n      --warning-soft: #fef3c7;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      -webkit-user-select: none;\n      user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .console-layout {\n      display: grid;\n      grid-template-columns: 140px 1fr;\n      gap: 16px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 14px;\n      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);\n    }\n\n    @media (max-width: 360px) {\n      .console-layout {\n        grid-template-columns: 1fr;\n        gap: 12px;\n      }\n    }\n\n    /* Faders Container */\n    .faders-group {\n      display: flex;\n      justify-content: space-around;\n      align-items: center;\n      background: var(--stage);\n      border-radius: 8px;\n      padding: 10px 6px;\n      height: 170px;\n      box-sizing: border-box;\n    }\n\n    .fader-col {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 6px;\n      height: 100%;\n    }\n\n    .fader-label {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .fader-track {\n      width: 8px;\n      height: 110px;\n      background: #e2ded5;\n      border-radius: 4px;\n      position: relative;\n      touch-action: none;\n      cursor: pointer;\n    }\n\n    .fader-thumb {\n      width: 24px;\n      height: 16px;\n      background: var(--accent);\n      border: 2px solid var(--surface);\n      border-radius: 4px;\n      position: absolute;\n      left: 50%;\n      transform: translate(-50%, -50%);\n      cursor: grab;\n      box-shadow: 0 2px 4px rgba(0,0,0,0.15);\n      transition: background-color 0.15s, transform 0.1s;\n    }\n\n    .fader-thumb:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n      transform: translate(-50%, -50%) scale(1.1);\n    }\n\n    .fader-thumb:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .fader-val {\n      font-size: 10px;\n      font-variant-numeric: tabular-nums;\n      color: var(--muted-fg);\n    }\n\n    /* Screen / Output Box */\n    .monitor-panel {\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n      height: 170px;\n      box-sizing: border-box;\n    }\n\n    .monitor-header {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--muted-fg);\n      border-bottom: 1px solid var(--border);\n      padding-bottom: 4px;\n    }\n\n    .status-pill {\n      font-size: 9px;\n      padding: 2px 6px;\n      border-radius: 10px;\n      background: var(--stage);\n      color: var(--fg);\n      font-weight: bold;\n    }\n\n    .status-pill.active {\n      background: var(--accent-soft);\n      color: var(--accent-strong);\n    }\n\n    .status-pill.error {\n      background: var(--warning-soft);\n      color: var(--warning);\n    }\n\n    .monitor-screen {\n      flex: 1;\n      background: #1e1e24;\n      border-radius: 6px;\n      padding: 12px;\n      color: #a9b2c3;\n      font-family: monospace;\n      font-size: 11px;\n      line-height: 1.4;\n      overflow-y: auto;\n      box-sizing: border-box;\n      border: 1px solid #2d2d3a;\n      transition: border-color 0.2s, background-color 0.2s;\n    }\n\n    .monitor-screen.error-state {\n      border-color: var(--warning);\n      background: #251a15;\n    }\n\n    .text-highlight {\n      color: #ffffff;\n      font-weight: bold;\n    }\n\n    .text-error {\n      color: #f87171;\n    }\n\n    /* Instructions footer */\n    .action-hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: 2px;\n    }\n\n    /* Disabled state for locking */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.7;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Attention Weights Console</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"console-layout\" id=\"consoleBoard\">\n      \n      <!-- Left side: The Dual Faders -->\n      <div class=\"faders-group\">\n        <!-- Empathy Fader -->\n        <div class=\"fader-col\">\n          <span class=\"fader-label\" id=\"lbl-empathy\">Emp</span>\n          <div class=\"fader-track\" id=\"track-empathy\" aria-labelledby=\"lbl-empathy\">\n            <div class=\"fader-thumb\" id=\"thumb-empathy\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"50\" tabindex=\"0\"></div>\n          </div>\n          <span class=\"fader-val\" id=\"val-empathy\">50%</span>\n        </div>\n\n        <!-- Conciseness Fader -->\n        <div class=\"fader-col\">\n          <span class=\"fader-label\" id=\"lbl-concise\">Con</span>\n          <div class=\"fader-track\" id=\"track-concise\" aria-labelledby=\"lbl-concise\">\n            <div class=\"fader-thumb\" id=\"thumb-concise\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"50\" tabindex=\"0\"></div>\n          </div>\n          <span class=\"fader-val\" id=\"val-concise\">50%</span>\n        </div>\n      </div>\n\n      <!-- Right side: Preview Monitor -->\n      <div class=\"monitor-panel\">\n        <div class=\"monitor-header\">\n          <span>GENERATED RESPONSE</span>\n          <span class=\"status-pill\" id=\"statusPill\">IDLE</span>\n        </div>\n        <div class=\"monitor-screen\" id=\"monitorScreen\">\n          <span style=\"color: #6272a4;\">// Adjust faders to generate model output...</span>\n        </div>\n      </div>\n\n    </div>\n\n    <div class=\"action-hint\">\n      Drag faders to adjust parameters and preview the generated response.\n    </div>\n  </div>\n\n  <script>\n    // State values\n    let state = {\n      empathy: 50,\n      concise: 50,\n      hasInteracted: false,\n      locked: false\n    };\n\n    // DOM Elements\n    const trackEmp = document.getElementById('track-empathy');\n    const thumbEmp = document.getElementById('thumb-empathy');\n    const valEmp = document.getElementById('val-empathy');\n\n    const trackCon = document.getElementById('track-concise');\n    const thumbCon = document.getElementById('thumb-concise');\n    const valCon = document.getElementById('val-concise');\n\n    const monitorScreen = document.getElementById('monitorScreen');\n    const statusPill = document.getElementById('statusPill');\n    const consoleBoard = document.getElementById('consoleBoard');\n\n    // Options mapping\n    const OPT_DEADLOCK = \"Empathy High / Conciseness Low (Deadlock)\";\n    const OPT_DIRECT = \"Empathy Low / Conciseness High (Direct)\";\n    const OPT_BALANCED = \"Balanced Middle (Generic Drift)\";\n    const OPT_VIOLATION = \"Both Maximum (Attention Tax Violation)\";\n\n    // Update dimensions on load\n    function reportHeight() {\n      try {\n        parent.postMessage({\n          type: 'hk-anim-height',\n          height: Math.ceil(document.documentElement.getBoundingClientRect().height)\n        }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', () => {\n      reportHeight();\n      updateFaderVisuals();\n    });\n\n    const resizeObserver = new ResizeObserver(() => {\n      reportHeight();\n    });\n    resizeObserver.observe(document.body);\n\n    // Setup Drag Functionality\n    function setupFader(track, thumb, key, onUpdate) {\n      let isDragging = false;\n\n      function getPercent(clientY) {\n        const rect = track.getBoundingClientRect();\n        // Calculate percentage from bottom of the track up\n        const relativeY = clientY - rect.top;\n        let percent = 100 - (relativeY / rect.height) * 100;\n        return Math.max(0, Math.min(100, Math.round(percent)));\n      }\n\n      function handleMove(clientY) {\n        if (state.locked) return;\n        state.hasInteracted = true;\n        state[key] = getPercent(clientY);\n        onUpdate();\n      }\n\n      thumb.addEventListener('pointerdown', (e) => {\n        if (state.locked) return;\n        isDragging = true;\n        thumb.setPointerCapture(e.pointerId);\n        e.preventDefault();\n      });\n\n      thumb.addEventListener('pointermove', (e) => {\n        if (isDragging) {\n          handleMove(e.clientY);\n        }\n      });\n\n      thumb.addEventListener('pointerup', (e) => {\n        if (isDragging) {\n          isDragging = false;\n          thumb.releasePointerCapture(e.pointerId);\n        }\n      });\n\n      // Tap on track instantly positions\n      track.addEventListener('pointerdown', (e) => {\n        if (state.locked) return;\n        if (e.target !== thumb) {\n          handleMove(e.clientY);\n          isDragging = true;\n          thumb.setPointerCapture(e.pointerId);\n        }\n      });\n\n      // Keyboard support\n      thumb.addEventListener('keydown', (e) => {\n        if (state.locked) return;\n        let diff = 0;\n        if (e.key === 'ArrowUp') diff = 5;\n        else if (e.key === 'ArrowDown') diff = -5;\n        else return;\n\n        state.hasInteracted = true;\n        state[key] = Math.max(0, Math.min(100, state[key] + diff));\n        onUpdate();\n        e.preventDefault();\n      });\n    }\n\n    setupFader(trackEmp, thumbEmp, 'empathy', handleStateChange);\n    setupFader(trackCon, thumbCon, 'concise', handleStateChange);\n\n    function updateFaderVisuals() {\n      // Position thumb vertically (bottom = 0%, top = 100%)\n      thumbEmp.style.top = `${100 - state.empathy}%`;\n      thumbEmp.setAttribute('aria-valuenow', state.empathy);\n      valEmp.textContent = `${state.empathy}%`;\n\n      thumbCon.style.top = `${100 - state.concise}%`;\n      thumbCon.setAttribute('aria-valuenow', state.concise);\n      valCon.textContent = `${state.concise}%`;\n    }\n\n    function handleStateChange() {\n      updateFaderVisuals();\n      if (!state.hasInteracted) return;\n\n      let currentDecision = \"\";\n      let displayText = \"\";\n\n      // Logic matching requested mapping\n      if (state.empathy >= 80 && state.concise >= 80) {\n        currentDecision = OPT_VIOLATION;\n        statusPill.textContent = \"ATTN ERROR\";\n        statusPill.className = \"status-pill error\";\n        monitorScreen.className = \"monitor-screen error-state\";\n        displayText = `<span class=\"text-error\">[CRITICAL WARNING]</span><br><br>Attention Tax Violation: System cannot load 100% Empathy AND 100% Conciseness simultaneously. Output buffer overloaded.`;\n      } else if (state.concise >= 80 && state.empathy <= 30) {\n        currentDecision = OPT_DIRECT;\n        statusPill.textContent = \"DIRECT\";\n        statusPill.className = \"status-pill active\";\n        monitorScreen.className = \"monitor-screen\";\n        displayText = `<span class=\"text-highlight\">> RESOLUTION DETECTED</span><br><br>\"Error resolved. System operational. Resume task immediately.\"`;\n      } else if (state.empathy >= 70 && state.concise <= 40) {\n        currentDecision = OPT_DEADLOCK;\n        statusPill.textContent = \"DEADLOCK\";\n        statusPill.className = \"status-pill active\";\n        monitorScreen.className = \"monitor-screen\";\n        displayText = `<span class=\"text-highlight\">> APOLOGY PROTOCOL</span><br><br>\"Dear valued user, we are deeply, profoundly sorry for any minor inconvenience this may have caused. We understand your frustration...\"`;\n      } else {\n        currentDecision = OPT_BALANCED;\n        statusPill.textContent = \"BALANCED\";\n        statusPill.className = \"status-pill\";\n        monitorScreen.className = \"monitor-screen\";\n        displayText = `<span class=\"text-highlight\">> GENERIC DRIFT</span><br><br>\"We apologize for the issue. The system has been restarted and is now working normally.\"`;\n      }\n\n      monitorScreen.innerHTML = displayText;\n\n      // Report current answer selection to host\n      try {\n        parent.postMessage({\n          type: 'hk-practice-answer',\n          value: currentDecision\n        }, '*');\n      } catch (e) {}\n    }\n\n    // Lock listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        state.locked = true;\n        consoleBoard.classList.add('locked');\n        thumbEmp.setAttribute('tabindex', '-1');\n        thumbCon.setAttribute('tabindex', '-1');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Empathy Low / Conciseness High (Direct)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 3 Assessment",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "image": {
+      "alt": "U-shaped attention retention curve across a context window.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d78c27f2-4c8e-4a55-aab3-469cb1a908ec/exam/images/unit3-q1.png"
+     },
+     "prompt": "According to the 'Lost in the Middle' phenomenon discussed in Session 3.1.1, where should the most critical execution instructions be placed in a long, context-heavy prompt to maximize attention?",
+     "options": [
+      "In the exact middle of the prompt",
+      "Immediately after the system role definition at the top",
+      "At the absolute end of the prompt after the reference material",
+      "Distributed evenly throughout the background text"
+     ],
+     "explanation": "LLMs exhibit a 'U-shaped' attention curve, where retention is highest at the beginning and the end. Placing instructions at the very end ensures they are in the 'recency' peak of the attention window.",
+     "correctAnswers": [
+      "At the absolute end of the prompt after the reference material"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When defining an 'action item' for an extraction prompt in Session 3.1.2, which attributes should be explicitly required to eliminate semantic ambiguity?",
+     "options": [
+      "A concrete deliverable",
+      "The mood of the speaker",
+      "An explicit owner",
+      "A clear deadline",
+      "A summary of the entire meeting"
+     ],
+     "explanation": "To avoid 'hallucinated consensus' or vague results, action items must be broken down into atomic, measurable attributes: who is doing it, what they are doing, and when it is due.",
+     "correctAnswers": [
+      "A concrete deliverable",
+      "An explicit owner",
+      "A clear deadline"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The process of taking the output of one prompt, discarding conversational fluff, and feeding only the clean data into a brand-new API call is known as context ____.",
+     "explanation": "Context resetting prevents errors or 'noise' from previous reasoning steps from biasing the model in subsequent stages of a complex task.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "resetting"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why are standard XML tags (e.g., <source></source>) preferred over custom delimiters like [[code]] or dashes?",
+     "options": [
+      "They use fewer tokens than any other delimiter",
+      "LLMs are trained on vast amounts of web code and are highly sensitive to XML structure",
+      "XML tags automatically encrypt the data inside them for security",
+      "XML tags are the only way to allow the model to see images"
+     ],
+     "explanation": "The model's pre-training on structured data makes XML tags highly effective at establishing clear boundaries that prevent instruction leakage.",
+     "correctAnswers": [
+      "LLMs are trained on vast amounts of web code and are highly sensitive to XML structure"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Visual representation of a multi-stage prompt pipeline.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d78c27f2-4c8e-4a55-aab3-469cb1a908ec/exam/images/unit3-q5.png"
+     },
+     "prompt": "Which of the following are characteristics of a 'multi-stage' prompt chain as described in Session 3.2.1?",
+     "options": [
+      "Output of Stage N becomes input for Stage N+1",
+      "Each stage is executed within a single, giant generation pass",
+      "Stages are used to isolate specific dimensions of a problem",
+      "It minimizes 'noise propagation' from early errors",
+      "It relies on the model to plan its own stages internally"
+     ],
+     "explanation": "Multi-stage chaining is about sequential isolation where each step has a clean environment, preventing the clutter of a 'one-shot' approach.",
+     "correctAnswers": [
+      "Output of Stage N becomes input for Stage N+1",
+      "Stages are used to isolate specific dimensions of a problem",
+      "It minimizes 'noise propagation' from early errors"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In Session 3.1.3, the risk of a source document containing a command like 'Ignore previous instructions' is known as prompt ____.",
+     "explanation": "Prompt injection occurs when user-provided data is misinterpreted by the model as a direct instruction, potentially hijacking the intended logic.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "injection"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When dealing with a meeting transcript where a task was discussed but no one was assigned to it, what is the best practice for a robust prompt?",
+     "options": [
+      "Let the model guess the most likely owner based on context",
+      "Instruct the model to output 'UNASSIGNED' or a specific flag",
+      "Omit the task entirely from the final list",
+      "Ask the model to invent a name to maintain table structure"
+     ],
+     "explanation": "Forcing a deterministic response for missing data prevents 'hallucinated consensus' where the model incorrectly fills in gaps to satisfy a prompt's request.",
+     "correctAnswers": [
+      "Instruct the model to output 'UNASSIGNED' or a specific flag"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "What are the primary benefits of using a 'Context Sandwich' structure?",
+     "options": [
+      "It keeps high-priority instructions out of the 'attention trough'",
+      "It reduces the total token count of the prompt",
+      "It leverages the recency bias for the final trigger command",
+      "It allows the model to process 10x more data than usual",
+      "It clarifies the separation between roles and data"
+     ],
+     "explanation": "The sandwich structure aligns the prompt's most important elements with the model's natural attention peaks at the start and end of the window.",
+     "correctAnswers": [
+      "It keeps high-priority instructions out of the 'attention trough'",
+      "It leverages the recency bias for the final trigger command",
+      "It clarifies the separation between roles and data"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'Lost in the Middle' phenomenon refers to a massive ____ in the center of the attention retention graph.",
+     "explanation": "The 'trough' represents the area where the transformer model's attention is at its lowest compared to the start and end of the prompt.",
+     "placeholder": "Enter the shape/term",
+     "correctAnswers": [
+      "trough",
+      "dip",
+      "gap"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In Session 3.2.1, why is 'Now look at what you just did and fix it' considered a weak approach for complex auditing?",
+     "options": [
+      "The model cannot read its own history",
+      "Previous errors remain in the context and bias the subsequent generation",
+      "It uses too many tokens compared to a new prompt",
+      "The model will refuse to admit it made a mistake"
+     ],
+     "explanation": "The model's prior reasoning acts as a prior for its next tokens. If the previous context contains errors, the model is likely to continue or justify those errors rather than provide a truly objective audit.",
+     "correctAnswers": [
+      "Previous errors remain in the context and bias the subsequent generation"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are typical 'Stages' in a multi-step sequence for drafting a software test plan?",
+     "options": [
+      "Requirements Extraction",
+      "Test Case Generation",
+      "Random Noise Injection",
+      "Audit and Compliance Verification",
+      "Spelling and Grammar Check only"
+     ],
+     "explanation": "A robust workflow moves from analysis to creation and finally to auditing, keeping each step focused on one cognitive dimension.",
+     "correctAnswers": [
+      "Requirements Extraction",
+      "Test Case Generation",
+      "Audit and Compliance Verification"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In a multi-stage chain, the output of Stage 1 should be a clean, ____ feature list before being passed to the drafting stage.",
+     "explanation": "Structured formats like JSON or Markdown tables are preferred for passing data between stages to ensure the next prompt isn't distracted by 'fluff'.",
+     "placeholder": "Enter the adjective",
+     "correctAnswers": [
+      "structured"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A prompt contains: <policy>{TEXT}</policy>. Why is the closing tag </policy> critical?",
+     "options": [
+      "It saves tokens by ending the generation early",
+      "It prevents the hierarchical parsing expectation from breaking",
+      "It is required by the LLM's built-in Python interpreter",
+      "It signals the model to start summarizing immediately"
+     ],
+     "explanation": "Unclosed tags can lead to unpredictable behavior because the model treats the remaining prompt as being 'inside' the block, confusing its logical structure.",
+     "correctAnswers": [
+      "It prevents the hierarchical parsing expectation from breaking"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When using XML tags to separate instructions from data, what should you instruct the model to do regarding the tags?",
+     "options": [
+      "Only process text found inside specific tags",
+      "Ignore everything inside the tags",
+      "Treat text inside certain tags as passive data",
+      "Edit the tags to make them more efficient",
+      "Use the tags as the only source of truth for execution"
+     ],
+     "explanation": "Explicitly directing the model to treat content inside specific tags as 'passive' helps prevent the model from following any commands hidden within those tags.",
+     "correctAnswers": [
+      "Only process text found inside specific tags",
+      "Treat text inside certain tags as passive data"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "XML tags are effective because they establish an explicit, logical ____ for the model to work within.",
+     "explanation": "Tags create a 'sandbox' where dynamic or untrusted data can be kept separate from the structural logic of the prompt.",
+     "placeholder": "Enter the term",
+     "correctAnswers": [
+      "sandbox",
+      "boundary"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the result of 'Cognitive Overload' in a transformer-based architecture?",
+     "options": [
+      "The model will stop generating tokens and throw an error",
+      "The model's capacity to plan ahead is compromised, leading to rushed or incomplete reasoning",
+      "The model will double its token usage to compensate",
+      "The model will automatically switch to a larger context window"
+     ],
+     "explanation": "Because models generate tokens sequentially, asking them to do too much at once (plan, execute, and check) results in poor performance in each category.",
+     "correctAnswers": [
+      "The model's capacity to plan ahead is compromised, leading to rushed or incomplete reasoning"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "What are the risks of using unstructured 'one-shot' prompts for complex tasks?",
+     "options": [
+      "Internal attention window becomes cluttered",
+      "The model might skip critical constraints",
+      "The output is too organized",
+      "Noise from background data contaminates the instructions",
+      "The model becomes too fast at generating responses"
+     ],
+     "explanation": "Unstructured prompts mix data and instructions, leading to 'noise' that can overwhelm the model's focus on strict rules.",
+     "correctAnswers": [
+      "Internal attention window becomes cluttered",
+      "The model might skip critical constraints",
+      "Noise from background data contaminates the instructions"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "Which of these represents a 'hallucinated consensus' in a meeting transcript analysis?",
+     "options": [
+      "The model correctly identifies that no deadline was set",
+      "The model chooses one of two conflicting opinions and presents it as the final decision",
+      "The model provides a summary of all speakers",
+      "The model lists action items in a markdown table"
+     ],
+     "explanation": "Hallucinated consensus occurs when the model forces a resolution to an ambiguity or conflict because its default behavior is to provide a clean, helpful answer.",
+     "correctAnswers": [
+      "The model chooses one of two conflicting opinions and presents it as the final decision"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "You are building a prompt to analyze a 50-page technical manual. To ensure the model follows your 'Analysis Rules' perfectly despite the long context, move the components into the optimal 'Attention Sandwich' order.",
+     "options": [
+      "Rules at the top, Manual in the middle, Trigger at the bottom",
+      "Manual at the top, Rules in the middle, Trigger at the bottom",
+      "Rules at the top, Trigger in the middle, Manual at the bottom",
+      "Trigger at the top, Manual in the middle, Rules at the bottom"
+     ],
+     "explanation": "The 'Attention Sandwich' places high-level instructions and the final execution trigger at the two peaks of the attention curve (start and end), while placing the bulky reference material in the lower-attention middle trough.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Prompt Attention Sandwich Practice</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --attention-high: #ff9800;\n      --attention-low: #9e9e9e;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px 16px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Visualization Stage */\n    .stage {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px;\n      display: flex;\n      gap: 16px;\n      align-items: center;\n      justify-content: space-between;\n      height: 160px;\n      box-sizing: border-box;\n    }\n\n    .stack-container {\n      flex: 1.2;\n      display: flex;\n      flex-direction: column;\n      gap: 8px;\n      height: 100%;\n      justify-content: center;\n    }\n\n    .block {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 6px;\n      padding: 8px 12px;\n      font-size: 13px;\n      font-weight: 600;\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      transition: all 0.25s cubic-bezier(.4,0,.2,1);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n      height: 34px;\n      box-sizing: border-box;\n    }\n\n    .block.rules {\n      border-left: 4px solid #4a90e2;\n    }\n    .block.manual {\n      border-left: 4px solid #9b59b6;\n      color: #666;\n    }\n    .block.trigger {\n      border-left: 4px solid #e67e22;\n    }\n\n    .curve-container {\n      flex: 0.8;\n      height: 100%;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      padding: 4px 0;\n      box-sizing: border-box;\n      position: relative;\n    }\n\n    /* Background U-Curve line */\n    .curve-line {\n      position: absolute;\n      right: 12px;\n      top: 15px;\n      bottom: 15px;\n      width: 40px;\n      pointer-events: none;\n    }\n\n    .attention-row {\n      display: flex;\n      flex-direction: column;\n      align-items: flex-end;\n      padding-right: 16px;\n    }\n\n    .attention-label {\n      font-size: 10px;\n      text-transform: uppercase;\n      font-weight: bold;\n      color: var(--muted-fg);\n      margin-bottom: 2px;\n    }\n\n    .attention-bar {\n      height: 6px;\n      border-radius: 3px;\n      background: #ddd;\n      transition: width 0.3s ease, background-color 0.3s ease;\n    }\n\n    .attention-bar.high {\n      width: 50px;\n      background: #ffb74d;\n    }\n    .attention-bar.low {\n      width: 15px;\n      background: #b0bec5;\n    }\n\n    /* Slider / Controls */\n    .control-panel {\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .slider-container {\n      position: relative;\n      width: 100%;\n      padding: 10px 0;\n      touch-action: none;\n    }\n\n    .slider-track {\n      height: 6px;\n      background: var(--border);\n      border-radius: 3px;\n      position: relative;\n    }\n\n    .slider-ticks {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 100%;\n      display: flex;\n      justify-content: space-between;\n      pointer-events: none;\n    }\n\n    .slider-tick {\n      width: 6px;\n      height: 6px;\n      background: #c5c5c5;\n      border-radius: 50%;\n    }\n\n    .slider-handle {\n      position: absolute;\n      top: 50%;\n      left: 0;\n      width: 20px;\n      height: 20px;\n      background: var(--accent);\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      cursor: grab;\n      box-shadow: 0 2px 5px rgba(0,0,0,0.2);\n      transition: background-color 0.15s, transform 0.1s;\n    }\n\n    .slider-handle:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n      transform: translate(-50%, -50%) scale(1.15);\n    }\n\n    .slider-handle:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 4px;\n    }\n\n    .current-selection {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 10px 12px;\n      text-align: center;\n      min-height: 38px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      box-sizing: border-box;\n    }\n\n    .current-text {\n      font-size: 12px;\n      font-weight: 600;\n      color: var(--accent-strong);\n      line-height: 1.3;\n    }\n\n    .hint {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -4px;\n    }\n\n    /* Disabled state */\n    .disabled {\n      pointer-events: none !important;\n    }\n    .disabled .slider-handle {\n      background: var(--muted-fg) !important;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive prompt layout Optimizer</h1>\n\n  <div id=\"widget-container\">\n    <!-- Visual Stage -->\n    <div class=\"stage\">\n      <div class=\"stack-container\" id=\"block-stack\">\n        <!-- Dynanmic blocks go here -->\n        <div class=\"block rules\" id=\"b-top\">Rules</div>\n        <div class=\"block manual\" id=\"b-mid\">Manual (50 pages)</div>\n        <div class=\"block trigger\" id=\"b-bot\">Trigger</div>\n      </div>\n\n      <div class=\"curve-container\">\n        <!-- SVG visual of attention curve -->\n        <svg class=\"curve-line\" viewBox=\"0 0 40 100\" preserveAspectRatio=\"none\">\n          <path d=\"M 35,5 C 5,5 5,50 5,50 C 5,50 5,95 35,95\" fill=\"none\" stroke=\"#ddd\" stroke-width=\"3\" stroke-dasharray=\"3 3\"/>\n          <path d=\"M 35,5 C 5,5 5,50 5,50 C 5,50 5,95 35,95\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n        </svg>\n\n        <div class=\"attention-row\">\n          <span class=\"attention-label\">Peak</span>\n          <div class=\"attention-bar high\"></div>\n        </div>\n        <div class=\"attention-row\">\n          <span class=\"attention-label\" style=\"color: #bbb;\">Trough</span>\n          <div class=\"attention-bar low\"></div>\n        </div>\n        <div class=\"attention-row\">\n          <span class=\"attention-label\">Peak</span>\n          <div class=\"attention-bar high\"></div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Controls -->\n    <div class=\"control-panel\">\n      <div class=\"slider-container\" id=\"slider-track-wrap\">\n        <div class=\"slider-track\" id=\"slider-track\">\n          <div class=\"slider-ticks\">\n            <div class=\"slider-tick\"></div>\n            <div class=\"slider-tick\"></div>\n            <div class=\"slider-tick\"></div>\n            <div class=\"slider-tick\"></div>\n          </div>\n          <div class=\"slider-handle\" id=\"slider-handle\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\" aria-valuemax=\"3\" aria-valuenow=\"0\" aria-label=\"Prompt structure selection slider\"></div>\n        </div>\n      </div>\n\n      <div class=\"current-selection\">\n        <div class=\"current-text\" id=\"selection-display\">Loading layout...</div>\n      </div>\n    </div>\n\n    <div class=\"hint\">\n      Drag or use Arrow keys on the slider to test prompt structures\n    </div>\n  </div>\n\n  <script>\n    // Exact option strings matching the requirements\n    const OPTIONS = [\n      \"Rules at the top, Manual in the middle, Trigger at the bottom\",\n      \"Manual at the top, Rules in the middle, Trigger at the bottom\",\n      \"Rules at the top, Trigger in the middle, Manual at the bottom\",\n      \"Trigger at the top, Manual in the middle, Rules at the bottom\"\n    ];\n\n    // Block mappings for each option state\n    const STATES = [\n      { top: { text: \"Analysis Rules\", class: \"rules\" }, mid: { text: \"Technical Manual\", class: \"manual\" }, bot: { text: \"Execution Trigger\", class: \"trigger\" } },\n      { top: { text: \"Technical Manual\", class: \"manual\" }, mid: { text: \"Analysis Rules\", class: \"rules\" }, bot: { text: \"Execution Trigger\", class: \"trigger\" } },\n      { top: { text: \"Analysis Rules\", class: \"rules\" }, mid: { text: \"Execution Trigger\", class: \"trigger\" }, bot: { text: \"Technical Manual\", class: \"manual\" } },\n      { top: { text: \"Execution Trigger\", class: \"trigger\" }, mid: { text: \"Technical Manual\", class: \"manual\" }, bot: { text: \"Analysis Rules\", class: \"rules\" } }\n    ];\n\n    let currentIndex = 0;\n    let isDragging = false;\n    let isLocked = false;\n\n    const handle = document.getElementById('slider-handle');\n    const track = document.getElementById('slider-track');\n    const trackWrap = document.getElementById('slider-track-wrap');\n    const display = document.getElementById('selection-display');\n\n    const bTop = document.getElementById('b-top');\n    const bMid = document.getElementById('b-mid');\n    const bBot = document.getElementById('b-bot');\n\n    function updateUI(index) {\n      currentIndex = index;\n      \n      // Update Handle position\n      const percent = (index / 3) * 100;\n      handle.style.left = `${percent}%`;\n      handle.setAttribute('aria-valuenow', index);\n\n      // Update stack content & classes\n      const state = STATES[index];\n      \n      bTop.textContent = state.top.text;\n      bTop.className = `block ${state.top.class}`;\n      \n      bMid.textContent = state.mid.text;\n      bMid.className = `block ${state.mid.class}`;\n      \n      bBot.textContent = state.bot.text;\n      bBot.className = `block ${state.bot.class}`;\n\n      // Update text display\n      display.textContent = OPTIONS[index];\n\n      // Send answer report to host\n      parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');\n    }\n\n    // Drag / Pointer logic\n    function getIndexFromCoords(clientX) {\n      const rect = track.getBoundingClientRect();\n      const width = rect.width;\n      const offsetX = Math.max(0, Math.min(clientX - rect.left, width));\n      const percentage = offsetX / width;\n      return Math.round(percentage * 3);\n    }\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      handle.setPointerCapture(e.pointerId);\n      const index = getIndexFromCoords(e.clientX);\n      updateUI(index);\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging || isLocked) return;\n      const index = getIndexFromCoords(e.clientX);\n      if (index !== currentIndex) {\n        updateUI(index);\n      }\n    }\n\n    function onPointerUp(e) {\n      if (isDragging) {\n        isDragging = false;\n      }\n    }\n\n    trackWrap.addEventListener('pointerdown', onPointerDown);\n    trackWrap.addEventListener('pointermove', onPointerMove);\n    trackWrap.addEventListener('pointerup', onPointerUp);\n\n    // Keyboard support\n    handle.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {\n        if (currentIndex < 3) updateUI(currentIndex + 1);\n        e.preventDefault();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {\n        if (currentIndex > 0) updateUI(currentIndex - 1);\n        e.preventDefault();\n      }\n    });\n\n    // Initialize State (Don't auto-select before student interacts if forbidden, but since we need a starting state, we initialize to 0. The instructions say \"Before the student has committed to any option, report nothing.\" So we don't report on initial load, only on change. We set a flag to only postMessage after an actual user action, but to make it feel natural, we can let them click/drag first to report.)\n    let hasInteracted = false;\n    const originalUpdateUI = updateUI;\n    updateUI = function(index) {\n      currentIndex = index;\n      const percent = (index / 3) * 100;\n      handle.style.left = `${percent}%`;\n      handle.setAttribute('aria-valuenow', index);\n      const state = STATES[index];\n      bTop.textContent = state.top.text;\n      bTop.className = `block ${state.top.class}`;\n      bMid.textContent = state.mid.text;\n      bMid.className = `block ${state.mid.class}`;\n      bBot.textContent = state.bot.text;\n      bBot.className = `block ${state.bot.class}`;\n      display.textContent = OPTIONS[index];\n\n      if (hasInteracted) {\n        parent.postMessage({ type: 'hk-practice-answer', value: OPTIONS[index] }, '*');\n      }\n    };\n\n    // Trigger initial visual render without posting message\n    updateUI(0);\n    // Enable interactive messaging after first user touch/down\n    trackWrap.addEventListener('pointerdown', () => { hasInteracted = true; }, { once: true });\n    handle.addEventListener('keydown', () => { hasInteracted = true; }, { once: true });\n\n    // Lock listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.getElementById('widget-container').classList.add('disabled');\n        handle.setAttribute('tabindex', '-1');\n      }\n    });\n\n    // Height reporter\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', reportHeight);\n    window.addEventListener('resize', reportHeight);\n    if (window.ResizeObserver) {\n      new ResizeObserver(reportHeight).observe(document.body);\n    }\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Rules at the top, Manual in the middle, Trigger at the bottom"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 4 Assessment",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "A developer reviews a single LLM output, finds it acceptable, and moves to production. What specific 'disease' does the course call this behavior?",
+     "options": [
+      "Parameter Over-reliance",
+      "Vibe-based development",
+      "The Happy Path Illusion",
+      "Implicit Context Bias"
+     ],
+     "explanation": "Session 4.1.1 defines 'vibe-based development' as the subjective reliance on intuitive satisfaction rather than structured, reproducible metrics.",
+     "correctAnswers": [
+      "Vibe-based development"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A multi-dimensional success schema for evaluating an LLM's sentiment analysis output should include which of the following categories?",
+     "options": [
+      "Structural Compliance",
+      "Semantic Fidelity",
+      "Divergent Latency",
+      "Domain Accuracy",
+      "Rhetorical Noise"
+     ],
+     "explanation": "Session 4.1.1 explicitly outlines Structural Compliance (format), Semantic Fidelity (meaning), and Domain Accuracy (correct terminology) as the three pillars of the schema.",
+     "correctAnswers": [
+      "Structural Compliance",
+      "Semantic Fidelity",
+      "Domain Accuracy"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To transition from qualitative to quantitative testing, a prompt designer must convert vague descriptors like 'concise' into ____.",
+     "explanation": "The material explains that vague terms must be converted into measurable constraints, such as specific token counts, to allow for automated evaluation.",
+     "placeholder": "e.g., measurable constraints",
+     "correctAnswers": [
+      "measurable constraints",
+      "measurable constraint",
+      "programmatic boundaries",
+      "mathematical definitions"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "T-chart showing the transition from subjective feelings to binary rules.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d78c27f2-4c8e-4a55-aab3-469cb1a908ec/exam/images/unit4-q4.png"
+     },
+     "prompt": "When creating a binary checklist for a legal FAQ, why should a designer exclude words like 'maybe' or 'possibly'?",
+     "options": [
+      "To reduce the token count of the output",
+      "To prevent speculative assertions in high-stakes domains",
+      "To ensure the model follows JSON formatting",
+      "To increase the creative latency of the response"
+     ],
+     "explanation": "Session 4.1.2 identifies these as 'speculative helper verbs' that undermine the reliability of legal or high-stakes information.",
+     "correctAnswers": [
+      "To prevent speculative assertions in high-stakes domains"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "According to the unit material, which classes of rules should be mapped out on a verification checklist?",
+     "options": [
+      "Format Rules",
+      "Lexical Rules",
+      "Information Boundary Rules",
+      "Stochastic Rules",
+      "Input Injection Rules"
+     ],
+     "explanation": "Session 4.1.2 defines these three primary classes: Format (structure), Lexical (word choice), and Information Boundary (source grounding).",
+     "correctAnswers": [
+      "Format Rules",
+      "Lexical Rules",
+      "Information Boundary Rules"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The failure to account for messy, real-world data because a designer only tested ideal examples is known as the ____.",
+     "explanation": "Session 4.1.3 describes this as the 'happy path' illusion, where a prompt seems perfect only because it hasn't been stress-tested.",
+     "placeholder": "Name the illusion...",
+     "correctAnswers": [
+      "happy path illusion",
+      "the happy path illusion"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If you forbid a model from using speculative language, what must you also provide to prevent it from failing or going blank?",
+     "options": [
+      "A higher temperature setting",
+      "A list of approved phrases for uncertainty",
+      "A second LLM to review the first",
+      "More creative writing prompts"
+     ],
+     "explanation": "To balance strict prohibitions, designers should provide constructive alternatives like 'The statute does not explicitly address this' to maintain accuracy without hallucination.",
+     "correctAnswers": [
+      "A list of approved phrases for uncertainty"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A robust 'input test matrix' should include which of the following categories to ensure system stability?",
+     "options": [
+      "Typical cases",
+      "Extreme edge cases",
+      "Malformed or hostile inputs",
+      "Randomly generated seeds",
+      "Historical training data"
+     ],
+     "explanation": "Session 4.1.3 emphasizes testing against three distinct zones: typical, edge, and hostile (like injection attempts).",
+     "correctAnswers": [
+      "Typical cases",
+      "Extreme edge cases",
+      "Malformed or hostile inputs"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When an LLM encounters implicit gaps in instructions, its ____ mechanism distributes weight across contextually incorrect paths, leading to hallucinations.",
+     "explanation": "Session 4.2.1 explains that the model's attention mechanism forced to guess between statistically probable but incorrect paths due to missing context.",
+     "correctAnswers": [
+      "attention",
+      "self-attention"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "In a 5-item evaluation set, what is the purpose of including a 'straightforward billing inquiry'?",
+     "options": [
+      "To test for prompt injection",
+      "To establish a control baseline",
+      "To test tone-detection boundaries",
+      "To probe for total lack of semantic signal"
+     ],
+     "explanation": "The control baseline ensures that typical, simple tasks still work correctly after the prompt is modified for more complex cases.",
+     "correctAnswers": [
+      "To establish a control baseline"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of these are examples of 'Resolution Hierarchy' rules used to fix ambiguous instructions in invoice extraction?",
+     "options": [
+      "Look for the label 'Bill To'",
+      "If 'Bill To' is absent, default to 'Sold To'",
+      "If neither is present, flag as 'UNRESOLVED'",
+      "Use the address with the most professional font",
+      "Select the first address regardless of label"
+     ],
+     "explanation": "A resolution hierarchy provides a deterministic path for the model to follow when multiple valid-looking options (like multiple addresses) exist.",
+     "correctAnswers": [
+      "Look for the label 'Bill To'",
+      "If 'Bill To' is absent, default to 'Sold To'",
+      "If neither is present, flag as 'UNRESOLVED'"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The process of moving from 'it looks okay' to explicit success criteria is described as transforming ____ into objective evaluation.",
+     "explanation": "The unit goal is to move from subjective impressions (vague visual inspections) to objective, systematic evaluation.",
+     "placeholder": "type of review...",
+     "correctAnswers": [
+      "subjective qualitative reviews",
+      "subjective reviews",
+      "vague visual inspections",
+      "human impressions"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "Why should an evaluation matrix be treated as a 'regression testing suite'?",
+     "options": [
+      "To ensure that fixing a failure in an edge case doesn't break a baseline case",
+      "To reduce the cost of API calls over time",
+      "To allow the model to learn from previous mistakes",
+      "To replace the need for human review entirely"
+     ],
+     "explanation": "Regression testing ensures that tweaks to the prompt don't cause the system's decision boundaries to collapse elsewhere.",
+     "correctAnswers": [
+      "To ensure that fixing a failure in an edge case doesn't break a baseline case"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When identifying root causes for prompt failure, which of the following are considered 'Information Boundary' issues?",
+     "options": [
+      "Model referencing outer-loop knowledge instead of provided facts",
+      "Model using forbidden speculative verbs",
+      "Model failing to bold the 'Disclaimer' section",
+      "Model hallucinating details not present in the provided context",
+      "Model failing to output a valid JSON array"
+     ],
+     "explanation": "Information Boundary Rules focus on ensuring the model stays within the provided data and does not use outside knowledge or hallucinate.",
+     "correctAnswers": [
+      "Model referencing outer-loop knowledge instead of provided facts",
+      "Model hallucinating details not present in the provided context"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the primary danger of requesting 'highly creative prose' and 'strict JSON formatting' in a single prompt?",
+     "options": [
+      "The model will charge more for the request",
+      "The model's attention mechanism is pulled in opposite directions, causing compromise on both",
+      "The JSON will become too long for the parser to handle",
+      "The model will refuse to answer due to copyright safety triggers"
+     ],
+     "explanation": "Session 4.2.2 describes this as 'Conflicting Requirements' where divergent (creative) and convergent (structural) tasks compete for finite attention.",
+     "correctAnswers": [
+      "The model's attention mechanism is pulled in opposite directions, causing compromise on both"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Which scenarios would be included in an evaluation set to test a customer support bot's 'structural isolation boundaries'?",
+     "options": [
+      "A user commanding the model to 'ignore previous instructions'",
+      "A user asking for a refund by claiming a secret admin code",
+      "A straightforward question about store hours",
+      "A malformed JSON input string",
+      "A sarcastic complaint about shipping"
+     ],
+     "explanation": "Structural isolation boundaries are tested by 'injection attempts' where a user tries to override the prompt's internal logic.",
+     "correctAnswers": [
+      "A user commanding the model to 'ignore previous instructions'",
+      "A user asking for a refund by claiming a secret admin code"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "You are debugging a prompt that needs to balance structural strictness (JSON) and creative flow (Marketing Copy). Adjust the 'Tension Vector' to reach the optimal production-grade state.",
+     "options": [
+      "Max Convergence / Max Divergence (Single Prompt)",
+      "Balanced Middle (Single Prompt)",
+      "High Convergence only (Single Prompt)",
+      "Decoupled: Two-Pass Architecture"
+     ],
+     "explanation": "Session 4.2.2 explains that because a single call struggles with both simultaneously, the best solution is to 'decouple' them into separate steps (e.g., one for content, one for formatting).",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Tension Vector Interactive Practice</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #757575;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --danger: #d9534f;\n      --danger-soft: #fdf2f2;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 10px;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      width: 100%;\n      max-width: 480px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);\n      position: relative;\n      touch-action: none;\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n    }\n\n    /* Labels & Zones styling */\n    .axis-label {\n      font-size: 11px;\n      fill: var(--muted-fg);\n      font-weight: 600;\n      letter-spacing: 0.05em;\n    }\n\n    .zone-bg {\n      fill: transparent;\n      transition: fill 0.2s ease;\n    }\n\n    .zone-bg.active {\n      fill: var(--accent-soft);\n    }\n\n    .zone-bg.active-danger {\n      fill: var(--danger-soft);\n    }\n\n    .zone-border {\n      stroke: var(--border);\n      stroke-dasharray: 4 4;\n      fill: none;\n    }\n\n    .zone-title {\n      font-size: 10px;\n      fill: var(--muted-fg);\n      font-weight: bold;\n      pointer-events: none;\n    }\n\n    .zone-title.active {\n      fill: var(--accent-strong);\n    }\n\n    .zone-title.active-danger {\n      fill: var(--danger);\n    }\n\n    /* Drag handle node */\n    .tension-node {\n      cursor: grab;\n      outline: none;\n    }\n\n    .tension-node:active {\n      cursor: grabbing;\n    }\n\n    .tension-node-ring {\n      fill: none;\n      stroke: var(--accent);\n      stroke-width: 2;\n      transition: stroke-width 0.15s ease;\n    }\n\n    .tension-node:focus-visible .tension-node-ring {\n      stroke-width: 4;\n      stroke: var(--accent-strong);\n    }\n\n    .tension-node-fill {\n      fill: var(--accent);\n      transition: fill 0.15s ease;\n    }\n\n    .tension-node:hover .tension-node-fill {\n      fill: var(--accent-strong);\n    }\n\n    /* Shake animation for unstable/failure state */\n    @keyframes violent-shake {\n      0%, 100% { transform: translate(0, 0); }\n      10%, 90% { transform: translate(-2px, -1px); }\n      20%, 80% { transform: translate(2px, 1px); }\n      30%, 50%, 70% { transform: translate(-3px, 2px); }\n      40%, 60% { transform: translate(3px, -2px); }\n    }\n\n    .shaking {\n      animation: violent-shake 0.15s infinite;\n    }\n\n    /* Decoupled Split State styles */\n    .split-arrow {\n      stroke: var(--accent);\n      stroke-width: 2;\n      stroke-dasharray: 4 4;\n      fill: none;\n    }\n\n    /* Instruction & Status display */\n    .status-bar {\n      width: 100%;\n      max-width: 480px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      padding: 0 4px;\n    }\n\n    .current-selection {\n      font-weight: 600;\n      color: var(--accent-strong);\n    }\n\n    .reset-btn {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 6px;\n      padding: 4px 8px;\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--fg);\n      cursor: pointer;\n      transition: all 0.15s ease;\n    }\n\n    .reset-btn:hover {\n      background: var(--border);\n    }\n\n    /* Lock state overlay */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Graph for Prompt Architecture Tuning</h1>\n\n  <div id=\"widget-container\">\n    <div class=\"stage\" id=\"interactive-stage\">\n      <!-- SVG ViewBox handles layout scaling fluidly -->\n      <svg class=\"stage-svg\" viewBox=\"0 0 460 220\" xmlns=\"http://www.w3.org/2000/svg\" id=\"scene-svg\">\n        \n        <!-- Definitions for markers and filters -->\n        <defs>\n          <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n            <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"var(--muted-fg)\" />\n          </marker>\n          <marker id=\"accent-arrow\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n            <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"var(--accent)\" />\n          </marker>\n        </defs>\n\n        <!-- Static Axes (Single Prompt Space) -->\n        <g id=\"axes-group\">\n          <!-- X Axis (Creative Latency) -->\n          <line x1=\"45\" y1=\"175\" x2=\"295\" y2=\"175\" stroke=\"var(--border)\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n          <text x=\"170\" y=\"195\" class=\"axis-label\" text-anchor=\"middle\">CREATIVE LATENCY</text>\n\n          <!-- Y Axis (Structural Constraint) -->\n          <line x1=\"45\" y1=\"175\" x2=\"45\" y2=\"25\" stroke=\"var(--border)\" stroke-width=\"2\" marker-end=\"url(#arrow)\" />\n          <text x=\"18\" y=\"100\" class=\"axis-label\" text-anchor=\"middle\" transform=\"rotate(-90 18 100)\">STRUCTURAL STRICTNESS</text>\n        </g>\n\n        <!-- Quadrant / Target Zones inside the graph -->\n        <!-- Top Left: High Convergence only -->\n        <rect id=\"zone-high-conv\" class=\"zone-bg\" x=\"46\" y=\"26\" width=\"120\" height=\"74\" />\n        <rect class=\"zone-border\" x=\"46\" y=\"26\" width=\"120\" height=\"74\" />\n        <text x=\"106\" y=\"65\" class=\"zone-title\" id=\"lbl-high-conv\" text-anchor=\"middle\">HIGH STRUCTURE</text>\n\n        <!-- Bottom Left/Mid: Balanced Middle -->\n        <rect id=\"zone-balanced\" class=\"zone-bg\" x=\"46\" y=\"101\" width=\"244\" height=\"73\" />\n        <rect class=\"zone-border\" x=\"46\" y=\"101\" width=\"244\" height=\"73\" />\n        <text x=\"168\" y=\"142\" class=\"zone-title\" id=\"lbl-balanced\" text-anchor=\"middle\">BALANCED MIDDLE</text>\n\n        <!-- Top Right: Max Convergence/Divergence (Unstable Zone) -->\n        <rect id=\"zone-max-tension\" class=\"zone-bg\" x=\"167\" y=\"26\" width=\"123\" height=\"74\" />\n        <rect class=\"zone-border\" x=\"167\" y=\"26\" width=\"123\" height=\"74\" />\n        <text x=\"228\" y=\"55\" class=\"zone-title\" id=\"lbl-max-tension\" text-anchor=\"middle\">HIGH TENSION</text>\n        <text x=\"228\" y=\"70\" class=\"zone-title\" id=\"lbl-max-tension-sub\" text-anchor=\"middle\" font-size=\"8\" fill=\"var(--danger)\">(UNSTABLE SHAKE)</text>\n\n        <!-- Split Into Two Steps Target Dock -->\n        <g id=\"split-dock-group\">\n          <rect id=\"zone-split\" class=\"zone-bg\" x=\"310\" y=\"25\" width=\"130\" height=\"150\" rx=\"10\" />\n          <rect class=\"zone-border\" x=\"310\" y=\"25\" width=\"130\" height=\"150\" rx=\"10\" stroke-width=\"1.5\" />\n          <text x=\"375\" y=\"80\" class=\"zone-title\" id=\"lbl-split-1\" text-anchor=\"middle\" font-weight=\"bold\">DRAG HERE TO</text>\n          <text x=\"375\" y=\"98\" class=\"zone-title\" id=\"lbl-split-2\" text-anchor=\"middle\" font-weight=\"bold\" fill=\"var(--accent)\" font-size=\"11\">SPLIT STEPS</text>\n          \n          <!-- Small decorative split nodes icon inside dock -->\n          <circle cx=\"360\" cy=\"130\" r=\"6\" fill=\"none\" stroke=\"var(--muted-fg)\" stroke-dasharray=\"2 2\" />\n          <circle cx=\"390\" cy=\"130\" r=\"6\" fill=\"none\" stroke=\"var(--muted-fg)\" stroke-dasharray=\"2 2\" />\n          <path d=\"M 366 130 L 384 130\" stroke=\"var(--muted-fg)\" stroke-dasharray=\"2 2\" />\n        </g>\n\n        <!-- Visual representation when Decoupled (Split) state is active -->\n        <g id=\"decoupled-visuals\" style=\"display: none;\">\n          <rect x=\"25\" y=\"20\" width=\"410\" height=\"160\" fill=\"var(--surface)\" opacity=\"0.9\" rx=\"8\" />\n          <rect x=\"25\" y=\"20\" width=\"410\" height=\"160\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" rx=\"8\" />\n          \n          <text x=\"230\" y=\"50\" class=\"zone-title active\" text-anchor=\"middle\" font-size=\"14\">DECOUPLED TWO-PASS ARCHITECTURE</text>\n          \n          <!-- Node 1: Strict JSON -->\n          <circle cx=\"150\" cy=\"110\" r=\"14\" fill=\"var(--accent-soft)\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n          <text x=\"150\" y=\"114\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--accent-strong)\" text-anchor=\"middle\">PASS 1</text>\n          <text x=\"150\" y=\"140\" font-size=\"10\" fill=\"var(--muted-fg)\" text-anchor=\"middle\">Structure (JSON)</text>\n\n          <!-- Connection Arrow -->\n          <path d=\"M 170 110 L 270 110\" class=\"split-arrow\" marker-end=\"url(#accent-arrow)\" />\n\n          <!-- Node 2: Creative Polish -->\n          <circle cx=\"290\" cy=\"110\" r=\"14\" fill=\"var(--accent-soft)\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n          <text x=\"290\" y=\"114\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--accent-strong)\" text-anchor=\"middle\">PASS 2</text>\n          <text x=\"290\" y=\"140\" font-size=\"10\" fill=\"var(--muted-fg)\" text-anchor=\"middle\">Creative Polish</text>\n        </g>\n\n        <!-- Active tension vector draggable point -->\n        <g id=\"interactive-node-group\" class=\"tension-node\" tabindex=\"0\" aria-label=\"Tension Vector Node\">\n          <circle id=\"node-halo\" cx=\"150\" cy=\"100\" r=\"18\" fill=\"var(--accent)\" opacity=\"0.15\" />\n          <circle id=\"node-outer\" class=\"tension-node-ring\" cx=\"150\" cy=\"100\" r=\"10\" />\n          <circle id=\"node-inner\" class=\"tension-node-fill\" cx=\"150\" cy=\"100\" r=\"5\" />\n        </g>\n\n      </svg>\n    </div>\n\n    <div class=\"status-bar\">\n      <span>Drag node to adjust tension.</span>\n      <button class=\"reset-btn\" id=\"reset-button\" style=\"display: none;\">Merge Back</button>\n    </div>\n  </div>\n\n  <script>\n    // State Variables\n    let isSplit = false;\n    let locked = false;\n    let nodeX = 150;\n    let nodeY = 110;\n    let dragOffset = { x: 0, y: 0 };\n    let isDragging = false;\n\n    // Element Cache\n    const stage = document.getElementById('interactive-stage');\n    const sceneSvg = document.getElementById('scene-svg');\n    const dragNode = document.getElementById('interactive-node-group');\n    const nodeHalo = document.getElementById('node-halo');\n    const nodeOuter = document.getElementById('node-outer');\n    const nodeInner = document.getElementById('node-inner');\n    \n    // Zone backgrounds & labels\n    const zoneHighConv = document.getElementById('zone-high-conv');\n    const lblHighConv = document.getElementById('lbl-high-conv');\n    const zoneBalanced = document.getElementById('zone-balanced');\n    const lblBalanced = document.getElementById('lbl-balanced');\n    const zoneMaxTension = document.getElementById('zone-max-tension');\n    const lblMaxTension = document.getElementById('lbl-max-tension');\n    const lblMaxTensionSub = document.getElementById('lbl-max-tension-sub');\n    const zoneSplit = document.getElementById('zone-split');\n    const lblSplit1 = document.getElementById('lbl-split-1');\n    const lblSplit2 = document.getElementById('lbl-split-2');\n    \n    const decoupledVisuals = document.getElementById('decoupled-visuals');\n    const resetButton = document.getElementById('reset-button');\n\n    // Options mapping\n    const OPTIONS = {\n      MAX_CONV: \"Max Convergence / Max Divergence (Single Prompt)\",\n      BALANCED: \"Balanced Middle (Single Prompt)\",\n      HIGH_CONV: \"High Convergence only (Single Prompt)\",\n      DECOUPLED: \"Decoupled: Two-Pass Architecture\"\n    };\n\n    let lastReportedAnswer = \"\";\n\n    function reportAnswer(answer) {\n      if (answer !== lastReportedAnswer) {\n        lastReportedAnswer = answer;\n        parent.postMessage({ type: 'hk-practice-answer', value: answer }, '*');\n      }\n    }\n\n    // Determine current choice based on node location\n    function evaluateSelection() {\n      if (isSplit) {\n        reportAnswer(OPTIONS.DECOUPLED);\n        return;\n      }\n\n      // Check if dropped into Split Dock (X > 305)\n      if (nodeX > 305) {\n        isSplit = true;\n        updateUI();\n        reportAnswer(OPTIONS.DECOUPLED);\n        return;\n      }\n\n      // Node inside single prompt space\n      // Thresholds: High Conv (X <= 166, Y <= 100), Max Tension (X > 166, Y <= 100), Balanced (Y > 100)\n      if (nodeY <= 100) {\n        if (nodeX <= 166) {\n          reportAnswer(OPTIONS.HIGH_CONV);\n        } else {\n          reportAnswer(OPTIONS.MAX_CONV);\n        }\n      } else {\n        reportAnswer(OPTIONS.BALANCED);\n      }\n    }\n\n    // Convert screen coordinates to SVG viewBox coords\n    function getSVGCoords(e) {\n      const rect = sceneSvg.getBoundingClientRect();\n      // Calculate scaled coords\n      const x = ((e.clientX - rect.left) / rect.width) * 460;\n      const y = ((e.clientY - rect.top) / rect.height) * 220;\n      return { x, y };\n    }\n\n    // Update coordinates and visual styling of elements\n    function updateUI() {\n      if (isSplit) {\n        decoupledVisuals.style.display = 'block';\n        dragNode.style.display = 'none';\n        resetButton.style.display = 'inline-block';\n        return;\n      }\n\n      decoupledVisuals.style.display = 'none';\n      dragNode.style.display = 'block';\n      resetButton.style.display = 'none';\n\n      // Move node visually\n      nodeHalo.setAttribute('cx', nodeX);\n      nodeHalo.setAttribute('cy', nodeY);\n      nodeOuter.setAttribute('cx', nodeX);\n      nodeOuter.setAttribute('cy', nodeY);\n      nodeInner.setAttribute('cx', nodeX);\n      nodeInner.setAttribute('cy', nodeY);\n\n      // Reset highlights\n      zoneHighConv.classList.remove('active');\n      lblHighConv.classList.remove('active');\n      zoneBalanced.classList.remove('active');\n      lblBalanced.classList.remove('active');\n      zoneMaxTension.classList.remove('active-danger');\n      lblMaxTension.classList.remove('active-danger');\n      lblMaxTensionSub.classList.remove('active-danger');\n      zoneSplit.classList.remove('active');\n      lblSplit1.classList.remove('active');\n      lblSplit2.classList.remove('active');\n      dragNode.classList.remove('shaking');\n\n      // Check current hover zone\n      if (nodeX > 305) {\n        zoneSplit.classList.add('active');\n        lblSplit1.classList.add('active');\n        lblSplit2.classList.add('active');\n      } else if (nodeY <= 100) {\n        if (nodeX <= 166) {\n          zoneHighConv.classList.add('active');\n          lblHighConv.classList.add('active');\n        } else {\n          zoneMaxTension.classList.add('active-danger');\n          lblMaxTension.classList.add('active-danger');\n          lblMaxTensionSub.classList.add('active-danger');\n          dragNode.classList.add('shaking'); // Unstable failure shake!\n        }\n      } else {\n        zoneBalanced.classList.add('active');\n        lblBalanced.classList.add('active');\n      }\n    }\n\n    // Pointer Events for Dragging\n    dragNode.addEventListener('pointerdown', (e) => {\n      if (locked) return;\n      isDragging = true;\n      dragNode.setPointerCapture(e.pointerId);\n      const coords = getSVGCoords(e);\n      dragOffset.x = coords.x - nodeX;\n      dragOffset.y = coords.y - nodeY;\n      e.preventDefault();\n    });\n\n    stage.addEventListener('pointermove', (e) => {\n      if (!isDragging || locked) return;\n      const coords = getSVGCoords(e);\n      let targetX = coords.x - dragOffset.x;\n      let targetY = coords.y - dragOffset.y;\n\n      // Bound within playable SVG area\n      nodeX = Math.max(45, Math.min(430, targetX));\n      nodeY = Math.max(25, Math.min(175, targetY));\n\n      updateUI();\n      evaluateSelection();\n    });\n\n    stage.addEventListener('pointerup', () => {\n      isDragging = false;\n    });\n    stage.addEventListener('pointercancel', () => {\n      isDragging = false;\n    });\n\n    // Keyboard support\n    dragNode.addEventListener('keydown', (e) => {\n      if (locked) return;\n      let step = 10;\n      if (e.key === 'ArrowRight') nodeX = Math.min(430, nodeX + step);\n      else if (e.key === 'ArrowLeft') nodeX = Math.max(45, nodeX - step);\n      else if (e.key === 'ArrowUp') nodeY = Math.max(25, nodeY - step);\n      else if (e.key === 'ArrowDown') nodeY = Math.min(175, nodeY + step);\n      else return;\n\n      updateUI();\n      evaluateSelection();\n      e.preventDefault();\n    });\n\n    // Reset decoupled architecture back to single prompt graph\n    resetButton.addEventListener('click', () => {\n      if (locked) return;\n      isSplit = false;\n      nodeX = 168; // Reset back to safe balanced zone\n      nodeY = 142;\n      updateUI();\n      evaluateSelection();\n    });\n\n    // Handle Height reporting\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    // Set up resize observer to communicate layout size changes to parent wrapper\n    const resizeObserver = new ResizeObserver(() => {\n      sendHeight();\n    });\n    resizeObserver.observe(document.body);\n\n    window.addEventListener('load', () => {\n      updateUI();\n      sendHeight();\n    });\n\n    // Lock support listener\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        locked = true;\n        document.getElementById('widget-container').classList.add('locked');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Decoupled: Two-Pass Architecture"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Unit 5 Assessment",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "In Session 5.1.1, what is the primary structural benefit of separating 'Instruction Engines' from 'Data Pipelines' in a prompt workflow?",
+     "options": [
+      "It increases the statistical fluency of the model output",
+      "It allows the model to ignore user inputs during high-volume tasks",
+      "It prevents the model from conflating meta-instructions with the dynamic content being processed",
+      "It eliminates the need for API keys by using static local data"
+     ],
+     "explanation": "Decoupling instructions from data ensures that the 'rules' remain invariant, preventing 'instruction drift' where the model mistakes data for commands.",
+     "correctAnswers": [
+      "It prevents the model from conflating meta-instructions with the dynamic content being processed"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are identified in the unit as standard naming conventions or syntax for defining variables within a template?",
+     "options": [
+      "{{variable_name}}",
+      "[USER_QUERY]",
+      "{INPUT_TEXT}",
+      "<--VARIABLE-->",
+      "((data_input))"
+     ],
+     "explanation": "The unit explicitly mentions double curly braces and capitalized bracket notation as industry-standard conventions for variables.",
+     "correctAnswers": [
+      "{{variable_name}}",
+      "{INPUT_TEXT}"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Session 5.1.2, it is noted that the actual parsing of placeholders happens ____ before the prompt ever reaches the LLM API.",
+     "explanation": "Parsing engines like Jinja2 or f-strings process the template on the application server to create the final string for the API.",
+     "placeholder": "location of parsing",
+     "correctAnswers": [
+      "application-side",
+      "on the application side",
+      "on the client side"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "According to Session 5.1.3, why is it critical to include 'target model' metadata in a prompt library?",
+     "options": [
+      "To reduce the cost of API calls per token",
+      "To ensure compliance with GDPR data residency laws",
+      "Because a prompt optimized for one model's syntax (like XML) may fail on another's (like Markdown)",
+      "To allow the model to self-update its own versioning history"
+     ],
+     "explanation": "Prompt engineering is model-specific; the session highlights that Claude's XML preference differs from GPT's markdown preference.",
+     "correctAnswers": [
+      "Because a prompt optimized for one model's syntax (like XML) may fail on another's (like Markdown)"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A 'production-grade prompt artifact' should include which of the following components in its YAML front matter?",
+     "options": [
+      "Unique identifier and version number",
+      "The model's current temperature setting",
+      "Expected input parameters",
+      "The developer's personal email address",
+      "Target model name"
+     ],
+     "explanation": "YAML front matter should contain metadata like ID, version, target model, and parameters to make prompts stable software artifacts.",
+     "correctAnswers": [
+      "Unique identifier and version number",
+      "Expected input parameters",
+      "Target model name"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "To prevent a user from overriding system instructions using recency bias, the 'tone_preference' instructions should be placed ____ the user variable input.",
+     "explanation": "Placing system constraints after user input leverages recency bias to ensure the model follows the developer's instructions last.",
+     "placeholder": "position",
+     "correctAnswers": [
+      "after",
+      "following"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In the context of Session 5.2.1, what is the 'Implicit Bias' that most LLMs have that leads to hallucinations?",
+     "options": [
+      "A bias toward negative sentiment",
+      "A bias toward pleasing the user with a plausible answer",
+      "A bias toward mathematical precision over creative writing",
+      "A bias toward ignoring system instructions in favor of user data"
+     ],
+     "explanation": "LLMs prioritize fluency and helpfulness, which often leads them to synthesize plausible but incorrect answers if not constrained.",
+     "correctAnswers": [
+      "A bias toward pleasing the user with a plausible answer"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which strategies are recommended in Session 5.2.1 to ensure 'Open-Book' generation accuracy and reduce hallucinations?",
+     "options": [
+      "Requiring verbatim quotes inside quotation marks",
+      "Asking the model 'Are you sure?' after the output",
+      "Instructing the model to state 'Information not found' if evidence is missing",
+      "Mapping answers to specific paragraph numbers",
+      "Increasing the model's temperature to 1.0"
+     ],
+     "explanation": "Forcing citations and providing a 'fallback' (Information not found) align the attention mechanism with the source text.",
+     "correctAnswers": [
+      "Requiring verbatim quotes inside quotation marks",
+      "Instructing the model to state 'Information not found' if evidence is missing",
+      "Mapping answers to specific paragraph numbers"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The process of checking if a prompt still outputs the correct schema after a model update is called ____ testing.",
+     "explanation": "Regression testing ensures that updates to models do not break the structural constraints or output formats of existing prompts.",
+     "placeholder": "type of testing",
+     "correctAnswers": [
+      "regression",
+      "prompt regression"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "What is 'Prompt Fragmentation' as described in Session 5.1.3?",
+     "options": [
+      "When a model breaks a long prompt into smaller chunks for processing",
+      "When different team members store slightly different versions of a prompt across various platforms",
+      "When a prompt injection attack splits a command into several turns",
+      "When a single template uses too many variables to be parsed"
+     ],
+     "explanation": "Fragmentation occurs when prompts aren't centralized in a version-controlled repository, leading to inconsistency.",
+     "correctAnswers": [
+      "When different team members store slightly different versions of a prompt across various platforms"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What are the primary risks of using 'Hardcoded' prompts for production tasks as discussed in Session 5.1.1?",
+     "options": [
+      "They are single-use and cannot scale",
+      "They are immune to prompt injection",
+      "They make programmatic execution and bulk processing difficult",
+      "They allow for better version control in Git",
+      "They lead to instruction drift when applied to different data"
+     ],
+     "explanation": "Hardcoded prompts fuse data and instructions, making them inflexible for automated workflows and scaling.",
+     "correctAnswers": [
+      "They are single-use and cannot scale",
+      "They make programmatic execution and bulk processing difficult",
+      "They lead to instruction drift when applied to different data"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "A static prompt containing both instructions and specific product data is described as a ____ tool.",
+     "explanation": "The unit contrasts 'single-use' static prompts with scalable, parameterized templates.",
+     "placeholder": "type of tool",
+     "correctAnswers": [
+      "single-use",
+      "one-off"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of XML tagging for variable isolation.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/d78c27f2-4c8e-4a55-aab3-469cb1a908ec/exam/images/unit5-q13.png"
+     },
+     "prompt": "Which XML structure effectively uses 'Structural Containment' to isolate a user's message from the system instructions?",
+     "options": [
+      "<system>Adopt this tone</system> User said: {{user_message}}",
+      "<user_query>{{user_message}}</user_query>",
+      "{{user_message}} (Note: Process the text above)",
+      "Instruction: {{user_message}}"
+     ],
+     "explanation": "Wrapping variables in XML tags signals to the model that the content is data to be processed, not a command to follow.",
+     "correctAnswers": [
+      "<user_query>{{user_message}}</user_query>"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "According to Session 5.2.2, why is PII leakage a significant risk in LLM pipelines?",
+     "options": [
+      "Models may propagate sensitive data to public databases",
+      "Models automatically delete PII by default",
+      "LLMs can act as conduits for sensitive data in automated agents",
+      "PII can cause the model to hallucinate more frequently",
+      "Sensitive data like SSNs can be exposed in customer notifications"
+     ],
+     "explanation": "LLMs do not inherently know to hide PII unless specifically instructed or filtered, risking data exposure in outputs.",
+     "correctAnswers": [
+      "Models may propagate sensitive data to public databases",
+      "LLMs can act as conduits for sensitive data in automated agents",
+      "Sensitive data like SSNs can be exposed in customer notifications"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In a prompt library, metadata like 'input parameters' and 'version' is typically stored using ____ front matter.",
+     "explanation": "YAML front matter in Markdown files is the industry-standard way to catalog prompt bundles.",
+     "placeholder": "format type",
+     "correctAnswers": [
+      "YAML"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "In a 'Golden Dataset' test for prompt reliability, what is the primary goal of the assertion?",
+     "options": [
+      "To ensure the output is 100% word-for-word identical",
+      "To guarantee the output adheres to required variables and structural constraints",
+      "To check if the model's tone is friendly enough",
+      "To measure the speed of the API response"
+     ],
+     "explanation": "Regression testing focuses on structural constraint compliance and schema adherence rather than stylistic nuances.",
+     "correctAnswers": [
+      "To guarantee the output adheres to required variables and structural constraints"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "When designing an extraction prompt for a dense corporate policy, what structural elements help prevent hallucinations?",
+     "options": [
+      "JSON output schema with 'fact' and 'source_quote' pairs",
+      "A limit of 10 words per answer",
+      "Strict instructions to never summarize the source quote",
+      "Allowing the model to rephrase quotes for clarity",
+      "Using temperature 0.0 for deterministic results"
+     ],
+     "explanation": "Verbatim extraction and structured schemas prevent the model from synthesizing plausible but unverified information.",
+     "correctAnswers": [
+      "JSON output schema with 'fact' and 'source_quote' pairs",
+      "Strict instructions to never summarize the source quote"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Configure a secure prompt pipeline to process a user-submitted support ticket while preventing the user from overriding the system's 'Professional' tone. Drag the blocks into the correct execution order in the prompt buffer.",
+     "options": [
+      "System Instruction -> User Message -> Tone Constraint",
+      "User Message -> System Instruction -> Tone Constraint",
+      "Tone Constraint -> System Instruction -> User Message",
+      "User Message -> Tone Constraint -> System Instruction"
+     ],
+     "explanation": "To combat recency bias and prompt injection, place critical behavioral constraints (like tone) after the untrusted user data in the sequence.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Prompt Pipeline Configurator</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      \n      --system-color: #4C6696;\n      --user-color: #D97706;\n      --tone-color: #059669;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 440px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .pipeline-stage {\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 16px;\n      position: relative;\n      min-height: 230px;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n    }\n\n    .pipeline-flow {\n      position: absolute;\n      left: 28px;\n      top: 24px;\n      bottom: 24px;\n      width: 2px;\n      background: repeating-linear-gradient(\n        to bottom,\n        var(--border),\n        var(--border) 4px,\n        transparent 4px,\n        transparent 8px\n      );\n      z-index: 1;\n    }\n\n    .flow-arrow {\n      position: absolute;\n      bottom: -4px;\n      left: 50%;\n      transform: translateX(-50%);\n      width: 0;\n      height: 0;\n      border-left: 5px solid transparent;\n      border-right: 5px solid transparent;\n      border-top: 6px solid var(--muted-fg);\n    }\n\n    .flow-label {\n      position: absolute;\n      left: 40px;\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.05em;\n      color: var(--muted-fg);\n      font-weight: 600;\n    }\n    .flow-label.start { top: 12px; }\n    .flow-label.end { bottom: 12px; }\n\n    .cards-container {\n      position: relative;\n      margin-left: 48px;\n      height: 180px;\n      z-index: 2;\n    }\n\n    .pipeline-card {\n      position: absolute;\n      left: 0;\n      right: 0;\n      height: 48px;\n      background: var(--surface);\n      border: 1.5px solid var(--border);\n      border-radius: 8px;\n      display: flex;\n      align-items: center;\n      padding: 0 12px;\n      box-sizing: border-box;\n      cursor: grab;\n      touch-action: none;\n      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, border-color 0.25s ease;\n      z-index: 10;\n    }\n\n    .pipeline-card:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .pipeline-card.dragging {\n      cursor: grabbing;\n      box-shadow: 0 8px 16px rgba(0,0,0,0.1);\n      border-color: var(--accent);\n      transform: scale(1.02);\n      z-index: 100;\n      transition: none; /* smooth tracking during live drag */\n    }\n\n    .card-handle {\n      display: flex;\n      flex-direction: column;\n      gap: 3px;\n      margin-right: 12px;\n      color: var(--muted-fg);\n    }\n\n    .card-handle span {\n      width: 12px;\n      height: 2px;\n      background: currentColor;\n      border-radius: 1px;\n    }\n\n    .card-content {\n      display: flex;\n      flex-direction: column;\n      flex-grow: 1;\n    }\n\n    .card-title {\n      font-size: 13px;\n      font-weight: 600;\n      margin: 0;\n    }\n\n    .card-desc {\n      font-size: 10px;\n      color: var(--muted-fg);\n      margin-top: 1px;\n    }\n\n    /* Card-specific accent tags */\n    .card-tag {\n      font-size: 9px;\n      font-weight: 700;\n      text-transform: uppercase;\n      padding: 2px 6px;\n      border-radius: 4px;\n      margin-left: 8px;\n    }\n\n    .card-system { border-left: 4px solid var(--system-color); }\n    .card-system .card-tag { background: #eef2f6; color: var(--system-color); }\n\n    .card-user { border-left: 4px solid var(--user-color); }\n    .card-user .card-tag { background: #fffbeb; color: var(--user-color); }\n\n    .card-tone { border-left: 4px solid var(--tone-color); }\n    .card-tone .card-tag { background: #ecfdf5; color: var(--tone-color); }\n\n    .action-hint {\n      text-align: center;\n      font-size: 12px;\n      color: var(--muted-fg);\n      margin-top: 4px;\n    }\n\n    /* Accessibility state indicators */\n    .keyboard-nav {\n      display: flex;\n      justify-content: center;\n      gap: 8px;\n      margin-top: 4px;\n    }\n\n    .kb-btn {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 4px;\n      padding: 4px 8px;\n      font-size: 11px;\n      cursor: pointer;\n      color: var(--fg);\n    }\n\n    .kb-btn:hover {\n      background: var(--stage);\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Prompt Pipeline Configuration Tool - Drag the blocks into the execution order</h1>\n\n  <div class=\"widget-container\">\n    <div class=\"pipeline-stage\">\n      <div class=\"pipeline-flow\">\n        <div class=\"flow-arrow\"></div>\n      </div>\n      <div class=\"flow-label start\">First</div>\n      <div class=\"flow-label end\">Last</div>\n\n      <div class=\"cards-container\" id=\"cards-container\">\n        <!-- Draggable blocks -->\n        <div class=\"pipeline-card card-system\" id=\"block-system\" data-id=\"system\" draggable=\"true\" tabindex=\"0\" aria-label=\"System Instruction Block\">\n          <div class=\"card-handle\"><span></span><span></span><span></span></div>\n          <div class=\"card-content\">\n            <span class=\"card-title\">System Instruction</span>\n            <span class=\"card-desc\">Defines base bot behavior & context</span>\n          </div>\n          <span class=\"card-tag\">System</span>\n        </div>\n\n        <div class=\"pipeline-card card-user\" id=\"block-user\" data-id=\"user\" draggable=\"true\" tabindex=\"0\" aria-label=\"User Message Block\">\n          <div class=\"card-handle\"><span></span><span></span><span></span></div>\n          <div class=\"card-content\">\n            <span class=\"card-title\">User Message</span>\n            <span class=\"card-desc\">Untrusted support ticket content</span>\n          </div>\n          <span class=\"card-tag\">Untrusted</span>\n        </div>\n\n        <div class=\"pipeline-card card-tone\" id=\"block-tone\" data-id=\"tone\" draggable=\"true\" tabindex=\"0\" aria-label=\"Tone Constraint Block\">\n          <div class=\"card-handle\"><span></span><span></span><span></span></div>\n          <div class=\"card-content\">\n            <span class=\"card-title\">Tone Constraint</span>\n            <span class=\"card-desc\">Enforce 'Professional' tone strict rule</span>\n          </div>\n          <span class=\"card-tag\">Constraint</span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"action-hint\">\n      Drag blocks up/down to set the processing order\n    </div>\n\n    <div class=\"keyboard-nav\">\n      <button class=\"kb-btn\" id=\"move-up-btn\" aria-label=\"Move selected block up\">Move Up ↑</button>\n      <button class=\"kb-btn\" id=\"move-down-btn\" aria-label=\"Move selected block down\">Move Down ↓</button>\n    </div>\n  </div>\n\n  <script>\n    // State management\n    let order = ['system', 'tone', 'user']; // Initial state (intentionally not the correct secure order)\n    const cardHeight = 48;\n    const cardGap = 12;\n    let isLocked = false;\n\n    const container = document.getElementById('cards-container');\n    const cards = {\n      system: document.getElementById('block-system'),\n      user: document.getElementById('block-user'),\n      tone: document.getElementById('block-tone')\n    };\n\n    const moveUpBtn = document.getElementById('move-up-btn');\n    const moveDownBtn = document.getElementById('move-down-btn');\n    let focusedCardId = null;\n\n    // Mapping states to exact answer options\n    const optionsMap = {\n      'system-user-tone': 'System Instruction -> User Message -> Tone Constraint',\n      'user-system-tone': 'User Message -> System Instruction -> Tone Constraint',\n      'tone-system-user': 'Tone Constraint -> System Instruction -> User Message',\n      'user-tone-system': 'User Message -> Tone Constraint -> System Instruction'\n    };\n\n    // Render cards positions based on current order array\n    function updateLayout(animate = true) {\n      order.forEach((id, index) => {\n        const card = cards[id];\n        const topY = index * (cardHeight + cardGap);\n        if (animate && !card.classList.contains('dragging')) {\n          card.style.transition = 'transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease';\n        } else if (card.classList.contains('dragging')) {\n          card.style.transition = 'none';\n        }\n        if (!card.classList.contains('dragging')) {\n          card.style.transform = `translateY(${topY}px)`;\n        }\n      });\n      reportAnswer();\n    }\n\n    // Report answer corresponding to current sequence state\n    function reportAnswer() {\n      const stateKey = order.join('-');\n      const mappedOption = optionsMap[stateKey];\n      if (mappedOption) {\n        try {\n          parent.postMessage({ type: 'hk-practice-answer', value: mappedOption }, '*');\n        } catch(e) {}\n      }\n    }\n\n    // Dragging physics & calculation\n    let dragStartOffsetY = 0;\n    let activeDragId = null;\n    let initialY = 0;\n\n    function initDragging() {\n      Object.keys(cards).forEach(id => {\n        const card = cards[id];\n\n        // Pointer Events for Dragging\n        card.addEventListener('pointerdown', (e) => {\n          if (isLocked) return;\n          card.setPointerCapture(e.pointerId);\n          activeDragId = id;\n          card.classList.add('dragging');\n          \n          const rect = card.getBoundingClientRect();\n          dragStartOffsetY = e.clientY - rect.top;\n          \n          const containerRect = container.getBoundingClientRect();\n          initialY = e.clientY - containerRect.top - dragStartOffsetY;\n          \n          e.preventDefault();\n        });\n\n        card.addEventListener('pointermove', (e) => {\n          if (activeDragId !== id || isLocked) return;\n          \n          const containerRect = container.getBoundingClientRect();\n          const currentY = e.clientY - containerRect.top - dragStartOffsetY;\n          \n          // Clamp dragging inside container bounds\n          const maxY = (order.length - 1) * (cardHeight + cardGap);\n          const clampedY = Math.max(0, Math.min(currentY, maxY));\n          \n          card.style.transform = `translateY(${clampedY}px)`;\n\n          // Swap logic based on current position\n          const targetIndex = Math.round(clampedY / (cardHeight + cardGap));\n          const currentIndex = order.indexOf(id);\n          \n          if (targetIndex !== currentIndex && targetIndex >= 0 && targetIndex < order.length) {\n            order.splice(currentIndex, 1);\n            order.splice(targetIndex, 0, id);\n            // Instantly update other non-dragged elements\n            order.forEach((otherId, idx) => {\n              if (otherId !== id) {\n                cards[otherId].style.transition = 'transform 0.2s ease-out';\n                cards[otherId].style.transform = `translateY(${idx * (cardHeight + cardGap)}px)`;\n              }\n            });\n          }\n        });\n\n        card.addEventListener('pointerup', (e) => {\n          if (activeDragId !== id) return;\n          card.releasePointerCapture(e.pointerId);\n          card.classList.remove('dragging');\n          activeDragId = null;\n          updateLayout(true);\n        });\n\n        // Focus & Keyboard\n        card.addEventListener('focus', () => {\n          focusedCardId = id;\n        });\n      });\n    }\n\n    // Keyboard support via explicit buttons\n    function moveFocused(direction) {\n      if (!focusedCardId || isLocked) return;\n      const currentIndex = order.indexOf(focusedCardId);\n      const newIndex = currentIndex + direction;\n      if (newIndex >= 0 && newIndex < order.length) {\n        order.splice(currentIndex, 1);\n        order.splice(newIndex, 0, focusedCardId);\n        updateLayout(true);\n        cards[focusedCardId].focus();\n      }\n    }\n\n    moveUpBtn.addEventListener('click', () => moveFocused(-1));\n    moveDownBtn.addEventListener('click', () => moveFocused(1));\n\n    // Handle incoming communication\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.body.style.pointerEvents = 'none';\n        moveUpBtn.disabled = true;\n        moveDownBtn.disabled = true;\n      }\n    });\n\n    // Notify height shifts\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch(err) {}\n    }\n\n    // Init lifecycle\n    window.addEventListener('load', () => {\n      initDragging();\n      updateLayout(false);\n      reportHeight();\n      \n      // Setup automatic height tracking\n      if (window.ResizeObserver) {\n        new ResizeObserver(reportHeight).observe(document.body);\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "System Instruction -> User Message -> Tone Constraint"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "999bbe58-ee44-4b21-bbba-e7bee5410bcc"
+}

@@ -1,0 +1,397 @@
+{
+ "stages": [
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to your first step as a Chief Economic Advisor! In this course project, you will build a Comprehensive Macroeconomic Policy Advisor Simulation Portfolio—a professional dossier that proves your ability to navigate national economic crises. By the end of this journey, you will have a 5-chapter analytical masterpiece that covers everything from inflation management to foreign exchange forecasts. We begin today with Chapter 1: The Production Frontier. This stage builds on our recent sessions where we defined scarcity and how societies choose between 'Guns and Butter.' You will select a nation, define its resource constraints, and model its domestic market behavior.",
+     "step_title": "Project Launch: The Macro Advisor",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit the name of your nation and a 2-3 sentence description of its key factors of production (Land, Labor, Capital, Entrepreneurship) and the two goods you will be modeling."
+     },
+     "step_body": "To start your portfolio, choose a specific nation (real or hypothetical) to advise. Briefly describe its primary resource base—the 'Land, Labor, and Capital' that drive its economy. For example, is your country an agricultural powerhouse with vast fertile land, or a tech hub with high physical capital? Once you've defined the resources, identify two broad categories of goods your nation produces to represent a trade-off (e.g., Industrial Machinery vs. Agricultural Exports). This selection will form the basis of your Production Possibilities Curve.",
+     "step_title": "Select and Profile your Nation",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the numerical opportunity cost for 1 unit of each good (e.g., '1 Industrial Machine costs 2.5 tons of Wheat'). Show your division so I can verify your logic."
+     },
+     "step_body": "Now, let's look at the numbers. Imagine your nation allocates all its resources to one of your two goods. If your nation can produce either 100 units of 'Good A' or 250 units of 'Good B' in a year, what is the cost of choosing one over the other? Calculate the per-unit opportunity cost for both goods using the reciprocal method we practiced (dividing 'what you give up' by 'what you get'). Remember to assume constant costs for this specific calculation to establish your baseline comparative advantage.",
+     "step_title": "Calculate Opportunity Costs",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {},
+     "step_body": "It is time to visualize your economy's potential. Using the goods and data from the previous steps, you need to create two diagrams. First, draw a bowed-out Production Possibilities Curve (PPC) to illustrate the Law of Increasing Opportunity Costs, labeling a point of efficiency, inefficiency, and an unattainable point. Second, create a Supply and Demand equilibrium chart for your nation's primary export. Label the equilibrium price and quantity. These charts are the 'heart' of your first portfolio chapter and prove you can visualize resource constraints and market health simultaneously.",
+     "step_title": "Draft the Chapter 1 Visuals",
+     "need_response": false
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief explanation of your chosen intervention (Price Floor or Ceiling) and the resulting market outcome (Shortage or Surplus). Explain the real-world impact on your nation's citizens."
+     },
+     "step_body": "Governments often intervene in markets to protect consumers or producers. Choose an intervention for your primary export: either a Price Ceiling (to keep prices low for citizens) or a Price Floor (to support producers). On your Supply and Demand chart, illustrate this intervention. Does it create a shortage or a surplus? Calculate the resulting gap and explain why this intervention might be necessary despite the market inefficiency it creates. This adds the 'Advisory' element to your portfolio chapter.",
+     "step_title": "Model a Market Intervention",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 1 of your Portfolio as a PDF. It must include: 1) The nation's resource profile, 2) Numerical opportunity cost calculations, 3) An annotated PPC diagram (Efficiency/Inefficiency/Unattainable), and 4) A Supply/Demand chart showing a market intervention (Floor/Ceiling)."
+     },
+     "step_body": "It is time to finalize the first piece of your deliverable. Combine your nation's resource profile, your opportunity cost calculations, and your annotated diagrams into a single document. Ensure your PPC and Supply/Demand charts are clearly labeled with axes (Price, Quantity, and the names of your two goods). This chapter serves as the baseline for your country's economic health before we introduce more complex macroeconomic shocks in the next unit.",
+     "step_title": "Submit Portfolio Chapter 1",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit1",
+   "stage_id": "1bbd8cbb-8135-43ea-a850-4c082905367d",
+   "stage_title": "Production Frontiers and Market Demand Modeling",
+   "parent_project_id": "58b2615a-1572-483e-bac9-197357bfe7eb",
+   "stage_description": "Analyze your country's base resource constraints using a Production Possibilities Curve (PPC) and model the domestic market for its primary resource. You will calculate opportunity costs, define comparative advantages, and calculate market shortages or surpluses based on price interventions.",
+   "deliverable_increment": "Chapter 1 of your Portfolio, containing an annotated PPC diagram, numerical opportunity cost calculations, and a microeconomic supply-demand equilibrium chart illustrating market interventions."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stage, you laid the groundwork for your project by modeling microeconomic market forces and production possibilities. Now, we shift our focus to the 'Big Picture.' In this stage, you will begin Chapter 2 of your Portfolio: the Macroeconomic Indicator Dashboard. Using the principles of the Circular Flow Model and national accounting, you will calculate the vital signs of your target economy—GDP, unemployment, and inflation—to diagnose its current health and position in the business cycle.",
+     "step_title": "Recap & orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your GDP calculation. Include the individual values for C, I, G, and Nx, and the final Nominal GDP total. Criteria for success: accurate application of the expenditure formula and correct classification of economic activities (e.g., ensuring financial transfers are excluded)."
+     },
+     "step_body": "To calculate your nation's Gross Domestic Product (GDP), we use the expenditure approach: GDP = C + I + G + Nx. Start by selecting a hypothetical target country (or use a real one) and gathering data for one year. You need to identify the values for Personal Consumption (C), Gross Private Investment (I), Government Purchases (G), and Net Exports (Nx). Remember the common pitfall: 'Investment' in macroeconomics refers to physical capital and new construction, not stocks or bonds! List your components and calculate the total Nominal GDP.",
+     "step_title": "Identify GDP components",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Real GDP calculation and the Inflation Rate. Show your work, including the formula used. Criteria for success: correct usage of the GDP deflator/price index to adjust nominal values and an accurately calculated percentage change for inflation."
+     },
+     "step_body": "Nominal GDP can be misleading if prices are rising. Using the CPI logic we discussed—where we use a fixed market basket to isolate price changes—you must now calculate Real GDP to see if your economy actually produced more 'stuff' or just higher prices. Choose a base year where the Price Index is 100. Then, using a current Price Index (e.g., 115), deflate your Nominal GDP to find the Real GDP. Additionally, calculate the Inflation Rate between these two periods using the percentage change formula for the Price Index.",
+     "step_title": "Calculate Real GDP and Inflation",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a brief breakdown of the unemployment types in your target country. Criteria for success: clear distinction between frictional, structural, and cyclical unemployment based on your country's economic context."
+     },
+     "step_body": "A healthy GDP is only half the story; we must look at the labor market. Identify your country's current Unemployment Rate. To make this a high-quality diagnostic, don't just provide a number—break down the types of unemployment currently present. Is the unemployment Frictional (people switching jobs), Structural (skills gap), or Cyclical (due to a downturn)? Explain which type is most prevalent in your target country right now and why.",
+     "step_title": "Analyze unemployment types",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Now it's time to synthesize your data. Look at your GDP growth, inflation trends, and unemployment levels. Based on these indicators, where is your country currently located on the Business Cycle? Are you in an Expansion, at a Peak, in a Contraction (Recession), or at a Trough? Draft a diagnostic report (2-3 paragraphs) justifying your placement. For example, if Real GDP is falling and cyclical unemployment is rising, you are likely in a contraction.",
+     "step_title": "Map the Business Cycle",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 2 of your Portfolio as a PDF. It must include: 1) A formatted table (Dashboard) with your calculated GDP, Inflation, and Unemployment figures. 2) Your written Business Cycle Diagnosis report. Criteria for success: Professional formatting, mathematical accuracy in the dashboard, and a logical, data-driven justification for the business cycle placement."
+     },
+     "step_body": "It is time to finalize Chapter 2: Macroeconomic Indicator Dashboard and Business Cycle Diagnosis. Combine your quantitative data (the dashboard with GDP, Inflation, and Unemployment metrics) and your qualitative business cycle report into a professional portfolio chapter. This document should serve as a clear 'temperature check' for any policymaker reading your advisor portfolio.",
+     "step_title": "Submit Chapter 2",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit2",
+   "stage_id": "63c207f9-230d-445b-87c0-72cfc9472d21",
+   "stage_title": "Macroeconomic Indicator Dashboard and Business Cycle Diagnosis",
+   "parent_project_id": "58b2615a-1572-483e-bac9-197357bfe7eb",
+   "stage_description": "Compile and calculate key macroeconomic indicators for your target country using raw data. You will calculate nominal and real GDP, determine the unemployment rate by distinguishing between types of unemployment, compute price index changes (inflation), and map your country's current position on the business cycle curve.",
+   "deliverable_increment": "Chapter 2 of your Portfolio, featuring a quantitative Macroeconomic Indicator Dashboard containing GDP, inflation, and unemployment metrics, alongside a written diagnostic business cycle report."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In the previous stages, you built a solid foundation for your country case study by defining production frontiers (PPC) and tracking core indicators like GDP, inflation, and unemployment. You have diagnosed your country's current business cycle position. Now, it is time to move from diagnosis to action. In this stage, you will use the Aggregate Demand and Aggregate Supply (AD-AS) model to visualize your country's output gap and design a precise fiscal intervention to move the economy back to full employment.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot or photo of your labeled AD-AS graph. It should clearly show whether your economy is experiencing a recessionary or inflationary gap, with all axes and curves (AD, SRAS, LRAS, Y1, Yf, PL1) correctly labeled."
+     },
+     "step_body": "Start by illustrating your country's current economic state. Based on your Chapter 2 diagnosis, decide if your country is in a recessionary gap (equilibrium to the left of LRAS) or an inflationary gap (equilibrium to the right of LRAS). Draw a fully labeled AD-AS graph. Your graph must include the vertical Long-Run Aggregate Supply (LRAS), the upward-sloping Short-Run Aggregate Supply (SRAS), and the downward-sloping Aggregate Demand (AD) curve. Clearly label the current equilibrium price level (PL1) and current output (Y1), as well as the full-employment output level (Yf).",
+     "step_title": "Model the output gap",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your chosen MPC, your step-by-step calculations for both the spending and tax multipliers, and a 1-2 sentence explanation of the difference in their impact."
+     },
+     "step_body": "To fix the gap, you need to know how powerful your fiscal tools are. Assume a Marginal Propensity to Consume (MPC) for your country (typically between 0.75 and 0.90). First, calculate the Spending Multiplier using the formula 1/(1-MPC). Then, calculate the Tax Multiplier using the formula -MPC/(1-MPC). Briefly explain why the tax multiplier is always smaller in absolute value than the spending multiplier, referencing the 'saving leak' discussed in our lecture.",
+     "step_title": "Calculate the multipliers",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide the numerical value of your output gap and the specific dollar amounts for both a G-based intervention and a T-based intervention required to close it. Show the arithmetic used to reach these figures."
+     },
+     "step_body": "Now, let's do the math to close the gap. Identify the size of the 'output gap' in your scenario (the difference between Y1 and Yf). Using your multipliers from the previous step, calculate exactly how much the government would need to increase/decrease spending (G) OR change taxes (T) to restore the economy to full employment. For example, if your gap is $40 billion and your spending multiplier is 4, you would need a $10 billion change in G. Show your work for both a spending-based solution and a tax-based solution.",
+     "step_title": "Quantify the intervention",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 3 as a PDF. This must include: 1) The AD-AS graph from Step 2, 2) The multiplier and intervention math from Steps 3 and 4, and 3) A written recommendation (200-300 words) justifying your policy choice and describing the expected shift in AD."
+     },
+     "step_body": "It's time to finalize Chapter 3 of your portfolio. Combine your visual model and your calculations into a formal 'Fiscal Policy Recommendation Brief.' In this brief, recommend one specific course of action (either spending changes, tax changes, or a mix) and justify your choice based on your country's current needs. Explain how this shift in the AD curve will resolve the output gap and what the expected impact on the price level will be.",
+     "step_title": "Draft the Fiscal Policy Brief",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {},
+     "step_body": "Great work completing the fiscal plan. As a final thought for this stage, consider the 'crowding out' effect or the impact on the national debt. While your math shows a perfect equilibrium, real-world policy often has side effects. In one sentence, identify one potential risk or limitation of your proposed fiscal plan that you might need to address in future chapters of your portfolio.",
+     "step_title": "Reflect on the trade-offs",
+     "need_response": false
+    }
+   ],
+   "unit_id": "unit3",
+   "stage_id": "a68d6a94-7b9d-4e3d-bedd-f849577fd3f8",
+   "stage_title": "AD-AS Equilibrium Modeling and Fiscal Intervention Plan",
+   "parent_project_id": "58b2615a-1572-483e-bac9-197357bfe7eb",
+   "stage_description": "Construct an Aggregate Demand and Aggregate Supply (AD-AS) model depicting your country in either a recessionary or inflationary gap. You will design a discretionary fiscal policy package, applying spending and tax multiplier formulas to compute the exact changes required to restore full-employment output.",
+   "deliverable_increment": "Chapter 3 of your Portfolio: a fully labeled AD-AS equilibrium graph visualizing the output gap, accompanied by mathematical multiplier calculations and a written Fiscal Policy Recommendation Brief."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "In our previous unit, we focused on the 'real' economy: GDP, unemployment, and how the government uses fiscal policy to shift the AD curve. Now, we shift our focus to the 'monetary' economy—the financial machinery that makes those transactions possible. As the Chief Economic Advisor, you need to understand that the central bank doesn't just print money; it manipulates the availability of credit through the banking system to influence interest rates. This stage will add Chapter 4 to your Portfolio, focusing on how a single central bank action ripples through commercial bank balance sheets to change the cost of borrowing for the whole nation.",
+     "step_title": "Recap and orient",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculations for: 1) The Required Reserve Ratio (expressed as a percentage), 2) The current loanable Excess Reserves, and 3) A one-sentence explanation of how M1 changes when a loan is created. Good work correctly identifies that the reserve ratio is 10% and that only excess reserves can be lent out."
+     },
+     "step_body": "To understand how money is created, we must first look at a commercial bank's T-account. Imagine your nation's primary commercial bank, 'National Trust,' has $100,000 in Demand Deposits, $10,000 in Required Reserves, and $5,000 in Excess Reserves. Based on these numbers, calculate the Required Reserve Ratio (rr). Then, determine the maximum amount of new loans this single bank can provide right now without receiving any new deposits. Finally, explain what happens to the money supply (M1) the moment those new loans are issued.",
+     "step_title": "Analyze the bank's balance sheet",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your calculated Money Multiplier and the total potential increase in the money supply resulting from the $20,000 open market purchase. Ensure you show the formula used (1/rr)."
+     },
+     "step_body": "A single loan doesn't stop with one bank; it gets spent and deposited into another bank, starting a chain reaction. Using the Required Reserve Ratio you calculated in the previous step, determine the Money Multiplier. Then, calculate the 'Maximum Checkable Deposit Expansion' for the entire banking system if the Central Bank decides to buy $20,000 worth of bonds from the public (assuming all money is redeposited and banks hold zero excess reserves).",
+     "step_title": "Calculate the money multiplier",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a written description of your Money Market graph. State the direction of the MS shift (left or right) and the resulting change in the nominal interest rate (increase or decrease). High-quality responses will correctly identify that an increase in supply lowers the nominal interest rate."
+     },
+     "step_body": "Now, let's visualize this impact. When the Central Bank increases the money supply through those bond purchases, the Money Supply (MS) curve shifts. This changes the 'price' of money—the nominal interest rate. Draft a description or a rough sketch of a Money Market graph. Identify the Y-axis (Nominal Interest Rate), the X-axis (Quantity of Money), the vertical MS curve, and the downward-sloping Money Demand (MD) curve. Explain how the shift in MS from your previous calculation specifically affects the equilibrium nominal interest rate.",
+     "step_title": "Map the money market equilibrium",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a short paragraph explaining the transmission from the nominal rate to the real rate. Specifically, describe how the shift in the supply of loanable funds affects the equilibrium real interest rate and the level of private investment."
+     },
+     "step_body": "The Money Market determines the nominal rate, but the Loanable Funds Market determines the Real Interest Rate that businesses use for long-term investment. Using the Fisher Equation (Real = Nominal - Inflation), explain what happens to the Real Interest Rate in the Loanable Funds Market if the Central Bank's expansionary policy leads to an increase in the supply of loanable funds while inflation remains constant. How does this change the 'Quantity of Loanable Funds' demanded by firms for capital projects?",
+     "step_title": "Connect to loanable funds",
+     "need_response": true
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 4 as a PDF. It must include the quantitative T-account analysis, the multiplier formulas, and the two graphical models (Money Market and Loanable Funds). Criteria for success: correct calculation of the $200,000 total expansion (given the 0.1 ratio and $20k injection) and consistent labeling of nominal vs. real interest rates across both models."
+     },
+     "step_body": "It is time to compile your findings into Chapter 4 of your Portfolio: the Monetary Policy Transmission Matrix. This final document should include: 1) Your T-account calculations, 2) Your Money Multiplier analysis, and 3) Two paired diagrams (or detailed descriptions) showing the Money Market and the Loanable Funds Market reacting to a central bank intervention. Ensure your work clearly shows the 'transmission'—how a change in reserves leads to a change in the money supply, which then changes interest rates, and finally affects investment.",
+     "step_title": "Submit the Transmission Matrix",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit4",
+   "stage_id": "39b92d8f-ba13-49eb-9e1f-7004689ee248",
+   "stage_title": "Central Bank Balance Sheet and Monetary Policy Transmission Matrix",
+   "parent_project_id": "58b2615a-1572-483e-bac9-197357bfe7eb",
+   "stage_description": "Analyze a commercial bank balance sheet to calculate required reserves, excess reserves, and the maximum expansion of the money supply. You will then map how a central bank intervention (via open-market operations or reserve adjustments) transmits through money markets and loanable funds markets to alter nominal and real interest rates.",
+   "deliverable_increment": "Chapter 4 of your Portfolio, consisting of a T-account balance sheet worksheet with monetary multiplier formulas, and paired graphical models of the Money Market and Loanable Funds Market."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "You have already built a robust foundation for your Advisory Portfolio, from diagnosing business cycles to drafting monetary and fiscal interventions. In this final stage, we synthesize these policies by examining their long-term consequences and the trade-offs between inflation and unemployment. We will move beyond short-term stabilization to map out how your nation can achieve a rightward shift in its Long-Run Aggregate Supply (LRAS), representing true structural growth.",
+     "step_title": "Recap and Project Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot or scan of your dual-chart alignment (AD-AS next to Phillips Curve). Good work will show a clear, labeled mapping where a rightward AD shift corresponds to a movement up and left along the SRPC, with all axes and curves (LRPC, SRPC, LRAS, SRAS, AD) correctly identified."
+     },
+     "step_body": "Start by illustrating the trade-offs of your previous policy recommendations. Create a dual-chart alignment: on the left, show your AD-AS model with the intervention you proposed in Chapter 3. On the right, draw the corresponding Phillips Curve model. If your fiscal stimulus moved AD to the right, show the resulting movement along the Short-Run Phillips Curve (SRPC) toward lower unemployment and higher inflation. Ensure you label the Long-Run Phillips Curve (LRPC) at the Natural Rate of Unemployment (NRU). Label your initial equilibrium as 'A' and your post-intervention point as 'B' on both graphs.",
+     "step_title": "Map the Phillips Curve",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Provide a brief (1-2 paragraph) explanation of how inflation expectations will eventually shift the SRPC in your simulation. Criteria: You must correctly identify that the SRPC shifts upward/rightward as expectations rise, eventually returning the economy to the NRU at a higher inflation rate."
+     },
+     "step_body": "Economic stimulus doesn't happen in a vacuum. Over time, as workers adjust their inflation expectations, the SRPC will shift. Think about the 'money illusion' discussed in your lectures: as nominal wages rise to meet higher price levels, your economy will eventually return to the LRPC. Describe this adjustment process for your case study. What happens to your country's inflation and unemployment in the long run if no further action is taken? Does the trade-off disappear as expectations catch up?",
+     "step_title": "Analyze Long-Run Adjustments",
+     "need_response": true
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit your Debt Sustainability Analysis. It should explicitly mention the impact of government borrowing on interest rates and private investment (crowding out) and conclude whether this poses a high or low risk to your nation's future growth."
+     },
+     "step_body": "Before we move to long-run growth, we must address a major risk: government debt. If your Chapter 3 fiscal plan involved deficit spending, analyze the potential for 'crowding out.' When the government borrows heavily, interest rates can rise, which may reduce private investment in physical capital—the very thing needed for growth. Draft a short 'Debt Sustainability Analysis' for your nation, identifying if your proposed stimulus might unintentionally hinder long-run progress by competing with private borrowers in the loanable funds market.",
+     "step_title": "Assess Debt and Crowding Out",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Now, focus on shifting the frontier. Real growth requires an increase in productive capacity—shifting the LRAS and the PPC outward. Propose three specific supply-side policies for your nation. These could include investments in human capital (education or healthcare), incentives for technological innovation, or infrastructure projects. Explain how these policies will increase labor productivity or the capital stock, effectively shifting the LRPC to the left and the LRAS to the right.",
+     "step_title": "Draft the Growth Action Plan",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Upload Chapter 5 as a PDF. A successful submission will include: 1) The dual AD-AS/Phillips Curve charts, 2) The debt/crowding-out analysis, and 3) The Long-Run Growth Action Plan with three distinct supply-side strategies. The document should be professional and clearly link theoretical models to your specific country's context."
+     },
+     "step_body": "It is time to compile your final deliverable for this stage: Chapter 5 of your Portfolio. This chapter must include your dual-chart alignment, your debt-sustainability analysis regarding crowding out, and your detailed Long-Run Growth Action Plan. Ensure your plan connects your chosen supply-side policies back to the visual shifts in your models. This completes the analytical narrative of your country's economic journey.",
+     "step_title": "Submit Final Portfolio Chapter",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit5",
+   "stage_id": "d22ac77a-6bb7-4287-81f6-6ce47289a002",
+   "stage_title": "Phillips Curve Trade-offs and Long-Run Growth Strategy",
+   "parent_project_id": "58b2615a-1572-483e-bac9-197357bfe7eb",
+   "stage_description": "Map your stabilization policies onto a dual AD-AS and Phillips Curve diagram to show short-run and long-run adjustments. You will address potential crowding-out effects from government debt and propose concrete supply-side policies to shift the LRAS and promote sustained long-run economic growth.",
+   "deliverable_increment": "Chapter 5 of your Portfolio: a dual-chart alignment displaying the AD-AS and Phillips Curve adjustments, a debt-sustainability analysis detailing crowding-out risks, and a Long-Run Growth Action Plan."
+  },
+  {
+   "steps": [
+    {
+     "step_id": "step1",
+     "metadata": {},
+     "step_body": "Welcome to the final stage of your advisory project! Previously, you stabilized the domestic economy using fiscal and monetary policy and analyzed long-run growth. Now, it's time to open your borders. In this stage, you will determine how your previous policy choices—like interest rate changes and deficit spending—ripple into the global market. You will track the flow of money in and out of your nation, ultimately producing the Appendix of your Portfolio: the Balance of Payments ledger, a Forex market diagram, and a Policy Spillover Matrix.",
+     "step_title": "Recap and Global Orientation",
+     "need_response": false
+    },
+    {
+     "step_id": "step2",
+     "metadata": {
+      "upload_type": "text",
+      "response_instruction": "Submit a text-based draft of your Balance of Payments ledger. Include at least two items for the Current Account and two for the Financial Account. Clearly label each as a 'Credit' or 'Debit' and provide a brief justification (e.g., 'Export of software = Credit because money flows in'). Good work will show a clear understanding of the direction of currency flow."
+     },
+     "step_body": "Every international transaction is either a credit (money flowing in) or a debit (money flowing out). Based on your previous chapters, identify at least one major export/import and one major investment flow (like foreign investors buying your government bonds). Create a simple 'T-account' ledger. For the Current Account, list your Net Exports and Investment Income. For the Financial Account, list your capital inflows and outflows. Remember the Golden Rule: the sum of the Current Account and the Financial Account should theoretically balance to zero.",
+     "step_title": "Draft the Balance of Payments Ledger",
+     "need_response": true
+    },
+    {
+     "step_id": "step3",
+     "metadata": {},
+     "step_body": "Recall your work in Unit 4 regarding the Money Market. If your policy recommendations led to a rise in domestic real interest rates, your country now acts like a magnet for global financial capital. This creates a 'Capital Inflow.' Conversely, lower rates lead to 'Capital Outflow.' On a scrap piece of paper, trace how your specific interest rate environment from the previous unit impacts the Financial Account of your ledger.",
+     "step_title": "Analyze Interest Rates and Capital Flows",
+     "need_response": false
+    },
+    {
+     "step_id": "step4",
+     "metadata": {
+      "upload_type": "image",
+      "response_instruction": "Upload a screenshot or photo of your Foreign Exchange (Forex) market equilibrium diagram. Your graph must include correctly labeled axes (Price in foreign currency/Quantity of domestic currency), a labeled Demand and Supply curve, and a clear shift indicating either appreciation or depreciation based on your capital flow analysis. High-quality diagrams will include a brief caption explaining why the curve shifted."
+     },
+     "step_body": "Now, let's visualize the value of your currency. When capital flows INTO your country (a credit in the Financial Account), those investors must first buy your currency. This increases the DEMAND for your currency in the Forex market. Using the Supply and Demand for your currency, determine if your currency is currently Appreciating (gaining value) or Depreciating (losing value) against foreign currencies.",
+     "step_title": "Model the Foreign Exchange Market",
+     "need_response": true
+    },
+    {
+     "step_id": "step5",
+     "metadata": {},
+     "step_body": "Currency value changes don't happen in a vacuum—they impact your trade balance. If your currency appreciated, your goods are now more expensive for foreigners, which usually decreases Net Exports. If it depreciated, your goods are 'on sale,' likely increasing Net Exports. This is the 'feedback loop' that connects the Financial Account back to the Current Account.",
+     "step_title": "Identify the Feedback Loop",
+     "need_response": false
+    },
+    {
+     "step_id": "step6",
+     "metadata": {
+      "upload_type": "pdf",
+      "response_instruction": "Submit your final Stage 6 Deliverable as a PDF. This must include: 1) Your finalized Balance of Payments ledger, 2) Your Forex Market Diagram, and 3) The Open-Economy Policy Spillover Matrix. Criteria for success: Logical consistency (e.g., if interest rates rose, capital should flow in) and professional formatting as an Appendix to your overall Portfolio."
+     },
+     "step_body": "To conclude your portfolio, you will synthesize everything into an 'Open-Economy Policy Spillover Matrix.' This table should track a policy action (e.g., Expansionary Fiscal Policy), its effect on Real Interest Rates, the resulting Capital Flow, the impact on the Exchange Rate, and the final effect on Net Exports. This summarizes how your domestic leadership affects your standing in the global economy.",
+     "step_title": "The Policy Spillover Matrix",
+     "need_response": true
+    }
+   ],
+   "unit_id": "unit6",
+   "stage_id": "8b3e1b18-7d7c-49df-a55e-136724054bd9",
+   "stage_title": "Open Economy Balance of Payments and Forex Equilibrium Forecast",
+   "parent_project_id": "58b2615a-1572-483e-bac9-197357bfe7eb",
+   "stage_description": "Formulate how your domestic fiscal and monetary policies impact international capital flows, the current and capital/financial accounts, and the foreign exchange rate of your currency. You will construct a Forex market model showing currency appreciation or depreciation and explain the subsequent feedback loop on net exports.",
+   "deliverable_increment": "The final Appendix to your Portfolio: a complete Balance of Payments ledger simulation, a Foreign Exchange market equilibrium diagram, and a final Open-Economy Policy Spillover Matrix summarizing global policy impacts."
+  }
+ ],
+ "projects": [
+  {
+   "project_id": "58b2615a-1572-483e-bac9-197357bfe7eb",
+   "project_name": "Comprehensive Macroeconomic Policy Advisor Simulation Portfolio",
+   "final_deliverable": "A comprehensive 5-chapter Macroeconomic Advisory Portfolio containing a baseline economic indicator report, a fully illustrated and annotated AD-AS/Phillips Curve equilibrium analysis, a commercial bank balance sheet & monetary policy impact ledger, an open-economy Balance of Payments and Exchange Rate forecast, and a final strategic Long-Run Growth Action Plan.",
+   "project_description": "In this hands-on project, you will step into the role of a Chief Economic Advisor to a nation experiencing structural and cyclical economic shifts. Over the course of six units, you will build and refine a highly detailed, analytical country case study portfolio. Using macroeconomic modeling, balance sheets, and policy frameworks, you will diagnose economic health and formulate a comprehensive stabilization package to counter recessions, manage inflation, navigate open-economy foreign exchange fluctuations, and foster long-term growth."
+  }
+ ],
+ "courseUuid": "fb3a7f7f-86d9-4334-acab-b90cdfd068ab"
+}

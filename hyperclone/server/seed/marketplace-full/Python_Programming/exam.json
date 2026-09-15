@@ -1,0 +1,1444 @@
+{
+ "exams": [
+  {
+   "title": "Python Foundations Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which of the following best describes the difference between the REPL (Read-Eval-Print Loop) and a Python Script (.py file)?",
+     "options": [
+      "The REPL allows for persistent memory after closing, while scripts are ephemeral.",
+      "The REPL executes code line-by-line for immediate feedback, while a script allows for a stored, sequential execution of instructions.",
+      "The REPL can only handle integers and floats, whereas scripts can handle strings and Booleans.",
+      "Scripts are used to find SyntaxErrors, while the REPL is used to execute logic perfectly every time."
+     ],
+     "explanation": "The REPL is an interactive environment for immediate conversation with the interpreter, but scripts provide persistence and the ability to execute a multi-line sequence of instructions.",
+     "correctAnswers": [
+      "The REPL executes code line-by-line for immediate feedback, while a script allows for a stored, sequential execution of instructions."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "A developer wants to create a variable to track the number of items in a shopping cart and the price of each. Which statements about variable naming and types in Python are true?",
+     "options": [
+      "A variable name like '2_items' is invalid because it starts with a number.",
+      "Python is statically typed, so once a variable holds an integer, it cannot hold a string.",
+      "The convention 'item_count' is preferred over 'ic' because it is more self-documenting.",
+      "Python tracks the data type with the value itself, not the variable name.",
+      "Variable names can contain spaces as long as they are wrapped in quotes."
+     ],
+     "explanation": "Variable names cannot start with numbers and spaces are illegal. Python is dynamically typed (meaning labels can move between types) and type identity is associated with the value in memory.",
+     "correctAnswers": [
+      "A variable name like '2_items' is invalid because it starts with a number.",
+      "The convention 'item_count' is preferred over 'ic' because it is more self-documenting.",
+      "Python tracks the data type with the value itself, not the variable name."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In Python, the operator used to determine the remainder of a division operation is the ____ operator.",
+     "explanation": "The modulo operator (%) returns the remainder of a division, such as 10 % 3 resulting in 1.",
+     "placeholder": "Enter symbol or name",
+     "correctAnswers": [
+      "%",
+      "modulo",
+      "mod"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What will be the result of the expression: 10 + 5 * 2 ** 2?",
+     "options": [
+      "60",
+      "100",
+      "30",
+      "40"
+     ],
+     "explanation": "Following PEMDAS, the exponent (2**2=4) is evaluated first, then multiplication (5*4=20), and finally addition (10+20=30).",
+     "correctAnswers": [
+      "30"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following comparisons will evaluate to True?",
+     "options": [
+      "10 != 10.0",
+      "5 > 3 and 10 < 20",
+      "not (5 == 5)",
+      "15 >= 15",
+      "\"apple\" == \"Apple\""
+     ],
+     "explanation": "5>3 and 10<20 is True and True. 15 is equal to 15, so >= is True. String comparison is case-sensitive, so 'apple' != 'Apple'.",
+     "correctAnswers": [
+      "5 > 3 and 10 < 20",
+      "15 >= 15"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "To convert a string '19.99' into a format suitable for currency math, you should use the ____ function.",
+     "explanation": "Decimals require the float type. int() would fail because of the decimal point.",
+     "placeholder": "function_name()",
+     "correctAnswers": [
+      "float()",
+      "float"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "If a user enters '25' into an input() prompt, what is the result of adding it to the integer 5 without any conversion?",
+     "options": [
+      "30",
+      "255",
+      "It will cause a TypeError.",
+      "'255'"
+     ],
+     "explanation": "input() always returns a string. Python cannot implicitly add a string ('25') and an integer (5).",
+     "correctAnswers": [
+      "It will cause a TypeError."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which operations result in a float data type even if the inputs are integers?",
+     "options": [
+      "10 / 2",
+      "10 // 3",
+      "5.0 + 2",
+      "4 * 2",
+      "float(5)"
+     ],
+     "explanation": "Standard division (/) always returns a float. Adding an integer to a float results in a float. The float() function explicitly casts the value.",
+     "correctAnswers": [
+      "10 / 2",
+      "5.0 + 2",
+      "float(5)"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To insert a variable into a string easily using the syntax f'Result: {variable}', we use a feature called ____.",
+     "explanation": "f-strings allow for expression interpolation directly inside string literals.",
+     "correctAnswers": [
+      "f-strings",
+      "formatted strings",
+      "f strings"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Logic flow of if-elif-else blocks.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b7576abf-07e1-4c40-b682-52a4e3b446c6/exam/images/unit1-q10.png"
+     },
+     "prompt": "In an if/elif/else block, what happens if both the 'if' condition and the 'elif' condition are True?",
+     "options": [
+      "Both blocks of code will execute in order.",
+      "Only the 'if' block will execute; the 'elif' is ignored.",
+      "Only the 'elif' block will execute.",
+      "Python will throw a LogicError."
+     ],
+     "explanation": "In a branching structure, Python executes the first block that evaluates to True and skips the rest of the chain.",
+     "correctAnswers": [
+      "Only the 'if' block will execute; the 'elif' is ignored."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are valid uses of the '+' operator in Python?",
+     "options": [
+      "Adding two integers together (e.g., 5 + 5).",
+      "Concatenating two strings together (e.g., 'Hello ' + 'World').",
+      "Adding an integer and a string (e.g., 5 + '5').",
+      "Adding two floats together.",
+      "Subtracting a negative number from a positive one."
+     ],
+     "explanation": "The '+' operator is overloaded to perform mathematical addition for numbers and concatenation for strings, but it cannot mix the two types.",
+     "correctAnswers": [
+      "Adding two integers together (e.g., 5 + 5).",
+      "Concatenating two strings together (e.g., 'Hello ' + 'World').",
+      "Adding two floats together."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If you need to check if a number is even using the modulo operator, the condition would be: number % 2 == ____.",
+     "explanation": "An even number has a remainder of 0 when divided by 2.",
+     "placeholder": "value",
+     "correctAnswers": [
+      "0"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the primary risk of a 'While Loop' that lacks a proper update to its condition variable?",
+     "options": [
+      "A SyntaxError during compilation.",
+      "An infinite loop that crashes or freezes the program.",
+      "The loop will skip the first iteration automatically.",
+      "Python will convert the loop into a single 'if' statement."
+     ],
+     "explanation": "If the condition never becomes False, the loop continues forever, consuming system resources.",
+     "correctAnswers": [
+      "An infinite loop that crashes or freezes the program."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "In the context of the course, why is using 'Snake Case' (e.g., user_total_price) recommended?",
+     "options": [
+      "It makes code more readable for humans.",
+      "It is required by the Python interpreter to run without errors.",
+      "It follows the standard Python community conventions.",
+      "It automatically optimizes the memory used by the variable.",
+      "It helps avoid using illegal characters like spaces."
+     ],
+     "explanation": "Naming conventions like snake_case are for human clarity and to avoid syntax errors from illegal characters like spaces.",
+     "correctAnswers": [
+      "It makes code more readable for humans.",
+      "It follows the standard Python community conventions.",
+      "It helps avoid using illegal characters like spaces."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In the line 'total = 5', the '=' symbol is known as the ____ operator.",
+     "explanation": "The single equals sign assigns a value to a name; it does not compare for equality.",
+     "correctAnswers": [
+      "assignment",
+      "assignment operator"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the result of the expression 10 // 3?",
+     "options": [
+      "3.333",
+      "3",
+      "4",
+      "1"
+     ],
+     "explanation": "Floor division (//) divides the numbers and chops off the decimal part, returning the largest whole integer.",
+     "correctAnswers": [
+      "3"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of these are valid ways to include a variable 'x' in a printed message?",
+     "options": [
+      "print(f'The value is {x}')",
+      "print('The value is ' + str(x))",
+      "print('The value is x')",
+      "print('The value is', x)",
+      "print('The value is' {x})"
+     ],
+     "explanation": "f-strings, manual string concatenation with type casting, and passing multiple arguments to print() are all valid.",
+     "correctAnswers": [
+      "print(f'The value is {x}')",
+      "print('The value is ' + str(x))",
+      "print('The value is', x)"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "When using a while loop for user input validation, what is the primary goal of the condition?",
+     "options": [
+      "To run the code a fixed number of times (e.g., 10 times).",
+      "To continue asking the user for input until they provide a valid response.",
+      "To speed up the execution of the program.",
+      "To convert the user's string input into an integer automatically."
+     ],
+     "explanation": "While loops are ideal for validation because we don't know how many times a user will enter 'bad' data.",
+     "correctAnswers": [
+      "To continue asking the user for input until they provide a valid response."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "single",
+     "prompt": "What is the purpose of the 'else' block in an 'if/else' statement?",
+     "options": [
+      "To provide a catch-all block that runs if no previous conditions were True.",
+      "To restart the program from line 1.",
+      "To define a secondary condition that must also be True.",
+      "To check if the variable is a specific data type."
+     ],
+     "explanation": "The else block is the default path taken when the logic fails all preceding 'if' and 'elif' tests.",
+     "correctAnswers": [
+      "To provide a catch-all block that runs if no previous conditions were True."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Why does the 'Accumulator' value grow exponentially in the simulation while the 'Counter' grows linearly?",
+     "options": [
+      "Because the counter is being multiplied by a constant in every step.",
+      "Because each new value is being added to the previous sum, but the addition amount is based on a power of the counter.",
+      "Because the while loop condition is checked only after the accumulator reaches its peak.",
+      "Because strings are being concatenated rather than numbers being added."
+     ],
+     "explanation": "The simulation shows a standard accumulator pattern where the step size increases over time, demonstrating how loop logic can produce non-linear data trends.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Accumulator Pattern Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --font-serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: var(--font-sans);\n            color: var(--ink);\n        }\n\n        .container {\n            width: 100%;\n            max-width: 100%;\n            box-sizing: border-box;\n            padding: 20px;\n            display: flex;\n            flex-direction: column;\n            gap: 24px;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        /* Figure Styling */\n        .simulation-frame {\n            width: 100%;\n            max-width: 500px;\n            display: flex;\n            flex-direction: column;\n            gap: 30px;\n        }\n\n        .view-group {\n            display: flex;\n            flex-direction: column;\n            gap: 8px;\n        }\n\n        .view-label {\n            font-family: var(--font-serif);\n            font-size: 12px;\n            font-style: italic;\n            color: var(--muted);\n            text-align: center;\n        }\n\n        .viz-svg {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        /* Readouts */\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 16px;\n            width: 100%;\n            max-width: 400px;\n            border-top: 1px solid var(--rule);\n            padding-top: 16px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .label {\n            font-family: var(--font-serif);\n            font-size: clamp(11px, 2.5vw, 13px);\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .value {\n            font-size: clamp(18px, 5vw, 24px);\n            font-weight: 400;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .value.counter { color: var(--accent); }\n        .value.accumulator { color: var(--amber); }\n\n        .tie-line {\n            width: 100%;\n            height: 1px;\n            background: var(--rule);\n            position: relative;\n            margin: 10px 0;\n        }\n        \n        .tie-line::after {\n            content: \"one loop run, two variables tracked\";\n            position: absolute;\n            top: -8px;\n            left: 50%;\n            transform: translateX(-50%);\n            background: var(--bg);\n            padding: 0 8px;\n            font-family: var(--font-serif);\n            font-size: 10px;\n            color: var(--muted);\n            white-space: nowrap;\n        }\n\n    </style>\n</head>\n<body>\n\n    <h1 class=\"visually-hidden\">Simulation of a while loop with a counter and an accumulator</h1>\n\n    <div class=\"container\">\n        <div class=\"simulation-frame\" aria-label=\"Visual representation of loop iteration vs accumulated total\">\n            \n            <div class=\"view-group\">\n                <svg class=\"viz-svg\" viewBox=\"0 0 400 140\" aria-hidden=\"true\">\n                    <!-- Axes -->\n                    <line x1=\"40\" y1=\"110\" x2=\"360\" y2=\"110\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                    <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"110\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                    \n                    <!-- Axis Labels -->\n                    <text x=\"360\" y=\"125\" font-family=\"var(--font-serif)\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"end\">Counter (i)</text>\n                    <text x=\"35\" y=\"25\" font-family=\"var(--font-serif)\" font-size=\"10\" fill=\"var(--muted)\" text-anchor=\"end\" transform=\"rotate(-90, 35, 25)\">Accumulator</text>\n\n                    <!-- Ticks for Counter -->\n                    <g id=\"ticks-x\">\n                        <line x1=\"40\" y1=\"110\" x2=\"40\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"72\" y1=\"110\" x2=\"72\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"104\" y1=\"110\" x2=\"104\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"136\" y1=\"110\" x2=\"136\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"168\" y1=\"110\" x2=\"168\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"200\" y1=\"110\" x2=\"200\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"232\" y1=\"110\" x2=\"232\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"264\" y1=\"110\" x2=\"264\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"296\" y1=\"110\" x2=\"296\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"328\" y1=\"110\" x2=\"328\" y2=\"114\" stroke=\"var(--rule)\" />\n                        <line x1=\"360\" y1=\"110\" x2=\"360\" y2=\"114\" stroke=\"var(--rule)\" />\n                    </g>\n\n                    <!-- Data Path -->\n                    <polyline id=\"graph-line\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" points=\"\" />\n                    \n                    <!-- Current Pointer -->\n                    <circle id=\"marker\" r=\"4\" fill=\"var(--amber)\" cx=\"40\" cy=\"110\" style=\"display:none\" />\n                    \n                    <!-- Vertical crosshair for counter -->\n                    <line id=\"crosshair\" x1=\"40\" y1=\"110\" x2=\"40\" y2=\"20\" stroke=\"var(--accent)\" stroke-width=\"1\" stroke-dasharray=\"2,2\" opacity=\"0.6\" />\n                </svg>\n                <div class=\"view-label\">Growth of total squared values over time</div>\n            </div>\n\n            <div class=\"tie-line\"></div>\n\n            <div class=\"readouts\">\n                <div class=\"readout-item\">\n                    <span class=\"label\">Counter (i)</span>\n                    <span id=\"counter-val\" class=\"value counter\">0</span>\n                </div>\n                <div class=\"readout-item\">\n                    <span class=\"label\">Accumulator</span>\n                    <span id=\"accumulator-val\" class=\"value accumulator\">0</span>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        const counterEl = document.getElementById('counter-val');\n        const accumEl = document.getElementById('accumulator-val');\n        const graphLine = document.getElementById('graph-line');\n        const marker = document.getElementById('marker');\n        const crosshair = document.getElementById('crosshair');\n\n        let lastTime = 0;\n        let progress = 0; // 0 to 10 iterations\n        const duration = 10000; // 10 seconds for a full loop\n        const maxI = 10;\n        const maxAccum = 385; // Sum of 1^2 + 2^2 ... + 10^2 = 385\n\n        function getAccumForI(i) {\n            // i is float, calculate sum of squares up to floor(i) plus fractional part\n            let sum = 0;\n            const fullSteps = Math.floor(i);\n            for (let n = 1; n <= fullSteps; n++) {\n                sum += (n * n);\n            }\n            // Add fractional part of the current increment if any\n            const frac = i - fullSteps;\n            if (frac > 0 && i < maxI) {\n                sum += frac * (Math.pow(fullSteps + 1, 2));\n            }\n            return sum;\n        }\n\n        function update(timestamp) {\n            if (!lastTime) lastTime = timestamp;\n            const dt = timestamp - lastTime;\n            lastTime = timestamp;\n\n            // Update logic (0 -> 10, then pause, then reset)\n            progress += (dt / duration) * (maxI + 2); // +2 for pause at end\n            if (progress > maxI + 2) progress = 0;\n\n            const currentI = Math.min(progress, maxI);\n            const currentAccum = getAccumForI(currentI);\n\n            // Update Readouts (Step-wise display for counter, continuous for accum)\n            counterEl.textContent = Math.floor(currentI);\n            accumEl.textContent = Math.floor(currentAccum);\n\n            // Update Visuals\n            const startX = 40;\n            const endX = 360;\n            const startY = 110;\n            const endY = 20;\n\n            const x = startX + (currentI / maxI) * (endX - startX);\n            const y = startY - (currentAccum / maxAccum) * (startY - endY);\n\n            // Build path up to current point\n            let points = \"\";\n            for (let t = 0; t <= currentI; t += 0.1) {\n                const tx = startX + (t / maxI) * (endX - startX);\n                const ty = startY - (getAccumForI(t) / maxAccum) * (startY - endY);\n                points += `${tx},${ty} `;\n            }\n            graphLine.setAttribute('points', points);\n\n            marker.setAttribute('cx', x);\n            marker.setAttribute('cy', y);\n            marker.style.display = 'block';\n\n            crosshair.setAttribute('x1', x);\n            crosshair.setAttribute('x2', x);\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because each new value is being added to the previous sum, but the addition amount is based on a power of the counter."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Data Structures in Python Certification Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You have a list defined as `prices = [10.5, 20.0, 15.75, 30.2, 25.0]`. Which slice will correctly extract the middle three elements `[20.0, 15.75, 30.2]`?",
+     "options": [
+      "prices[1:3]",
+      "prices[1:4]",
+      "prices[0:3]",
+      "prices[2:5]"
+     ],
+     "explanation": "In Python slicing `[start:stop]`, the 'stop' index is exclusive. To get elements at index 1, 2, and 3, you must use 4 as the stop index.",
+     "correctAnswers": [
+      "prices[1:4]"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following operations on a Python list have an O(1) (constant time) complexity under normal conditions?",
+     "options": [
+      "Appending an item to the end of the list",
+      "Inserting an item at index 0",
+      "Accessing an element by its index",
+      "Removing an item by its value using .remove()",
+      "Popping the last item with .pop()"
+     ],
+     "explanation": "Appending, indexing, and popping from the end are O(1) because they don't require shifting other elements. Inserting at the start or removing by value requires shifting or searching, making them O(n).",
+     "correctAnswers": [
+      "Appending an item to the end of the list",
+      "Accessing an element by its index",
+      "Popping the last item with .pop()"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To efficiently retrieve the value associated with the key 'email' from a dictionary named `user`, you would use the syntax `user[____]`.",
+     "placeholder": "'key_name'",
+     "correctAnswers": [
+      "'email'",
+      "\"email\""
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "What is the primary technical reason for using a tuple instead of a list when storing fixed data like GPS coordinates?",
+     "options": [
+      "Tuples allow for faster mathematical calculations than lists.",
+      "Tuples occupy significantly more memory, making them more stable.",
+      "Tuples are immutable, preventing accidental modification of the data state.",
+      "Tuples can only store numeric data types."
+     ],
+     "explanation": "Immutability ensures data integrity. Once a coordinate tuple is created, it cannot be changed, which prevents bugs where a value might be accidentally overwritten.",
+     "correctAnswers": [
+      "Tuples are immutable, preventing accidental modification of the data state."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "A 3x2 matrix visualization showing rows and columns.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b7576abf-07e1-4c40-b682-52a4e3b446c6/exam/images/unit2-q5.png"
+     },
+     "prompt": "Consider the nested list `grid = [['A', 'B'], ['C', 'D'], ['E', 'F']]`. Which of the following statements are true about this structure?",
+     "options": [
+      "`grid[1]` returns `['C', 'D']`",
+      "`grid[0][1]` returns `'B'`",
+      "`grid[2][0]` returns `'F'`",
+      "The length of `grid` is 6",
+      "`grid[1][2]` will raise an IndexError"
+     ],
+     "explanation": "grid[1] is the second row; grid[0][1] is the second item of the first row. grid[1][2] fails because the inner list only has indices 0 and 1.",
+     "correctAnswers": [
+      "`grid[1]` returns `['C', 'D']`",
+      "`grid[0][1]` returns `'B'`",
+      "`grid[1][2]` will raise an IndexError"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "Sequence unpacking allows you to assign tuple values to variables. Given `point = (10, 20)`, the code `x, y = ____` will assign 10 to x and 20 to y.",
+     "placeholder": "variable_name",
+     "correctAnswers": [
+      "point"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the result of using the `.pop()` method on a list without passing any arguments?",
+     "options": [
+      "It removes and returns the first element of the list.",
+      "It removes and returns the last element of the list.",
+      "It clears the entire list but returns nothing.",
+      "It raises a TypeError because an index is required."
+     ],
+     "explanation": "By default, .pop() targets the last item (-1), making it an efficient way to retrieve and remove the most recently added data.",
+     "correctAnswers": [
+      "It removes and returns the last element of the list."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Identify the key differences between the `.sort()` method and the `sorted()` function.",
+     "options": [
+      "`.sort()` modifies the original list in-place.",
+      "`sorted()` returns a new list and leaves the original unchanged.",
+      "`.sort()` can be used on tuples, while `sorted()` cannot.",
+      "`.sort()` returns the sorted list as a value.",
+      "`sorted()` can accept any iterable, not just a list."
+     ],
+     "explanation": ".sort() is a destructive method that returns None. sorted() is a built-in function that generates a new sorted version of the input.",
+     "correctAnswers": [
+      "`.sort()` modifies the original list in-place.",
+      "`sorted()` returns a new list and leaves the original unchanged.",
+      "`sorted()` can accept any iterable, not just a list."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To combine two lists `names` and `scores` into a single iterable of pairs, you should use the built-in ____ function.",
+     "placeholder": "function_name",
+     "correctAnswers": [
+      "zip",
+      "zip()"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "You are writing a script to manage a guest list. You need to add 'Alice' to the third position in the list. Which command should you use?",
+     "options": [
+      "guests.append('Alice')",
+      "guests.insert(2, 'Alice')",
+      "guests.insert(3, 'Alice')",
+      "guests[3] = 'Alice'"
+     ],
+     "explanation": "Indices start at 0. The third position is index 2. .insert(2, 'Alice') pushes existing elements from index 2 onwards to the right.",
+     "correctAnswers": [
+      "guests.insert(2, 'Alice')"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are valid characteristics of dictionary keys in Python?",
+     "options": [
+      "Keys must be unique within the dictionary.",
+      "Keys must be of an immutable type (like strings or tuples).",
+      "Keys must be integers representing the order of insertion.",
+      "Keys can be modified in-place once added.",
+      "A list can be used as a dictionary key."
+     ],
+     "explanation": "Keys act as unique identifiers and must be hashable (immutable). Lists are mutable and therefore cannot be keys.",
+     "correctAnswers": [
+      "Keys must be unique within the dictionary.",
+      "Keys must be of an immutable type (like strings or tuples)."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "In a nested loop used to iterate over a matrix, which statement best describes the execution flow?",
+     "options": [
+      "The outer loop and inner loop run simultaneously in parallel.",
+      "The inner loop completes all its iterations for every single iteration of the outer loop.",
+      "The outer loop finishes entirely before the inner loop starts.",
+      "The inner loop only runs once regardless of the outer loop's size."
+     ],
+     "explanation": "This is like the hands of a clock; the 'minute' (inner) hand must complete a full circle before the 'hour' (outer) hand moves one tick.",
+     "correctAnswers": [
+      "The inner loop completes all its iterations for every single iteration of the outer loop."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "Which of the following code snippets correctly creates a list containing the squares of numbers from 0 to 4 using a list comprehension?",
+     "options": [
+      "[x**2 for x in range(5)]",
+      "[x*x for x in [0, 1, 2, 3, 4]]",
+      "[x**2 for x in range(4)]",
+      "list(x**2 for x in range(5))",
+      "{x**2 for x in range(5)}"
+     ],
+     "explanation": "range(5) produces 0-4. Both list comprehension syntax and passing a generator to list() work. Option E creates a set, not a list.",
+     "correctAnswers": [
+      "[x**2 for x in range(5)]",
+      "[x*x for x in [0, 1, 2, 3, 4]]",
+      "list(x**2 for x in range(5))"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "What happens if you try to use `.remove('Apple')` on a list that contains two instances of the string 'Apple'?",
+     "options": [
+      "Both instances are removed.",
+      "Only the first instance found is removed.",
+      "Only the last instance found is removed.",
+      "The program raises a ValueError because the value is not unique."
+     ],
+     "explanation": ".remove() searches from index 0 and deletes the first matching value it encounters; subsequent duplicates remain.",
+     "correctAnswers": [
+      "Only the first instance found is removed."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "If you use the `del` keyword on a list element, such as `del items[1]`, what are the consequences?",
+     "options": [
+      "The element at index 1 is removed from the list.",
+      "The list length decreases by one.",
+      "The indices of all subsequent elements are shifted down by one.",
+      "The value at index 1 becomes `None` but the index remains.",
+      "It raises an error if the list is not empty."
+     ],
+     "explanation": "Like .pop(), del physically removes the item and the list collapses to fill the gap, re-indexing the remaining items.",
+     "correctAnswers": [
+      "The element at index 1 is removed from the list.",
+      "The list length decreases by one.",
+      "The indices of all subsequent elements are shifted down by one."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "When accessing a list, what does the index `-2` represent?",
+     "options": [
+      "The second element from the start of the list.",
+      "The second element from the end of the list.",
+      "A range starting from the end minus two.",
+      "An invalid index that always raises an error."
+     ],
+     "explanation": "Negative indexing in Python starts from -1 (last element), so -2 is the penultimate element.",
+     "correctAnswers": [
+      "The second element from the end of the list."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of the following are advantages of using dictionaries over lists for storing user data like 'age', 'username', and 'email'?",
+     "options": [
+      "Data can be retrieved using descriptive labels instead of numeric positions.",
+      "The order of the data is automatically sorted alphabetically by key.",
+      "Retrieving a value by key is generally faster than searching a list for a value.",
+      "Dictionaries allow for duplicate keys to represent version history.",
+      "Code becomes more readable (e.g., user['email'] vs user[2])."
+     ],
+     "explanation": "Dictionaries provide semantic mapping and O(1) average lookup time, making them superior for record-based data compared to lists.",
+     "correctAnswers": [
+      "Data can be retrieved using descriptive labels instead of numeric positions.",
+      "Retrieving a value by key is generally faster than searching a list for a value.",
+      "Code becomes more readable (e.g., user['email'] vs user[2])."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Watch the simulation of items being added to the front of a list versus the end of a list. Why does the 'Front Insert' process slow down significantly as the list grows, while 'End Append' remains constant?",
+     "options": [
+      "Because inserting at the front forces Python to re-calculate the memory addresses of all existing items and move them one slot over.",
+      "Because Python lists are stored in reverse order in memory, making the front technically the end.",
+      "Because the front of the list is protected by a security lock that takes longer to open as data increases.",
+      "Because 'End Append' uses a different data type entirely when the list exceeds ten items."
+     ],
+     "explanation": "In a contiguous memory block, inserting at index 0 requires shifting every subsequent element to the next memory address, which takes more time as the number of elements (n) increases.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>List Insertion Complexity Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .simulation-frame {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .serif {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .label {\n            font-family: -apple-system, sans-serif;\n            font-size: 11px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .counter {\n            font-variant-numeric: tabular-nums;\n            font-family: -apple-system, sans-serif;\n            font-size: 13px;\n            fill: var(--ink);\n            font-weight: 500;\n        }\n\n        .cell-rect {\n            stroke: var(--ink);\n            stroke-width: 1.5;\n            fill: white;\n        }\n\n        .cell-text {\n            font-family: -apple-system, sans-serif;\n            font-size: 12px;\n            fill: var(--ink);\n            text-anchor: middle;\n            dominant-baseline: central;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Comparison of item insertion methods in a list structure</h1>\n\n    <div class=\"container\">\n        <svg class=\"simulation-frame\" viewBox=\"0 0 400 320\" aria-label=\"Animation showing two lists being populated at different positions.\">\n            <!-- Background / Axes -->\n            <line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"260\" stroke=\"var(--rule)\" stroke-dasharray=\"4 4\" />\n            \n            <!-- Left Side: Append -->\n            <g transform=\"translate(15, 40)\">\n                <text x=\"0\" y=\"-15\" class=\"label\">Operation A</text>\n                <text x=\"0\" y=\"240\" class=\"serif\">Total operations:</text>\n                <text id=\"count-append\" x=\"100\" y=\"240\" class=\"counter\">0</text>\n                \n                <g id=\"append-container\"></g>\n                <rect id=\"append-highlight\" width=\"30\" height=\"30\" fill=\"var(--accent)\" opacity=\"0\" rx=\"2\" />\n            </g>\n\n            <!-- Right Side: Insert at 0 -->\n            <g transform=\"translate(215, 40)\">\n                <text x=\"0\" y=\"-15\" class=\"label\">Operation B</text>\n                <text x=\"0\" y=\"240\" class=\"serif\">Total operations:</text>\n                <text id=\"count-insert\" x=\"100\" y=\"240\" class=\"counter\">0</text>\n                \n                <g id=\"insert-container\"></g>\n                <rect id=\"insert-highlight\" width=\"30\" height=\"30\" fill=\"var(--amber)\" opacity=\"0\" rx=\"2\" />\n            </g>\n\n            <!-- Progress Axis -->\n            <g transform=\"translate(50, 290)\">\n                <line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <text x=\"150\" y=\"18\" class=\"label\" text-anchor=\"middle\">Time Sequence</text>\n                <circle id=\"timeline-indicator\" cx=\"0\" cy=\"0\" r=\"3\" fill=\"var(--muted)\" />\n            </g>\n        </svg>\n\n        <div style=\"text-align: center; color: var(--muted); font-size: 12px; font-family: Georgia, serif; font-style: italic;\">\n            Comparison of sequential item additions over a fixed interval.\n        </div>\n    </div>\n\n    <script>\n        const appendContainer = document.getElementById('append-container');\n        const insertContainer = document.getElementById('insert-container');\n        const countAppendText = document.getElementById('count-append');\n        const countInsertText = document.getElementById('count-insert');\n        const timelineIndicator = document.getElementById('timeline-indicator');\n\n        const MAX_ITEMS = 15;\n        const CELL_SIZE = 34;\n        const CELLS_PER_ROW = 5;\n\n        let state = {\n            appendItems: [],\n            insertItems: [],\n            appendOps: 0,\n            insertOps: 0,\n            frame: 0,\n            loopFrames: 600, // Total duration of one cycle\n            phase: 'idle' \n        };\n\n        function getPos(index) {\n            return {\n                x: (index % CELLS_PER_ROW) * CELL_SIZE,\n                y: Math.floor(index / CELLS_PER_ROW) * CELL_SIZE\n            };\n        }\n\n        function createCell(val, color) {\n            const g = document.createElementNS(\"http://www.w3.org/2000/svg\", \"g\");\n            const rect = document.createElementNS(\"http://www.w3.org/2000/svg\", \"rect\");\n            rect.setAttribute(\"width\", 30);\n            rect.setAttribute(\"height\", 30);\n            rect.setAttribute(\"rx\", 2);\n            rect.setAttribute(\"class\", \"cell-rect\");\n            \n            const text = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n            text.setAttribute(\"class\", \"cell-text\");\n            text.setAttribute(\"x\", 15);\n            text.setAttribute(\"y\", 15);\n            text.textContent = val;\n\n            g.appendChild(rect);\n            g.appendChild(text);\n            return g;\n        }\n\n        function update() {\n            const progress = (state.frame % state.loopFrames) / state.loopFrames;\n            timelineIndicator.setAttribute(\"cx\", progress * 300);\n\n            // Reset logic\n            if (state.frame % state.loopFrames === 0) {\n                state.appendItems = [];\n                state.insertItems = [];\n                state.appendOps = 0;\n                state.insertOps = 0;\n                appendContainer.innerHTML = '';\n                insertContainer.innerHTML = '';\n            }\n\n            // Decide when to add new items\n            // We'll add 15 items total.\n            const addInterval = Math.floor(state.loopFrames / (MAX_ITEMS + 1));\n            const currentItemIndex = Math.floor((state.frame % state.loopFrames) / addInterval);\n            \n            if (currentItemIndex > state.appendItems.length && state.appendItems.length < MAX_ITEMS) {\n                // ADD TO APPEND LIST\n                const val = state.appendItems.length + 1;\n                const cell = createCell(val, 'var(--accent)');\n                const pos = getPos(state.appendItems.length);\n                cell.setAttribute(\"transform\", `translate(${pos.x}, ${pos.y})`);\n                cell.style.opacity = \"0\";\n                appendContainer.appendChild(cell);\n                \n                // Animate entrance\n                setTimeout(() => { cell.style.opacity = \"1\"; cell.style.transition = \"opacity 0.2s\"; }, 10);\n                \n                state.appendItems.push({el: cell});\n                state.appendOps += 1;\n            }\n\n            if (currentItemIndex > state.insertItems.length && state.insertItems.length < MAX_ITEMS) {\n                // ADD TO INSERT LIST\n                const val = state.insertItems.length + 1;\n                const cell = createCell(val, 'var(--amber)');\n                // Initially appears at 0,0\n                cell.setAttribute(\"transform\", `translate(0, 0)`);\n                cell.style.opacity = \"0\";\n                insertContainer.prepend(cell);\n\n                // VISIBLY SHIFT OTHERS\n                // The shift time is proportional to the number of existing items\n                const shiftDuration = state.insertItems.length * 50; \n                state.insertOps += (state.insertItems.length + 1);\n\n                state.insertItems.forEach((item, idx) => {\n                    const newIdx = idx + 1;\n                    const pos = getPos(newIdx);\n                    item.el.style.transition = `transform ${shiftDuration}ms ease-in-out`;\n                    item.el.setAttribute(\"transform\", `translate(${pos.x}, ${pos.y})`);\n                });\n\n                setTimeout(() => { \n                    cell.style.opacity = \"1\"; \n                    cell.style.transition = \"opacity 0.2s\"; \n                }, shiftDuration);\n\n                state.insertItems.unshift({el: cell});\n            }\n\n            countAppendText.textContent = state.appendOps;\n            countInsertText.textContent = state.insertOps;\n\n            state.frame++;\n            requestAnimationFrame(update);\n        }\n\n        // Initial Height Reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch(e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(update);\n        });\n\n        new ResizeObserver(reportHeight).observe(document.body);\n    </script>\n</body>\n</html>\n\n</html>",
+     "correctAnswers": [
+      "Because inserting at the front forces Python to re-calculate the memory addresses of all existing items and move them one slot over."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Functions and Program Structure Certification",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "When a function is defined as 'def process_data(value, factor=1.0):', what is the technical distinction between 'value' and 'factor'?",
+     "options": [
+      "'value' is a positional parameter, while 'factor' is a default parameter.",
+      "'value' is an argument, while 'factor' is a keyword.",
+      "'value' is a global variable, while 'factor' is a local variable.",
+      "'value' is mandatory data, while 'factor' is a placeholder."
+     ],
+     "explanation": "In Python, parameters without values are mandatory (positional), while those assigned a value in the definition are default parameters. 'Arguments' refers to the actual data passed during the call.",
+     "correctAnswers": [
+      "'value' is a positional parameter, while 'factor' is a default parameter."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are consequences of the 'Single Responsibility Principle' (SRP) in function design?",
+     "options": [
+      "Functions are easier to test because they have a single, predictable output.",
+      "Functions become more reusable in different parts of a project.",
+      "Naming becomes clearer because the function name doesn't need to include the word 'and'.",
+      "The code executes faster because Python optimizes smaller functions.",
+      "Local variables are automatically promoted to global scope for better access."
+     ],
+     "explanation": "SRP improves maintainability, testing, and readability. It does not inherently increase execution speed, nor does it affect variable scope rules.",
+     "correctAnswers": [
+      "Functions are easier to test because they have a single, predictable output.",
+      "Functions become more reusable in different parts of a project.",
+      "Naming becomes clearer because the function name doesn't need to include the word 'and'."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "To allow a function to modify a variable that exists in the top-level script scope, you must use the ____ keyword inside the function.",
+     "placeholder": "keyword",
+     "correctAnswers": [
+      "global"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Consider a script where a global variable 'total = 0' exists. Inside a function, the line 'total += 5' is executed without any other declarations. What is the result?",
+     "options": [
+      "The global 'total' becomes 5.",
+      "A new local 'total' is created with a value of 5.",
+      "An UnboundLocalError is raised.",
+      "The function executes but the change is lost when it returns."
+     ],
+     "explanation": "Because the function attempts to assign to 'total' without the 'global' keyword, Python treats it as a local variable. However, since '+=' requires reading the value before setting it, it fails because the local 'total' hasn't been defined yet.",
+     "correctAnswers": [
+      "An UnboundLocalError is raised."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "In the context of the 'Function as a Machine' model, which statements accurately describe the 'return' keyword?",
+     "options": [
+      "It acts as a delivery person handing a package back to the caller.",
+      "It allows the result of a function to be stored in a variable.",
+      "It is synonymous with 'print', as both show the result to the user.",
+      "It immediately terminates the function's execution.",
+      "It makes local variables accessible to the global scope forever."
+     ],
+     "explanation": "Return exits the function and passes data back. It does not preserve the local scope/namespace, and it differs from print, which only displays text to the console.",
+     "correctAnswers": [
+      "It acts as a delivery person handing a package back to the caller.",
+      "It allows the result of a function to be stored in a variable.",
+      "It immediately terminates the function's execution."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "When a function is called, the specific values passed into the function slots are technically known as ____.",
+     "placeholder": "plural noun",
+     "correctAnswers": [
+      "arguments"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the danger of using 'def append_item(val, data=[])' in a Python program?",
+     "options": [
+      "The list is recreated every time the function is called, losing data.",
+      "The list is created once at definition time and shared across all calls.",
+      "Python will raise a SyntaxError because lists cannot be defaults.",
+      "The function will only accept lists and reject other data types."
+     ],
+     "explanation": "Mutable default arguments like lists are persistent; they are bound to the function object at definition, meaning changes persist between different calls to the same function.",
+     "correctAnswers": [
+      "The list is created once at definition time and shared across all calls."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "When organizing code into a modular package, which practices are recommended for 'Professional Fluency'?",
+     "options": [
+      "Use docstrings to define the 'contract' between the function and the user.",
+      "Ensure every function performs exactly one logical task (SRP).",
+      "Place all logic in a single file to avoid import overhead.",
+      "Use standardized summaries following PEP 257 for documentation.",
+      "Hardcode all parameters to ensure users don't break the logic."
+     ],
+     "explanation": "Documentation (PEP 257) and modularity (SRP) are core professional standards. Consolidating all logic into one file or hardcoding parameters opposes the goals of modularity and flexibility.",
+     "correctAnswers": [
+      "Use docstrings to define the 'contract' between the function and the user.",
+      "Ensure every function performs exactly one logical task (SRP).",
+      "Use standardized summaries following PEP 257 for documentation."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The practice of using triple-quoted strings at the very beginning of a function body to explain its purpose is called writing a ____.",
+     "placeholder": "term",
+     "correctAnswers": [
+      "docstring"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "You are calling a function with 5 parameters. You want to change only the 1st and 5th parameters. What is the most readable way to do this?",
+     "options": [
+      "Pass 5 positional arguments in the correct order.",
+      "Use a positional argument for the 1st and a keyword argument for the 5th.",
+      "Use global variables to set the values before calling.",
+      "Redefine the function to only take 2 parameters."
+     ],
+     "explanation": "Keyword arguments allow you to skip over default parameters in the middle, making the code more readable and maintaining the 'Interface Design' without needing to provide every single value.",
+     "correctAnswers": [
+      "Use a positional argument for the 1st and a keyword argument for the 5th."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are valid reasons to use Docstrings instead of simple comments?",
+     "options": [
+      "Docstrings are accessible via the help() function.",
+      "IDEs use docstrings to provide autocomplete and tooltip information.",
+      "Docstrings allow Python to execute the code more efficiently.",
+      "Docstrings are required by the Python compiler to run the function.",
+      "They follow a standardized format (PEP 257) for team consistency."
+     ],
+     "explanation": "Docstrings are metadata for documentation and tools, not for compiler optimization or execution requirements.",
+     "correctAnswers": [
+      "Docstrings are accessible via the help() function.",
+      "IDEs use docstrings to provide autocomplete and tooltip information.",
+      "They follow a standardized format (PEP 257) for team consistency."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "Why is 'shadowing' a built-in function like 'len' considered a major risk in Python?",
+     "options": [
+      "It crashes the Python interpreter immediately upon definition.",
+      "It makes the original 'len' functionality inaccessible within that scope.",
+      "It consumes double the memory for the variable name.",
+      "It forces the script to use Global scope for all other variables."
+     ],
+     "explanation": "Because 'Built-in' is the outermost layer of LEGB, defining a 'len' variable in a Local or Global scope means Python will find your variable first and won't reach the actual built-in function.",
+     "correctAnswers": [
+      "It makes the original 'len' functionality inaccessible within that scope."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "A developer is refactoring a 'God Function'. Which of the following indicate that a function should be split according to SRP?",
+     "options": [
+      "The function name contains the word 'and'.",
+      "The docstring describes multiple distinct outcomes (e.g., 'calculates and prints').",
+      "The function is more than 5 lines of code.",
+      "The function accepts more than one parameter.",
+      "The logic can be reused independently in other scenarios."
+     ],
+     "explanation": "While line count and parameter count are heuristics, the presence of 'and' and the ability to reuse sub-logic are primary indicators of SRP violations.",
+     "correctAnswers": [
+      "The function name contains the word 'and'.",
+      "The docstring describes multiple distinct outcomes (e.g., 'calculates and prints').",
+      "The logic can be reused independently in other scenarios."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "What happens if you define a function as 'def calculate(x=5, y):'?",
+     "options": [
+      "It works, and x defaults to 5 if not provided.",
+      "It triggers a SyntaxError because non-default arguments cannot follow default arguments.",
+      "It works, but you must always call it using keyword arguments.",
+      "It triggers a RuntimeWarning but executes normally."
+     ],
+     "explanation": "Python requires all mandatory parameters to come before optional (default) parameters to avoid ambiguity during positional calls.",
+     "correctAnswers": [
+      "It triggers a SyntaxError because non-default arguments cannot follow default arguments."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "multiple",
+     "prompt": "Which of the following are benefits of using Keyword Arguments over Positional Arguments?",
+     "options": [
+      "The order of arguments in the call does not need to match the definition.",
+      "The code becomes self-documenting as labels explain the purpose of values.",
+      "Keyword arguments are mandatory, while positional are optional.",
+      "It allows you to explicitly skip parameters that have default values.",
+      "It prevents local variables from entering the global namespace."
+     ],
+     "explanation": "Keyword arguments provide flexibility in order and skip defaults while improving readability. They do not relate to variable scope or mandatory status (unless specified by the function signature).",
+     "correctAnswers": [
+      "The order of arguments in the call does not need to match the definition.",
+      "The code becomes self-documenting as labels explain the purpose of values.",
+      "It allows you to explicitly skip parameters that have default values."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "In the 'Namespace as a Phonebook' analogy, what does it mean when two functions both use a variable named 'data'?",
+     "options": [
+      "They are both calling the same number in the Global phonebook.",
+      "They are different entries in different phonebooks that just happen to share a name.",
+      "Python will merge them into a single memory address to save space.",
+      "One function will 'overwrite' the other's data phonebook entry."
+     ],
+     "explanation": "Each function call creates its own local namespace. Identical names in different namespaces are entirely independent objects.",
+     "correctAnswers": [
+      "They are different entries in different phonebooks that just happen to share a name."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which statements are true regarding Python's 'Read vs. Write' behavior for global variables inside a local scope?",
+     "options": [
+      "Reading a global variable is allowed by default.",
+      "Writing to a global variable requires the 'global' keyword.",
+      "Assigning to a name inside a function always creates a local variable by default.",
+      "Reading a global variable requires the 'read-only' keyword.",
+      "Global variables can only be read if they are strings or integers."
+     ],
+     "explanation": "Python allows transparent reading of global variables, but any assignment (writing) defaults to creating a local variable unless the 'global' declaration is used.",
+     "correctAnswers": [
+      "Reading a global variable is allowed by default.",
+      "Writing to a global variable requires the 'global' keyword.",
+      "Assigning to a name inside a function always creates a local variable by default."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "If you define a function without a 'return' statement, what does the function call evaluate to in the main program?",
+     "options": [
+      "0",
+      "An empty string",
+      "None",
+      "It causes an error if assigned to a variable."
+     ],
+     "explanation": "In Python, if no return statement is reached or provided, the function implicitly returns the special value 'None'.",
+     "correctAnswers": [
+      "None"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "Based on the simulation of the LEGB lookup process, why does the 'inner' function fail to access the intended value when a name collision occurs?",
+     "options": [
+      "Because Python is 'near-sighted' and stops searching as soon as it finds the first match in the Local scope.",
+      "Because the Global scope always takes precedence over the Local scope in name resolution.",
+      "Because the Built-in scope is searched before the Enclosing scope to protect core functions.",
+      "Because variables in the Enclosing scope are deleted as soon as the inner function is defined."
+     ],
+     "explanation": "Python follows the LEGB hierarchy from the inside out; if a name exists locally, Python 'shadows' higher-level variables and never reaches them for that specific reference.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>LEGB Scope Hierarchy Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-text {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 13px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .scope-label {\n            font-family: -apple-system, sans-serif;\n            font-weight: 600;\n            font-size: 12px;\n            fill: var(--ink);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .variable-text {\n            font-family: \"SFMono-Regular\", Consolas, \"Liberation Mono\", Menlo, monospace;\n            font-size: 14px;\n            fill: var(--ink);\n        }\n\n        .status-readout {\n            margin-top: 12px;\n            font-size: 13px;\n            color: var(--muted);\n            font-family: Georgia, serif;\n            font-style: italic;\n            height: 1.2em;\n        }\n\n        .value-tag {\n            font-family: \"SFMono-Regular\", monospace;\n            font-style: normal;\n            color: var(--accent);\n            font-weight: bold;\n        }\n    </style>\n</head>\n<body>\n\n    <h1 class=\"visually-hidden\">Animation of variable name lookup across Local, Enclosing, and Global scopes</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig\" viewBox=\"0 0 400 320\" aria-label=\"A diagram of nested rectangular scopes labeled Global, Enclosing, and Local. A pulse originates in the center and moves outward to find the variable x.\" xmlns=\"http://www.w3.org/2000/svg\">\n            <!-- Scopes -->\n            <rect id=\"global-rect\" x=\"10\" y=\"10\" width=\"380\" height=\"260\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            <text x=\"20\" y=\"30\" class=\"scope-label\">Global</text>\n            <text id=\"global-var\" x=\"340\" y=\"30\" class=\"variable-text\" opacity=\"0.4\">x = 30</text>\n\n            <rect id=\"enclosing-rect\" x=\"60\" y=\"60\" width=\"280\" height=\"160\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            <text x=\"70\" y=\"80\" class=\"scope-label\">Enclosing</text>\n            <text id=\"enclosing-var\" x=\"270\" y=\"80\" class=\"variable-text\" opacity=\"0.4\">x = 20</text>\n\n            <rect id=\"local-rect\" x=\"110\" y=\"110\" width=\"180\" height=\"60\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            <text x=\"120\" y=\"130\" class=\"scope-label\">Local</text>\n            <text id=\"local-var\" x=\"235\" y=\"130\" class=\"variable-text\" opacity=\"0.4\">x = 10</text>\n\n            <!-- Search Pulse -->\n            <circle id=\"pulse\" cx=\"200\" cy=\"140\" r=\"0\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" opacity=\"0\" />\n            \n            <!-- Target Marker -->\n            <circle id=\"target-marker\" cx=\"200\" cy=\"140\" r=\"4\" fill=\"var(--accent)\" opacity=\"0\" />\n            \n            <!-- Axis for Lookup Distance -->\n            <line x1=\"50\" y1=\"300\" x2=\"350\" y2=\"300\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            <path d=\"M 50 295 L 50 305 M 150 295 L 150 305 M 250 295 L 250 305 M 350 295 L 350 305\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n            <text x=\"50\" y=\"315\" class=\"label-text\" text-anchor=\"middle\">Start</text>\n            <text x=\"150\" y=\"315\" class=\"label-text\" text-anchor=\"middle\">Local</text>\n            <text x=\"250\" y=\"315\" class=\"label-text\" text-anchor=\"middle\">Encl.</text>\n            <text x=\"350\" y=\"315\" class=\"label-text\" text-anchor=\"middle\">Global</text>\n            \n            <!-- Current search position indicator -->\n            <line id=\"search-indicator\" x1=\"50\" y1=\"290\" x2=\"50\" y2=\"310\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n        </svg>\n\n        <div class=\"status-readout\" id=\"readout\">\n            Searching for <span class=\"value-tag\">x</span>...\n        </div>\n    </div>\n\n    <script>\n        const pulse = document.getElementById('pulse');\n        const searchIndicator = document.getElementById('search-indicator');\n        const readout = document.getElementById('readout');\n        \n        const varLocal = document.getElementById('local-var');\n        const varEnclosing = document.getElementById('enclosing-var');\n        const varGlobal = document.getElementById('global-var');\n        \n        const rectLocal = document.getElementById('local-rect');\n        const rectEnclosing = document.getElementById('enclosing-rect');\n        const rectGlobal = document.getElementById('global-rect');\n\n        const durations = {\n            pause: 60,\n            search: 180,\n            found: 120\n        };\n\n        let frame = 0;\n        // Cycle: 0 = Local exists, 1 = Local gone, Enclosing exists, 2 = Both gone, Global exists\n        let scenario = 0; \n\n        function update() {\n            const totalCycle = durations.pause + durations.search + durations.found;\n            const progress = frame % totalCycle;\n\n            // Reset visual states\n            [varLocal, varEnclosing, varGlobal].forEach(v => v.setAttribute('opacity', '0.2'));\n            [rectLocal, rectEnclosing, rectGlobal].forEach(r => r.setAttribute('stroke', 'var(--rule)'));\n            [rectLocal, rectEnclosing, rectGlobal].forEach(r => r.setAttribute('stroke-width', '1'));\n            \n            // Set presence based on scenario\n            // Scenario 0: All exist\n            // Scenario 1: Local doesn't have 'x', Enclosing and Global do\n            // Scenario 2: Only Global has 'x'\n            \n            let targetX = 0; // 0=local, 1=enclosing, 2=global\n            if (scenario === 1) {\n                varLocal.style.visibility = 'hidden';\n                targetX = 1;\n            } else if (scenario === 2) {\n                varLocal.style.visibility = 'hidden';\n                varEnclosing.style.visibility = 'hidden';\n                targetX = 2;\n            } else {\n                varLocal.style.visibility = 'visible';\n                varEnclosing.style.visibility = 'visible';\n                varGlobal.style.visibility = 'visible';\n                targetX = 0;\n            }\n\n            if (progress < durations.pause) {\n                // Initial pause\n                pulse.setAttribute('opacity', '0');\n                searchIndicator.setAttribute('x1', 50);\n                searchIndicator.setAttribute('x2', 50);\n                readout.innerHTML = `Starting lookup for <span class=\"value-tag\">x</span>...`;\n            } else if (progress < durations.pause + durations.search) {\n                // Searching\n                const searchProg = (progress - durations.pause) / durations.search;\n                // Maximum radius 180\n                const currentRadius = searchProg * 180;\n                \n                // Lookup logic: stop when we hit the radius of the target scope\n                // Local hit: ~30, Enclosing hit: ~100, Global hit: ~180\n                const stopRadii = [40, 110, 185];\n                const stopRadius = stopRadii[targetX];\n                \n                const actualRadius = Math.min(currentRadius, stopRadius);\n                pulse.setAttribute('r', actualRadius);\n                pulse.setAttribute('opacity', '1');\n                \n                // Update indicator\n                const indicatorX = 50 + (actualRadius / 185) * 300;\n                searchIndicator.setAttribute('x1', indicatorX);\n                searchIndicator.setAttribute('x2', indicatorX);\n\n                if (actualRadius >= stopRadius) {\n                    readout.innerHTML = `Found <span class=\"value-tag\">x</span> in ${['Local', 'Enclosing', 'Global'][targetX]} scope`;\n                    const targets = [varLocal, varEnclosing, varGlobal];\n                    const rects = [rectLocal, rectEnclosing, rectGlobal];\n                    targets[targetX].setAttribute('opacity', '1');\n                    rects[targetX].setAttribute('stroke', 'var(--accent)');\n                    rects[targetX].setAttribute('stroke-width', '2');\n                } else {\n                    readout.innerHTML = `Searching...`;\n                }\n            } else {\n                // Found state\n                const targets = [varLocal, varEnclosing, varGlobal];\n                const rects = [rectLocal, rectEnclosing, rectGlobal];\n                targets[targetX].setAttribute('opacity', '1');\n                rects[targetX].setAttribute('stroke', 'var(--accent)');\n                rects[targetX].setAttribute('stroke-width', '2');\n                \n                // Shadowing effect: highlight that outer ones were ignored\n                if (targetX < 2) varGlobal.setAttribute('opacity', '0.1');\n                if (targetX < 1) varEnclosing.setAttribute('opacity', '0.1');\n            }\n\n            if (progress === totalCycle - 1) {\n                scenario = (scenario + 1) % 3;\n            }\n\n            frame++;\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.onload = () => {\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n            update();\n        };\n    </script>\n</body>\n</html></html>",
+     "correctAnswers": [
+      "Because Python is 'near-sighted' and stops searching as soon as it finds the first match in the Local scope."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Objects, Errors, and Files Certification Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You have a 'Book' class and create two instances: 'book1 = Book()' and 'book2 = Book()'. If you assign 'book1.title = \"Python Basics\"', what is the value of 'book2.title'?",
+     "options": [
+      "\"Python Basics\"",
+      "None or an AttributeError, because instances have independent states",
+      "The same value as the class attribute 'title'",
+      "An empty string by default"
+     ],
+     "explanation": "Instances are independent 'houses' built from the same 'blueprint.' Changing an attribute on one instance does not affect another.",
+     "correctAnswers": [
+      "None or an AttributeError, because instances have independent states"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are true regarding the 'self' parameter in Python methods?",
+     "options": [
+      "It is a reserved keyword in Python that cannot be renamed.",
+      "It acts as a placeholder for the specific instance calling the method.",
+      "It allows a method to access and modify the object's internal attributes.",
+      "Python automatically passes the instance into this argument behind the scenes.",
+      "It must be used when calling the method from outside the class (e.g., book.describe(self))."
+     ],
+     "explanation": "'self' is a convention (not a keyword) used to represent 'this' specific object in memory. While Python passes it automatically, you do not include it when calling the method externally.",
+     "correctAnswers": [
+      "It acts as a placeholder for the specific instance calling the method.",
+      "It allows a method to access and modify the object's internal attributes.",
+      "Python automatically passes the instance into this argument behind the scenes."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "When creating a subclass, the ____ function is used to call the constructor of the parent class to ensure the base attributes are properly initialized.",
+     "explanation": "The super() function allows the subclass to access methods and the __init__ logic of its parent class, preventing code duplication.",
+     "placeholder": "e.g., function_name()",
+     "correctAnswers": [
+      "super()",
+      "super"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Why is the '__repr__' method often preferred over '__str__' during the development and debugging phase?",
+     "options": [
+      "__repr__ is for end-users, while __str__ is for developers.",
+      "__repr__ is intended to provide an unambiguous string representation for developers.",
+      "__repr__ is faster to execute than __str__.",
+      "Python requires __repr__ to be defined before any other dunder method."
+     ],
+     "explanation": "__str__ is the 'dust jacket' (pretty for users), while __repr__ is the 'barcode' (unambiguous for developers). If only __repr__ is defined, Python uses it for both.",
+     "correctAnswers": [
+      "__repr__ is intended to provide an unambiguous string representation for developers."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the primary benefits of using the '@dataclass' decorator in Python?",
+     "options": [
+      "It automatically generates methods like __init__, __repr__, and __eq__.",
+      "It improves the runtime execution speed of methods compared to regular classes.",
+      "It reduces the 'boilerplate' code required to define data-heavy classes.",
+      "It prevents other classes from inheriting from the dataclass.",
+      "It enforces type hinting at runtime for all attributes."
+     ],
+     "explanation": "Dataclasses are a shortcut to avoid manual 'plumbing' like writing standard constructors or comparison logic, focusing instead on data design.",
+     "correctAnswers": [
+      "It automatically generates methods like __init__, __repr__, and __eq__.",
+      "It reduces the 'boilerplate' code required to define data-heavy classes."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ concept refers to the practice of bundling data and the methods that operate on that data into a single unit, often to protect the integrity of the information.",
+     "explanation": "Encapsulation creates a 'container' around data, ensuring that only the object's own methods (gatekeepers) can modify its state.",
+     "placeholder": "Enter the OOP concept",
+     "correctAnswers": [
+      "Encapsulation",
+      "encapsulation"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of method overriding in a class hierarchy.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/b7576abf-07e1-4c40-b682-52a4e3b446c6/exam/images/unit4-q7.png"
+     },
+     "prompt": "In the context of inheritance, what occurs during 'Method Overriding'?",
+     "options": [
+      "A subclass deletes a method from the parent class to save memory.",
+      "A subclass provides a specific implementation for a method already defined in its parent class.",
+      "The parent class modifies the subclass's methods at runtime.",
+      "Multiple methods in the same class have the same name but different parameters."
+     ],
+     "explanation": "Overriding allows a subclass to 'shadow' a parent's method to provide specialized behavior, like an EBook adding 'File Size' to a generic 'describe' method.",
+     "correctAnswers": [
+      "A subclass provides a specific implementation for a method already defined in its parent class."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Select the statements that accurately describe Python's Exception handling mechanism.",
+     "options": [
+      "A 'try' block contains code that might raise an error.",
+      "An 'except' block only runs if an error occurs in the 'try' block.",
+      "A program will always terminate immediately when an exception is raised inside a 'try' block.",
+      "You can catch specific errors (like 'ValueError') while letting others pass through.",
+      "The 'else' block runs only if an exception was caught."
+     ],
+     "explanation": "Exceptions allow us to intercept 'crashes' and handle them gracefully. The program only terminates if the exception is not caught.",
+     "correctAnswers": [
+      "A 'try' block contains code that might raise an error.",
+      "An 'except' block only runs if an error occurs in the 'try' block.",
+      "You can catch specific errors (like 'ValueError') while letting others pass through."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "To check if two separate objects are 'equal' based on their data (like title and author) rather than their memory address, you must implement the ____ dunder method.",
+     "explanation": "By default, Python compares identity (is). The __eq__ method allows for value-based equality.",
+     "placeholder": "__method__",
+     "correctAnswers": [
+      "__eq__"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If you iterate through a list containing both 'Book' and 'EBook' objects and call '.describe()' on each, Python executes the correct version for each object. This is an example of:",
+     "options": [
+      "Encapsulation",
+      "Polymorphism",
+      "Multi-threading",
+      "Data Validation"
+     ],
+     "explanation": "Polymorphism allows code to be 'shape-blind,' treating different types through a common interface where each object knows its own behavior.",
+     "correctAnswers": [
+      "Polymorphism"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "When working with external files (CSV or JSON), which steps are considered best practices for robust data management?",
+     "options": [
+      "Wrapping file open operations in a try/except block to handle missing files.",
+      "Using the 'with' statement to ensure files are closed automatically.",
+      "Manually deleting the file after every read to clear the cache.",
+      "Validating the data format before converting it into class instances.",
+      "Only using absolute paths to avoid confusion with relative directories."
+     ],
+     "explanation": "Defensive programming involves safe opening (try/except), automatic resource management (with), and data validation.",
+     "correctAnswers": [
+      "Wrapping file open operations in a try/except block to handle missing files.",
+      "Using the 'with' statement to ensure files are closed automatically.",
+      "Validating the data format before converting it into class instances."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In the 'Is-A' relationship of inheritance, if 'EBook' inherits from 'Book', 'Book' is known as the ____ class.",
+     "explanation": "In inheritance, the generalized class is the parent/base/superclass, and the specialized one is the child/subclass.",
+     "placeholder": "Relationship term",
+     "correctAnswers": [
+      "Parent",
+      "Base",
+      "Superclass"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is a 'fragile base class' problem primarily caused by?",
+     "options": [
+      "Using too many dunder methods in a single class.",
+      "Deep inheritance hierarchies where a small change at the top breaks many subclasses.",
+      "Forgetting to use 'self' when defining instance attributes.",
+      "Failing to handle FileNotFoundError when opening data files."
+     ],
+     "explanation": "Overusing inheritance (e.g., 5 levels deep) creates a rigid structure where changes to the root class propagate errors throughout the entire system.",
+     "correctAnswers": [
+      "Deep inheritance hierarchies where a small change at the top breaks many subclasses."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of 'dunder' methods in Python?",
+     "options": [
+      "__init__",
+      "__str__",
+      "__main__",
+      "__eq__",
+      "self.attribute"
+     ],
+     "explanation": "Dunder methods start and end with double underscores and serve as hooks for Python's internal protocols.",
+     "correctAnswers": [
+      "__init__",
+      "__str__",
+      "__eq__"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "The process of calling a class to create a new object (e.g., 'my_obj = MyClass()') is known as ____.",
+     "explanation": "Instantiation is the act of producing a tangible 'instance' (the house) from the conceptual 'class' (the blueprint).",
+     "placeholder": "Process name",
+     "correctAnswers": [
+      "Instantiation",
+      "instantiation"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "What is the result of attempting to access 'Book.title' if 'title' is defined as an instance attribute inside '__init__'?",
+     "options": [
+      "It returns the title of the most recently created book.",
+      "It returns 'None'.",
+      "It raises an AttributeError because the class (blueprint) does not possess the attribute.",
+      "It returns a list of all titles currently in memory."
+     ],
+     "explanation": "Instance attributes belong to the 'house,' not the 'blueprint.' You cannot ask the blueprint for a specific house's color.",
+     "correctAnswers": [
+      "It raises an AttributeError because the class (blueprint) does not possess the attribute."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "In professional software, why might a developer choose a Class over a simple Dictionary to store data?",
+     "options": [
+      "Classes allow for the association of behavior (methods) with the data.",
+      "Classes provide a formal structure (blueprint) that ensures all instances have the same keys.",
+      "Dictionaries cannot be saved to JSON files, whereas Classes can.",
+      "Classes support inheritance, allowing for specialized variations of the data structure.",
+      "Classes use less memory than dictionaries in all scenarios."
+     ],
+     "explanation": "While dictionaries are great for simple key-value pairs, classes offer encapsulation, inheritance, and structured behavior.",
+     "correctAnswers": [
+      "Classes allow for the association of behavior (methods) with the data.",
+      "Classes provide a formal structure (blueprint) that ensures all instances have the same keys.",
+      "Classes support inheritance, allowing for specialized variations of the data structure."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "Why does the program's memory usage stabilize even as we create thousands of 'Book' instances in the simulation?",
+     "options": [
+      "Because the class definition is stored only once in memory, regardless of how many instances are created.",
+      "Because each instance shares the exact same memory address for its attribute values.",
+      "Because Python's garbage collector deletes the older instances once the newer ones reach a specific count.",
+      "Because the 'Blueprint' contains all the data, so the 'Houses' don't occupy additional space."
+     ],
+     "explanation": "While each instance has unique data, the methods and class structure are shared. The simulation shows that creating many objects from one blueprint is memory-efficient compared to duplicating logic.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Class vs Instance Memory Allocation Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-canvas {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-text {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: 13px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .mono-text {\n            font-family: ui-monospace, \"SFMono-Regular\", Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n            font-size: 11px;\n            fill: var(--ink);\n        }\n\n        .counter-tray {\n            margin-top: 12px;\n            display: flex;\n            gap: 24px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n            width: 100%;\n            justify-content: center;\n        }\n\n        .counter-item {\n            text-align: center;\n        }\n\n        .counter-value {\n            font-size: 18px;\n            font-weight: 600;\n            color: var(--ink);\n            font-variant-numeric: tabular-nums;\n            display: block;\n        }\n\n        .counter-label {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            font-style: italic;\n        }\n\n        .caption {\n            margin-top: 16px;\n            font-family: Georgia, serif;\n            font-size: 13px;\n            color: var(--muted);\n            font-style: italic;\n        }\n    </style>\n</head>\n<body>\n\n    <h1 class=\"visually-hidden\">Visualization of memory allocation for a Class and its multiple Instances.</h1>\n\n    <div class=\"container\">\n        <svg class=\"fig-canvas\" viewBox=\"0 0 400 240\" aria-label=\"Memory diagram showing a static Class block and a growing stack of Instance blocks.\">\n            <!-- Background Grid -->\n            <defs>\n                <pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n                    <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"0.5\" opacity=\"0.5\"/>\n                </pattern>\n            </defs>\n            <rect width=\"400\" height=\"240\" fill=\"url(#grid)\" />\n\n            <!-- Labels -->\n            <text x=\"70\" y=\"35\" text-anchor=\"middle\" class=\"label-text\">Class Definition</text>\n            <text x=\"280\" y=\"35\" text-anchor=\"middle\" class=\"label-text\">Instance Stack</text>\n\n            <!-- Class Block (Static) -->\n            <g transform=\"translate(30, 50)\">\n                <rect width=\"80\" height=\"120\" fill=\"white\" stroke=\"var(--ink)\" stroke-width=\"1.5\" rx=\"2\" />\n                <line x1=\"0\" y1=\"40\" x2=\"80\" y2=\"40\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <text x=\"40\" y=\"25\" text-anchor=\"middle\" class=\"mono-text\" style=\"font-weight: bold;\">Class</text>\n                \n                <!-- Logic/Methods Area - Fixed -->\n                <rect x=\"5\" y=\"45\" width=\"70\" height=\"70\" fill=\"var(--accent)\" fill-opacity=\"0.1\" rx=\"1\" />\n                <text x=\"40\" y=\"75\" text-anchor=\"middle\" class=\"mono-text\" style=\"font-size: 9px;\">Methods</text>\n                <text x=\"40\" y=\"90\" text-anchor=\"middle\" class=\"mono-text\" style=\"font-size: 8px;\">&amp; Logic</text>\n                <text x=\"40\" y=\"105\" text-anchor=\"middle\" class=\"mono-text\" style=\"font-size: 9px; fill: var(--muted)\">(fixed size)</text>\n            </g>\n\n            <!-- Instances (Dynamic) -->\n            <g id=\"instance-container\" transform=\"translate(240, 50)\"></g>\n            \n            <!-- Connection Lines -->\n            <g id=\"connections\"></g>\n        </svg>\n\n        <div class=\"counter-tray\">\n            <div class=\"counter-item\">\n                <span class=\"counter-value\" id=\"class-mem\">128 KB</span>\n                <span class=\"counter-label\">Class Memory</span>\n            </div>\n            <div class=\"counter-item\">\n                <span class=\"counter-value\" id=\"instance-count\">0</span>\n                <span class=\"counter-label\">Instance Count</span>\n            </div>\n            <div class=\"counter-item\">\n                <span class=\"counter-value\" id=\"total-mem\">128 KB</span>\n                <span class=\"counter-label\">Total Allocated</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Memory allocation during object lifecycle</div>\n    </div>\n\n    <script>\n        const instanceContainer = document.getElementById('instance-container');\n        const connectionsContainer = document.getElementById('connections');\n        const instanceCountLabel = document.getElementById('instance-count');\n        const totalMemLabel = document.getElementById('total-mem');\n\n        const MAX_INSTANCES = 8;\n        const INSTANCE_MEM_PER = 32;\n        const CLASS_MEM = 128;\n\n        let startTime = null;\n\n        function update(timestamp) {\n            if (!startTime) startTime = timestamp;\n            const progress = (timestamp - startTime) % 8000;\n            const phase = progress / 8000; // 0 to 1\n\n            // Calculate number of instances (0 to MAX_INSTANCES and back to 0)\n            let count;\n            if (phase < 0.8) {\n                // Growth phase\n                count = Math.floor((phase / 0.8) * (MAX_INSTANCES + 1));\n            } else {\n                // Reset/Pause phase\n                count = MAX_INSTANCES;\n                if (phase > 0.95) count = 0;\n            }\n\n            // Render Instances\n            let instanceHTML = '';\n            let connectionHTML = '';\n            \n            for (let i = 0; i < count; i++) {\n                const yOffset = i * 20;\n                const opacity = 1;\n                \n                instanceHTML += `\n                    <g transform=\"translate(0, ${yOffset})\" style=\"opacity: ${opacity}\">\n                        <rect width=\"80\" height=\"16\" fill=\"white\" stroke=\"var(--amber)\" stroke-width=\"1\" rx=\"1\" />\n                        <text x=\"40\" y=\"11\" text-anchor=\"middle\" class=\"mono-text\" style=\"font-size: 8px;\">Instance Data #${i+1}</text>\n                    </g>\n                `;\n\n                // Pointer from instance back to class logic\n                connectionHTML += `\n                    <path d=\"M 240 ${66 + yOffset} Q 180 ${66 + yOffset}, 110 110\" \n                          fill=\"none\" \n                          stroke=\"var(--accent)\" \n                          stroke-width=\"0.5\" \n                          stroke-dasharray=\"2,2\" \n                          opacity=\"0.3\" />\n                `;\n            }\n\n            instanceContainer.innerHTML = instanceHTML;\n            connectionsContainer.innerHTML = connectionHTML;\n            \n            // Update Readouts\n            instanceCountLabel.textContent = count;\n            totalMemLabel.textContent = (CLASS_MEM + (count * INSTANCE_MEM_PER)) + ' KB';\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n            \n            const observer = new ResizeObserver(reportHeight);\n            observer.observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Because the class definition is stored only once in memory, regardless of how many instances are created."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Practical Python Proficiency Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "You are writing a pytest function to verify a utility that calculates tax. If the tax for an input of 100 should be exactly 15, which line of code follows the 'Safety Net' principle of automated testing?",
+     "options": [
+      "if calculate_tax(100) == 15: print('Success')",
+      "assert calculate_tax(100) == 15",
+      "calculate_tax(100) == 15",
+      "pytest.run(calculate_tax(100) == 15)"
+     ],
+     "explanation": "The 'assert' keyword is the fundamental gatekeeper in pytest; it raises an error if the condition is false, allowing the framework to report a failure.",
+     "correctAnswers": [
+      "assert calculate_tax(100) == 15"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "When moving from a 'builder's mindset' to a 'breaker's mindset' regarding a function that calculates the average of a list of numbers, which of the following represent critical 'Edge Cases' to test?",
+     "options": [
+      "An empty list []",
+      "A list containing a single integer [5]",
+      "A 'None' value instead of a list",
+      "A list with three positive integers [10, 20, 30]",
+      "A list with a mix of integers and strings"
+     ],
+     "explanation": "Edge cases involve boundary conditions like empty inputs, incorrect types, or null values that often cause logic to fail compared to the 'happy path' of standard data.",
+     "correctAnswers": [
+      "An empty list []",
+      "A 'None' value instead of a list",
+      "A list with a mix of integers and strings"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "Python's PEP 8 style guide recommends using the ____ naming convention for variables and functions to ensure codebases are idiomatic and readable.",
+     "placeholder": "e.g., my_variable",
+     "correctAnswers": [
+      "snake_case",
+      "lowercase_with_underscores",
+      "snake case"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "If a team uses an 'opinionated' tool like Black on their repository, what is the primary benefit to the developers' mental energy?",
+     "options": [
+      "It automatically finds and fixes logical bugs in the algorithms.",
+      "It eliminates the need for developers to manually enforce PEP 8 formatting rules.",
+      "It provides real-time documentation for every function written.",
+      "It converts dynamic Python code into static compiled code."
+     ],
+     "explanation": "Formatters like Black automate the 'social contract' of style, allowing developers to focus on logic rather than manual spacing or indentation.",
+     "correctAnswers": [
+      "It eliminates the need for developers to manually enforce PEP 8 formatting rules."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following statements accurately describe the behavior and purpose of Type Hints in Python 3?",
+     "options": [
+      "They speed up the execution time of the script by optimizing memory.",
+      "They act as 'living documentation' for the IDE and other developers.",
+      "They change how the Python interpreter executes the code at runtime.",
+      "They allow tools like 'mypy' to catch type-related bugs before the code runs.",
+      "They are required for all variable declarations in modern Python."
+     ],
+     "explanation": "Type hints are 'ghosts' ignored by the interpreter at runtime but are essential for static analysis (mypy) and developer clarity.",
+     "correctAnswers": [
+      "They act as 'living documentation' for the IDE and other developers.",
+      "They allow tools like 'mypy' to catch type-related bugs before the code runs."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "To specify that a function parameter could be either an integer or None, the most appropriate modern Python type hint to use is ____.",
+     "placeholder": "Type hint syntax",
+     "correctAnswers": [
+      "Optional[int]",
+      "int | None",
+      "Union[int, None]"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary reason for using a Virtual Environment (venv) when starting a new Python automation project?",
+     "options": [
+      "To make the code run faster by using a specialized interpreter.",
+      "To hide the source code from other users on the same machine.",
+      "To isolate project dependencies and avoid conflicts between different library versions.",
+      "To automatically upload the code to a cloud-based server."
+     ],
+     "explanation": "Virtual environments provide an isolated space so that different projects can use different versions of libraries without interfering with each other.",
+     "correctAnswers": [
+      "To isolate project dependencies and avoid conflicts between different library versions."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "A professional Python project structure usually includes which of the following files to manage its environment and standards?",
+     "options": [
+      "requirements.txt",
+      ".gitignore",
+      "test_*.py files",
+      "system_settings.exe",
+      "pyproject.toml"
+     ],
+     "explanation": "These files manage dependencies, version control exclusion, automated tests, and tool configurations respectively.",
+     "correctAnswers": [
+      "requirements.txt",
+      ".gitignore",
+      "test_*.py files",
+      "pyproject.toml"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The '____' module in Python 3 is used to define complex type hints like List, Dict, and Union.",
+     "placeholder": "Library name",
+     "correctAnswers": [
+      "typing"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "When building a CLI tool, why is it considered a best practice to use a library like 'argparse' instead of manually parsing 'sys.argv'?",
+     "options": [
+      "Argparse automatically executes the code in a virtual environment.",
+      "It handles common tasks like generating help messages and validating input types.",
+      "It is the only way to make a Python script run from the terminal.",
+      "Argparse makes the script compatible with web APIs automatically."
+     ],
+     "explanation": "Argparse professionalizes a script by providing a standard interface for flags, arguments, and auto-generated documentation.",
+     "correctAnswers": [
+      "It handles common tasks like generating help messages and validating input types."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "If you see the error 'ModuleNotFoundError: No module named requests' despite having installed it previously, what are the most likely causes?",
+     "options": [
+      "The requests library is not compatible with Python 3.",
+      "You installed the library globally but are currently inside a virtual environment.",
+      "The virtual environment is not activated in the current terminal session.",
+      "The PEP 8 linter has blocked the library for being unreadable.",
+      "The library was installed in a different virtual environment."
+     ],
+     "explanation": "Module errors in professional development are almost always related to environment isolation and activation issues.",
+     "correctAnswers": [
+      "You installed the library globally but are currently inside a virtual environment.",
+      "The virtual environment is not activated in the current terminal session.",
+      "The library was installed in a different virtual environment."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In the 'requests' library, the method used to send data to a server to create a new resource is ____.",
+     "placeholder": "HTTP method name",
+     "correctAnswers": [
+      "post",
+      "requests.post",
+      "POST"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In the pytest terminal output, what does a green 'dot' signify compared to a red 'F'?",
+     "options": [
+      "A dot means a test was skipped; F means it failed.",
+      "A dot means an assertion passed; F means an assertion failed.",
+      "A dot means the code has no bugs; F means the code is broken.",
+      "A dot means the file was found; F means the file was missing."
+     ],
+     "explanation": "The dot is the visual feedback for a successful test case; an 'F' indicates the logic deviated from the expected outcome.",
+     "correctAnswers": [
+      "A dot means an assertion passed; F means an assertion failed."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are benefits of using 'Equivalence Partitioning' when designing a test suite?",
+     "options": [
+      "It reduces the total number of tests needed by grouping similar inputs.",
+      "It ensures that every single possible integer is tested individually.",
+      "It makes the test suite more efficient by avoiding redundant assertions.",
+      "It guarantees that the code will never have a bug.",
+      "It helps identify a single test case that can represent a whole class of potential failures."
+     ],
+     "explanation": "Equivalence partitioning is a strategy to achieve high coverage with minimal, non-redundant tests by testing one representative of a logic group.",
+     "correctAnswers": [
+      "It reduces the total number of tests needed by grouping similar inputs.",
+      "It makes the test suite more efficient by avoiding redundant assertions.",
+      "It helps identify a single test case that can represent a whole class of potential failures."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "You are refactoring a function that interacts with a Web API. Why should you use the .json() method from the 'requests' library instead of parsing the response text manually?",
+     "options": [
+      "It encrypts the data for better security.",
+      "It automatically converts the JSON response body into a native Python dictionary or list.",
+      "It allows the script to run without an internet connection.",
+      "It is required by PEP 8 standards."
+     ],
+     "explanation": "The .json() method is a convenience tool that handles the complex parsing of string data into usable Python objects.",
+     "correctAnswers": [
+      "It automatically converts the JSON response body into a native Python dictionary or list."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "According to the 'Adversarial Developer' mindset, when is a piece of code truly 'done'?",
+     "options": [
+      "When it produces the correct output for a single valid input.",
+      "When it is resilient against extreme boundary conditions and invalid inputs.",
+      "When it has been refactored at least three times.",
+      "When it contains more comments than lines of logic."
+     ],
+     "explanation": "Professional code is defined by its structural resilience, not just its ability to work under perfect conditions.",
+     "correctAnswers": [
+      "When it is resilient against extreme boundary conditions and invalid inputs."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "Why is 'self-documenting code' through better naming preferred over excessive comments?",
+     "options": [
+      "Comments make the file size too large for Python to execute efficiently.",
+      "Comments are ignored by the compiler, while variable names are not.",
+      "Naming describes the 'intent' of the data directly within the logic, reducing the 'tax' on readers.",
+      "PEP 8 forbids the use of comments in professional scripts."
+     ],
+     "explanation": "Good naming (e.g., 'user_emails' instead of 'list1') allows a developer to understand code intent at a glance without switching context to read comments.",
+     "correctAnswers": [
+      "Naming describes the 'intent' of the data directly within the logic, reducing the 'tax' on readers."
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "animation",
+     "prompt": "How does increasing the number of diverse edge-case assertions in a test suite affect the confidence level of a refactor over time?",
+     "options": [
+      "Confidence grows because the assertions narrow the 'Input Space' of undetected logical errors.",
+      "Confidence stays the same because only the 'happy path' determines if a program runs or crashes.",
+      "Confidence decreases because more tests increase the statistical likelihood of random hardware failure.",
+      "Confidence grows only because the execution time of the test suite decreases with more tests."
+     ],
+     "explanation": "As the simulation shows, mapping assertions to the boundaries of the input space acts as a sieve, catching bugs that standard inputs miss, thereby validating the structural resilience of the code.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Logic Resilience Simulator</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .fig-wrapper {\n            width: 100%;\n            aspect-ratio: 1.2 / 1;\n            position: relative;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 20px;\n            width: 100%;\n            margin-top: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n        }\n\n        .label {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            font-style: italic;\n            color: var(--muted);\n            margin-bottom: 4px;\n        }\n\n        .value {\n            font-family: -apple-system, sans-serif;\n            font-weight: 500;\n            font-size: 14px;\n            color: var(--ink);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .axis-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            fill: var(--muted);\n        }\n\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            margin-top: 16px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"sr-only\">Simulation of input space validation coverage</h1>\n    \n    <div class=\"container\">\n        <div class=\"fig-wrapper\">\n            <svg class=\"fig\" viewBox=\"0 0 400 320\" aria-label=\"A circular input space being filled by test points, reducing the shaded area of uncertainty.\">\n                <!-- Background Circle (Input Space) -->\n                <circle cx=\"200\" cy=\"150\" r=\"100\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"1\" stroke-dasharray=\"4 2\" />\n                \n                <!-- Uncertainty Mask Definition -->\n                <defs>\n                    <mask id=\"uncertainty-mask\">\n                        <rect x=\"0\" y=\"0\" width=\"400\" height=\"320\" fill=\"white\" />\n                        <g id=\"validation-blobs\"></g>\n                    </mask>\n                </defs>\n\n                <!-- The Uncertainty Zone -->\n                <circle cx=\"200\" cy=\"150\" r=\"100\" fill=\"var(--accent)\" fill-opacity=\"0.15\" mask=\"url(#uncertainty-mask)\" />\n                \n                <!-- Boundary (Edge cases) and Center (Happy path) visual guides -->\n                <circle cx=\"200\" cy=\"150\" r=\"100\" fill=\"none\" stroke=\"var(--rule)\" stroke-width=\"0.5\" />\n                <circle cx=\"200\" cy=\"150\" r=\"2\" fill=\"var(--rule)\" />\n\n                <!-- Axes for the sweep parameter -->\n                <g transform=\"translate(50, 290)\">\n                    <line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                    <text x=\"0\" y=\"15\" class=\"axis-label\" text-anchor=\"middle\">Start</text>\n                    <text x=\"150\" y=\"15\" class=\"axis-label\" text-anchor=\"middle\">Build-up</text>\n                    <text x=\"300\" y=\"15\" class=\"axis-label\" text-anchor=\"middle\">Full Coverage</text>\n                    <!-- Playhead -->\n                    <line id=\"playhead\" x1=\"0\" y1=\"-5\" x2=\"0\" y2=\"5\" stroke=\"var(--ink)\" stroke-width=\"1.5\" />\n                </g>\n\n                <!-- Dynamic elements (Dots) -->\n                <g id=\"test-points\"></g>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"label\">Test Count</span>\n                <span class=\"value\" id=\"count-val\">0</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"label\">Validated Space</span>\n                <span class=\"value\" id=\"coverage-val\">0%</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Relationship between test distribution and input space validation</div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 123;\n        function seededRandom() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const pointGroup = document.getElementById('test-points');\n        const blobGroup = document.getElementById('validation-blobs');\n        const playhead = document.getElementById('playhead');\n        const countVal = document.getElementById('count-val');\n        const coverageVal = document.getElementById('coverage-val');\n\n        const centerX = 200;\n        const centerY = 150;\n        const radius = 100;\n        \n        // Pre-generate points\n        // We alternate between Happy Path (inner) and Edge Case (boundary)\n        const points = [];\n        for (let i = 0; i < 60; i++) {\n            const isEdge = i % 2 === 0;\n            const angle = seededRandom() * Math.PI * 2;\n            let r;\n            if (isEdge) {\n                // Tightly clustered around the edge (r=100)\n                r = radius * (0.96 + seededRandom() * 0.04);\n            } else {\n                // Clustered toward the center\n                r = radius * (seededRandom() * 0.6);\n            }\n            points.push({\n                x: centerX + Math.cos(angle) * r,\n                y: centerY + Math.sin(angle) * r,\n                type: isEdge ? 'edge' : 'happy'\n            });\n        }\n\n        let lastTime = 0;\n        let progress = 0; // 0 to 1\n\n        function update(timestamp) {\n            if (!lastTime) lastTime = timestamp;\n            const dt = timestamp - lastTime;\n            lastTime = timestamp;\n\n            // Loop every 10 seconds\n            progress += dt / 10000;\n            if (progress > 1) {\n                progress = 0;\n                // Reset randomness for deterministic pathing\n                seed = 123;\n            }\n\n            const visibleCount = Math.floor(progress * points.length);\n            \n            // Update SVG\n            let pointsHtml = '';\n            let blobsHtml = '';\n            for (let i = 0; i < visibleCount; i++) {\n                const p = points[i];\n                const color = p.type === 'edge' ? 'var(--amber)' : 'var(--accent)';\n                pointsHtml += `<circle cx=\"${p.x}\" cy=\"${p.y}\" r=\"2.5\" fill=\"${color}\" />`;\n                // Blobs in mask \"erase\" the uncertainty overlay\n                // The radius of influence grows slightly as we add more tests? \n                // Or stay constant to show additive nature. Constant 22px looks good.\n                blobsHtml += `<circle cx=\"${p.x}\" cy=\"${p.y}\" r=\"22\" fill=\"black\" />`;\n            }\n            \n            pointGroup.innerHTML = pointsHtml;\n            blobGroup.innerHTML = blobsHtml;\n\n            // Update UI\n            playhead.setAttribute('x1', progress * 300);\n            playhead.setAttribute('x2', progress * 300);\n            countVal.textContent = visibleCount;\n            \n            // Mock coverage calculation (nonlinear approach to 100%)\n            const coverage = Math.min(100, Math.floor((1 - Math.pow(1 - (visibleCount / points.length), 1.5)) * 100));\n            coverageVal.textContent = `${coverage}%`;\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = document.documentElement.getBoundingClientRect().height;\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(height) }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n            new ResizeObserver(reportHeight).observe(document.body);\n        });\n    </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Confidence grows because the assertions narrow the 'Input Space' of undetected logical errors."
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "e99074c6-6e55-4172-9d0a-aa6efc0e2c45"
+}

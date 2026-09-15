@@ -1,0 +1,1893 @@
+{
+ "exams": [
+  {
+   "title": "Understanding the CPA Exam Assessment",
+   "unitId": "unit0",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "Which organization is legally responsible for issuing the actual CPA license to an individual?",
+     "options": [
+      "AICPA",
+      "NASBA",
+      "State Board of Accountancy",
+      "Prometric"
+     ],
+     "explanation": "While the AICPA creates the exam and NASBA manages the database, the legal authority to grant a license rests solely with the individual State Boards of Accountancy.",
+     "correctAnswers": [
+      "State Board of Accountancy"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following roles are primary responsibilities of the AICPA in the context of the CPA exam?",
+     "options": [
+      "Creating the exam questions",
+      "Setting the technical standards for scoring",
+      "Issuing the Notice to Schedule (NTS)",
+      "Evaluating university transcripts for eligibility",
+      "Managing the National Candidate Database"
+     ],
+     "explanation": "The AICPA is responsible for the content and scoring standards, while NASBA handles the administrative functions like the NTS and the candidate database.",
+     "correctAnswers": [
+      "Creating the exam questions",
+      "Setting the technical standards for scoring"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The framework that allows CPAs to practice across state lines without obtaining a separate license in every state is known as substantial ____.",
+     "explanation": "Substantial equivalency is the NASBA-developed framework that facilitates licensure mobility across different jurisdictions.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "equivalency"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Under the 'Three Es' of licensure, which stage is considered the 'middle gate' that must be passed after education but before final licensing?",
+     "options": [
+      "Evaluation",
+      "Examination",
+      "Experience",
+      "Ethics"
+     ],
+     "explanation": "The timeline is Education, then Examination (passing the CPA exam), followed by Experience.",
+     "correctAnswers": [
+      "Examination"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "A candidate has 120 semester hours from an undergraduate degree. To reach the 150-hour requirement for licensure, which of the following are valid strategies discussed in the unit?",
+     "options": [
+      "Enrolling in a Master of Science in Accounting (MSA) program",
+      "Double-majoring during undergraduate studies",
+      "Taking additional courses at a community college",
+      "Retaking 'Introductory Financial Accounting' at a different school for duplicate credit"
+     ],
+     "explanation": "Duplicate coursework does not count toward the 150-hour total; however, MS programs, double majors, and community college credits are valid pathways.",
+     "correctAnswers": [
+      "Enrolling in a Master of Science in Accounting (MSA) program",
+      "Double-majoring during undergraduate studies",
+      "Taking additional courses at a community college"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The 'golden ticket' document that contains a unique ID and allows a candidate to book a seat at Prometric is called the ____.",
+     "explanation": "The NTS (Notice to Schedule) is the official document required to book an exam session.",
+     "placeholder": "Acronym or full name",
+     "correctAnswers": [
+      "Notice to Schedule",
+      "NTS"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the typical minimum number of professional experience hours required by most jurisdictions for CPA licensure?",
+     "options": [
+      "1,000 hours",
+      "1,500 hours",
+      "2,000 hours",
+      "5,000 hours"
+     ],
+     "explanation": "Most states require approximately one to two years of experience, which generally translates to a minimum of 2,000 hours.",
+     "correctAnswers": [
+      "2,000 hours"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following professional settings are typically accepted as valid for meeting the CPA experience requirement?",
+     "options": [
+      "Public Accounting (Tax/Audit)",
+      "Industry/Corporate Accounting (Internal Audit)",
+      "Government Accounting roles",
+      "Unsupervised freelance bookkeeping"
+     ],
+     "explanation": "Experience can be gained in public, industry, or government sectors, but it must be supervised/verified by an active CPA.",
+     "correctAnswers": [
+      "Public Accounting (Tax/Audit)",
+      "Industry/Corporate Accounting (Internal Audit)",
+      "Government Accounting roles"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The three Core sections of the CPA exam include Auditing and Attestation (AUD), Financial Accounting and Reporting (FAR), and ____.",
+     "explanation": "The three core sections are AUD, FAR, and REG (Taxation and Regulation).",
+     "placeholder": "Full name or acronym",
+     "correctAnswers": [
+      "Taxation and Regulation",
+      "REG"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "If a candidate reschedules their Prometric exam appointment 15 days before the test date, what is the consequence?",
+     "options": [
+      "No fee is charged",
+      "A standard administrative fee is charged",
+      "The entire exam fee is forfeited",
+      "The NTS is automatically cancelled"
+     ],
+     "explanation": "Rescheduling within the 5-to-29-day window incurs a fee; forfeiting the full fee only occurs if rescheduling happens less than 5 days before the exam.",
+     "correctAnswers": [
+      "A standard administrative fee is charged"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Why is the 'Over-Registration Trap' a significant risk for CPA candidates?",
+     "options": [
+      "It can lead to forfeited fees if the NTS expires before all sections are taken",
+      "It prevents candidates from taking any exams for 12 months",
+      "It forces candidates to study for too many sections simultaneously",
+      "It results in an automatic failing grade for the last section"
+     ],
+     "explanation": "Applying for too many sections at once risks the NTS expiring before the student is ready, leading to lost money and poor preparation.",
+     "correctAnswers": [
+      "It can lead to forfeited fees if the NTS expires before all sections are taken",
+      "It forces candidates to study for too many sections simultaneously"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "If a candidate fails to show up for an exam or cancels less than ____ days before the appointment, they forfeit their entire exam fee.",
+     "explanation": "The most restrictive window for rescheduling is under 5 days, at which point the full fee is forfeited.",
+     "placeholder": "Enter number",
+     "correctAnswers": [
+      "5",
+      "five"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What is the most common lifespan for a Notice to Schedule (NTS) in most jurisdictions?",
+     "options": [
+      "3 months",
+      "6 months",
+      "12 months",
+      "18 months"
+     ],
+     "explanation": "While some states offer 9 months, the standard duration for an NTS is 6 months from the date of issuance.",
+     "correctAnswers": [
+      "6 months"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "When comparing two different states' eligibility requirements, which factors are likely to differ?",
+     "options": [
+      "The specific number of ethics credits required",
+      "The total cost of the AICPA exam content",
+      "The definition of 'accounting residency'",
+      "The minimum credits needed to sit for the exam (120 vs 150)",
+      "The actual content of the FAR exam section"
+     ],
+     "explanation": "State boards control eligibility and administrative rules, but the exam content and its cost are uniform across all jurisdictions.",
+     "correctAnswers": [
+      "The specific number of ethics credits required",
+      "The definition of 'accounting residency'",
+      "The minimum credits needed to sit for the exam (120 vs 150)"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "A candidate works for 3 years under a supervisor who is a CMA (Certified Management Accountant) but not a CPA. Does this meet the experience requirement?",
+     "options": [
+      "Yes, as long as it is in a corporate accounting role",
+      "Yes, because a CMA is an equivalent professional designation",
+      "No, the supervisor must be an active licensed CPA",
+      "No, experience must be in public accounting only"
+     ],
+     "explanation": "Regardless of the supervisor's other credentials, state boards require the experience to be verified by a licensed CPA.",
+     "correctAnswers": [
+      "No, the supervisor must be an active licensed CPA"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "A candidate is planning their application timeline. Which of the following should they account for as potential 'choke points'?",
+     "options": [
+      "Transcript evaluation processing lags",
+      "Lack of seat availability at Prometric centers",
+      "The time taken to write the exam questions",
+      "The 6-month expiration of the NTS"
+     ],
+     "explanation": "Evaluation delays, booking availability, and the NTS expiration are the primary administrative risks. The candidate does not need to worry about the time taken to write questions.",
+     "correctAnswers": [
+      "Transcript evaluation processing lags",
+      "Lack of seat availability at Prometric centers",
+      "The 6-month expiration of the NTS"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "single",
+     "prompt": "Which entity manages the National Candidate Database used to transmit exam scores?",
+     "options": [
+      "AICPA",
+      "NASBA",
+      "Prometric",
+      "State Board of Accountancy"
+     ],
+     "explanation": "NASBA acts as the central clearinghouse and manages the database that facilitates score transmission to the state boards.",
+     "correctAnswers": [
+      "NASBA"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of the 'Uniform' CPA Exam?",
+     "options": [
+      "The exam questions are the same across all 55 jurisdictions",
+      "The passing score is determined by the AICPA",
+      "The educational requirements to sit for it are the same in every state",
+      "The exam is administered through Prometric testing centers"
+     ],
+     "explanation": "While the exam itself and the scoring are uniform, the educational eligibility requirements vary by state.",
+     "correctAnswers": [
+      "The exam questions are the same across all 55 jurisdictions",
+      "The passing score is determined by the AICPA",
+      "The exam is administered through Prometric testing centers"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "animation",
+     "prompt": "A candidate has just graduated with 120 hours and wants to start their career. Drag the candidate to the correct milestone to achieve full licensure while working in public accounting.",
+     "options": [
+      "120 credits + Pass Exam + No Experience",
+      "150 credits + Pass Exam + 2,000 hrs supervised by CPA",
+      "150 credits + Pass Exam + 2,000 hrs supervised by CMA",
+      "120 credits + No Exam + 5,000 hrs supervised by CPA"
+     ],
+     "explanation": "Full licensure requires the 150-hour benchmark, passing the uniform exam, and completing the experience requirement under an active CPA.",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>CPA Licensing Gates Interactive</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n      --shadow: rgba(0, 0, 0, 0.06);\n      --shadow-active: rgba(0, 0, 0, 0.12);\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 640px;\n      margin: 0 auto;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Action Hint */\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n      font-weight: 500;\n    }\n\n    /* Layout: Left/Right Split */\n    .stage {\n      background: var(--stage);\n      border-radius: 12px;\n      padding: 12px;\n      display: grid;\n      grid-template-columns: 110px 1fr;\n      gap: 12px;\n      position: relative;\n      min-height: 230px;\n    }\n\n    /* Left panel: Candidate Start position */\n    .start-zone {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      border: 2px dashed var(--border);\n      border-radius: 10px;\n      background: rgba(255, 255, 255, 0.4);\n      position: relative;\n    }\n\n    .start-label {\n      font-size: 11px;\n      color: var(--muted-fg);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      margin-top: 8px;\n    }\n\n    /* Right panel: Grid of 4 licensing gates */\n    .gates-grid {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n    }\n\n    .gate {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 10px;\n      padding: 10px;\n      display: flex;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center;\n      text-align: center;\n      box-sizing: border-box;\n      transition: background-color 0.2s, border-color 0.2s, transform 0.2s;\n      cursor: pointer;\n      position: relative;\n    }\n\n    .gate:hover {\n      border-color: #ccc;\n    }\n\n    .gate.highlighted {\n      background: var(--accent-soft);\n      border: 2px solid var(--accent);\n      box-shadow: 0 2px 8px var(--shadow);\n    }\n\n    .gate-title {\n      font-size: 11px;\n      font-weight: 700;\n      color: var(--accent);\n      margin-bottom: 6px;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .gate-requirement {\n      font-size: 11px;\n      line-height: 1.3;\n      color: var(--fg);\n      font-weight: 500;\n    }\n\n    /* Draggable Avatar */\n    .avatar-wrapper {\n      position: absolute;\n      width: 64px;\n      height: 64px;\n      z-index: 10;\n      cursor: grab;\n      touch-action: none;\n    }\n\n    .avatar-wrapper:active {\n      cursor: grabbing;\n    }\n\n    .avatar {\n      width: 100%;\n      height: 100%;\n      background: var(--accent);\n      border-radius: 50%;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      box-shadow: 0 4px 10px var(--shadow);\n      color: #fff;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1), box-shadow 0.15s ease;\n    }\n\n    .avatar-wrapper.dragging .avatar {\n      transform: scale(1.08);\n      box-shadow: 0 8px 16px var(--shadow-active);\n      background: var(--accent-strong);\n    }\n\n    .avatar-icon {\n      width: 24px;\n      height: 24px;\n      fill: currentColor;\n    }\n\n    .avatar-name {\n      font-size: 10px;\n      font-weight: bold;\n      margin-top: 2px;\n    }\n\n    /* Keyboard accessibility focus */\n    .avatar-wrapper:focus-visible, .gate:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    /* Locked state */\n    .locked {\n      pointer-events: none !important;\n      opacity: 0.8;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive CPA Licensing Gates Practice Widget</h1>\n\n  <div id=\"widget-container\">\n    <p class=\"action-hint\">Drag the Candidate to the milestone gate that achieves full CPA licensure</p>\n\n    <div class=\"stage\" id=\"stage\">\n      <!-- Left: Start slot -->\n      <div class=\"start-zone\" id=\"start-zone\">\n        <div class=\"start-label\">Candidate</div>\n      </div>\n\n      <!-- Right: Target Gates -->\n      <div class=\"gates-grid\" id=\"gates-grid\">\n        <div class=\"gate\" id=\"gate-0\" tabindex=\"0\" data-option=\"120 credits + Pass Exam + No Experience\" role=\"button\" aria-label=\"Gate 1: 120 credits, Pass Exam, No Experience\">\n          <div class=\"gate-title\">Milestone A</div>\n          <div class=\"gate-requirement\">120 credits<br>+ Pass Exam<br>+ No Experience</div>\n        </div>\n        <div class=\"gate\" id=\"gate-1\" tabindex=\"0\" data-option=\"150 credits + Pass Exam + 2,000 hrs supervised by CPA\" role=\"button\" aria-label=\"Gate 2: 150 credits, Pass Exam, 2000 hours supervised by CPA\">\n          <div class=\"gate-title\">Milestone B</div>\n          <div class=\"gate-requirement\">150 credits<br>+ Pass Exam<br>+ 2,000 hrs (CPA)</div>\n        </div>\n        <div class=\"gate\" id=\"gate-2\" tabindex=\"0\" data-option=\"150 credits + Pass Exam + 2,000 hrs supervised by CMA\" role=\"button\" aria-label=\"Gate 3: 150 credits, Pass Exam, 2000 hours supervised by CMA\">\n          <div class=\"gate-title\">Milestone C</div>\n          <div class=\"gate-requirement\">150 credits<br>+ Pass Exam<br>+ 2,000 hrs (CMA)</div>\n        </div>\n        <div class=\"gate\" id=\"gate-3\" tabindex=\"0\" data-option=\"120 credits + No Exam + 5,000 hrs supervised by CPA\" role=\"button\" aria-label=\"Gate 4: 120 credits, No Exam, 5000 hours supervised by CPA\">\n          <div class=\"gate-title\">Milestone D</div>\n          <div class=\"gate-requirement\">120 credits<br>+ No Exam<br>+ 5,000 hrs (CPA)</div>\n        </div>\n      </div>\n\n      <!-- Draggable Avatar inside stage to allow free layout calculations -->\n      <div class=\"avatar-wrapper\" id=\"draggable-avatar\" tabindex=\"0\" role=\"slider\" aria-label=\"Candidate avatar. Press Arrow Keys to navigate milestone gates.\">\n        <div class=\"avatar\">\n          <svg class=\"avatar-icon\" viewBox=\"0 0 24 24\">\n            <path d=\"M12 3L1 9l11 6 9-4.91V17h2V9L12 3z\"/>\n            <path d=\"M17 12v3.7c0 2.22-3.13 4.3-5 4.3s-5-2.08-5-4.3V12l5 2.73L17 12z\" fill-opacity=\"0.85\"/>\n          </svg>\n          <div class=\"avatar-name\">CPA Candidate</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    const container = document.getElementById('widget-container');\n    const stage = document.getElementById('stage');\n    const startZone = document.getElementById('start-zone');\n    const avatar = document.getElementById('draggable-avatar');\n    const gates = document.querySelectorAll('.gate');\n\n    const optionsList = [\n      \"120 credits + Pass Exam + No Experience\",\n      \"150 credits + Pass Exam + 2,000 hrs supervised by CPA\",\n      \"150 credits + Pass Exam + 2,000 hrs supervised by CMA\",\n      \"120 credits + No Exam + 5,000 hrs supervised by CPA\"\n    ];\n\n    let currentOption = null;\n    let isLocked = false;\n    let isDragging = false;\n    let dragStartOffset = { x: 0, y: 0 };\n    let currentTargetIndex = -1; // -1 represents back at start-zone\n\n    // Initialize Layout & Position\n    function positionAtElement(targetEl) {\n      const stageRect = stage.getBoundingClientRect();\n      const targetRect = targetEl.getBoundingClientRect();\n\n      const left = targetRect.left - stageRect.left + (targetRect.width - avatar.offsetWidth) / 2;\n      const top = targetRect.top - stageRect.top + (targetRect.height - avatar.offsetHeight) / 2;\n\n      avatar.style.left = `${left}px`;\n      avatar.style.top = `${top}px`;\n    }\n\n    function initPosition() {\n      if (currentTargetIndex === -1) {\n        positionAtElement(startZone);\n      } else {\n        positionAtElement(document.getElementById(`gate-${currentTargetIndex}`));\n      }\n    }\n\n    window.addEventListener('load', () => {\n      initPosition();\n      sendHeight();\n    });\n    window.addEventListener('resize', () => {\n      initPosition();\n      sendHeight();\n    });\n\n    // Pointer Dragging Logic (No-Jump)\n    avatar.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      avatar.classList.add('dragging');\n      avatar.setPointerCapture(e.pointerId);\n\n      const avatarRect = avatar.getBoundingClientRect();\n      dragStartOffset.x = e.clientX - avatarRect.left;\n      dragStartOffset.y = e.clientY - avatarRect.top;\n\n      e.preventDefault();\n    });\n\n    avatar.addEventListener('pointermove', (e) => {\n      if (!isDragging) return;\n\n      const stageRect = stage.getBoundingClientRect();\n      let left = e.clientX - stageRect.left - dragStartOffset.x;\n      let top = e.clientY - stageRect.top - dragStartOffset.y;\n\n      // Keep it bound inside stage\n      left = Math.max(0, Math.min(left, stageRect.width - avatar.offsetWidth));\n      top = Math.max(0, Math.min(top, stageRect.height - avatar.offsetHeight));\n\n      avatar.style.left = `${left}px`;\n      avatar.style.top = `${top}px`;\n\n      // Visual helper: Check dynamic proximity to highlight targets\n      checkProximity();\n    });\n\n    avatar.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      avatar.classList.remove('dragging');\n      avatar.releasePointerCapture(e.pointerId);\n\n      snapToClosest();\n    });\n\n    function checkProximity() {\n      const avatarRect = avatar.getBoundingClientRect();\n      const avatarCenter = {\n        x: avatarRect.left + avatarRect.width / 2,\n        y: avatarRect.top + avatarRect.height / 2\n      };\n\n      gates.forEach(gate => {\n        const rect = gate.getBoundingClientRect();\n        if (\n          avatarCenter.x > rect.left && avatarCenter.x < rect.right &&\n          avatarCenter.y > rect.top && avatarCenter.y < rect.bottom\n        ) {\n          gate.classList.add('highlighted');\n        } else {\n          gate.classList.remove('highlighted');\n        }\n      });\n    }\n\n    function snapToClosest() {\n      const avatarRect = avatar.getBoundingClientRect();\n      const avatarCenter = {\n        x: avatarRect.left + avatarRect.width / 2,\n        y: avatarRect.top + avatarRect.height / 2\n      };\n\n      let closestIndex = -1;\n      let minDistance = Infinity;\n\n      // Check distance to all targets (gates and start zone)\n      const locations = [startZone, ...gates];\n      locations.forEach((loc, idx) => {\n        const rect = loc.getBoundingClientRect();\n        const locCenter = {\n          x: rect.left + rect.width / 2,\n          y: rect.top + rect.height / 2\n        };\n        const dist = Math.hypot(avatarCenter.x - locCenter.x, avatarCenter.y - locCenter.y);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closestIndex = idx - 1; // -1 for startZone\n        }\n      });\n\n      currentTargetIndex = closestIndex;\n      \n      // Update highlights and answer reporting\n      gates.forEach((gate, idx) => {\n        if (idx === currentTargetIndex) {\n          gate.classList.add('highlighted');\n          const value = gate.getAttribute('data-option');\n          if (value !== currentOption) {\n            currentOption = value;\n            parent.postMessage({ type: 'hk-practice-answer', value }, '*');\n          }\n        } else {\n          gate.classList.remove('highlighted');\n        }\n      });\n\n      if (currentTargetIndex === -1) {\n        currentOption = null;\n      }\n\n      initPosition();\n    }\n\n    // Keyboard & Accessible Navigation\n    avatar.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n        currentTargetIndex = (currentTargetIndex + 2) % 5 - 1; // custom rotation logic including start-zone\n        snapToClosest();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        currentTargetIndex = (currentTargetIndex + 4) % 5 - 1;\n        snapToClosest();\n      }\n    });\n\n    gates.forEach((gate, index) => {\n      gate.addEventListener('click', () => {\n        if (isLocked) return;\n        currentTargetIndex = index;\n        snapToClosest();\n      });\n      gate.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === ' ' || e.key === 'Enter') {\n          currentTargetIndex = index;\n          snapToClosest();\n        }\n      });\n    });\n\n    // Post message utilities\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('message', (e) => {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        document.body.classList.add('locked');\n        avatar.classList.add('locked');\n        gates.forEach(g => g.classList.add('locked'));\n      }\n    });\n\n    const observer = new ResizeObserver(() => sendHeight());\n    observer.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "150 credits + Pass Exam + 2,000 hrs supervised by CPA"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Auditing and Attestation (AUD) Core Exam",
+   "unitId": "unit1",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During an audit of a non-issuer, a CPA's sister is hired as the Controller (a key position) for the client. The CPA is a senior on the audit engagement team. According to the AICPA Code of Professional Conduct, which of the following is true regarding independence?",
+     "options": [
+      "Independence is not impaired because a sister is a close relative, not an immediate family member.",
+      "Independence is impaired because the sister is a close relative in a key position.",
+      "Independence is not impaired as long as the CPA does not audit the sister's work directly.",
+      "Independence is only impaired if the sister owns a material amount of the client's stock."
+     ],
+     "explanation": "While siblings are 'close relatives' rather than 'immediate family,' independence is impaired if a close relative holds a key position at the client and the CPA is on the engagement team. Materiality of the relative's financial interest is a separate consideration; the job title alone triggers the impairment here.",
+     "correctAnswers": [
+      "Independence is impaired because the sister is a close relative in a key position."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Under the SEC and PCAOB independence rules, which of the following non-audit services are strictly prohibited for a public company audit client? Select all that apply.",
+     "options": [
+      "Bookkeeping and financial statement preparation",
+      "Expert services unrelated to the audit",
+      "Tax compliance and filing services",
+      "Financial information systems design and implementation",
+      "Appraisal or valuation services"
+     ],
+     "explanation": "SEC/PCAOB rules are stricter than AICPA rules. They prohibit bookkeeping, systems design, appraisal, and expert services to prevent the auditor from auditing their own work or acting as an advocate. Tax compliance is generally permitted if approved by the audit committee.",
+     "correctAnswers": [
+      "Bookkeeping and financial statement preparation",
+      "Expert services unrelated to the audit",
+      "Financial information systems design and implementation",
+      "Appraisal or valuation services"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A review engagement performed under SSARS (Statements on Standards for Accounting and Review Services) provides ____ assurance to the user of the financial statements.",
+     "placeholder": "Type of assurance",
+     "correctAnswers": [
+      "limited",
+      "negative",
+      "moderate"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Audit Risk Model Diagram",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit1-q4.png"
+     },
+     "prompt": "An auditor assesses the Risk of Material Misstatement (RMM) as high. How should the auditor respond in terms of the nature, timing, and extent of further audit procedures?",
+     "options": [
+      "Perform interim testing and reduce sample sizes.",
+      "Increase the extent of testing and perform procedures closer to year-end.",
+      "Rely more heavily on internal controls and reduce substantive testing.",
+      "Eliminate the need for external confirmations to save time for riskier areas."
+     ],
+     "explanation": "When RMM is high, Detection Risk must be lowered. This is achieved by moving testing from interim to year-end (timing) and increasing sample sizes (extent).",
+     "correctAnswers": [
+      "Increase the extent of testing and perform procedures closer to year-end."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Which of the following are required components of the auditor's standard unmodified opinion report for a non-issuer?",
+     "options": [
+      "A section with the heading 'Opinion'",
+      "A section with the heading 'Basis for Opinion'",
+      "A statement that the auditor is independent",
+      "The signature of the client's CEO",
+      "A description of the auditor's responsibilities"
+     ],
+     "explanation": "Standard reports must include an Opinion, Basis for Opinion, Auditor Responsibilities, and Management Responsibilities. The CEO does not sign the audit report; the auditor does.",
+     "correctAnswers": [
+      "A section with the heading 'Opinion'",
+      "A section with the heading 'Basis for Opinion'",
+      "A statement that the auditor is independent",
+      "A description of the auditor's responsibilities"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The risk that the auditor's procedures will lead to the conclusion that a material misstatement does not exist when, in fact, one does exist is known as ____ risk.",
+     "placeholder": "Type of risk",
+     "correctAnswers": [
+      "detection",
+      "detection risk"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A CPA is offered a commission by a software provider for recommending their accounting system to a tax-only (non-attest) client. Is this permitted under the AICPA Code?",
+     "options": [
+      "No, commissions are strictly prohibited for all clients.",
+      "Yes, provided the CPA discloses the commission to the client.",
+      "Yes, but only if the software provider is also an audit client.",
+      "No, because it creates an advocacy threat that cannot be mitigated."
+     ],
+     "explanation": "Commissions are prohibited for attest clients (audit, review, etc.). For non-attest clients, they are allowed as long as the CPA discloses the arrangement to the client.",
+     "correctAnswers": [
+      "Yes, provided the CPA discloses the commission to the client."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which procedures are primarily used in a Review engagement performed under SSARS?",
+     "options": [
+      "Inquiry of management",
+      "Analytical procedures",
+      "Physical inspection of inventory",
+      "Confirmation of accounts receivable",
+      "Testing of internal controls"
+     ],
+     "explanation": "Reviews provide limited assurance and rely on inquiry and analytics. Audits involve more rigorous procedures like inspection, confirmation, and control testing.",
+     "correctAnswers": [
+      "Inquiry of management",
+      "Analytical procedures"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "When an auditor uses the work of an auditor's specialist, the auditor ____ mention the specialist in an unmodified opinion report.",
+     "placeholder": "Action",
+     "correctAnswers": [
+      "should not",
+      "must not",
+      "does not"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Audit Opinion Matrix",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit1-q10.png"
+     },
+     "prompt": "What is the primary difference between a 'Qualified Opinion' and an 'Adverse Opinion' regarding a GAAP departure?",
+     "options": [
+      "Qualified is for material but not pervasive issues; Adverse is for material and pervasive issues.",
+      "Qualified is for scope limitations; Adverse is for GAAP departures.",
+      "Qualified is for lack of independence; Adverse is for material fraud.",
+      "Qualified and Adverse are the same thing and can be used interchangeably."
+     ],
+     "explanation": "The 'pervasiveness' of the misstatement determines the severity. If the error is material but localized, it's Qualified. If it's material and affects the financial statements as a whole, it's Adverse.",
+     "correctAnswers": [
+      "Qualified is for material but not pervasive issues; Adverse is for material and pervasive issues."
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "According to the AICPA Conceptual Framework, which of the following are recognized categories of threats to compliance with the Code?",
+     "options": [
+      "Self-interest threat",
+      "Advocacy threat",
+      "Familiarity threat",
+      "Inherent risk threat",
+      "Undue influence threat"
+     ],
+     "explanation": "Inherent risk is a concept from the audit risk model, not the ethical conceptual framework. The ethical framework focuses on threats like self-interest, advocacy, familiarity, self-review, and undue influence.",
+     "correctAnswers": [
+      "Self-interest threat",
+      "Advocacy threat",
+      "Familiarity threat",
+      "Undue influence threat"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ concept allows an auditor to ignore small misstatements that would not influence the judgment of a reasonable person relying on the financial statements.",
+     "placeholder": "Audit concept",
+     "correctAnswers": [
+      "materiality"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "A practitioner is engaged to perform an 'Agreed-Upon Procedures' engagement under SSAE. What type of assurance is provided in the final report?",
+     "options": [
+      "Reasonable assurance",
+      "Limited assurance",
+      "No assurance",
+      "Absolute assurance"
+     ],
+     "explanation": "Agreed-Upon Procedures (AUP) result in a report of findings only. The practitioner does not provide an opinion or a conclusion, thus providing no assurance.",
+     "correctAnswers": [
+      "No assurance"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "An auditor is evaluating 'Subsequent Events' (Type I and Type II). Which of the following would typically require an adjustment to the financial statements (Type I)?",
+     "options": [
+      "Settlement of a lawsuit for an amount different than recorded at year-end.",
+      "Loss of a manufacturing plant due to a fire after the balance sheet date.",
+      "Customer bankruptcy due to a deteriorating financial condition existing before year-end.",
+      "Issuance of new common stock to the public.",
+      "Discovery of a major fraud that occurred during the audit period."
+     ],
+     "explanation": "Type I events provide evidence about conditions that existed at the balance sheet date and require adjustment. Type II events (like a fire or stock issuance) occur after the date and require disclosure but no adjustment.",
+     "correctAnswers": [
+      "Settlement of a lawsuit for an amount different than recorded at year-end.",
+      "Customer bankruptcy due to a deteriorating financial condition existing before year-end.",
+      "Discovery of a major fraud that occurred during the audit period."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In an audit sampling application, the risk of ____ is the risk that the sample supports the conclusion that the control is effective when it is actually ineffective.",
+     "placeholder": "Type of sampling risk",
+     "correctAnswers": [
+      "overreliance",
+      "incorrect acceptance"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "Under the AICPA Code of Professional Conduct, which act would most likely be considered a 'discreditable act'?",
+     "options": [
+      "Filing a late tax return for a client due to a staff shortage.",
+      "Retaining client-provided records after the client has demanded their return.",
+      "Charging a fee that is higher than the industry average.",
+      "Refusing to accept a new audit engagement due to high risk."
+     ],
+     "explanation": "The Code explicitly identifies the retention of client-provided records (like original receipts) as an act discreditable to the profession, even if fees are unpaid.",
+     "correctAnswers": [
+      "Retaining client-provided records after the client has demanded their return."
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of the following are components of a firm's system of Quality Management (formerly Quality Control)?",
+     "options": [
+      "Governance and Leadership",
+      "The Firm's Risk Assessment Process",
+      "Maximization of Audit Fees",
+      "Relevant Ethical Requirements",
+      "Engagement Performance"
+     ],
+     "explanation": "Fee maximization is not a component of quality management. Standard components include leadership, risk assessment, ethical requirements, acceptance/continuance, and engagement performance.",
+     "correctAnswers": [
+      "Governance and Leadership",
+      "The Firm's Risk Assessment Process",
+      "Relevant Ethical Requirements",
+      "Engagement Performance"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "An auditor discovers a material misstatement in the prior year's financial statements while performing the current year audit. What is the auditor's primary responsibility?",
+     "options": [
+      "Notify the SEC immediately.",
+      "Withdraw from the current engagement.",
+      "Discuss the matter with management and ensure the prior year statements are restated.",
+      "Ignore it, as the prior year's audit is already complete."
+     ],
+     "explanation": "If comparative financial statements are presented and a prior period is found to be materiallly misstated, the auditor must address the restatement with management.",
+     "correctAnswers": [
+      "Discuss the matter with management and ensure the prior year statements are restated."
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "image": {
+      "alt": "Vouching vs Tracing Diagram",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit1-q19.png"
+     },
+     "prompt": "When testing the 'Existence' assertion for Accounts Receivable, which procedures are appropriate?",
+     "options": [
+      "Vouching amounts from the ledger to shipping documents.",
+      "Tracing shipping documents to the sales journal.",
+      "Sending external confirmations to customers.",
+      "Reviewing the aging schedule for collectability.",
+      "Performing a count of physical inventory."
+     ],
+     "explanation": "Vouching (ledger to source) and confirmations test Existence. Tracing (source to ledger) tests Completeness. Aging tests Valuation.",
+     "correctAnswers": [
+      "Vouching amounts from the ledger to shipping documents.",
+      "Sending external confirmations to customers."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Assess the impact of different financial interests on auditor independence by categorizing them correctly.",
+     "options": [
+      "Independence Intact: Mutual Fund (Immaterial)",
+      "Independence Impaired: 1 Share Direct Stock",
+      "Independence Impaired: Material Indirect Interest",
+      "Independence Impaired: Spouse's Direct Stock"
+     ],
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Auditor Independence Scale</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #888888;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --shadow: rgba(0, 0, 0, 0.06);\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      gap: 12px;\n    }\n\n    /* Screen Reader Only */\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: -4px;\n    }\n\n    /* Interactive Stage */\n    .stage {\n      width: 100%;\n      max-width: 500px;\n      height: 180px;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      position: relative;\n      overflow: hidden;\n    }\n\n    .scale-svg {\n      width: 100%;\n      height: 100%;\n      display: block;\n    }\n\n    /* Draggable Tokens Container */\n    .tokens-container {\n      width: 100%;\n      max-width: 500px;\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      gap: 8px;\n      position: relative;\n    }\n\n    .token {\n      background: var(--surface);\n      border: 1.5px solid var(--border);\n      border-radius: 8px;\n      padding: 10px 8px;\n      font-size: 12.5px;\n      font-weight: 500;\n      text-align: center;\n      cursor: grab;\n      box-shadow: 0 2px 4px var(--shadow);\n      transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;\n      touch-action: none;\n      position: relative;\n      z-index: 10;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      min-height: 44px;\n      box-sizing: border-box;\n    }\n\n    .token:hover {\n      border-color: var(--accent);\n      background-color: var(--accent-soft);\n    }\n\n    .token:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    /* Dragging state styled cleanly without transform-attribute conflicts */\n    .token.dragging {\n      cursor: grabbing;\n      box-shadow: 0 8px 16px rgba(0,0,0,0.12);\n      border-color: var(--accent-strong);\n      z-index: 100;\n    }\n\n    .token.on-scale {\n      border-color: var(--accent);\n      background-color: var(--accent-soft);\n    }\n\n    /* Target Zone Highlight */\n    .scale-drop-zone {\n      transition: fill 0.2s, stroke 0.2s;\n    }\n    .scale-drop-zone.active-hover {\n      fill: var(--accent-soft);\n      stroke: var(--accent);\n    }\n\n    /* Scale Animation Classes */\n    .scale-beam, .scale-pan-left, .scale-pan-right, .scale-pointer {\n      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Auditor Independence Scale Practice</h1>\n\n  <div id=\"widget-container\">\n    <!-- SVG Interactive Stage -->\n    <div class=\"stage\">\n      <svg class=\"scale-svg\" viewBox=\"0 0 400 180\" aria-hidden=\"true\">\n        <!-- Background elements / Scale Base -->\n        <rect x=\"180\" y=\"140\" width=\"40\" height=\"15\" rx=\"4\" fill=\"#a09e9a\" />\n        <line x1=\"200\" y1=\"70\" x2=\"200\" y2=\"140\" stroke=\"#b5b3ae\" stroke-width=\"8\" stroke-linecap=\"round\" />\n        \n        <!-- Status Label Background & Text -->\n        <rect id=\"status-bg\" x=\"140\" y=\"10\" width=\"120\" height=\"24\" rx=\"12\" fill=\"#e2e2e2\" />\n        <text id=\"status-text\" x=\"200\" y=\"26\" font-size=\"11\" font-weight=\"bold\" fill=\"#666666\" text-anchor=\"middle\">PLACE AN INTEREST</text>\n\n        <!-- Left Pan (Independence / Auditor Anchor) -->\n        <g id=\"left-side\">\n          <line x1=\"110\" y1=\"70\" x2=\"110\" y2=\"120\" stroke=\"#888888\" stroke-width=\"2\" />\n          <path d=\"M 80 120 Q 110 135 140 120\" fill=\"none\" stroke=\"#666666\" stroke-width=\"3\" stroke-linecap=\"round\" />\n          <!-- Weight representing auditor -->\n          <rect x=\"95\" y=\"102\" width=\"30\" height=\"18\" rx=\"2\" fill=\"#4C6696\" />\n          <text x=\"110\" y=\"114\" font-size=\"9\" fill=\"#ffffff\" font-weight=\"bold\" text-anchor=\"middle\">AUDITOR</text>\n        </g>\n\n        <!-- Right Pan (Drop target & Test area) -->\n        <g id=\"right-side\">\n          <line x1=\"290\" y1=\"70\" x2=\"290\" y2=\"120\" stroke=\"#888888\" stroke-width=\"2\" />\n          <!-- Drop target feedback circle -->\n          <circle class=\"scale-drop-zone\" id=\"drop-target-sensor\" cx=\"290\" cy=\"110\" r=\"32\" fill=\"rgba(0,0,0,0.03)\" stroke=\"#cccccc\" stroke-dasharray=\"4,4\" stroke-width=\"2\" />\n          <path d=\"M 260 120 Q 290 135 320 120\" fill=\"none\" stroke=\"#666666\" stroke-width=\"3\" stroke-linecap=\"round\" />\n          <text id=\"drop-label\" x=\"290\" y=\"114\" font-size=\"10\" fill=\"#888888\" font-weight=\"bold\" text-anchor=\"middle\">DROP HERE</text>\n        </g>\n\n        <!-- Beam linking left & right (pivot point at 200, 70) -->\n        <line id=\"beam\" x1=\"110\" y1=\"70\" x2=\"290\" y2=\"70\" stroke=\"#888888\" stroke-width=\"6\" stroke-linecap=\"round\" />\n        <!-- Pivot cap -->\n        <circle cx=\"200\" cy=\"70\" r=\"7\" fill=\"#666666\" />\n        <!-- Pointer dial -->\n        <line id=\"pointer\" x1=\"200\" y1=\"70\" x2=\"200\" y2=\"45\" stroke=\"#e06666\" stroke-width=\"3\" stroke-linecap=\"round\" />\n      </svg>\n    </div>\n\n    <div class=\"action-hint\" id=\"action-text\">Drag a financial interest onto the scale to test independence</div>\n\n    <!-- Draggable Tokens -->\n    <div class=\"tokens-container\" id=\"tokens-grid\">\n      <div class=\"token\" draggable=\"true\" role=\"button\" tabindex=\"0\" data-index=\"0\" data-option=\"Independence Intact: Mutual Fund (Immaterial)\">\n        0.5% Mutual Fund (Immaterial)\n      </div>\n      <div class=\"token\" draggable=\"true\" role=\"button\" tabindex=\"0\" data-index=\"1\" data-option=\"Independence Impaired: 1 Share Direct Stock\">\n        1 Share Direct Stock\n      </div>\n      <div class=\"token\" draggable=\"true\" role=\"button\" tabindex=\"0\" data-index=\"2\" data-option=\"Independence Impaired: Material Indirect Interest\">\n        Material Indirect Interest\n      </div>\n      <div class=\"token\" draggable=\"true\" role=\"button\" tabindex=\"0\" data-index=\"3\" data-option=\"Independence Impaired: Spouse's Direct Stock\">\n        Spouse's Direct Stock\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // State management\n    let activeToken = null;\n    let isLocked = false;\n    let currentScaleState = 'empty'; // 'empty', 'balanced', 'impaired'\n\n    const beam = document.getElementById('beam');\n    const leftSide = document.getElementById('left-side');\n    const rightSide = document.getElementById('right-side');\n    const pointer = document.getElementById('pointer');\n    const statusBg = document.getElementById('status-bg');\n    const statusText = document.getElementById('status-text');\n    const dropTargetSensor = document.getElementById('drop-target-sensor');\n    const dropLabel = document.getElementById('drop-label');\n    const tokens = document.querySelectorAll('.token');\n    const stage = document.querySelector('.stage');\n\n    // Store initial structural coordinates relative to SVG\n    const PIVOT_X = 200;\n    const PIVOT_Y = 70;\n\n    // Set scale physical rotation based on test result\n    function updateScaleVisualization(state) {\n      currentScaleState = state;\n      let angle = 0; // 0 for balanced, positive rotates clockwise (right side down -> impaired)\n      let statusColor = '#e2e2e2';\n      let textColor = '#666666';\n      let txt = 'PLACE AN INTEREST';\n\n      if (state === 'balanced') {\n        angle = 0;\n        statusColor = '#E2F0D9';\n        textColor = '#385723';\n        txt = 'INTACT (BALANCED)';\n      } else if (state === 'impaired') {\n        angle = 15;\n        statusColor = '#FCE4D6';\n        textColor = '#C65911';\n        txt = 'INDEPENDENCE IMPAIRED';\n      }\n\n      // Rotate beam\n      beam.setAttribute('transform', `rotate(${angle}, ${PIVOT_X}, ${PIVOT_Y})`);\n      \n      // Keep pans hanging straight down by counter-rotating them around their attachment points\n      const rad = (angle * Math.PI) / 180;\n      const dx = 90 * Math.cos(rad);\n      const dy = 90 * Math.sin(rad);\n      \n      const leftAttachX = PIVOT_X - dx;\n      const leftAttachY = PIVOT_Y - dy;\n      const rightAttachX = PIVOT_X + dx;\n      const rightAttachY = PIVOT_Y + dy;\n\n      leftSide.setAttribute('transform', `translate(${leftAttachX - 110}, ${leftAttachY - 70}) rotate(${-angle}, ${110}, ${70})`);\n      rightSide.setAttribute('transform', `translate(${rightAttachX - 290}, ${rightAttachY - 70}) rotate(${-angle}, ${290}, ${70})`);\n      \n      // Pivot pointer\n      pointer.setAttribute('transform', `rotate(${-angle}, ${PIVOT_X}, ${PIVOT_Y})`);\n\n      // Update status banner\n      statusBg.setAttribute('fill', statusColor);\n      statusText.setAttribute('fill', textColor);\n      statusText.textContent = txt;\n    }\n\n    // Pointer Drag implementation preserving custom offsets cleanly\n    let dragElement = null;\n    let startX = 0;\n    let startY = 0;\n    let origLeft = 0;\n    let origTop = 0;\n\n    tokens.forEach(token => {\n      // Mouse/Touch Drag Handlers via PointerEvents\n      token.addEventListener('pointerdown', onPointerDown);\n\n      // Keyboard Accessibility\n      token.addEventListener('keydown', function(e) {\n        if (isLocked) return;\n        if (e.key === ' ' || e.key === 'Enter') {\n          e.preventDefault();\n          selectToken(token);\n        }\n      });\n    });\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      dragElement = e.currentTarget;\n      dragElement.setPointerCapture(e.pointerId);\n      dragElement.classList.add('dragging');\n\n      const rect = dragElement.getBoundingClientRect();\n      startX = e.clientX;\n      startY = e.clientY;\n      \n      // Save original styles to restore them if not dropped successfully\n      origLeft = dragElement.style.left || '0px';\n      origTop = dragElement.style.top || '0px';\n\n      dragElement.style.position = 'relative';\n      \n      document.addEventListener('pointermove', onPointerMove);\n      document.addEventListener('pointerup', onPointerUp);\n    }\n\n    function onPointerMove(e) {\n      if (!dragElement) return;\n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n      dragElement.style.transform = `translate(${dx}px, ${dy}px)`;\n\n      // Visual helper when hovering over target zone\n      const sensorRect = dropTargetSensor.getBoundingClientRect();\n      if (e.clientX >= sensorRect.left && e.clientX <= sensorRect.right &&\n          e.clientY >= sensorRect.top && e.clientY <= sensorRect.bottom) {\n        dropTargetSensor.classList.add('active-hover');\n      } else {\n        dropTargetSensor.classList.remove('active-hover');\n      }\n    }\n\n    function onPointerUp(e) {\n      if (!dragElement) return;\n      document.removeEventListener('pointermove', onPointerMove);\n      document.removeEventListener('pointerup', onPointerUp);\n\n      const sensorRect = dropTargetSensor.getBoundingClientRect();\n      const elementRect = dragElement.getBoundingClientRect();\n\n      // Check overlap\n      const isOverTarget = (\n        elementRect.right > sensorRect.left &&\n        elementRect.left < sensorRect.right &&\n        elementRect.bottom > sensorRect.top &&\n        elementRect.top < sensorRect.bottom\n      );\n\n      dragElement.releasePointerCapture(e.pointerId);\n      dragElement.classList.remove('dragging');\n      dropTargetSensor.classList.remove('active-hover');\n\n      if (isOverTarget) {\n        selectToken(dragElement);\n      } else {\n        // Reset position\n        dragElement.style.transform = '';\n      }\n      dragElement = null;\n    }\n\n    function selectToken(token) {\n      // Reset previous on-scale token styles\n      tokens.forEach(t => {\n        t.classList.remove('on-scale');\n        t.style.transform = '';\n      });\n\n      // Visually dock token in scale\n      token.classList.add('on-scale');\n      dropLabel.textContent = \"ACTIVE\";\n\n      // Evaluate token and adjust scale\n      const index = parseInt(token.getAttribute('data-index'), 10);\n      const optionText = token.getAttribute('data-option');\n\n      if (index === 0) {\n        // 0.5% Mutual Fund -> Balanced\n        updateScaleVisualization('balanced');\n      } else {\n        // Direct / Spouse / Material Indirect -> Impaired\n        updateScaleVisualization('impaired');\n      }\n\n      // Notify Host App of Selection\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: optionText }, '*');\n      } catch (err) {}\n    }\n\n    // Lock Screen Mode\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        tokens.forEach(token => {\n          token.style.pointerEvents = 'none';\n          token.style.cursor = 'default';\n        });\n      }\n    });\n\n    // Height Reporting logic\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (err) {}\n    }\n\n    window.addEventListener('load', () => {\n      updateScaleVisualization('empty');\n      reportHeight();\n    });\n    \n    const resizeObserver = new ResizeObserver(() => reportHeight());\n    resizeObserver.observe(document.body);\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Independence Impaired: 1 Share Direct Stock"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Financial Accounting and Reporting (FAR) Core Exam",
+   "unitId": "unit2",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to the FASB Conceptual Framework, what are the two fundamental qualitative characteristics that make financial information useful?",
+     "options": [
+      "Comparability and Verifiability",
+      "Relevance and Faithful Representation",
+      "Predictive Value and Materiality",
+      "Neutrality and Completeness"
+     ],
+     "explanation": "Relevance and Faithful Representation are the two fundamental qualitative characteristics. Comparability and Verifiability are 'enhancing' characteristics, while the others are components of the fundamental ones.",
+     "correctAnswers": [
+      "Relevance and Faithful Representation"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following items are included in 'Other Comprehensive Income' (OCI) under the PUFI acronym discussed in the course?",
+     "options": [
+      "Unrealized gains on Trading debt securities",
+      "Foreign currency translation adjustments",
+      "Pension liability adjustments",
+      "Unrealized gains on Available-for-Sale (AFS) debt securities",
+      "Dividends paid to shareholders"
+     ],
+     "explanation": "OCI includes Pension adjustments, Unrealized gains/losses on AFS debt securities, Foreign currency items, and Instrument-specific credit risk. Trading securities hit Net Income, and dividends are a distribution of equity, not OCI.",
+     "correctAnswers": [
+      "Foreign currency translation adjustments",
+      "Pension liability adjustments",
+      "Unrealized gains on Available-for-Sale (AFS) debt securities"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The SEC has the legal authority to set accounting standards but historically delegates this power to the ____, which is a private-sector body.",
+     "explanation": "The Financial Accounting Standards Board (FASB) is the private-sector body currently designated by the SEC to establish GAAP.",
+     "placeholder": "Enter organization acronym",
+     "correctAnswers": [
+      "FASB",
+      "Financial Accounting Standards Board"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "How should a company report a cash balance that is legally restricted for a factory expansion planned for five years in the future?",
+     "options": [
+      "As a Current Asset under Cash and Cash Equivalents",
+      "As a Non-current Asset under Long-term Investments",
+      "As a contra-liability account",
+      "As a separate component of Shareholders' Equity"
+     ],
+     "explanation": "If cash is restricted for a long-term purpose (greater than one year/operating cycle), it cannot be classified as a current asset and must be moved to the non-current section.",
+     "correctAnswers": [
+      "As a Non-current Asset under Long-term Investments"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "image": {
+      "alt": "Multi-step income statement structure diagram",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit2-q5.png"
+     },
+     "prompt": "On a multi-step income statement, which of the following items are located 'below the line' of Operating Income?",
+     "options": [
+      "Interest Expense",
+      "Cost of Goods Sold",
+      "Gain on Sale of Investments",
+      "Selling Expenses",
+      "Income Tax Expense"
+     ],
+     "explanation": "Interest, gains/losses on investments, and taxes are non-operating items. COGS and Selling expenses are operational and appear above the Operating Income line.",
+     "correctAnswers": [
+      "Interest Expense",
+      "Gain on Sale of Investments",
+      "Income Tax Expense"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The total amount of OCI accumulated over multiple periods is reported in the Equity section of the Balance Sheet as ____.",
+     "explanation": "OCI is a period measure that closes into the permanent equity account called Accumulated Other Comprehensive Income (AOCI).",
+     "placeholder": "Account name or acronym",
+     "correctAnswers": [
+      "Accumulated Other Comprehensive Income",
+      "AOCI"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "When a company disposes of a major geographical segment, how should the resulting gain or loss be presented on the income statement?",
+     "options": [
+      "As an Extraordinary Item, net of tax",
+      "As part of Other Expenses and Losses, before tax",
+      "Below Income from Continuing Operations, net of tax",
+      "Within Operating Income, as a line item in SG&A"
+     ],
+     "explanation": "Discontinued operations are presented in a separate section below Income from Continuing Operations and must be shown net of tax.",
+     "correctAnswers": [
+      "Below Income from Continuing Operations, net of tax"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'Current Assets' on a classified Balance Sheet?",
+     "options": [
+      "Prepaid Insurance",
+      "Trading Securities",
+      "Goodwill",
+      "Inventory",
+      "Accumulated Depreciation"
+     ],
+     "explanation": "Prepaid items, trading securities, and inventory are expected to be used or sold within the year. Goodwill is an intangible non-current asset; Accumulated Depreciation is a contra-asset to PP&E.",
+     "correctAnswers": [
+      "Prepaid Insurance",
+      "Trading Securities",
+      "Inventory"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The accounting equation states that Assets = Liabilities + ____.",
+     "explanation": "The fundamental balance sheet equation shows that resources (assets) are financed by either creditors (liabilities) or owners (equity).",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "Equity",
+      "Shareholders' Equity",
+      "Stockholders' Equity"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which enhancing qualitative characteristic is defined as the ability for different knowledgeable observers to reach a consensus regarding the representation of a transaction?",
+     "options": [
+      "Comparability",
+      "Understandability",
+      "Verifiability",
+      "Timeliness"
+     ],
+     "explanation": "Verifiability means that different observers could reach a consensus that a particular depiction is a faithful representation.",
+     "correctAnswers": [
+      "Verifiability"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "What are the three components of 'Faithful Representation' in the FASB Conceptual Framework?",
+     "options": [
+      "Neutrality",
+      "Completeness",
+      "Materiality",
+      "Free from error",
+      "Confirmatory value"
+     ],
+     "explanation": "Faithful representation requires the information to be complete, neutral, and free from error. Materiality and confirmatory value are components of Relevance.",
+     "correctAnswers": [
+      "Neutrality",
+      "Completeness",
+      "Free from error"
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "The ____ constraint states that the benefits of providing financial information should justify the costs of collecting and reporting it.",
+     "explanation": "The cost constraint is a pervasive constraint on the information that can be provided by financial reporting.",
+     "placeholder": "Constraint name",
+     "correctAnswers": [
+      "Cost",
+      "Cost-Benefit"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In a multi-step income statement, how is Gross Profit calculated?",
+     "options": [
+      "Net Sales minus Operating Expenses",
+      "Net Sales minus Cost of Goods Sold",
+      "Operating Income minus Interest and Taxes",
+      "Total Revenue minus Total Expenses"
+     ],
+     "explanation": "Gross Profit is the specific margin remaining after subtracting the direct cost of producing or purchasing goods (COGS) from Net Sales.",
+     "correctAnswers": [
+      "Net Sales minus Cost of Goods Sold"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Identify the items that would be classified as 'General and Administrative' (G&A) expenses rather than 'Selling' expenses.",
+     "options": [
+      "Sales Commissions",
+      "Accounting Department Salaries",
+      "Advertising Costs",
+      "Office Rent for Headquarters",
+      "Legal Fees"
+     ],
+     "explanation": "G&A expenses relate to the overall administration of the business, while selling expenses (commissions, ads) relate directly to generating sales.",
+     "correctAnswers": [
+      "Accounting Department Salaries",
+      "Office Rent for Headquarters",
+      "Legal Fees"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "Adjust the company's financial reporting workflow to properly handle a new unrealized gain on an Available-for-Sale (AFS) debt security.",
+     "options": [
+      "Move to Net Income",
+      "Move to Other Comprehensive Income",
+      "Move to Retained Earnings directly",
+      "Move to Operating Expenses"
+     ],
+     "explanation": "Unrealized gains on AFS debt securities must bypass the income statement and are recorded in Other Comprehensive Income (OCI) until realized.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>AFS Gain Ledger Assignment</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #707070;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #3a4f78;\n      --shadow: rgba(0, 0, 0, 0.06);\n      --shadow-drag: rgba(76, 102, 150, 0.15);\n    }\n\n    * {\n      box-sizing: border-box;\n      -webkit-tap-highlight-color: transparent;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    #widget-container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n      user-select: none;\n    }\n\n    /* Workspace layout: Left source ledger, Right 2x2 targets */\n    .workspace {\n      position: relative;\n      display: grid;\n      grid-template-columns: 1fr 1.2fr;\n      gap: 12px;\n      background: var(--stage);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 12px;\n      min-height: 250px;\n    }\n\n    @media (max-width: 440px) {\n      .workspace {\n        grid-template-columns: 1fr;\n        min-height: auto;\n        gap: 16px;\n      }\n    }\n\n    /* Ledger panel */\n    .ledger-panel {\n      background: var(--surface);\n      border-radius: 8px;\n      border: 1px solid var(--border);\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 10px;\n      box-shadow: 0 2px 4px var(--shadow);\n    }\n\n    .panel-title {\n      font-size: 11px;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      color: var(--muted-fg);\n      margin-bottom: 4px;\n      border-bottom: 1px solid var(--border);\n      padding-bottom: 4px;\n      font-weight: 600;\n    }\n\n    .source-dock {\n      background: #faf9f6;\n      border: 1.5px dashed var(--border);\n      border-radius: 6px;\n      height: 110px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n    }\n\n    /* Draggable Document */\n    .draggable-doc {\n      position: absolute;\n      width: calc(100% - 16px);\n      height: 90px;\n      background: var(--surface);\n      border: 1.5px solid var(--accent);\n      border-radius: 6px;\n      cursor: grab;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      padding: 10px;\n      box-shadow: 0 4px 10px var(--shadow-drag);\n      touch-action: none;\n      z-index: 10;\n      user-select: none;\n      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, border-color 0.2s ease;\n    }\n\n    .draggable-doc:active {\n      cursor: grabbing;\n    }\n\n    .draggable-doc.dragging {\n      box-shadow: 0 8px 20px rgba(76, 102, 150, 0.25);\n      border-color: var(--accent-strong);\n      transform: scale(1.03);\n      transition: none; /* Instant feedback on drag */\n    }\n\n    .draggable-doc.snapped {\n      width: 100%;\n      height: 100%;\n      position: relative;\n      top: 0 !important;\n      left: 0 !important;\n      transform: none !important;\n      border-color: var(--accent);\n      background: var(--accent-soft);\n    }\n\n    .doc-header {\n      display: flex;\n      align-items: center;\n      gap: 6px;\n      font-size: 10px;\n      font-weight: bold;\n      color: var(--accent);\n      text-transform: uppercase;\n    }\n\n    .doc-title {\n      font-size: 12px;\n      font-weight: 700;\n      color: var(--fg);\n      margin-top: 4px;\n      line-height: 1.2;\n    }\n\n    .doc-meta {\n      font-size: 10px;\n      color: var(--muted-fg);\n      display: flex;\n      justify-content: space-between;\n      border-top: 1px solid #f0f0f0;\n      padding-top: 4px;\n    }\n\n    /* Target Buckets Grid */\n    .buckets-grid {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      grid-template-rows: 1fr 1fr;\n      gap: 8px;\n    }\n\n    .bucket {\n      background: var(--surface);\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      padding: 8px;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      position: relative;\n      min-height: 90px;\n      transition: background-color 0.2s ease, border-color 0.2s ease;\n      cursor: pointer;\n    }\n\n    .bucket:focus-visible {\n      outline: 2px solid var(--accent);\n    }\n\n    .bucket.hovered {\n      background: var(--accent-soft);\n      border-color: var(--accent);\n    }\n\n    .bucket.occupied {\n      border: 2px solid var(--accent);\n      background: var(--accent-soft);\n    }\n\n    .bucket-label {\n      font-size: 11px;\n      font-weight: 600;\n      color: var(--fg);\n      line-height: 1.2;\n      pointer-events: none;\n    }\n\n    .bucket-icon {\n      width: 20px;\n      height: 20px;\n      margin-bottom: 6px;\n      color: var(--muted-fg);\n      pointer-events: none;\n    }\n\n    .bucket.occupied .bucket-icon,\n    .bucket.occupied .bucket-label {\n      display: none;\n    }\n\n    /* Locked overlay state */\n    .locked {\n      pointer-events: none !important;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Financial reporting workflow drag and drop assignment</h1>\n\n  <div id=\"widget-container\">\n    <p class=\"action-hint\">Drag the document into the correct reporting bucket below</p>\n\n    <div class=\"workspace\" id=\"workspace\">\n      <!-- Left side: Source Ledger -->\n      <div class=\"ledger-panel\">\n        <span class=\"panel-title\">Transaction Ledger</span>\n        <div class=\"source-dock\" id=\"source-dock\">\n          <!-- Draggable Document -->\n          <div class=\"draggable-doc\" id=\"draggable-doc\" draggable=\"false\" tabindex=\"0\" aria-label=\"Unrealized Gain - Available for Sale debt security. Use arrow keys to assign to reporting buckets.\">\n            <div>\n              <div class=\"doc-header\">\n                <svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline></svg>\n                Unrealized Gain\n              </div>\n              <div class=\"doc-title\">AFS Debt Security</div>\n            </div>\n            <div class=\"doc-meta\">\n              <span>Fair Value Adj</span>\n              <span>+$45,000</span>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Right side: Destination Buckets -->\n      <div class=\"buckets-grid\" id=\"buckets-grid\">\n        <div class=\"bucket\" data-option=\"Move to Net Income\" role=\"button\" tabindex=\"0\" aria-label=\"Bucket: Net Income\">\n          <svg class=\"bucket-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"1\" x2=\"12\" y2=\"23\"></line><path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path></svg>\n          <span class=\"bucket-label\">Net Income</span>\n        </div>\n        <div class=\"bucket\" data-option=\"Move to Other Comprehensive Income\" role=\"button\" tabindex=\"0\" aria-label=\"Bucket: Other Comprehensive Income\">\n          <svg class=\"bucket-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z\"></path><path d=\"M12 6v12\"></path><path d=\"M8 10h8\"></path></svg>\n          <span class=\"bucket-label\">Other Comprehensive Income (OCI)</span>\n        </div>\n        <div class=\"bucket\" data-option=\"Move to Retained Earnings directly\" role=\"button\" tabindex=\"0\" aria-label=\"Bucket: Retained Earnings directly\">\n          <svg class=\"bucket-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"></path><path d=\"M3 12c0 1.66 4 3 9 3s9-1.34 9-3\"></path></svg>\n          <span class=\"bucket-label\">Retained Earnings</span>\n        </div>\n        <div class=\"bucket\" data-option=\"Move to Operating Expenses\" role=\"button\" tabindex=\"0\" aria-label=\"Bucket: Operating Expenses\">\n          <svg class=\"bucket-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M3 3h18v18H3z\"></path><path d=\"M9 9l6 6M15 9l-6 6\"></path></svg>\n          <span class=\"bucket-label\">Operating Expenses</span>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    // Elements\n    const doc = document.getElementById('draggable-doc');\n    const sourceDock = document.getElementById('source-dock');\n    const workspace = document.getElementById('workspace');\n    const buckets = document.querySelectorAll('.bucket');\n    let locked = false;\n\n    // Track Dragging State\n    let isDragging = false;\n    let startX = 0;\n    let startY = 0;\n    let docX = 0;\n    let docY = 0;\n    let currentOccupiedBucket = null;\n\n    // Report height on layout load\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    // Report Answer Selection\n    function selectAnswer(optionString) {\n      parent.postMessage({ type: 'hk-practice-answer', value: optionString }, '*');\n    }\n\n    // Pointer Drag Implementation\n    doc.addEventListener('pointerdown', function(e) {\n      if (locked) return;\n      isDragging = true;\n      doc.classList.add('dragging');\n      doc.setPointerCapture(e.pointerId);\n\n      // If document was snapped to a bucket, restore its size/position layout context before dragging\n      if (currentOccupiedBucket) {\n        currentOccupiedBucket.classList.remove('occupied');\n        sourceDock.appendChild(doc);\n        doc.classList.remove('snapped');\n        currentOccupiedBucket = null;\n      }\n\n      // Record initial positions\n      const rect = doc.getBoundingClientRect();\n      startX = e.clientX;\n      startY = e.clientY;\n      docX = 0;\n      docY = 0;\n    });\n\n    doc.addEventListener('pointermove', function(e) {\n      if (!isDragging) return;\n      \n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n      docX = dx;\n      docY = dy;\n      \n      doc.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;\n\n      // Hit testing target buckets\n      const docRect = doc.getBoundingClientRect();\n      const docCenterX = docRect.left + docRect.width / 2;\n      const docCenterY = docRect.top + docRect.height / 2;\n\n      buckets.forEach(bucket => {\n        const bucketRect = bucket.getBoundingClientRect();\n        if (\n          docCenterX >= bucketRect.left &&\n          docCenterX <= bucketRect.right &&\n          docCenterY >= bucketRect.top &&\n          docCenterY <= bucketRect.bottom\n        ) {\n          bucket.classList.add('hovered');\n        } else {\n          bucket.classList.remove('hovered');\n        }\n      });\n    });\n\n    doc.addEventListener('pointerup', function(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      doc.classList.remove('dragging');\n\n      // Final Hit Test\n      let activeBucket = null;\n      buckets.forEach(bucket => {\n        if (bucket.classList.contains('hovered')) {\n          activeBucket = bucket;\n          bucket.classList.remove('hovered');\n        }\n      });\n\n      if (activeBucket) {\n        snapTo(activeBucket);\n      } else {\n        returnToDock();\n      }\n    });\n\n    function snapTo(bucket) {\n      currentOccupiedBucket = bucket;\n      bucket.classList.add('occupied');\n      bucket.appendChild(doc);\n      doc.classList.add('snapped');\n      \n      // Clean custom styles set during drag\n      doc.style.transform = '';\n      doc.style.left = '';\n      doc.style.top = '';\n\n      selectAnswer(bucket.getAttribute('data-option'));\n      reportHeight();\n    }\n\n    function returnToDock() {\n      doc.style.transition = 'transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)';\n      doc.style.transform = 'translate3d(0, 0, 0)';\n      setTimeout(() => {\n        if (!isDragging) {\n          doc.style.transition = '';\n        }\n      }, 300);\n    }\n\n    // Keyboard navigation Support\n    let selectedIndex = -1;\n    doc.addEventListener('keydown', function(e) {\n      if (locked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {\n        e.preventDefault();\n        if (selectedIndex === -1) {\n          selectedIndex = 0;\n        } else {\n          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n            selectedIndex = (selectedIndex + 1) % buckets.length;\n          } else {\n            selectedIndex = (selectedIndex - 1 + buckets.length) % buckets.length;\n          }\n        }\n        \n        if (currentOccupiedBucket) {\n          currentOccupiedBucket.classList.remove('occupied');\n        }\n        snapTo(buckets[selectedIndex]);\n      }\n    });\n\n    // Handle clicks on buckets to instantly route the document\n    buckets.forEach((bucket, index) => {\n      bucket.addEventListener('click', () => {\n        if (locked) return;\n        selectedIndex = index;\n        if (currentOccupiedBucket) {\n          currentOccupiedBucket.classList.remove('occupied');\n        }\n        snapTo(bucket);\n      });\n    });\n\n    // Lock Message Listener\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        locked = true;\n        document.body.classList.add('locked');\n        doc.classList.add('locked');\n        doc.blur();\n        buckets.forEach(b => {\n          b.classList.add('locked');\n          b.blur();\n        });\n      }\n    });\n\n    // Resize and Initialization Height Reporting\n    window.addEventListener('load', reportHeight);\n    window.addEventListener('resize', reportHeight);\n    \n    try {\n      const resizeObserver = new ResizeObserver(() => {\n        reportHeight();\n      });\n      resizeObserver.observe(document.body);\n    } catch (e) {}\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Move to Other Comprehensive Income"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Taxation and Regulation (REG) Core Exam",
+   "unitId": "unit3",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "According to Treasury Department Circular 230, what is the minimum standard a tax position must meet to avoid a penalty if the position is NOT disclosed to the IRS?",
+     "options": [
+      "Frivolous",
+      "Reasonable Basis",
+      "Substantial Authority",
+      "More Likely Than Not"
+     ],
+     "explanation": "Under Circular 230, an undisclosed position must meet the 'substantial authority' standard (approx. 40% chance of success) to avoid penalties. If a position only has a 'reasonable basis' (approx. 20%), it must be explicitly disclosed using Form 8275.",
+     "correctAnswers": [
+      "Substantial Authority"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would require a contract to be in writing to be enforceable under the Statute of Frauds (MY LEGS)?",
+     "options": [
+      "A contract to perform accounting services for 9 months starting today.",
+      "An agreement to sell a piece of residential real estate.",
+      "A contract for the sale of a laptop computer priced at $600.",
+      "A promise to pay the debt of another (suretyship).",
+      "An employment contract for an indefinite 'at-will' duration."
+     ],
+     "explanation": "Real estate (Land), Goods over $500 (UCC), and Suretyship all fall under the Statute of Frauds. A 9-month service contract and at-will employment can be performed within one year and thus do not strictly require a writing.",
+     "correctAnswers": [
+      "An agreement to sell a piece of residential real estate.",
+      "A contract for the sale of a laptop computer priced at $600.",
+      "A promise to pay the debt of another (suretyship)."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "If a tax practitioner discovers an error in a client's previously filed return, they must advise the client of the error and its consequences, but they are prohibited from informing the ____ without the client's permission.",
+     "placeholder": "Agency name",
+     "correctAnswers": [
+      "IRS",
+      "Internal Revenue Service",
+      "Treasury",
+      "Treasury Department"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Under the UCC Article 2, if a seller delivers goods that fail in any respect to conform to the contract, the buyer may reject them. This is known as the:",
+     "options": [
+      "Substantial Performance Rule",
+      "Mirror Image Rule",
+      "Perfect Tender Rule",
+      "Anticipatory Repudiation"
+     ],
+     "explanation": "The UCC uses the Perfect Tender Rule, which requires goods to conform exactly to the contract. Common Law uses the 'Substantial Performance' doctrine for services and real estate.",
+     "correctAnswers": [
+      "Perfect Tender Rule"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the requirements for a Principal to legally 'Ratify' an unauthorized contract previously entered into by an agent?",
+     "options": [
+      "The principal must have knowledge of all material facts.",
+      "The principal must accept only the beneficial parts of the contract.",
+      "The principal must have existed at the time the agent entered the contract.",
+      "The principal must notify the IRS of the ratification.",
+      "The principal must accept the entire transaction."
+     ],
+     "explanation": "Ratification requires knowledge of all facts, the principal's existence at the time of the act, and acceptance of the 'all or nothing' deal. Partial ratification is not permitted.",
+     "correctAnswers": [
+      "The principal must have knowledge of all material facts.",
+      "The principal must have existed at the time the agent entered the contract.",
+      "The principal must accept the entire transaction."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The AICPA Statements on Standards for Tax Services (SSTS) represent professional self-regulation, whereas ____ represents legally binding federal regulations for those practicing before the IRS.",
+     "placeholder": "Enter regulation name",
+     "correctAnswers": [
+      "Circular 230",
+      "Treasury Department Circular 230",
+      "IRS Circular 230"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "A tax preparer is hit with a penalty under IRC Section 6694 for an understatement due to 'willful or reckless' conduct. What is the amount of this penalty?",
+     "options": [
+      "$1,000 or 50% of income derived",
+      "$5,000 or 75% of income derived",
+      "$250 per return",
+      "A flat fee of $10,000"
+     ],
+     "explanation": "For willful or reckless conduct, the penalty is the greater of $5,000 or 75% of the income derived. For simple 'unreasonable positions' (non-willful), it is the greater of $1,000 or 50%.",
+     "correctAnswers": [
+      "$5,000 or 75% of income derived"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'exceptions' to the UCC Statute of Frauds rule that contracts for goods over $500 must be in writing?",
+     "options": [
+      "Specially manufactured goods",
+      "Contracts for services lasting over 2 years",
+      "Written confirmation between merchants not objected to within 10 days",
+      "Admissions made in court",
+      "A verbal agreement for standard inventory"
+     ],
+     "explanation": "SWAP (Specially manufactured, Written confirmation, Admission in court, Performance) are the exceptions where an oral contract over $500 is enforceable under UCC.",
+     "correctAnswers": [
+      "Specially manufactured goods",
+      "Written confirmation between merchants not objected to within 10 days",
+      "Admissions made in court"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The 'RISE' acronym helps candidates remember that Common Law governs contracts for Real Estate, Insurance, ____, and Employment.",
+     "placeholder": "Type of contract",
+     "correctAnswers": [
+      "Services"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of Agency Authority types.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit3-q10.png"
+     },
+     "prompt": "Which type of agent authority is created entirely by the Principal's representations to a Third Party?",
+     "options": [
+      "Actual Express Authority",
+      "Actual Implied Authority",
+      "Apparent Authority",
+      "Gratuitous Authority"
+     ],
+     "explanation": "Apparent authority is based on what the Principal leads the Third Party to believe about the agent's power. Actual authority (express or implied) is based on the communication between the Principal and Agent.",
+     "correctAnswers": [
+      "Apparent Authority"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "A CPA is preparing a tax return and notices the client's information seems inconsistent with last year's records. What are the CPA's responsibilities under Circular 230?",
+     "options": [
+      "The CPA must perform a full audit of the client's books.",
+      "The CPA may rely on the client in good faith but cannot ignore the inconsistency.",
+      "The CPA must make 'reasonable inquiries' to resolve the inconsistency.",
+      "The CPA must report the client to the IRS immediately.",
+      "The CPA should document the inquiries made and the client's responses."
+     ],
+     "explanation": "CPAs aren't required to audit, but they cannot ignore 'red flags' or inconsistencies. They must inquire and document those inquiries before proceeding.",
+     "correctAnswers": [
+      "The CPA may rely on the client in good faith but cannot ignore the inconsistency.",
+      "The CPA must make 'reasonable inquiries' to resolve the inconsistency.",
+      "The CPA should document the inquiries made and the client's responses."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Under the Statute of Frauds, a contract that physically cannot be performed within ____ from the date of the agreement must be in writing.",
+     "placeholder": "Time period",
+     "correctAnswers": [
+      "One year",
+      "1 year",
+      "12 months"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "In a common law contract, if one party commits a 'minor breach' of a contract they have otherwise substantially performed, the non-breaching party:",
+     "options": [
+      "Is excused from all performance",
+      "Is still required to perform but may sue for damages",
+      "Must rescind the contract immediately",
+      "May only seek punitive damages"
+     ],
+     "explanation": "Under the doctrine of substantial performance, a minor breach does not discharge the other party's duty to perform, though they can seek compensatory damages for the deficiency.",
+     "correctAnswers": [
+      "Is still required to perform but may sue for damages"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'Actual Authority' for an agent?",
+     "options": [
+      "Express instructions given orally",
+      "Written instructions in a power of attorney",
+      "Authority the principal leads a third party to believe exists",
+      "Implied authority derived from custom or necessity",
+      "Ratification after the contract is signed"
+     ],
+     "explanation": "Actual authority includes both express (oral/written) and implied (custom/necessity). Representations to third parties create apparent authority.",
+     "correctAnswers": [
+      "Express instructions given orally",
+      "Written instructions in a power of attorney",
+      "Implied authority derived from custom or necessity"
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "What is the standard of proof required for the IRS to successfully impose 'criminal' penalties on a taxpayer?",
+     "options": [
+      "Preponderance of the evidence",
+      "Substantial authority",
+      "Beyond a reasonable doubt",
+      "Clear and convincing evidence"
+     ],
+     "explanation": "Criminal tax cases follow the same standard as other criminal matters: beyond a reasonable doubt. Civil cases typically require a preponderance of the evidence.",
+     "correctAnswers": [
+      "Beyond a reasonable doubt"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "multiple",
+     "prompt": "Under Common Law, what elements must be present for an 'Offer' to be valid?",
+     "options": [
+      "Identification of the offeree and the subject matter",
+      "Price",
+      "Quantity",
+      "Time of performance",
+      "A written signature by the offeror"
+     ],
+     "explanation": "Common Law requires 'definite terms' including price, quantity, time, and identity. UCC only strictly requires quantity. A signature is a Statute of Frauds issue, not a basic offer element.",
+     "correctAnswers": [
+      "Identification of the offeree and the subject matter",
+      "Price",
+      "Quantity",
+      "Time of performance"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "animation",
+     "prompt": "A principal tells a supplier, 'My agent is authorized to buy equipment for my shop.' Privately, the principal tells the agent, 'Do not spend more than $2,000.' The agent buys a machine for $3,500. Drag the 'Liability Tag' to the party legally bound to pay the supplier for the $3,500 contract.",
+     "options": [
+      "The Principal only",
+      "The Agent only",
+      "The Supplier only",
+      "Both Principal and Agent are equally liable to the supplier"
+     ],
+     "explanation": "The Principal created 'Apparent Authority' by telling the supplier the agent was authorized. While the agent breached 'Actual Authority' and may be liable to the principal for the $1,500 difference, the Principal is the only party bound to the third-party supplier for the full contract price.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Apparent Authority Interactive Diagram</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4fa;\n      --accent-strong: #2d3f61;\n      --tag-color: #d9534f;\n      --tag-color-soft: #fdf2f2;\n    }\n\n    * {\n      box-sizing: border-box;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    body {\n      background: var(--bg);\n      color: var(--fg);\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n      margin: 0;\n      padding: 12px;\n      width: 100%;\n      max-width: 100%;\n      overflow: hidden;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .instruction {\n      font-size: 13px;\n      color: var(--muted-fg);\n      margin-bottom: 8px;\n      text-align: center;\n    }\n\n    .stage {\n      position: relative;\n      width: 100%;\n      max-width: 480px;\n      height: 250px;\n      background: var(--stage);\n      border-radius: 12px;\n      border: 1px solid var(--border);\n      overflow: hidden;\n    }\n\n    /* SVG Connections */\n    .connections-svg {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 100%;\n      pointer-events: none;\n      z-index: 1;\n    }\n\n    .connection-line {\n      stroke: #d0ceca;\n      stroke-width: 2;\n      stroke-dasharray: 4 4;\n    }\n\n    .connection-label {\n      font-size: 10px;\n      fill: var(--muted-fg);\n      text-anchor: middle;\n      font-weight: 500;\n    }\n\n    /* Node Targets */\n    .node-target {\n      position: absolute;\n      width: 80px;\n      height: 80px;\n      border-radius: 50%;\n      background: var(--surface);\n      border: 2px dashed #ccc;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      z-index: 2;\n      cursor: pointer;\n      transition: border-color 0.2s, background-color 0.2s, transform 0.2s;\n    }\n\n    .node-target.active-target {\n      border: 2px solid var(--accent);\n      background: var(--accent-soft);\n      transform: scale(1.03);\n    }\n\n    .node-title {\n      font-size: 11px;\n      font-weight: 700;\n      color: var(--fg);\n      margin-top: 2px;\n    }\n\n    .node-desc {\n      font-size: 9px;\n      color: var(--muted-fg);\n      text-align: center;\n      line-height: 1;\n      padding: 0 4px;\n    }\n\n    /* Target Positions */\n    #target-principal { top: 12px; left: calc(50% - 40px); }\n    #target-agent { bottom: 85px; left: 16px; }\n    #target-supplier { bottom: 85px; right: 16px; }\n    #target-shared { bottom: 85px; left: calc(50% - 40px); }\n\n    /* The Draggable Tag */\n    .draggable-tag {\n      position: absolute;\n      z-index: 10;\n      background: var(--tag-color);\n      color: white;\n      font-weight: bold;\n      font-size: 11px;\n      padding: 6px 12px;\n      border-radius: 4px;\n      cursor: grab;\n      display: flex;\n      align-items: center;\n      gap: 5px;\n      box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n      touch-action: none;\n      transition: transform 0.15s cubic-bezier(.34,1.56,.64,1);\n    }\n\n    .draggable-tag:active {\n      cursor: grabbing;\n    }\n\n    .draggable-tag.dragging {\n      box-shadow: 0 8px 16px rgba(0,0,0,0.15);\n      transition: none;\n    }\n\n    .draggable-tag svg {\n      width: 12px;\n      height: 12px;\n      fill: currentColor;\n    }\n\n    /* Start Pocket */\n    .start-pocket {\n      position: absolute;\n      bottom: 12px;\n      left: 50%;\n      transform: translateX(-50%);\n      width: 140px;\n      height: 38px;\n      border-radius: 6px;\n      border: 1px dashed var(--border);\n      background: rgba(255,255,255,0.5);\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      z-index: 1;\n    }\n\n    .start-pocket-text {\n      font-size: 10px;\n      color: var(--muted-fg);\n      pointer-events: none;\n    }\n\n    /* Status Readout */\n    .readout {\n      margin-top: 8px;\n      font-size: 12px;\n      font-weight: 500;\n      min-height: 18px;\n      text-align: center;\n      color: var(--accent-strong);\n    }\n\n    /* Focus styling */\n    .draggable-tag:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Liability Assignment Diagram</h1>\n\n  <div class=\"instruction\">Drag the Liability Tag to assign legal responsibility:</div>\n\n  <div class=\"stage\" id=\"stage\">\n    <!-- SVG Connection lines -->\n    <svg class=\"connections-svg\">\n      <!-- Triangle lines -->\n      <line class=\"connection-line\" x1=\"50%\" y1=\"52\" x2=\"56\" y2=\"125\" />\n      <line class=\"connection-line\" x1=\"50%\" y1=\"52\" x2=\"344\" y2=\"125\" />\n      <line class=\"connection-line\" x1=\"56\" y1=\"125\" x2=\"344\" y2=\"125\" />\n      \n      <!-- Arrow labels / relationships -->\n      <text class=\"connection-label\" x=\"110\" y=\"85\">Agency</text>\n      <text class=\"connection-label\" x=\"290\" y=\"85\">Apparent Auth.</text>\n      <text class=\"connection-label\" x=\"200\" y=\"145\">Contract</text>\n    </svg>\n\n    <!-- Drop targets -->\n    <div class=\"node-target\" id=\"target-principal\" data-option=\"The Principal only\" role=\"button\" aria-label=\"Assign liability to the Principal only\">\n      <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"></path><circle cx=\"12\" cy=\"7\" r=\"4\"></circle></svg>\n      <div class=\"node-title\">Principal</div>\n      <div class=\"node-desc\">(Shop Owner)</div>\n    </div>\n\n    <div class=\"node-target\" id=\"target-agent\" data-option=\"The Agent only\" role=\"button\" aria-label=\"Assign liability to the Agent only\">\n      <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>\n      <div class=\"node-title\">Agent</div>\n      <div class=\"node-desc\">(Buyer)</div>\n    </div>\n\n    <div class=\"node-target\" id=\"target-shared\" data-option=\"Both Principal and Agent are equally liable to the supplier\" role=\"button\" aria-label=\"Assign liability jointly to Principal and Agent\">\n      <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"8\" cy=\"7\" r=\"4\"></circle><circle cx=\"18\" cy=\"8\" r=\"2\"></circle><path d=\"M22 12c.5.5 1 1 1 2v4\"></path></svg>\n      <div class=\"node-title\">Shared</div>\n      <div class=\"node-desc\">(Jointly Liable)</div>\n    </div>\n\n    <div class=\"node-target\" id=\"target-supplier\" data-option=\"The Supplier only\" role=\"button\" aria-label=\"Assign liability to the Supplier only\">\n      <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle></svg>\n      <div class=\"node-title\">Supplier</div>\n      <div class=\"node-desc\">(Equipment Co)</div>\n    </div>\n\n    <div class=\"start-pocket\" id=\"pocket\">\n      <span class=\"start-pocket-text\">Place Tag Here</span>\n    </div>\n\n    <!-- Draggable Tag -->\n    <div class=\"draggable-tag\" id=\"tag\" draggable=\"true\" tabindex=\"0\" role=\"slider\" aria-label=\"Liability Tag. Use Arrow keys to navigate targets.\" aria-valuetext=\"Unassigned\">\n      <svg viewBox=\"0 0 24 24\"><path d=\"M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z\"/></svg>\n      LIABILITY\n    </div>\n  </div>\n\n  <div class=\"readout\" id=\"readout\">Current Assignment: Unassigned</div>\n\n  <script>\n    const tag = document.getElementById('tag');\n    const stage = document.getElementById('stage');\n    const pocket = document.getElementById('pocket');\n    const readout = document.getElementById('readout');\n    const targets = document.querySelectorAll('.node-target');\n\n    let currentOption = null;\n    let isLocked = false;\n    let dragOffset = { x: 0, y: 0 };\n    let isDragging = false;\n\n    // Track original pocket position\n    const pocketRect = pocket.getBoundingClientRect();\n    const stageRect = stage.getBoundingClientRect();\n\n    // Position tag initially in the center of the pocket\n    let tagPos = {\n      x: stageRect.width / 2 - 47, // rough half width of tag\n      y: 204\n    };\n\n    function updateTagDOMPosition() {\n      tag.style.left = `${tagPos.x}px`;\n      tag.style.top = `${tagPos.y}px`;\n    }\n    updateTagDOMPosition();\n\n    // Resize observer for height reporting\n    try {\n      const ro = new ResizeObserver(() => {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      });\n      ro.observe(document.body);\n    } catch (e) {}\n\n    // Also trigger on window load\n    window.addEventListener('load', () => {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch(e){}\n    });\n\n    // Interaction handling\n    tag.addEventListener('pointerdown', onPointerDown);\n\n    function onPointerDown(e) {\n      if (isLocked) return;\n      isDragging = true;\n      tag.classList.add('dragging');\n      tag.setPointerCapture(e.pointerId);\n\n      const rect = tag.getBoundingClientRect();\n      const sRect = stage.getBoundingClientRect();\n      \n      // Keep track of exact click point relative to element origin to prevent jumping\n      dragOffset.x = e.clientX - rect.left;\n      dragOffset.y = e.clientY - rect.top;\n\n      tag.addEventListener('pointermove', onPointerMove);\n      tag.addEventListener('pointerup', onPointerUp);\n    }\n\n    function onPointerMove(e) {\n      if (!isDragging) return;\n      const sRect = stage.getBoundingClientRect();\n      \n      let x = e.clientX - sRect.left - dragOffset.x;\n      let y = e.clientY - sRect.top - dragOffset.y;\n\n      // Clamp inside the stage boundaries\n      const tagWidth = tag.offsetWidth;\n      const tagHeight = tag.offsetHeight;\n      x = Math.max(0, Math.min(x, sRect.width - tagWidth));\n      y = Math.max(0, Math.min(y, sRect.height - tagHeight));\n\n      tagPos.x = x;\n      tagPos.y = y;\n      updateTagDOMPosition();\n\n      // Live highlight closest target within threshold\n      let closestTarget = getClosestTarget();\n      targets.forEach(t => {\n        if (closestTarget && t === closestTarget.element) {\n          t.classList.add('active-target');\n        } else {\n          t.classList.remove('active-target');\n        }\n      });\n    }\n\n    function onPointerUp(e) {\n      if (!isDragging) return;\n      isDragging = false;\n      tag.classList.remove('dragging');\n      tag.releasePointerCapture(e.pointerId);\n\n      tag.removeEventListener('pointermove', onPointerMove);\n      tag.removeEventListener('pointerup', onPointerUp);\n\n      snapToDestination();\n    }\n\n    function getClosestTarget() {\n      const tagMidX = tagPos.x + tag.offsetWidth / 2;\n      const tagMidY = tagPos.y + tag.offsetHeight / 2;\n      let closest = null;\n      let minDistance = 55; // snapping threshold in px\n\n      targets.forEach(t => {\n        const rect = t.getBoundingClientRect();\n        const sRect = stage.getBoundingClientRect();\n        const tMidX = rect.left - sRect.left + rect.width / 2;\n        const tMidY = rect.top - sRect.top + rect.height / 2;\n\n        const dist = Math.hypot(tagMidX - tMidX, tagMidY - tMidY);\n        if (dist < minDistance) {\n          minDistance = dist;\n          closest = { element: t, x: tMidX - tag.offsetWidth / 2, y: tMidY - tag.offsetHeight / 2 };\n        }\n      });\n\n      return closest;\n    }\n\n    function snapToDestination() {\n      const closest = getClosestTarget();\n      \n      if (closest) {\n        tagPos.x = closest.x;\n        tagPos.y = closest.y;\n        updateTagDOMPosition();\n\n        const newOption = closest.element.getAttribute('data-option');\n        if (newOption !== currentOption) {\n          currentOption = newOption;\n          readout.textContent = `Current Assignment: ${currentOption}`;\n          tag.setAttribute('aria-valuetext', currentOption);\n          parent.postMessage({ type: 'hk-practice-answer', value: currentOption }, '*');\n        }\n      } else {\n        // Return to start pocket\n        const sRect = stage.getBoundingClientRect();\n        tagPos.x = sRect.width / 2 - tag.offsetWidth / 2;\n        tagPos.y = 204;\n        updateTagDOMPosition();\n\n        if (currentOption !== null) {\n          currentOption = null;\n          readout.textContent = \"Current Assignment: Unassigned\";\n          tag.setAttribute('aria-valuetext', \"Unassigned\");\n        }\n      }\n\n      // Reset target highlights\n      targets.forEach(t => t.classList.remove('active-target'));\n    }\n\n    // Keyboard navigation (A11y)\n    let keyboardIndex = -1; // -1 is pocket\n    const targetOrder = [\n      { id: 'pocket', option: null, x: null, y: 204 },\n      { id: 'target-principal', option: 'The Principal only' },\n      { id: 'target-agent', option: 'The Agent only' },\n      { id: 'target-shared', option: 'Both Principal and Agent are equally liable to the supplier' },\n      { id: 'target-supplier', option: 'The Supplier only' }\n    ];\n\n    tag.addEventListener('keydown', (e) => {\n      if (isLocked) return;\n      if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'Tab') {\n        if (e.key === 'Tab' && e.shiftKey) return; // Allow normal shift-tabbing out\n        e.preventDefault();\n        keyboardIndex = (keyboardIndex + 1) % targetOrder.length;\n        moveTagToKeyboardTarget();\n      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n        e.preventDefault();\n        keyboardIndex = (keyboardIndex - 1 + targetOrder.length) % targetOrder.length;\n        moveTagToKeyboardTarget();\n      }\n    });\n\n    function moveTagToKeyboardTarget() {\n      const current = targetOrder[keyboardIndex];\n      const sRect = stage.getBoundingClientRect();\n      \n      if (current.id === 'pocket') {\n        tagPos.x = sRect.width / 2 - tag.offsetWidth / 2;\n        tagPos.y = current.y;\n      } else {\n        const targetEl = document.getElementById(current.id);\n        const rect = targetEl.getBoundingClientRect();\n        const tMidX = rect.left - sRect.left + rect.width / 2;\n        const tMidY = rect.top - sRect.top + rect.height / 2;\n        tagPos.x = tMidX - tag.offsetWidth / 2;\n        tagPos.y = tMidY - tag.offsetHeight / 2;\n      }\n\n      updateTagDOMPosition();\n\n      if (current.option !== currentOption) {\n        currentOption = current.option;\n        readout.textContent = currentOption ? `Current Assignment: ${currentOption}` : \"Current Assignment: Unassigned\";\n        tag.setAttribute('aria-valuetext', currentOption || \"Unassigned\");\n        if (currentOption) {\n          parent.postMessage({ type: 'hk-practice-answer', value: currentOption }, '*');\n        }\n      }\n    }\n\n    // Listen for locking message from host\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        tag.style.pointerEvents = 'none';\n        tag.style.cursor = 'default';\n        tag.removeAttribute('tabindex');\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "The Principal only"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Business Analysis and Reporting (BAR) Discipline Exam",
+   "unitId": "unit4",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "During a vertical analysis of an Income Statement, what is the standard 'anchor base' used to express all other line items as a percentage?",
+     "options": [
+      "Gross Profit",
+      "Net Sales",
+      "Operating Income",
+      "Total Assets"
+     ],
+     "explanation": "In vertical analysis of the income statement, Net Sales (or Revenue) is the 100% anchor base. Total Assets is the anchor base for balance sheet vertical analysis.",
+     "correctAnswers": [
+      "Net Sales"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following scenarios would render a standard year-over-year percentage change calculation logically meaningless or mathematically impossible?",
+     "options": [
+      "The base year value is zero.",
+      "The base year value is a negative number (net loss).",
+      "The current year value is significantly higher than the base year.",
+      "The current year value is equal to the base year value."
+     ],
+     "explanation": "Percentage change formulas divide by the base year; if the base is zero, the result is undefined. If the base is negative, the resulting percentage does not accurately reflect the direction or magnitude of the economic change.",
+     "correctAnswers": [
+      "The base year value is zero.",
+      "The base year value is a negative number (net loss)."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "In horizontal analysis, the formula for calculating percentage change is (Current Year Value - Base Year Value) / ____.",
+     "placeholder": "denominator",
+     "correctAnswers": [
+      "Base Year Value"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "image": {
+      "alt": "Comparison of current and quick asset components.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit4-q4.png"
+     },
+     "prompt": "A company has a current ratio of 2.5 and a quick ratio of 0.8. Which of the following is the most likely explanation for this discrepancy?",
+     "options": [
+      "The company has very little long-term debt.",
+      "The company holds a large amount of slow-moving inventory.",
+      "The company has excessive cash reserves.",
+      "The company's accounts payable are extremely low."
+     ],
+     "explanation": "The quick ratio excludes inventory from current assets. A high current ratio paired with a low quick ratio indicates that a significant portion of current assets is tied up in inventory rather than more liquid assets.",
+     "correctAnswers": [
+      "The company holds a large amount of slow-moving inventory."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "To maintain statistical integrity when calculating turnover ratios, which of the following pairs correctly match an Income Statement 'flow' variable with its corresponding Balance Sheet 'point-in-time' average?",
+     "options": [
+      "Cost of Goods Sold and Average Inventory",
+      "Net Credit Sales and Average Accounts Receivable",
+      "Net Income and Total Assets at year-end",
+      "Operating Expenses and Average Current Liabilities"
+     ],
+     "explanation": "Turnover ratios should match the income statement activity (flow) with the average balance of the related asset over that same period to ensure consistency.",
+     "correctAnswers": [
+      "Cost of Goods Sold and Average Inventory",
+      "Net Credit Sales and Average Accounts Receivable"
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The ____ measures the 'goodness of fit' of a regression model, representing the percentage of variation in the dependent variable explained by the independent variable.",
+     "placeholder": "statistical term",
+     "correctAnswers": [
+      "R-squared",
+      "Coefficient of Determination"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "In a linear regression model for cost projection (Y = a + bX), what does the 'a' coefficient represent?",
+     "options": [
+      "Variable cost per unit",
+      "Total variable costs",
+      "Total fixed costs",
+      "The correlation coefficient"
+     ],
+     "explanation": "In the cost equation, 'a' is the Y-intercept, representing the fixed costs incurred even when the activity level (X) is zero.",
+     "correctAnswers": [
+      "Total fixed costs"
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are characteristics of structured data in a business context?",
+     "options": [
+      "Stored in fixed fields within a relational database",
+      "Includes general ledger transaction records",
+      "Consists of unformatted customer complaint emails",
+      "Easily searchable using SQL (Structured Query Language)"
+     ],
+     "explanation": "Structured data is highly organized and follows a predefined schema, like tables in a database. Emails are considered unstructured data.",
+     "correctAnswers": [
+      "Stored in fixed fields within a relational database",
+      "Includes general ledger transaction records",
+      "Easily searchable using SQL (Structured Query Language)"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "If a company's Debt-to-Equity ratio is 1.5 and Total Equity is $200,000, the Total Debt must be $____.",
+     "placeholder": "amount",
+     "correctAnswers": [
+      "300,000"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "An analyst wants to determine if a specific cost driver is statistically significant. Which regression output metric should they examine?",
+     "options": [
+      "R-squared",
+      "P-value",
+      "The slope",
+      "The Y-intercept"
+     ],
+     "explanation": "The p-value tests the null hypothesis that the coefficient is zero; a p-value typically below 0.05 indicates the independent variable is a statistically significant driver.",
+     "correctAnswers": [
+      "P-value"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "When interpreting a histogram, which of the following statements are true?",
+     "options": [
+      "It shows the frequency of data points within specific ranges or bins.",
+      "The X-axis always represents a chronological timeline.",
+      "It helps identify the distribution (e.g., normal, skewed) of a dataset.",
+      "It is used to compare discrete categories like 'Region A' vs 'Region B'."
+     ],
+     "explanation": "Histograms show frequency distributions of continuous data. Unlike line charts, the X-axis represents value intervals (bins), not necessarily time.",
+     "correctAnswers": [
+      "It shows the frequency of data points within specific ranges or bins.",
+      "It helps identify the distribution (e.g., normal, skewed) of a dataset."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "Trend analysis is a form of ____ analysis because it evaluates financial information over multiple consecutive periods.",
+     "placeholder": "direction",
+     "correctAnswers": [
+      "Horizontal"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "image": {
+      "alt": "Scatter plot showing positive correlation.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit4-q13.png"
+     },
+     "prompt": "Which type of visualization is most appropriate for showing the relationship or correlation between two different quantitative variables?",
+     "options": [
+      "Histogram",
+      "Line chart",
+      "Scatter plot",
+      "Pie chart"
+     ],
+     "explanation": "Scatter plots map individual data points on two axes to visually identify patterns, trends, or correlations between two variables.",
+     "correctAnswers": [
+      "Scatter plot"
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which factors are typically included in the 'Relevant Range' assumption for cost forecasting?",
+     "options": [
+      "Efficiencies remain constant.",
+      "Fixed costs remain constant in total.",
+      "Variable costs per unit remain constant.",
+      "The regression line is valid for production levels at double the historical capacity."
+     ],
+     "explanation": "The relevant range is the level of activity where cost behavior assumptions hold true. Projecting far outside historical levels (like doubling capacity) usually violates these assumptions.",
+     "correctAnswers": [
+      "Efficiencies remain constant.",
+      "Fixed costs remain constant in total.",
+      "Variable costs per unit remain constant."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "fill",
+     "prompt": "In the regression output, a ____ of 0.02 would suggest the relationship is statistically significant at a 95% confidence level.",
+     "placeholder": "metric",
+     "correctAnswers": [
+      "P-value",
+      "p value"
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "single",
+     "prompt": "In a relational database, what is the term for a field in a 'Sales' table that links to the 'Primary Key' of a 'Products' table?",
+     "options": [
+      "Foreign Key",
+      "Candidate Key",
+      "Unique Identifier",
+      "Composite Key"
+     ],
+     "explanation": "A foreign key is a field in one table that uniquely identifies a row of another table, establishing a logical link between them.",
+     "correctAnswers": [
+      "Foreign Key"
+     ]
+    },
+    {
+     "id": "q17",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of qualitative variables in data analysis?",
+     "options": [
+      "Product Category",
+      "Customer Region",
+      "Transaction Amount",
+      "Inventory Quantity"
+     ],
+     "explanation": "Qualitative (categorical) variables describe attributes or labels. Transaction amounts and quantities are quantitative (numerical) variables.",
+     "correctAnswers": [
+      "Product Category",
+      "Customer Region"
+     ]
+    },
+    {
+     "id": "q18",
+     "type": "single",
+     "prompt": "Which of the following would be the most conservative measure of a company's ability to meet its short-term obligations?",
+     "options": [
+      "Current Ratio",
+      "Quick Ratio",
+      "Cash Ratio",
+      "Debt-to-Assets Ratio"
+     ],
+     "explanation": "The cash ratio is the most conservative liquidity metric because it only considers cash and cash equivalents, excluding inventory and receivables.",
+     "correctAnswers": [
+      "Cash Ratio"
+     ]
+    },
+    {
+     "id": "q19",
+     "type": "multiple",
+     "prompt": "What are the primary objectives of using common-size financial statements?",
+     "options": [
+      "To compare companies of different sizes.",
+      "To identify trends in the composition of assets over time.",
+      "To calculate the exact dollar amount of future tax liabilities.",
+      "To evaluate the relative proportion of expenses to sales."
+     ],
+     "explanation": "Common-size statements use percentages to remove the effect of absolute size, allowing for easier comparison across firms and time periods.",
+     "correctAnswers": [
+      "To compare companies of different sizes.",
+      "To identify trends in the composition of assets over time.",
+      "To evaluate the relative proportion of expenses to sales."
+     ]
+    },
+    {
+     "id": "q20",
+     "type": "animation",
+     "prompt": "Use the regression modeling tool to determine the expected total cost at a production level of 5,000 units.",
+     "options": [
+      "$15,000 (Incorrect intercept)",
+      "$20,000 (Correct projection)",
+      "$25,000 (High variable rate)",
+      "$10,000 (Fixed costs only)"
+     ],
+     "explanation": "By applying the regression formula (Fixed Costs + [Variable Rate * Units]), the total cost is determined. $20,000 reflects the correct sum of $10,000 fixed costs and $10,000 total variable costs ($2/unit).",
+     "animationHtml": "<!DOCTYPE html>`\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Regression Cost Model</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #666666;\n      --accent: #4C6696;\n      --accent-soft: #f0f4f8;\n      --accent-strong: #3a4f78;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 480px;\n      margin: 0 auto;\n      padding: 12px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n    }\n\n    /* Interactive Graph Stage */\n    .stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 12px;\n      position: relative;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n    }\n\n    .stage-svg {\n      width: 100%;\n      height: auto;\n      display: block;\n      overflow: visible;\n    }\n\n    /* Controls Panel */\n    .controls {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 12px;\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 8px;\n      padding: 10px 12px;\n    }\n\n    .control-group {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n    }\n\n    .control-label {\n      font-size: 11px;\n      font-weight: 600;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n      color: var(--muted-fg);\n      display: flex;\n      justify-content: space-between;\n    }\n\n    .control-val {\n      color: var(--accent-strong);\n      font-variant-numeric: tabular-nums;\n    }\n\n    /* Custom Slider Styles */\n    .slider {\n      -webkit-appearance: none;\n      width: 100%;\n      height: 6px;\n      border-radius: 3px;\n      background: var(--stage);\n      outline: none;\n      margin: 6px 0;\n      padding: 0;\n    }\n\n    .slider::-webkit-slider-thumb {\n      -webkit-appearance: none;\n      appearance: none;\n      width: 16px;\n      height: 16px;\n      border-radius: 50%;\n      background: var(--accent);\n      cursor: grab;\n      border: 2px solid var(--surface);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.2);\n      transition: background 0.15s, transform 0.15s;\n    }\n\n    .slider::-webkit-slider-thumb:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n      transform: scale(1.1);\n    }\n\n    .slider::-moz-range-thumb {\n      width: 16px;\n      height: 16px;\n      border-radius: 50%;\n      background: var(--accent);\n      cursor: grab;\n      border: 2px solid var(--surface);\n      box-shadow: 0 1px 3px rgba(0,0,0,0.2);\n      transition: background 0.15s, transform 0.15s;\n    }\n\n    .slider::-moz-range-thumb:active {\n      cursor: grabbing;\n      background: var(--accent-strong);\n      transform: scale(1.1);\n    }\n\n    .slider:focus-visible::-webkit-slider-thumb {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    .slider:focus-visible::-moz-range-thumb {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n\n    /* Hint / Instructions footer */\n    .hint {\n      text-align: center;\n      font-size: 11px;\n      color: var(--muted-fg);\n      margin-top: -4px;\n    }\n\n    /* Active Selection Card Indicator */\n    .active-card {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      background: var(--accent-soft);\n      border: 1px solid var(--accent);\n      border-radius: 6px;\n      padding: 8px 12px;\n      font-size: 13px;\n      font-weight: 500;\n    }\n\n    .active-card-label {\n      color: var(--accent-strong);\n    }\n\n    .active-card-val {\n      font-weight: 700;\n      font-size: 15px;\n      color: var(--accent-strong);\n      font-variant-numeric: tabular-nums;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Interactive Regression Line Model Explorer</h1>\n\n  <div class=\"widget-container\">\n    <!-- Graph Stage -->\n    <div class=\"stage\">\n      <svg class=\"stage-svg\" viewBox=\"0 0 400 190\" aria-hidden=\"true\">\n        <!-- Grid Lines -->\n        <line x1=\"50\" y1=\"150\" x2=\"380\" y2=\"150\" stroke=\"#e8e8e8\" stroke-width=\"1.5\" />\n        <line x1=\"50\" y1=\"110\" x2=\"380\" y2=\"110\" stroke=\"#f0f0f0\" stroke-width=\"1\" />\n        <line x1=\"50\" y1=\"70\" x2=\"380\" y2=\"70\" stroke=\"#f0f0f0\" stroke-width=\"1\" />\n        <line x1=\"50\" y1=\"30\" x2=\"380\" y2=\"30\" stroke=\"#f0f0f0\" stroke-width=\"1\" />\n        <line x1=\"50\" y1=\"10\" x2=\"50\" y2=\"150\" stroke=\"#e8e8e8\" stroke-width=\"1.5\" />\n\n        <!-- Grid Labels (Y-axis: Cost) -->\n        <text x=\"42\" y=\"154\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\" font-family=\"monospace\">$0</text>\n        <text x=\"42\" y=\"114\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\" font-family=\"monospace\">$10,000</text>\n        <text x=\"42\" y=\"74\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\" font-family=\"monospace\">$20,000</text>\n        <text x=\"42\" y=\"34\" font-size=\"10\" fill=\"#888\" text-anchor=\"end\" font-family=\"monospace\">$30,000</text>\n\n        <!-- Grid Labels (X-axis: Production) -->\n        <text x=\"50\" y=\"164\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\" font-family=\"monospace\">0</text>\n        <text x=\"215\" y=\"164\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\" font-family=\"monospace\">5,000</text>\n        <text x=\"380\" y=\"164\" font-size=\"10\" fill=\"#888\" text-anchor=\"middle\" font-family=\"monospace\">10,000</text>\n\n        <!-- Fixed Intercept Marker -->\n        <circle cx=\"50\" cy=\"110\" r=\"4.5\" fill=\"#d97706\" />\n        <text x=\"56\" y=\"106\" font-size=\"9\" font-weight=\"bold\" fill=\"#d97706\">Fixed Cost ($10,000)</text>\n\n        <!-- Regression Line -->\n        <line id=\"regression-line\" x1=\"50\" y1=\"110\" x2=\"380\" y2=\"110\" stroke=\"var(--accent)\" stroke-width=\"3\" stroke-linecap=\"round\" />\n\n        <!-- Projection Helpers (Dashed Lines) -->\n        <line id=\"vertical-proj\" x1=\"215\" y1=\"150\" x2=\"215\" y2=\"110\" stroke=\"#666\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\" />\n        <line id=\"horizontal-proj\" x1=\"50\" y1=\"110\" x2=\"215\" y2=\"110\" stroke=\"#666\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\" />\n\n        <!-- Intersect point marker -->\n        <circle id=\"intersect-point\" cx=\"215\" cy=\"110\" r=\"5\" fill=\"var(--accent-strong)\" />\n      </svg>\n    </div>\n\n    <!-- Active Choice Indicator -->\n    <div class=\"active-card\">\n      <span class=\"active-card-label\">Projected Cost at 5,000 Units:</span>\n      <span id=\"active-value\" class=\"active-card-val\">$10,000</span>\n    </div>\n\n    <!-- Interactive Sliders -->\n    <div class=\"controls\">\n      <div class=\"control-group\">\n        <label class=\"control-label\" for=\"x-slider\">\n          Production Units\n        </label>\n        <input type=\"range\" id=\"x-slider\" class=\"slider\" min=\"0\" max=\"10000\" step=\"500\" value=\"5000\" aria-label=\"Production Units\">\n        <div style=\"font-size: 11px; font-weight: bold; text-align: center;\" id=\"x-readout\">5,000 units</div>\n      </div>\n\n      <div class=\"control-group\">\n        <label class=\"control-label\" for=\"rate-slider\">\n          Variable Rate\n        </label>\n        <input type=\"range\" id=\"rate-slider\" class=\"slider\" min=\"0\" max=\"3\" step=\"1\" value=\"0\" aria-label=\"Variable rate slope selector\">\n        <div style=\"font-size: 11px; font-weight: bold; text-align: center;\" id=\"rate-readout\">$0 / unit</div>\n      </div>\n    </div>\n\n    <div class=\"hint\">\n      Drag sliders to match conditions and find the expected cost.\n    </div>\n  </div>\n\n  <script>\n    // Variables & Elements\n    const xSlider = document.getElementById('x-slider');\n    const rateSlider = document.getElementById('rate-slider');\n    const xReadout = document.getElementById('x-readout');\n    const rateReadout = document.getElementById('rate-readout');\n    const activeValue = document.getElementById('active-value');\n\n    const regLine = document.getElementById('regression-line');\n    const vertProj = document.getElementById('vertical-proj');\n    const horizProj = document.getElementById('horizontal-proj');\n    const intersectPoint = document.getElementById('intersect-point');\n\n    // Graph Mapping Configuration\n    // X-axis: 50 px is 0 units, 380 px is 10,000 units. Width = 330 px.\n    // Y-axis: 150 px is $0, 110 px is $10,000, 70 px is $20,000, 30 px is $30,000. 40 px = $10,000.\n    const xZero = 50;\n    const xMax = 380;\n    const yZero = 150;\n    const yTenK = 110;\n    const pxPerUnit = 330 / 10000;\n    const pxPerDollar = 40 / 10000;\n\n    const rateValues = [0, 1, 2, 3]; // Variable rates per unit\n    const optionsMap = {\n      0: '$10,000',\n      1: '$15,000',\n      2: '$20,000',\n      3: '$25,000'\n    };\n\n    function update() {\n      const units = parseInt(xSlider.value, 10);\n      const rateIndex = parseInt(rateSlider.value, 10);\n      const rate = rateValues[rateIndex];\n\n      // Formulate Readouts\n      xReadout.textContent = units.toLocaleString() + ' units';\n      rateReadout.textContent = '$' + rate + ' / unit';\n\n      // Calculations\n      // Line is defined by Y = 10000 + Rate * X\n      // Map Line Endpoint (at X = 10,000)\n      const endYVal = 10000 + rate * 10000;\n      const endYPx = yZero - (endYVal * pxPerDollar);\n      regLine.setAttribute('x2', xMax);\n      regLine.setAttribute('y2', endYPx);\n\n      // Map Intersect point (at chosen X)\n      const currentYVal = 10000 + rate * units;\n      const currentXPx = xZero + (units * pxPerUnit);\n      const currentYPx = yZero - (currentYVal * pxPerDollar);\n\n      // Update interactive helper elements\n      intersectPoint.setAttribute('cx', currentXPx);\n      intersectPoint.setAttribute('cy', currentYPx);\n\n      vertProj.setAttribute('x1', currentXPx);\n      vertProj.setAttribute('x2', currentXPx);\n      vertProj.setAttribute('y2', currentYPx);\n\n      horizProj.setAttribute('y1', currentYPx);\n      horizProj.setAttribute('y2', currentYPx);\n      horizProj.setAttribute('x2', currentXPx);\n\n      // Target selection readout (Evaluate at 5,000 units specifically to match Option reporting)\n      const projectedCostAt5000 = 10000 + (rate * 5000);\n      const currentOptionString = optionsMap[rateIndex];\n      activeValue.textContent = '$' + projectedCostAt5000.toLocaleString();\n\n      // Post Answer corresponding to the current Dial State\n      parent.postMessage({ type: 'hk-practice-answer', value: currentOptionString }, '*');\n    }\n\n    // Event Listeners\n    xSlider.addEventListener('input', update);\n    rateSlider.addEventListener('input', update);\n\n    // Initial Trigger\n    window.addEventListener('load', () => {\n      update();\n      sendHeight();\n    });\n\n    // Resize Observer for height reporting\n    function sendHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    const resizeObserver = new ResizeObserver(() => {\n      sendHeight();\n    });\n    resizeObserver.observe(document.body);\n\n    // Lock Handling\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        xSlider.disabled = true;\n        rateSlider.disabled = true;\n        xSlider.style.pointerEvents = 'none';\n        rateSlider.style.pointerEvents = 'none';\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "$20,000 (Correct projection)"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Information Systems and Controls (ISC) Discipline Exam",
+   "unitId": "unit5",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "image": {
+      "alt": "Diagram of 3-tier ERP architecture showing the separation of UI and data storage.",
+      "src": "/api/v1/course-generation/users/marketplaceSeed/courses/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/exam/images/unit5-q1.png"
+     },
+     "prompt": "In a secure ERP architecture, why is a 'Red X' visually placed between the Presentation Layer and the Database Layer?",
+     "options": [
+      "To prevent users from seeing the source code of the application.",
+      "To ensure users cannot bypass the Application Layer and write unauthorized transactions directly to the database.",
+      "To limit the amount of network bandwidth consumed by the user interface.",
+      "To separate the physical storage hardware from the logical operating system."
+     ],
+     "explanation": "Security controls and business logic are enforced at the Application Layer; direct access to the database would allow users to circumvent these controls.",
+     "correctAnswers": [
+      "To ensure users cannot bypass the Application Layer and write unauthorized transactions directly to the database."
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following are inputs required for a standard 'Three-Way Match' control in the expenditure cycle?",
+     "options": [
+      "Purchase Requisition",
+      "Purchase Order",
+      "Receiving Report",
+      "Vendor Invoice",
+      "Bill of Lading"
+     ],
+     "explanation": "The three-way match compares what was ordered (PO), what was actually delivered (Receiving Report), and what the vendor is charging (Invoice) before authorizing payment.",
+     "correctAnswers": [
+      "Purchase Order",
+      "Receiving Report",
+      "Vendor Invoice"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "The practice of omitting quantities on the copy of the purchase order sent to the warehouse is known as a ____ purchase order.",
+     "placeholder": "Enter term",
+     "correctAnswers": [
+      "blind"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "In a relational database, what is the primary purpose of a 'Foreign Key'?",
+     "options": [
+      "To act as a unique identifier for every row in its own table.",
+      "To encrypt sensitive data fields from unauthorized users.",
+      "To establish a logical relationship by linking to a primary key in another table.",
+      "To speed up the extraction process during the ETL phase."
+     ],
+     "explanation": "Foreign keys are the mechanism used to join tables together, such as linking a specific Sales Order to a specific Customer ID.",
+     "correctAnswers": [
+      "To establish a logical relationship by linking to a primary key in another table."
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "Regarding the Systems Development Life Cycle (SDLC), which segregation of duties (SoD) violations should an auditor look for?",
+     "options": [
+      "A developer has write access to the Production environment.",
+      "A business user performs User Acceptance Testing (UAT).",
+      "The person who writes the code also promotes it to the live system.",
+      "System operators have access to the Development environment.",
+      "The Release Manager is independent of the Development team."
+     ],
+     "explanation": "Developers should never have access to live production data or the ability to deploy their own code, as this creates a risk of unauthorized or fraudulent changes.",
+     "correctAnswers": [
+      "A developer has write access to the Production environment.",
+      "The person who writes the code also promotes it to the live system."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "In the ETL process, the '____' phase is where data cleansing, de-duplication, and currency conversion occur.",
+     "placeholder": "Phase name",
+     "correctAnswers": [
+      "Transform",
+      "Transformation"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "What is the primary difference between OLTP and OLAP systems?",
+     "options": [
+      "OLTP is used for historical analysis, while OLAP handles daily transactions.",
+      "OLTP is optimized for heavy queries, while OLAP is optimized for data integrity.",
+      "OLTP handles real-time business transactions, while OLAP is a data warehouse used for complex reporting.",
+      "OLTP refers to the Presentation layer, while OLAP refers to the Database layer."
+     ],
+     "explanation": "Separating transactional (OLTP) and analytical (OLAP) environments prevents heavy reporting queries from slowing down live business operations.",
+     "correctAnswers": [
+      "OLTP handles real-time business transactions, while OLAP is a data warehouse used for complex reporting."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following are considered 'Trust Services Criteria' typically evaluated in a SOC 2 report?",
+     "options": [
+      "Security",
+      "Profitability",
+      "Availability",
+      "Confidentiality",
+      "Market Share"
+     ],
+     "explanation": "The Trust Services Criteria include Security, Availability, Processing Integrity, Confidentiality, and Privacy.",
+     "correctAnswers": [
+      "Security",
+      "Availability",
+      "Confidentiality"
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "In a relational database, '____' integrity ensures that no sales record can point to an item ID that does not exist in the master inventory table.",
+     "placeholder": "Type property",
+     "correctAnswers": [
+      "referential"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "Which type of SOC report provides an opinion on the fairness of the presentation and suitability of the design of controls at a specific point in time (but not their operating effectiveness over a period)?",
+     "options": [
+      "SOC 1 Type 1",
+      "SOC 1 Type 2",
+      "SOC 2 Type 2",
+      "SOC 3"
+     ],
+     "explanation": "Type 1 reports focus on the design and implementation of controls at a specific date, whereas Type 2 reports test the operating effectiveness over a period of time.",
+     "correctAnswers": [
+      "SOC 1 Type 1"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "Which of the following are examples of User Entity Controls (UECs) when using a third-party payroll provider?",
+     "options": [
+      "The provider's data center physical security.",
+      "The user company's review of the provider's SOC report.",
+      "The user company's internal authorization of employee hours before sending to the provider.",
+      "The provider's encryption algorithms for data at rest.",
+      "The user company's timely removal of terminated employees from the payroll portal."
+     ],
+     "explanation": "UECs are controls that the user organization (the client) must implement themselves to ensure the service provider's system works securely in conjunction with their own.",
+     "correctAnswers": [
+      "The user company's review of the provider's SOC report.",
+      "The user company's internal authorization of employee hours before sending to the provider.",
+      "The user company's timely removal of terminated employees from the payroll portal."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "single",
+     "prompt": "An auditor notices a SQL query using 'SELECT * FROM Inventory WHERE UnitCost > 100'. What is the purpose of the 'WHERE' clause?",
+     "options": [
+      "To specify which columns to display.",
+      "To join two tables together.",
+      "To filter the results based on a specific condition.",
+      "To create a new primary key for the table."
+     ],
+     "explanation": "The WHERE clause is used to filter records that meet a certain criterion, in this case, items costing more than 100.",
+     "correctAnswers": [
+      "To filter the results based on a specific condition."
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "multiple",
+     "prompt": "What risks are associated with an 'emergency change' process that allows developers to bypass standard promotion controls?",
+     "options": [
+      "Introduction of malicious code (backdoors).",
+      "Improved system uptime during outages.",
+      "Unintentional disruption of other system modules.",
+      "Lack of an audit trail for the change.",
+      "Reduced costs of software development."
+     ],
+     "explanation": "Emergency overrides bypass the peer review and testing that prevent bugs and fraud, even if they solve an immediate crisis.",
+     "correctAnswers": [
+      "Introduction of malicious code (backdoors).",
+      "Unintentional disruption of other system modules.",
+      "Lack of an audit trail for the change."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "single",
+     "prompt": "Why should a 'blind copy' of a Purchase Order be sent to the receiving department?",
+     "options": [
+      "To hide the identity of the vendor from warehouse staff.",
+      "To ensure warehouse staff physically count the items received.",
+      "To prevent the warehouse from knowing the total budget of the company.",
+      "To speed up the data entry process for the receiving clerk."
+     ],
+     "explanation": "If the clerk knows the expected quantity, they may simply sign off without counting, leading to inventory errors and potential fraud.",
+     "correctAnswers": [
+      "To ensure warehouse staff physically count the items received."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "animation",
+     "prompt": "A developer has finished fixing a bug in the ERP payroll module. Use the interface to move the code through the correct secure pipeline until it is ready for live business use.",
+     "options": [
+      "Dev -> Prod",
+      "Dev -> Test -> Prod",
+      "Test -> Dev -> Prod",
+      "Dev -> Test -> Dev"
+     ],
+     "explanation": "Code must always be developed in Dev, move to an independent Test environment for QA/UAT, and only then be promoted to Production by an authorized third party.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Pipeline Deployment Simulator</title>\n<style>\n  :root {\n    --bg: #faf9f7;\n    --surface: #ffffff;\n    --stage: #f3f1ec;\n    --border: #e2e2e2;\n    --fg: #1f1f1f;\n    --muted-fg: #757575;\n    --accent: #4C6696;\n    --accent-soft: #f5f8fc;\n    --accent-strong: #3a4f78;\n    --dev-color: #5c85ad;\n    --test-color: #e09f3e;\n    --prod-color: #52b788;\n  }\n\n  * {\n    box-sizing: border-box;\n    user-select: none;\n    -webkit-user-select: none;\n  }\n\n  body {\n    background: var(--bg);\n    color: var(--fg);\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif;\n    margin: 0;\n    padding: 12px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    min-height: 100vh;\n    overflow: hidden;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n\n  #widget-container {\n    width: 100%;\n    max-width: 580px;\n    background: var(--surface);\n    border: 1px solid var(--border);\n    border-radius: 12px;\n    padding: 16px;\n    box-shadow: 0 4px 12px rgba(0,0,0,0.03);\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n  }\n\n  /* Instruction / Action Hint */\n  .action-hint {\n    font-size: 13px;\n    color: var(--muted-fg);\n    text-align: center;\n    margin: 0;\n  }\n\n  /* Stage styling */\n  .stage {\n    background: var(--stage);\n    border-radius: 8px;\n    height: 180px;\n    position: relative;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 24px;\n    overflow: hidden;\n    border: 1px dashed rgba(0,0,0,0.05);\n  }\n\n  /* Server Racks */\n  .rack {\n    width: 28%;\n    height: 140px;\n    background: #2e3033;\n    border-radius: 6px;\n    border-top: 4px solid var(--dev-color);\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    padding: 8px 4px;\n    box-shadow: 0 6px 12px rgba(0,0,0,0.15);\n    transition: transform 0.2s ease, box-shadow 0.2s ease;\n  }\n\n  .rack.rack-test {\n    border-top-color: var(--test-color);\n  }\n\n  .rack.rack-prod {\n    border-top-color: var(--prod-color);\n  }\n\n  /* Visual Server Slots inside Racks */\n  .rack-slots {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n    margin-top: 8px;\n    flex-grow: 1;\n    justify-content: center;\n  }\n\n  .server-slot {\n    height: 12px;\n    background: #1e2022;\n    border-radius: 2px;\n    border-left: 3px solid #444;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    padding-right: 6px;\n    position: relative;\n  }\n\n  .led {\n    width: 4px;\n    height: 4px;\n    border-radius: 50%;\n    background: #555;\n  }\n\n  .rack-dev .led { background: var(--dev-color); }\n  .rack-test .led { background: #555; }\n  .rack-prod .led { background: #555; }\n\n  /* Interactive Drop Zone Area on each rack */\n  .drop-zone {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    border-radius: 6px;\n    border: 2px dashed transparent;\n    transition: background-color 0.2s, border-color 0.2s;\n    z-index: 1;\n    cursor: pointer;\n  }\n\n  .drop-zone.hovered {\n    border-color: var(--accent);\n    background: rgba(76, 102, 150, 0.15);\n  }\n\n  .rack-label {\n    font-size: 11px;\n    font-weight: 700;\n    text-transform: uppercase;\n    color: #e2e2e2;\n    letter-spacing: 0.5px;\n    text-align: center;\n  }\n\n  /* Pipes / Connectors */\n  .pipe {\n    flex-grow: 1;\n    height: 8px;\n    background: #dcd9d0;\n    position: relative;\n    border-radius: 4px;\n    margin: 0 -8px;\n    z-index: 0;\n  }\n\n  .pipe-flow {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 100%;\n    width: 0;\n    background: repeating-linear-gradient(90deg, #b0c2de, #b0c2de 4px, var(--accent) 4px, var(--accent) 8px);\n    border-radius: 4px;\n    transition: width 0.3s ease;\n  }\n\n  /* Code Block (Draggable) */\n  .code-block {\n    width: 52px;\n    height: 52px;\n    background: var(--accent);\n    border-radius: 10px;\n    position: absolute;\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    color: #ffffff;\n    cursor: grab;\n    box-shadow: 0 4px 10px rgba(76, 102, 150, 0.4);\n    touch-action: none;\n    transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);\n  }\n\n  .code-block:active {\n    cursor: grabbing;\n    transform: scale(1.08);\n  }\n\n  .code-block svg {\n    width: 24px;\n    height: 24px;\n    fill: none;\n    stroke: currentColor;\n    stroke-width: 2.5;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n  }\n\n  .code-block-label {\n    font-size: 9px;\n    font-weight: bold;\n    margin-top: 2px;\n  }\n\n  /* Test Rack Feedback Indicators */\n  .test-status {\n    position: absolute;\n    bottom: -22px;\n    font-size: 10px;\n    font-weight: bold;\n    display: flex;\n    align-items: center;\n    gap: 3px;\n    opacity: 0;\n    transition: opacity 0.2s;\n    color: #555;\n  }\n\n  .test-status.visible {\n    opacity: 1;\n  }\n\n  .test-status svg {\n    width: 12px;\n    height: 12px;\n  }\n\n  /* Current State Dashboard Display */\n  .pipeline-display {\n    background: var(--stage);\n    border-radius: 6px;\n    padding: 10px 14px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    font-size: 12px;\n    border: 1px solid var(--border);\n  }\n\n  .pipeline-path {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-weight: 600;\n  }\n\n  .path-step {\n    padding: 2px 6px;\n    background: #e2e2e2;\n    border-radius: 4px;\n    font-size: 11px;\n    color: #444;\n  }\n\n  .path-step.active-step {\n    background: var(--accent-soft);\n    color: var(--accent-strong);\n    border: 1px solid var(--accent);\n  }\n\n  .path-arrow {\n    color: var(--muted-fg);\n  }\n\n  .locked {\n    pointer-events: none !important;\n    opacity: 0.8;\n  }\n</style>\n</head>\n<body>\n\n<h1 class=\"sr-only\">Interactive Pipeline Deployment Simulator</h1>\n\n<div id=\"widget-container\">\n  <p class=\"action-hint\">Drag the Code Block between racks to construct your deployment pipeline path.</p>\n\n  <div class=\"stage\">\n    <!-- Dev Rack -->\n    <div class=\"rack rack-dev\" id=\"rack-dev\" data-id=\"Dev\">\n      <div class=\"rack-label\">Dev</div>\n      <div class=\"rack-slots\">\n        <div class=\"server-slot\"><span class=\"led\"></span></div>\n        <div class=\"server-slot\"><span class=\"led\"></span></div>\n        <div class=\"server-slot\"><span class=\"led\"></span></div>\n      </div>\n      <div class=\"drop-zone\" data-rack=\"Dev\"></div>\n    </div>\n\n    <div class=\"pipe\"><div class=\"pipe-flow\" id=\"flow-dev-test\"></div></div>\n\n    <!-- Test Rack -->\n    <div class=\"rack rack-test\" id=\"rack-test\" data-id=\"Test\">\n      <div class=\"rack-label\">Testing / QA</div>\n      <div class=\"rack-slots\">\n        <div class=\"server-slot\"><span class=\"led\" id=\"test-led-1\"></span></div>\n        <div class=\"server-slot\"><span class=\"led\" id=\"test-led-2\"></span></div>\n        <div class=\"server-slot\"><span class=\"led\" id=\"test-led-3\"></span></div>\n      </div>\n      <div class=\"drop-zone\" data-rack=\"Test\"></div>\n      <div class=\"test-status\" id=\"test-status-element\">\n        <span id=\"test-status-text\">Ready</span>\n      </div>\n    </div>\n\n    <div class=\"pipe\"><div class=\"pipe-flow\" id=\"flow-test-prod\"></div></div>\n\n    <!-- Prod Rack -->\n    <div class=\"rack rack-prod\" id=\"rack-prod\" data-id=\"Prod\">\n      <div class=\"rack-label\">Production</div>\n      <div class=\"rack-slots\">\n        <div class=\"server-slot\"><span class=\"led\" id=\"prod-led-1\"></span></div>\n        <div class=\"server-slot\"><span class=\"led\" id=\"prod-led-2\"></span></div>\n        <div class=\"server-slot\"><span class=\"led\" id=\"prod-led-3\"></span></div>\n      </div>\n      <div class=\"drop-zone\" data-rack=\"Prod\"></div>\n    </div>\n\n    <!-- Draggable Code Block -->\n    <div class=\"code-block\" id=\"code-block\" tabindex=\"0\" role=\"button\" aria-label=\"Code Block. Press left or right arrow keys to deploy to other server racks.\">\n      <svg viewBox=\"0 0 24 24\">\n        <polyline points=\"16 18 22 12 16 6\"></polyline>\n        <polyline points=\"8 6 2 12 8 18\"></polyline>\n      </svg>\n      <span class=\"code-block-label\">CODE</span>\n    </div>\n  </div>\n\n  <div class=\"pipeline-display\">\n    <span style=\"color: var(--muted-fg);\">Current Pipeline Path:</span>\n    <div class=\"pipeline-path\" id=\"pipeline-path-display\">\n      <span class=\"path-step active-step\">Dev</span>\n    </div>\n  </div>\n</div>\n\n<script>\n  // Elements\n  const codeBlock = document.getElementById('code-block');\n  const stage = document.querySelector('.stage');\n  const dropZones = document.querySelectorAll('.drop-zone');\n  const testStatusElement = document.getElementById('test-status-element');\n  const testStatusText = document.getElementById('test-status-text');\n  const pipelinePathDisplay = document.getElementById('pipeline-path-display');\n  const flowDevTest = document.getElementById('flow-dev-test');\n  const flowTestProd = document.getElementById('flow-test-prod');\n\n  const rackDev = document.getElementById('rack-dev');\n  const rackTest = document.getElementById('rack-test');\n  const rackProd = document.getElementById('rack-prod');\n\n  const testLeds = [document.getElementById('test-led-1'), document.getElementById('test-led-2'), document.getElementById('test-led-3')];\n  const prodLeds = [document.getElementById('prod-led-1'), document.getElementById('prod-led-2'), document.getElementById('prod-led-3')];\n\n  // State\n  let currentRack = 'Dev';\n  let pathHistory = ['Dev']; // Keeps track of unique sequence of visited racks\n  let isDragging = false;\n  let startX, startY;\n  let blockX = 0;\n  let blockY = 0;\n  let originalBlockX = 0;\n  let originalBlockY = 0;\n  let isLocked = false;\n\n  const RACK_POSITIONS = {\n    Dev: { x: 0, y: 0 },\n    Test: { x: 0, y: 0 },\n    Prod: { x: 0, y: 0 }\n  };\n\n  const OPTIONS_MAP = {\n    'Dev,Prod': 'Dev -> Prod',\n    'Dev,Test,Prod': 'Dev -> Test -> Prod',\n    'Test,Dev,Prod': 'Test -> Dev -> Prod',\n    'Dev,Test,Dev': 'Dev -> Test -> Dev'\n  };\n\n  // Set initial positions of racks relative to stage\n  function updateRackCoords() {\n    const stageRect = stage.getBoundingClientRect();\n    const devRect = rackDev.getBoundingClientRect();\n    const testRect = rackTest.getBoundingClientRect();\n    const prodRect = rackProd.getBoundingClientRect();\n\n    RACK_POSITIONS.Dev = {\n      x: devRect.left - stageRect.left + (devRect.width / 2) - 26,\n      y: devRect.top - stageRect.top + (devRect.height / 2) - 26\n    };\n    RACK_POSITIONS.Test = {\n      x: testRect.left - stageRect.left + (testRect.width / 2) - 26,\n      y: testRect.top - stageRect.top + (testRect.height / 2) - 26\n    };\n    RACK_POSITIONS.Prod = {\n      x: prodRect.left - stageRect.left + (prodRect.width / 2) - 26,\n      y: prodRect.top - stageRect.top + (prodRect.height / 2) - 26\n    };\n\n    if (!isDragging) {\n      snapToRack(currentRack, false);\n    }\n  }\n\n  function snapToRack(rackId, animate = true) {\n    currentRack = rackId;\n    const pos = RACK_POSITIONS[rackId];\n    blockX = pos.x;\n    blockY = pos.y;\n    \n    if (animate) {\n      codeBlock.style.transition = 'transform 0.2s cubic-bezier(.34,1.56,.64,1), left 0.2s ease, top 0.2s ease';\n    } else {\n      codeBlock.style.transition = 'none';\n    }\n    \n    codeBlock.style.left = `${blockX}px`;\n    codeBlock.style.top = `${blockY}px`;\n\n    // Trigger state transitions based on landing rack\n    handleRackLanding(rackId);\n  }\n\n  function handleRackLanding(rackId) {\n    // Append to path history if unique from the last step\n    if (pathHistory[pathHistory.length - 1] !== rackId) {\n      pathHistory.push(rackId);\n      // Keep only last 4 unique positions to map correctly to options sequences (max length 3 steps e.g. Dev -> Test -> Dev -> Prod has 4 elements)\n      if (pathHistory.length > 4) {\n        pathHistory.shift();\n      }\n      updateUIState();\n    }\n  }\n\n  function updateUIState() {\n    // 1. Update Pipe Flows\n    const hasDev = pathHistory.includes('Dev');\n    const hasTest = pathHistory.includes('Test');\n    const hasProd = pathHistory.includes('Prod');\n\n    // Flow visualizer\n    if (pathHistory.join(',').includes('Dev,Test') || pathHistory.join(',').includes('Test,Dev')) {\n      flowDevTest.style.width = '100%';\n    } else {\n      flowDevTest.style.width = '0%';\n    }\n\n    if (pathHistory.join(',').includes('Test,Prod')) {\n      flowTestProd.style.width = '100%';\n    } else {\n      flowTestProd.style.width = '0%';\n    }\n\n    // 2. Testing rack LEDs & scanning simulation\n    if (currentRack === 'Test') {\n      testStatusElement.classList.add('visible');\n      testStatusText.innerHTML = `<span style=\"color:var(--test-color)\">⚙️ Testing...</span>`;\n      testLeds.forEach((led, i) => {\n        setTimeout(() => {\n          if (currentRack === 'Test') led.style.background = 'var(--test-color)';\n        }, i * 200);\n      });\n\n      setTimeout(() => {\n        if (currentRack === 'Test') {\n          testStatusText.innerHTML = `<span style=\"color:var(--prod-color)\">✓ Pass</span>`;\n          testLeds.forEach(led => led.style.background = 'var(--prod-color)');\n        }\n      }, 700);\n    } else if (currentRack === 'Dev') {\n      testStatusElement.classList.remove('visible');\n      testLeds.forEach(led => led.style.background = '#555');\n    }\n\n    // Prod rack LED state\n    if (currentRack === 'Prod') {\n      prodLeds.forEach(led => led.style.background = 'var(--prod-color)');\n    } else {\n      prodLeds.forEach(led => led.style.background = '#555');\n    }\n\n    // 3. Render current path pipeline\n    pipelinePathDisplay.innerHTML = pathHistory.map((step, idx) => {\n      const isActive = idx === pathHistory.length - 1 ? 'active-step' : '';\n      const arrow = idx < pathHistory.length - 1 ? '<span class=\"path-arrow\">➔</span>' : '';\n      return `<span class=\"path-step ${isActive}\">${step}</span>${arrow}`;\n    }).join('');\n\n    // 4. Report current Answer State based on sequence\n    reportAnswer();\n    sendHeight();\n  }\n\n  function reportAnswer() {\n    // Match the tail of the path to one of the 4 valid option states\n    // Options: \"Dev -> Prod\", \"Dev -> Test -> Prod\", \"Test -> Dev -> Prod\", \"Dev -> Test -> Dev\"\n    \n    let matchedOption = '';\n    const len = pathHistory.length;\n\n    // Check last 3 elements\n    const last3 = pathHistory.slice(-3).join(',');\n    const last2 = pathHistory.slice(-2).join(',');\n\n    if (OPTIONS_MAP[last3]) {\n      matchedOption = OPTIONS_MAP[last3];\n    } else if (OPTIONS_MAP[last2]) {\n      matchedOption = OPTIONS_MAP[last2];\n    }\n\n    if (matchedOption) {\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: matchedOption }, '*');\n      } catch (e) {\n        console.error(e);\n      }\n    }\n  }\n\n  // Pointer Events for Drag & Drop\n  codeBlock.addEventListener('pointerdown', (e) => {\n    if (isLocked) return;\n    isDragging = true;\n    codeBlock.setPointerCapture(e.pointerId);\n    \n    // Save original position in case we need to reset\n    const rect = codeBlock.getBoundingClientRect();\n    const stageRect = stage.getBoundingClientRect();\n    \n    // Preserve grab offset\n    startX = e.clientX - rect.left;\n    startY = e.clientY - rect.top;\n\n    codeBlock.style.transition = 'none';\n  });\n\n  codeBlock.addEventListener('pointermove', (e) => {\n    if (!isDragging || isLocked) return;\n    \n    const stageRect = stage.getBoundingClientRect();\n    let x = e.clientX - stageRect.left - startX;\n    let y = e.clientY - stageRect.top - startY;\n\n    // Clamp inside stage limits\n    x = Math.max(0, Math.min(stageRect.width - 52, x));\n    y = Math.max(0, Math.min(stageRect.height - 52, y));\n\n    blockX = x;\n    blockY = y;\n    codeBlock.style.left = `${x}px`;\n    codeBlock.style.top = `${y}px`;\n\n    // Hover effect on drop zones\n    let hoveredZone = null;\n    dropZones.forEach(zone => {\n      const r = zone.getBoundingClientRect();\n      if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {\n        zone.classList.add('hovered');\n        hoveredZone = zone.dataset.rack;\n      } else {\n        zone.classList.remove('hovered');\n      }\n    });\n  });\n\n  codeBlock.addEventListener('pointerup', (e) => {\n    if (!isDragging) return;\n    isDragging = false;\n    codeBlock.releasePointerCapture(e.pointerId);\n\n    // Find if landed on a drop-zone\n    let landedRack = currentRack; \n    dropZones.forEach(zone => {\n      const r = zone.getBoundingClientRect();\n      if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {\n        landedRack = zone.dataset.rack;\n      }\n      zone.classList.remove('hovered');\n    });\n\n    snapToRack(landedRack, true);\n  });\n\n  // Keyboard accessibility support\n  codeBlock.addEventListener('keydown', (e) => {\n    if (isLocked) return;\n    const racksList = ['Dev', 'Test', 'Prod'];\n    let idx = racksList.indexOf(currentRack);\n\n    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {\n      if (idx < racksList.length - 1) {\n        snapToRack(racksList[idx + 1], true);\n      }\n    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {\n      if (idx > 0) {\n        snapToRack(racksList[idx - 1], true);\n      }\n    }\n  });\n\n  // Host Messaging Communication\n  window.addEventListener('message', (e) => {\n    if (e.data && e.data.type === 'hk-practice-lock') {\n      isLocked = true;\n      codeBlock.classList.add('locked');\n      codeBlock.setAttribute('tabindex', '-1');\n    }\n  });\n\n  function sendHeight() {\n    try {\n      parent.postMessage({ \n        type: 'hk-anim-height', \n        height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n      }, '*');\n    } catch (e) {\n      console.error(e);\n    }\n  }\n\n  // Init & Resize logic\n  window.addEventListener('load', () => {\n    updateRackCoords();\n    // Default initial report matching the initial single-step path\n    reportAnswer();\n    sendHeight();\n  });\n\n  window.addEventListener('resize', () => {\n    updateRackCoords();\n    sendHeight();\n  });\n\n  // Create a ResizeObserver to proactively notify height changes\n  try {\n    const ro = new ResizeObserver(() => sendHeight());\n    ro.observe(document.body);\n  } catch (e) {}\n\n</script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Dev -> Test -> Prod"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Tax Compliance and Planning (TCP) Discipline Exam",
+   "unitId": "unit6",
+   "questions": [
+    {
+     "id": "q1",
+     "type": "single",
+     "prompt": "An individual taxpayer has a Regular Taxable Income of $180,000. They paid $15,000 in State and Local Income Taxes (SALT) and have a $5,000 tax preference item from private activity bond interest. What is the taxpayer's Alternative Minimum Taxable Income (AMTI) before the exemption?",
+     "options": [
+      "$180,000",
+      "$195,000",
+      "$200,000",
+      "$185,000"
+     ],
+     "explanation": "To calculate AMTI, you add back items disallowed for AMT purposes. State and Local Taxes ($15,000) are a disallowed deduction and must be added back to Regular Taxable Income, along with the $5,000 preference item ($180k + $15k + $5k = $200k).",
+     "correctAnswers": [
+      "$200,000"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "multiple",
+     "prompt": "Which of the following statements correctly describe the Net Investment Income Tax (NIIT)?",
+     "options": [
+      "It applies a 3.8% surtax to the lesser of NII or the excess MAGI over a threshold.",
+      "Municipal bond interest is included in the calculation of Net Investment Income.",
+      "W-2 wages are considered part of Net Investment Income.",
+      "The threshold for Married Filing Jointly is $250,000.",
+      "NIIT is a parallel system to the Alternative Minimum Tax (AMT)."
+     ],
+     "explanation": "NIIT is 3.8% of the lesser of NII or MAGI over the threshold ($250k for MFJ). Municipal bond interest and W-2 wages are specifically excluded from Net Investment Income.",
+     "correctAnswers": [
+      "It applies a 3.8% surtax to the lesser of NII or the excess MAGI over a threshold.",
+      "The threshold for Married Filing Jointly is $250,000."
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "fill",
+     "prompt": "A taxpayer has $25,000 in passive losses from a limited partnership and $10,000 in passive income from a rental property. The amount of suspended loss to be carried forward is $____.",
+     "explanation": "Passive losses can only offset passive income. $10,000 of the loss is used to offset the $10,000 income, leaving $15,000 suspended.",
+     "placeholder": "Enter amount",
+     "correctAnswers": [
+      "15,000",
+      "15000",
+      "$15,000"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "single",
+     "prompt": "Which equity compensation event triggers ordinary income taxation at the moment of vesting?",
+     "options": [
+      "Incentive Stock Options (ISOs)",
+      "Nonqualified Stock Options (NSOs)",
+      "Restricted Stock Units (RSUs)",
+      "Section 1244 Stock"
+     ],
+     "explanation": "For RSUs, the fair market value of the shares at the time of vesting is treated as ordinary wage income. Options typically trigger tax at exercise or sale.",
+     "correctAnswers": [
+      "Restricted Stock Units (RSUs)"
+     ]
+    },
+    {
+     "id": "q5",
+     "type": "multiple",
+     "prompt": "What are the primary tax advantages of donating long-term appreciated stock directly to a public charity instead of selling it and donating the cash?",
+     "options": [
+      "The donor avoids paying capital gains tax on the appreciation.",
+      "The donor receives a deduction for the fair market value of the stock.",
+      "The donor can deduct 100% of their AGI regardless of the asset type.",
+      "The donor receives a tax credit equal to the stock's basis.",
+      "The charity receives the full value without tax depletion."
+     ],
+     "explanation": "Direct donation avoids capital gains tax and allows a FMV deduction (subject to a 30% AGI limit), benefiting both the donor and the charity.",
+     "correctAnswers": [
+      "The donor avoids paying capital gains tax on the appreciation.",
+      "The donor receives a deduction for the fair market value of the stock.",
+      "The charity receives the full value without tax depletion."
+     ]
+    },
+    {
+     "id": "q6",
+     "type": "fill",
+     "prompt": "The wash sale rule prevents a taxpayer from claiming a loss if they purchase substantially identical securities within ____ days before or after the sale.",
+     "explanation": "The wash sale window is 61 days total: 30 days before, the day of the sale, and 30 days after.",
+     "placeholder": "Number of days",
+     "correctAnswers": [
+      "30"
+     ]
+    },
+    {
+     "id": "q7",
+     "type": "single",
+     "prompt": "An employee exercises an Incentive Stock Option (ISO). For regular tax purposes, there is no immediate income. How is this treated for AMT purposes?",
+     "options": [
+      "It is ignored for AMT purposes as well.",
+      "The spread between FMV and strike price is a positive AMTI adjustment.",
+      "The strike price is added back to AMTI.",
+      "The entire FMV is treated as a tax preference item."
+     ],
+     "explanation": "The 'bargain element' (FMV at exercise minus strike price) is an adjustment that increases AMTI in the year of exercise for ISOs.",
+     "correctAnswers": [
+      "The spread between FMV and strike price is a positive AMTI adjustment."
+     ]
+    },
+    {
+     "id": "q8",
+     "type": "multiple",
+     "prompt": "Which of the following increase a partner's basis in a partnership interest?",
+     "options": [
+      "Cash contributions made by the partner to the partnership.",
+      "The partner's share of tax-exempt income.",
+      "The partner's share of partnership losses.",
+      "An increase in the partner's share of partnership liabilities.",
+      "Cash distributions received from the partnership."
+     ],
+     "explanation": "Basis is increased by contributions, shares of income (including tax-exempt), and increases in liabilities. Losses and distributions decrease basis.",
+     "correctAnswers": [
+      "Cash contributions made by the partner to the partnership.",
+      "The partner's share of tax-exempt income.",
+      "An increase in the partner's share of partnership liabilities."
+     ]
+    },
+    {
+     "id": "q9",
+     "type": "fill",
+     "prompt": "The annual gift tax exclusion for 2023 (per donee) is $____.",
+     "explanation": "The 2023 annual exclusion is $17,000 per donee ($34,000 for a married couple electing gift splitting).",
+     "placeholder": "Amount",
+     "correctAnswers": [
+      "17,000",
+      "17000",
+      "$17,000"
+     ]
+    },
+    {
+     "id": "q10",
+     "type": "single",
+     "prompt": "A corporation distributes property with a Fair Market Value (FMV) of $50,000 and an adjusted basis of $20,000 to a shareholder in a non-liquidating distribution. How much gain must the corporation recognize?",
+     "options": [
+      "$0",
+      "$20,000",
+      "$30,000",
+      "$50,000"
+     ],
+     "explanation": "Under IRC Section 311(b), a corporation must recognize gain on the distribution of appreciated property as if it had sold the property to the shareholder at FMV.",
+     "correctAnswers": [
+      "$30,000"
+     ]
+    },
+    {
+     "id": "q11",
+     "type": "multiple",
+     "prompt": "In a corporate liquidation under Section 331, which of the following are true regarding the shareholder's tax treatment?",
+     "options": [
+      "The shareholder treats the distribution as a full payment in exchange for stock.",
+      "The shareholder recognizes capital gain or loss.",
+      "The shareholder's basis in the property received is the corporation's adjusted basis.",
+      "The shareholder's basis in the property received is the Fair Market Value.",
+      "The shareholder recognizes ordinary dividend income."
+     ],
+     "explanation": "Section 331 treats the liquidation as an exchange, resulting in capital gain/loss and a FMV basis in the received assets.",
+     "correctAnswers": [
+      "The shareholder treats the distribution as a full payment in exchange for stock.",
+      "The shareholder recognizes capital gain or loss.",
+      "The shareholder's basis in the property received is the Fair Market Value."
+     ]
+    },
+    {
+     "id": "q12",
+     "type": "fill",
+     "prompt": "In tax research, the ____ is a document that summarizes the facts, issues, and authorities used to reach a tax conclusion for a client.",
+     "explanation": "The tax research memo is the standard professional document used to communicate findings and the logic behind a tax position.",
+     "placeholder": "Name of document",
+     "correctAnswers": [
+      "tax research memo",
+      "research memorandum",
+      "memo"
+     ]
+    },
+    {
+     "id": "q13",
+     "type": "single",
+     "prompt": "What happens to the basis of a new security purchased in a transaction that triggered the wash sale rule?",
+     "options": [
+      "The basis is the purchase price of the new security.",
+      "The basis is the purchase price minus the disallowed loss.",
+      "The basis is the purchase price plus the disallowed loss.",
+      "The basis is carried over from the original security's basis."
+     ],
+     "explanation": "The disallowed loss from a wash sale is added to the basis of the new security, effectively deferring the loss until the new security is sold.",
+     "correctAnswers": [
+      "The basis is the purchase price plus the disallowed loss."
+     ]
+    },
+    {
+     "id": "q14",
+     "type": "multiple",
+     "prompt": "Which conditions must be met for a stock option to qualify as an Incentive Stock Option (ISO)?",
+     "options": [
+      "The option price must not be less than the FMV at the time of grant.",
+      "The employee must hold the stock for at least two years from the grant date.",
+      "The employee must hold the stock for at least one year from the exercise date.",
+      "The options must be granted to an independent contractor.",
+      "The plan must be approved by shareholders."
+     ],
+     "explanation": "ISOs must meet strict criteria including shareholder approval, FMV strike price, and specific holding periods. They cannot be granted to non-employees.",
+     "correctAnswers": [
+      "The option price must not be less than the FMV at the time of grant.",
+      "The employee must hold the stock for at least two years from the grant date.",
+      "The employee must hold the stock for at least one year from the exercise date.",
+      "The plan must be approved by shareholders."
+     ]
+    },
+    {
+     "id": "q15",
+     "type": "single",
+     "prompt": "Which of the following items is included in a decedent's Gross Estate?",
+     "options": [
+      "Property owned as tenants by the entirety.",
+      "Life insurance proceeds where the decedent had no 'incidents of ownership'.",
+      "Gifts made ten years before death that were under the annual exclusion.",
+      "Irrevocable trusts where the decedent retained no control or income."
+     ],
+     "explanation": "Tenancy by the entirety is a form of joint ownership included in the gross estate (usually 50% for spouses). Incidents of ownership are required for life insurance inclusion.",
+     "correctAnswers": [
+      "Property owned as tenants by the entirety."
+     ]
+    },
+    {
+     "id": "q16",
+     "type": "animation",
+     "prompt": "An investor owns 100 shares of XYZ Corp with a basis of $50 per share. On Day 1, they sell all 100 shares for $30 per share (a $2,000 loss). To avoid the wash sale rule, demonstrate where the investor must 'land' their repurchase of 100 XYZ shares on the timeline.",
+     "options": [
+      "Day 15 (14 days after sale)",
+      "Day 25 (24 days after sale)",
+      "Day 31 (30 days after sale)",
+      "Day 45 (44 days after sale)"
+     ],
+     "explanation": "The wash sale rule disallows a loss if the stock is repurchased within 30 days. Day 45 is the only option outside the restricted 30-day window following the sale.",
+     "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Wash Sale Rule Timeline</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --surface: #ffffff;\n      --stage: #f3f1ec;\n      --border: #e2e2e2;\n      --fg: #1f1f1f;\n      --muted-fg: #6e6e6e;\n      --accent: #4C6696;\n      --accent-soft: #f5f8fc;\n      --accent-strong: #3a4f78;\n      --danger-zone: rgba(239, 83, 80, 0.08);\n      --danger-border: rgba(239, 83, 80, 0.3);\n      --danger-text: #c62828;\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n      color: var(--fg);\n      overflow: hidden;\n      user-select: none;\n      -webkit-user-select: none;\n    }\n\n    .widget-container {\n      width: 100%;\n      max-width: 100%;\n      box-sizing: border-box;\n      padding: 12px;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      height: 340px;\n      justify-content: space-between;\n    }\n\n    .sr-only {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    /* Action Hint */\n    .action-hint {\n      font-size: 13px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin: 0;\n    }\n\n    /* Timeline Container */\n    .timeline-stage {\n      background: var(--surface);\n      border: 1px solid var(--border);\n      border-radius: 12px;\n      padding: 16px;\n      position: relative;\n      height: 160px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      justify-content: flex-start;\n      box-shadow: 0 1px 3px rgba(0,0,0,0.02);\n    }\n\n    /* The visual horizontal line */\n    .timeline-track {\n      position: absolute;\n      top: 50px;\n      left: 8%;\n      right: 8%;\n      height: 4px;\n      background: var(--border);\n      border-radius: 2px;\n    }\n\n    /* Danger Zone shading */\n    .danger-zone-bar {\n      position: absolute;\n      top: 40px;\n      height: 24px;\n      background: var(--danger-zone);\n      border: 1px dashed var(--danger-border);\n      border-radius: 4px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      box-sizing: border-box;\n    }\n\n    .danger-zone-label {\n      font-size: 10px;\n      font-weight: 600;\n      color: var(--danger-text);\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    /* Timeline Markers */\n    .marker {\n      position: absolute;\n      top: 38px;\n      transform: translateX(-50%);\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n    }\n\n    .marker-dot {\n      width: 8px;\n      height: 8px;\n      background: var(--muted-fg);\n      border-radius: 50%;\n      border: 2px solid var(--surface);\n    }\n\n    .marker-dot.sale {\n      background: var(--danger-text);\n      width: 10px;\n      height: 10px;\n    }\n\n    .marker-label {\n      font-size: 11px;\n      font-weight: 600;\n      margin-top: 14px;\n      white-space: nowrap;\n    }\n\n    .marker-label.sale {\n      color: var(--danger-text);\n    }\n\n    /* Drop Target Slots */\n    .slots-row {\n      position: absolute;\n      top: 95px;\n      left: 8%;\n      right: 8%;\n      height: 54px;\n      display: flex;\n      pointer-events: none;\n    }\n\n    .slot-target {\n      position: absolute;\n      top: 0;\n      transform: translateX(-50%);\n      width: 70px;\n      height: 48px;\n      border: 2px dashed var(--border);\n      border-radius: 8px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      transition: background 0.2s, border-color 0.2s;\n      background: var(--stage);\n      pointer-events: auto;\n      cursor: pointer;\n    }\n\n    .slot-target.drag-over {\n      border-color: var(--accent);\n      background: var(--accent-soft);\n    }\n\n    .slot-target.selected {\n      border-color: var(--accent-strong);\n      background: var(--accent-soft);\n      border-style: solid;\n    }\n\n    .slot-title {\n      font-size: 11px;\n      font-weight: 700;\n      color: var(--fg);\n    }\n\n    .slot-sub {\n      font-size: 9px;\n      color: var(--muted-fg);\n      text-align: center;\n      margin-top: 2px;\n      line-height: 1;\n    }\n\n    /* Bottom Dock & Token */\n    .dock-area {\n      height: 85px;\n      background: var(--stage);\n      border: 1px dashed var(--border);\n      border-radius: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      position: relative;\n    }\n\n    .token-card {\n      width: 140px;\n      height: 54px;\n      background: var(--accent);\n      color: #ffffff;\n      border-radius: 8px;\n      box-shadow: 0 4px 10px rgba(76,102,150,0.25);\n      display: flex;\n      align-items: center;\n      padding: 0 12px;\n      box-sizing: border-box;\n      cursor: grab;\n      touch-action: none;\n      position: absolute;\n      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);\n      z-index: 10;\n    }\n\n    .token-card:active {\n      cursor: grabbing;\n    }\n\n    .token-card.dragging {\n      box-shadow: 0 8px 20px rgba(0,0,0,0.15);\n      transition: none;\n    }\n\n    .token-icon {\n      width: 24px;\n      height: 24px;\n      margin-right: 8px;\n      fill: none;\n      stroke: currentColor;\n      stroke-width: 2;\n    }\n\n    .token-info {\n      display: flex;\n      flex-direction: column;\n    }\n\n    .token-label {\n      font-size: 11px;\n      font-weight: 600;\n      opacity: 0.9;\n      text-transform: uppercase;\n      letter-spacing: 0.5px;\n    }\n\n    .token-value {\n      font-size: 13px;\n      font-weight: 800;\n    }\n\n    /* Keyboard navigation helpers */\n    .slot-target:focus-visible {\n      outline: 2px solid var(--accent);\n      outline-offset: 2px;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"sr-only\">Wash Sale Rule Interactive Timeline</h1>\n\n  <div class=\"widget-container\">\n    <p class=\"action-hint\" id=\"instruction\">Drag the Buy Order to a date to test its impact:</p>\n\n    <!-- Interactive Stage -->\n    <div class=\"timeline-stage\">\n      <!-- Tracks and Zones -->\n      <div class=\"timeline-track\"></div>\n      \n      <!-- Danger Zone spans Day 1 to Day 31.\n           Day 1 starts at 10%. Day 45 ends at 90%. Total range is 44 days (80% span).\n           Width of 30 days = (30 / 44) * 80% = 54.54% -->\n      <div class=\"danger-zone-bar\" style=\"left: 10%; width: 54.5%;\">\n        <span class=\"danger-zone-label\">30-Day Danger Zone</span>\n      </div>\n\n      <!-- Sale Day Anchor -->\n      <div class=\"marker\" style=\"left: 10%;\">\n        <div class=\"marker-dot sale\"></div>\n        <span class=\"marker-label sale\">Day 1: Sale</span>\n      </div>\n\n      <!-- Drop Slots (positioned chronologically) -->\n      <!-- Day 15: 10% + (14/44)*80% = 35.45% -->\n      <div class=\"slot-target\" id=\"slot-day15\" style=\"left: 35.5%;\" tabindex=\"0\" aria-label=\"Drop target: Day 15 (14 days after sale)\" data-option=\"Day 15 (14 days after sale)\">\n        <span class=\"slot-title\">Day 15</span>\n        <span class=\"slot-sub\">14d after</span>\n      </div>\n\n      <!-- Day 25: 10% + (24/44)*80% = 53.63% -->\n      <div class=\"slot-target\" id=\"slot-day25\" style=\"left: 53.6%;\" tabindex=\"0\" aria-label=\"Drop target: Day 25 (24 days after sale)\" data-option=\"Day 25 (24 days after sale)\">\n        <span class=\"slot-title\">Day 25</span>\n        <span class=\"slot-sub\">24d after</span>\n      </div>\n\n      <!-- Day 31: 10% + (30/44)*80% = 64.54% -->\n      <div class=\"slot-target\" id=\"slot-day31\" style=\"left: 64.5%;\" tabindex=\"0\" aria-label=\"Drop target: Day 31 (30 days after sale)\" data-option=\"Day 31 (30 days after sale)\">\n        <span class=\"slot-title\">Day 31</span>\n        <span class=\"slot-sub\">30d after</span>\n      </div>\n\n      <!-- Day 45: 10% + (44/44)*80% = 90% -->\n      <div class=\"slot-target\" id=\"slot-day45\" style=\"left: 90%;\" tabindex=\"0\" aria-label=\"Drop target: Day 45 (44 days after sale)\" data-option=\"Day 45 (44 days after sale)\">\n        <span class=\"slot-title\">Day 45</span>\n        <span class=\"slot-sub\">44d after</span>\n      </div>\n    </div>\n\n    <!-- Starting Dock Area -->\n    <div class=\"dock-area\" id=\"dock\">\n      <div class=\"token-card\" id=\"token\" style=\"left: calc(50% - 70px); top: 15px;\">\n        <svg class=\"token-icon\" viewBox=\"0 0 24 24\">\n          <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" stroke-linejoin=\"round\"/>\n          <path d=\"M12 8v8M8 12h8\" stroke-linecap=\"round\"/>\n        </svg>\n        <div class=\"token-info\">\n          <span class=\"token-label\">Buy Order</span>\n          <span class=\"token-value\">100 XYZ</span>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <script>\n    const token = document.getElementById('token');\n    const dock = document.getElementById('dock');\n    const slots = document.querySelectorAll('.slot-target');\n    const container = document.querySelector('.widget-container');\n\n    let activeSlot = null;\n    let isDragging = false;\n    let startX = 0, startY = 0;\n    let currentX = 0, currentY = 0;\n    let tokenStartX = 0, tokenStartY = 0;\n    let isLocked = false;\n\n    // Report height on load and resize\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n    window.addEventListener('load', reportHeight);\n    const resizeObserver = new ResizeObserver(reportHeight);\n    resizeObserver.observe(document.body);\n\n    // Set initial position of token inside the dock\n    function resetTokenPosition() {\n      token.style.left = 'calc(50% - 70px)';\n      token.style.top = '15px';\n      token.style.transform = 'translate3d(0px, 0px, 0px)';\n      currentX = 0;\n      currentY = 0;\n    }\n\n    // Drag Logic\n    token.addEventListener('pointerdown', (e) => {\n      if (isLocked) return;\n      isDragging = true;\n      token.classList.add('dragging');\n      token.setPointerCapture(e.pointerId);\n\n      // Record current transform offset (if any)\n      const matrix = new DOMMatrix(window.getComputedStyle(token).transform);\n      tokenStartX = matrix.m41;\n      tokenStartY = matrix.m42;\n\n      startX = e.clientX;\n      startY = e.clientY;\n    });\n\n    token.addEventListener('pointermove', (e) => {\n      if (!isDragging || isLocked) return;\n\n      const dx = e.clientX - startX;\n      const dy = e.clientY - startY;\n\n      currentX = tokenStartX + dx;\n      currentY = tokenStartY + dy;\n\n      token.style.transform = `translate3d(${currentX}px, ${currentY}px, 0px)`;\n\n      // Realtime hit testing\n      const tokenRect = token.getBoundingClientRect();\n      const tokenCenterX = tokenRect.left + tokenRect.width / 2;\n      const tokenCenterY = tokenRect.top + tokenRect.height / 2;\n\n      let bestSlot = null;\n      let minDistance = 60; // snapping radius\n\n      slots.forEach(slot => {\n        const slotRect = slot.getBoundingClientRect();\n        const slotCenterX = slotRect.left + slotRect.width / 2;\n        const slotCenterY = slotRect.top + slotRect.height / 2;\n\n        const dist = Math.hypot(tokenCenterX - slotCenterX, tokenCenterY - slotCenterY);\n        slot.classList.remove('drag-over');\n\n        if (dist < minDistance) {\n          minDistance = dist;\n          bestSlot = slot;\n        }\n      });\n\n      if (bestSlot) {\n        bestSlot.classList.add('drag-over');\n      }\n    });\n\n    token.addEventListener('pointerup', (e) => {\n      if (!isDragging) return;\n      isDragging = false;\n      token.classList.remove('dragging');\n      token.releasePointerCapture(e.pointerId);\n\n      // Final placement evaluation\n      const tokenRect = token.getBoundingClientRect();\n      const tokenCenterX = tokenRect.left + tokenRect.width / 2;\n      const tokenCenterY = tokenRect.top + tokenRect.height / 2;\n\n      let bestSlot = null;\n      let minDistance = 65;\n\n      slots.forEach(slot => {\n        const slotRect = slot.getBoundingClientRect();\n        const slotCenterX = slotRect.left + slotRect.width / 2;\n        const slotCenterY = slotRect.top + slotRect.height / 2;\n\n        const dist = Math.hypot(tokenCenterX - slotCenterX, tokenCenterY - slotCenterY);\n        if (dist < minDistance) {\n          minDistance = dist;\n          bestSlot = slot;\n        }\n      });\n\n      if (bestSlot) {\n        selectSlot(bestSlot);\n      } else {\n        // Return to last slot or reset to dock\n        if (activeSlot) {\n          snapToSlot(activeSlot);\n        } else {\n          resetTokenPosition();\n        }\n      }\n    });\n\n    function selectSlot(slot) {\n      slots.forEach(s => s.classList.remove('selected', 'drag-over'));\n      slot.classList.add('selected');\n      activeSlot = slot;\n      snapToSlot(slot);\n\n      // Report selection to host\n      const optionValue = slot.getAttribute('data-option');\n      try {\n        parent.postMessage({ type: 'hk-practice-answer', value: optionValue }, '*');\n      } catch (e) {}\n    }\n\n    function snapToSlot(slot) {\n      // Calculate where token needs to go to center over the target slot\n      const containerRect = container.getBoundingClientRect();\n      const slotRect = slot.getBoundingClientRect();\n      \n      // Target position relative to the token's original resting spot (relative transform offset)\n      // We know token starts at calc(50% - 70px) inside dock.\n      // Easiest is to calculate translation delta\n      resetTokenPosition();\n      const originalRect = token.getBoundingClientRect();\n      \n      const targetX = (slotRect.left + slotRect.width/2) - (originalRect.left + originalRect.width/2);\n      const targetY = (slotRect.top + slotRect.height/2) - (originalRect.top + originalRect.height/2);\n\n      currentX = targetX;\n      currentY = targetY;\n      \n      token.style.transform = `translate3d(${targetX}px, ${targetY}px, 0px)`;\n    }\n\n    // Keyboard & Click accessibility support\n    slots.forEach(slot => {\n      slot.addEventListener('click', () => {\n        if (isLocked) return;\n        selectSlot(slot);\n      });\n\n      slot.addEventListener('keydown', (e) => {\n        if (isLocked) return;\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          selectSlot(slot);\n        }\n      });\n    });\n\n    // Handle Lock Mode\n    window.addEventListener('message', function(e) {\n      if (e.data && e.data.type === 'hk-practice-lock') {\n        isLocked = true;\n        token.style.pointerEvents = 'none';\n        token.style.cursor = 'default';\n        slots.forEach(s => {\n          s.style.pointerEvents = 'none';\n          s.style.cursor = 'default';\n        });\n      }\n    });\n  </script>\n</body>\n</html>",
+     "correctAnswers": [
+      "Day 45 (44 days after sale)"
+     ]
+    }
+   ]
+  }
+ ],
+ "courseUuid": "a7f0ad5b-ea6f-4f6d-9244-0e92cf29af29"
+}
