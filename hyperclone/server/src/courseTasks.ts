@@ -144,6 +144,17 @@ export async function startCourseTask(input: StartTaskInput): Promise<CourseTask
     updated_at: now(),
   };
   tasks.set(taskId, task);
+  // 意图路由：一次性产物（出题/速查表/单次解释）不该白花一次课程生成
+  const { classifyCourseRequest } = await import('./pipelines.js');
+  const verdict = await classifyCourseRequest(input.query, input.eff);
+  if (verdict.reject) {
+    const frame: CourseTaskFrame = { type: 'course_generation_rejected', message: verdict.reason ?? '这条需求更适合即时协助', reason_code: 'one_off_artifact', query: input.query, attachment_paths: [], course_uuid: task.course_uuid };
+    task.status = 'stopped';
+    record(task, frame);
+    broadcast(task, frame);
+    await finishRun(taskId, 'stopped', 'rejected: one_off_artifact');
+    return task;
+  }
   const alreadyBuilt = await ensureCoursePlaceholder(input);
   record(task, { type: 'course_generation_started', course_uuid: task.course_uuid, run_dir: `var/data/courses/${task.course_uuid}`, run_id: taskId });
   broadcast(task, { type: 'course_generation_started', course_uuid: task.course_uuid, run_dir: `var/data/courses/${task.course_uuid}`, run_id: taskId });
@@ -171,6 +182,13 @@ export async function startCourseTask(input: StartTaskInput): Promise<CourseTask
   const run = runners.get(taskId)!;
   void run();
   return task;
+}
+
+// 客户端边答边发的草稿（线上 c2s course_generation_answer_draft）：只归档，不影响任务状态
+export async function recordAnswerDraft(taskId: string, draft: { question?: string; answer?: string }): Promise<void> {
+  const task = tasks.get(taskId);
+  if (!task) return;
+  await appendRun(taskId, { dir: 'client', type: 'course_generation_answer_draft', question: draft.question ?? '', answer: draft.answer ?? '' });
 }
 
 export async function submitTaskAnswers(taskId: string, answers: Array<{ question: string; answer: string }>, eff?: ByokConfig): Promise<CourseTask | undefined> {

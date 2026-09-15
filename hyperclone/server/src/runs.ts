@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 
 const runsDir = resolve(process.env.HYPERCLONE_DATA_DIR ?? 'var/data', 'generation_runs');
 
-export type RunStatus = 'running' | 'completed' | 'failed' | 'disconnected';
+export type RunStatus = 'running' | 'completed' | 'failed' | 'disconnected' | 'stopped';
 
 export interface RunEvent { t: string; dir: 'client' | 'server' | 'system'; type: string; [key: string]: unknown }
 

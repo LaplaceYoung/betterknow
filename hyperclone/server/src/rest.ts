@@ -273,11 +273,21 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/calendar/main_task_detail', protectedRoute, async (request, reply) => { const body = request.body as { task_id?: string }; const task = ((await readState()).calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); return task ? { success: true, task } : reply.code(404).send({ detail: 'Task not found' }); });
 
   app.post('/api/v1/deep_learn/get_session_data', protectedRoute, async (request, reply) => { const id = (request.body as { deep_learn_session_id?: string }).deep_learn_session_id ?? ''; const session = (await readState()).deep_learn[id]; return session && session.user_id === request.userId ? session : reply.code(404).send({ detail: 'Session not found' }); });
-  app.get('/api/v1/deep_learn/list_deep_learn_session', protectedRoute, async (request) => ({ sessions: Object.values((await readState()).deep_learn).filter((session) => session.user_id === request.userId) }));
+  // 线上实测是裸数组（不是 {sessions:[]}），字段 {deep_learn_session_id,title,created_at,last_modified_at,starred}
+  app.get('/api/v1/deep_learn/list_deep_learn_session', protectedRoute, async (request) => Object.values((await readState()).deep_learn)
+    .filter((session) => session.user_id === request.userId)
+    .map((session) => ({
+      deep_learn_session_id: session.deep_learn_session_id ?? session.session_id ?? session.id ?? null,
+      title: session.title ?? null,
+      created_at: session.created_at ?? null,
+      last_modified_at: session.last_modified_at ?? session.updated_at ?? session.created_at ?? null,
+      starred: session.starred === true,
+    })));
   app.post('/api/v1/deep_learn/manage_session_property', protectedRoute, async (request) => { const body = request.body as { deep_learn_session_id?: string; action?: string; title?: string }; await updateState((state) => { const value = state.deep_learn[body.deep_learn_session_id ?? '']; if (!value || value.user_id !== request.userId) return; if (body.action === 'delete') delete state.deep_learn[body.deep_learn_session_id!]; else if (body.title) value.title = body.title; }); return { success: true }; });
   app.post('/api/v1/deep_learn/update_plan', protectedRoute, async (request) => { const body = request.body as { deep_learn_session_id?: string; session_task_plan?: unknown }; await updateState((state) => { const value = state.deep_learn[body.deep_learn_session_id ?? '']; if (value?.user_id === request.userId) value.session_task_plan = body.session_task_plan; }); return { success: true }; });
 
-  app.get('/api/v1/orbie/get_orbie_recommendations', protectedRoute, async () => ({ success: true, recommendations: [] }));
+  // 线上实测：{recommendations:[],count:0}（无 success 字段）
+  app.get('/api/v1/orbie/get_orbie_recommendations', protectedRoute, async () => ({ recommendations: [], count: 0 }));
   app.post('/api/v1/orbie/dismiss_orby_recommendations', protectedRoute, async () => ({ success: true }));
   app.get('/api/v1/dailyTrends', protectedRoute, async () => {
     const allTrends = [

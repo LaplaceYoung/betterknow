@@ -5,6 +5,8 @@ import type { AppState } from './store.js';
 
 export interface CourseSessionRef {
   sessionId: string;
+  courseUuid: string;
+  outlineId: string;
   unitId: string;
   unitIndex: number;
   unitTitle: string;
@@ -38,8 +40,12 @@ export function enumerateCourseSessions(course: Record<string, unknown> | undefi
       for (const session of bucket.sessions) {
         index += 1;
         const sessionIndex = Number(session.sessionIndex ?? index);
+        const sessionId = str(session.sessionId ?? session.id, `${unitId}-s${index}`);
+        const courseUuid = String(course?.courseUuid ?? '');
         out.push({
-          sessionId: str(session.sessionId ?? session.id, `${unitId}-s${index}`),
+          sessionId,
+          courseUuid,
+          outlineId: courseUuid ? `${courseUuid}:${sessionId}` : sessionId,
           unitId,
           unitIndex,
           unitTitle,
@@ -61,7 +67,7 @@ export function enumerateCourseSessions(course: Record<string, unknown> | undefi
 // 白板会话的 key_points 取自课程里对应 session；找不到就返回空数组（前端按空处理）。
 export function sessionKeyPoints(state: AppState, sessionId: string): { keyPoints: string[]; session?: CourseSessionRef } {
   for (const course of Object.values(state.courses)) {
-    const match = enumerateCourseSessions(course).find((session) => session.sessionId === sessionId || `${course.courseUuid}:${session.sessionId}` === sessionId);
+    const match = enumerateCourseSessions(course).find((session) => session.sessionId === sessionId || session.outlineId === sessionId || `${course.courseUuid}__${session.sessionId}` === sessionId);
     if (match) return { keyPoints: match.keyPoints, session: match };
   }
   return { keyPoints: [] };

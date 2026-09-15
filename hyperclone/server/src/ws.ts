@@ -15,9 +15,10 @@ import { audioFileName, placeholderImageSvg, referencePageImage, saveWhiteboardI
 import { IMAGE_ACTION_CONTRACT, WHITEBOARD_IMAGE_SIZE, imagePromptPreview, normalizeImageAction, type WhiteboardImageAction } from './whiteboardImage.js';
 import { chat, chatStream, stubValue, type ChatMessage } from './llm.js';
 import { now, readState, updateState } from './store.js';
-import { attachTask, findActiveTask, getTask, startCourseTask, stopCourseTask, submitTaskAnswers } from './courseTasks.js';
+import { attachTask, findActiveTask, getTask, recordAnswerDraft, startCourseTask, stopCourseTask, submitTaskAnswers } from './courseTasks.js';
 import { sessionKeyPoints } from './courseModel.js';
 import { prefetch, synthesize } from './tts.js';
+import { buildAnimation } from './animation.js';
 
 type Incoming = Record<string, unknown> & { type?: string };
 type ChatTool = 'generate_content' | 'generate_quiz' | 'generate_flashcards' | 'generate_html_animation' | 'create_deep_learn_session' | 'create_board_session' | 'publish_file' | 'recommend_next_step' | 'ask_questions' | 'generate_instructional_video' | 'code_generator';
@@ -205,6 +206,39 @@ async function emitSpeak(socket: WebSocket, userId: string, sessionId: string, s
   wsSend(socket, { type: 'tts_segment', audio_url: audioUrl, url: audioUrl, sequence: stepId, step_id: stepId, tts_cjk: counts.tts_cjk, tts_latin: counts.tts_latin, speed, stub: segment.stub, cached: segment.cached, ...(segment.error ? { error: segment.error } : {}) });
 }
 
+
+// 随堂单选与动画任务：模型可用时让模型出题，否则用板书里的第一条要点兜底（不编造事实）
+async function boardQuiz(boardContent: string, topic: string, eff: ReturnType<typeof resolveByok>): Promise<{ action: Record<string, unknown>; animation_task: string }> {
+  const snippet = boardSnippet(boardContent);
+  const fallback = {
+    action: { type: 'ask', step_id: 5, page_index: 0, mode: 'open' as const, question: `用自己的话解释「${snippet}」。` },
+    animation_task: `把「${topic}」的核心关系做成可调参数的演示：拖动滑杆时，两侧状态与叠加结果同步变化。`,
+  };
+  if (eff.provider === 'stub') return fallback;
+  try {
+    const raw = await chat([
+      { role: 'system', content: '出一道具单选题检验理解。只输出 JSON：{"question":string,"options":[string,string,string],"correct_index":0,"explanation":string,"animation_task":string}' },
+      { role: 'user', content: `课程主题：${topic}\n板书：${boardContent.slice(0, 600)}` },
+    ], 'quiz', eff);
+    const parsed = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? '') as { question?: string; options?: unknown[]; correct_index?: number; explanation?: string; animation_task?: string };
+    const options = (parsed.options ?? []).map(String).filter(Boolean).slice(0, 4);
+    if (!parsed.question || options.length < 2) return fallback;
+    const correct = Number(parsed.correct_index ?? 0);
+    return {
+      action: { type: 'ask', step_id: 5, page_index: 0, mode: 'choice', question: String(parsed.question), options, correct_index: Number.isFinite(correct) ? Math.min(Math.max(correct, 0), options.length - 1) : 0, explanation: String(parsed.explanation ?? '') },
+      animation_task: String(parsed.animation_task ?? fallback.animation_task),
+    };
+  } catch { return fallback; }
+}
+
+// 板面里最像要点的一句话：优先粗体/标题行，其次第一句
+function boardSnippet(boardContent: string): string {
+  const lines = boardContent.split('\n').map((line) => line.trim()).filter(Boolean);
+  const bold = lines.find((line) => /\*\*[^*]+\*\*/.test(line));
+  const pick = (bold ?? lines.find((line) => /^#/.test(line)) ?? lines[0] ?? 'the core idea').replace(/^#+\s*/, '').replace(/\*\*/g, '');
+  return pick.split(/[。.;；!?！？]/)[0]?.slice(0, 60) || 'the core idea';
+}
+
 async function emitImageGeneration(socket: WebSocket, action: WhiteboardImageAction, pageId: string, stepId: number, byok: import('./config.js').ByokConfig, placementStepId?: number, pageBody = ''): Promise<{ url: string; width: number; height: number; stub: boolean; source?: string } | undefined> {
   const reference = action.source === 'reference_page';
   wsSend(socket, {
@@ -271,14 +305,21 @@ async function cascade(socket: WebSocket, userId: string, sessionId: string, tex
   wsSend(socket, { type: 'interject_done', interject_id: interjectId, control: 'none', text: answer });
 }
 function whiteboardHandler(socket: WebSocket, request: FastifyRequest): void { guardSocket(socket);
+  let stateCache = { courses: {}, whiteboards: {} } as unknown as Awaited<ReturnType<typeof readState>>;
   const userId = acceptUser(request, socket); if (!userId) return; wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let voiceId = 'calm'; let speed = 1; let paused = false; let audioBuffer = '';
-  const sessionReady = async (requested?: string): Promise<void> => { const state = await readState(); const existing = requested ? state.whiteboards[requested] : undefined; const resumed = Boolean(existing && existing.user_id === userId); sessionId = resumed ? requested : requested && !existing ? requested : randomUUID(); const session = resumed ? existing! : { session_id: sessionId, user_id: userId, status: 'active', messages: [], whiteboard_state: null, lecture_outline_id: null, conversation_id: randomUUID(), session_title: 'Whiteboard learning session', tts_config: { voice_id: voiceId, speed }, created_at: now() }; 
+  // 线上形态：白板会话 id = <course_uuid>__<course_session_id>，lecture_outline_id = <course_uuid>:<course_session_id>
+  const composeSessionId = (requested: string): string => {
+    if (requested.includes('__')) return requested;
+    const hit = sessionKeyPoints(stateCache, requested).session;
+    return hit ? `${hit.courseUuid}__${requested}` : requested;
+  };
+  const sessionReady = async (requested?: string): Promise<void> => { const state = await readState(); stateCache = state; const existing = requested ? state.whiteboards[requested] : undefined; const resumed = Boolean(existing && existing.user_id === userId); sessionId = resumed ? requested : requested && !existing ? composeSessionId(requested) : randomUUID(); const session = resumed ? existing! : { session_id: sessionId, user_id: userId, status: 'active', messages: [], whiteboard_state: null, lecture_outline_id: null, conversation_id: randomUUID(), session_title: 'Whiteboard learning session', tts_config: { voice_id: voiceId, speed }, created_at: now() }; 
     // key_points / 标题属于课程 session：白板会话第一次连上时取回并缓存，之后重连不依赖课程还在
     const cached = Array.isArray(session.key_points) ? (session.key_points as unknown[]).map(String) : [];
-    const linked = sessionKeyPoints(state, String(sessionId));
+    const linked = sessionKeyPoints(state, String(sessionId).split('__').pop() ?? String(sessionId));
     const keyPoints = cached.length ? cached : linked.keyPoints;
     if (keyPoints.length && !cached.length) { session.key_points = keyPoints; }
-    if (linked.session && !resumed) { session.session_title = linked.session.title; session.lecture_outline_id = linked.session.sessionId; }
+    if (linked.session && !resumed) { session.session_title = linked.session.title; session.lecture_outline_id = linked.session.outlineId; }
     await updateState((next) => { next.whiteboards[sessionId!] = session; }); wsSend(socket, { type: 'session_ready', session_id: sessionId, resumed, status: session.status ?? 'active', session: false, messages: session.messages ?? [], conversation_id: session.conversation_id, session_title: session.session_title, whiteboard_state: session.whiteboard_state ?? null, lecture_outline_id: session.lecture_outline_id ?? null, key_points: keyPoints }); };
   const teach = async (): Promise<void> => { if (!sessionId) await sessionReady(); paused = false;
     const state = await readState(); const session = state.whiteboards[sessionId!] ?? {};
@@ -289,18 +330,23 @@ function whiteboardHandler(socket: WebSocket, request: FastifyRequest): void { g
     const pageId = 'page-1'; const annId = randomUUID();
     const imageAction = await lessonImageAction(userId, topic, boardContent, language, lessonEff);
     const spokenText = 'Let’s build the idea from a simple question, draw the relationship, and test it with one concrete example.';
+    // 随堂单选（线上 ask{mode:"choice",question,options,correct_index,explanation}）：有模型就出题，没有就用板书里的要点兜底
+    const quiz = await boardQuiz(boardContent, topic, lessonEff);
     const actions: Array<Record<string, unknown>> = [
       { type: 'new_page', page_id: pageId, title: 'The Big Idea', step_id: 0 },
       { type: 'board', board_content: boardContent, step_id: 1, board_uid: 0, page_id: pageId, title: 'The Big Idea' },
       imageAction as unknown as Record<string, unknown>,
       { type: 'speak', spoken_text: spokenText, step_id: 2 },
       { type: 'annotation', annotation_type: 'highlight', page_index: 0, step_id: 3, ann_id: annId, text: 'The core relationship', say: 'Focus on the relationship between the two ideas.' },
-      { type: 'ask', step_id: 4, page_index: 0, mode: 'open', question: 'What is the key relationship you notice?' },
-      { type: 'done', step_id: 5 },
+      { type: 'animation', step_id: 4, page_id: pageId, title: '互动动画', task_preview: quiz.animation_task },
+      quiz.action,
+      { type: 'done', step_id: 6 },
     ];
     await updateState((next) => { const value = next.whiteboards[sessionId!]!; value.status = 'active'; value.whiteboard_state = { board_content: boardContent, actions }; });
     // 帧序对齐线上：动作帧逐条下发 → 媒体帧（tts_segment / image_gen_pending+generated_image）→ group 汇总
-    for (const action of actions) { if (action.type === 'speak' || action.type === 'image_generation') continue; wsSend(socket, action); }
+    for (const action of actions) { if (action.type === 'speak' || action.type === 'image_generation' || action.type === 'animation') continue; wsSend(socket, action); }
+    // 顶层 highlight：指向板面元素与其中的片段（线上形态 {step_id,target_board_id,page_id,snippet}）
+    wsSend(socket, { type: 'highlight', step_id: 3, target_board_id: 1, page_id: pageId, snippet: boardSnippet(boardContent) });
     // TTS 与插图互不依赖：并行发起，先把音频给出去（预取下一句在 emitSpeak 内部完成）
     const eff = await effFor(userId);
     const [placed] = await Promise.all([
@@ -311,7 +357,14 @@ function whiteboardHandler(socket: WebSocket, request: FastifyRequest): void { g
       const board = state.whiteboards[sessionId!]?.whiteboard_state as { actions?: Array<Record<string, unknown>> } | undefined;
       await updateState((next) => { const value = next.whiteboards[sessionId!]!; value.board_image = { imageUrl: placed.url, width: placed.width, height: placed.height, caption: imageAction.caption, pending: false }; value.whiteboard_state = { ...(board ?? {}), image_action: imageAction }; });
     }
+    // 互动动画：先 pending 再给自包含 HTML（和 TTS/插图并行，互不阻塞）
+    const animationStep = 4;
+    wsSend(socket, { type: 'animation_pending', step_id: animationStep, placement_step_id: animationStep + 1, task_preview: quiz.animation_task, page_id: pageId });
+    const animation = await buildAnimation({ title: String(session.session_title ?? topic), task: quiz.animation_task, board: boardContent, language, eff });
+    wsSend(socket, { type: 'generated_animation', step_id: animationStep, page_id: pageId, html: animation.html, stub: animation.stub });
     wsSend(socket, { type: 'group', actions });
+    wsSend(socket, { type: 'done', step_id: 6 });
+    wsSend(socket, { type: 'response_complete', is_complete: true, status: 'completed', session: false });
     wsSend(socket, { type: 'reward_user', reward: { credits: 0, reason: 'BYOK: 白板课程完成' } }); };
 
 socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { wsSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } void (async () => {
@@ -353,6 +406,11 @@ function courseHandler(socket: WebSocket, request: FastifyRequest): void { guard
       if (input.type !== 'start_course_generation' && active) { attachTo(active.task_id); return; }
       const task = await startCourseTask({ userId, courseUuid: requested ?? randomUUID(), query, eff: await effFor(userId), conversationId: typeof input.conversation_id === 'string' ? input.conversation_id : undefined });
       attachTo(task.task_id);
+      return;
+    }
+    if (input.type === 'course_generation_answer_draft') {
+      const taskId = attached?.taskId ?? findActiveTask({ userId })?.task_id;
+      if (taskId) await recordAnswerDraft(taskId, { question: typeof input.question === 'string' ? input.question : undefined, answer: typeof input.answer === 'string' ? input.answer : undefined });
       return;
     }
     if (input.type === 'course_generation_answers') {

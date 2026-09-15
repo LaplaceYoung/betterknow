@@ -10,7 +10,7 @@ import { buildCourseCover, storeCover } from './media.js';
 import { image } from './providers/index.js';
 
 export const COURSE_PHASE_PROMPTS = {
-  researching_the_web: 'Research the learner topic with up to five focused searches. Return JSON {keywords:string[],results:Array<{title:string,url:string,snippet:string}>,references:string[]}; do not invent citations.',
+  researching_the_web: 'Research the learner topic with up to five focused searches. Return JSON {keywords:string[],results:Array<{id:string,title:string,url:string,snippet:string}>,summary:string}; do not invent citations.',
   generating_initial_syllabus: 'Create an initial course syllabus for the requested topic and learner profile. Return JSON {title:string,description:string,targetLearner:string,tags:string[],units:Array<{title:string,description:string,sessions:Array<string|{title:string,description?:string}>}>}.',
   generating_structure: 'Turn the syllabus into a complete learning structure. Return JSON {units:Array<{title:string,description:string,sessions:Array<string|{title:string,description?:string}>}>}, preserving a clear progression from foundations to application.',
   generating_session_outlines: 'Write concise instructional session outlines. Return JSON {description:string,outline:string,practice:string[],depthTags:string[],keyPoints:string[]} for the supplied session title and topic. keyPoints = 4-5 short learning objectives for this session, each a self-contained phrase (no numbering prefix).',
@@ -120,6 +120,25 @@ function stubKeyPoints(title: string, description: string): string[] {
   return clauses.length >= 2 ? clauses : [title, ...clauses];
 }
 
+
+// 线上实测：把「出 3 道测验题」这类一次性需求丢进课程生成时，服务端回
+// course_generation_rejected{reason_code:"one_off_artifact"}。判定交给模型；stub/失败时用关键词启发式。
+const ONE_OFF_HINTS = /(出|生成|做|给|来)\s*\d*\s*(道|个|份)?\s*(题|测验|练习|小测|闪卡|抽认卡)|速查表|cheat\s*sheet|总结成|总结一下|翻译|改成|解释一下$/i;
+
+export async function classifyCourseRequest(query: string, eff?: ByokConfig): Promise<{ reject: boolean; reason?: string }> {
+  const text = query.trim();
+  if (!text) return { reject: false };
+  const useModel = (eff ?? config).provider !== 'stub';
+  if (!useModel) return { reject: ONE_OFF_HINTS.test(text), reason: ONE_OFF_HINTS.test(text) ? '看起来是一次性产物需求，不是需要分章节学习的完整课程' : undefined };
+  try {
+    const raw = await askModel(`判断下面这条学习需求是否需要「多单元、可分章节学习的完整课程」，还是一次性产物（出题/速查表/单次解释/翻译）。
+只输出 JSON {"one_off":true|false,"reason":"一句中文说明"}
+需求：${text}`, 'director', eff);
+    if (raw && raw.one_off === true) return { reject: true, reason: String(raw.reason ?? '看起来是一次性产物需求') };
+    return { reject: false };
+  } catch { return { reject: ONE_OFF_HINTS.test(text) }; }
+}
+
 function emitStep(emit: (frame: Record<string, unknown>) => void, courseUuid: string, stepId: string, status: 'loading' | 'completed', title?: string, placeholder?: string): void {
   emit({ type: 'course_generation_step', step_id: stepId, status, ...(title ? { title } : {}), ...(placeholder ? { placeholder } : {}), course_uuid: courseUuid });
 }
@@ -136,7 +155,19 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
   const research = useModel ? await askModel(`${COURSE_PHASE_PROMPTS.researching_the_web}\nTopic: ${topic}`, 'director', opts.eff) : undefined;
   const keywords = list(research?.keywords).map(String).slice(0, 8).length ? list(research?.keywords).map(String).slice(0, 8) : topic.split(/\s+/).filter(Boolean).slice(0, 5);
   const results = list(research?.results).slice(0, 5);
-  emit({ type: 'course_generation_progress', message: results.length ? `Found ${results.length} reference(s)` : 'Web research not needed', keywords, results, data: { stage_name: 'researching_the_web', keywords, results, references: list(research?.references).map(String).slice(0, 5) }, course_uuid: courseUuid });
+  // 线上检索是「多轮」：round n/max_rounds → Round n fetched N page(s) → Round n summary ready → Selected N web source(s)
+  if (results.length) {
+    const fetched = results.map((item, index) => {
+      const value = (item ?? {}) as Record<string, unknown>;
+      return { id: String(value.id ?? `ref${index + 1}`), title: String(value.title ?? ''), url: String(value.url ?? ''), domain: (() => { try { return new URL(String(value.url ?? '')).hostname; } catch { return ''; } })() };
+    });
+    emit({ type: 'course_generation_progress', message: 'Researching the web (round 1/5)', data: { round: 1, max_rounds: 5, keywords }, course_uuid: courseUuid });
+    emit({ type: 'course_generation_progress', message: `Round 1 fetched ${fetched.length} page(s)`, data: { research: { round: 1, keywords, results: fetched } }, course_uuid: courseUuid });
+    emit({ type: 'course_generation_progress', message: 'Round 1 summary ready', data: { research: { round: 1, summary: String(research?.summary ?? '') } }, course_uuid: courseUuid });
+    emit({ type: 'course_generation_progress', message: `Selected ${Math.min(3, fetched.length)} web source(s)`, data: { reference_ids: fetched.slice(0, 3).map((item) => item.id) }, course_uuid: courseUuid });
+  } else {
+    emit({ type: 'course_generation_progress', message: 'Web research not needed', keywords, results: [], data: { stage_name: 'researching_the_web', keywords, results: [], references: [] }, course_uuid: courseUuid });
+  }
   emitStep(emit, courseUuid, 'researching_the_web', 'completed');
 
   emitStep(emit, courseUuid, 'generating_initial_syllabus', 'loading', 'Generating initial syllabus', 'Cooking the big picture...');
