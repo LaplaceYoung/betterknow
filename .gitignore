@@ -44,3 +44,6 @@ hyperclone/verify_*.png
 
 # Runtime media (whiteboard images & TTS audio are content-addressed, regenerated on demand)
 hyperclone/server/var/data/whiteboard/
+hyperclone/server/var/data/files/
+hyperclone/server/var/data/tts/
+hyperclone/server/var/data/covers/

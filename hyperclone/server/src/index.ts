@@ -10,6 +10,7 @@ import { registerRestRoutes } from './rest.js';
 import { registerWebsocketRoutes } from './ws.js';
 import { registerExtraRoutes } from './extras.js';
 import { startCronJobs } from './cron.js';
+import { dataDirectory } from './store.js';
 
 const app = Fastify({ logger: true, bodyLimit: 25 * 1024 * 1024 });
 process.on('uncaughtException', (error) => app.log.error(error, 'uncaughtException'));
@@ -52,4 +53,15 @@ app.setErrorHandler((error, _request, reply) => {
 });
 
 const port = Number(process.env.PORT ?? 8787);
-await app.listen({ port, host: process.env.HOST ?? '0.0.0.0' });
+const host = process.env.HOST ?? '0.0.0.0';
+app.log.info({ pid: process.pid, data: dataDirectory(), static_root: staticRoot, port, host }, 'betterknow starting');
+try {
+  await app.listen({ port, host });
+} catch (error) {
+  // 端口被旧实例占用时，之前的“改了代码行为没变”都来自这里：直接说清楚，别静默带病运行
+  if ((error as NodeJS.ErrnoException).code === 'EADDRINUSE') {
+    app.log.error(`端口 ${port} 已被占用（多半是上一轮遗留的 betterknow 进程）。先查：lsof -nP -iTCP:${port} -sTCP:LISTEN`);
+    process.exit(1);
+  }
+  throw error;
+}
