@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+dist-ssr/
+build/
+.rollup.cache/
+
+# Logs
+*.log
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS & Editor
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.local
+
+# Raw video recording extractions & large media cache (8+ GB)
+recordings/*.frames/
+recordings/**/*.frames/
+recordings/*.mp4
+out/motion/frames/
+
+# Credentials & secrets
+**/.env
+**/.env.*
+!**/.env.example
+agent-runtime/home/.credentials.yaml
+agent-runtime/home/sessions/
