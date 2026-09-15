@@ -110,3 +110,7 @@
 | 连接器状态路径 | `/api/v1/connectors/google_calendar/status`（200）；`/google_calendar/status`、`/connectors/status` 均 404 | ✅ | r28b |
 | 套餐表 | `stripe/plans`：Free 20c/24h、pro25a $12 40c/12h、pro25b $18 80c/12h、max25a $50 300c/12h（+`country_code`） | ✅ | r28 |
 | 其他 REST 校正 | `orbie/get_orbie_recommendations{recommendations,count}`；`deep_learn/list_deep_learn_session` 为**裸数组**；`banner/get_banner_message{has_message,message}`；`/usage_limits` 404 | ✅ | r28 |
+| 深度学习通道 | `deep_learn/ws`：`deep_learn_session_resumed{session_id,message,current_step_id,task_plan{title,description,tags,session_task_plan[{unit_name,tasks[{task_id,task_title,task_description}]}]}}`；`thinking{session_id}`、`tool_selection{…,task_title,model_name}`、`content_chunk`、`inline_diagram`、`step_completion{tool_name:"manage_task_progress",step_data,next_step,requires_acknowledgment}` | ✅ | r34 |
+| 深度学习的图解占位 | `inline_diagram{placeholder_id:"dg_<12hex>",data:{type:"gemini_image",layout:"right",status:"ready",tag:'<diagram data-placeholder-id data-subtype data-layout data-status data-diagram-id data-file-url data-caption>',source_tag:'<content-type: diagram; … content-prompt: {…}; content-caption: {…}>'}}` | ✅ | r34 |
+| 技能问卷作答（对话通道） | 速查表技能先问「内容详细程度」（一般/详细/非常详细 + `allow_custom`），答完再产出；作答帧由客户端发出 | ✅ | r30 |
+| 生成忙锁 | 同一用户在其他窗口仍有生成时，问卷「继续」禁用并提示「生成可能仍在其他窗口进行中，HH:MM 后可继续」 | ✅ | r33 |

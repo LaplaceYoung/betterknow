@@ -176,3 +176,15 @@
 2. 技能链（`get_skills` → `ask_questions` → 产物）与产物工具家族（拍认卡/速查表/教学动画/公开文件发布）在对话通道尚未落地。
 3. 生成冷却语义：线上同一用户存在在跑任务时问卷「继续」被禁用并给出解禁时间；本仓是「attach 到既有任务」，语义不同（更宽松）。
 4. 课程生成的「结构确认」后半段（`course_structure_confirm` → `complete`）本轮被站方冷却挡住，未取得新证据；既有证据仍来自上一轮的 `course_generation_structure`。
+
+**第三批（同日继续）已完成**
+- 对话帧形状对齐：`get_skills` → `{success,skill_name}`；`user_question` 带 `message` 与每题 `allow_custom`；`credit_status.credit_info.turn_cost`（BYOK 为 0）；`complete{conversation_id,tts_pending:false}`；速查表技能先问「内容详细程度」再产出；客户端按通道回发 `question_answers` / `course_generation_answers`。
+- 生成忙锁：同一用户在其他课程仍在生成时，新的 `start_course_generation` 回 `course_generation_busy{message,retry_after_ms,course_uuid}`（线上只有「问卷禁用 + 提示」的 UI 证据，帧名为本仓自定）。
+- 深度学习通道：`deep_learn_session_resumed{current_step_id,task_plan{units[].tasks[]}}`、`thinking{session_id}`、`tool_selection{task_title,model_name}`、`inline_diagram`（`dg_` 占位 + `data-*` tag + `/api/v1/diagram/:id/diagram.png`）、`step_completion{step_data,next_step,requires_acknowledgment}`。
+- 白板客户端按线上同步分栏网格：`sync_whiteboard_state{whiteboard_state:{version,revision,activePageId,pages[].columnLayout}}`。
+- 修掉一个跨通道的时序 bug：WS 处理器在挂 `message` 监听前 `await` 会丢客户端首帧。
+
+**仍缺**
+1. 对话技能产物家族（拍认卡/教学动画/公开文件发布 `publish_file`）与 `generate_instructional_video` 尚未全部接到对话工具面。
+2. 白板分栏网格只做了「客户端上报 + 服务端存储」，渲染仍是顺序板书，不是线上的三列铺贴。
+3. 课程生成的「结构确认 → 完成」后半段仍无新证据（站方冷却窗口）。

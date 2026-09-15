@@ -104,6 +104,23 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 `conversation_created` → `credit_status{credit_info{remaining_credits,max_credits,tier,turn_cost},next_reset_time}` → `conversation_title_updated` → `tool_execution{directorAgent,data{phase:"thinking"}}` → `tool_selection{tool_name,tool_status:"started",round_index,index}` → `tool_execution{tool_name,display:"display"|"collapse",data{…}}` → `recommend_next_step` → `complete{tts_pending:false}`。
 技能链：`get_skills` → `data.skill_name` → `ask_questions` → `user_question{question_data{questions[{question,is_multiple,options[],allow_custom}]}}`。
 
+## 2.7 深度学习通道 `/deep_learn/ws?session_id=&token=`（2026-09-16 live 实证）
+
+进入会话（`/deep-learn-session/<id>`）后服务端回：
+`deep_learn_session_resumed{session_id, message:"♻️  Deep learning session resumed", current_step_id:"1.1", task_plan:{title, description, tags[], session_task_plan:[{unit_name, tasks:[{task_id, task_title, task_description}]}]}}`；新会话则给 `deep_learn_session_created`。
+
+回合：c2s `user_message{message, ui_language, step_id}` → s2c `thinking{session_id, is_complete:false}` → `thinking_chunk{session_id, …}` → `tool_execution{directorAgent, data:{phase:"thinking", thought_chunk_count}}` → `tool_selection{tool_name:"generate_content", task_title, model_name, round_index, index}` → `content_chunk`×n → `tool_execution{generate_content, completed, data:{content}}` → `inline_diagram` → `step_completion`。
+
+- `inline_diagram{placeholder_id:"dg_<12hex>", tool_name, tool_status:"ready", data:{placeholder_id, type:"gemini_image", layout:"right", status:"ready", tag, source_tag}}`；
+  `tag` 形如 `<diagram data-placeholder-id="dg_…" data-subtype="gemini_image" data-layout="right" data-status="ready" data-diagram-id="RCdJcu5L" data-file-url="https://api.hyperknow.io/api/v1/diagram/RCdJcu5L/diagram.png" data-caption="…"></diagram>`；
+  `source_tag` 形如 `<content-type: diagram; diagram-subtype: gemini-image; content-prompt: {…}; content-caption: {…}>`。
+- `step_completion{tool_name:"manage_task_progress", message:"Ready to mark this step complete", step_data:{task_id, task_title, task_description, unit_name}, next_step:{…}, requires_acknowledgment:true, conversation_id}`——客户端确认后进入下一步。
+- 步骤 id 形如 `1.1 / 1.2 / 2.1`；`user_message` 自带 `step_id`。
+
+**对话通道的技能问卷（r29/r30）**：技能入口先 `get_skills{success:true, skill_name:"cheatsheetGeneration"|"documentReading"}`，再 `ask_questions` → `user_question{message:"I need to ask you some questions to better understand your needs", question_data:{questions:[{question, is_multiple, options[], allow_custom}]}}`，答案由客户端回发（本仓用 `question_answers`）。
+
+**时序坑（本仓实现注意）**：WS 处理器若在注册 `message` 监听之前 `await` 任何东西，客户端 `open` 后立刻发的第一帧会丢；先挂监听、再准备会话，把早到的帧排队。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：
