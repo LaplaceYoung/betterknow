@@ -6,7 +6,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { wsUrl } from '@/lib/api'
 
-interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
+interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; options?: string[]; correct_index?: number; explanation?: string; task_preview?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
 interface BoardImage { url: string; caption: string; width: number; height: number; pending: boolean; failed?: boolean }
 interface Page { id: string; title: string; boards: string[]; annotations: { text: string; say?: string }[]; images: BoardImage[] }
 
@@ -18,6 +18,8 @@ export default function Whiteboard() {
   const wsRef = useRef<WebSocket | null>(null)
   const [title, setTitle] = useState('白板课堂')
   const [keyPoints, setKeyPoints] = useState<string[]>([])
+  const [animation, setAnimation] = useState<{ pending: boolean; html: string; task: string } | null>(null)
+  const [quiz, setQuiz] = useState<{ question: string; options: string[]; correct?: number; picked?: number; explanation?: string } | null>(null)
   const [pages, setPages] = useState<Page[]>([])
   const [pageIdx, setPageIdx] = useState(0)
   const [script, setScript] = useState<{ who: 'teacher' | 'you'; text: string }[]>([])
@@ -79,7 +81,8 @@ export default function Whiteboard() {
       else if (a.type === 'board') setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [], images: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next })
       else if (a.type === 'speak') { const t = a.spoken_text ?? a.say ?? ''; if (t) { setScript((s) => [...s, { who: 'teacher', text: t }]); speakText(t) } }
       else if (a.type === 'annotation') { setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, annotations: [...last.annotations, { text: a.text ?? '', say: a.say }] }; return next }); if (a.say) { setScript((s) => [...s, { who: 'teacher', text: a.say! }]); speakText(a.say) } }
-      else if (a.type === 'ask') { setAsking(a.question ?? ''); setPaused(true) }
+      else if (a.type === 'animation') setAnimation({ pending: true, html: '', task: String(a.task_preview ?? '') })
+      else if (a.type === 'ask') { setAsking(a.question ?? ''); setQuiz(Array.isArray(a.options) && a.options.length ? { question: String(a.question ?? ''), options: a.options.map(String), correct: typeof a.correct_index === 'number' ? a.correct_index : undefined, explanation: a.explanation ? String(a.explanation) : undefined } : null); setPaused(true) }
       else if (a.type === 'done') setStatus('done')
     }
     // 白板插图：pending 占位 → generated_image 落位；失败则标记（线上帧序同构）
@@ -89,7 +92,7 @@ export default function Whiteboard() {
     // 协议：start_session(session_id?) → session_ready → start_teaching → new_page/board/speak/annotation/ask/done
     ws.onopen = () => ws.send(JSON.stringify({ type: 'start_session', ...(sessionId && sessionId !== 'new' ? { session_id: sessionId, course_session_id: sessionId } : {}) }))
     ws.onmessage = (ev) => {
-      const f = JSON.parse(ev.data) as Action & { session_title?: string; session_id?: string; resumed?: boolean; key_points?: string[]; whiteboard_state?: { board_content?: string; actions?: Action[] } | null; reward?: { credits: number; reason: string }; actions?: Action[] }
+      const f = JSON.parse(ev.data) as Action & { session_title?: string; session_id?: string; resumed?: boolean; key_points?: string[]; html?: string; snippet?: string; task_preview?: string; whiteboard_state?: { board_content?: string; actions?: Action[] } | null; reward?: { credits: number; reason: string }; actions?: Action[] }
       if (f.type === 'session_ready') {
         setStatus('ready'); if (f.session_title) setTitle(f.session_title)
         if (Array.isArray(f.key_points)) setKeyPoints(f.key_points.map(String).filter(Boolean))
@@ -97,7 +100,10 @@ export default function Whiteboard() {
         // 复用已有会话时回放已保存的动作；否则请求开始授课
         if (f.resumed && f.whiteboard_state?.actions?.length) { f.whiteboard_state.actions.forEach(apply); setStatus('teaching') }
         else { ws.send(JSON.stringify({ type: 'start_teaching' })); setStatus('teaching') }
-      } else if (f.type === 'group') { /* 已逐帧应用 */ }
+      } else if (f.type === 'animation_pending') setAnimation((a) => ({ pending: true, html: a?.html ?? '', task: String(f.task_preview ?? a?.task ?? '') }))
+      else if (f.type === 'generated_animation') { const html = String(f.html ?? ''); setAnimation((a) => ({ pending: false, html, task: a?.task ?? '' })) }
+      else if (f.type === 'highlight') setScript((s) => [...s, { who: 'teacher', text: `✎ 高亮：${String(f.snippet ?? '')}` }])
+      else if (f.type === 'group') { /* 已逐帧应用 */ }
       else if (f.type === 'reward_user') setCredits(`✦ 达成里程碑 · ${f.reward?.reason ?? '白板课程学习完成'}`)
       else if (f.type === 'tts_segment') { const seg = f as Action & { audio_url?: string }; if (ttsVoice && seg.audio_url && seg.stub === false) { const audio = new Audio(seg.audio_url); audio.playbackRate = playbackRate; void audio.play().catch(() => {}) } }
       else if (f.type === 'image_gen_pending') pushImage({ url: '', caption: f.caption ?? '', width: 512, height: 512, pending: true })
@@ -256,6 +262,18 @@ export default function Whiteboard() {
             </ul>
           </div>
         )}
+        {animation && (
+          <div className="mx-4 mb-3 hk-card overflow-hidden" data-testid="board-animation">
+            <div className="flex items-center gap-2 px-3.5 py-2 border-b border-[#f1f2f4]">
+              <span className="text-[12px] font-medium">互动动画</span>
+              <span className="text-[11px] text-[#8a8a90] truncate flex-1">{animation.task || '拖一拖参数，看结果怎么变'}</span>
+              {animation.pending && <span className="text-[11px] text-[#3b5bdb]">生成中…</span>}
+            </div>
+            {animation.html
+              ? <iframe title="互动动画" sandbox="allow-scripts" srcDoc={animation.html} className="w-full" style={{ height: 340, border: 'none', background: '#faf9f7' }} />
+              : <div className="h-[120px] flex items-center justify-center text-[12px] text-[#8a8a90]">正在生成可交互演示…</div>}
+          </div>
+        )}
         <div className="flex-1 relative overflow-auto hk-scroll p-6" style={{ backgroundImage: 'radial-gradient(#e4e4e7 1px, transparent 1px)', backgroundSize: '18px 18px' }}>
           <div className="mx-auto bg-white rounded-xl shadow-sm border p-8 origin-top transition-transform" style={{ width: 760, minHeight: 520, transform: `scale(${zoom / 100})` }}>
             {status === 'connecting' && <div className="hk-skeleton h-6 w-1/2 rounded" />}
@@ -278,7 +296,29 @@ export default function Whiteboard() {
           </div>
           {(paused || asking) && (
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hk-card p-4 w-[360px] shadow-xl hk-pop" role="dialog">
-              <div className="flex items-start gap-3"><span className="text-[28px] hk-orbie">🛸</span><div className="flex-1"><div className="text-[14px] font-medium">{asking ? asking : '已暂停对话，请在右侧输入你的问题'}</div><div className="text-[12px] text-[#8a8a90] mt-1">或者直接继续听老师讲</div></div></div>
+              <div className="flex items-start gap-3"><span className="text-[28px] hk-orbie">🛸</span><div className="flex-1"><div className="text-[14px] font-medium">{asking ? asking : '已暂停对话，请在右侧输入你的问题'}</div><div className="text-[12px] text-[#8a8a90] mt-1">{quiz ? '选一个答案，或者直接继续听老师讲' : '或者直接继续听老师讲'}</div></div></div>
+              {quiz && (
+                <div className="mt-3 space-y-1.5" data-testid="board-quiz">
+                  {quiz.options.map((option, index) => {
+                    const picked = quiz.picked === index
+                    const revealed = quiz.picked !== undefined
+                    const correct = index === quiz.correct
+                    return (
+                      <button
+                        key={option}
+                        onClick={() => setQuiz((q) => (q ? { ...q, picked: index } : q))}
+                        disabled={revealed}
+                        className={`w-full text-left px-3 py-2 rounded-xl border text-[13px] ${revealed && correct ? 'border-[#16a34a] bg-[#f0fdf4]' : revealed && picked ? 'border-[#dc2626] bg-[#fef2f2]' : 'hover:border-[#a1a1aa]'}`}
+                      >{option}</button>
+                    )
+                  })}
+                  {quiz.picked !== undefined && (
+                    <div className="text-[12px] text-[#6b6b70] pt-1">
+                      {quiz.picked === quiz.correct ? '✓ 答对了' : '再想想'}{quiz.explanation ? ` · ${quiz.explanation}` : ''}
+                    </div>
+                  )}
+                </div>
+              )}
               <div className="flex justify-end mt-3"><button onClick={resume} className="h-8 px-4 rounded-full bg-[#0a0a0a] text-white text-[13px]">继续讲</button></div>
             </div>
           )}

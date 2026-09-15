@@ -651,6 +651,22 @@
     "-8_n59MFJNPUqIBE7hfd3ikcLf2XX6UqWuWsEtEB5HI": {
       "user_id": "local-open-user",
       "expires_at": 1792079374685
+    },
+    "NesTCU1vCDv0KJ1okYFZijM22NdngBsLijSbatdeRWc": {
+      "user_id": "local-open-user",
+      "expires_at": 1792081863466
+    },
+    "UI_fC5cIL_t6PEGJVkwcQ0SEIBgMKtyjgv9233u1G1w": {
+      "user_id": "local-open-user",
+      "expires_at": 1792082092945
+    },
+    "Gy9jxb-rFjmBlqwZSeUHoC-afj0KfNAtd2po8qm3QVI": {
+      "user_id": "local-open-user",
+      "expires_at": 1792082170950
+    },
+    "dNm2-_zRG9SUMoSvAgKarxE66un5hXPhoFe0Nky6IhA": {
+      "user_id": "local-open-user",
+      "expires_at": 1792082242547
     }
   },
   "conversations": {
@@ -3863,6 +3879,50 @@
         "width": 0,
         "height": 0,
         "caption": "Core ideas and vocabulary",
+        "pending": false
+      }
+    },
+    "test-course-1789415064430__77223605-f53a-4c5c-852d-813707d7d4b8": {
+      "session_id": "test-course-1789415064430__77223605-f53a-4c5c-852d-813707d7d4b8",
+      "user_id": "local-open-user",
+      "status": "active",
+      "messages": [],
+      "whiteboard_state": null,
+      "lecture_outline_id": "test-course-1789415064430:77223605-f53a-4c5c-852d-813707d7d4b8",
+      "conversation_id": "b32a1fde-3ba6-4c3e-b3cc-5ba41f147d78",
+      "session_title": "Core ideas and vocabulary",
+      "tts_config": {
+        "voice_id": "calm",
+        "speed": 1
+      },
+      "created_at": "2026-09-15T16:31:03.537Z"
+    },
+    "aaaa4212-10d9-4585-9eba-31f3a04a5a01__ed43f6c4-fb26-4603-8645-8e2599424343": {
+      "session_id": "aaaa4212-10d9-4585-9eba-31f3a04a5a01__ed43f6c4-fb26-4603-8645-8e2599424343",
+      "user_id": "local-open-user",
+      "status": "active",
+      "messages": [],
+      "whiteboard_state": {
+        "image_action": {
+          "type": "image_generation",
+          "prompt": "A clean, academic-style diagram for “The Sociological Imagination”. Show the key elements of The Sociological Imagination with clearly labeled parts. Plain white background, no shadows, no decorative elements, textbook illustration style.",
+          "language": "English",
+          "caption": "The Sociological Imagination"
+        }
+      },
+      "lecture_outline_id": "aaaa4212-10d9-4585-9eba-31f3a04a5a01:ed43f6c4-fb26-4603-8645-8e2599424343",
+      "conversation_id": "64211b9a-0633-489f-8452-70c4f7dcc54f",
+      "session_title": "The Sociological Imagination",
+      "tts_config": {
+        "voice_id": "calm",
+        "speed": 1
+      },
+      "created_at": "2026-09-15T16:40:13.209Z",
+      "board_image": {
+        "imageUrl": "/api/v1/whiteboard/images/93497ee4808a75d08c0cef2583b1a785.png",
+        "width": 512,
+        "height": 512,
+        "caption": "The Sociological Imagination",
         "pending": false
       }
     }
@@ -12356,6 +12416,33 @@
         "total_sessions": 47,
         "percentage": 0
       }
+    },
+    "606da121-88aa-4340-973d-6d1770eb651d": {
+      "courseUuid": "606da121-88aa-4340-973d-6d1770eb651d",
+      "user_id": "local-open-user",
+      "courseTitle": "给我出 3 道勾股定理的测验题",
+      "courseDescription": "",
+      "status": "generating",
+      "units": [],
+      "created_at": "2026-09-15T16:34:55.575Z"
+    },
+    "171b7048-f133-44bf-a069-b891833963af": {
+      "courseUuid": "171b7048-f133-44bf-a069-b891833963af",
+      "user_id": "local-open-user",
+      "courseTitle": "微观经济学第一性原理",
+      "courseDescription": "",
+      "status": "generating",
+      "units": [],
+      "created_at": "2026-09-15T16:34:58.098Z"
+    },
+    "0d1ea567-99bf-46c8-b1dd-7d6dddd2a985": {
+      "courseUuid": "0d1ea567-99bf-46c8-b1dd-7d6dddd2a985",
+      "user_id": "local-open-user",
+      "courseTitle": "微观经济学第一性原理",
+      "courseDescription": "",
+      "status": "generating",
+      "units": [],
+      "created_at": "2026-09-15T16:37:28.501Z"
     }
   },
   "calendar": {
