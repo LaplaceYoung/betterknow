@@ -6,8 +6,9 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { wsUrl } from '@/lib/api'
 
-interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; step_id?: number; annotation_type?: string }
-interface Page { id: string; title: string; boards: string[]; annotations: { text: string; say?: string }[] }
+interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
+interface BoardImage { url: string; caption: string; width: number; height: number; pending: boolean; failed?: boolean }
+interface Page { id: string; title: string; boards: string[]; annotations: { text: string; say?: string }[]; images: BoardImage[] }
 
 // [S19][D10][B10] 白板教学：/whiteboard/ws → session_ready → start_teaching → new_page/board/speak/annotation/ask/done 帧
 export default function Whiteboard() {
@@ -73,13 +74,17 @@ export default function Whiteboard() {
     const ws = new WebSocket(wsUrl('/api/v1/whiteboard/ws', { access_token: localStorage.getItem('access_token') ?? '', ...(sessionId && sessionId !== 'new' ? { session_id: sessionId } : {}) }))
     wsRef.current = ws
     const apply = (a: Action) => {
-      if (a.type === 'new_page') setPages((ps) => [...ps, { id: a.page_id ?? String(ps.length), title: a.title ?? `Page ${ps.length + 1}`, boards: [], annotations: [] }])
-      else if (a.type === 'board') setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next })
+      if (a.type === 'new_page') setPages((ps) => [...ps, { id: a.page_id ?? String(ps.length), title: a.title ?? `Page ${ps.length + 1}`, boards: [], annotations: [], images: [] }])
+      else if (a.type === 'board') setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [], images: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next })
       else if (a.type === 'speak') { const t = a.spoken_text ?? a.say ?? ''; if (t) { setScript((s) => [...s, { who: 'teacher', text: t }]); speakText(t) } }
       else if (a.type === 'annotation') { setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, annotations: [...last.annotations, { text: a.text ?? '', say: a.say }] }; return next }); if (a.say) { setScript((s) => [...s, { who: 'teacher', text: a.say! }]); speakText(a.say) } }
       else if (a.type === 'ask') { setAsking(a.question ?? ''); setPaused(true) }
       else if (a.type === 'done') setStatus('done')
     }
+    // 白板插图：pending 占位 → generated_image 落位；失败则标记（线上帧序同构）
+    const pushImage = (img: BoardImage) => setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: 'Board', boards: [], annotations: [], images: [] }]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, images: [...last.images, img] }; return next })
+    const resolveImage = (img: BoardImage) => setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; const images = [...last.images]; const idx = images.findIndex((i) => i.pending); if (idx >= 0) images[idx] = img; else images.push(img); next[next.length - 1] = { ...last, images }; return next })
+    const failImage = () => setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; const images = [...last.images]; const idx = images.map((i) => i.pending).lastIndexOf(true); if (idx >= 0) images[idx] = { ...images[idx], pending: false, failed: true }; next[next.length - 1] = { ...last, images }; return next })
     // 协议：start_session(session_id?) → session_ready → start_teaching → new_page/board/speak/annotation/ask/done
     ws.onopen = () => ws.send(JSON.stringify({ type: 'start_session', ...(sessionId && sessionId !== 'new' ? { session_id: sessionId, course_session_id: sessionId } : {}) }))
     ws.onmessage = (ev) => {
@@ -92,7 +97,11 @@ export default function Whiteboard() {
         else { ws.send(JSON.stringify({ type: 'start_teaching' })); setStatus('teaching') }
       } else if (f.type === 'group') { /* 已逐帧应用 */ }
       else if (f.type === 'reward_user') setCredits(`✦ 达成里程碑 · ${f.reward?.reason ?? '白板课程学习完成'}`)
-      else if (f.type === 'tts_segment' || f.type === 'pong' || f.type === 'tts_config' || f.type === 'interject_ready') { /* 音频/心跳 */ }
+      else if (f.type === 'tts_segment') { const seg = f as Action & { audio_url?: string }; if (ttsVoice && seg.audio_url && seg.stub === false) { const audio = new Audio(seg.audio_url); audio.playbackRate = playbackRate; void audio.play().catch(() => {}) } }
+      else if (f.type === 'image_gen_pending') pushImage({ url: '', caption: f.caption ?? '', width: 512, height: 512, pending: true })
+      else if (f.type === 'generated_image') resolveImage({ url: f.image_url ?? '', caption: f.caption ?? '', width: f.width ?? 512, height: f.height ?? 512, pending: false })
+      else if (f.type === 'image_gen_failed') failImage()
+      else if (f.type === 'pong' || f.type === 'tts_config' || f.type === 'interject_ready') { /* 心跳 / 配置回显 */ }
       else if (f.type === 'interject_text') { setScript((s) => [...s, { who: 'teacher', text: f.text ?? '' }]); setPaused(false); setAsking(null) }
       else apply(f)
     }
@@ -130,6 +139,9 @@ export default function Whiteboard() {
         }
         if (p.annotations.length > 0) {
           parts.push(`**重点批注：**\n` + p.annotations.map((a) => `- ${a.text}`).join('\n') + '\n')
+        }
+        if (p.images.length > 0) {
+          parts.push(`**插图：**\n` + p.images.map((img) => `- ${img.caption}${img.failed ? '（生成失败）' : ` → ${img.url}`}`).join('\n') + '\n')
         }
         parts.push('---\n')
       })
@@ -239,6 +251,14 @@ export default function Whiteboard() {
                 <div key={i} className="hk-prose hk-fade-in-up mb-4" style={{ fontFamily: '"Virgil", "Xiaolai", var(--font-satoshi)' }}><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{b}</ReactMarkdown></div>
               ))}
               {page.annotations.map((a, i) => <div key={i} className="hk-fade-in inline-block mr-2 mb-2 px-2 py-1 rounded-md border-2 border-[#dc2626] text-[#dc2626] text-[13px] font-medium" style={{ transform: 'rotate(-1deg)' }}>{a.text}</div>)}
+              {page.images.map((img, i) => (
+                <figure key={`img-${i}`} className="hk-fade-in-up mt-4">
+                  {img.pending || img.failed
+                    ? <div className="hk-skeleton rounded-lg border" style={{ width: 320, height: 320 }} aria-label={img.caption} />
+                    : <img src={img.url} alt={img.caption} width={img.width} height={img.height} loading="lazy" className="rounded-lg border bg-white" style={{ maxWidth: 360, height: 'auto' }} />}
+                  <figcaption className="mt-2 text-[12px] text-[#8a8a90]">{img.failed ? `${img.caption}（插图生成失败）` : img.caption}</figcaption>
+                </figure>
+              ))}
             </>}
             {!page && status !== 'connecting' && <div className="text-[#8a8a90] text-[13px]">老师正在准备板书…</div>}
           </div>

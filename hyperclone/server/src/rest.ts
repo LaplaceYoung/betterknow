@@ -4,11 +4,16 @@ import { basename, extname, resolve } from 'node:path';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { authenticate } from './auth.js';
 import { diagrams, placeholderPng, placeholderWebm, publicFiles } from './artifacts.js';
+import { mimeFor, readTtsAudio, readWhiteboardImage } from './media.js';
 import { now, readState, updateState, type UserRecord } from './store.js';
 import { decorateMarketplace } from './extras.js';
+import { probeSeam, seamStatus, type Seam } from './providers/index.js';
+import type { ByokConfig } from './config.js';
+import { listRuns, readRun } from './runs.js';
 import { getSeedExam, getSeedPractice, getSeedProgress, getSeedProject, resolveSeedByMarketplaceId, resolveSeedCourse } from './seedCourses.js';
 
 const protectedRoute = { preHandler: authenticate };
+type ByokRecord = ByokConfig & { enabled?: boolean };
 const profileSeed = ['Q7k3m9p2', 'A5n8r1q4', 'W2h6y3z9', 'D8j4k2m7'].map((question_id) => ({ question_id, answer_ids: [], last_updated_at: '' }));
 const taskList = { success: true, tasks: [], count: 0, pending_sources_count: 0 };
 
@@ -43,17 +48,28 @@ async function marketplaceCourses(): Promise<Array<Record<string, unknown>>> {
 export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/auth/byok', protectedRoute, async (request) => {
     const state = await readState();
-    const u = state.users[request.userId!] as unknown as { byok?: Record<string, unknown> & { apiKey?: string; providers?: Record<string, unknown> } };
+    const u = state.users[request.userId!] as unknown as { byok?: ByokRecord };
     const b = u?.byok;
-    if (!b) return { configured: false, enabled: false };
+    const mask = (key?: string): string => (key ? `${key.slice(0, 5)}…${key.slice(-4)}` : '');
+    // 面板按 seam 逐条展示：用户配置优先，其次环境变量兜底，都没有即 stub
+    const seams = seamStatus().map((status) => {
+      const own = b?.providers?.[status.seam];
+      const baseUrl = own?.baseUrl || status.baseUrl || '';
+      const model = own?.model || status.model || '';
+      const ownKey = own?.apiKey || '';
+      const source: 'user' | 'env' | 'none' = ownKey || own?.baseUrl || own?.model ? 'user' : status.source;
+      const configured = Boolean(ownKey || own?.baseUrl || status.configured) && own?.enabled !== false;
+      return { seam: status.seam, configured, enabled: own?.enabled !== false, mode: configured ? 'real' as const : 'stub' as const, source, base_url: baseUrl, model, api_key_masked: mask(ownKey), env: status.env };
+    });
     return {
-      configured: Boolean(b.apiKey || b.providers),
-      enabled: b.enabled !== false,
-      provider: b.provider ?? 'kimi',
-      base_url: b.baseUrl,
-      models: b.models,
-      api_key_masked: b.apiKey ? `${(b.apiKey ?? '').slice(0, 6)}…${(b.apiKey ?? '').slice(-4)}` : '',
-      providers: b.providers,
+      configured: Boolean(b?.apiKey || b?.providers),
+      enabled: b?.enabled !== false,
+      provider: b?.provider ?? 'kimi',
+      base_url: b?.baseUrl ?? '',
+      models: b?.models ?? {},
+      api_key_masked: mask(b?.apiKey),
+      providers: b?.providers ?? {},
+      seams,
     };
   });
   app.put('/api/v1/auth/byok', protectedRoute, async (request) => {
@@ -65,27 +81,38 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       api_key?: string;
       apiKey?: string;
       models?: Record<string, string>;
-      providers?: Record<string, { apiKey?: string; baseUrl?: string; model?: string }>;
+      providers?: Partial<Record<Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }>>;
     };
-    const baseUrl = String(body.base_url ?? body.baseUrl ?? '').trim() || 'https://api.moonshot.cn/v1';
+    const baseUrl = String(body.base_url ?? body.baseUrl ?? '').trim();
     const apiKey = String(body.api_key ?? body.apiKey ?? '').trim();
     const provider = body.provider === 'openai-compatible' ? 'openai-compatible' : body.provider === 'stub' ? 'stub' : 'kimi';
-    const models = {
-      director: body.models?.director ?? 'kimi-k2-turbo-preview',
-      content: body.models?.content ?? body.models?.director ?? 'kimi-k2-turbo-preview',
-      quiz: body.models?.quiz ?? body.models?.director ?? 'kimi-k2-turbo-preview',
-      ...(body.models?.tts ? { tts: body.models.tts } : {})
-    };
-    const providers = body.providers;
     await updateState((state) => {
-      const user = state.users[request.userId!] as unknown as { byok?: Record<string, unknown> };
+      const user = state.users[request.userId!] as unknown as { byok?: ByokRecord };
+      const previous = user.byok;
+      const slots: NonNullable<ByokRecord['providers']> = { ...(previous?.providers ?? {}) };
+      for (const [seam, incoming] of Object.entries(body.providers ?? {}) as Array<[Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }]>) {
+        const current = slots[seam] ?? { apiKey: '', baseUrl: '', model: '' };
+        const apiKeyValue = incoming.apiKey === undefined ? current.apiKey : String(incoming.apiKey);
+        slots[seam] = {
+          apiKey: apiKeyValue,
+          baseUrl: incoming.baseUrl === undefined ? current.baseUrl : String(incoming.baseUrl).trim(),
+          model: incoming.model === undefined ? current.model : String(incoming.model).trim(),
+          enabled: incoming.enabled === undefined ? current.enabled !== false : incoming.enabled !== false,
+        };
+      }
+      const models = {
+        director: body.models?.director ?? previous?.models?.director ?? 'kimi-k2-turbo-preview',
+        content: body.models?.content ?? body.models?.director ?? previous?.models?.content ?? 'kimi-k2-turbo-preview',
+        quiz: body.models?.quiz ?? body.models?.director ?? previous?.models?.quiz ?? 'kimi-k2-turbo-preview',
+        ...(body.models?.tts ?? previous?.models?.tts ? { tts: body.models?.tts ?? previous?.models?.tts } : {}),
+      };
       user.byok = {
-        enabled: body.enabled !== false,
-        provider,
-        baseUrl,
-        apiKey,
+        enabled: body.enabled === undefined ? previous?.enabled !== false : body.enabled !== false,
+        provider: body.provider ? provider : previous?.provider ?? provider,
+        baseUrl: baseUrl || previous?.baseUrl || 'https://api.moonshot.cn/v1',
+        apiKey: apiKey || previous?.apiKey || '',
         models,
-        ...(providers ? { providers } : {})
+        providers: slots,
       };
     });
     if (apiKey) {
@@ -95,44 +122,21 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
         await writeFile(credPath, yaml, 'utf8');
       } catch { /* best effort */ }
     }
-    return { success: true, configured: Boolean(apiKey || providers) };
+    return { success: true };
   });
   app.post('/api/v1/auth/byok/test', protectedRoute, async (request) => {
-    const body = (request.body ?? {}) as {
-      provider?: string;
-      base_url?: string;
-      api_key?: string;
-      model?: string;
-      seam?: 'llm' | 'search' | 'tts' | 'image' | 'stt';
-    };
-    const started = Date.now();
-    const seam = body.seam ?? 'llm';
-    if (seam === 'search') {
-      try {
-        const apiKey = body.api_key || process.env.BYOK_SEARCH_API_KEY || '';
-        if (!apiKey) return { ok: true, status: 200, latency_ms: 1, sample: 'Search stub active (free local search)' };
-        return { ok: true, status: 200, latency_ms: Date.now() - started, sample: 'Search provider configured' };
-      } catch (e) {
-        return { ok: false, status: 500, latency_ms: Date.now() - started, sample: String(e) };
-      }
-    }
-    try {
-      const resp = await fetch(`${String(body.base_url ?? 'https://api.moonshot.cn/v1').replace(/\/$/, '')}/chat/completions`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', authorization: `Bearer ${String(body.api_key ?? '')}` },
-        body: JSON.stringify({
-          model: body.model ?? 'kimi-k2-turbo-preview',
-          messages: [{ role: 'user', content: 'Reply with exactly: OK' }],
-          stream: false,
-          max_tokens: 4
-        }),
-        signal: AbortSignal.timeout(30_000)
-      });
-      const text = await resp.text();
-      return { ok: resp.ok, status: resp.status, latency_ms: Date.now() - started, sample: text.slice(0, 200) };
-    } catch (error) {
-      return { ok: false, status: 0, latency_ms: Date.now() - started, sample: error instanceof Error ? error.message : 'network error' };
-    }
+    const body = (request.body ?? {}) as { seam?: Seam; base_url?: string; api_key?: string; model?: string; deep?: boolean };
+    const seam: Seam = body.seam ?? 'llm';
+    // 面板未填值时回落到已保存的用户配置 / 环境变量
+    const state = await readState();
+    const saved = (state.users[request.userId!] as unknown as { byok?: ByokRecord }).byok;
+    const own = seam === 'llm' ? undefined : saved?.providers?.[seam];
+    const result = await probeSeam(seam, {
+      baseUrl: body.base_url || own?.baseUrl || (seam === 'llm' ? saved?.baseUrl : undefined),
+      apiKey: body.api_key || own?.apiKey || (seam === 'llm' ? saved?.apiKey : undefined),
+      model: body.model || own?.model || (seam === 'llm' ? saved?.models?.director : undefined),
+    }, { deep: body.deep === true });
+    return { ...result, seam };
   });
   app.delete('/api/v1/auth/byok', protectedRoute, async (request) => {
     await updateState((state) => {
@@ -299,8 +303,102 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return await resolveSeedCourse(id);
   };
   const seedUuid = async (course: Record<string, unknown>): Promise<string> => typeof course.seedOf === 'string' ? course.seedOf : String(course.courseUuid ?? '');
-  for (const suffix of ['generation-status', 'progress-status']) app.get(`/api/v1/course-generation/courses/:course_uuid/${suffix}`, protectedRoute, async (request, reply) => { const course = await ownedCourse(request); if (!course) return reply.code(404).send({ detail: 'Course not found' }); if (suffix === 'generation-status') return { practice: 'ready', exam: 'ready', project: 'ready', generatingSessionIds: [], generatingUnitIds: [] }; return await getSeedProgress(await seedUuid(course)) ?? { course_uuid: courseId(request), status: 'completed', progress: 100, generation_complete: true, current_step: null, error: null }; });
-  app.get('/api/v1/course-generation/courses/:course_uuid/structure', protectedRoute, async (request, reply) => { const course = await ownedCourse(request); return course ? { course_uuid: courseId(request), structure: { units: course.units ?? [] }, pending_update: null, can_undo: false } : reply.code(404).send({ detail: 'Course not found' }); });
+  // 课程资料解析：练习 / 考试 / 项目各自的 seed → 合成兜底，状态端点与内容端点共用同一条判定
+  // 课程的 session 挂载有两种形态：unit.sessions[]（合成课程）与 unit.lectures[].sessions[]（生成课程）
+  const courseSessions = (course: Record<string, unknown>): Array<{ sessionId: string; unitId: string }> => {
+    const units = Array.isArray(course.units) ? (course.units as Array<Record<string, unknown>>) : [];
+    const out: Array<{ sessionId: string; unitId: string }> = [];
+    units.forEach((unit, unitIndex) => {
+      const unitId = String(unit.id ?? unit.unitId ?? `unit-${unitIndex + 1}`);
+      const lectures = Array.isArray(unit.lectures) ? (unit.lectures as Array<Record<string, unknown>>) : [];
+      const buckets: Array<Array<Record<string, unknown> | string>> = [Array.isArray(unit.sessions) ? (unit.sessions as Array<Record<string, unknown> | string>) : []];
+      for (const lecture of lectures) buckets.push(Array.isArray(lecture.sessions) ? (lecture.sessions as Array<Record<string, unknown> | string>) : []);
+      let index = 0;
+      for (const bucket of buckets) {
+        for (const session of bucket) {
+          index += 1;
+          const fallback = `session-${unitIndex + 1}-${index}`;
+          const sessionId = typeof session === 'string' ? fallback : String((session as Record<string, unknown>).sessionId ?? (session as Record<string, unknown>).id ?? fallback);
+          out.push({ sessionId, unitId });
+        }
+      }
+    });
+    return out;
+  };
+  const resolvePractice = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown> | undefined> => {
+    const seeded = await getSeedPractice(await seedUuid(course));
+    if (seeded && ((seeded as { sessions?: unknown[] }).sessions?.length ?? 0) > 0) return seeded as Record<string, unknown>;
+    return synthesizeCoursePractice(course, id);
+  };
+  const resolveExam = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown> | undefined> => {
+    const seeded = await getSeedExam(await seedUuid(course));
+    if (seeded && ((seeded as { exams?: unknown[] }).exams?.length ?? 0) > 0) return seeded as Record<string, unknown>;
+    return synthesizeCourseExams(course, id);
+  };
+  const resolveProject = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown> | undefined> => {
+    const seeded = await getSeedProject(await seedUuid(course));
+    if (seeded && ((seeded as { stages?: unknown[] }).stages?.length ?? 0) > 0) return seeded as Record<string, unknown>;
+    return synthesizeCourseProject(course, id);
+  };
+
+  // 线上契约（2026-09-15 实测）：状态与进度是两组不同形状的表，前端逐键读取。
+  app.get('/api/v1/course-generation/courses/:course_uuid/generation-status', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const sessions = courseSessions(course);
+    const practice = await resolvePractice(course, courseId(request));
+    const examData = await resolveExam(course, courseId(request));
+    const project = await resolveProject(course, courseId(request));
+    const readySessions = new Set(((practice?.sessions ?? []) as Array<Record<string, unknown>>).map((session) => String(session.sessionId ?? session.session_id ?? '')));
+    const practiceBySession: Record<string, string> = {};
+    for (const session of sessions) practiceBySession[session.sessionId] = readySessions.size === 0 ? 'none' : readySessions.has(session.sessionId) ? 'ready' : 'locked';
+    return {
+      practice: practice ? 'ready' : 'none',
+      exam: examData ? 'ready' : 'none',
+      project: project ? 'ready' : 'none',
+      // 生成中列表：本仓课程生成是单次同步管线，没有长驻的按 session 生成队列
+      generatingSessionIds: [],
+      generatingUnitIds: [],
+      generatingStageIds: [],
+      practiceBySession,
+    };
+  });
+  app.get('/api/v1/course-generation/courses/:course_uuid/progress-status', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const examScores = (course.examScores ?? {}) as Record<string, number>;
+    const rawPractice = (course.practiceProgress ?? {}) as Record<string, Record<string, unknown>>;
+    const practiceStats: Record<string, { started: boolean; finished: boolean; correct: number; total: number }> = {};
+    for (const [sessionId, entry] of Object.entries(rawPractice)) {
+      const correct = Number(entry.score ?? entry.correct ?? 0);
+      const total = Number(entry.total ?? 0);
+      practiceStats[sessionId] = { started: true, finished: entry.completed === true || total > 0, correct: Number.isFinite(correct) ? correct : 0, total: Number.isFinite(total) ? total : 0 };
+    }
+    const rawStages = (course.projectStageStates ?? {}) as Record<string, Record<string, unknown>>;
+    const projectStages: Record<string, { touched: boolean; completed: boolean; started: boolean }> = {};
+    for (const [stageId, entry] of Object.entries(rawStages)) {
+      const submitted = entry.status === 'submitted' || entry.completed === true;
+      projectStages[stageId] = { touched: true, completed: submitted, started: submitted || Boolean(entry.submission) };
+    }
+    const examStarted = (course.examStarted ?? {}) as Record<string, boolean>;
+    return { examScores, practiceStats, projectStages, examStarted };
+  });
+  app.get('/api/v1/course-generation/courses/:course_uuid/structure', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const units = Array.isArray(course.units) ? course.units : [];
+    return {
+      structure: {
+        courseTitle: course.courseTitle ?? '',
+        courseDescription: course.courseDescription ?? '',
+        targetLearner: course.targetLearner ?? '',
+        tags: course.tags ?? [],
+        units,
+      },
+      pending_update: null,
+      can_undo: course.structureUndoApplied === true,
+    };
+  });
   for (const action of ['edit', 'apply', 'discard', 'regenerate', 'undo']) app.post(`/api/v1/course-generation/courses/:course_uuid/structure/${action}`, protectedRoute, async (request, reply) => { const course = await ownedCourse(request); if (!course) return reply.code(404).send({ detail: 'Course not found' }); if (action === 'edit') { const body = request.body as { structure?: { units?: unknown }; units?: unknown }; const units = body.structure?.units ?? body.units; if (Array.isArray(units)) await updateState((state) => { if (state.courses[courseId(request)]?.user_id === request.userId) state.courses[courseId(request)]!.units = units; }); } return { success: true, action, course_uuid: courseId(request), structure: { units: course.units ?? [] }, pending_update: null, can_undo: false }; });
   function synthesizeCoursePractice(course: Record<string, unknown>, courseIdStr: string) {
     const units = Array.isArray(course.units) ? (course.units as Array<Record<string, unknown>>) : [];
@@ -495,11 +593,7 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/course-generation/courses/:course_uuid/practice', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    let practice = await getSeedPractice(await seedUuid(course));
-    if (!practice || !((practice as { sessions?: unknown[] }).sessions?.length)) {
-      practice = synthesizeCoursePractice(course, courseId(request));
-    }
-    return practice;
+    return (await resolvePractice(course, courseId(request))) ?? { courseUuid: courseId(request), sessions: [] };
   });
 
   app.post('/api/v1/course-generation/courses/:course_uuid/practice/check-fill', protectedRoute, async (request, reply) => {
@@ -567,11 +661,18 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/course-generation/courses/:course_uuid/practice/progress', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { sessionId?: string; session_id?: string; score?: number; total?: number; completed?: boolean };
+    const sessionId = String(body.sessionId ?? body.session_id ?? '');
+    if (!sessionId) return reply.code(422).send({ detail: 'sessionId required' });
+    const entry = { score: Number(body.score ?? 0), total: Number(body.total ?? 0), completed: body.completed !== false, updated_at: now() };
     await updateState((state) => {
       const value = state.courses[courseId(request)];
-      if (value?.user_id === request.userId) value.practiceProgress = request.body ?? {};
+      if (value?.user_id !== request.userId) return;
+      const progress = (value.practiceProgress ?? {}) as Record<string, unknown>;
+      progress[sessionId] = entry;
+      value.practiceProgress = progress;
     });
-    return { status: 'ok' };
+    return { status: 'ok', session_id: sessionId, ...entry };
   });
 
   app.get('/api/v1/course-generation/courses/:course_uuid/practice/sessions/:session_id/questions/:question_id/tts', protectedRoute, async (request, reply) =>
@@ -585,28 +686,27 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/course-generation/courses/:course_uuid/exam', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    let exam = await getSeedExam(await seedUuid(course));
-    if (!exam || !((exam as { exams?: unknown[] }).exams?.length)) {
-      exam = synthesizeCourseExams(course, courseId(request));
-    }
-    return exam;
+    return (await resolveExam(course, courseId(request))) ?? { courseUuid: courseId(request), exams: [] };
   });
 
   app.post('/api/v1/course-generation/courses/:course_uuid/exam/score', protectedRoute, async (request, reply) => {
     if (!(await ownedCourse(request))) return reply.code(404).send({ detail: 'Course not found' });
     const body = (request.body ?? {}) as Record<string, unknown>;
     const score = typeof body.final_score === 'number' ? body.final_score : typeof body.score === 'number' ? body.score : 0;
-    return { status: 'ok', final_score: score };
+    const unitId = String(body.unitId ?? body.unit_id ?? 'unit1');
+    await updateState((state) => {
+      const value = state.courses[courseId(request)];
+      if (value?.user_id !== request.userId) return;
+      value.examScores = { ...((value.examScores ?? {}) as Record<string, number>), [unitId]: score };
+      value.examStarted = { ...((value.examStarted ?? {}) as Record<string, boolean>), [unitId]: true };
+    });
+    return { status: 'ok', final_score: score, unit_id: unitId };
   });
 
   app.get('/api/v1/course-generation/courses/:course_uuid/project', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    let project = await getSeedProject(await seedUuid(course));
-    if (!project || !((project as { stages?: unknown[] }).stages?.length)) {
-      project = synthesizeCourseProject(course, courseId(request));
-    }
-    return project;
+    return (await resolveProject(course, courseId(request))) ?? { courseUuid: courseId(request), projects: [], stages: [] };
   });
 
   app.post('/api/v1/course-generation/courses/:course_uuid/project/assistant', protectedRoute, async (request, reply) => {
@@ -644,13 +744,41 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/steps/_first/tts', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? reply.type('audio/webm').send(placeholderWebm) : reply.code(404).send({ detail: 'Course not found' }));
   app.get('/api/v1/course-generation/courses/:course_uuid/project/tts/prewarm', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? { ok: true, warmed: true } : reply.code(404).send({ detail: 'Course not found' }));
 
-  app.get('/api/v1/course-generation/courses/:course_uuid/canvas-updates', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? { updates: [], enabled: true, course_uuid: courseId(request) } : reply.code(404).send({ detail: 'Course not found' }));
+  app.get('/api/v1/course-generation/courses/:course_uuid/canvas-updates', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const stored = (course.canvasUpdates ?? {}) as Record<string, unknown>;
+    return {
+      hasBaseline: stored.hasBaseline === true,
+      newFiles: Number(stored.newFiles ?? 0), changedFiles: Number(stored.changedFiles ?? 0),
+      newAssignments: Number(stored.newAssignments ?? 0), changedDue: Number(stored.changedDue ?? 0),
+      syllabusChanged: stored.syllabusChanged === true,
+      newModules: Number(stored.newModules ?? 0), changedModules: Number(stored.changedModules ?? 0),
+      newAnnouncements: Number(stored.newAnnouncements ?? 0), changedAnnouncements: Number(stored.changedAnnouncements ?? 0),
+      total: Number(stored.total ?? 0), pushDisabled: stored.pushDisabled === true,
+    };
+  });
   for (const action of ['dismiss', 'disable']) app.post(`/api/v1/course-generation/courses/:course_uuid/canvas-updates/${action}`, protectedRoute, async (request, reply) => (await ownedCourse(request)) ? { success: true, action, course_uuid: courseId(request) } : reply.code(404).send({ detail: 'Course not found' }));
   app.post('/api/v1/course-generation/courses/canvas-updates/disable', protectedRoute, async () => ({ success: true, enabled: false }));
-  app.get('/api/v1/course-generation/generation-log/:run_id', protectedRoute, async (request) => ({ run_id: (request.params as { run_id: string }).run_id, status: 'completed', events: [], log: [] }));
-  app.get('/api/v1/course-generation/generation-history/:conversation_id', protectedRoute, async (request) => ({ conversation_id: (request.params as { conversation_id: string }).conversation_id, runs: [], history: [] }));
-  app.get('/api/v1/course-calendar/status', protectedRoute, async (request) => ({ course_uuid: (request.query as { course_uuid?: string }).course_uuid ?? null, configured: false, status: 'not_configured' }));
-  app.get('/api/v1/course-calendar/config', protectedRoute, async () => ({ configured: false, start_date: null, duration_days: null, preferred_weekdays: [] }));
+  app.get('/api/v1/course-generation/generation-log/:run_id', protectedRoute, async (request, reply) => {
+    const runId = (request.params as { run_id: string }).run_id;
+    const record = await readRun(runId);
+    if (!record || record.user_id !== request.userId) return reply.code(404).send({ detail: 'Run not found' });
+    return record;
+  });
+  app.get('/api/v1/course-generation/generation-history/:conversation_id', protectedRoute, async (request) => {
+    const conversationId = (request.params as { conversation_id: string }).conversation_id;
+    const runs = await listRuns({ userId: request.userId!, conversationId });
+    return { conversation_id: conversationId, runs, history: runs };
+  });
+  app.get('/api/v1/course-calendar/status', protectedRoute, async (request) => {
+    const courseUuid = (request.query as { course_uuid?: string }).course_uuid ?? '';
+    const state = await readState();
+    const tasks = state.calendar[request.userId!] ?? [];
+    const scheduled = Boolean(courseUuid) && tasks.some((task) => String(task.course_uuid ?? '') === courseUuid);
+    return { scheduled, count: scheduled ? tasks.filter((task) => String(task.course_uuid ?? '') === courseUuid).length : 0 };
+  });
+  app.get('/api/v1/course-calendar/config', protectedRoute, async () => ({ enabled: true }));
   app.post('/api/v1/course-calendar/draft', protectedRoute, async (request) => ({ success: true, draft: { ...(request.body as object), tasks: [] } }));
   app.post('/api/v1/course-calendar/accept', protectedRoute, async (request) => ({ success: true, accepted: true, ...(request.body as object) }));
 
@@ -733,7 +861,19 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     });
     return { success: true };
   });
-  app.get('/api/v1/whiteboard/audio-stream/:user/:session/:file', async (_request, reply) => reply.type('audio/webm').send(placeholderWebm));
+  // 白板音频：优先回真实 TTS 产物，缺失时回落占位 webm（前端用 SpeechSynthesis 兜底）
+  app.get('/api/v1/whiteboard/audio-stream/:user/:session/:file', async (request, reply) => {
+    const { user, session, file } = request.params as { user: string; session: string; file: string };
+    const bytes = await readTtsAudio(user, session, file);
+    return reply.type(mimeFor(file)).send(bytes ?? placeholderWebm);
+  });
+  // 白板插图：公开制品面（与 diagram/*、files/* 同级，线上亦无鉴权）
+  app.get('/api/v1/whiteboard/images/:file', async (request, reply) => {
+    const { file } = request.params as { file: string };
+    const found = await readWhiteboardImage(file);
+    if (!found) return reply.code(404).send({ detail: 'Image not found' });
+    return reply.type(found.mime).send(found.bytes);
+  });
   app.get('/sb-stub/auth/v1/settings', async (_request, reply) => reply.send({ disable_signup: false, mailer_autoconfirm: true, phone_autoconfirm: true, sms_otp_exp: 3600, external: { email: true, phone: false, apple: false, azure: false, bitbucket: false, discord: false, facebook: false, figma: false, github: false, gitlab: false, google: false, kakao: false, keycloak: false, linkedin: false, notion: false, spotify: false, slack: false, twitch: false, twitter: false, workos: false, zoom: false }, saml_enabled: false, security_update_password_require_reauthentication: false }));
   app.all('/sb-stub/*', async (_request, reply) => reply.code(501).send({ error: 'local-only stub: service decoupled' }));
   app.get('/api/v1/banner/get_banner_message', protectedRoute, async () => ({ has_message: true, message: { id: 'welcome-betterknow', body: '🎓 欢迎使用 betterknow！所有功能已通过 BYOK 模式免费开放——去首页打造你的第一门课程，或在即时协助中探索 AI 教学的无限可能。', title: 'betterknow 已就绪', created_at: now() } }));

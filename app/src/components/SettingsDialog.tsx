@@ -15,15 +15,50 @@ const TABS: { id: Tab; label: string }[] = [
 ]
 
 interface MemoryMgmt { success?: boolean; memories?: { id: string; content: string; created_at?: string }[]; long_term?: string[]; episodic?: string[] }
+type SeamId = 'llm' | 'tts' | 'stt' | 'search' | 'image'
+interface SeamDraft { baseUrl: string; apiKey: string; masked: string; model: string; enabled: boolean; source: 'user' | 'env' | 'none' }
+interface ProbeResult { ok: boolean; status: number; latency_ms: number; probe: string; sample?: string; error?: string; model?: string }
 interface ByokState {
   configured: boolean
   enabled?: boolean
-  provider?: 'kimi' | 'openai-compatible' | 'stub'
-  base_url?: string
-  api_key_masked?: string
-  models?: { director?: string; content?: string; quiz?: string; tts?: string }
-  providers?: { tts?: { apiKey?: string; baseUrl?: string; model?: string }; search?: { apiKey?: string }; image?: { apiKey?: string } }
+  seams?: { seam: SeamId; configured: boolean; enabled: boolean; mode: 'real' | 'stub'; source: 'user' | 'env' | 'none'; base_url: string; model: string; api_key_masked: string }[]
 }
+interface MemoryMgmtAlt { success?: boolean }
+
+const emptySeams = (): Record<SeamId, SeamDraft> => ({
+  llm: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
+  tts: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
+  stt: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
+  search: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
+  image: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
+})
+
+// 本地优先的预设：自部署场景默认指向本机推理服务
+const SEAM_META: { id: SeamId; label: string; short: string; hint: string; urlPlaceholder: string; modelPlaceholder: string; presets: { label: string; baseUrl: string; model?: string }[] }[] = [
+  { id: 'llm', label: '语言模型（对话 / 课程生成 / 白板讲解）', short: 'LLM', hint: 'Agent 决策、内容生成、课程管线都走这一条', urlPlaceholder: 'http://127.0.0.1:11434/v1', modelPlaceholder: 'qwen2.5:14b', presets: [
+    { label: 'Ollama', baseUrl: 'http://127.0.0.1:11434/v1' },
+    { label: 'vLLM', baseUrl: 'http://127.0.0.1:8000/v1' },
+    { label: 'LM Studio', baseUrl: 'http://127.0.0.1:1234/v1' },
+    { label: 'DeepSeek', baseUrl: 'https://api.deepseek.com/v1', model: 'deepseek-chat' },
+    { label: 'Kimi', baseUrl: 'https://api.moonshot.cn/v1', model: 'kimi-k2-turbo-preview' },
+  ] },
+  { id: 'tts', label: '语音合成（白板讲稿与插问配音）', short: 'TTS', hint: 'OpenAI 兼容 /audio/speech；未配置时用浏览器本地发声兜底', urlPlaceholder: 'http://127.0.0.1:9880/v1', modelPlaceholder: 'tts-1', presets: [
+    { label: 'OpenAI', baseUrl: 'https://api.openai.com/v1', model: 'tts-1' },
+    { label: '本地网关', baseUrl: 'http://127.0.0.1:9880/v1', model: 'gpt-sovits' },
+  ] },
+  { id: 'stt', label: '语音识别（语音提问转写）', short: 'STT', hint: 'OpenAI 兼容 /audio/transcriptions', urlPlaceholder: 'http://127.0.0.1:8000/v1', modelPlaceholder: 'whisper-1', presets: [
+    { label: 'OpenAI', baseUrl: 'https://api.openai.com/v1', model: 'whisper-1' },
+    { label: 'faster-whisper', baseUrl: 'http://127.0.0.1:8000/v1', model: 'whisper-large-v3' },
+  ] },
+  { id: 'search', label: '联网检索（课程调研 / 今日值得学）', short: 'Search', hint: 'Tavily 形状 POST /search {query,max_results}；未配置时回种子结果', urlPlaceholder: 'http://127.0.0.1:8080', modelPlaceholder: '—', presets: [
+    { label: 'Tavily', baseUrl: 'https://api.tavily.com' },
+    { label: 'SearXNG', baseUrl: 'http://127.0.0.1:8080' },
+  ] },
+  { id: 'image', label: '图像生成（白板插图 / 课程封面）', short: 'Image', hint: 'OpenAI 兼容 /images/generations；未配置时出 SVG 占位', urlPlaceholder: 'http://127.0.0.1:7860/v1', modelPlaceholder: 'gpt-image-1', presets: [
+    { label: 'OpenAI', baseUrl: 'https://api.openai.com/v1', model: 'gpt-image-1' },
+    { label: '本地 SD 网关', baseUrl: 'http://127.0.0.1:7860/v1', model: 'sd-xl' },
+  ] },
+]
 
 export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: { open: boolean; onOpenChange: (o: boolean) => void; initialTab?: Tab }) {
   const [tab, setTab] = useState<Tab>(initialTab)
@@ -33,26 +68,16 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
   }, [open, initialTab])
   const { username, tier, credits, maxCredits, language, setLanguage, refresh } = useUser()
   const [memory, setMemory] = useState<MemoryMgmt | null>(null)
-  const [coupon, setCoupon] = useState('')
-  const [couponMsg, setCouponMsg] = useState('')
   const [voice, setVoice] = useState(true)
   const [email, setEmail] = useState('')
 
-  // BYOK state
+  // BYOK state（本地 BYOK 版：5 条 seam 各自可配、可测）
   const [byokLoaded, setByokLoaded] = useState(false)
   const [byokEnabled, setByokEnabled] = useState(true)
-  const [byokProvider, setByokProvider] = useState<'kimi' | 'openai-compatible' | 'stub'>('kimi')
-  const [byokBaseUrl, setByokBaseUrl] = useState('')
-  const [byokApiKey, setByokApiKey] = useState('')
-  const [byokApiKeyMasked, setByokApiKeyMasked] = useState('')
-  const [byokDirectorModel, setByokDirectorModel] = useState('kimi-k2-turbo-preview')
-  const [byokContentModel, setByokContentModel] = useState('kimi-k2-turbo-preview')
-  const [byokQuizModel, setByokQuizModel] = useState('kimi-k2-turbo-preview')
-  const [byokSearchKey, setByokSearchKey] = useState('')
-  const [byokTtsKey, setByokTtsKey] = useState('')
-  const [byokImageKey, setByokImageKey] = useState('')
-  const [byokTesting, setByokTesting] = useState(false)
-  const [byokTestResult, setByokTestResult] = useState<{ ok: boolean; status: number; latency_ms: number; sample: string } | null>(null)
+  const [seams, setSeams] = useState<Record<SeamId, SeamDraft>>(emptySeams)
+  const [probe, setProbe] = useState<Partial<Record<SeamId, ProbeResult>>>({})
+  const [probing, setProbing] = useState<SeamId | null>(null)
+  const [deepProbe, setDeepProbe] = useState(false)
   const [byokSaving, setByokSaving] = useState(false)
   const [byokStatusMsg, setByokStatusMsg] = useState('')
 
@@ -63,30 +88,23 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
     if (tab === 'byok' && !byokLoaded) {
       apiGet<ByokState>('/auth/byok').then((b) => {
         setByokLoaded(true)
-        if (b.configured) {
-          setByokEnabled(b.enabled !== false)
-          setByokProvider(b.provider ?? 'kimi')
-          setByokBaseUrl(b.base_url ?? '')
-          setByokApiKeyMasked(b.api_key_masked ?? '')
-          if (b.models?.director) setByokDirectorModel(b.models.director)
-          if (b.models?.content) setByokContentModel(b.models.content)
-          if (b.models?.quiz) setByokQuizModel(b.models.quiz)
-          if (b.providers?.search?.apiKey) setByokSearchKey(b.providers.search.apiKey)
-          if (b.providers?.tts?.apiKey) setByokTtsKey(b.providers.tts.apiKey)
-          if (b.providers?.image?.apiKey) setByokImageKey(b.providers.image.apiKey)
+        setByokEnabled(b.enabled !== false)
+        const next = emptySeams()
+        for (const seam of b.seams ?? []) {
+          next[seam.seam] = {
+            baseUrl: seam.base_url ?? '',
+            apiKey: '',
+            masked: seam.api_key_masked ?? '',
+            model: seam.model ?? '',
+            enabled: seam.enabled !== false,
+            source: seam.source ?? 'none',
+          }
         }
-      }).catch(() => {})
+        setSeams(next)
+      }).catch(() => setByokLoaded(true))
     }
   }, [open, tab, byokLoaded])
 
-  const redeem = async () => {
-    setCouponMsg('')
-    try {
-      const r = await apiPost<{ success?: boolean; message?: string; detail?: string }>('/subscription/redeem_coupon', { coupon_code: coupon })
-      setCouponMsg(r.message ?? (r.success ? '兑换成功' : r.detail ?? '兑换失败'))
-      await refresh()
-    } catch (e) { setCouponMsg('无效的优惠码') }
-  }
   const clearMemory = async () => {
     await apiDelete('/memory/clear_stored_memory')
     setMemory(await apiGet<MemoryMgmt>('/memory/get_memory_management'))
@@ -96,64 +114,57 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
     setByokSaving(true)
     setByokStatusMsg('')
     try {
-      const providers: Record<string, { apiKey: string }> = {}
-      if (byokSearchKey) providers.search = { apiKey: byokSearchKey }
-      if (byokTtsKey) providers.tts = { apiKey: byokTtsKey }
-      if (byokImageKey) providers.image = { apiKey: byokImageKey }
-
-      await apiPut('/auth/byok', {
-        enabled: byokEnabled,
-        provider: byokProvider,
-        base_url: byokBaseUrl || undefined,
-        api_key: byokApiKey || undefined,
-        models: {
-          director: byokDirectorModel,
-          content: byokContentModel,
-          quiz: byokQuizModel,
-        },
-        providers: Object.keys(providers).length ? providers : undefined,
-      })
-      setByokStatusMsg('✓ BYOK 配置已保存并即时生效')
-      if (byokApiKey) {
-        setByokApiKeyMasked(`${byokApiKey.slice(0, 6)}…${byokApiKey.slice(-4)}`)
-        setByokApiKey('')
+      const providers: Record<string, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }> = {}
+      for (const meta of SEAM_META) {
+        const draft = seams[meta.id]
+        providers[meta.id] = {
+          ...(draft.apiKey ? { apiKey: draft.apiKey } : {}),
+          baseUrl: draft.baseUrl,
+          model: draft.model,
+          enabled: draft.enabled,
+        }
       }
+      await apiPut('/auth/byok', { enabled: byokEnabled, providers })
+      setSeams((current) => {
+        const next = { ...current }
+        for (const meta of SEAM_META) {
+          const draft = next[meta.id]
+          next[meta.id] = { ...draft, apiKey: '', masked: draft.apiKey ? `${draft.apiKey.slice(0, 5)}…${draft.apiKey.slice(-4)}` : draft.masked, source: draft.apiKey || draft.baseUrl || draft.model ? 'user' : draft.source }
+        }
+        return next
+      })
+      setByokStatusMsg('✓ 已保存，下一次请求即时生效（无需重启）')
     } catch (e) {
-      setByokStatusMsg('保存失败: ' + (e instanceof Error ? e.message : String(e)))
+      setByokStatusMsg('保存失败：' + (e instanceof Error ? e.message : String(e)))
     } finally {
       setByokSaving(false)
     }
   }
 
-  const testByok = async () => {
-    setByokTesting(true)
-    setByokTestResult(null)
+  const testSeam = async (seam: SeamId) => {
+    setProbing(seam)
+    const draft = seams[seam]
     try {
-      const r = await apiPost<{ ok: boolean; status: number; latency_ms: number; sample: string }>('/auth/byok/test', {
-        provider: byokProvider,
-        base_url: byokBaseUrl || undefined,
-        api_key: byokApiKey || undefined,
-        model: byokContentModel,
+      const r = await apiPost<ProbeResult>('/auth/byok/test', {
+        seam,
+        base_url: draft.baseUrl || undefined,
+        api_key: draft.apiKey || undefined,
+        model: draft.model || undefined,
+        deep: deepProbe,
       })
-      setByokTestResult(r)
+      setProbe((current) => ({ ...current, [seam]: r }))
     } catch (e) {
-      setByokTestResult({ ok: false, status: 0, latency_ms: 0, sample: e instanceof Error ? e.message : '网络连接失败' })
+      setProbe((current) => ({ ...current, [seam]: { ok: false, status: 0, latency_ms: 0, probe: 'none', sample: e instanceof Error ? e.message : '网络错误' } }))
     } finally {
-      setByokTesting(false)
+      setProbing(null)
     }
   }
 
   const clearByok = async () => {
     await apiDelete('/auth/byok')
-    setByokApiKey('')
-    setByokApiKeyMasked('')
-    setByokBaseUrl('')
-    setByokProvider('kimi')
-    setByokSearchKey('')
-    setByokTtsKey('')
-    setByokImageKey('')
-    setByokTestResult(null)
-    setByokStatusMsg('已清除 BYOK 配置，已恢复本地内置离线引擎')
+    setSeams(emptySeams())
+    setProbe({})
+    setByokStatusMsg('已清除本机保存的 BYOK 配置')
   }
 
   return (
@@ -183,112 +194,131 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
               </>
             )}
             {tab === 'byok' && (
-              <div className="space-y-4 max-h-[460px] overflow-y-auto pr-2">
-                <div className="flex items-center justify-between">
+              <div className="space-y-4 max-h-[520px] overflow-y-auto pr-2">
+                <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-[15px] font-semibold">模型与 BYOK (Bring Your Own Key)</h3>
+                    <h3 className="text-[15px] font-semibold">模型与 BYOK（本地自部署版）</h3>
                     <p className="text-[#8a8a90] text-[12px] mt-0.5">
-                      本项目免强制付费与商业充值。若需调用外部大模型或真实生成能力，可在此配置 API Key；留空时默认使用内置离线模拟引擎。
+                      五条能力通道各自独立配置，全部走你自己的模型服务：语言模型、语音合成、语音识别、联网检索、图像生成。未配置的通道保持内置离线兜底，不会报错也不会阻断使用。
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 shrink-0">
                     <span className="text-[12px] text-[#6b6b70]">启用 BYOK</span>
                     <Switch checked={byokEnabled} onCheckedChange={setByokEnabled} />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 pt-2">
-                  <div>
-                    <label className="block text-[12px] font-medium text-[#3d3d3f] mb-1">接口规范 / Provider</label>
-                    <select value={byokProvider} onChange={(e) => setByokProvider(e.target.value as 'kimi' | 'openai-compatible' | 'stub')} className="w-full h-9 px-2 rounded-lg border bg-white outline-none">
-                      <option value="kimi">Moonshot / Kimi (默认)</option>
-                      <option value="openai-compatible">OpenAI Compatible (DeepSeek / OpenAI / OneAPI)</option>
-                      <option value="stub">本地内置离线模拟 (Offline Stub)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-[12px] font-medium text-[#3d3d3f] mb-1">API Base URL</label>
-                    <input value={byokBaseUrl} onChange={(e) => setByokBaseUrl(e.target.value)} placeholder={byokProvider === 'openai-compatible' ? 'https://api.openai.com/v1' : 'https://api.moonshot.cn/v1'} className="w-full h-9 px-3 rounded-lg border bg-white outline-none focus:border-[#a1a1aa]" />
-                  </div>
-                </div>
+                <label className="flex items-center gap-2 text-[12px] text-[#6b6b70]">
+                  <input type="checkbox" checked={deepProbe} onChange={(e) => setDeepProbe(e.target.checked)} />
+                  深度探针（图像真出图、语音识别真转写，会产生真实调用与费用）
+                </label>
 
-                <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="text-[12px] font-medium text-[#3d3d3f]">API Key</label>
-                    {byokApiKeyMasked && <span className="text-[11px] text-[#22c55e]">当前生效: {byokApiKeyMasked}</span>}
-                  </div>
-                  <input type="password" value={byokApiKey} onChange={(e) => setByokApiKey(e.target.value)} placeholder={byokApiKeyMasked ? '留空保持当前 Key，输入新 Key 覆盖' : 'sk-...'} className="w-full h-9 px-3 rounded-lg border bg-white outline-none focus:border-[#a1a1aa]" />
-                </div>
+                {SEAM_META.map((meta) => {
+                  const draft = seams[meta.id]
+                  const result = probe[meta.id]
+                  return (
+                    <div key={meta.id} className="hk-card p-3.5 space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-[13px] font-semibold flex items-center gap-2">
+                            {meta.label}
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded ${draft.source === 'user' ? 'bg-[#eff6ff] text-[#1d4ed8]' : draft.source === 'env' ? 'bg-[#f5f3ff] text-[#6d28d9]' : 'bg-[#f4f4f5] text-[#71717a]'}`}>
+                              {draft.source === 'user' ? '面板配置' : draft.source === 'env' ? '环境变量' : '离线兜底'}
+                            </span>
+                          </div>
+                          <div className="text-[11px] text-[#8a8a90] mt-0.5">{meta.hint}</div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {draft.masked && <span className="text-[11px] text-[#22c55e]">已存 {draft.masked}</span>}
+                          <button onClick={() => testSeam(meta.id)} disabled={probing !== null} aria-label={`测试 ${meta.short}`} className="hk-pill h-7 px-2.5 text-[11px]">
+                            {probing === meta.id ? '测试中…' : '测试'}
+                          </button>
+                        </div>
+                      </div>
 
-                <div className="grid grid-cols-3 gap-3 pt-1">
-                  <div>
-                    <label className="block text-[12px] font-medium text-[#3d3d3f] mb-1">Agent 决策模型</label>
-                    <input value={byokDirectorModel} onChange={(e) => setByokDirectorModel(e.target.value)} placeholder="kimi-k2-turbo-preview" className="w-full h-9 px-3 rounded-lg border bg-white outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-[12px] font-medium text-[#3d3d3f] mb-1">内容生成模型</label>
-                    <input value={byokContentModel} onChange={(e) => setByokContentModel(e.target.value)} placeholder="kimi-k2-turbo-preview" className="w-full h-9 px-3 rounded-lg border bg-white outline-none" />
-                  </div>
-                  <div>
-                    <label className="block text-[12px] font-medium text-[#3d3d3f] mb-1">测验与出题模型</label>
-                    <input value={byokQuizModel} onChange={(e) => setByokQuizModel(e.target.value)} placeholder="kimi-k2-turbo-preview" className="w-full h-9 px-3 rounded-lg border bg-white outline-none" />
-                  </div>
-                </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {meta.presets.map((preset) => (
+                          <button
+                            key={preset.label}
+                            onClick={() => setSeams((current) => ({ ...current, [meta.id]: { ...current[meta.id], baseUrl: preset.baseUrl, model: preset.model ?? current[meta.id].model } }))}
+                            className="text-[11px] px-2 py-0.5 rounded-full border bg-white hover:bg-[#f4f4f5]"
+                          >
+                            {preset.label}
+                          </button>
+                        ))}
+                      </div>
 
-                <div className="pt-2 border-t">
-                  <div className="text-[12px] font-semibold text-[#3d3d3f] mb-2">能力扩展密钥 (可选)</div>
-                  <div className="grid grid-cols-3 gap-3">
-                    <div>
-                      <label className="block text-[11px] text-[#6b6b70] mb-1">联网搜索 (Search Key)</label>
-                      <input type="password" value={byokSearchKey} onChange={(e) => setByokSearchKey(e.target.value)} placeholder="可选" className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none" />
+                      <div className="grid grid-cols-2 gap-2">
+                        <input
+                          value={draft.baseUrl}
+                          onChange={(e) => setSeams((current) => ({ ...current, [meta.id]: { ...current[meta.id], baseUrl: e.target.value } }))}
+                          placeholder={meta.urlPlaceholder}
+                          aria-label={`${meta.short} base url`}
+                          className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none focus:border-[#a1a1aa]"
+                        />
+                        <input
+                          value={draft.model}
+                          onChange={(e) => setSeams((current) => ({ ...current, [meta.id]: { ...current[meta.id], model: e.target.value } }))}
+                          placeholder={meta.modelPlaceholder}
+                          aria-label={`${meta.short} model`}
+                          className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none focus:border-[#a1a1aa]"
+                        />
+                      </div>
+                      <input
+                        type="password"
+                        value={draft.apiKey}
+                        onChange={(e) => setSeams((current) => ({ ...current, [meta.id]: { ...current[meta.id], apiKey: e.target.value } }))}
+                        placeholder={draft.masked ? '留空保持当前密钥，输入新值覆盖（本地服务通常不需要）' : 'API Key（本地服务可留空）'}
+                        aria-label={`${meta.short} api key`}
+                        className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none focus:border-[#a1a1aa]"
+                      />
+
+                      {result && (
+                        <div className={`p-2.5 rounded-md border text-[11px] ${result.ok ? 'bg-[#f0fdf4] border-[#bbf7d0] text-[#166534]' : 'bg-[#fef2f2] border-[#fecaca] text-[#991b1b]'}`}>
+                          <div className="font-medium">
+                            {result.ok ? `✓ 连通（${result.probe} 探针 · ${result.status} · ${result.latency_ms}ms）` : `✗ 失败（${result.probe} 探针 · ${result.status || '网络'}）`}
+                          </div>
+                          <div className="mt-0.5 opacity-90 break-all">{(result.error ? `${result.error} · ` : '') + (result.sample ?? '').slice(0, 160)}</div>
+                        </div>
+                      )}
                     </div>
-                    <div>
-                      <label className="block text-[11px] text-[#6b6b70] mb-1">语音合成 (TTS Key)</label>
-                      <input type="password" value={byokTtsKey} onChange={(e) => setByokTtsKey(e.target.value)} placeholder="可选" className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none" />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] text-[#6b6b70] mb-1">生图/视频 (Generate Key)</label>
-                      <input type="password" value={byokImageKey} onChange={(e) => setByokImageKey(e.target.value)} placeholder="可选" className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none" />
-                    </div>
-                  </div>
-                </div>
+                  )
+                })}
 
-                {byokTestResult && (
-                  <div className={`p-3 rounded-lg border text-[12px] ${byokTestResult.ok ? 'bg-[#f0fdf4] border-[#bbf7d0] text-[#166534]' : 'bg-[#fef2f2] border-[#fecaca] text-[#991b1b]'}`}>
-                    <div className="font-medium">
-                      {byokTestResult.ok ? `✓ 连接成功 (状态码: ${byokTestResult.status}, 延迟: ${byokTestResult.latency_ms}ms)` : `✗ 连接失败 (状态码: ${byokTestResult.status})`}
-                    </div>
-                    <div className="mt-1 text-[11px] opacity-90 truncate">{byokTestResult.sample}</div>
-                  </div>
-                )}
-
-                {byokStatusMsg && (
-                  <div className="text-[12px] text-[#2563eb] font-medium">{byokStatusMsg}</div>
-                )}
+                {byokStatusMsg && <div className="text-[12px] text-[#2563eb] font-medium">{byokStatusMsg}</div>}
 
                 <div className="flex items-center justify-between pt-2 border-t">
-                  <button onClick={clearByok} className="hk-pill text-[#dc2626] border-[#fecaca]">清除配置</button>
-                  <div className="flex items-center gap-2">
-                    <button onClick={testByok} disabled={byokTesting} className="hk-pill">
-                      {byokTesting ? '测试中…' : '测试连接'}
-                    </button>
-                    <button onClick={saveByok} disabled={byokSaving} className="h-8 px-4 rounded-lg bg-[#0a0a0a] text-white text-[12px] font-medium hover:bg-[#27272a] transition-colors">
-                      {byokSaving ? '保存中…' : '保存配置'}
-                    </button>
-                  </div>
+                  <button onClick={clearByok} className="hk-pill text-[#dc2626] border-[#fecaca]">清除全部配置</button>
+                  <button onClick={saveByok} disabled={byokSaving} className="h-8 px-4 rounded-lg bg-[#0a0a0a] text-white text-[12px] font-medium hover:bg-[#27272a] transition-colors">
+                    {byokSaving ? '保存中…' : '保存配置'}
+                  </button>
                 </div>
               </div>
             )}
             {tab === 'subscription' && (
               <>
-                <h3 className="text-[15px] font-semibold">计划与授权模式</h3>
-                <div className="hk-card p-4 flex items-center justify-between">
-                  <div>
-                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#fdf6e3] text-[#a16207]">BYOK 终身自由版 (UNLIMITED)</span>
-                    <div className="mt-2 text-[#3d3d3f]">无限制使用 · 已免除所有积分扣减与付费壁垒</div>
-                    <div className="text-[12px] text-[#8a8a90] mt-0.5">所有大模型消耗均通过你配置的 BYOK API 密钥直连</div>
+                <h3 className="text-[15px] font-semibold">授权与运行方式</h3>
+                <div className="hk-card p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#eff6ff] text-[#1d4ed8]">本地 BYOK 版</span>
+                      <div className="mt-2 text-[#3d3d3f]">无账号体系、无积分、无订阅：所有模型调用由你填写的密钥直接驱动</div>
+                      <div className="text-[12px] text-[#8a8a90] mt-0.5">数据留在本机（`var/data`），媒体文件同样落本地磁盘</div>
+                    </div>
+                    <button className="hk-pill" onClick={() => setTab('byok')}>配置模型</button>
                   </div>
-                  <button className="hk-pill" onClick={() => setTab('byok')}>配置模型</button>
+                  <div className="grid grid-cols-5 gap-2 pt-1">
+                    {SEAM_META.map((meta) => {
+                      const draft = seams[meta.id]
+                      const ready = draft.source !== 'none' || Boolean(draft.baseUrl)
+                      return (
+                        <div key={meta.id} className="text-center rounded-lg border p-2">
+                          <div className={`text-[11px] font-medium ${ready ? 'text-[#166534]' : 'text-[#8a8a90]'}`}>{ready ? '已接入' : '离线'}</div>
+                          <div className="text-[10px] text-[#8a8a90] mt-0.5">{meta.short}</div>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
               </>
             )}

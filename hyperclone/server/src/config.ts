@@ -1,11 +1,11 @@
-export interface ProviderSlot { apiKey: string; baseUrl: string; model: string; }
+export interface ProviderSlot { apiKey: string; baseUrl: string; model: string; enabled?: boolean }
 
 export interface ByokConfig {
   provider: 'kimi' | 'openai-compatible' | 'stub';
   apiKey: string;
   baseUrl: string;
   models: { director: string; content: string; quiz: string; tts?: string };
-  providers?: { tts?: ProviderSlot; stt?: ProviderSlot; search?: ProviderSlot; image?: ProviderSlot };
+  providers?: { llm?: ProviderSlot; tts?: ProviderSlot; stt?: ProviderSlot; search?: ProviderSlot; image?: ProviderSlot };
 }
 
 const providerSlot = (env: NodeJS.ProcessEnv, name: 'TTS' | 'STT' | 'SEARCH' | 'IMAGE'): ProviderSlot | undefined => {
@@ -55,12 +55,16 @@ export type UserByok = ByokConfig & { enabled?: boolean };
 export function resolveByok(over?: UserByok): ByokConfig {
   if (!over || over.enabled === false) return config;
   const providers = over.providers || config.providers ? { ...config.providers, ...over.providers } : undefined;
-  if (!over.apiKey) return providers ? { ...config, providers } : config;
+  const llm = over.providers?.llm;
+  const llmKey = llm?.apiKey || over.apiKey;
+  const llmBase = llm?.baseUrl || over.baseUrl;
+  if (!llmKey && !llmBase) return providers ? { ...config, providers } : config;
+  const model = llm?.model || over.models?.director || config.models.director;
   return {
-    provider: over.provider ?? config.provider,
-    apiKey: over.apiKey,
-    baseUrl: over.baseUrl ?? config.baseUrl,
-    models: { ...config.models, ...(over.models ?? {}) },
+    provider: llm?.enabled === false ? 'stub' : llmBase ? 'openai-compatible' : over.provider ?? config.provider,
+    apiKey: llmKey ?? config.apiKey,
+    baseUrl: llmBase ?? config.baseUrl,
+    models: { ...config.models, ...(over.models ?? {}), director: model, content: model, quiz: model },
     ...(providers ? { providers } : {}),
   };
 }

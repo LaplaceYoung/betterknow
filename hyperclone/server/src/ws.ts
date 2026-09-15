@@ -6,12 +6,16 @@ import type { WebSocket } from 'ws';
 import { OPEN_USER_ID, ensureOpenUser, verifyJwt } from './auth.js';
 import { generateInstructionalVideo, publishFilePdf, runCourseGeneration } from './pipelines.js';
 import { runSandboxed } from './sandbox.js';
-import { diagrams, placeholderPng, publicFiles } from './artifacts.js';
+import { diagrams, placeholderPng, placeholderWebm, publicFiles } from './artifacts.js';
 import { runDshTask } from './agent/dsh-adapter.js';
 import { runDirectorRound } from './agent/director.js';
 import { config, resolveByok } from './config.js';
+import { image, tts } from './providers/index.js';
+import { audioFileName, placeholderImageSvg, saveWhiteboardImage, ttsCounts, writeTtsAudio } from './media.js';
+import { IMAGE_ACTION_CONTRACT, WHITEBOARD_IMAGE_SIZE, imagePromptPreview, normalizeImageAction, type WhiteboardImageAction } from './whiteboardImage.js';
 import { chat, chatStream, stubValue, type ChatMessage } from './llm.js';
 import { now, readState, updateState } from './store.js';
+import { appendRun, finishRun, startRun } from './runs.js';
 
 type Incoming = Record<string, unknown> & { type?: string };
 type ChatTool = 'generate_content' | 'generate_quiz' | 'generate_flashcards' | 'generate_html_animation' | 'create_deep_learn_session' | 'create_board_session' | 'publish_file' | 'recommend_next_step' | 'ask_questions' | 'generate_instructional_video' | 'code_generator';
@@ -69,7 +73,7 @@ function chooseHeuristic(message: string): ChatTool {
 }
 
 async function direct(message: string, history: Array<Record<string, unknown>>, eff?: ReturnType<typeof resolveByok>): Promise<{ thought: string; tool: ChatTool; args: Record<string, unknown> }> {
-  if (config.provider === 'stub') return { thought: 'I will produce the smallest useful learning response and verify completion.', tool: chooseHeuristic(message), args: {} };
+  if ((eff ?? config).provider === 'stub') return { thought: 'I will produce the smallest useful learning response and verify completion.', tool: chooseHeuristic(message), args: {} };
   const messages: ChatMessage[] = [{ role: 'system', content: `${await systemPrompt()}
 
 For this local clone, choose exactly one available tool: ${Object.keys(chatTools).join(', ')}. Return only JSON {"thought":"brief planning summary","tool":"tool name","args":{}}.` }, ...history.filter((item) => item.role === 'user' || item.role === 'assistant').slice(-8).map((item) => ({ role: item.role as 'user' | 'assistant', content: String(item.content ?? '') })), { role: 'user', content: message }];
@@ -91,11 +95,11 @@ async function runChatTool(socket: WebSocket, tool: ChatTool, message: string, u
   }
   if (tool === 'generate_quiz' || tool === 'generate_flashcards') {
     const key = tool === 'generate_quiz' ? 'quiz' : 'flashcards'; let result: unknown;
-    if (config.provider === 'stub') result = await stubValue(key); else { const prompt = tool === 'generate_quiz' ? `Create a concise quiz about: ${message}. Return only JSON with title and questions.` : `Create concise flashcards about: ${message}. Return only JSON with title and cards.`; const raw = await chat([{ role: 'user', content: prompt }], 'quiz', eff); try { result = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? ''); } catch { result = { content: raw }; } }
+    if (eff?.provider === 'stub') result = await stubValue(key); else { const prompt = tool === 'generate_quiz' ? `Create a concise quiz about: ${message}. Return only JSON with title and questions.` : `Create concise flashcards about: ${message}. Return only JSON with title and cards.`; const raw = await chat([{ role: 'user', content: prompt }], 'quiz', eff); try { result = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? ''); } catch { result = { content: raw }; } }
     const flat = (typeof result === 'object' && result !== null ? result as Record<string, unknown> : { content: result }) as Record<string, unknown>; const questions = Array.isArray(flat.questions) ? flat.questions : undefined; const cards = Array.isArray(flat.cards) ? flat.cards : undefined; const data: Record<string, unknown> = tool === 'generate_quiz' ? { ...(questions ? { questions } : { questions: flat.questions ?? [] }), total_count: Array.isArray(questions) ? questions.length : 0, model_used: config.models.quiz, ...(flat.title ? { title: flat.title } : {}) } : { flashcards: cards ?? [], total_count: Array.isArray(cards) ? cards.length : 0, model_used: config.models.content, ...(flat.title ? { title: flat.title } : {}) }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
   }
   if (tool === 'generate_html_animation') {
-    const id = randomUUID(); const html = config.provider === 'stub' ? await stubValue<string>('html_animation') : await chat([{ role: 'user', content: `Create a standalone educational HTML animation about: ${message}. Return HTML only.` }], 'content', eff);
+    const id = randomUUID(); const html = eff?.provider === 'stub' ? await stubValue<string>('html_animation') : await chat([{ role: 'user', content: `Create a standalone educational HTML animation about: ${message}. Return HTML only.` }], 'content', eff);
     diagrams.set(id, { html, md: `# Animation\n\n${message}`, png: placeholderPng }); const data = { diagram_id: id, url: `/api/v1/diagram/${id}/diagram.html`, html_url: `/api/v1/diagram/${id}/diagram.html` };
     chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); chatSend(socket, { type: 'inline_diagram', tool_name: tool, tool_status: 'completed', round_index: roundIndex, placeholder_id: id, data: { tag: `<diagram id="${id}">`, source_tag: message, type: 'html', status: 'completed' } }); return { produced: true, data };
   }
@@ -104,11 +108,11 @@ async function runChatTool(socket: WebSocket, tool: ChatTool, message: string, u
     await updateState((state) => { state.deep_learn[id] = session; }); const data = { deep_learn_session_id: id, url: `/deep-learn/${id}`, task_plan: session }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
   }
   if (tool === 'create_board_session') {
-    const id = randomUUID(); const boardContent = config.provider === 'stub' ? await stubValue<string>('board_brief') : await chat([{ role: 'user', content: `Create a compact markdown whiteboard lesson about: ${message}` }], 'content', eff); const board = { session_id: id, user_id: userId, status: 'ready', session_title: message.slice(0, 80), conversation_id: conversationId, whiteboard_state: { board_content: boardContent }, messages: [], tts_config: { voice_id: 'calm', speed: 1 }, created_at: now() };
+    const id = randomUUID(); const boardContent = eff?.provider === 'stub' ? await stubValue<string>('board_brief') : await chat([{ role: 'user', content: `Create a compact markdown whiteboard lesson about: ${message}` }], 'content', eff); const board = { session_id: id, user_id: userId, status: 'ready', session_title: message.slice(0, 80), conversation_id: conversationId, whiteboard_state: { board_content: boardContent }, messages: [], tts_config: { voice_id: 'calm', speed: 1 }, created_at: now() };
     await updateState((state) => { state.whiteboards[id] = board; const conversation = state.conversations[conversationId]; if (conversation) conversation.board_session_types.push('whiteboard'); }); const data = { session_id: id, board_session_id: id, url: `/whiteboard/${id}` }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
   }
   if (tool === 'publish_file') {
-    const id = randomUUID(); const content = config.provider === 'stub' ? await stubValue<string>('content') : await chat([{ role: 'user', content: `Create a concise markdown document about: ${message}` }], 'content', eff); publicFiles.set(id, { id, filename: 'betterknow-note.md', mime: 'text/markdown; charset=utf-8', data: Buffer.from(content) }); const data = { file_id: id, filename: 'betterknow-note.md', url: `/api/v1/files/${id}` }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data, content };
+    const id = randomUUID(); const content = eff?.provider === 'stub' ? await stubValue<string>('content') : await chat([{ role: 'user', content: `Create a concise markdown document about: ${message}` }], 'content', eff); publicFiles.set(id, { id, filename: 'betterknow-note.md', mime: 'text/markdown; charset=utf-8', data: Buffer.from(content) }); const data = { file_id: id, filename: 'betterknow-note.md', url: `/api/v1/files/${id}` }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data, content };
   }
   if (tool === 'ask_questions') {
     const data = { questions: [{ question: `What outcome matters most for “${message.slice(0, 80)}”?`, options: [{ title: 'Understand', description: 'Build intuition first.' }, { title: 'Practice', description: 'Work through examples.' }, { title: 'Apply', description: 'Build something useful.' }], is_multiple: false }] }; chatSend(socket, { type: 'user_question', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', question_data: data }); return { produced: true, data };
@@ -120,7 +124,7 @@ async function runChatTool(socket: WebSocket, tool: ChatTool, message: string, u
     chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
   }
   if (tool === 'code_generator') {
-    const codeRaw = config.provider === 'stub' ? 'console.log("Hello from the betterknow sandbox")' : await chat([{ role: 'user', content: `Write a short runnable JavaScript snippet demonstrating: ${message}. Respond with code only, no fences.` }], 'content', eff);
+    const codeRaw = eff?.provider === 'stub' ? 'console.log("Hello from the betterknow sandbox")' : await chat([{ role: 'user', content: `Write a short runnable JavaScript snippet demonstrating: ${message}. Respond with code only, no fences.` }], 'content', eff);
     const code = codeRaw.replace(/```\w*\n?/g, '').replace(/```/g, '').trim();
     for (const piece of code.match(/.{1,80}(?:\n|$)/g) ?? [code]) chatSend(socket, { type: 'code_chunk', tool_name: tool, tool_status: 'streaming', round_index: roundIndex, chunk: piece });
     const run = await runSandboxed({ code, language: 'javascript' });
@@ -180,27 +184,112 @@ function chatHandler(socket: WebSocket, request: FastifyRequest): void { guardSo
   })().catch((error: unknown) => chatSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true }));
 }
 
+// ── 白板媒体：speak → TTS 分片（tts_segment）；image_generation → 图像模型 + generated_image ──
+function voiceFor(voiceId: string): string { return voiceId; }
+
+async function emitSpeak(socket: WebSocket, userId: string, sessionId: string, stepId: number, text: string, voiceId: string, speed: number, byok: import('./config.js').ByokConfig): Promise<void> {
+  const speech = text.trim(); if (!speech) return;
+  const counts = ttsCounts(speech);
+  const result = await tts.synthesize(speech, { voice: voiceFor(voiceId), speed }, byok);
+  const sequence = stepId;
+  let audioUrl: string;
+  if (result.bytes) {
+    audioUrl = await writeTtsAudio(userId, sessionId, audioFileName(userId, sessionId, sequence, speech, result.ext), result.bytes);
+  } else {
+    audioUrl = await writeTtsAudio(userId, sessionId, audioFileName(userId, sessionId, sequence, speech, 'webm'), placeholderWebm);
+  }
+  wsSend(socket, { type: 'tts_segment', audio_url: audioUrl, url: audioUrl, sequence, step_id: stepId, tts_cjk: counts.tts_cjk, tts_latin: counts.tts_latin, speed, stub: !result.bytes, ...(result.error ? { error: result.error } : {}) });
+}
+
+async function emitImageGeneration(socket: WebSocket, action: WhiteboardImageAction, pageId: string, stepId: number, byok: import('./config.js').ByokConfig, placementStepId?: number): Promise<{ url: string; width: number; height: number; stub: boolean } | undefined> {
+  wsSend(socket, { type: 'image_gen_pending', step_id: stepId, ...(typeof placementStepId === 'number' ? { placement_step_id: placementStepId } : {}), prompt_preview: imagePromptPreview(action.prompt), caption: action.caption, page_id: pageId });
+  const generated = await image.generate(action.prompt, { size: WHITEBOARD_IMAGE_SIZE }, byok);
+  if (!generated.bytes) {
+    if (generated.error) { wsSend(socket, { type: 'image_gen_failed', step_id: stepId, caption: action.caption, page_id: pageId, message: generated.error, is_complete: false }); return undefined; }
+    const stored = await saveWhiteboardImage(placeholderImageSvg(action.caption, action.prompt), 'svg', true);
+    wsSend(socket, { type: 'generated_image', image_url: stored.url, width: stored.width, height: stored.height, caption: action.caption, step_id: stepId, page_id: pageId, stub: true });
+    return { url: stored.url, width: stored.width, height: stored.height, stub: true };
+  }
+  const stored = await saveWhiteboardImage(generated.bytes, generated.ext);
+  wsSend(socket, { type: 'generated_image', image_url: stored.url, width: stored.width, height: stored.height, caption: action.caption, step_id: stepId, page_id: pageId });
+  return { url: stored.url, width: stored.width, height: stored.height, stub: false };
+}
+
+// 让教师产出一张插图的动作：优先问模型（受模板契约约束），模型不可用时按模板骨架兜底。
+async function lessonImageAction(userId: string, topic: string, boardContent: string, language: string, eff: ReturnType<typeof resolveByok>): Promise<WhiteboardImageAction> {
+  const fallback = normalizeImageAction({}, { topic, language });
+  if (eff.provider === 'stub') return fallback;
+  try {
+    const raw = await chat([
+      { role: 'system', content: `${IMAGE_ACTION_CONTRACT}\n只输出一个 JSON 对象，不要解释。` },
+      { role: 'user', content: `课程主题：${topic}\n板书内容：${boardContent.slice(0, 800)}\n语言：${language}\n请给出一张最能支撑本页讲解的插图动作。` },
+    ], 'content', eff);
+    const parsed = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? '') as Record<string, unknown>;
+    return normalizeImageAction(parsed, { topic, language });
+  } catch { return fallback; }
+}
+
 function silentPcm(): string { return Buffer.alloc(9_600).toString('base64'); }
 function splitSentences(text: string): string[] { return text.match(/[^.!?。！？]+[.!?。！？]?/g)?.map((part) => part.trim()).filter(Boolean) ?? [text]; }
-async function cascade(socket: WebSocket, userId: string, sessionId: string, text: string, speed: number, voiceInput = false): Promise<void> {
+async function cascade(socket: WebSocket, userId: string, sessionId: string, text: string, voiceId: string, speed: number, voiceInput = false): Promise<void> {
+  const seam = await effFor(userId);
   const interjectId = randomUUID().replaceAll('-', '').slice(0, 12); wsSend(socket, { type: 'interject_ready', interject_id: interjectId, mode: 'cascade' });
   if (voiceInput) wsSend(socket, { type: 'interject_user_text', interject_id: interjectId, delta: '(voice input received)' });
   let answer = '确认收到你的问题。我们可以先抓住核心概念，再用一个具体例子验证它。';
   try { answer = await chat([{ role: 'system', content: 'Answer a learner interjection clearly and briefly.' }, { role: 'user', content: text }], 'content', await effFor(userId)); } catch { /* Local fallback keeps the cascade usable. */ }
-  let sequence = 0; for (const sentence of splitSentences(answer)) { wsSend(socket, { type: 'interject_text', interject_id: interjectId, delta: sentence }); wsSend(socket, { type: 'interject_audio', interject_id: interjectId, audio_url: `/api/v1/whiteboard/audio-stream/${userId}/${sessionId}/intj_${sequence}.webm`, sequence, speed, text: sentence }); wsSend(socket, { type: 'interject_pcm', interject_id: interjectId, pcm_b64: silentPcm(), sample_rate: 24000 }); sequence += 1; }
+  let sequence = 0;
+  for (const sentence of splitSentences(answer)) {
+    const counts = ttsCounts(sentence);
+    const speech = await tts.synthesize(sentence, { voice: voiceFor(voiceId), speed }, seam);
+    const name = audioFileName(userId, sessionId, sequence, sentence, speech.bytes ? speech.ext : 'webm');
+    const audioUrl = await writeTtsAudio(userId, sessionId, name, speech.bytes ?? placeholderWebm);
+    wsSend(socket, { type: 'interject_text', interject_id: interjectId, delta: sentence });
+    wsSend(socket, { type: 'interject_audio', interject_id: interjectId, audio_url: audioUrl, sequence, speed, text: sentence, tts_cjk: counts.tts_cjk, tts_latin: counts.tts_latin, stub: !speech.bytes });
+    wsSend(socket, { type: 'interject_pcm', interject_id: interjectId, pcm_b64: silentPcm(), sample_rate: 24000 });
+    sequence += 1;
+  }
   wsSend(socket, { type: 'interject_done', interject_id: interjectId, control: 'none', text: answer });
 }
 function whiteboardHandler(socket: WebSocket, request: FastifyRequest): void { guardSocket(socket);
   const userId = acceptUser(request, socket); if (!userId) return; wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let voiceId = 'calm'; let speed = 1; let paused = false; let audioBuffer = '';
   const sessionReady = async (requested?: string): Promise<void> => { const state = await readState(); const existing = requested ? state.whiteboards[requested] : undefined; const resumed = Boolean(existing && existing.user_id === userId); sessionId = resumed ? requested : randomUUID(); const session = resumed ? existing! : { session_id: sessionId, user_id: userId, status: 'active', messages: [], whiteboard_state: null, lecture_outline_id: null, conversation_id: randomUUID(), session_title: 'Whiteboard learning session', tts_config: { voice_id: voiceId, speed }, created_at: now() }; await updateState((next) => { next.whiteboards[sessionId!] = session; }); wsSend(socket, { type: 'session_ready', session_id: sessionId, resumed, status: session.status ?? 'active', session: false, messages: session.messages ?? [], conversation_id: session.conversation_id, session_title: session.session_title, whiteboard_state: session.whiteboard_state ?? null, lecture_outline_id: session.lecture_outline_id ?? null }); };
-  const teach = async (): Promise<void> => { if (!sessionId) await sessionReady(); paused = false; const boardContent = config.provider === 'stub' ? await stubValue<string>('board_brief') : await chat([{ role: 'user', content: 'Create a compact markdown whiteboard lesson.' }], 'content', await effFor(userId)); const spokenText = 'Let’s build the idea from a simple question, draw the relationship, and test it with one concrete example.'; const pageId = 'page-1'; const annId = randomUUID(); const actions = [{ type: 'new_page', page_id: pageId, title: 'The Big Idea', step_id: 0 }, { type: 'board', board_content: boardContent, step_id: 1, board_uid: 0, page_id: pageId, title: 'The Big Idea' }, { type: 'speak', spoken_text: spokenText, step_id: 2 }, { type: 'annotation', annotation_type: 'highlight', page_index: 0, step_id: 3, ann_id: annId, text: 'The core relationship', say: 'Focus on the relationship between the two ideas.' }, { type: 'ask', step_id: 4, page_index: 0, mode: 'open', question: 'What is the key relationship you notice?' }, { type: 'done', step_id: 5 }]; await updateState((next) => { const value = next.whiteboards[sessionId!]!; value.status = 'active'; value.whiteboard_state = { board_content: boardContent, actions }; }); for (const action of actions) wsSend(socket, action as Record<string, unknown>); wsSend(socket, { type: 'group', actions }); wsSend(socket, { type: 'tts_segment', url: `/api/v1/whiteboard/audio-stream/${userId}/${sessionId}/tts_0.webm`, audio_url: `/api/v1/whiteboard/audio-stream/${userId}/${sessionId}/tts_0.webm`, sequence: 0, step_id: 2, speed }); wsSend(socket, { type: 'reward_user', reward: { credits: 0, reason: 'BYOK: 白板课程完成' } }); };
-  socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { wsSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } void (async () => {
+  const teach = async (): Promise<void> => { if (!sessionId) await sessionReady(); paused = false;
+    const state = await readState(); const session = state.whiteboards[sessionId!] ?? {};
+    const topic = String(session.session_title ?? 'Whiteboard learning session');
+    const language = /[\u4e00-\u9fff]/.test(topic) ? 'Chinese' : 'English';
+    const lessonEff = await effFor(userId);
+    const boardContent = lessonEff.provider === 'stub' ? await stubValue<string>('board_brief') : await chat([{ role: 'user', content: 'Create a compact markdown whiteboard lesson.' }], 'content', lessonEff);
+    const pageId = 'page-1'; const annId = randomUUID();
+    const imageAction = await lessonImageAction(userId, topic, boardContent, language, lessonEff);
+    const spokenText = 'Let’s build the idea from a simple question, draw the relationship, and test it with one concrete example.';
+    const actions: Array<Record<string, unknown>> = [
+      { type: 'new_page', page_id: pageId, title: 'The Big Idea', step_id: 0 },
+      { type: 'board', board_content: boardContent, step_id: 1, board_uid: 0, page_id: pageId, title: 'The Big Idea' },
+      imageAction as unknown as Record<string, unknown>,
+      { type: 'speak', spoken_text: spokenText, step_id: 2 },
+      { type: 'annotation', annotation_type: 'highlight', page_index: 0, step_id: 3, ann_id: annId, text: 'The core relationship', say: 'Focus on the relationship between the two ideas.' },
+      { type: 'ask', step_id: 4, page_index: 0, mode: 'open', question: 'What is the key relationship you notice?' },
+      { type: 'done', step_id: 5 },
+    ];
+    await updateState((next) => { const value = next.whiteboards[sessionId!]!; value.status = 'active'; value.whiteboard_state = { board_content: boardContent, actions }; });
+    // 帧序对齐线上：动作帧逐条下发 → 媒体帧（tts_segment / image_gen_pending+generated_image）→ group 汇总
+    for (const action of actions) { if (action.type === 'speak' || action.type === 'image_generation') continue; wsSend(socket, action); }
+    await emitSpeak(socket, userId, sessionId!, 2, spokenText, voiceId, speed, await effFor(userId));
+    const placed = await emitImageGeneration(socket, imageAction, pageId, 1, await effFor(userId), 2);
+    if (placed) {
+      const board = state.whiteboards[sessionId!]?.whiteboard_state as { actions?: Array<Record<string, unknown>> } | undefined;
+      await updateState((next) => { const value = next.whiteboards[sessionId!]!; value.board_image = { imageUrl: placed.url, width: placed.width, height: placed.height, caption: imageAction.caption, pending: false }; value.whiteboard_state = { ...(board ?? {}), image_action: imageAction }; });
+    }
+    wsSend(socket, { type: 'group', actions });
+    wsSend(socket, { type: 'reward_user', reward: { credits: 0, reason: 'BYOK: 白板课程完成' } }); };
+
+socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { wsSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } void (async () => {
     if (input.type === 'ping') { wsSend(socket, { type: 'pong', t: input.t }); return; } if (input.type === 'start_session') { await sessionReady(); return; } if (input.type === 'resume_session' || input.type === 'resume_or_start_course_session') { await sessionReady(typeof input.session_id === 'string' ? input.session_id : typeof input.course_session_id === 'string' ? input.course_session_id : undefined); return; }
     if (input.type === 'set_tts_config') { voiceId = typeof input.voice_id === 'string' ? input.voice_id : voiceId; speed = typeof input.speed === 'number' ? Math.min(2, Math.max(0.5, input.speed)) : speed; if (sessionId) await updateState((next) => { next.whiteboards[sessionId!]!.tts_config = { voice_id: voiceId, speed }; }); wsSend(socket, { type: 'tts_config', voice_id: voiceId, speed }); return; }
     if (input.type === 'set_lecture_outline') { if (!sessionId) await sessionReady(); await updateState((next) => { next.whiteboards[sessionId!]!.lecture_outline_id = input.lecture_outline_id ?? null; }); wsSend(socket, { type: 'lecture_outline_selected', lecture_outline_id: input.lecture_outline_id ?? null, ok: true }); return; }
     if (input.type === 'pause_session' || input.type === 'narration_pause') { paused = true; wsSend(socket, { type: 'pause', paused: true, status: 'paused' }); return; } if (input.type === 'interject_start') { if (!sessionId) await sessionReady(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; }
-    if (input.type === 'interject_resume' || input.type === 'start_teaching') { await teach(); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (!sessionId) await sessionReady(); await cascade(socket, userId, sessionId!, 'Please acknowledge this voice question.', speed, hadAudio); return; }
-    if (input.type === 'interject_question' || input.type === 'question_answers') { if (!sessionId) await sessionReady(); const voice = typeof input.audio_b64 === 'string' || typeof input.mime === 'string'; await cascade(socket, userId, sessionId!, typeof input.text === 'string' ? input.text : voice ? 'Please acknowledge this voice question.' : 'Please clarify the current idea.', speed, voice); return; }
+    if (input.type === 'interject_resume' || input.type === 'start_teaching') { await teach(); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (!sessionId) await sessionReady(); await cascade(socket, userId, sessionId!, 'Please acknowledge this voice question.', voiceId, speed, hadAudio); return; }
+    if (input.type === 'interject_question' || input.type === 'question_answers') { if (!sessionId) await sessionReady(); const voice = typeof input.audio_b64 === 'string' || typeof input.mime === 'string'; await cascade(socket, userId, sessionId!, typeof input.text === 'string' ? input.text : voice ? 'Please acknowledge this voice question.' : 'Please clarify the current idea.', voiceId, speed, voice); return; }
     if (input.type === 'model_probe') { wsSend(socket, { type: 'model_probe_started' }); const started = performance.now(); try { const text = await chat([{ role: 'user', content: 'Reply briefly to confirm model connectivity.' }], 'tts', await effFor(userId)); const ttft_ms = Math.round(performance.now() - started); wsSend(socket, { type: 'model_probe_result', ok: true, verdict: 'ok_no_context', ttft_ms, text, minimal: { ok: true, ttft_ms, text, error: null }, replay: false, context_turns: 0, context_chars: 0 }); } catch (error) { wsSend(socket, { type: 'model_probe_result', ok: false, verdict: 'error', ttft_ms: Math.round(performance.now() - started), text: '', minimal: { ok: false, error: error instanceof Error ? error.message : 'Probe failed' } }); } return; }
     if (input.type === 'sync_whiteboard_state' && sessionId) { await updateState((next) => { next.whiteboards[sessionId!]!.whiteboard_state = input.whiteboard_state ?? null; }); wsSend(socket, { type: 'board', ...(typeof input.whiteboard_state === 'object' && input.whiteboard_state ? input.whiteboard_state as object : {}), step_id: input.step_id ?? 0, board_uid: input.board_uid ?? 0, page_id: input.page_id ?? 'page-1' }); return; } if (paused) wsSend(socket, { type: 'pause', paused: true, status: 'paused' });
   })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); });
@@ -215,18 +304,25 @@ function driveHandler(socket: WebSocket, request: FastifyRequest): void { guardS
 function netCheckHandler(socket: WebSocket): void { guardSocket(socket); wsSend(socket, { type: 'net_check_session', session_id: randomUUID() }); socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) return; if (input.type === 'ping') wsSend(socket, { type: 'pong', t: input.t }); else if (input.type === 'model_probe' || input.type === 'net_check_model') wsSend(socket, { type: 'net_check_model', ok: true, ttft_ms: 0 }); else if (input.type === 'net_check_recovered') wsSend(socket, { type: 'net_check_recovered', ok: true }); else if (input.type === 'net_check_degraded') wsSend(socket, { type: 'net_check_degraded', ok: false }); else if (input.type?.startsWith('net_check_')) wsSend(socket, { type: input.type, ok: true }); }); }
 
 async function generatedCourse(query: string, courseUuid: string, userId: string): Promise<Record<string, unknown>> {
-  let plan = await stubValue<Record<string, unknown>>('course_plan'); if (config.provider !== 'stub') { const raw = await chat([{ role: 'user', content: `Create a compact course plan for “${query}”. Return only JSON with title, description, and units, each unit having title and sessions.` }], 'quiz', await effFor(userId)); try { plan = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? '') as Record<string, unknown>; } catch { /* Preserve valid stub course. */ } }
+  const eff = await effFor(userId); let plan = await stubValue<Record<string, unknown>>('course_plan'); if (eff.provider !== 'stub') { const raw = await chat([{ role: 'user', content: `Create a compact course plan for “${query}”. Return only JSON with title, description, and units, each unit having title and sessions.` }], 'quiz', eff); try { plan = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? '') as Record<string, unknown>; } catch { /* Preserve valid stub course. */ } }
   const units = Array.isArray(plan.units) ? plan.units.map((unit, unitIndex) => { const value = unit as Record<string, unknown>; const sessions = Array.isArray(value.sessions) ? value.sessions.map((session, sessionIndex) => typeof session === 'string' ? { id: randomUUID(), title: session, description: `Guided learning session ${sessionIndex + 1}.` } : session) : []; return { id: `unit-${unitIndex + 1}`, ...value, sessions }; }) : [];
   return { courseUuid, created_at: now(), updated_at: now(), courseTitle: plan.title ?? query, courseDescription: plan.description ?? `A practical course about ${query}.`, targetLearner: 'Learners seeking intuition and practical skill', tags: query.split(/\s+/).slice(0, 4), ticketVariant: 1, coverImageUrl: '', wideCoverImageUrl: '', source: 'generated', progress: 0, units, user_id: userId };
 }
 
 function courseHandler(socket: WebSocket, request: FastifyRequest): void { guardSocket(socket);
   const userId = acceptUser(request, socket); if (!userId) return; wsSend(socket, { type: 'connection_established', message: 'Course generation connected' });
-  let courseUuid: string = randomUUID(); let query = 'New course'; let lastAnswers: Array<{ question: string; answer: string }> = [];
-  const emit = (frame: Record<string, unknown>) => wsSend(socket, { course_uuid: courseUuid, ...frame });
+  let courseUuid: string = randomUUID(); let query = 'New course'; let lastAnswers: Array<{ question: string; answer: string }> = []; let runId: string | undefined;
+  // 每个服务端帧同步落 run 日志（对齐线上 generation-log.events，dir=server）
+  const emit = (frame: Record<string, unknown>): void => {
+    const out: Record<string, unknown> = { course_uuid: courseUuid, ...(runId ? { run_id: runId } : {}), ...frame };
+    if (runId && typeof out.type === 'string') { const { type, ...rest } = out as { type: string } & Record<string, unknown>; void appendRun(runId, { dir: 'server', type, ...rest }); }
+    if (out.type === 'course_generation_complete' && runId) void finishRun(runId, 'completed');
+    wsSend(socket, out);
+  };
+  socket.on('close', () => { if (runId) void finishRun(runId, 'disconnected'); });
   const legacy = async (): Promise<void> => {
     const step = (stepId: string, status: 'loading' | 'completed', title?: string, placeholder?: string) => emit({ type: 'course_generation_step', step_id: stepId, status, ...(title ? { title } : {}), ...(placeholder ? { placeholder } : {}) });
-    step('boot', 'loading', 'Starting course generation', 'Crafting Courses...'); emit({ type: 'course_generation_started', course_uuid: courseUuid, run_dir: resolve('var/data/courses', courseUuid), run_id: randomUUID() }); step('boot', 'completed');
+    step('boot', 'loading', 'Starting course generation', 'Crafting Courses...'); emit({ type: 'course_generation_started', course_uuid: courseUuid, run_dir: resolve('var/data/courses', courseUuid), run_id: runId ?? randomUUID() }); step('boot', 'completed');
     step('researching_the_web', 'loading', 'Researching the web', 'Scouring the web for material...'); emit({ type: 'course_generation_progress', message: 'Round 1 fetched 0 page(s)', data: { research: { round: 1, keywords: [query], results: [] }, reference_ids: [] } }); step('researching_the_web', 'completed');
     step('generating_initial_syllabus', 'loading', 'Generating initial syllabus', 'Cooking the big picture...'); step('generating_initial_syllabus', 'completed');
     if (!lastAnswers.length) { emit({ type: 'course_generation_questions', question_data: await stubValue<Record<string, unknown>>('course_questions') }); return; }
@@ -241,7 +337,7 @@ function courseHandler(socket: WebSocket, request: FastifyRequest): void { guard
     try {
       const deferred: Array<Record<string, unknown>> = [];
       const emitGated = (frame: Record<string, unknown>) => { if (frame.type === 'course_generation_complete') { deferred.push(frame); return; } emit(frame); };
-      const piped = await runCourseGeneration(emitGated, { query, answers: lastAnswers, courseUuid, userId });
+      const piped = await runCourseGeneration(emitGated, { query, answers: lastAnswers, courseUuid, userId, eff: await effFor(userId) });
       if (piped && Array.isArray(piped.units)) { await updateState((state) => { state.courses[courseUuid] = { ...piped, user_id: userId }; }); }
       for (const frame of deferred) emit(frame);
       if (piped) return;
@@ -250,7 +346,20 @@ function courseHandler(socket: WebSocket, request: FastifyRequest): void { guard
   };
   socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { wsSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } void (async () => {
     if (input.type === 'ping') { wsSend(socket, { type: 'pong', t: input.t }); return; }
-    if (input.type === 'start_course_generation' || input.type === 'resume_course_generation' || input.type === 'start_course_update') { query = typeof input.query === 'string' ? input.query : query; courseUuid = typeof input.course_uuid === 'string' ? input.course_uuid : courseUuid; lastAnswers = []; await drivePipeline(); return; }
+    if (input.type === 'start_course_generation' || input.type === 'resume_course_generation' || input.type === 'start_course_update') {
+      query = typeof input.query === 'string' ? input.query : query;
+      courseUuid = typeof input.course_uuid === 'string' ? input.course_uuid : courseUuid;
+      if (!runId) {
+        runId = randomUUID();
+        await startRun({ runId, userId, courseUuid, query, conversationId: typeof input.conversation_id === 'string' ? input.conversation_id : undefined });
+        const attachmentPaths = Array.isArray(input.attachment_paths) ? input.attachment_paths : [];
+        await appendRun(runId, { dir: 'client', type: 'start_course_generation', query, canvas: input.canvas_selection ? true : false, ui_language: typeof input.ui_language === 'string' ? input.ui_language : 'zh-CN', attachment_count: attachmentPaths.length, attachment_paths: attachmentPaths, interactive_structure: input.interactive_structure === true });
+        // BYOK：不扣积分，但保留字段形状（amount=0 + byok 标记）
+        await appendRun(runId, { dir: 'system', type: 'credits_charged', amount: 0, byok: true });
+      }
+      emit({ type: 'course_generation_started', course_uuid: courseUuid, run_dir: resolve('var/data/courses', courseUuid), run_id: runId });
+      return;
+    }
     if (input.type === 'course_generation_answers') { lastAnswers = Array.isArray(input.answers) ? input.answers as Array<{ question: string; answer: string }> : []; emit({ type: 'course_generation_answers_received', answers: lastAnswers }); await drivePipeline(); return; }
     if (input.type === 'course_structure_confirm' || input.type === 'course_update_confirm' || input.type === 'course_update_feedback') { await drivePipeline(); return; }
     if (input.type === 'stop_course_generation' || input.type === 'course_update_stop' || input.type === 'stop_course_update') wsSend(socket, { type: 'course_generation_stopped', course_uuid: courseUuid, is_complete: true });
@@ -265,7 +374,7 @@ function pdfHandler(socket: WebSocket, request: FastifyRequest): void { guardSoc
     if (input.type === 'set_tts_config') { speed = typeof input.speed === 'number' ? Math.max(0.5, Math.min(2, input.speed)) : speed; wsSend(socket, { type: 'tts_config', voice_id: typeof input.voice_id === 'string' ? input.voice_id : 'firm', speed }); return; }
     if (input.type === 'sync_pdf_state' && sessionId) { const pdfState = input.pdf_state ?? input.sync_pdf_state ?? null; await updateState((next) => { Object.assign(next.whiteboards[sessionId!]!, { pdf_state: pdfState, board_state: input.board_state ?? null, pdf_file_id: typeof pdfState === 'object' && pdfState ? (pdfState as Record<string, unknown>).file_id : undefined }); }); wsSend(socket, { type: 'pdf_state_synced', ok: true, session_id: sessionId, pdf_state: pdfState }); return; }
     if (input.type === 'start_teaching') { if (!sessionId || !(await readState()).whiteboards[sessionId]?.pdf_file_id) { wsSend(socket, { type: 'error', message: 'No PDF uploaded. Please upload a PDF first.', is_complete: true }); return; } const tts = (step: number) => `/api/v1/whiteboard/audio-stream/${userId}/${sessionId}/tts_${step}.webm`; wsSend(socket, { type: 'speak', page_index: 0, step_id: 0, say: 'Let’s begin with the key idea on this page.', tts_url: tts(0) }); wsSend(socket, { type: 'annotation', annotation_type: 'highlight', page_index: 0, step_id: 1, ann_id: randomUUID(), text: 'Key idea', say: 'This highlighted phrase is the key idea.', tts_url: tts(1) }); wsSend(socket, { type: 'ask', step_id: 2, page_index: 0, mode: 'open', question: 'What is the key idea on this page?' }); wsSend(socket, { type: 'mark_response_complete', step_id: 3 }); wsSend(socket, { type: 'done', step_id: 4 }); return; }
-    if (input.type === 'interject_start') { if (!sessionId) sessionId = randomUUID(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (sessionId) await cascade(socket, userId, sessionId, 'Please acknowledge this voice question.', speed, hadAudio); return; } if (input.type === 'interject_question') { if (sessionId) await cascade(socket, userId, sessionId, typeof input.text === 'string' ? input.text : 'Please clarify this PDF.', speed, typeof input.audio_b64 === 'string' || typeof input.mime === 'string'); return; }
+    if (input.type === 'interject_start') { if (!sessionId) sessionId = randomUUID(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (sessionId) await cascade(socket, userId, sessionId, 'Please acknowledge this voice question.', 'firm', speed, hadAudio); return; } if (input.type === 'interject_question') { if (sessionId) await cascade(socket, userId, sessionId, typeof input.text === 'string' ? input.text : 'Please clarify this PDF.', 'firm', speed, typeof input.audio_b64 === 'string' || typeof input.mime === 'string'); return; }
     if (input.type === 'action_step_received' || input.type === 'action_step_complete' || input.type === 'user_continue') return; if (input.type === 'navigate_page') { wsSend(socket, { type: 'go_to_page', page: input.page ?? 0, step_id: 0 }); return; }
     if (input.type === 'model_probe') { const started = performance.now(); wsSend(socket, { type: 'model_probe_started' }); try { const text = await chat([{ role: 'user', content: 'Confirm connectivity briefly.' }], 'tts', await effP); const ttft_ms = Math.round(performance.now() - started); wsSend(socket, { type: 'model_probe_result', ok: true, verdict: 'ok_no_context', ttft_ms, text, minimal: { ok: true, ttft_ms, text, error: null } }); } catch { wsSend(socket, { type: 'model_probe_result', ok: false, verdict: 'error', ttft_ms: Math.round(performance.now() - started) }); } }
   })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); });

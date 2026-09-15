@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router'
 import { apiGet } from '@/lib/api'
-import { CourseStructureView, type CourseFull } from './MarketplacePreview'
+import { CourseStructureView, type CourseFull, type CourseProgressView } from './MarketplacePreview'
 import { Sparkles, BookOpen, Trophy } from 'lucide-react'
 
 // [S18] 课程主页：数据来自 /course-generation/courses/:uuid（已加入课程的完整结构）
@@ -13,13 +13,24 @@ export default function CourseJourney() {
   const [course, setCourse] = useState<CourseFull | null>(null)
   const [err, setErr] = useState('')
   const [dismissed, setDismissed] = useState(false)
+  const [progress, setProgress] = useState<CourseProgressView>({})
   useEffect(() => { apiGet<CourseFull>(`/course-generation/courses/${courseId}`).then(setCourse).catch((e) => setErr(String(e))) }, [courseId])
+  // 状态与进度分属两个端点（对齐线上契约）：练习可用性、答题统计与考试分数都取真值
+  useEffect(() => {
+    apiGet<{ practiceBySession?: Record<string, string> }>(`/course-generation/courses/${courseId}/generation-status`)
+      .then((status) => setProgress((current) => ({ ...current, practiceBySession: status.practiceBySession ?? {} })))
+      .catch(() => {})
+    apiGet<CourseProgressView>(`/course-generation/courses/${courseId}/progress-status`)
+      .then((stats) => setProgress((current) => ({ ...current, practiceStats: stats.practiceStats ?? {}, examScores: stats.examScores ?? {} })))
+      .catch(() => {})
+  }, [courseId])
 
   if (err) return <div className="p-12 text-center text-[#8a8a90]">课程不存在或无权访问<div className="mt-2"><button onClick={() => nav('/courses')} className="hk-pill">返回我的课程</button></div></div>
   if (!course) return <div className="mx-auto max-w-[1180px] px-8 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}><div className="space-y-3"><div className="hk-skeleton rounded-2xl h-[220px]" /><div className="hk-skeleton h-6 rounded" /></div><div className="space-y-3"><div className="hk-skeleton h-8 rounded w-1/2" /><div className="hk-skeleton h-24 rounded" /><div className="hk-skeleton h-40 rounded-2xl" /></div></div>
 
   const totalSessions = course.units.reduce((a, u) => a + u.lectures.reduce((b, l) => b + l.sessions.length, 0), 0)
-  const masteredSessions = course.units.reduce((a, u) => a + u.lectures.reduce((b, l) => b + l.sessions.filter(s => s.mastery === 'mastered' || s.mastery === 'proficient').length, 0), 0)
+  const finished = (sessionId: string) => progress.practiceStats?.[sessionId]?.finished === true
+  const masteredSessions = course.units.reduce((a, u) => a + u.lectures.reduce((b, l) => b + l.sessions.filter((s) => finished(s.sessionId) || s.mastery === 'mastered' || s.mastery === 'proficient').length, 0), 0)
   const progressPct = totalSessions > 0 ? Math.round((masteredSessions / totalSessions) * 100) : 0
 
   return (
@@ -58,7 +69,7 @@ export default function CourseJourney() {
         </div>
       )}
 
-      <CourseStructureView course={course} enrolled courseUuid={courseId} onExit={() => nav('/courses')} />
+      <CourseStructureView course={course} enrolled courseUuid={courseId} progress={progress} onExit={() => nav('/courses')} />
     </>
   )
 }

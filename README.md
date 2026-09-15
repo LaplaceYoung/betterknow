@@ -127,16 +127,31 @@ cd ../hyperclone/server && npm run build
 
 ---
 
-## ⚙️ 模型配置 (BYOK)
+## ⚙️ 模型配置（本地 BYOK 版）
 
-平台支持在界面上无感配置与切换模型：
+五条能力通道各自独立配置，全部指向你自己的模型服务；未配置的通道保持离线兜底，功能不中断：
 
-1. 进入首页，点击右上角的 **BYOK** 徽章或侧栏底部的 **模型与 BYOK**。
-2. 选择模型服务提供商：
-   - **Kimi / Moonshot**：填入官方 API Key。
-   - **OpenAI 兼容 / 自定义网关**：填入 Base URL（例如 `https://api.deepseek.com/v1`）及对应的 API Key 与模型名称。
-   - **离线模拟模式 (Stub)**：无需填写密钥，内置全套离线交互题库与教学样例，开箱即可体验完整流程。
-3. 点击 **测试连通性**，确认通过后即刻全局生效。
+| 通道 | 用途 | 接口约定 | 本地预设 |
+| :--- | :--- | :--- | :--- |
+| **语言模型** | 对话、课程生成、白板讲解、测验出题 | OpenAI 兼容 `/chat/completions` | Ollama `:11434/v1`、vLLM `:8000/v1`、LM Studio `:1234/v1` |
+| **语音合成** | 白板讲稿与插问配音 | `/audio/speech` | OpenAI、本地 GPT-SoVITS 网关 |
+| **语音识别** | 语音提问转写 | `/audio/transcriptions` | OpenAI whisper、faster-whisper 服务 |
+| **联网检索** | 课程调研、「今日值得学」 | `POST /search {query,max_results}` | Tavily、自建 SearXNG |
+| **图像生成** | 白板插图、课程封面 | `/images/generations` | OpenAI、本地 SD 网关 |
+
+配置入口：首页右上的 **BYOK** 徽章或侧栏「模型与 BYOK」。
+每条通道有 **测试** 按钮：默认走 `models`/`chat`/`speech` 等轻探针；勾选「深度探针」会真实出图与转写（会产生费用）。
+配置只写本机（`hyperclone/server/var/data/state.json`），下一次请求即时生效，无需重启。
+
+运行方式：
+
+```bash
+cd hyperclone/server && npm ci && npm run build && PORT=8787 npm start   # http://127.0.0.1:8787
+# 也可用环境变量给进程级默认值（面板配置优先于环境变量）
+# BYOK_LLM_*（或 KIMI_/OPENAI_/AIGW_）、BYOK_TTS_*、BYOK_STT_*、BYOK_SEARCH_*、BYOK_IMAGE_*
+```
+
+本地 BYOK 版的取舍：**不引入账号体系与鉴权服务**（设备免登 + 本地 JWT）、**不做积分与订阅**、**不接云存储**（媒体落 `var/data/whiteboard/**`）。接口字段仍按上游形状返回，前端无需分支。
 
 ---
 

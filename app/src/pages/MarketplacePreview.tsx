@@ -28,7 +28,13 @@ export function StatusDot({ status }: { status?: string }) {
 }
 
 // [S15]/[S18] 课程结构两栏视图：预览（未加入）与课程主页（已加入）共用
-export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUuid }: { course: CourseFull; enrolled: boolean; onJoin?: () => void; onExit?: () => void; courseUuid?: string }) {
+export interface CourseProgressView {
+  practiceBySession?: Record<string, string>
+  practiceStats?: Record<string, { started: boolean; finished: boolean; correct: number; total: number }>
+  examScores?: Record<string, number>
+}
+
+export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUuid, progress }: { course: CourseFull; enrolled: boolean; onJoin?: () => void; onExit?: () => void; courseUuid?: string; progress?: CourseProgressView }) {
   const nav = useNavigate()
   const [tab, setTab] = useState<'units' | 'materials' | 'practice'>('units')
   const [unitIdx, setUnitIdx] = useState(0)
@@ -139,7 +145,15 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
         {unit && (
           <div key={unit.unitId} className="hk-fade-in-up">
             <div className="text-[11px] text-[#3b5bdb] font-medium mb-1 px-1.5 py-0.5 rounded bg-[#eef2ff] inline-block">第 {unitIdx + 1} 单元，共 {course.units.length} 单元</div>
-            <h2 className="text-[22px] font-semibold mt-2">单元 {unitIdx + 1}：{unit.title}</h2>
+            <h2 className="text-[22px] font-semibold mt-2 flex items-center gap-2">
+              单元 {unitIdx + 1}：{unit.title}
+              {typeof progress?.examScores?.[unit.unitId] === 'number' && (
+                <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#eff6ff] text-[#1d4ed8]">考试 {progress.examScores[unit.unitId]} 分</span>
+              )}
+              {typeof progress?.examScores?.[`unit${unitIdx + 1}`] === 'number' && (
+                <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#eff6ff] text-[#1d4ed8]">考试 {progress.examScores[`unit${unitIdx + 1}`]} 分</span>
+              )}
+            </h2>
             <p className="text-[13px] text-[#6b6b70] mt-2 leading-6 max-w-[760px]">{unit.description}</p>
             <button onClick={() => setUploadModal(true)} className="mt-4 w-full hk-card p-4 flex items-center gap-3 text-left hover:shadow-md cursor-pointer"><span className="flex -space-x-2"><span className="h-8 w-8 rounded-lg bg-[#fde68a]" /><span className="h-8 w-8 rounded-lg bg-[#bfdbfe]" /><span className="h-8 w-8 rounded-lg bg-[#fecaca]" /></span><span><span className="block text-[13px] font-medium inline-flex items-center gap-1"><Upload size={13} />上传材料，扩展这门课程</span><span className="block text-[12px] text-[#8a8a90]">上传教材的 PDF，或直接描述你想添加、修改的内容</span></span></button>
             <div className="mt-4 flex flex-wrap items-center gap-3 text-[11px] text-[#6b6b70]">{LEGEND.map((l) => <span key={l.k} className="inline-flex items-center gap-1"><StatusDot status={l.k} />{l.label}</span>)}</div>
@@ -150,7 +164,11 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
                 <div key={lec.lectureId} className="hk-card p-4">
                   <div className="flex items-start gap-3"><span className="mt-0.5 h-6 w-6 shrink-0 rounded-full bg-[#f1f2f4] text-[12px] flex items-center justify-center">{li + 1}</span><div className="flex-1"><h3 className="text-[15px] font-semibold">讲次 {li + 1}：{lec.title}</h3><p className="text-[12px] text-[#6b6b70] leading-5 mt-1">{lec.description}</p></div></div>
                   <ul className="mt-3 divide-y">
-                    {lec.sessions.map((s) => (
+                    {lec.sessions.map((s) => {
+                      const stat = progress?.practiceStats?.[s.sessionId]
+                      const availability = progress?.practiceBySession?.[s.sessionId]
+                      const liveStatus = stat?.finished ? (stat.total > 0 && stat.correct / stat.total >= 0.8 ? 'mastered' : 'familiar') : stat?.started ? 'attempted' : undefined
+                      return (
                       <li key={s.sessionId} className="flex items-center gap-3 py-2 text-[13px] group">
                         <span className="flex-1 truncate">{s.title ?? `${lec.title} · 第 ${s.sessionIndex} 节`}</span>
                         {actionToast?.id === s.sessionId && (
@@ -159,8 +177,13 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
                           </span>
                         )}
                         <button onClick={() => goSession({ ...s, session_type: 'whiteboard' })} className="hk-pill h-7 text-[12px] px-2.5"><Play size={11} />学习</button>
-                        <button onClick={() => goSession({ ...s, session_type: 'practice' })} className="hk-pill h-7 text-[12px] px-2.5"><PenLine size={11} />练习</button>
-                        <StatusDot status={s.status} />
+                        <button
+                          onClick={() => goSession({ ...s, session_type: 'practice' })}
+                          disabled={availability === 'none'}
+                          title={availability === 'none' ? '这门课程暂未生成随堂练习' : undefined}
+                          className="hk-pill h-7 text-[12px] px-2.5 disabled:opacity-40"
+                        ><PenLine size={11} />练习{stat?.finished ? ` ${stat.correct}/${stat.total}` : ''}</button>
+                        <StatusDot status={liveStatus ?? s.status} />
                         <Popover>
                           <PopoverTrigger asChild>
                             <button className="hk-icon-btn h-7 w-7 text-[#8a8a90] hover:text-black opacity-60 group-hover:opacity-100 transition-opacity" aria-label="更多操作" title="更多操作">
@@ -186,7 +209,8 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
                           </PopoverContent>
                         </Popover>
                       </li>
-                    ))}
+                      )
+                    })}
                   </ul>
                 </div>
               ))}

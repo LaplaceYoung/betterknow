@@ -116,10 +116,10 @@ function emitStep(emit: (frame: Record<string, unknown>) => void, courseUuid: st
   emit({ type: 'course_generation_step', step_id: stepId, status, ...(title ? { title } : {}), ...(placeholder ? { placeholder } : {}), course_uuid: courseUuid });
 }
 
-export async function runCourseGeneration(emit: (frame: Record<string, unknown>) => void, opts: { query: string; answers: Array<{ question: string; answer: string }>; courseUuid: string; userId: string }): Promise<Record<string, unknown>> {
+export async function runCourseGeneration(emit: (frame: Record<string, unknown>) => void, opts: { query: string; answers: Array<{ question: string; answer: string }>; courseUuid: string; userId: string; eff?: ByokConfig }): Promise<Record<string, unknown>> {
   const topic = opts.query.trim() || 'A Practical Learning Journey';
   const { courseUuid } = opts;
-  const useModel = config.provider !== 'stub';
+  const useModel = (opts.eff ?? config).provider !== 'stub';
   emitStep(emit, courseUuid, 'boot', 'loading', 'Starting course generation', 'Crafting Courses...');
   emit({ type: 'course_generation_started', course_uuid: courseUuid, run_id: randomUUID(), user_id: opts.userId });
   emitStep(emit, courseUuid, 'boot', 'completed');
