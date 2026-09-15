@@ -8,7 +8,9 @@ import { wsUrl } from '@/lib/api'
 
 interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; options?: string[]; correct_index?: number; explanation?: string; task_preview?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
 interface BoardImage { url: string; caption: string; width: number; height: number; pending: boolean; failed?: boolean }
-interface Page { id: string; title: string; boards: string[]; annotations: { text: string; say?: string }[]; images: BoardImage[] }
+interface Page { id: string; title: string; boards: string[]; annotations: { text: string; say?: string }[]; images: BoardImage[]; columnLayout?: Record<string, unknown> }
+// 线上客户端把分栏网格参数一并同步给服务端：{version,revision,activePageId,pages[].columnLayout}
+const boardLayout = (width: number): Record<string, unknown> => ({ colCount: 3, tileW: Math.max(220, Math.round((width - 60 - 24) / 3)), tileGapX: 12, tileGapY: 12, gridLeft: 30, gridTop: 130, usableW: Math.max(320, width - 60), usableH: 615, exportPixelW: Math.max(720, width * 2), exportPixelH: 1230 })
 
 // [S19][D10][B10] 白板教学：/whiteboard/ws → session_ready → start_teaching → new_page/board/speak/annotation/ask/done 帧
 export default function Whiteboard() {
@@ -16,6 +18,7 @@ export default function Whiteboard() {
   const nav = useNavigate()
   const containerRef = useRef<HTMLDivElement>(null)
   const wsRef = useRef<WebSocket | null>(null)
+  const whiteboardRevision = useRef(0)
   const [title, setTitle] = useState('白板课堂')
   const [keyPoints, setKeyPoints] = useState<string[]>([])
   const [animation, setAnimation] = useState<{ pending: boolean; html: string; task: string } | null>(null)
@@ -78,7 +81,7 @@ export default function Whiteboard() {
     wsRef.current = ws
     const apply = (a: Action) => {
       if (a.type === 'new_page') setPages((ps) => [...ps, { id: a.page_id ?? String(ps.length), title: a.title ?? `Page ${ps.length + 1}`, boards: [], annotations: [], images: [] }])
-      else if (a.type === 'board') setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [], images: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next })
+      else if (a.type === 'board') { setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [], images: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next }); syncState() }
       else if (a.type === 'speak') { const t = a.spoken_text ?? a.say ?? ''; if (t) { setScript((s) => [...s, { who: 'teacher', text: t }]); speakText(t) } }
       else if (a.type === 'annotation') { setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, annotations: [...last.annotations, { text: a.text ?? '', say: a.say }] }; return next }); if (a.say) { setScript((s) => [...s, { who: 'teacher', text: a.say! }]); speakText(a.say) } }
       else if (a.type === 'animation') setAnimation({ pending: true, html: '', task: String(a.task_preview ?? '') })
@@ -86,8 +89,27 @@ export default function Whiteboard() {
       else if (a.type === 'done') setStatus('done')
     }
     // 白板插图：pending 占位 → generated_image 落位；失败则标记（线上帧序同构）
+    let syncTimer: ReturnType<typeof setTimeout> | null = null
+    const syncState = () => {
+      if (syncTimer) clearTimeout(syncTimer)
+      syncTimer = setTimeout(() => {
+        const width = containerRef.current?.clientWidth ?? 1440
+        setPages((ps) => {
+          const next = ps.length ? ps : [{ id: 'p', title: 'Board', boards: [], annotations: [], images: [] }]
+          const layout = boardLayout(width)
+          const withLayout = next.map((page) => ({ ...page, columnLayout: page.columnLayout ?? layout }))
+          if (wsRef.current?.readyState === WebSocket.OPEN) {
+            wsRef.current.send(JSON.stringify({
+              type: 'sync_whiteboard_state',
+              whiteboard_state: { version: 1, revision: (whiteboardRevision.current += 1), activePageId: withLayout[withLayout.length - 1]?.id ?? 'p', pages: withLayout },
+            }))
+          }
+          return withLayout
+        })
+      }, 400)
+    }
     const pushImage = (img: BoardImage) => setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: 'Board', boards: [], annotations: [], images: [] }]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, images: [...last.images, img] }; return next })
-    const resolveImage = (img: BoardImage) => setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; const images = [...last.images]; const idx = images.findIndex((i) => i.pending); if (idx >= 0) images[idx] = img; else images.push(img); next[next.length - 1] = { ...last, images }; return next })
+    const resolveImage = (img: BoardImage) => { setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; const images = [...last.images]; const idx = images.findIndex((i) => i.pending); if (idx >= 0) images[idx] = img; else images.push(img); next[next.length - 1] = { ...last, images }; return next }); syncState() }
     const failImage = () => setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; const images = [...last.images]; const idx = images.map((i) => i.pending).lastIndexOf(true); if (idx >= 0) images[idx] = { ...images[idx], pending: false, failed: true }; next[next.length - 1] = { ...last, images }; return next })
     // 协议：start_session(session_id?) → session_ready → start_teaching → new_page/board/speak/annotation/ask/done
     ws.onopen = () => ws.send(JSON.stringify({ type: 'start_session', ...(sessionId && sessionId !== 'new' ? { session_id: sessionId, course_session_id: sessionId } : {}) }))

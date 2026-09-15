@@ -478,7 +478,7 @@ export default function ChatResponse() {
   const submitAnswers = (skip = false) => {
     if (!questions || !wsRef.current) return
     const payload = questions.questions.map((q, i) => ({ question: q.question, answer: skip ? '跳过' : ((answers[i] ?? []).map((oi) => q.options[oi]?.title ?? '').filter(Boolean).join('；') || (q.options[0]?.title ?? '')) }))
-    wsRef.current.send(JSON.stringify({ type: 'course_generation_answers', answers: payload }))
+    wsRef.current.send(JSON.stringify(isGen ? { type: 'course_generation_answers', answers: payload } : { type: 'question_answers', answers: payload }))
     push({ kind: 'user', text: payload.map((p) => p.answer).join(' / ') || '跳过' })
     setQuestions(null)
   }

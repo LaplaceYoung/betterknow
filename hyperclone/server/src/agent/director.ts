@@ -11,6 +11,7 @@ import { publicFiles } from '../artifacts.js';
 
 export interface DirectorInput {
   message: string;
+  answers?: Array<{ question?: string; answer?: string }>;
   mode?: string;
   integrations?: string[];
   speed_mode?: string;
@@ -611,7 +612,7 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
 
   // get_skills: 载入当前技能规范
   if (skill) {
-    await tool('get_skills', { skills: [skill] }, 'collapse', async () => ({ content: await skillText(skill) }), 2);
+    await tool('get_skills', { skills: [skill] }, 'collapse', async () => ({ success: true, skill_name: skill, content: await skillText(skill) }), 2);
   }
 
   // 技能特化分支
@@ -806,11 +807,12 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
         });
         send({
           type: 'user_question',
+          message: 'I need to ask you some questions to better understand your needs',
           tool_name: 'ask_questions',
           tool_status: 'completed',
           round_index: 2,
           display: 'display',
-          question_data: { questions },
+          question_data: { questions: questions.map((q) => ({ ...q, allow_custom: (q as { allow_custom?: boolean }).allow_custom !== false })) },
         });
         await pushHistory(ctx.conversationId, 'tool', null, {
           tool_name: 'ask_questions',
@@ -818,7 +820,7 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
           result: { success: true, result: data, display: 'display' },
         });
         send({ type: 'mark_response_complete', step_id: 0 });
-        send({ type: 'complete', message: 'Waiting for your answers', is_complete: true });
+        send({ type: 'complete', message: 'Waiting for your answers', is_complete: true, conversation_id: ctx.conversationId, tts_pending: false });
         return;
       }
 
@@ -881,6 +883,21 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
     }
 
     case 'cheatsheetGeneration': {
+      // 线上实测：速查表技能先弹一题「内容详细程度」，答完再产出（allow_custom 允许自己写）
+      const pending = (await readState()).conversations[ctx.conversationId] as unknown as { pending_skill?: string } | undefined;
+      if (!input.answers?.length && !pending?.pending_skill) {
+        const questions = [{ question: '你希望速查表的内容详细程度如何？', is_multiple: false, options: ['一般 (提取核心要点)', '详细 (适当展开细节)', '非常详细 (最大化保留所有细节)'], allow_custom: true }];
+        await updateState((next) => {
+          const c = next.conversations[ctx.conversationId] as unknown as Record<string, unknown> | undefined;
+          if (c) { c.pending_skill = 'cheatsheetGeneration'; c.pending_question = questions; }
+        });
+        await tool('ask_questions', { questions }, 'display', async () => ({ success: true, result: { questions } }), 2);
+        send({ type: 'user_question', message: 'I need to ask you some questions to better understand your needs', tool_name: 'ask_questions', tool_status: 'completed', round_index: 2, display: 'display', question_data: { questions } });
+        send({ type: 'mark_response_complete', step_id: 0 });
+        send({ type: 'complete', message: 'Waiting for your answers', is_complete: true, conversation_id: ctx.conversationId, tts_pending: false });
+        return;
+      }
+
       const id = randomUUID().replaceAll('-', '');
       const title = lang === 'zh' ? `${topic} · 考前高密度速查表` : `${topic} — High-Density Cheatsheet`;
       const md =
@@ -1087,5 +1104,5 @@ $$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$$
     data: { success: true, result: recommendData, display: 'display' },
   });
 
-  send({ type: 'complete', message: 'Response complete', is_complete: true });
+  send({ type: 'complete', message: 'Response complete', is_complete: true, conversation_id: ctx.conversationId, tts_pending: false });
 }

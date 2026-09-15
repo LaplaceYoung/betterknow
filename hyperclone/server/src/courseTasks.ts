@@ -124,6 +124,17 @@ async function driveTask(task: CourseTask, eff?: ByokConfig): Promise<void> {
   for (const frame of deferred) { record(task, frame); broadcast(task, frame); }
 }
 
+export interface BusyCheck { busy: true; task: CourseTask; retry_after_ms: number }
+
+// 同一用户同一时间只跑一条课程生成（线上实测：其他窗口仍在生成时，问卷的「继续」被禁用并给出解禁时间）。
+// 同课程的重复 start 视为 attach（返回既有任务），别的课程则给出忙信息。
+export function busyFor(userId: string, courseUuid: string): BusyCheck | undefined {
+  const running = [...tasks.values()].filter((task) => task.user_id === userId && (task.status === 'running' || task.status === 'awaiting_answers'));
+  const other = running.find((task) => task.course_uuid !== courseUuid);
+  if (!other) return undefined;
+  return { busy: true, task: other, retry_after_ms: 15_000 };
+}
+
 export async function startCourseTask(input: StartTaskInput): Promise<CourseTask> {
   const existing = findActiveTask({ userId: input.userId, courseUuid: input.courseUuid });
   if (existing) return existing;

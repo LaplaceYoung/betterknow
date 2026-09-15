@@ -15,10 +15,11 @@ import { audioFileName, placeholderImageSvg, referencePageImage, saveWhiteboardI
 import { IMAGE_ACTION_CONTRACT, WHITEBOARD_IMAGE_SIZE, imagePromptPreview, normalizeImageAction, type WhiteboardImageAction } from './whiteboardImage.js';
 import { chat, chatStream, stubValue, type ChatMessage } from './llm.js';
 import { now, readState, updateState } from './store.js';
-import { attachTask, findActiveTask, getTask, recordAnswerDraft, startCourseTask, stopCourseTask, submitTaskAnswers } from './courseTasks.js';
+import { attachTask, busyFor, findActiveTask, getTask, recordAnswerDraft, startCourseTask, stopCourseTask, submitTaskAnswers } from './courseTasks.js';
 import { sessionKeyPoints } from './courseModel.js';
 import { prefetch, synthesize } from './tts.js';
 import { buildAnimation } from './animation.js';
+import { hash32 } from './media.js';
 
 type Incoming = Record<string, unknown> & { type?: string };
 type ChatTool = 'generate_content' | 'generate_quiz' | 'generate_flashcards' | 'generate_html_animation' | 'create_deep_learn_session' | 'create_board_session' | 'publish_file' | 'recommend_next_step' | 'ask_questions' | 'generate_instructional_video' | 'code_generator';
@@ -142,7 +143,7 @@ async function chatRound(socket: WebSocket, input: Incoming, userId: string, con
   const message = typeof input.message === 'string' ? input.message : typeof input.answer === 'string' ? input.answer : ''; const state = await readState(); const user = state.users[userId] ?? await ensureOpenUser(); const conversation = state.conversations[conversationId];
   if (!user || !conversation) { chatSend(socket, { type: 'error', message: 'Conversation not found', is_complete: true }); return; }
   await updateState((next) => { const value = next.conversations[conversationId]!; value.history_index += 1; const atts = input.attachments ?? input.images ?? null; value.history.push({ index: value.history_index, role: 'user', content: JSON.stringify({ type: 'user_message', message, file_info: atts, attachments: atts, images: atts, mode: input.mode ?? null, integrations: input.integrations ?? [], reply_language: input.reply_language ?? null }), timestamp: now() }); value.updated_at = now(); if (value.title.startsWith('Conversation ')) value.title = message.replace(/\s+/g, ' ').trim().slice(0, 40) || value.title; });
-  chatSend(socket, { type: 'credit_status', message: 'Processing your request (BYOK Mode: Unlimited)', credit_info: { remaining_credits: 999999, max_credits: 999999, tier: 'byok' }, next_reset_time: new Date(Date.now() + 86400000).toISOString() });
+  chatSend(socket, { type: 'credit_status', message: 'Processing your request (BYOK Mode: Unlimited)', credit_info: { remaining_credits: 999999, max_credits: 999999, tier: 'byok', turn_cost: 0 }, next_reset_time: new Date(Date.now() + 86400000).toISOString() });
   if (process.env.AGENT_CORE === 'dsh') {
     // Agent 核心 = DeepSeek Harness：推理流→thinking_chunk，答复→content_chunk；失败则回退内置管线
     chatSend(socket, { type: 'thinking', tool_name: 'directorAgent', tool_status: 'started', round_index: 1, display: 'display' });
@@ -152,7 +153,7 @@ async function chatRound(socket: WebSocket, input: Incoming, userId: string, con
       for (const chunk of r.output.match(/[\s\S]{1,120}/g) ?? [r.output]) chatSend(socket, { type: 'content_chunk', tool_name: 'generate_content', tool_status: 'streaming', round_index: 2, chunk });
       await updateState((next) => { const value = next.conversations[conversationId]!; value.history_index += 1; value.history.push({ index: value.history_index, role: 'assistant', content: JSON.stringify({ type: 'content_chunk', content: r.output }), timestamp: now() }); });
       chatSend(socket, { type: 'tool_execution', tool_name: 'generate_content', tool_status: 'completed', round_index: 2, data: { content: r.output, agent_core: 'dsh', duration_ms: r.durationMs } });
-      chatSend(socket, { type: 'mark_response_complete', step_id: 0 }); chatSend(socket, { type: 'complete', message: 'Response complete', is_complete: true }); return;
+      chatSend(socket, { type: 'mark_response_complete', step_id: 0 }); chatSend(socket, { type: 'complete', message: 'Response complete', is_complete: true, conversation_id: conversationId, tts_pending: false }); return;
     }
     chatSend(socket, { type: 'thinking_chunk', tool_name: 'directorAgent', tool_status: 'streaming', round_index: 1, chunk: `[agent-core dsh unavailable: ${r.error ?? 'unknown'}] falling back to builtin pipeline` });
   }
@@ -181,7 +182,7 @@ function chatHandler(socket: WebSocket, request: FastifyRequest): void { guardSo
   const inbox: unknown[] = []; let onMessageReady: ((raw: unknown) => void) | undefined;
   socket.on('message', (raw) => { if (onMessageReady) onMessageReady(raw); else inbox.push(raw); });
   void (async () => { const state = await readState(); let conversationId = requestedId; if (!conversationId || !state.conversations[conversationId] || state.conversations[conversationId]?.user_id !== userId) { conversationId = randomUUID(); const timestamp = now(); const prompt = await systemPrompt(); await updateState((next) => { next.conversations[conversationId!] = { conversation_id: conversationId!, user_id: userId, title: `Conversation ${conversationId}`, created_at: timestamp, updated_at: timestamp, history_index: 1, history: [{ index: 1, role: 'system', content: prompt, timestamp }], starred: false, board_session_types: [], artifacts: [] }; }); chatSend(socket, { type: 'conversation_created', data: { conversation_id: conversationId, title: `Conversation ${conversationId}` } }); } else chatSend(socket, { type: 'conversation_resumed', data: { conversation_id: conversationId, title: state.conversations[conversationId].title } });
-    const dispatch = (raw: unknown): void => { const input = parseMessage(raw); request.log.info({ raw: String(raw).slice(0, 120), parsed: input?.type }, 'chat socket message'); if (!input) { chatSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } if (input.type === 'ping') { chatSend(socket, { type: 'pong', t: input.t }); return; } if (input.type === 'stop_generation') { chatSend(socket, { type: 'complete', message: 'Generation stopped', is_complete: true }); return; } if (input.type === 'save_artifact') { void updateState((next) => { next.conversations[conversationId!]!.artifacts.push({ ...input, saved_at: now() }); }).then(() => chatSend(socket, { type: 'save_artifact_response', success: true, is_complete: true })); return; } if (input.type === 'user_message') chatRound(socket, input, userId, conversationId!).catch((error: unknown) => { console.error('[chatRound]', error); chatSend(socket, { type: 'error', message: error instanceof Error ? `${error.message}` : 'Internal error', is_complete: true }); }); };
+    const dispatch = (raw: unknown): void => { const input = parseMessage(raw); request.log.info({ raw: String(raw).slice(0, 120), parsed: input?.type }, 'chat socket message'); if (!input) { chatSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } if (input.type === 'ping') { chatSend(socket, { type: 'pong', t: input.t }); return; } if (input.type === 'stop_generation') { chatSend(socket, { type: 'complete', message: 'Generation stopped', is_complete: true }); return; } if (input.type === 'question_answers' || input.type === 'user_question_answers') { void (async () => { const answers = Array.isArray(input.answers) ? input.answers as Array<{ question?: string; answer?: string }> : []; const state = await readState(); const conversation = state.conversations[conversationId ?? ''] as unknown as { last_user_message?: string } | undefined; const message = typeof input.message === 'string' && input.message ? input.message : String(conversation?.last_user_message ?? answers.map((a) => a.answer ?? '').join(' ')); await runDirectorRound({ userId, conversationId: conversationId!, send: (frame) => chatSend(socket, frame), eff: await effFor(userId) }, { message, answers, ui_language: typeof input.ui_language === 'string' ? input.ui_language : undefined }); })().catch((error: unknown) => chatSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); return; }  if (input.type === 'save_artifact') { void updateState((next) => { next.conversations[conversationId!]!.artifacts.push({ ...input, saved_at: now() }); }).then(() => chatSend(socket, { type: 'save_artifact_response', success: true, is_complete: true })); return; } if (input.type === 'user_message') chatRound(socket, input, userId, conversationId!).catch((error: unknown) => { console.error('[chatRound]', error); chatSend(socket, { type: 'error', message: error instanceof Error ? `${error.message}` : 'Internal error', is_complete: true }); }); };
     onMessageReady = dispatch; while (inbox.length) dispatch(inbox.shift());
 
   })().catch((error: unknown) => chatSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true }));
@@ -379,11 +380,89 @@ socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { w
   })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); });
 }
 
-async function deepLearnHandler(socket: WebSocket, request: FastifyRequest): Promise<void> { guardSocket(socket);
-  const userId = acceptUser(request, socket); if (!userId) return; const query = request.query as { session_id?: string; subtask_id?: string }; const requested = query.session_id ?? query.subtask_id; const state = await readState(); let sessionId = requested;
-  if (requested && state.deep_learn[requested]?.user_id === userId) wsSend(socket, { type: 'deep_learn_session_resumed', session_id: requested, session: state.deep_learn[requested] }); else { sessionId = randomUUID(); await updateState((next) => { next.deep_learn[sessionId!] = { deep_learn_session_id: sessionId, user_id: userId, title: 'Deep learning session', conversation_data: { history: [], progress: {} }, created_at: now() }; }); wsSend(socket, { type: 'deep_learn_session_created', session_id: sessionId }); }
-  socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) return; void (async () => { if (input.type === 'ping') { wsSend(socket, { type: 'pong', t: input.t }); return; } if (input.type !== 'user_message') return; const message = typeof input.message === 'string' ? input.message : typeof input.text === 'string' ? input.text : ''; const eff = await effFor(userId); wsSend(socket, { type: 'thinking', tool_name: 'directorAgent', tool_status: 'started', round_index: 1 }); wsSend(socket, { type: 'thinking_chunk', tool_name: 'directorAgent', tool_status: 'streaming', round_index: 1, chunk: 'I will explain the core idea and check it with an example.' }); wsSend(socket, { type: 'tool_execution', tool_name: 'generate_content', tool_status: 'started', round_index: 2 }); let content = ''; let chunks = 0; { for await (const chunk of chatStream([{ role: 'system', content: 'Teach clearly and concisely.' }, { role: 'user', content: message }], 'content', eff)) { content += chunk; chunks += 1; wsSend(socket, { type: 'content_chunk', tool_name: 'generate_content', tool_status: 'streaming', round_index: 2, chunk }); } } if (content && !chunks) { chunks = 1; wsSend(socket, { type: 'content_chunk', tool_name: 'generate_content', tool_status: 'streaming', round_index: 2, chunk: content }); } wsSend(socket, { type: 'tool_execution', tool_name: 'generate_content', tool_status: 'completed', round_index: 2, data: { content, chunk_count: chunks } }); if (/```|mermaid/i.test(content)) wsSend(socket, { type: 'inline_diagram', placeholder_id: randomUUID(), data: { type: 'mermaid', status: 'ready', source: content } }); wsSend(socket, { type: 'mark_response_complete', step_id: 0 }); wsSend(socket, { type: 'complete', message: 'Response complete', is_complete: true }); })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); });
+
+// 深度学习：任务计划（units[].tasks[]）与步骤推进，形状对齐线上 r34
+interface DeepLearnTask { task_id: string; task_title: string; task_description: string; unit_name: string }
+interface DeepLearnPlan { title: string; description: string; tags: string[]; session_task_plan: Array<{ unit_name: string; tasks: Array<{ task_id: string; task_title: string; task_description: string }> }> }
+
+function deepLearnPlan(title: string): DeepLearnPlan {
+  const units = [
+    { unit_name: '单位 1：基础与背景', tasks: [['1.1', '背景与动机', '弄清这一主题从哪来、解决什么问题。'], ['1.2', '核心定义', '把关键概念与符号关系讲清楚。']] },
+    { unit_name: '单位 2：原理与推导', tasks: [['2.1', '主线推导', '一步步推出结论，并解释每步的理由。'], ['2.2', '常见误区', '识别典型错误与边界条件。']] },
+    { unit_name: '单位 3：应用与检验', tasks: [['3.1', '实战演练', '在一个具体例子里用一遍。'], ['3.2', '自测与复盘', '用两道小题检验理解并复盘。']] },
+  ];
+  return {
+    title,
+    description: `围绕「${title}」的分布式深度学习课堂，按单元推进、每步确认。`,
+    tags: ['深度学习', title.split(/[：:]/)[0] ?? title],
+    session_task_plan: units.map((unit) => ({ unit_name: unit.unit_name, tasks: unit.tasks.map(([task_id, task_title, task_description]) => ({ task_id, task_title, task_description })) })),
+  };
 }
+
+function deepLearnStep(plan: DeepLearnPlan | undefined, stepId: string): DeepLearnTask | undefined {
+  for (const unit of plan?.session_task_plan ?? []) for (const task of unit.tasks) if (task.task_id === stepId) return { ...task, unit_name: unit.unit_name };
+  return undefined;
+}
+
+function deepLearnNextStep(plan: DeepLearnPlan | undefined, stepId: string): DeepLearnTask | undefined {
+  const flat: DeepLearnTask[] = (plan?.session_task_plan ?? []).flatMap((unit) => unit.tasks.map((task) => ({ ...task, unit_name: unit.unit_name })));
+  const index = flat.findIndex((task) => task.task_id === stepId);
+  return index >= 0 ? flat[index + 1] : flat[0];
+}
+
+async function deepLearnHandler(socket: WebSocket, request: FastifyRequest): Promise<void> { guardSocket(socket);
+  const userId = acceptUser(request, socket); if (!userId) return;
+  // 先把消息收下来（含客户端 open 后立刻发的那一帧），再做需要 await 的会话准备
+  let ready: ((raw: unknown) => void) | undefined; const inbox: unknown[] = [];
+  socket.on('message', (raw) => { if (ready) ready(raw); else inbox.push(raw); });
+  const query = request.query as { session_id?: string; subtask_id?: string }; const requested = query.session_id ?? query.subtask_id; const state = await readState(); let sessionId = requested;
+  // 线上形态（r34）：resumed 帧带 task_plan（units[].tasks[]）与 current_step_id；新会话给创建帧
+  const session = requested ? state.deep_learn[requested] : undefined;
+  if (requested && session?.user_id === userId) wsSend(socket, { type: 'deep_learn_session_resumed', session_id: requested, message: '♻️  Deep learning session resumed', current_step_id: String(session.current_step_id ?? '1.1'), task_plan: session.session_task_plan ?? session.conversation_data ?? {} });
+  else { sessionId = randomUUID(); const plan = deepLearnPlan(String(session?.title ?? query.subtask_id ?? 'Deep learning session')); await updateState((next) => { next.deep_learn[sessionId!] = { deep_learn_session_id: sessionId, user_id: userId, title: plan.title, session_task_plan: plan, current_step_id: plan.session_task_plan[0]?.tasks?.[0]?.task_id ?? '1.1', conversation_data: { history: [], progress: {} }, created_at: now() }; }); wsSend(socket, { type: 'deep_learn_session_created', session_id: sessionId, task_plan: plan, current_step_id: plan.session_task_plan[0]?.tasks?.[0]?.task_id ?? '1.1' }); }
+  const onMessage = (raw: unknown): void => { const input = parseMessage(raw); if (!input) return; void (async () => {
+    if (input.type === 'ping') { wsSend(socket, { type: 'pong', t: input.t }); return; }
+    // 步骤确认（线上 step_completion 带 requires_acknowledgment，客户端回执后进入下一步）
+    if (input.type === 'step_acknowledged' || input.type === 'acknowledge_step' || input.type === 'next_step') {
+      const current = (await readState()).deep_learn[sessionId ?? ''] ?? {};
+      const next = deepLearnNextStep(current.session_task_plan as DeepLearnPlan | undefined, String(current.current_step_id ?? ''));
+      if (next) { await updateState((state2) => { const value = state2.deep_learn[sessionId!]; if (value) value.current_step_id = next.task_id; }); wsSend(socket, { type: 'step_completion', tool_name: 'manage_task_progress', message: 'Ready to mark this step complete', step_data: next, next_step: next, requires_acknowledgment: true, is_complete: false, conversation_id: sessionId }); }
+      return;
+    }
+    if (input.type !== 'user_message') return;
+    const message = typeof input.message === 'string' ? input.message : typeof input.text === 'string' ? input.text : '';
+    const stepId = typeof input.step_id === 'string' ? input.step_id : String((await readState()).deep_learn[sessionId ?? '']?.current_step_id ?? '1.1');
+    const eff = await effFor(userId);
+    wsSend(socket, { type: 'thinking', session_id: sessionId, is_complete: false });
+    wsSend(socket, { type: 'thinking_chunk', session_id: sessionId, tool_name: 'directorAgent', tool_status: 'streaming', round_index: 1, chunk: 'I will explain the core idea and keep it to this step.' });
+    wsSend(socket, { type: 'tool_execution', tool_name: 'directorAgent', tool_status: 'completed', display: 'display', round_index: 1, data: { phase: 'thinking', thought_chunk_count: 1 }, is_complete: false });
+    const step = deepLearnStep((await readState()).deep_learn[sessionId ?? '']?.session_task_plan as DeepLearnPlan | undefined, stepId);
+    wsSend(socket, { type: 'tool_selection', tool_name: 'generate_content', tool_status: 'started', display: 'display', round_index: 1, index: 0, is_complete: false, task_title: step?.task_title ?? '本节内容', model_name: eff.provider === 'stub' ? 'stub' : eff.models.content });
+    const answer = eff.provider === 'stub'
+      ? await stubValue<string>('board_brief')
+      : await chat([{ role: 'system', content: 'You are a patient tutor inside a deep-learning session. Answer within the current step, concise and concrete.' }, { role: 'user', content: `${message}\n(step: ${step?.task_title ?? stepId})` }], 'content', eff);
+    for (const chunk of answer.match(/[\s\S]{1,120}/g) ?? [answer]) wsSend(socket, { type: 'content_chunk', tool_name: 'generate_content', tool_status: 'streaming', round_index: 1, chunk, display: 'display', is_complete: false });
+    wsSend(socket, { type: 'tool_execution', tool_name: 'generate_content', tool_status: 'completed', display: 'display', round_index: 1, data: { content: answer, task_title: step?.task_title }, is_complete: false });
+    // 图解：复用 /api/v1/diagram/:id/* 路由，tag 形态与线上一致（data-* 属性）
+    const diagramId = randomUUID().replaceAll('-', '').slice(0, 8);
+    const placeholderId = `dg_${hash32(Buffer.from(diagramId)).slice(0, 12)}`;
+    diagrams.set(diagramId, { md: `# ${step?.task_title ?? '图解'}\n\n${answer.slice(0, 400)}`, html: `<html><body><h1>${step?.task_title ?? '图解'}</h1></body></html>` });
+    const fileUrl = `/api/v1/diagram/${diagramId}/diagram.png`;
+    wsSend(socket, {
+      type: 'inline_diagram', tool_name: 'generate_content', tool_status: 'ready', placeholder_id: placeholderId,
+      data: {
+        placeholder_id: placeholderId, type: 'gemini_image', layout: 'right', status: 'ready',
+        tag: `<diagram data-placeholder-id="${placeholderId}" data-subtype="gemini_image" data-layout="right" data-status="ready" data-diagram-id="${diagramId}" data-file-url="${fileUrl}" data-caption="${step?.task_title ?? ''}"></diagram>`,
+        source_tag: `<content-type: diagram; diagram-subtype: gemini-image; content-prompt: {${(step?.task_description ?? message).slice(0, 220)}}; content-caption: {${step?.task_title ?? ''}}>`,
+      },
+    });
+    await updateState((state2) => { const value = state2.deep_learn[sessionId!]; if (value) value.conversation_data = { history: [...((value.conversation_data as { history?: unknown[] } | undefined)?.history ?? []), { role: 'user', content: message, step_id: stepId }], progress: {} }; });
+    wsSend(socket, { type: 'step_completion', tool_name: 'manage_task_progress', message: 'Ready to mark this step complete', step_data: step, next_step: deepLearnNextStep((await readState()).deep_learn[sessionId ?? '']?.session_task_plan as DeepLearnPlan | undefined, stepId), requires_acknowledgment: true, is_complete: false, conversation_id: sessionId });
+    wsSend(socket, { type: 'complete', is_complete: true, conversation_id: sessionId, tts_pending: false });
+  })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); };
+  ready = onMessage; while (inbox.length) onMessage(inbox.shift());
+}
+
 function driveHandler(socket: WebSocket, request: FastifyRequest): void { guardSocket(socket); if (!acceptUser(request, socket)) return; wsSend(socket, { type: 'connection_established' }); socket.on('message', (raw) => { const input = parseMessage(raw); if (input?.type === 'ping') wsSend(socket, { type: 'pong', t: input.t }); else if (input) wsSend(socket, { type: 'drive_state_synced', ok: true }); }); }
 function netCheckHandler(socket: WebSocket): void { guardSocket(socket); wsSend(socket, { type: 'net_check_session', session_id: randomUUID() }); socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) return; if (input.type === 'ping') wsSend(socket, { type: 'pong', t: input.t }); else if (input.type === 'model_probe' || input.type === 'net_check_model') wsSend(socket, { type: 'net_check_model', ok: true, ttft_ms: 0 }); else if (input.type === 'net_check_recovered') wsSend(socket, { type: 'net_check_recovered', ok: true }); else if (input.type === 'net_check_degraded') wsSend(socket, { type: 'net_check_degraded', ok: false }); else if (input.type?.startsWith('net_check_')) wsSend(socket, { type: input.type, ok: true }); }); }
 
@@ -404,7 +483,14 @@ function courseHandler(socket: WebSocket, request: FastifyRequest): void { guard
       const requested = typeof input.course_uuid === 'string' ? input.course_uuid : undefined;
       const active = findActiveTask({ userId, ...(requested ? { courseUuid: requested } : {}) });
       if (input.type !== 'start_course_generation' && active) { attachTo(active.task_id); return; }
-      const task = await startCourseTask({ userId, courseUuid: requested ?? randomUUID(), query, eff: await effFor(userId), conversationId: typeof input.conversation_id === 'string' ? input.conversation_id : undefined });
+      const courseUuid = requested ?? randomUUID();
+      // 同一用户已有别的课程在生成：不重复起任务，把忙状态与可重试时间给客户端（线上同语义）
+      const busy = busyFor(userId, courseUuid);
+      if (busy && input.type === 'start_course_generation') {
+        wsSend(socket, { type: 'course_generation_busy', message: '生成可能仍在其他窗口进行中', course_uuid: busy.task.course_uuid, retry_after_ms: busy.retry_after_ms, is_complete: false });
+        return;
+      }
+      const task = await startCourseTask({ userId, courseUuid, query, eff: await effFor(userId), conversationId: typeof input.conversation_id === 'string' ? input.conversation_id : undefined });
       attachTo(task.task_id);
       return;
     }
