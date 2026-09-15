@@ -1,0 +1,913 @@
+{
+ "status": 200,
+ "body": {
+  "courses": [
+   {
+    "marketplaceId": "091d5945-4f34-4bfc-9d3b-c34b76d62ee5",
+    "courseTitle": "Introduction to Sociology",
+    "courseDescription": "A comprehensive exploration of the fundamental concepts, theories, and research methods in sociology. This course examines how social structures, culture, and institutions shape individual lives and collective behavior, providing students with the 'sociological imagination' necessary to analyze the world around them.",
+    "targetLearner": "Aspiring social scientists and curious learners seeking a concept-first academic foundation in understanding social structures and human behavior.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/091d5945-4f34-4bfc-9d3b-c34b76d62ee5/cover.png?v=1787548381",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/091d5945-4f34-4bfc-9d3b-c34b76d62ee5/cover_wide.png?v=1787315002",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "socialScience",
+    "subjects": [
+     "socialScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": true,
+    "enrolledCourseUuid": "f3d744b7-a65f-412b-9743-94856814d7c8",
+    "joinCount": 1242,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "15f85274-21e3-4a49-880d-c00bed342c5c",
+    "courseTitle": "AP Biology",
+    "courseDescription": "An inquiry-based study of cells, genetics, evolution, energetics, biological systems, and ecological interactions. This course covers the fundamental principles of life from molecular interactions to whole ecosystems, providing rigorous conceptual and analytical training designed to prepare students for college-level scientific inquiry.",
+    "targetLearner": "Students seeking a comprehensive, concept-first introduction to college-level biology, establishing strong intuitive foundations followed by rigorous analytical modeling suitable for the AP curriculum.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/15f85274-21e3-4a49-880d-c00bed342c5c/cover-148ed78066.png?v=1788347552",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/15f85274-21e3-4a49-880d-c00bed342c5c/cover_wide-419478fe35.png?v=1788347553",
+    "unitCount": 6,
+    "sessionCount": 75,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "science"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 8193,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "1d4735cf-c52e-49d8-89a1-86d91b184c98",
+    "courseTitle": "Machine Learning",
+    "courseDescription": "A comprehensive journey through the landscape of machine learning, from foundational statistical principles and generalization theory to the implementation of state-of-the-art neural architectures and real-world deployment strategies. This course focuses on building conceptual intuition for core algorithms, understanding why they generalize, and diagnosing where they fail in practice.",
+    "targetLearner": "Learners seeking a systematic, concept-first introduction to machine learning that balances mathematical foundations with practical implementation and rigorous evaluation.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/1d4735cf-c52e-49d8-89a1-86d91b184c98/cover.png?v=1787314561",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/1d4735cf-c52e-49d8-89a1-86d91b184c98/cover_wide.png?v=1787314561",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "aiDataScience",
+    "subjects": [
+     "aiDataScience"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 4273,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "1e37b2cc-3c16-4b27-993e-1b3befb97a06",
+    "courseTitle": "Generative AI & Large Language Models",
+    "courseDescription": "A comprehensive technical journey from the probabilistic foundations of language modeling to the deployment of production-grade LLM applications. This course covers the internal mechanics of Transformers, the nuances of pretraining and alignment, and advanced orchestration patterns including Retrieval-Augmented Generation (RAG) and autonomous agents.",
+    "targetLearner": "Aspiring AI engineers and data scientists who want to move beyond simple API calls to understand how modern generative models are built, fine-tuned, and deployed in high-stakes environments.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/1e37b2cc-3c16-4b27-993e-1b3befb97a06/cover.png?v=1787313710",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/1e37b2cc-3c16-4b27-993e-1b3befb97a06/cover_wide.png?v=1787313702",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "aiDataScience",
+    "subjects": [
+     "aiDataScience"
+    ],
+    "difficulty": "advanced",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 6066,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "2f2b0715-6318-4205-ae35-fac328658dcc",
+    "courseTitle": "Cognitive Psychology",
+    "courseDescription": "This course provides a comprehensive exploration of the human mind as an information-processing system. We will trace the journey of information from initial perception and selective attention through to complex memory storage, linguistic representation, and high-level reasoning. By examining classic experiments and modern neuroscientific evidence, students will understand the mechanisms behind how we see, think, remember, and decide, culminating in a multi-stage project where these principles are applied to analyze real-world behaviors.",
+    "targetLearner": "Learners seeking a concept-first, public lecture style introduction to the scientific study of mental processes, with no prior psychology background required.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/2f2b0715-6318-4205-ae35-fac328658dcc/cover.png?v=1787538566",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/2f2b0715-6318-4205-ae35-fac328658dcc/cover_wide.png?v=1787314429",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "psychology",
+    "subjects": [
+     "psychology"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 2799,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "3b3bc4e2-38d2-4f23-a280-c0735055037a",
+    "courseTitle": "Official Digital SAT Preparation",
+    "courseDescription": "A rigorous, comprehensive prep course covering every domain of the Digital SAT Reading, Writing, and Math sections. Guided by the official College Board framework, this course covers test mechanics, adaptive module scoring, and strategic practice utilizing the Bluebook app, Desmos, and official Khan Academy and Student Question Bank practice streams. Grounded in a concept-first public lecture style, it guides learners systematically from initial diagnostic baseline to elite score optimization.",
+    "targetLearner": "Students seeking to master the Digital SAT format, improve subject-matter foundations, and build effective official-resource habits to optimize their score.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/3b3bc4e2-38d2-4f23-a280-c0735055037a/cover-0991efc6ce.png?v=1788347559",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/3b3bc4e2-38d2-4f23-a280-c0735055037a/cover_wide-27476faf50.png?v=1788347560",
+    "unitCount": 9,
+    "sessionCount": 90,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "math"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 7197,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "49e290b1-2376-4f32-8c28-ef8567cd3f61",
+    "courseTitle": "Linear Algebra",
+    "courseDescription": "A comprehensive journey through the fundamental pillars of linear algebra, emphasizing geometric intuition alongside algebraic rigor. This course moves from the basic mechanics of vectors and linear systems to the sophisticated power of Singular Value Decomposition, helping learners develop a robust mental model for transforming and analyzing data in high-dimensional spaces. Through five progressive units, you will master the language of matrices, the geometry of transformations, and the spectral properties of operators, culminating in practical applications for data compression and system modeling.",
+    "targetLearner": "Learners seeking a conceptual and practical understanding of linear algebra, including students in STEM fields and professionals interested in the mathematical foundations of data science, computer graphics, and engineering.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/49e290b1-2376-4f32-8c28-ef8567cd3f61/cover.png?v=1787312518",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/49e290b1-2376-4f32-8c28-ef8567cd3f61/cover_wide.png?v=1787312498",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "math",
+    "subjects": [
+     "math"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 4118,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "4b71765a-c5f2-40e7-8d06-d4f336fcf47d",
+    "courseTitle": "AP U.S. History",
+    "courseDescription": "A comprehensive, AP-aligned course exploring United States history from pre-contact societies to the modern era. The course utilizes rigorous historical thinking skills—focusing on evidence, causation, comparison, and continuity and change over time—to prepare students for analytical writing and source-based reasoning.",
+    "targetLearner": "High school students preparing for the AP U.S. History exam, or general history enthusiasts seeking a rigorous, concept-first, and evidence-based public lecture style overview of American history.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/4b71765a-c5f2-40e7-8d06-d4f336fcf47d/cover.png?v=1785478690",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/4b71765a-c5f2-40e7-8d06-d4f336fcf47d/cover_wide.png?v=1785478680",
+    "unitCount": 6,
+    "sessionCount": 77,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "socialScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 6235,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "4f1b4bf4-d2f7-489f-8c2d-914585d947e1",
+    "courseTitle": "General Physics: Mechanics",
+    "courseDescription": "A rigorous, calculus-based introduction to classical mechanics designed for students with a foundation in mathematics. This course covers kinematics, Newton's laws, energy, momentum, rotational dynamics, oscillations, and gravitation, providing a comprehensive framework for understanding the physical world through both conceptual intuition and formal mathematical derivation.",
+    "targetLearner": "Students comfortable with differential and integral calculus who seek a systematic and deep understanding of classical physical laws.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/cover.png?v=1787456503",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/4f1b4bf4-d2f7-489f-8c2d-914585d947e1/cover_wide.png?v=1787314429",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "science",
+    "subjects": [
+     "science"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 1304,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "516c8eac-87c7-48e9-8547-877aa386a4c7",
+    "courseTitle": "How to Build Your First AI Agent",
+    "courseDescription": "A beginner-friendly, hands-on journey from basic LLM interactions to building, testing, evaluating, and deploying a controlled, single-purpose AI agent. You will master the fundamentals of flow engineering, create a custom agent loop using Python, implement robust tool definitions and memory systems, establish human-in-the-loop gates, and implement safe sandboxing configurations.",
+    "targetLearner": "Aspiring AI developers, software engineers, and tech enthusiasts with basic Python programming experience who want to move beyond prompt engineering to design and deploy robust, autonomous agentic systems.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/516c8eac-87c7-48e9-8547-877aa386a4c7/cover-50cbb27ae5.png?v=1788338590",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/516c8eac-87c7-48e9-8547-877aa386a4c7/cover_wide-474016307b.png?v=1788338591",
+    "unitCount": 5,
+    "sessionCount": 63,
+    "subject": "computerScience",
+    "subjects": [
+     "computerScience",
+     "aiDataScience"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 2646,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "535a0517-75a8-4059-9b3a-729187984d16",
+    "courseTitle": "AP Computer Science Principles",
+    "courseDescription": "An introductory college-level computing course that introduces students to the breadth of the field of computer science. Students learn to design and evaluate solutions and to apply computer science to solve problems through the development of algorithms and programs. They incorporate abstraction into programs and use data to find new knowledge. Students also explore how computing innovations and computing systems work, explore their potential impacts, and contribute to a vibrant, ethical, and collaborative computing culture.",
+    "targetLearner": "High school students preparing for the AP Computer Science Principles Exam, as well as anyone seeking an intuitive, concept-first introduction to programming, digital data, algorithms, systems, networking, and the societal impacts of technology.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/535a0517-75a8-4059-9b3a-729187984d16/cover.png?v=1785751353",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/535a0517-75a8-4059-9b3a-729187984d16/cover_wide.png?v=1785478910",
+    "unitCount": 5,
+    "sessionCount": 83,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "computerScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 1634,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "636081c4-9d78-4437-a110-eb71877dadb4",
+    "courseTitle": "Database Systems & SQL",
+    "courseDescription": "A comprehensive journey from the mathematical foundations of the relational model to the engineering realities of high-performance database engines. This course covers schema design through normalization, mastery of complex SQL querying, indexing internals, and the ACID properties of transaction management.",
+    "targetLearner": "Aspiring backend engineers and data professionals who want a deep, concept-first understanding of how relational databases work, from writing scalable queries to tuning engine performance.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/636081c4-9d78-4437-a110-eb71877dadb4/cover.png?v=1787313733",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/636081c4-9d78-4437-a110-eb71877dadb4/cover_wide.png?v=1787313181",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "computerScience",
+    "subjects": [
+     "computerScience"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 847,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "78103cce-aab4-43d1-8606-3f7e6a569300",
+    "courseTitle": "Public Speaking",
+    "courseDescription": "A comprehensive journey through the art and science of public speaking. This course provides a structured workflow for planning, building, and delivering impactful speeches. From managing stage fright and analyzing your audience to mastering vocal variety and handling professional Q&A, you will develop the confidence and technical skills required to communicate effectively in any setting.",
+    "targetLearner": "Individuals seeking to build foundational speaking skills through a concept-first approach, focusing on professional and public lecture styles.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/78103cce-aab4-43d1-8606-3f7e6a569300/cover.png?v=1787448390",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/78103cce-aab4-43d1-8606-3f7e6a569300/cover_wide.png?v=1787317176",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "communication",
+    "subjects": [
+     "communication"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 1729,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "7e653d87-2cf0-46bd-b403-c0f3f559fcb9",
+    "courseTitle": "AP World History: Modern",
+    "courseDescription": "A comprehensive global history course examining major political, economic, social, cultural, and technological developments from approximately 1200 CE to the present. Built specifically to align with AP-level analytical frameworks, this course weaves essential historical thinking skills—such as source evaluation, comparative analysis, contextualization, and causal reasoning—into every lesson to prepare learners for advanced historical scholarship.",
+    "targetLearner": "Students preparing for the AP World History: Modern exam, as well as learners seeking a rigorous, concept-first academic foundation in global history from 1200 CE to the present.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/7e653d87-2cf0-46bd-b403-c0f3f559fcb9/cover-ff6f76f1c7.png?v=1788347553",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/7e653d87-2cf0-46bd-b403-c0f3f559fcb9/cover_wide-54a8fc09e7.png?v=1788347554",
+    "unitCount": 6,
+    "sessionCount": 73,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "socialScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 7640,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "84021e0f-31d3-4080-81e0-45e8484f67c0",
+    "courseTitle": "How to Start Vibe Coding",
+    "courseDescription": "A beginner-friendly, concept-first course designed to guide absolute beginners into the world of software development using natural-language AI models, a paradigm known as 'Vibe Coding'. This course covers the entire application lifecycle—from planning, prompting, and building, through testing, secure operations, version control, and eventual deployment. It emphasizes both the liberating flow of vibe coding and the critical responsibilities of human-led oversight, code verification, security threat mitigation (such as OWASP guidelines), and git-based version control.",
+    "targetLearner": "Absolute beginners with no prior coding experience, as well as creative individuals, product designers, or domain experts looking to conceptualize, construct, test, and publish complete software prototypes using AI-assisted natural-language interfaces.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/84021e0f-31d3-4080-81e0-45e8484f67c0/cover.png?v=1785926256",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/84021e0f-31d3-4080-81e0-45e8484f67c0/cover_wide.png?v=1785478910",
+    "unitCount": 5,
+    "sessionCount": 52,
+    "subject": "computerScience",
+    "subjects": [
+     "computerScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 5697,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "8bc872e7-6a7a-4224-80eb-ee236c0e9b39",
+    "courseTitle": "Introduction to Data Science",
+    "courseDescription": "An end-to-end journey through the data science lifecycle. This course teaches you how to transform raw, messy data into defensible conclusions through a systematic process of cleaning, exploratory analysis, visual storytelling, and statistical modeling. Designed with a concept-first approach, it emphasizes the translation of business questions into data-driven solutions.",
+    "targetLearner": "Beginners and aspiring analysts who want a structured, concept-first introduction to data science that balances technical skills with the critical thinking required for professional practice.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/cover.png?v=1787648694",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/8bc872e7-6a7a-4224-80eb-ee236c0e9b39/cover_wide.png?v=1787313181",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "aiDataScience",
+    "subjects": [
+     "aiDataScience",
+     "math"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 2546,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "9ab3b26a-7fba-4ec6-9e18-8849e0413095",
+    "courseTitle": "AP Macroeconomics",
+    "courseDescription": "A comprehensive college-level course designed to build a deep understanding of national aggregate economics. It covers fundamental economic principles, macro indicators like GDP and inflation, aggregate demand and supply modeling (AD-AS), monetary and fiscal stabilization policies, modern banking frameworks, Phillips Curve trade-offs, international capital flows, and foreign exchange markets.",
+    "targetLearner": "Advanced secondary and introductory college students preparing for the AP Macroeconomics exam or seeking economic literacy with a concept-first, analytical style.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/9ab3b26a-7fba-4ec6-9e18-8849e0413095/cover.png?v=1786003416",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/9ab3b26a-7fba-4ec6-9e18-8849e0413095/cover_wide.png?v=1785478910",
+    "unitCount": 6,
+    "sessionCount": 73,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "economics"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 1709,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "a27e6556-025c-402f-866d-5b8caa6dff99",
+    "courseTitle": "Build Your First AI App with an API",
+    "courseDescription": "Learn how modern software applications communicate with AI models through robust, professional API patterns. This course guides you from raw HTTP requests to building a secure, cost-optimized, and resilient production-ready web application powered by large language models.",
+    "targetLearner": "Developers, software engineers, and tech enthusiasts who want to build stable, professional AI-powered applications, transitioning from simple API prototypes to robust, production-ready systems.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/a27e6556-025c-402f-866d-5b8caa6dff99/cover-be4fba146a.png?v=1788347560",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/a27e6556-025c-402f-866d-5b8caa6dff99/cover_wide-8462f30b0e.png?v=1788347561",
+    "unitCount": 5,
+    "sessionCount": 29,
+    "subject": "computerScience",
+    "subjects": [
+     "computerScience",
+     "aiDataScience"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 6605,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "b5dc8dc8-dbd7-443a-aa58-42bd617e5e56",
+    "courseTitle": "AP Calculus",
+    "courseDescription": "A rigorous, college-level introductory calculus course covering limits, derivatives, integrals, differential equations, and their diverse real-world applications. Fully optimized to build intuitive mental models alongside meticulous analytical and algebraic skills, matching the AP Calculus standard.",
+    "targetLearner": "High school students or college freshmen preparing for the AP Calculus exam or starting a rigorous science, technology, engineering, or mathematics (STEM) pathway.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/cover.png?v=1785659677",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/b5dc8dc8-dbd7-443a-aa58-42bd617e5e56/cover_wide.png?v=1785478910",
+    "unitCount": 6,
+    "sessionCount": 70,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "math"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 3426,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "b7576abf-07e1-4c40-b682-52a4e3b446c6",
+    "courseTitle": "Python Programming",
+    "courseDescription": "A hands-on, concept-first journey into Python. Moving from basic syntax to professional-grade scripts, this course builds fluency through deep conceptual understanding and a cumulative project: building a fully-tested, API-integrated automation tool. You will progress from writing your first program to designing modular libraries and class-based systems, all while adhering to industry-standard best practices.",
+    "targetLearner": "Aspiring developers and professionals seeking to master Python through a logic-first approach, transitioning from basic programming mechanics to robust software engineering practices.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/b7576abf-07e1-4c40-b682-52a4e3b446c6/cover.png?v=1787400768",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/b7576abf-07e1-4c40-b682-52a4e3b446c6/cover_wide.png?v=1787312498",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "computerScience",
+    "subjects": [
+     "computerScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 4363,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "d3943319-34ff-43fd-9908-ebdf3cdc99a9",
+    "courseTitle": "AP Psychology",
+    "courseDescription": "An in-depth exploration of human behavior and mental processes through biological, cognitive, developmental, social, personality, and clinical perspectives. Designed to build foundational academic enrichment and conceptual connections, this course meticulously prepares learners to master high-yield AP Psychology concepts from first principles.",
+    "targetLearner": "Students seeking a comprehensive, concept-first introduction to college-level psychology, including those preparing for academic assessments or seeking systematic personal enrichment.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/d3943319-34ff-43fd-9908-ebdf3cdc99a9/cover-31e26b4301.png?v=1788347557",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/d3943319-34ff-43fd-9908-ebdf3cdc99a9/cover_wide-4b5e2a70cb.png?v=1788347558",
+    "unitCount": 5,
+    "sessionCount": 77,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "psychology"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 7314,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "d56ac6b5-72df-425e-bd1a-bd3d008e4291",
+    "courseTitle": "AP Chemistry",
+    "courseDescription": "A comprehensive, college-level introductory chemistry course exploring matter, reactions, energy, kinetics, and equilibrium through quantitative reasoning, molecular-level modeling, and inquiry-based principles. This curriculum is designed to systematically build intuitive concepts, physical definitions, mathematical derivations, and quantitative applications to prepare students for academic excellence in chemistry.",
+    "targetLearner": "High school students seeking AP Chemistry credit, or college undergraduates requiring a solid foundation in general chemistry. The course adopts a concept-first, highly explanatory style suitable for students with standard high school science and algebra preparation.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/d56ac6b5-72df-425e-bd1a-bd3d008e4291/cover.png?v=1785584153",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/d56ac6b5-72df-425e-bd1a-bd3d008e4291/cover_wide.png?v=1785478910",
+    "unitCount": 6,
+    "sessionCount": 76,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "science"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 5144,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "d78c27f2-4c8e-4a55-aab3-469cb1a908ec",
+    "courseTitle": "Prompt Engineering for Real Work",
+    "courseDescription": "A rigorous, concept-first course designed to transform your interactions with Large Language Models from trial-and-error chatting into a predictable, robust engineering discipline. Master structural controls, contextual grounding, multi-step chain execution, systematic troubleshooting, and production-ready safety mechanisms.",
+    "targetLearner": "Professionals and developers seeking to design, test, and maintain high-reliability, repeatable prompt systems for automated workflows and application integration.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/d78c27f2-4c8e-4a55-aab3-469cb1a908ec/cover-89f48b72a4.png?v=1788347555",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/d78c27f2-4c8e-4a55-aab3-469cb1a908ec/cover_wide-8718dddd52.png?v=1788347556",
+    "unitCount": 5,
+    "sessionCount": 36,
+    "subject": "aiDataScience",
+    "subjects": [
+     "aiDataScience"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 7499,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "de9c2c1f-4dec-4a31-9c98-72368ea89f51",
+    "courseTitle": "AP Microeconomics",
+    "courseDescription": "An in-depth, concept-first exploration of how individuals, firms, and governments make choices to allocate scarce resources. This course matches the College Board curriculum, covering consumer behavior, market dynamics, production theory, imperfect competition, factor markets, and market failures, blending strong intuition with analytical graphs to ensure AP exam success.",
+    "targetLearner": "High school students preparing for the AP Microeconomics exam, undergraduate students seeking a foundation in economic theory, or general learners interested in a rigorous, concept-first approach to decision-making and public policy.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/de9c2c1f-4dec-4a31-9c98-72368ea89f51/cover.png?v=1785520993",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/de9c2c1f-4dec-4a31-9c98-72368ea89f51/cover_wide.png?v=1785478910",
+    "unitCount": 6,
+    "sessionCount": 65,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "economics"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 1936,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "e39dcbd0-7faf-4c95-a607-e15c049b41c6",
+    "courseTitle": "How to Fine-Tune Your First AI Model",
+    "courseDescription": "A beginner-friendly, concept-first course that guides you step-by-step through the process of fine-tuning a pretrained text classification model. You will learn to prepare high-quality datasets, configure training parameters using modern libraries, evaluate performance rigorously using key metrics, and responsibly release your first custom AI model.",
+    "targetLearner": "Aspiring AI practitioners and programmers comfortable with basic Python who want to gain a rigorous, practical, and concept-first understanding of adapting pretrained models to specialized tasks.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/e39dcbd0-7faf-4c95-a607-e15c049b41c6/cover.png?v=1785822473",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/e39dcbd0-7faf-4c95-a607-e15c049b41c6/cover_wide.png?v=1785478910",
+    "unitCount": 5,
+    "sessionCount": 55,
+    "subject": "aiDataScience",
+    "subjects": [
+     "aiDataScience"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 1109,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "e48181b7-7a39-4776-9726-3af4849ba050",
+    "courseTitle": "Data Structures & Algorithms",
+    "courseDescription": "A comprehensive journey through the architectural foundations of computer science. This course transitions from mathematical complexity analysis to the implementation of sophisticated data structures and algorithmic paradigms. Learners will build a high-performance data processing engine, moving from basic memory management in arrays and lists to advanced graph theory and dynamic programming. Designed with a 'concept-first' approach, the curriculum emphasizes the intuition behind why specific structures excel in certain scenarios and provides the tools to analyze, choose, and optimize algorithms for real-world performance.",
+    "targetLearner": "Aspiring software engineers and computer science students seeking a deep, conceptual understanding of algorithmic efficiency and data organization beyond basic syntax.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/e48181b7-7a39-4776-9726-3af4849ba050/cover-ad3a0debdc.png?v=1788347562",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/e48181b7-7a39-4776-9726-3af4849ba050/cover_wide-516d244930.png?v=1788347563",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "computerScience",
+    "subjects": [
+     "computerScience"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 6071,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "e76d14d2-dc70-47e7-a976-490b0f31497a",
+    "courseTitle": "How AI actually Works",
+    "courseDescription": "A beginner-friendly explanation of how artificial intelligence learns, generates answers, makes mistakes, and improves over time. This course demystifies the black box of AI using concrete, intuitive mental models, guiding learners from absolute basics to becoming deliberate, competent AI operators.",
+    "targetLearner": "Beginners seeking conceptual and intuitive understanding of artificial intelligence, language models, and practical AI usage, without complex mathematical formulas.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/e76d14d2-dc70-47e7-a976-490b0f31497a/cover-e703507be4.png?v=1788347550",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/e76d14d2-dc70-47e7-a976-490b0f31497a/cover_wide-75b29affed.png?v=1788347551",
+    "unitCount": 5,
+    "sessionCount": 30,
+    "subject": "aiDataScience",
+    "subjects": [
+     "aiDataScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 9070,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c",
+    "courseTitle": "Academic Writing",
+    "courseDescription": "A comprehensive guide to mastering the conventions of scholarly communication. This course transitions learners from general composition to sophisticated, evidence-based academic discourse. You will learn to navigate the rhetorical demands of the academy, construct logically sound arguments using the Toulmin model, refine your prose for clarity and cohesion, and ethically integrate scholarly sources. By the end of the course, you will be able to produce polished research papers and adapt your writing style to various academic genres and disciplines.",
+    "targetLearner": "Students, early-career researchers, and professionals seeking a concept-first, systematic approach to mastering scholarly writing and research argumentation.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/cover.png?v=1787448228",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/e8fe36d5-9f4e-4a6f-bb76-3b2bb126c08c/cover_wide.png?v=1787315289",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "communication",
+    "subjects": [
+     "communication"
+    ],
+    "difficulty": "intermediate",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 867,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "ecee2054-7861-470c-8228-bcb03990a3de",
+    "courseTitle": "Philosophy and Everyday Reasoning",
+    "courseDescription": "An exploration of logic, knowledge, identity, ethics, freedom, justice, and society. This course bridges ancient wisdom and contemporary issues, helping learners construct, analyze, and defend rigorous positions on everyday philosophical questions.",
+    "targetLearner": "Learners seeking a concept-first, clear public lecture approach to understanding core philosophical concepts and applying them to logic, ethics, and contemporary social questions.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/ecee2054-7861-470c-8228-bcb03990a3de/cover.png?v=1785478690",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/ecee2054-7861-470c-8228-bcb03990a3de/cover_wide.png?v=1785478680",
+    "unitCount": 5,
+    "sessionCount": 57,
+    "subject": "philosophy",
+    "subjects": [
+     "philosophy"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 2559,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "f2257433-6ca6-4951-acaf-e681bd179f96",
+    "courseTitle": "AP Stats",
+    "courseDescription": "A comprehensive, college-level introductory statistics course designed to build a deep, concept-first understanding of data collection, probability, statistical inference, and regression analysis. Tailored to prepare learners for academic excellence and practical evidence evaluation, this course balances intuitive visual explanations with rigorous mathematical foundations.",
+    "targetLearner": "Students seeking a rigorous, concept-first introduction to college-level statistics and AP Statistics preparation, with no strict mathematical prerequisites beyond basic algebra.",
+    "ticketVariant": 3,
+    "coverImageUrl": "/api/v1/marketplace/cover/f2257433-6ca6-4951-acaf-e681bd179f96/cover.png?v=1785830314",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/f2257433-6ca6-4951-acaf-e681bd179f96/cover_wide.png?v=1785478910",
+    "unitCount": 5,
+    "sessionCount": 59,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "math"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 2690,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "f41089e2-1d33-44ed-8822-3c61f13f4235",
+    "courseTitle": "International Relations",
+    "courseDescription": "A comprehensive study of the global political landscape, exploring how states, international organizations, and non-state actors interact within the international system. This course covers foundational concepts of sovereignty and power, the major theoretical frameworks of Realism, Liberalism, and Constructivism, and the practical dynamics of conflict, security, and the global political economy. Students will analyze the evolution of the international order from the Peace of Westphalia to modern transnational challenges like climate change, cyber warfare, and the shifting balance of power in the 21st century.",
+    "targetLearner": "Learners seeking a concept-first, structured introduction to global politics, suitable for those interested in political science, diplomacy, and international affairs through a public-lecture style lens.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/f41089e2-1d33-44ed-8822-3c61f13f4235/cover-644601dac2.png?v=1788337760",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/f41089e2-1d33-44ed-8822-3c61f13f4235/cover_wide-d1848ab3f1.png?v=1788337762",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "socialScience",
+    "subjects": [
+     "socialScience"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 5535,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "fbb2edbb-6c0a-475e-8c24-2e3efbd70d25",
+    "courseTitle": "CPA Exam",
+    "courseDescription": "A holistic, concept-first preparation course covering the CPA Exam system, the required AUD, FAR, and REG Core sections, and the BAR, ISC, and TCP Discipline options. Built for aspiring certified public accountants to master the technical standards, regulatory frameworks, and analytical reasoning required to pass the uniform CPA examination.",
+    "targetLearner": "Aspiring accounting professionals, recent graduates, or candidates preparing for the CPA exam seeking a concept-first, comprehensive review of all Core and Discipline areas.",
+    "ticketVariant": 2,
+    "coverImageUrl": "/api/v1/marketplace/cover/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/cover.png?v=1785655800",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/fbb2edbb-6c0a-475e-8c24-2e3efbd70d25/cover_wide.png?v=1785478910",
+    "unitCount": 7,
+    "sessionCount": 123,
+    "subject": "examPrep",
+    "subjects": [
+     "examPrep",
+     "economics"
+    ],
+    "difficulty": "advanced",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 2869,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   },
+   {
+    "marketplaceId": "fe857a56-1326-4dc8-898b-519bb633cda4",
+    "courseTitle": "Ethics",
+    "courseDescription": "A comprehensive exploration of moral philosophy, covering the foundational tools of ethical reasoning, major normative frameworks like Utilitarianism and Kantianism, and the application of these theories to complex contemporary issues such as AI and global justice.",
+    "targetLearner": "Learners seeking a concept-first, public lecture style introduction to philosophical ethics and rigorous moral reasoning.",
+    "ticketVariant": 1,
+    "coverImageUrl": "/api/v1/marketplace/cover/fe857a56-1326-4dc8-898b-519bb633cda4/cover-fe0325b917.png?v=1788337763",
+    "wideCoverImageUrl": "/api/v1/marketplace/cover/fe857a56-1326-4dc8-898b-519bb633cda4/cover_wide-49ab04b7c0.png?v=1788337764",
+    "unitCount": 5,
+    "sessionCount": 60,
+    "subject": "philosophy",
+    "subjects": [
+     "philosophy"
+    ],
+    "difficulty": "beginner",
+    "enrolled": false,
+    "enrolledCourseUuid": null,
+    "joinCount": 3024,
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "publishedBy": "hyperknow",
+    "originalLanguage": "English",
+    "version": null,
+    "communityAuthorName": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,186 @@
+ROUTE /knowledge-base
+
+INNER TEXT
+Home
+Courses
+Learning Feed
+History
+Marketplace
+More options
+Recent Activities
+
+No activity yet
+
+Start a new chat or session to see your history here
+What's new · v1.3.13
+Refer a friend
+Your Knowledge Base
+Free Tier
+FREE PLAN USAGE
+STORAGE
+0.00 MB
+/ 1 GB
+FILE UPLOAD
+0 used
+/ 5 this week
+ADD TO CALENDAR
+0 used
+/ 2 this week
+Resets Mon, Sep 7, 08:00 AM GMT+8
+Need more quota? Upgrade plan
+New
+Knowledge Base
+
+No files found
+
+No files or folders in this location
+
+ARIA
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img "HyperKnow" [ref=e6]
+      - img "Collapse" [ref=e8] [cursor=pointer]
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]:
+          - img "Home" [ref=e12]
+          - generic [ref=e13]: Home
+        - generic [ref=e14] [cursor=pointer]:
+          - img "Courses" [ref=e15]
+          - generic [ref=e16]: Courses
+        - generic [ref=e17] [cursor=pointer]:
+          - img "Learning Feed" [ref=e18]
+          - generic [ref=e19]: Learning Feed
+        - generic [ref=e20] [cursor=pointer]:
+          - img "History" [ref=e21]
+          - generic [ref=e22]: History
+        - generic [ref=e23] [cursor=pointer]:
+          - img "Marketplace" [ref=e24]
+          - generic [ref=e25]: Marketplace
+        - generic [ref=e27] [cursor=pointer]: More options
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - heading "Recent Activities" [level=3] [ref=e31]
+          - button "Collapse recent activities"
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: No activity yet
+          - generic [ref=e35]: Start a new chat or session to see your history here
+      - button "What's new · v1.3.13" [ref=e37] [cursor=pointer]:
+        - img [ref=e39]
+        - text: What's new · v1.3.13
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - button "Switch language" [ref=e45] [cursor=pointer]
+        - button "Gift Refer a friend" [ref=e47] [cursor=pointer]:
+          - img "Gift" [ref=e48]
+          - generic [ref=e49]: Refer a friend
+        - img "User Avatar" [ref=e51] [cursor=pointer]
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - heading "Your Knowledge Base" [level=1] [ref=e54]
+          - generic [ref=e55]:
+            - button "Free Tier" [ref=e56]:
+              - img [ref=e57]
+              - text: Free Tier
+              - img [ref=e61]
+            - generic:
+              - generic: Free Plan Usage
+              - generic:
+                - generic:
+                  - img
+                  - generic: STORAGE
+                - generic:
+                  - generic: 0.00 MB
+                  - generic: / 1 GB
+              - generic:
+                - generic:
+                  - img
+                  - generic: FILE UPLOAD
+                - generic:
+                  - generic: 0 used
+                  - generic: / 5 this week
+              - generic:
+                - generic:
+                  - img
+                  - generic: ADD TO CALENDAR
+                - generic:
+                  - generic: 0 used
+                  - generic: / 2 this week
+              - generic: Resets Mon, Sep 7, 08:00 AM GMT+8
+              - generic: Need more quota? Upgrade plan
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - img "Search" [ref=e66]
+            - textbox "Where are my astronomy class slides?" [ref=e67]
+          - button "New" [ref=e70] [cursor=pointer]:
+            - img [ref=e71]
+            - generic [ref=e72]: New
+        - generic [ref=e73]:
+          - button [disabled] [ref=e74]:
+            - img [ref=e75]
+          - generic [ref=e78]: Knowledge Base
+        - generic [ref=e80]:
+          - img [ref=e81]
+          - paragraph [ref=e83]: No files found
+          - paragraph [ref=e84]: No files or folders in this location
+
+INTERACTIONS
+[
+  {
+    "tag": "IMG",
+    "text": "Collapse recent activities",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "What's new · v1.3.13",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Switch language",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Refer a friend",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Free Tier",
+    "disabled": false
+  },
+  {
+    "tag": "INPUT",
+    "text": "Where are my astronomy class slides?",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "New",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "disabled": true
+  },
+  {
+    "tag": "INPUT",
+    "text": "",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "disabled": false
+  }
+]

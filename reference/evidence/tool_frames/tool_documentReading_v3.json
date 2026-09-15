@@ -1,0 +1,541 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "21ff02d2-f9d3-4890-9461-d7dd45aca560",
+   "title": "Conversation 21ff02d2-f9d3-4890-9461-d7dd45aca560",
+   "created_at": "2026-09-02T17:27:33.062980+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T17:27:33.063314+00:00",
+  "question_data": null,
+  "conversation_id": "21ff02d2-f9d3-4890-9461-d7dd45aca560"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 17/20)",
+  "credit_info": {
+   "remaining_credits": 17,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T05:09:17.296551+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "21ff02d2-f9d3-4890-9461-d7dd45aca560",
+   "title": "Concise Document Summary"
+  },
+  "message": "Conversation titled: Concise Document Summary",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "get_skills",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "get_skills",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "success": true,
+   "skill_name": "documentReading"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "read_content",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "read_content",
+  "tool_status": "error",
+  "display": "display",
+  "data": {
+   "error": "Unknown error"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 3,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "generate_content",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 3,
+  "index": 0,
+  "is_complete": false,
+  "task_title": "Summarizing document",
+  "model_name": "gemini-3-flash-preview",
+  "response_style": "normal",
+  "response_type": "normal",
+  "guideline": "Provide a concise summary of the attached document. Focus on the core message, key findings, and main arguments. Ensure the output is structured and logical. After the summary text, include a mandatory mind map using a Mermaid diagram to visualize the document's structure and main points. Reply in English.",
+  "referenced_files": [
+   {
+    "file_id": "file-l2p1m0o9n8b7v6c5x4z3a2s1",
+    "file_name": "file-l2p1m0o9n8b7v6c5x4z3a2s1"
+   }
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Starting content generation with streaming...",
+  "chunk": null,
+  "tool_name": "generate_content",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false,
+  "response_style": "normal",
+  "response_type": "normal",
+  "guideline": "Provide a concise summary of the attached document. Focus on the core message, key findings, and main arguments. Ensure the output is structured and logical. After the summary text, include a mandatory mind map using a Mermaid diagram to visualize the document's structure and main points. Reply in English."
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Based on the provided document, here is a concise summary of the core concepts and findings regarding **",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Cognitive Load Theory (CLT)**.\n\n## Executive Summary\nCognitive Load Theory is an instructional design framework based",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " on our understanding of how the human brain processes and stores information. The central argument is that because our working memory has a very",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " limited capacity, instructional materials must be designed to avoid \"overloading\" the learner, ensuring that mental resources are focused on the actual",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " learning task. <span class=\"inline-cite\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\" data-file-id=\"file-l2p1m0o9n8b7v6c",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "5x4z3a2s1\">p.1</span>\n\n<div content-section=\"definition\">\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "<p><strong>Cognitive Load:</strong> The total amount of mental effort being used in the working memory at any given moment",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ". Think of it like the RAM in a computer; if you try to run too many heavy programs at once, the system",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " slows down or crashes.</p>\n</div>\n\n### The Three Types of Cognitive Load\nThe document categorizes mental effort into three distinct streams",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ". To teach effectively, we must manage these carefully:\n\n1.  **Intrinsic Load:** This is the inherent difficulty of the material itself",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ". For example, learning basic addition has a lower intrinsic load than learning organic chemistry. <span class=\"inline-cite",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview\" data-file-id=\"file",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "-l2p1m0o9n8b7v6c5x4z3a2s",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "1\">p.3</span>\n2.  **Extraneous Load:** This is \"bad\" load created by poor",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " instructional design. If a student has to struggle to understand a messy diagram or decipher confusing instructions, they are wasting mental energy that should",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " have gone toward learning.\n3.  **Germane Load:** This is \"good\" load. it is the mental effort used",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " to process information, find patterns, and create **schemas** (mental maps) that move information into long-term memory. ",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "<span class=\"inline-cite\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview\" data",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "-file-id=\"file-l2p1m0o9n8b7v6c5x",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "4z3a2s1\">p.4</span>\n\n### Key Instructional Strategies\nTo optimize learning, the text",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " suggests several \"effects\" or strategies:\n*   **The Worked-Example Effect:** Providing a step-by-step completed",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " problem for students to study before asking them to solve one themselves reduces extraneous load.\n*   **The Split-Attention Effect",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ":** Avoiding the need for students to look back and forth between a diagram and a separate text description. Information should be integrated into one",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " place. <span class=\"inline-cite\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview\" data",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "-file-id=\"file-l2p1m0o9n8b7v6c5x",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "4z3a2s1\">p.7</span>\n\n<div content-section=\"important_takeaways\">\n<ul>",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n<li><strong>Goal:</strong> Minimize Extraneous Load, manage Intrinsic Load, and maximize Germane Load.</li>\n<li><strong>Limit",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ":</strong> Working memory can typically only hold about 7 items (or \"chunks\") of information at a time.</li>\n<li><strong>",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Long-term Memory:</strong> Unlike working memory, long-term memory is virtually limitless and stores information in complex patterns called schemas.</li>\n</ul>",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n</div>\n\nThe following diagram visualizes how these components interact within the human cognitive architecture:\n\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "<diagram data-placeholder-id=\"dg_4b7d27b50fcf\" data-subtype=\"mermaid\" data-layout=\"block\" data-status=\"pending\" data-caption=\"Overview of Cognitive Load Theory Structure\"></diagram>\n\nI have summarized the main pillars of the document for you. If you are satisfied with this overview, we can dive deeper into",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " specific instructional strategies or move on to a practice quiz to test your understanding!",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": {
+   "model_used": "gemini-3-flash-preview",
+   "chunk_count": 33,
+   "total_length": 3614,
+   "content": "Based on the provided document, here is a concise summary of the core concepts and findings regarding **Cognitive Load Theory (CLT)**.\n\n## Executive Summary\nCognitive Load Theory is an instructional design framework based on our understanding of how the human brain processes and stores information. The central argument is that because our working memory has a very limited capacity, instructional materials must be designed to avoid \"overloading\" the learner, ensuring that mental resources are focused on the actual learning task. <span class=\"inline-cite\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview\" data-file-id=\"file-l2p1m0o9n8b7v6c5x4z3a2s1\">p.1</span>\n\n<div content-section=\"definition\">\n<p><strong>Cognitive Load:</strong> The total amount of mental effort being used in the working memory at any given moment. Think of it like the RAM in a computer; if you try to run too many heavy programs at once, the system slows down or crashes.</p>\n</div>\n\n### The Three Types of Cognitive Load\nThe document categorizes mental effort into three distinct streams. To teach effectively, we must manage these carefully:\n\n1.  **Intrinsic Load:** This is the inherent difficulty of the material itself. For example, learning basic addition has a lower intrinsic load than learning organic chemistry. <span class=\"inline-cite\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview\" data-file-id=\"file-l2p1m0o9n8b7v6c5x4z3a2s1\">p.3</span>\n2.  **Extraneous Load:** This is \"bad\" load created by poor instructional design. If a student has to struggle to understand a messy diagram or decipher confusing instructions, they are wasting mental energy that should have gone toward learning.\n3.  **Germane Load:** This is \"good\" load. it is the mental effort used to process information, find patterns, and create **schemas** (mental maps) that move information into long-term memory. <span class=\"inline-cite\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview\" data-file-id=\"file-l2p1m0o9n8b7v6c5x4z3a2s1\">p.4</span>\n\n### Key Instructional Strategies\nTo optimize learning, the text suggests several \"effects\" or strategies:\n*   **The Worked-Example Effect:** Providing a step-by-step completed problem for students to study before asking them to solve one themselves reduces extraneous load.\n*   **The Split-Attention Effect:** Avoiding the need for students to look back and forth between a diagram and a separate text description. Information should be integrated into one place. <span class=\"inline-cite\" data-type=\"file\" data-title=\"Cognitive Load Theory Overview\" data-file-id=\"file-l2p1m0o9n8b7v6c5x4z3a2s1\">p.7</span>\n\n<div content-section=\"important_takeaways\">\n<ul>\n<li><strong>Goal:</strong> Minimize Extraneous Load, manage Intrinsic Load, and maximize Germane Load.</li>\n<li><strong>Limit:</strong> Working memory can typically only hold about 7 items (or \"chunks\") of information at a time.</li>\n<li><strong>Long-term Memory:</strong> Unlike working memory, long-term memory is virtually limitless and stores information in complex patterns called schemas.</li>\n</ul>\n</div>\n\nThe following diagram visualizes how these components interact within the human cognitive architecture:\n\n<diagram data-placeholder-id=\"dg_4b7d27b50fcf\" data-subtype=\"mermaid\" data-layout=\"block\" data-status=\"pending\" data-caption=\"Overview of Cognitive Load Theory Structure\"></diagram>\n\nI have summarized the main pillars of the document for you. If you are satisfied with this overview, we can dive deeper into specific instructional strategies or move on to a practice quiz to test your understanding!",
+   "guideline": "Provide a concise summary of the attached document. Focus on the core message, key findings, and main arguments. Ensure the output is structured and logical. After the summary text, include a mandatory mind map using a Mermaid diagram to visualize the document's structure and main points. Reply in English.",
+   "error": null,
+   "stopped_early": false
+  },
+  "message": "✅ generate_content completed (chunks=33)",
+  "chunk": null,
+  "tool_name": "generate_content",
+  "tool_status": "completed",
+  "display": "display",
+  "is_complete": false,
+  "response_style": "normal",
+  "response_type": "normal"
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "recommend_next_step",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "recommend_next_step",
+  "tool_status": "completed",
+  "display": "display",
+  "data": {
+   "has_steps": true,
+   "next_steps": [
+    {
+     "display_step": "Explore practical applications of Cognitive Load Theory",
+     "step_prompt": "Show me some practical applications of Cognitive Load Theory in instructional design."
+    },
+    {
+     "display_step": "Create flashcards for Cognitive Load Theory concepts",
+     "step_prompt": "Create flashcards for the key concepts of Cognitive Load Theory, including intrinsic, extraneous, and germane load."
+    },
+    {
+     "display_step": "Generate a quiz on Cognitive Load Theory",
+     "step_prompt": "Generate a quiz to test my understanding of Cognitive Load Theory."
+    }
+   ],
+   "learning_progress": {
+    "title_action": "new",
+    "current_title": "Cognitive Load Theory Overview",
+    "topic": "CLT summary",
+    "percentage": 30,
+    "predicted_next_title": "Cognitive Load Theory applications"
+   }
+  },
+  "is_complete": false
+ },
+ {
+  "type": "complete",
+  "conversation_id": "21ff02d2-f9d3-4890-9461-d7dd45aca560",
+  "is_complete": true,
+  "tts_pending": false
+ }
+]

@@ -1,0 +1,65 @@
+{
+ "status": 200,
+ "body": {
+  "plans": [
+   {
+    "plan_id": null,
+    "tier": "free",
+    "name": "Free",
+    "price_usd": 0,
+    "interval": "month",
+    "rank": 0,
+    "purchasable": false,
+    "max_credits": 20,
+    "reset_interval_hours": 24
+   },
+   {
+    "plan_id": "pro25a",
+    "tier": "pro",
+    "name": "Pro",
+    "price_usd": 12,
+    "interval": "month",
+    "rank": 1,
+    "purchasable": false,
+    "max_credits": 40,
+    "reset_interval_hours": 12
+   },
+   {
+    "plan_id": "pro25b",
+    "tier": "pro",
+    "name": "Pro",
+    "price_usd": 18,
+    "interval": "month",
+    "rank": 2,
+    "purchasable": true,
+    "max_credits": 80,
+    "reset_interval_hours": 12
+   },
+   {
+    "plan_id": "max25a",
+    "tier": "max",
+    "name": "Max",
+    "price_usd": 50,
+    "interval": "month",
+    "rank": 3,
+    "purchasable": true,
+    "max_credits": 300,
+    "reset_interval_hours": 12
+   }
+  ],
+  "country_code": "US",
+  "current": {
+   "plan_id": "pro25b",
+   "tier": "pro",
+   "rank": 2,
+   "billing_reason": "invite_code_grant",
+   "expires_at": "2026-09-17T13:15:34.520529+00:00",
+   "is_legacy_plan": false,
+   "pending_change": null,
+   "change_flow": "one_off",
+   "can_change_plan": true,
+   "can_downgrade": false,
+   "blocked_reason": null
+  }
+ }
+}

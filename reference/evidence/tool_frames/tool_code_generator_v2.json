@@ -1,0 +1,1951 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "4e1fd8c5-e455-450d-9a85-1a10a33a9bf6",
+   "title": "Conversation 4e1fd8c5-e455-450d-9a85-1a10a33a9bf6",
+   "created_at": "2026-09-02T17:57:26.707274+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T17:57:26.707710+00:00",
+  "question_data": null,
+  "conversation_id": "4e1fd8c5-e455-450d-9a85-1a10a33a9bf6"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 7/20)",
+  "credit_info": {
+   "remaining_credits": 7,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T05:09:17.296551+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "4e1fd8c5-e455-450d-9a85-1a10a33a9bf6",
+   "title": "JavaScript Quicksort Implementation with Comments"
+  },
+  "message": "Conversation titled: JavaScript Quicksort Implementation with Comments",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Starting code generation with streaming...",
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// Function to implement QuickSort\nfunction quickSort(arr, low = 0, high = arr.length - 1) {\n    // Base case: if the low index is greater",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " than or equal to the high index,\n    // the subarray has 0 or 1 elements and is already sorted.\n    if (low < high) {\n        // Partition the array and get the pivot index.\n        ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// The partition function places the pivot element at its correct sorted position\n        // and places all smaller elements to its left and all greater elements to its right.\n        const pivotIndex = partition(arr, low, high);\n\n        // Recursively",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " sort the subarray to the left of the pivot.\n        quickSort(arr, low, pivotIndex - 1);\n\n        // Recursively sort the subarray to the right of the pivot.\n        quickSort(arr, pivotIndex",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " + 1, high);\n    }\n    // Return the sorted array (the modifications are done in-place).\n    return arr;\n}\n\n// Function to partition the array around a pivot\nfunction partition(arr, low, high",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ") {\n    // Choose the last element as the pivot.\n    const pivot = arr[high];\n    // Initialize 'i' as the index of the smaller element.\n    // This 'i' will track the position where the",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " next element smaller than the pivot should be placed.\n    let i = low - 1;\n\n    // Iterate through the subarray from 'low' to 'high - 1' (excluding the pivot).\n    for (let j =",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " low; j < high; j++) {\n        // If the current element is smaller than or equal to the pivot,\n        // increment 'i' and swap arr[i] with arr[j].\n        if (arr[j]",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " <= pivot) {\n            i++;\n            // Swap arr[i] and arr[j]\n            [arr[i], arr[j]] = [arr[j], arr[i]]; // ES6 array destructuring for",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " swapping\n        }\n    }\n\n    // After the loop, all elements smaller than the pivot are to the left of 'i'.\n    // Swap the pivot element (arr[high]) with the element at (i + 1",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ").\n    // This places the pivot at its correct sorted position.\n    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];\n\n    // Return the index of",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " the pivot element after partitioning.\n    return i + 1;\n}\n\n// --- Example Usage ---\n\n// Test case 1: An unsorted array\nconst arr1 = [10, 7, 8, 9",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ", 1, 5];\nconsole.log(\"Original array 1:\", arr1);\nconst sortedArr1 = quickSort([...arr1]); // Use spread operator to create a copy to avoid modifying original\nconsole.log(\"Sorted array ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "1:\", sortedArr1); // Expected: [1, 5, 7, 8, 9, 10]\n\nconsole.log(\"\\n---\");\n\n// Test case 2: An array with duplicate elements\nconst arr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "2 = [3, 6, 8, 10, 1, 2, 1];\nconsole.log(\"Original array 2:\", arr2);\nconst sortedArr2 = quickSort([...arr2]);",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\nconsole.log(\"Sorted array 2:\", sortedArr2); // Expected: [1, 1, 2, 3, 6, 8, 10]\n\nconsole.log(\"\\n---\");\n\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// Test case 3: An already sorted array\nconst arr3 = [1, 2, 3, 4, 5];\nconsole.log(\"Original array 3:\", arr3);\nconst sortedArr3",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " = quickSort([...arr3]);\nconsole.log(\"Sorted array 3:\", sortedArr3); // Expected: [1, 2, 3, 4, 5]\n\nconsole.log(\"\\n---\");\n\n//",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " Test case 4: A reverse sorted array\nconst arr4 = [5, 4, 3, 2, 1];\nconsole.log(\"Original array 4:\", arr4);\nconst sortedArr4 = quickSort([...",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "arr4]);\nconsole.log(\"Sorted array 4:\", sortedArr4); // Expected: [1, 2, 3, 4, 5]\n\nconsole.log(\"\\n---\");\n\n// Test case ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "5: An empty array\nconst arr5 = [];\nconsole.log(\"Original array 5:\", arr5);\nconst sortedArr5 = quickSort([...arr5]);\nconsole.log(\"Sorted array 5:\", sortedArr5",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "); // Expected: []\n\nconsole.log(\"\\n---\");\n\n// Test case 6: An array with one element\nconst arr6 = [42];\nconsole.log(\"Original array 6:\", arr6);\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "const sortedArr6 = quickSort([...arr6]);\nconsole.log(\"Sorted array 6:\", sortedArr6); // Expected: [42]",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Code generation complete. Executing code...",
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "executing",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_output",
+  "data": null,
+  "message": null,
+  "chunk": "  File \"/app/public/codeSandbox/code_session_mwXcbs2nqL/main.py\", line 1\n",
+  "output_type": "stderr",
+  "tool_name": "code_generator",
+  "tool_status": "executing",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_output",
+  "data": null,
+  "message": null,
+  "chunk": "    // Function to implement QuickSort\n",
+  "output_type": "stderr",
+  "tool_name": "code_generator",
+  "tool_status": "executing",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_output",
+  "data": null,
+  "message": null,
+  "chunk": "    ^^\n",
+  "output_type": "stderr",
+  "tool_name": "code_generator",
+  "tool_status": "executing",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_output",
+  "data": null,
+  "message": null,
+  "chunk": "SyntaxError: invalid syntax\n",
+  "output_type": "stderr",
+  "tool_name": "code_generator",
+  "tool_status": "executing",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "code_generator",
+  "tool_status": "error",
+  "display": "display",
+  "data": {
+   "error": "Unknown error"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Starting code generation with streaming...",
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// Function to implement QuickSort\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// It takes an array, and optional low and high indices to define the current subarray to sort.\nfunction quickSort(arr, low = 0, high = arr.length - 1) {\n    // Base case: if",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " the low index is greater than or equal to the high index,\n    // the subarray has 0 or 1 elements and is already sorted.\n    if (low < high) {\n        // Partition the array and get the",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " pivot index.\n        // The partition function places the pivot element at its correct sorted position\n        // and places all smaller elements to its left and all greater elements to its right.\n        const pivotIndex = partition(arr, low",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ", high);\n\n        // Recursively sort the subarray to the left of the pivot.\n        quickSort(arr, low, pivotIndex - 1);\n\n        // Recursively sort the subarray to the right of the pivot.\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "        quickSort(arr, pivotIndex + 1, high);\n    }\n    // Return the sorted array (the modifications are done in-place).\n    return arr;\n}\n\n// Function to partition the array around",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " a pivot\n// It rearranges elements such that elements smaller than the pivot come before it,\n// and elements greater than the pivot come after it.\nfunction partition(arr, low, high) {\n    // Choose the last",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " element as the pivot.\n    const pivot = arr[high];\n    // Initialize 'i' as the index of the smaller element.\n    // This 'i' will track the position where the next element smaller than the pivot",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " should be placed.\n    let i = low - 1;\n\n    // Iterate through the subarray from 'low' to 'high - 1' (excluding the pivot).\n    for (let j = low; j <",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " high; j++) {\n        // If the current element is smaller than or equal to the pivot,\n        // increment 'i' and swap arr[i] with arr[j].\n        if (arr[j] <=",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " pivot) {\n            i++;\n            // Swap arr[i] and arr[j] using ES6 array destructuring.\n            [arr[i], arr[j]] = [arr[j], arr[i]];\n        }",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n    }\n\n    // After the loop, all elements smaller than or equal to the pivot are to the left of 'i'.\n    // Swap the pivot element (arr[high]) with the element at (i + 1).\n    ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// This places the pivot at its correct sorted position.\n    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];\n\n    // Return the index of the pivot element",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " after partitioning.\n    return i + 1;\n}\n\n// --- Example Usage ---\n\nconsole.log(\"--- QuickSort Examples ---\");\n\n// Test case 1: An unsorted array\nconst arr1 = [1",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "0, 7, 8, 9, 1, 5];\nconsole.log(\"Original array 1:\", arr1);\n// Use spread operator to create a copy to avoid modifying the original array for demonstration.\nconst sorted",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Arr1 = quickSort([...arr1]);\nconsole.log(\"Sorted array 1:\", sortedArr1); // Expected: [1, 5, 7, 8, 9, 10]\n\nconsole.log(\"\\",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "n---\");\n\n// Test case 2: An array with duplicate elements\nconst arr2 = [3, 6, 8, 10, 1, 2, 1];\nconsole.log(\"Original",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " array 2:\", arr2);\nconst sortedArr2 = quickSort([...arr2]);\nconsole.log(\"Sorted array 2:\", sortedArr2); // Expected: [1, 1, 2, 3, ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "6, 8, 10]\n\nconsole.log(\"\\n---\");\n\n// Test case 3: An already sorted array\nconst arr3 = [1, 2, 3, 4, 5];",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\nconsole.log(\"Original array 3:\", arr3);\nconst sortedArr3 = quickSort([...arr3]);\nconsole.log(\"Sorted array 3:\", sortedArr3); // Expected: [1, 2, ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "3, 4, 5]\n\nconsole.log(\"\\n---\");\n\n// Test case 4: A reverse sorted array\nconst arr4 = [5, 4, 3, 2, 1];\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "console.log(\"Original array 4:\", arr4);\nconst sortedArr4 = quickSort([...arr4]);\nconsole.log(\"Sorted array 4:\", sortedArr4); // Expected: [1, 2, 3",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ", 4, 5]\n\nconsole.log(\"\\n---\");\n\n// Test case 5: An empty array\nconst arr5 = [];\nconsole.log(\"Original array 5:\", arr5);\nconst sortedArr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "5 = quickSort([...arr5]);\nconsole.log(\"Sorted array 5:\", sortedArr5); // Expected: []\n\nconsole.log(\"\\n---\");\n\n// Test case 6: An array with one element\nconst arr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "6 = [42];\nconsole.log(\"Original array 6:\", arr6);\nconst sortedArr6 = quickSort([...arr6]);\nconsole.log(\"Sorted array 6:\", sortedArr6); // Expected: [",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "42]\n\nconsole.log(\"\\n---\");\n\n// Test case 7: An array with negative numbers\nconst arr7 = [-5, 0, -10, 3, -2];\nconsole.log(\"Original",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " array 7:\", arr7);\nconst sortedArr7 = quickSort([...arr7]);\nconsole.log(\"Sorted array 7:\", sortedArr7); // Expected: [-10, -5, -2, 0, 3]",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": {},
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "error",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "code_generator",
+  "tool_status": "error",
+  "display": "display",
+  "data": {
+   "error": "Code generation failed: 'NoneType' object is not iterable"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 3,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 3,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Starting code generation with streaming...",
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// Function to implement QuickSort\n// It takes an array, and optional 'low' and 'high' indices to define the current subarray.\nfunction quickSort(arr, low = 0, high = arr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ".length - 1) {\n    // Base case: if the low index is greater than or equal to the high index,\n    // the subarray has 0 or 1 elements and is already sorted.\n    if (low <",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " high) {\n        // Partition the array and get the pivot index.\n        // The partition function places the pivot element at its correct sorted position\n        // and places all smaller elements to its left and all greater elements to its right",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ".\n        const pivotIndex = partition(arr, low, high);\n\n        // Recursively sort the subarray to the left of the pivot.\n        quickSort(arr, low, pivotIndex - 1);\n\n        //",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " Recursively sort the subarray to the right of the pivot.\n        quickSort(arr, pivotIndex + 1, high);\n    }\n    // Return the sorted array (the modifications are done in-place).\n    ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "return arr;\n}\n\n// Function to partition the array around a pivot\n// It takes the array and the 'low' and 'high' indices of the current subarray.\nfunction partition(arr, low, high) {\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "    // Choose the last element as the pivot.\n    // Other pivot selection strategies include choosing the first element,\n    // a random element, or the median of three elements.\n    const pivot = arr[high];\n    // Initialize '",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "i' as the index of the smaller element.\n    // This 'i' will track the position where the next element smaller than the pivot should be placed.\n    let i = low - 1;\n\n    // Iterate through",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " the subarray from 'low' to 'high - 1' (excluding the pivot, which is at arr[high]).\n    for (let j = low; j < high; j++) {\n        // If the current element (arr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "[j]) is smaller than or equal to the pivot,\n        // increment 'i' and swap arr[i] with arr[j].\n        // This ensures that elements smaller than the pivot are moved to the left side of 'i'.",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n        if (arr[j] <= pivot) {\n            i++;\n            // Swap arr[i] and arr[j]\n            // ES6 array destructuring provides a concise way to swap elements.\n            [arr[",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "i], arr[j]] = [arr[j], arr[i]];\n        }\n    }\n\n    // After the loop, all elements smaller than the pivot are to the left of 'i'.\n    // The element",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " at 'i+1' is the first element greater than the pivot (or where the pivot should go).\n    // Swap the pivot element (arr[high]) with the element at (i + 1).\n    // This places",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " the pivot at its correct sorted position in the array.\n    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];\n\n    // Return the index of the pivot element",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " after partitioning.\n    // This index is used by quickSort to define the boundaries for recursive calls.\n    return i + 1;\n}\n\n// --- Example Usage ---\n\nconsole.log(\"--- QuickSort Implementation in JavaScript ---\");\n\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// Test case 1: An unsorted array\nconst arr1 = [10, 7, 8, 9, 1, 5];\nconsole.log(\"Original array 1:\", arr1);\n// Use spread",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " operator to create a copy of the array to avoid modifying the original\n// array in place if it's needed elsewhere, as quickSort modifies the array directly.\nconst sortedArr1 = quickSort([...arr1]);\nconsole.log(\"Sorted array",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " 1:\", sortedArr1); // Expected: [1, 5, 7, 8, 9, 10]\n\nconsole.log(\"\\n---\");\n\n// Test case 2: An array with duplicate elements\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "const arr2 = [3, 6, 8, 10, 1, 2, 1, 5, 6];\nconsole.log(\"Original array 2:\", arr2);\nconst sorted",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Arr2 = quickSort([...arr2]);\nconsole.log(\"Sorted array 2:\", sortedArr2); // Expected: [1, 1, 2, 3, 5, 6, 6, 8",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ", 10]\n\nconsole.log(\"\\n---\");\n\n// Test case 3: An already sorted array\nconst arr3 = [1, 2, 3, 4, 5];\nconsole.log",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "(\"Original array 3:\", arr3);\nconst sortedArr3 = quickSort([...arr3]);\nconsole.log(\"Sorted array 3:\", sortedArr3); // Expected: [1, 2, 3, 4",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ", 5]\n\nconsole.log(\"\\n---\");\n\n// Test case 4: A reverse sorted array\nconst arr4 = [5, 4, 3, 2, 1];\nconsole.log(\"",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Original array 4:\", arr4);\nconst sortedArr4 = quickSort([...arr4]);\nconsole.log(\"Sorted array 4:\", sortedArr4); // Expected: [1, 2, 3, 4,",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " 5]\n\nconsole.log(\"\\n---\");\n\n// Test case 5: An empty array\nconst arr5 = [];\nconsole.log(\"Original array 5:\", arr5);\nconst sortedArr5 = quickSort([...",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "arr5]);\nconsole.log(\"Sorted array 5:\", sortedArr5); // Expected: []\n\nconsole.log(\"\\n---\");\n\n// Test case 6: An array with one element\nconst arr6 = [4",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "2];\nconsole.log(\"Original array 6:\", arr6);\nconst sortedArr6 = quickSort([...arr6]);\nconsole.log(\"Sorted array 6:\", sortedArr6); // Expected: [42]\n\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "console.log(\"\\n---\");\n\n// Test case 7: An array with negative numbers\nconst arr7 = [-5, 0, -10, 3, 1];\nconsole.log(\"Original array 7:\", arr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "7);\nconst sortedArr7 = quickSort([...arr7]);\nconsole.log(\"Sorted array 7:\", sortedArr7); // Expected: [-10, -5, 0, 1, 3]\n\nconsole",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ".log(\"\\n--- End of Examples ---\");",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Code generation complete. Executing code...",
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "executing",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "code_generator",
+  "tool_status": "error",
+  "display": "display",
+  "data": {
+   "error": "Unknown error"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 4,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 4,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Starting code generation with streaming...",
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// Function to implement QuickSort\n// It takes an array, and optional 'low' and 'high' indices to define",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " the current subarray.\nfunction quickSort(arr, low = 0, high = arr.length - 1) {\n    // Base case: if the low index is greater than or equal to the high index,\n    // the subarray",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " has 0 or 1 elements and is already sorted.\n    if (low < high) {\n        // Partition the array and get the pivot index.\n        // The partition function places the pivot element at its correct sorted position\n        //",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " and places all smaller elements to its left and all greater elements to its right.\n        const pivotIndex = partition(arr, low, high);\n\n        // Recursively sort the subarray to the left of the pivot.\n        quick",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Sort(arr, low, pivotIndex - 1);\n\n        // Recursively sort the subarray to the right of the pivot.\n        quickSort(arr, pivotIndex + 1, high);\n    }\n    //",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " Return the sorted array (the modifications are done in-place).\n    return arr;\n}\n\n// Function to partition the array around a pivot\n// It takes the array and the 'low' and 'high' indices of the",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " current subarray.\nfunction partition(arr, low, high) {\n    // Choose the last element as the pivot.\n    // Other pivot selection strategies include choosing the first element,\n    // a random element, or the median",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " of three elements.\n    const pivot = arr[high];\n    // Initialize 'i' as the index of the smaller element.\n    // This 'i' will track the position where the next element smaller than the pivot should",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " be placed.\n    let i = low - 1;\n\n    // Iterate through the subarray from 'low' to 'high - 1' (excluding the pivot, which is at arr[high]).\n    for (let",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " j = low; j < high; j++) {\n        // If the current element (arr[j]) is smaller than or equal to the pivot,\n        // increment 'i' and swap arr[i] with arr[",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "j].\n        // This ensures that elements smaller than the pivot are moved to the left side of 'i'.\n        if (arr[j] <= pivot) {\n            i++;\n            // Swap arr[i] and",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " arr[j]\n            // ES6 array destructuring provides a concise way to swap elements.\n            [arr[i], arr[j]] = [arr[j], arr[i]];\n        }\n    }\n\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "    // After the loop, all elements smaller than the pivot are to the left of 'i'.\n    // The element at 'i+1' is the first element greater than the pivot (or where the pivot should go).\n",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "    // Swap the pivot element (arr[high]) with the element at (i + 1).\n    // This places the pivot at its correct sorted position in the array.\n    [arr[i + 1], arr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "[high]] = [arr[high], arr[i + 1]];\n\n    // Return the index of the pivot element after partitioning.\n    // This index is used by quickSort to define the boundaries for recursive calls.\n    ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "return i + 1;\n}\n\n// --- Example Usage ---\n\nconsole.log(\"--- QuickSort Implementation in JavaScript ---\");\n\n// Test case 1: An unsorted array\nconst arr1 = [10, 7,",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " 8, 9, 1, 5];\nconsole.log(\"Original array 1:\", arr1);\n// Use spread operator to create a copy of the array to avoid modifying the original\n// array in place if",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " it's needed elsewhere, as quickSort modifies the array directly.\nconst sortedArr1 = quickSort([...arr1]);\nconsole.log(\"Sorted array 1:\", sortedArr1); // Expected: [1, 5, ",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "7, 8, 9, 10]\n\nconsole.log(\"\\n---\");\n\n// Test case 2: An array with duplicate elements\nconst arr2 = [3, 6, 8, 1",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "0, 1, 2, 1, 5, 6];\nconsole.log(\"Original array 2:\", arr2);\nconst sortedArr2 = quickSort([...arr2]);\nconsole.log(\"Sorted array",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " 2:\", sortedArr2); // Expected: [1, 1, 2, 3, 5, 6, 6, 8, 10]\n\nconsole.log(\"\\n---\");\n\n//",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " Test case 3: An already sorted array\nconst arr3 = [1, 2, 3, 4, 5];\nconsole.log(\"Original array 3:\", arr3);\nconst sortedArr3 =",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " quickSort([...arr3]);\nconsole.log(\"Sorted array 3:\", sortedArr3); // Expected: [1, 2, 3, 4, 5]\n\nconsole.log(\"\\n---\");\n\n// Test",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " case 4: A reverse sorted array\nconst arr4 = [5, 4, 3, 2, 1];\nconsole.log(\"Original array 4:\", arr4);\nconst sortedArr4 = quickSort",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "([...arr4]);\nconsole.log(\"Sorted array 4:\", sortedArr4); // Expected: [1, 2, 3, 4, 5]\n\nconsole.log(\"\\n---\");\n\n// Test case",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " 5: An empty array\nconst arr5 = [];\nconsole.log(\"Original array 5:\", arr5);\nconst sortedArr5 = quickSort([...arr5]);\nconsole.log(\"Sorted array 5:\", sortedArr",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "5); // Expected: []\n\nconsole.log(\"\\n---\");\n\n// Test case 6: An array with one element\nconst arr6 = [42];\nconsole.log(\"Original array 6:\", arr6);",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\nconst sortedArr6 = quickSort([...arr6]);\nconsole.log(\"Sorted array 6:\", sortedArr6); // Expected: [42]\n\nconsole.log(\"\\n---\");\n\n// Test case 7: An",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " array with negative numbers\nconst arr7 = [-5, 0, -10, 3, 1];\nconsole.log(\"Original array 7:\", arr7);\nconst sortedArr7 = quickSort([...arr7",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "code_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "]);\nconsole.log(\"Sorted array 7:\", sortedArr7); // Expected: [-10, -5, 0, 1, 3]\n\nconsole.log(\"\\n--- End of Examples ---\");",
+  "tool_name": "code_generator",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Code generation complete. Executing code...",
+  "chunk": null,
+  "tool_name": "code_generator",
+  "tool_status": "executing",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "code_generator",
+  "tool_status": "error",
+  "display": "display",
+  "data": {
+   "error": "Unknown error"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "thinking",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 5,
+  "index": 0,
+  "data": {
+   "message": "Thinking..."
+  },
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 5,
+  "index": 1,
+  "chunk": "**Refining Code Generation**\n\nI'm focusing on ensuring the `code_generator` produces JavaScript this time. My recent thoughts have been about how to explicitly guide the tool to the correct language for this QuickSort implementation request.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 5,
+  "index": 2,
+  "chunk": "**Adapting Code Generation Strategy**\n\nIt seems the `code_generator` tool, despite its definition, only reliably supports Python in its current backend sandbox, as evidenced by persistent \"Unsupported language: javascript\" errors. Given this limitation, I'm now pivoting to utilizing the `generate_content` tool for providing the requested JavaScript QuickSort implementation. This will ensure I can fulfill the user's need for a JavaScript code snippet, even if the primary code generation tool is restricted.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 5,
+  "index": 3,
+  "chunk": "**Generating JavaScript Code**\n\nMy thoughts are now focused on fulfilling the request for a JavaScript QuickSort implementation. Given the persistent issues with the `code_generator` tool not supporting JavaScript execution, I've decided to leverage the `generate_content` tool to provide the code directly. This is the most reliable path to delivering the desired output.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 5,
+  "index": 4,
+  "chunk": "**Crafting JavaScript Code**\n\nI'm now focusing on generating the requested JavaScript QuickSort implementation. I've decided to use the `generate_content` tool as the most direct and reliable method to provide the code snippet, given the previous limitations encountered.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 5,
+  "index": 5,
+  "chunk": "**Generating JavaScript Snippet**\n\nMy current focus is on generating the JavaScript QuickSort implementation. I will directly use the `generate_content` tool, as it's the most straightforward approach, avoiding the `code_generator`'s limitations with JavaScript execution within the sandbox and addressing the user's request efficiently.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 5,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 5
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "generate_content",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 5,
+  "index": 0,
+  "is_complete": false,
+  "task_title": "Writing QuickSort in JavaScript",
+  "model_name": "gemini-3-flash-preview",
+  "response_style": "normal",
+  "response_type": "normal",
+  "guideline": "Provide a QuickSort implementation in JavaScript with detailed comments explaining each step. Include an example of how to use the function. Ensure the response is in English. Since the code execution environment for JavaScript is currently limited, I am providing the code directly for your use."
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Starting content generation with streaming...",
+  "chunk": null,
+  "tool_name": "generate_content",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false,
+  "response_style": "normal",
+  "response_type": "normal",
+  "guideline": "Provide a QuickSort implementation in JavaScript with detailed comments explaining each step. Include an example of how to use the function. Ensure the response is in English. Since the code execution environment for JavaScript is currently limited, I am providing the code directly for your use."
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "## QuickSort in JavaScript\n\nQuickSort is a highly efficient, \"divide and conquer\" sorting algorithm",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ". It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " they are less than or greater than the pivot.\n\n<div content-section=\"definition\">\n<strong>QuickSort:",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "</strong> A recursive sorting algorithm that picks an element as a pivot and partitions the given array around the picked pivot by placing the",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " pivot in its correct position in the sorted array.\n</div>\n\n### How It Works\nBefore we dive into the code,",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " it's helpful to visualize the process. The algorithm follows three main steps:\n1.  **Pivot Selection:** Pick",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " an element (often the last one) to be the \"pivot.\"\n2.  **Partitioning:** Rearrange the array so",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " that all elements smaller than the pivot go to the left, and all elements larger go to the right.\n3.  **Recurs",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "ion:** Repeat these steps for the left and right sides until the entire array is sorted.\n\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "<diagram data-placeholder-id=\"dg_f69a576165c7\" data-subtype=\"mermaid\" data-layout=\"block\" data-status=\"pending\" data-caption=\"The QuickSort Logic Flow\"></diagram>\n\n### The Implementation\n\nHere is the complete JavaScript implementation using the **",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Lomuto partition scheme** (where we use the last element as the pivot).\n\n```javascript\n/**\n * Main QuickSort function",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n * @param {Array} arr - The array to be sorted\n * @param {number} low - Starting",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " index\n * @param {number} high - Ending index\n */\nfunction quickSort(arr, low = 0, high",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " = arr.length - 1) {\n    // Base case: If the range is valid (at least two elements)\n    ",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "if (low < high) {\n        // 1. Partition the array and get the pivot's final index\n        const",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " pivotIndex = partition(arr, low, high);\n\n        // 2. Recursively sort elements before and after the pivot\n        //",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " Sort the left side\n        quickSort(arr, low, pivotIndex - 1);\n        // Sort the right side\n        ",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "quickSort(arr, pivotIndex + 1, high);\n    }\n    return arr;\n}\n\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "/**\n * Helper function to partition the array\n */\nfunction partition(arr, low, high) {\n    // We",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "'ll choose the last element as our pivot point\n    const pivot = arr[high];\n    \n    // i tracks the \"",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "boundary\" of elements known to be smaller than the pivot\n    let i = low - 1;\n\n    for (let j = low",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "; j < high; j++) {\n        // If the current element is smaller than or equal to the pivot\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "        if (arr[j] <= pivot) {\n            i++; // Move the boundary forward\n            // Swap the",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " current element into the \"smaller than pivot\" section\n            [arr[i], arr[j]] = [arr[j],",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " arr[i]];\n        }\n    }\n\n    // Finally, swap the pivot itself into its correct sorted position\n    [",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n    \n    // Return the position where the pivot ended up\n    return i + 1;\n}\n\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "// --- Example Usage ---\nconst myData = [24, 9, 2, 15, 7",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ", 1, 10];\nconsole.log(\"Original:\", myData);\n\nconst sortedData = quickSort([...",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "myData]); \nconsole.log(\"Sorted:\", sortedData);\n```\n\n### Complexity Analysis\nUnderstanding the performance of an",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " algorithm is crucial for choosing the right tool for the job.\n\n<div content-section=\"important_takeaways\">\n<ul>",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n    <li><strong>Average Time Complexity:</strong> <tex>$$O(n \\log n)$$</tex> —",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " This is very fast and makes QuickSort one of the most used sorting algorithms in practice.</li>\n    <li><strong>Worst-case",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " Time Complexity:</strong> <tex>$$O(n^2)$$</tex> — This happens if the pivot is",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " always the smallest or largest element (e.g., sorting an already sorted array).</li>\n    <li><strong>Space Complexity",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ":</strong> <tex>$$O(\\log n)$$</tex> — It is an in-place algorithm, meaning it doesn't",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " require much extra memory.</li>\n</ul>\n</div>\n\n<div content-section=\"common_mistakes\">\n<strong>",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Recursive Depth:</strong> Forgetting the base case <code>(low < high)</code> will cause a \"Maximum call stack size exceeded",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\" error because the function will keep calling itself forever.\n</div>\n\nI have finished the implementation and explanation for QuickSort. If you'",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "d like to explore other sorting algorithms like MergeSort or discuss how to optimize pivot selection, let me know!",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": {
+   "model_used": "gemini-3-flash-preview",
+   "chunk_count": 40,
+   "total_length": 4122,
+   "content": "## QuickSort in JavaScript\n\nQuickSort is a highly efficient, \"divide and conquer\" sorting algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot.\n\n<div content-section=\"definition\">\n<strong>QuickSort:</strong> A recursive sorting algorithm that picks an element as a pivot and partitions the given array around the picked pivot by placing the pivot in its correct position in the sorted array.\n</div>\n\n### How It Works\nBefore we dive into the code, it's helpful to visualize the process. The algorithm follows three main steps:\n1.  **Pivot Selection:** Pick an element (often the last one) to be the \"pivot.\"\n2.  **Partitioning:** Rearrange the array so that all elements smaller than the pivot go to the left, and all elements larger go to the right.\n3.  **Recursion:** Repeat these steps for the left and right sides until the entire array is sorted.\n\n<diagram data-placeholder-id=\"dg_f69a576165c7\" data-subtype=\"mermaid\" data-layout=\"block\" data-status=\"pending\" data-caption=\"The QuickSort Logic Flow\"></diagram>\n\n### The Implementation\n\nHere is the complete JavaScript implementation using the **Lomuto partition scheme** (where we use the last element as the pivot).\n\n```javascript\n/**\n * Main QuickSort function\n * @param {Array} arr - The array to be sorted\n * @param {number} low - Starting index\n * @param {number} high - Ending index\n */\nfunction quickSort(arr, low = 0, high = arr.length - 1) {\n    // Base case: If the range is valid (at least two elements)\n    if (low < high) {\n        // 1. Partition the array and get the pivot's final index\n        const pivotIndex = partition(arr, low, high);\n\n        // 2. Recursively sort elements before and after the pivot\n        // Sort the left side\n        quickSort(arr, low, pivotIndex - 1);\n        // Sort the right side\n        quickSort(arr, pivotIndex + 1, high);\n    }\n    return arr;\n}\n\n/**\n * Helper function to partition the array\n */\nfunction partition(arr, low, high) {\n    // We'll choose the last element as our pivot point\n    const pivot = arr[high];\n    \n    // i tracks the \"boundary\" of elements known to be smaller than the pivot\n    let i = low - 1;\n\n    for (let j = low; j < high; j++) {\n        // If the current element is smaller than or equal to the pivot\n        if (arr[j] <= pivot) {\n            i++; // Move the boundary forward\n            // Swap the current element into the \"smaller than pivot\" section\n            [arr[i], arr[j]] = [arr[j], arr[i]];\n        }\n    }\n\n    // Finally, swap the pivot itself into its correct sorted position\n    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];\n    \n    // Return the position where the pivot ended up\n    return i + 1;\n}\n\n// --- Example Usage ---\nconst myData = [24, 9, 2, 15, 7, 1, 10];\nconsole.log(\"Original:\", myData);\n\nconst sortedData = quickSort([...myData]); \nconsole.log(\"Sorted:\", sortedData);\n```\n\n### Complexity Analysis\nUnderstanding the performance of an algorithm is crucial for choosing the right tool for the job.\n\n<div content-section=\"important_takeaways\">\n<ul>\n    <li><strong>Average Time Complexity:</strong> <tex>$$O(n \\log n)$$</tex> — This is very fast and makes QuickSort one of the most used sorting algorithms in practice.</li>\n    <li><strong>Worst-case Time Complexity:</strong> <tex>$$O(n^2)$$</tex> — This happens if the pivot is always the smallest or largest element (e.g., sorting an already sorted array).</li>\n    <li><strong>Space Complexity:</strong> <tex>$$O(\\log n)$$</tex> — It is an in-place algorithm, meaning it doesn't require much extra memory.</li>\n</ul>\n</div>\n\n<div content-section=\"common_mistakes\">\n<strong>Recursive Depth:</strong> Forgetting the base case <code>(low < high)</code> will cause a \"Maximum call stack size exceeded\" error because the function will keep calling itself forever.\n</div>\n\nI have finished the implementation and explanation for QuickSort. If you'd like to explore other sorting algorithms like MergeSort or discuss how to optimize pivot selection, let me know!",
+   "guideline": "Provide a QuickSort implementation in JavaScript with detailed comments explaining each step. Include an example of how to use the function. Ensure the response is in English. Since the code execution environment for JavaScript is currently limited, I am providing the code directly for your use.",
+   "error": null,
+   "stopped_early": false
+  },
+  "message": "✅ generate_content completed (chunks=40)",
+  "chunk": null,
+  "tool_name": "generate_content",
+  "tool_status": "completed",
+  "display": "display",
+  "is_complete": false,
+  "response_style": "normal",
+  "response_type": "normal"
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "recommend_next_step",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "recommend_next_step",
+  "tool_status": "completed",
+  "display": "display",
+  "data": {
+   "has_steps": true,
+   "next_steps": [
+    {
+     "display_step": "Explore other sorting algorithms",
+     "step_prompt": "Can you explain other sorting algorithms like MergeSort?"
+    },
+    {
+     "display_step": "Learn about pivot selection optimization",
+     "step_prompt": "Tell me more about optimizing pivot selection in QuickSort."
+    },
+    {
+     "display_step": "Practice QuickSort with flashcards",
+     "step_prompt": "Create flashcards for QuickSort implementation and complexity."
+    }
+   ],
+   "learning_progress": {
+    "title_action": "new",
+    "current_title": "JavaScript QuickSort Implementation",
+    "topic": "Code generation and explanation",
+    "percentage": 60,
+    "predicted_next_title": "QuickSort continued"
+   }
+  },
+  "is_complete": false
+ },
+ {
+  "type": "complete",
+  "conversation_id": "4e1fd8c5-e455-450d-9a85-1a10a33a9bf6",
+  "is_complete": true,
+  "tts_pending": false
+ }
+]

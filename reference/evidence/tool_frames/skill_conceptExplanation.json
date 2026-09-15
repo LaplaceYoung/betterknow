@@ -1,0 +1,165 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "2cdd8943-8c36-4b17-a335-52d13e3c0c70",
+   "title": "Conversation 2cdd8943-8c36-4b17-a335-52d13e3c0c70",
+   "created_at": "2026-09-02T16:46:52.642474+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T16:46:52.642849+00:00",
+  "question_data": null,
+  "conversation_id": "2cdd8943-8c36-4b17-a335-52d13e3c0c70"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 5/20)",
+  "credit_info": {
+   "remaining_credits": 5,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T03:28:59.410113+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "2cdd8943-8c36-4b17-a335-52d13e3c0c70",
+   "title": "Understanding Eigenvalues"
+  },
+  "message": "Conversation titled: Understanding Eigenvalues",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "memory_recall",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "memory_recall",
+  "tool_status": "completed",
+  "display": "hide",
+  "data": {
+   "summary": "(no relevant memory)"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "get_skills",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "get_skills",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "success": true,
+   "skill_name": "conceptExplanation"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 3,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "ask_questions",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 3,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "user_question",
+  "message": "I need to ask you some questions to better understand your needs",
+  "question_data": {
+   "questions": [
+    {
+     "question": "What is your current knowledge level regarding linear algebra?",
+     "is_multiple": false,
+     "options": [
+      "Beginner (no prior linear algebra)",
+      "Intermediate (knows matrices and vectors)",
+      "Advanced (familiar with linear transformations)"
+     ],
+     "allow_custom": true
+    },
+    {
+     "question": "Which kind of explanation do you want?",
+     "is_multiple": false,
+     "options": [
+      "Simple and concise (just the intuition)",
+      "Standard (definition and examples)",
+      "Step by step (interactive breakdown)",
+      "Comprehensive and in-depth (theory and applications)"
+     ],
+     "allow_custom": true
+    },
+    {
+     "question": "What aspects would you like to focus on?",
+     "is_multiple": true,
+     "options": [
+      "Geometric intuition (visualizing transformations)",
+      "Mathematical definition and calculation",
+      "Real-world applications (e.g., PageRank, PCA)",
+      "Common pitfalls and properties"
+     ],
+     "allow_custom": true
+    }
+   ]
+  },
+  "is_complete": false,
+  "conversation_id": "2cdd8943-8c36-4b17-a335-52d13e3c0c70"
+ }
+]

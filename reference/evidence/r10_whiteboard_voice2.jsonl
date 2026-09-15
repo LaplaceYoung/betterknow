@@ -1,0 +1,9 @@
+{"t":1788423256740,"dir":"C→S","type":"resume_session","session_id":"74ac286dbd2648ffa9e8caf4708137e1"}
+{"t":1788423256882,"dir":"S→C","type":"connection_established"}
+{"t":1788423257089,"dir":"S→C","type":"session_ready","session_id":"74ac286dbd2648ffa9e8caf4708137e1","resumed":true,"status":"active","session":false,"messages":[],"whiteboard_state":null,"lecture_outline_id":null,"conversation_id":"1f2623fd-d9f0-49df-a421-9492e91fe612","session_title":"Basics of the Pythagorean Theorem"}
+{"t":1788423257089,"dir":"C→S","type":"start_teaching"}
+{"t":1788423258909,"dir":"S→C","type":"group","actions":[{"type":"board","board_content":"Pythagorean Theorem\n\nFundamental tool for right-angled triangles","step_id":0,"board_uid":0,"page_id":"page-1","title":"Introduction"},{"type":"speak","spoken_text":"Hello, rk1788374086550! Today we're diving into the Pythagorean Theorem. It's a foundational tool that bridges geometry and algebra, allowing you to calculate the exact distance between two points.","step_id":1}]}
+{"t":1788423258909,"dir":"S→C","type":"tts_segment","audio_url":"/api/v1/whiteboard/audio-stream/11f410a5-dade-4a87-9483-fc80a35d6078/74ac286dbd2648ffa9e8caf4708137e1/tts_74ac286d_0_e367de.webm","sequence":0,"step_id":1,"tts_cjk":0,"tts_latin":163,"speed":1}
+{"t":1788423325564,"dir":"C→S","type":"interject_start","source":"mic"}
+{"t":1788423325847,"dir":"S→C","type":"interject_ready","interject_id":"6d5de09810be","mode":"cascade"}
+{"t":1788423328807,"dir":"C→S","type":"interject_audio_end"}

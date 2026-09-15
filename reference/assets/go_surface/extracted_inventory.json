@@ -1,0 +1,115 @@
+{
+  "source": {
+    "bundle": "index-B_JPVKLE.js",
+    "sha256": "e58906d59cf94212e3969b9c50f5f5bb4b9d3465bdca453b3bcba679584a624d",
+    "application_byte_offset_start": 257407
+  },
+  "html_assets": [
+    "/assets/index-B_JPVKLE.js",
+    "/assets/index-GE9cRlkg.css"
+  ],
+  "dynamic_imports_one_level": [],
+  "required_quoted_slash_strings": [
+    "/$",
+    "//",
+    "/admin",
+    "/api/admin/schools",
+    "/s/",
+    "/s/pku"
+  ],
+  "api_calls": [
+    {
+      "byte_offset": 258047,
+      "method": "GET",
+      "path": "/api/school/{slug}",
+      "auth": null
+    },
+    {
+      "byte_offset": 258209,
+      "method": "GET",
+      "path": "/api/admin/schools",
+      "auth": "X-Admin-Key"
+    },
+    {
+      "byte_offset": 258506,
+      "method": "POST",
+      "path": "/api/admin/schools",
+      "auth": "X-Admin-Key",
+      "body": {
+        "name": "string",
+        "slug": "optional string"
+      }
+    },
+    {
+      "byte_offset": 258800,
+      "method": "POST",
+      "path": "/api/admin/schools/{slug}/qrcode",
+      "auth": "X-Admin-Key",
+      "body": "multipart/form-data file"
+    },
+    {
+      "byte_offset": 259034,
+      "method": "DELETE",
+      "path": "/api/admin/schools/{slug}",
+      "auth": "X-Admin-Key"
+    },
+    {
+      "byte_offset": 259251,
+      "method": "PATCH",
+      "path": "/api/admin/schools/{slug}",
+      "auth": "X-Admin-Key",
+      "body": {
+        "customMessage": "string or blank"
+      }
+    }
+  ],
+  "spa_routes": [
+    {
+      "byte_offset": 273980,
+      "path": "/"
+    },
+    {
+      "byte_offset": 274022,
+      "path": "/s/:slug"
+    },
+    {
+      "byte_offset": 274071,
+      "path": "/admin"
+    }
+  ],
+  "network": {
+    "base_url": "same-origin relative fetch",
+    "axios": false,
+    "websocket_urls": [],
+    "hardcoded_domains": [
+      "contact@hyperknow.io"
+    ],
+    "third_party_application_domains": []
+  },
+  "auth": {
+    "type": "static admin key header",
+    "header": "X-Admin-Key",
+    "local_storage_key": "hk_admin_key",
+    "bearer_token": false,
+    "cookie_code_present": false
+  },
+  "response_fields": {
+    "admin_list": [
+      "schools",
+      "frontendBaseUrl",
+      "qrExpiryDays"
+    ],
+    "school_observed_in_ui": [
+      "name",
+      "slug",
+      "customMessage",
+      "publicNote",
+      "hasImage",
+      "imageUrl",
+      "imageExpiresAt",
+      "isImageExpired",
+      "updatedAt",
+      "displayMessage"
+    ]
+  }
+}

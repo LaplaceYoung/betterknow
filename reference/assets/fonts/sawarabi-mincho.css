@@ -1,0 +1,15 @@
+/**
+ * Sawarabi Mincho — used for LATIN glyphs in display titles only.
+ * License: SIL Open Font License 1.1 (see ./OFL.txt)
+ *
+ * Self-hosted, subset to Latin/punctuation (3.6MB .ttf -> ~17KB .woff2).
+ * unicode-range restricts it to Latin so CJK falls through to 寒蝉端黑宋.
+ */
+@font-face {
+  font-family: 'SawarabiMincho';
+  src: url('./SawarabiMincho-Latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+2000-206F, U+2070-209F, U+20A0-20BF, U+2100-214F;
+}

@@ -1,0 +1,27 @@
+{
+ "status": 200,
+ "body": {
+  "tier": "pro",
+  "version": 1,
+  "file_upload": {
+   "remaining": 49,
+   "last_reset_at": "2026-09-14T13:29:23Z",
+   "limit": 50
+  },
+  "calendar_add": {
+   "remaining": 20,
+   "last_reset_at": "2026-09-14T13:29:23Z",
+   "limit": 20
+  },
+  "file_generation": {
+   "remaining": 50,
+   "last_reset_at": "2026-09-14T13:29:23Z",
+   "limit": 50
+  },
+  "deep_learn_session": {
+   "remaining": 50,
+   "last_reset_at": "2026-09-14T13:29:23Z",
+   "limit": 50
+  }
+ }
+}

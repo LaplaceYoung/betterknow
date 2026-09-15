@@ -1,0 +1,152 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "51e8814e-1f88-4515-a78a-482547b357aa",
+   "title": "Conversation 51e8814e-1f88-4515-a78a-482547b357aa",
+   "created_at": "2026-09-02T16:54:52.799433+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T16:54:52.799869+00:00",
+  "question_data": null,
+  "conversation_id": "51e8814e-1f88-4515-a78a-482547b357aa"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 1/20)",
+  "credit_info": {
+   "remaining_credits": 1,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T03:28:59.410113+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "51e8814e-1f88-4515-a78a-482547b357aa",
+   "title": "Calculus Exam Prep Plan"
+  },
+  "message": "Conversation titled: Calculus Exam Prep Plan",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "get_skills",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "get_skills",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "success": true,
+   "skill_name": "planTasks"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "memory_recall",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "memory_recall",
+  "tool_status": "completed",
+  "display": "hide",
+  "data": {
+   "summary": "(no relevant memory)"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "ask_questions",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 1,
+  "is_complete": false
+ },
+ {
+  "type": "user_question",
+  "message": "I need to ask you some questions to better understand your needs",
+  "question_data": {
+   "questions": [
+    {
+     "question": "Which specific topics will your calculus exam cover?",
+     "is_multiple": false,
+     "options": [
+      "Differential Calculus (Limits, Derivatives, Applications)",
+      "Integral Calculus (Integrals, Area, Volume)",
+      "Multivariable Calculus (Partial Derivatives, Multiple Integrals)",
+      "Vector Calculus / Differential Equations"
+     ],
+     "allow_custom": true
+    },
+    {
+     "question": "How much time can you realistically dedicate to studying each week?",
+     "is_multiple": false,
+     "options": [
+      "3-5 hours per week",
+      "5-10 hours per week",
+      "10-15 hours per week",
+      "15+ hours per week"
+     ],
+     "allow_custom": true
+    },
+    {
+     "question": "Do you have a specific syllabus or textbook you'd like the plan to follow?",
+     "is_multiple": false,
+     "options": [
+      "I have a syllabus/textbook I can upload.",
+      "Just follow a standard university calculus curriculum."
+     ],
+     "allow_custom": true
+    }
+   ]
+  },
+  "is_complete": false,
+  "conversation_id": "51e8814e-1f88-4515-a78a-482547b357aa"
+ }
+]

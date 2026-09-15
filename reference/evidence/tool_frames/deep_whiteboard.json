@@ -1,0 +1,14 @@
+{
+  "capture": "2026-09-03",
+  "endpoint": "wss://api.hyperknow.io/api/v1/whiteboard/ws?access_token=<redacted>",
+  "session_id": "e9ffb35f666b49a6b7bf04e5c45da2a1",
+  "requested": [
+    {"type":"resume_session","session_id":"e9ffb35f666b49a6b7bf04e5c45da2a1"},
+    {"type":"start_teaching"},
+    {"type":"interject_question","text":"why?"},
+    {"type":"pause_session"},
+    {"type":"resume_session","session_id":"e9ffb35f666b49a6b7bf04e5c45da2a1"}
+  ],
+  "frames": [],
+  "note": "Direct long-poll browser capture was interrupted by the shared isolated-browser lifecycle before frames could be returned. Existing confirmed raw frames are in evidence/whiteboard_teaching_trace.json and evidence/whiteboard_teaching_full.json; no narration/interject payload is fabricated here."
+}

@@ -1,0 +1,638 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "c7faff0c-ad3e-4d7b-bb4e-fc556d585cd4",
+   "title": "Conversation c7faff0c-ad3e-4d7b-bb4e-fc556d585cd4",
+   "created_at": "2026-09-02T17:30:30.805791+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T17:30:30.806232+00:00",
+  "question_data": null,
+  "conversation_id": "c7faff0c-ad3e-4d7b-bb4e-fc556d585cd4"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 15/20)",
+  "credit_info": {
+   "remaining_credits": 15,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T05:09:17.296551+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "c7faff0c-ad3e-4d7b-bb4e-fc556d585cd4",
+   "title": "Quote first sentence of attached file"
+  },
+  "message": "Conversation titled: Quote first sentence of attached file",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 3,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 3,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 4,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 4,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 5,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 5,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 6,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 6,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 7,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 7,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 8,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 8,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 9,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 9,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 10,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 10,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 11,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 11,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 12,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 12,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 13,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "search_files",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 13,
+  "index": 0,
+  "is_complete": false,
+  "sources": [
+   "drive"
+  ]
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "search_files",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "files": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "thinking",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 14,
+  "index": 0,
+  "data": {
+   "message": "Thinking..."
+  },
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 14,
+  "index": 1,
+  "chunk": "**Searching for Attached File**\n\nI'm trying to locate the first sentence of the \"attached file\" for a verbatim quote. Despite multiple attempts using `search_files` with related queries, no relevant files have been identified. The user's reference to an \"attached file\" contradicts the absence of any file information.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 14,
+  "index": 2,
+  "chunk": "**Seeking File Context**\n\nI've noted that `integrations` is empty, preventing `search_files`. The prior turns show repeated `search_files` calls. Given `file_info` is null and I cannot access files, I'll first check memory for context, then inform you no file was found and offer to proceed with an upload or pasted text.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 14,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 2
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "memory_recall",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 14,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "memory_recall",
+  "tool_status": "completed",
+  "display": "hide",
+  "data": {
+   "summary": "(no relevant memory)"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "thinking",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 15,
+  "index": 0,
+  "data": {
+   "message": "Thinking..."
+  },
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 15,
+  "index": 1,
+  "chunk": "**Analyzing File Access**\n\nI'm currently assessing why I can't access the file you've requested. My attempts to locate and retrieve it have been unsuccessful so far, and I'm looking into the available information to understand the limitation.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "thinking_chunk",
+  "tool_name": "directorAgent",
+  "tool_status": "thinking",
+  "display": "display",
+  "round_index": 15,
+  "index": 2,
+  "chunk": "**Clarifying File Status**\n\nI'm currently unable to find any attached file to process your request. Since my integrations for file access are not enabled and no file information is present, I can't proceed. I need you to upload the file or provide its details.\n\n",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 15,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 2
+  },
+  "is_complete": false
+ },
+ {
+  "type": "agent_response",
+  "content": "I went looking through your files for this and kept coming up empty, so I don't have anything solid to build on. Upload the material here — or paste the key parts into the chat — and I'll get straight to work on it.",
+  "conversation_id": "c7faff0c-ad3e-4d7b-bb4e-fc556d585cd4",
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "recommend_next_step",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "recommend_next_step",
+  "tool_status": "completed",
+  "display": "display",
+  "data": {
+   "has_steps": true,
+   "next_steps": [
+    {
+     "display_step": "Upload the file content",
+     "step_prompt": "I have uploaded the file, please quote the first sentence verbatim."
+    },
+    {
+     "display_step": "Paste the file content here",
+     "step_prompt": "I have pasted the file content, please quote the first sentence verbatim."
+    },
+    {
+     "display_step": "Ask a general question",
+     "step_prompt": "What can you help me learn?"
+    }
+   ],
+   "learning_progress": {
+    "title_action": "new",
+    "current_title": "File Access and Processing",
+    "topic": "File not found",
+    "percentage": 5,
+    "predicted_next_title": "File upload/paste"
+   }
+  },
+  "is_complete": false
+ },
+ {
+  "type": "complete",
+  "conversation_id": "c7faff0c-ad3e-4d7b-bb4e-fc556d585cd4",
+  "is_complete": true,
+  "tts_pending": false
+ }
+]

@@ -1,0 +1,57 @@
+{
+ "status": 200,
+ "body": {
+  "conversations": [
+   {
+    "conversation_id": "58e8872c-4fbb-4221-b014-2c78ffe6e10d",
+    "title": "条件概率与贝叶斯定理",
+    "created_at": "2026-09-14T14:24:12.953177+00:00",
+    "last_updated_at": "2026-09-14T17:34:58.422773+00:00",
+    "starred": false,
+    "board_session_types": []
+   },
+   {
+    "conversation_id": "30e3131a-5dd8-4284-97a1-78cfdd37231f",
+    "title": "贝叶斯定理解释与测试",
+    "created_at": "2026-09-14T15:14:59.088016+00:00",
+    "last_updated_at": "2026-09-14T15:15:40.984992+00:00",
+    "starred": false,
+    "board_session_types": []
+   },
+   {
+    "conversation_id": "8c05e60d-cda3-4db2-bdf1-6ba98bc81ba1",
+    "title": "白板讲解勾股定理",
+    "created_at": "2026-09-14T13:54:29.393645+00:00",
+    "last_updated_at": "2026-09-14T15:05:50.481539+00:00",
+    "starred": false,
+    "board_session_types": [
+     "whiteboard_quick_start"
+    ]
+   },
+   {
+    "conversation_id": "f44c4714-0cba-49fe-b288-02fd00ca8246",
+    "title": "勾股定理3天学习计划",
+    "created_at": "2026-09-14T13:59:35.982859+00:00",
+    "last_updated_at": "2026-09-14T14:24:32.064495+00:00",
+    "starred": false,
+    "board_session_types": []
+   }
+  ],
+  "pagination": {
+   "next_cursor": null,
+   "has_more": false
+  },
+  "recent_course": {
+   "course_uuid": "f3d744b7-a65f-412b-9743-94856814d7c8",
+   "course_title": "社会学概论",
+   "progress": 0,
+   "next_item": {
+    "type": "lecture",
+    "title": "社会学想象力",
+    "sessionId": "ed43f6c4-fb26-4603-8645-8e2599424343",
+    "unitId": "unit1",
+    "stageId": null
+   }
+  }
+ }
+}

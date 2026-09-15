@@ -1,0 +1,136 @@
+ROUTE https://agent.hyperknow.io/onboarding/
+
+INNER TEXT
+Home
+Courses
+Learning Feed
+History
+Marketplace
+More options
+Recent Activities
+
+No activity yet
+
+Start a new chat or session to see your history here
+What's new · v1.3.13
+Hi!
+你好!
+¡Hola!
+안녕!
+Hello!
+你好呀
+
+We just got our most important update, and it's here to prove one thing: AI can actually teach better than humans.
+
+Now, let's take a glance at what learning inside Hyperknow looks like.
+
+Continue
+
+ARIA
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img "HyperKnow" [ref=e6]
+      - img "Collapse" [ref=e8] [cursor=pointer]
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]:
+          - img "Home" [ref=e12]
+          - generic [ref=e13]: Home
+        - generic [ref=e14] [cursor=pointer]:
+          - img "Courses" [ref=e15]
+          - generic [ref=e16]: Courses
+        - generic [ref=e17] [cursor=pointer]:
+          - img "Learning Feed" [ref=e18]
+          - generic [ref=e19]: Learning Feed
+        - generic [ref=e20] [cursor=pointer]:
+          - img "History" [ref=e21]
+          - generic [ref=e22]: History
+        - generic [ref=e23] [cursor=pointer]:
+          - img "Marketplace" [ref=e24]
+          - generic [ref=e25]: Marketplace
+        - generic [ref=e27] [cursor=pointer]: More options
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - heading "Recent Activities" [level=3] [ref=e31]
+          - button "Collapse recent activities"
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: No activity yet
+          - generic [ref=e35]: Start a new chat or session to see your history here
+      - button "What's new · v1.3.13" [ref=e37] [cursor=pointer]:
+        - img [ref=e39]
+        - text: What's new · v1.3.13
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - img "Hyperknow"
+      - generic [ref=e43]:
+        - generic: Hi!
+        - generic: 你好!
+        - generic: ¡Hola!
+        - generic: 안녕!
+        - generic: Hello!
+        - generic: 你好呀
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - paragraph [ref=e48]: "We just got our most important update, and it's here to prove one thing: AI can actually teach better than humans."
+          - paragraph [ref=e49]: Now, let's take a glance at what learning inside Hyperknow looks like.
+        - button "Continue" [ref=e50] [cursor=pointer]
+
+INTERACTIONS
+[
+  {
+    "tag": "IMG",
+    "text": "Collapse recent activities",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "What's new · v1.3.13",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Continue",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "English",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "简体中文",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "繁體中文",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Español",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "한국어",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "हिन्दी",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "اردو",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Confirm",
+    "disabled": false
+  }
+]

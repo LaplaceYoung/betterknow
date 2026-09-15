@@ -1,0 +1,49 @@
+[
+ {
+  "type": "connection_established"
+ },
+ {
+  "type": "session_ready",
+  "session_id": "3a6a3acb733b4508aad6f874195fc8fb",
+  "resumed": true,
+  "status": "active",
+  "session": false,
+  "messages": [],
+  "whiteboard_state": null,
+  "lecture_outline_id": null,
+  "conversation_id": "b10d87f4-5a57-40c6-8e33-094fb83ddfbd",
+  "session_title": "Introduction to Derivatives"
+ },
+ {
+  "type": "tts_config",
+  "voice_id": "calm",
+  "speed": 1
+ },
+ {
+  "type": "group",
+  "actions": [
+   {
+    "type": "board",
+    "board_content": "# Derivatives: The Math of Change\n\n- Algebra: Constant rate of change (Straight lines)\n- Calculus: Instantaneous rate of change (Curves)",
+    "step_id": 0,
+    "board_uid": 0,
+    "page_id": "page-1",
+    "title": "Introduction"
+   },
+   {
+    "type": "speak",
+    "spoken_text": "Hello rk1788375142996! Today, we're going to unlock the power of the derivative. In algebra, you learned how to find the slope of a flat, straight line, but the real world is full of curves. By the end of this session, you'll understand how to measure exactly how fast something is changing at a single, tiny moment in time—whether that's a car accelerating or a stock price moving.",
+    "step_id": 1
+   }
+  ]
+ },
+ {
+  "type": "tts_segment",
+  "audio_url": "/api/v1/whiteboard/audio-stream/20d2a903-9bb3-4b90-9b7b-7a012d683f30/3a6a3acb733b4508aad6f874195fc8fb/tts_3a6a3acb_0_3890fc.webm",
+  "sequence": 0,
+  "step_id": 1,
+  "tts_cjk": 0,
+  "tts_latin": 302,
+  "speed": 1
+ }
+]

@@ -1,0 +1,109 @@
+{
+ "draft": [
+  200,
+  {
+   "status": "ok"
+  }
+ ],
+ "state_after_draft": [
+  200,
+  {
+   "submissions": {},
+   "drafts": {
+    "step1": {
+     "text": "RE probe: my field log draft for step1",
+     "updatedAt": 1788421484
+    }
+   }
+  }
+ ],
+ "submission": [
+  422,
+  {
+   "detail": [
+    {
+     "type": "missing",
+     "loc": [
+      "body",
+      "file"
+     ],
+     "msg": "Field required",
+     "input": null
+    }
+   ]
+  }
+ ],
+ "submission_empty": [
+  422,
+  {
+   "detail": [
+    {
+     "type": "missing",
+     "loc": [
+      "body",
+      "file"
+     ],
+     "msg": "Field required",
+     "input": null
+    }
+   ]
+  }
+ ],
+ "state_final": [
+  200,
+  {
+   "submissions": {},
+   "drafts": {
+    "step1": {
+     "text": "RE probe: my field log draft for step1",
+     "updatedAt": 1788421484
+    }
+   }
+  }
+ ],
+ "tts_first": [
+  200,
+  {
+   "audio_url": "/api/v1/course-generation/courses/e0a5b528-dcdc-4dbd-9d03-470a9e83df17/project/audio-stream/11f410a5-dade-4a87-9483-fc80a35d6078/step1_9c406fa7a3.webm",
+   "step_id": "step1"
+  }
+ ],
+ "tts_step1": [
+  200,
+  {
+   "audio_url": "/api/v1/course-generation/courses/e0a5b528-dcdc-4dbd-9d03-470a9e83df17/project/audio-stream/11f410a5-dade-4a87-9483-fc80a35d6078/step1_9c406fa7a3.webm",
+   "step_id": "step1"
+  }
+ ],
+ "prewarm": [
+  405,
+  {
+   "detail": "Method Not Allowed"
+  }
+ ],
+ "assistant_probe": [
+  422,
+  {
+   "detail": [
+    {
+     "type": "missing",
+     "loc": [
+      "body",
+      "stage_id"
+     ],
+     "msg": "Field required",
+     "input": null
+    },
+    {
+     "type": "missing",
+     "loc": [
+      "body",
+      "messages"
+     ],
+     "msg": "Field required",
+     "input": null
+    }
+   ]
+  }
+ ]
+}

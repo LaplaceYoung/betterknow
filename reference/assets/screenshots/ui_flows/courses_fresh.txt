@@ -1,0 +1,128 @@
+ROUTE /courses
+
+INNER TEXT
+Home
+Courses
+Learning Feed
+History
+Marketplace
+More options
+Recent Activities
+
+No activity yet
+
+Start a new chat or session to see your history here
+What's new · v1.3.13
+FREE
+20
+Refer a friend
+Your Courses
+All
+In Progress
+Completed
+
+Loading your courses...
+
+ARIA
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img "HyperKnow" [ref=e6]
+      - img "Collapse" [ref=e8] [cursor=pointer]
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]:
+          - img "Home" [ref=e12]
+          - generic [ref=e13]: Home
+        - generic [ref=e14] [cursor=pointer]:
+          - img "Courses" [ref=e15]
+          - generic [ref=e16]: Courses
+        - generic [ref=e17] [cursor=pointer]:
+          - img "Learning Feed" [ref=e18]
+          - generic [ref=e19]: Learning Feed
+        - generic [ref=e20] [cursor=pointer]:
+          - img "History" [ref=e21]
+          - generic [ref=e22]: History
+        - generic [ref=e23] [cursor=pointer]:
+          - img "Marketplace" [ref=e24]
+          - generic [ref=e25]: Marketplace
+        - generic [ref=e27] [cursor=pointer]: More options
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - heading "Recent Activities" [level=3] [ref=e31]
+          - button "Collapse recent activities"
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: No activity yet
+          - generic [ref=e35]: Start a new chat or session to see your history here
+      - button "What's new · v1.3.13" [ref=e37] [cursor=pointer]:
+        - img [ref=e39]
+        - text: What's new · v1.3.13
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: FREE
+          - generic "20 credits left" [ref=e46]:
+            - img [ref=e47]
+            - generic [ref=e49]: "20"
+        - button "Switch language" [ref=e51] [cursor=pointer]
+        - button "Refer a friend" [ref=e53] [cursor=pointer]:
+          - generic [ref=e54]: Refer a friend
+        - img "User Avatar" [ref=e56] [cursor=pointer]
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - heading "Your Courses" [level=1] [ref=e60]
+          - generic [ref=e61]:
+            - tablist "Course status" [ref=e62]:
+              - tab "All" [selected] [ref=e63] [cursor=pointer]
+              - tab "In Progress" [ref=e64] [cursor=pointer]
+              - tab "Completed" [ref=e65] [cursor=pointer]
+            - generic [ref=e67]:
+              - img
+              - textbox "Search courses…" [ref=e68]
+          - paragraph [ref=e72]: Loading your courses...
+        - complementary "Course sidebar" [ref=e73]
+
+INTERACTIONS
+[
+  {
+    "tag": "IMG",
+    "text": "Collapse recent activities",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "What's new · v1.3.13",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Switch language",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Refer a friend",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "All",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "In Progress",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Completed",
+    "disabled": false
+  },
+  {
+    "tag": "INPUT",
+    "text": "Search courses…",
+    "disabled": false
+  }
+]

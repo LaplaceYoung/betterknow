@@ -1,0 +1,800 @@
+{
+  "structure": {
+    "courseTitle": "博弈论与纳什均衡：商业竞争的策略建模",
+    "courseDescription": "本课程专为具备微观经济学基础的学习者设计，旨在将直觉性的策略思考转化为严谨的博弈模型。从经典的囚徒困境出发，深入探讨静态与动态博弈下的纳什均衡，并重点解析信息不对称环境下的信号传递与商业竞争策略。通过古诺模型、伯特兰模型及拍卖设计等案例，帮助学习者在专业应用层面掌握博弈论的核心分析工具。",
+    "targetLearner": "具备基础数学与微观经济学知识，希望在商业竞争、市场分析或管理决策中应用博弈论工具的专业人士或高年级本科生。",
+    "tags": [
+      "博弈论",
+      "微观经济学",
+      "商业策略",
+      "纳什均衡"
+    ],
+    "difficulty": "intermediate",
+    "projects": [
+      {
+        "project_id": "146051f7-7c31-4435-9e1f-69a7688cc11c",
+        "project_name": "双寡头市场准入与定价博弈分析报告",
+        "project_description": "在这个项目中，你将作为一名商业战略顾问，为一个新进入市场的品牌和在位品牌设计一套完整的竞争策略。你将通过建立数学模型，分析在静态竞争、动态进入、信息不对称以及拍卖竞标等不同场景下的最优决策，并最终产出一份包含博弈模型推导、纳什均衡计算及战略建议的综合分析报告。",
+        "final_deliverable": "一份完整的《行业竞争博弈战略分析报告》，包含标准式博弈矩阵、扩展式博弈树、价格/产量竞争均衡解以及基于贝叶斯修正的信号传递分析结论。"
+      }
+    ],
+    "units": [
+      {
+        "unitId": "unit1",
+        "title": "静态博弈建模与纳什均衡精要",
+        "description": "本单元建立博弈论的核心分析框架，从博弈三要素（参与者、策略、收益）出发，深入探讨完全信息环境下的静态决策。",
+        "lectures": [
+          {
+            "lectureId": "unit1Lecture1",
+            "title": "博弈的语言：从现实到标准式建模",
+            "description": "本讲将现实中的互动决策场景转化为数学语言，通过定义博弈三要素建立分析的基础。",
+            "order": 1,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "博弈的构成要素与收益矩阵",
+                "description": "本节课会教你如何识别博弈的参与者、可选策略以及不同策略组合下的收益。学完之后，你将能够把诸如商业定价竞争等现实场景抽象为标准的收益矩阵。这为你理解博弈论的分析逻辑奠定了最基础的模型思维，是后续所有复杂均衡分析的起点。",
+                "practice": {
+                  "tasks": [
+                    "列举并描述囚徒困境中的三要素：参与者、策略集和收益矩阵。",
+                    "将两个厂商的广告竞争场景转化为标准式博弈表述。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "intuition",
+                  "definition"
+                ],
+                "keyPoints": [
+                  "博弈的三要素：参与者、策略与收益",
+                  "标准式博弈（策略型博弈）的定义",
+                  "收益矩阵的构建方法",
+                  "共同知识假设的内涵"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "优势策略与理性选择",
+                "description": "本节课会教你识别什么是占优策略以及如何通过剔除劣策略来简化问题。学完之后，你将能够解释为什么理性的个体在某些情境下会陷入集体不优的困境。这对你理解商业竞争中某些“不得不做”的决策逻辑至关重要，也是你掌握纳什均衡之前的必要过渡。",
+                "practice": {
+                  "tasks": [
+                    "在一个给定的收益矩阵中找出所有参与者的占优策略。",
+                    "通过重复剔除严格劣策略找出博弈的最终解。"
+                  ]
+                },
+                "sessionTime": 20,
+                "depthTags": [
+                  "definition",
+                  "application"
+                ],
+                "keyPoints": [
+                  "占优策略与占优策略均衡",
+                  "严格劣策略的定义",
+                  "重复剔除严格劣策略的逻辑过程",
+                  "理性人的共同知识在剔除过程中的作用"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          },
+          {
+            "lectureId": "unit1Lecture2",
+            "title": "纯策略纳什均衡：互为最优反应",
+            "description": "本讲探讨静态博弈中最核心的均衡概念——纳什均衡，并学习其寻找方法。",
+            "order": 2,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "纳什均衡的直觉与定义",
+                "description": "本节课会教你纳什均衡的正式定义，即没有任何人有动力单方面改变策略的状态。学完之后，你将理解为什么“稳定”是博弈论研究的核心特征，并能解释纳什均衡与占优策略均衡的关系。这是你进入专业应用水平必须掌握的最核心工具。",
+                "practice": {
+                  "tasks": [
+                    "根据最优反应定义验证一个特定的策略组合是否为纳什均衡。",
+                    "比较占优策略均衡与纳什均衡的包含关系。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "definition",
+                  "intuition"
+                ],
+                "keyPoints": [
+                  "最优反应（Best Response）的概念",
+                  "纳什均衡的严谨数学定义",
+                  "纳什均衡的经济学含义：自我实施的契约",
+                  "划线法寻找纯策略纳什均衡"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "多重均衡与协调博弈",
+                "description": "本节课会教你分析当一个博弈存在多个纳什均衡时，参与者如何达成一致。学完之后，你将能够应用协调博弈模型分析技术标准竞争或社交礼仪的演化。这将帮助你理解在真实商业环境中，先发优势和预期管理如何影响最终的均衡结果。",
+                "practice": {
+                  "tasks": [
+                    "寻找性别大战（Battle of the Sexes）博弈中的两个纯策略均衡。",
+                    "分析鹿吃牛博弈中风险支配均衡与帕累托优均衡的区别。"
+                  ]
+                },
+                "sessionTime": 20,
+                "depthTags": [
+                  "application",
+                  "advanced"
+                ],
+                "keyPoints": [
+                  "多重均衡问题的产生",
+                  "协调博弈模型分析",
+                  "帕累托优势与风险优势准则",
+                  "聚焦点（Focal Point）理论简介"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          },
+          {
+            "lectureId": "unit1Lecture3",
+            "title": "混合策略与存在性定理",
+            "description": "当参与者需要以一定概率随机选择策略时，我们如何确定其均衡行为？",
+            "order": 3,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "混合策略的逻辑与支付相等原则",
+                "description": "本节课会教你处理没有纯策略均衡的情况，通过概率分布来寻找混合策略纳什均衡。学完之后，你将能够通过“支付相等原则”计算参与者在博弈中随机行动的最佳比例。这为你在处理诸如监管与审计等需要“不可预测性”的决策场景时提供了科学依据。",
+                "practice": {
+                  "tasks": [
+                    "使用支付相等原则求解“猜硬币”博弈的混合策略均衡。",
+                    "计算在一个给定的2x2博弈中，使对方感到无差异的策略概率。"
+                  ]
+                },
+                "sessionTime": 30,
+                "depthTags": [
+                  "derivation",
+                  "definition"
+                ],
+                "keyPoints": [
+                  "混合策略的定义与直觉",
+                  "期望收益的计算公式",
+                  "支付相等原则（Indifference Principle）",
+                  "混合策略均衡的求解过程"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "纳什定理与博弈论的界限",
+                "description": "本节课会简要介绍纳什定理的意义，即在有限博弈中至少存在一个均衡点。学完之后，你将能够识别博弈论分析的适用边界和基本假设。这有助于你对所学理论建立全局观，为后续单元中引入时间维度和信息不完全性做好理论铺垫。",
+                "practice": {
+                  "tasks": [
+                    "总结本单元所学三种均衡寻找方法的适用条件。",
+                    "思考在现实中哪些因素可能导致人们偏离纳什均衡的预测。"
+                  ]
+                },
+                "sessionTime": 15,
+                "depthTags": [
+                  "advanced",
+                  "intuition"
+                ],
+                "keyPoints": [
+                  "纳什定理的直观表述",
+                  "有限博弈的定义",
+                  "完全信息假设的局限性",
+                  "单元知识体系总结"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          }
+        ],
+        "projects": [
+          {
+            "stage_id": "0ce47460-afff-4cea-a6d7-e9975c8e9a65",
+            "parent_project_id": "146051f7-7c31-4435-9e1f-69a7688cc11c",
+            "stage_title": "市场静态竞争格局建模",
+            "stage_description": "确定两家竞争企业的策略空间与收益函数。通过标准式博弈矩阵分析新老品牌在同步定价或营销时的纯策略及混合策略纳什均衡。",
+            "deliverable_increment": "报告的第一部分：包含3x3收益矩阵、纳什均衡点计算过程以及混合策略概率分布图。",
+            "order": 4
+          }
+        ],
+        "exams": [
+          {
+            "title": "单元一：静态博弈与均衡基础综合测试",
+            "goal": "评估学习者对博弈三要素的理解、对纯策略和混合策略纳什均衡的求解能力以及应用模型分析简单竞争问题的水平。",
+            "sections": [
+              "涵盖博弈标准式表示、占优策略识别、纯策略纳什均衡求解（划线法）以及2x2博弈的混合策略计算。"
+            ],
+            "successCriteria": [
+              "能准确将文字描述的冲突场景转化为收益矩阵",
+              "能正确使用剔除劣策略法简化博弈",
+              "能独立计算出2x2博弈的所有纯策略与混合策略纳什均衡",
+              "能解释所得均衡点的经济学含义"
+            ],
+            "order": 5
+          }
+        ]
+      },
+      {
+        "unitId": "unit2",
+        "title": "动态博弈、逆向归纳与合作契机",
+        "description": "引入时间维度，探讨博弈参与者先后行动时的策略选择，解决“不可信威胁”问题，并分析重复互动如何促进合作。",
+        "lectures": [
+          {
+            "lectureId": "unit2Lecture1",
+            "title": "扩展式博弈与博弈树分析",
+            "description": "学习如何刻画先后行动的博弈结构，理解信息集和路径的概念。",
+            "order": 1,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "博弈树的绘制与解析",
+                "description": "本节课会教你如何使用决策节点、边和收益向量绘制博弈树。学完之后，你将能够清晰展示参与者在不同阶段的行动选择。这是分析动态决策、如市场准入博弈的必备可视化工具，帮助你理清因果链条。",
+                "practice": {
+                  "tasks": [
+                    "将一个简单的进入-阻挠博弈转化为扩展式表达（博弈树）。",
+                    "标出博弈树中的初始节点、中间节点和终点收益。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "definition",
+                  "application"
+                ],
+                "keyPoints": [
+                  "扩展式博弈的组成部分",
+                  "节点与分枝的逻辑含义",
+                  "信息集（Information Set）的定义",
+                  "从扩展式向标准式的转化"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "动态博弈中的策略定义",
+                "description": "本节课会教你区分“行动”与“策略”的区别，理解策略是在每一个决策节点上的完整计划。学完之后，你将能够更严谨地描述参与者的长远规划。这对于你后续理解子博弈和识别威胁的真实性至关重要。",
+                "practice": {
+                  "tasks": [
+                    "在一个包含两个阶段的博弈树中，计算参与者的策略总数。",
+                    "写出一个特定策略的完整映射关系。"
+                  ]
+                },
+                "sessionTime": 20,
+                "depthTags": [
+                  "definition"
+                ],
+                "keyPoints": [
+                  "行动（Action）与策略（Strategy）的区别",
+                  "策略空间的维度计算",
+                  "动态博弈中的信息结构",
+                  "完美信息与不完美信息的直觉区分"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          },
+          {
+            "lectureId": "unit2Lecture2",
+            "title": "逆向归纳法与均衡精炼",
+            "description": "学习通过“由后向前”的推导剔除不可信威胁，找到更稳健的均衡解。",
+            "order": 2,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "逆向归纳法（Backward Induction）",
+                "description": "本节课会教你如何从博弈的最后一层出发，倒推回初始点来寻找均衡。学完之后，你将掌握处理动态互动最核心的算法思维。这将极大提升你分析具有明确期限的商业合同或谈判过程的能力。",
+                "practice": {
+                  "tasks": [
+                    "应用逆向归纳法求解三轮议价博弈。",
+                    "在一个四阶段的博弈树中找出其逆向归纳路径。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "derivation",
+                  "application"
+                ],
+                "keyPoints": [
+                  "逆向归纳法的基本步骤",
+                  "子博弈（Subgame）的定义",
+                  "预测未来对当前决策的影响",
+                  "逆向归纳在有限博弈中的有效性"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "子博弈精炼纳什均衡（SPNE）",
+                "description": "本节课会教你如何识别“不可信威胁”，并理解为什么某些纳什均衡在动态下是不成立的。学完之后，你将能够精炼出在每一个子博弈上都构成均衡的解。这使你的均衡分析从静态扩展到动态，增强了预测的实战准确度。",
+                "practice": {
+                  "tasks": [
+                    "找出给定动态博弈中所有的纳什均衡，并筛选出子博弈精炼纳什均衡。",
+                    "分析为什么“进入阻挠”中的空头威胁不能构成SPNE。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "definition",
+                  "advanced"
+                ],
+                "keyPoints": [
+                  "不可信威胁（Incredible Threat）的识别",
+                  "SPNE 的定义与要求",
+                  "SPNE 与纳什均衡的关系",
+                  "空头威胁在商业谈判中的失效分析"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          },
+          {
+            "lectureId": "unit2Lecture3",
+            "title": "重复博弈与长期合作",
+            "description": "探讨在多次互动的环境下，个体如何通过策略性奖惩实现长期的合作共赢。",
+            "order": 4,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "有限次与无限次重复博弈",
+                "description": "本节课会教你分析重复互动如何改变参与者的利益计算，特别是无限次重复带来的长期激励。学完之后，你将理解为什么“一锤子买卖”容易背叛，而长期关系容易合作。这对于你建立商业信誉管理和供应链合作伙伴关系具有深远指导意义。",
+                "practice": {
+                  "tasks": [
+                    "计算在给定折现因子下，无限次重复囚徒困境的长期收益期望值。",
+                    "解释为什么有限次重复博弈会因为逆向归纳而导致合作崩溃。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "intuition",
+                  "derivation"
+                ],
+                "keyPoints": [
+                  "折现因子（Discount Factor）及其含义",
+                  "阶段博弈与总支付",
+                  "有限次重复博弈的逆向归纳悖论",
+                  "无限次重复博弈的结构"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "无名氏定理与触发策略",
+                "description": "本节课会教你冷酷策略等奖惩机制如何维持均衡。学完之后，你将能够推导出维持合作所需的最低贴现率门槛。这是你从博弈论角度理解社会规范和法律契约背后经济动力的关键一步。",
+                "practice": {
+                  "tasks": [
+                    "证明当折现因子足够大时，冷酷策略可以构成一个SPNE。",
+                    "讨论以牙还牙（Tit-for-tat）策略在真实商业环境中的有效性。"
+                  ]
+                },
+                "sessionTime": 20,
+                "depthTags": [
+                  "advanced",
+                  "application"
+                ],
+                "keyPoints": [
+                  "冷酷策略（Grim Trigger Strategy）",
+                  "合作均衡存在的条件证明",
+                  "无名氏定理（Folk Theorem）的直觉意义",
+                  "声誉机制与长期收益"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          }
+        ],
+        "projects": [
+          {
+            "stage_id": "d8b7920c-cb8a-4d06-b305-26fdaaca455d",
+            "parent_project_id": "146051f7-7c31-4435-9e1f-69a7688cc11c",
+            "stage_title": "市场进入壁垒的动态博弈分析",
+            "stage_description": "将博弈转化为扩展式，利用博弈树分析在位者的“产量扩张”是否属于可信威胁，并应用逆向归纳法确定新品牌的最佳进入时机。",
+            "deliverable_increment": "报告的第二部分：一张完整的博弈树结构图、子博弈精炼纳什均衡（SPNE）路径标注。",
+            "order": 3
+          }
+        ],
+        "exams": [
+          {
+            "title": "单元二：动态博弈与重复博弈综合测试",
+            "goal": "考核学习者构建博弈树、执行逆向归纳推导以及分析重复博弈中合作稳定性条件的综合能力。",
+            "sections": [
+              "内容涵盖扩展式博弈表示、子博弈精炼纳什均衡求解、以及基于折现因子的重复博弈合作门槛计算。"
+            ],
+            "successCriteria": [
+              "能独立绘制并准确解析复杂的博弈树",
+              "能熟练运用逆向归纳法识别不可信威胁",
+              "能推导并计算出维持长期合作的临界折现因子",
+              "能通过SPNE分析简单的谈判与准入模型"
+            ],
+            "order": 5
+          }
+        ]
+      },
+      {
+        "unitId": "unit3",
+        "title": "不完全信息博弈与信号传递逻辑",
+        "description": "进入博弈论的高级领域，处理参与者拥有私人信息的情况，学习如何通过海萨尼转换将不完全信息转化为不完美信息。",
+        "lectures": [
+          {
+            "lectureId": "unit3Lecture1",
+            "title": "静态贝叶斯博弈基础",
+            "description": "学习当对手的“类型”（如成本、能力）未知时，如何进行最优决策。",
+            "order": 1,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "海萨尼转换与自然博弈",
+                "description": "本节课会教你如何通过引入“自然（Nature）”作为虚拟参与者，将对手的私人信息建模为已知的概率分布。学完之后，你将能够把信息不对称的困境转化为可数学求解的博弈结构。这是你分析如二手车交易、招聘等不对称信息市场的技术前提。",
+                "practice": {
+                  "tasks": [
+                    "描述一个招聘博弈中的“自然”如何决定求职者的能力类型。",
+                    "建立一个包含高低两种成本类型的静态博弈矩阵。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "definition",
+                  "intuition"
+                ],
+                "keyPoints": [
+                  "不完全信息（Incomplete Information）的概念",
+                  "海萨尼转换（Harsanyi Transformation）",
+                  "类型（Type）与信念（Belief）",
+                  "自然（Nature）的行动"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "贝叶斯纳什均衡（BNE）",
+                "description": "本节课会教你计算在信息不对称下的期望收益均衡点。学完之后，你将理解理性的策略选择如何建立在对他人类型的平均预期之上。这种均衡思维能让你在不确定环境下做出更稳健的竞争预测。",
+                "practice": {
+                  "tasks": [
+                    "计算一个具有不对称成本信息的古诺竞争模型的贝叶斯均衡。",
+                    "写出贝叶斯纳什均衡的策略映射公式。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "derivation",
+                  "application"
+                ],
+                "keyPoints": [
+                  "BNE 的定义与求解逻辑",
+                  "期望收益极大化的策略选择",
+                  "混合策略与类型的概率对应",
+                  "信息租金的概念初步"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          },
+          {
+            "lectureId": "unit3Lecture2",
+            "title": "信号传递博弈：斯宾塞模型",
+            "description": "探讨拥有私人信息的一方如何通过可观测的行动（如教育）向另一方传递信息。",
+            "order": 2,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "信号传递机制与激励兼容",
+                "description": "本节课会教你为什么只有具备一定“成本差异”的行动才能作为有效的信号。学完之后，你将能够识别教育、质保或高额广告在商业中作为质量信号的逻辑。这帮助你深刻理解市场中的信号筛选机制，并能用于个人的职业规划或品牌策略。",
+                "practice": {
+                  "tasks": [
+                    "分析为什么对于低能力者来说，获得高等学位的成本必须足够高。",
+                    "列举并分析两种现实生活中的商业信号传递案例。"
+                  ]
+                },
+                "sessionTime": 20,
+                "depthTags": [
+                  "intuition",
+                  "definition"
+                ],
+                "keyPoints": [
+                  "信号传递（Signaling）的定义",
+                  "斯宾塞劳动力市场模型",
+                  "信号成本的单调性假设",
+                  "激励兼容约束（IC）"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "分离均衡与混同均衡",
+                "description": "本节课会教你分析在什么情况下不同类型的人会采取相同（混同）或不同（分离）的行动。学完之后，你将掌握区分市场状态的判别标准，并能预测不同制度设计对人才筛选效率的影响。这是专业应用中分析信息不对称问题最经典的研究范式。",
+                "practice": {
+                  "tasks": [
+                    "在给定的参数下，求解斯宾塞模型的分离均衡条件。",
+                    "讨论在什么条件下会出现“混同均衡”，导致市场失灵（逆向选择）。"
+                  ]
+                },
+                "sessionTime": 30,
+                "depthTags": [
+                  "derivation",
+                  "advanced"
+                ],
+                "keyPoints": [
+                  "分离均衡（Separating Equilibrium）",
+                  "混同均衡（Pooling Equilibrium）",
+                  "半分离均衡的直觉",
+                  "信息不对称导致的效率损失分析"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          },
+          {
+            "lectureId": "unit3Lecture3",
+            "title": "精炼贝叶斯均衡与信念修正",
+            "description": "在动态过程中通过观察他人的行动不断修正自己的信念。",
+            "order": 3,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "贝叶斯法则与事后信念",
+                "description": "本节课会教你如何使用条件概率公式，根据观察到的行为更新对他人类型的认知。学完之后，你将能够量化证据对决策的影响。这是你掌握动态不完全信息博弈均衡的核心计算工具。",
+                "practice": {
+                  "tasks": [
+                    "应用贝叶斯公式计算观察到信号后，对手是“高能力”类型的后验概率。",
+                    "设计一个简单的多步贝叶斯信念更新练习。"
+                  ]
+                },
+                "sessionTime": 20,
+                "depthTags": [
+                  "derivation"
+                ],
+                "keyPoints": [
+                  "贝叶斯法则的回顾",
+                  "先验信念与后验信念",
+                  "信念修正的动态过程",
+                  "均衡路径上与路径外的信念"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "精炼贝叶斯均衡（PBE）定义",
+                "description": "本节课会整合信念、策略和均衡，教你如何求解复杂的动态不完全信息均衡。学完之后，你将能够分析诸如银行挤兑、声誉博弈等高度复杂的互动场景。这是博弈论学习中最具挑战性也最强大的工具之一。",
+                "practice": {
+                  "tasks": [
+                    "列出精炼贝叶斯均衡的四个基本要求。",
+                    "在简单的信号博弈中验证一个策略与信念组合是否构成PBE。"
+                  ]
+                },
+                "sessionTime": 30,
+                "depthTags": [
+                  "definition",
+                  "advanced"
+                ],
+                "keyPoints": [
+                  "PBE 的一致性要求",
+                  "理性化信念与策略序列",
+                  "路径外信念的限制（简单介绍）",
+                  "PBE 在信誉模型中的应用"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          }
+        ],
+        "projects": [
+          {
+            "stage_id": "d2706477-0d9d-4526-9c2d-3c89b8cb3e48",
+            "parent_project_id": "146051f7-7c31-4435-9e1f-69a7688cc11c",
+            "stage_title": "信息不对称下的质量信号传递",
+            "stage_description": "建立斯宾塞信号博弈模型，分析新品牌如何通过广告支出或质保期向消费者和竞争对手传递其“高质量”的私人信息，并计算分离均衡下的信念参数。",
+            "deliverable_increment": "报告的第三部分：信号传递均衡模型、参与者的信念修正逻辑及分离均衡成立的临界值条件。",
+            "order": 4
+          }
+        ],
+        "exams": [
+          {
+            "title": "单元三：不完全信息博弈进阶测试",
+            "goal": "评估学习者对海萨尼转换、贝叶斯均衡计算以及信号传递模型中均衡类型的分析深度。",
+            "sections": [
+              "测试重点包括静态贝叶斯博弈的求解、斯宾塞模型的均衡推导以及基于贝叶斯法则的信念修正计算。"
+            ],
+            "successCriteria": [
+              "能通过海萨尼转换建立信息不对称博弈模型",
+              "能准确计算静态贝叶斯纳什均衡",
+              "能推导出信号博弈的分离均衡条件",
+              "能正确执行基于观察行为的贝叶斯信念更新"
+            ],
+            "order": 5
+          }
+        ]
+      },
+      {
+        "unitId": "unit4",
+        "title": "商业实战：产业竞争与机制设计应用",
+        "description": "将前述理论工具应用于经典的经济学与商业场景，分析企业间的产量与价格竞争，以及资源分配的拍卖机制。",
+        "lectures": [
+          {
+            "lectureId": "unit4Lecture1",
+            "title": "双寡头竞争模型：产量与价格",
+            "description": "通过博弈论分析经典的古诺、伯特兰竞争，揭示市场结构对利润的影响。",
+            "order": 1,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "古诺产量竞争模型",
+                "description": "本节课会教你如何计算两家厂商同时决定产量时的均衡。学完之后，你将理解为什么寡头市场的总产量介于垄断和完全竞争之间。这是你在商业分析中评估行业产能和竞争强度的重要数学基础。",
+                "practice": {
+                  "tasks": [
+                    "推导两家相同边际成本企业的古诺反应函数。",
+                    "计算三家或多家企业竞争时的古诺均衡产量与价格变化。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "application",
+                  "derivation"
+                ],
+                "keyPoints": [
+                  "古诺模型的基本假设",
+                  "最优反应函数推导",
+                  "古诺均衡产量与利润计算",
+                  "古诺模型的经济学意义"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "伯特兰价格竞争悖论",
+                "description": "本节课会教你分析当厂商通过价格竞争时的极端结果，即价格降至成本。学完之后，你将理解产品差异化在避免“价格战”中的核心作用。这为你的定价策略和品牌差异化决策提供了理论支持。",
+                "practice": {
+                  "tasks": [
+                    "解释为什么在同质产品下，两家企业竞争会导致零利润（伯特兰悖论）。",
+                    "分析引入产品差异化（Hotelling模型简介）如何缓解价格竞争。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "application",
+                  "intuition"
+                ],
+                "keyPoints": [
+                  "伯特兰模型（Bertrand Model）逻辑",
+                  "伯特兰悖论的成因",
+                  "产量竞争 vs 价格竞争的适用场景",
+                  "产能限制与产品差异化的缓解作用"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          },
+          {
+            "lectureId": "unit4Lecture2",
+            "title": "拍卖理论与机制设计初步",
+            "description": "研究如何设计规则以实现资源的有效分配，重点关注常见的拍卖形式。",
+            "order": 2,
+            "sessions": [
+              {
+                "sessionIndex": 1,
+                "session_type": "whiteboard",
+                "title": "经典拍卖形式与竞价策略",
+                "description": "本节课会教你区分英式拍卖、荷式拍卖、第一价格和第二价格封存拍卖。学完之后，你将能够计算在不同规则下的最优出价策略，例如为什么在第二价格拍卖中诚实出价是占优策略。这对你参与工程投标、土地出让或数字广告竞价具有直接实战价值。",
+                "practice": {
+                  "tasks": [
+                    "证明在第二价格拍卖（维克里拍卖）中，诚实申报真实估值是占优策略。",
+                    "比较第一价格与第二价格拍卖中竞标者的心理差异。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "application",
+                  "definition"
+                ],
+                "keyPoints": [
+                  "四种基本的拍卖形式",
+                  "私有价值与共同价值模型",
+                  "诚实出价（Truthful Bidding）的逻辑",
+                  "收益等价定理（Revenue Equivalence Theorem）简介"
+                ],
+                "generationError": null,
+                "references": []
+              },
+              {
+                "sessionIndex": 2,
+                "session_type": "whiteboard",
+                "title": "机制设计与激励相容应用",
+                "description": "本节课会教你从“规则制定者”的角度出发，设计让参与者说真话的制度。学完之后，你将理解显示原理的基本内涵，并能分析简单的公共物品提供或绩效奖惩设计问题。这是博弈论从“分析现实”走向“改变规则”的高级阶段。",
+                "practice": {
+                  "tasks": [
+                    "设计一个简单的机制，诱导两名参与者诚实申报对公共物品的价值。",
+                    "讨论平台经济（如滴滴、美团）如何利用机制设计平衡供需。"
+                  ]
+                },
+                "sessionTime": 25,
+                "depthTags": [
+                  "advanced",
+                  "intuition"
+                ],
+                "keyPoints": [
+                  "机制设计（Mechanism Design）的基本思想",
+                  "参与约束（IR）与激励相容（IC）",
+                  "显示原理（Revelation Principle）",
+                  "实际案例：肾脏交换或学校录取机制"
+                ],
+                "generationError": null,
+                "references": []
+              }
+            ]
+          }
+        ],
+        "projects": [
+          {
+            "stage_id": "f11777d7-dedb-4e6f-a41a-c332024b1320",
+            "parent_project_id": "146051f7-7c31-4435-9e1f-69a7688cc11c",
+            "stage_title": "产量竞争模拟与特许权竞标设计",
+            "stage_description": "应用古诺模型计算两家企业在市场份额竞争中的最优产量。同时，模拟一场关于独家分销权的第二价格密封拍卖，制定投标策略。",
+            "deliverable_increment": "报告的第四部分：古诺反应函数曲线图、拍卖出价策略说明，以及汇总全篇的最终商业决策建议书。",
+            "order": 3
+          }
+        ],
+        "exams": [
+          {
+            "title": "单元四：商业博弈应用与实战模拟测试",
+            "goal": "综合考核学习者将博弈理论应用于产业竞争分析和规则设计场景的能力。",
+            "sections": [
+              "侧重于古诺/伯特兰模型的数值计算、拍卖策略分析以及对机制设计核心准则的理解。"
+            ],
+            "successCriteria": [
+              "能正确推导并计算寡头垄断市场的均衡利润",
+              "能根据拍卖规则选定最优竞价策略",
+              "能识别并解释机制设计中的激励兼容问题",
+              "能针对特定商业冲突提出基于博弈论的对策建议"
+            ],
+            "order": 4
+          }
+        ]
+      }
+    ]
+  },
+  "pending": false,
+  "shapeDelta": null,
+  "shape": {
+    "units": 4,
+    "lectures": 11,
+    "sessions": 22
+  },
+  "canUndo": false
+}

@@ -1,0 +1,78 @@
+{
+ "status": 200,
+ "body": {
+  "success": true,
+  "tasks": [
+   {
+    "task_id": "81182295-feb4-40d6-8bb9-51eb2eaec3f7",
+    "user_id": "27910d88-c2ce-4f2e-969a-ad4f0667c8ca",
+    "type": "todo",
+    "title": "勾股定理学习计划：第一天 - 基础与历史",
+    "description": "今天是学习的第一天，重点在于理解勾股定理的定义及其背后的历史故事，掌握最基础的计算方法。",
+    "scheduled_for": "2026-09-14T09:00:00+00:00",
+    "due_at": "2026-09-14T21:00:00+00:00",
+    "created_at": "2026-09-14T13:59:57.665057+00:00",
+    "status": "pending",
+    "progress": "not_started",
+    "related_tasks": null,
+    "updated_at": null,
+    "external_calendar_events": null,
+    "origin_data": null,
+    "payload": null
+   },
+   {
+    "task_id": "0efdcff3-b056-405b-b7fa-a6da319a85c3",
+    "user_id": "27910d88-c2ce-4f2e-969a-ad4f0667c8ca",
+    "type": "todo",
+    "title": "勾股定理学习计划：第二天 - 证明与应用",
+    "description": "第二天的重点是理解定理为什么成立，通过几何证明加深理解，并尝试解决稍复杂的应用题。",
+    "scheduled_for": "2026-09-15T09:00:00+00:00",
+    "due_at": "2026-09-15T21:00:00+00:00",
+    "created_at": "2026-09-14T13:59:57.665057+00:00",
+    "status": "pending",
+    "progress": "not_started",
+    "related_tasks": null,
+    "updated_at": null,
+    "external_calendar_events": null,
+    "origin_data": null,
+    "payload": null
+   },
+   {
+    "task_id": "bbbcb1be-9480-4a4e-887b-acd3143f85a2",
+    "user_id": "27910d88-c2ce-4f2e-969a-ad4f0667c8ca",
+    "type": "todo",
+    "title": "勾股定理学习计划：第三天 - 综合复习与测试",
+    "description": "最后一天的任务是将知识应用于现实场景，并进行全章总结，完成自测以确保掌握。",
+    "scheduled_for": "2026-09-16T09:00:00+00:00",
+    "due_at": "2026-09-16T21:00:00+00:00",
+    "created_at": "2026-09-14T13:59:57.665057+00:00",
+    "status": "pending",
+    "progress": "not_started",
+    "related_tasks": null,
+    "updated_at": null,
+    "external_calendar_events": null,
+    "origin_data": null,
+    "payload": null
+   },
+   {
+    "task_id": "2de0e587-bbf9-4cf5-b681-be0a4c286de8",
+    "user_id": "27910d88-c2ce-4f2e-969a-ad4f0667c8ca",
+    "type": "due",
+    "title": "勾股定理学习计划截止",
+    "description": "完成所有学习任务及自测，标志着对勾股定理的阶段性掌握。",
+    "scheduled_for": null,
+    "due_at": "2026-09-17T12:00:00+00:00",
+    "created_at": "2026-09-14T13:59:57.665057+00:00",
+    "status": "pending",
+    "progress": "not_started",
+    "related_tasks": null,
+    "updated_at": null,
+    "external_calendar_events": null,
+    "origin_data": null,
+    "payload": null
+   }
+  ],
+  "count": 4,
+  "pending_sources_count": 0
+ }
+}

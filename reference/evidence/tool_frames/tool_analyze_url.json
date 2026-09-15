@@ -1,0 +1,149 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "63564bb1-32f4-4069-9861-bfcdb17878f7",
+   "title": "Conversation 63564bb1-32f4-4069-9861-bfcdb17878f7",
+   "created_at": "2026-09-02T17:41:23.877657+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T17:41:23.878048+00:00",
+  "question_data": null,
+  "conversation_id": "63564bb1-32f4-4069-9861-bfcdb17878f7"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 13/20)",
+  "credit_info": {
+   "remaining_credits": 13,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T05:09:17.296551+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "63564bb1-32f4-4069-9861-bfcdb17878f7",
+   "title": "Summarize Entropy Wikipedia Page"
+  },
+  "message": "Conversation titled: Summarize Entropy Wikipedia Page",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "get_skills",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "get_skills",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "success": true,
+   "skill_name": "documentReading"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "analyze_url_content",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "analyze_url_content",
+  "tool_status": "completed",
+  "display": "display",
+  "data": {
+   "results": [
+    {
+     "web_id": "D5vVUquezK",
+     "url": "https://en.wikipedia.org/wiki/Entropy"
+    }
+   ],
+   "errors": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 3,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "ask_questions",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 3,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "user_question",
+  "message": "I need to ask you some questions to better understand your needs",
+  "question_data": {
+   "questions": [
+    {
+     "question": "How would you like me to summarize this Wikipedia page on Entropy?",
+     "is_multiple": false,
+     "options": [
+      "Concise summary — A brief overview of the core concepts.",
+      "Detailed summary — A structured breakdown covering logic, history, and applications.",
+      "Guided close reading — A section-by-section walkthrough of the article."
+     ],
+     "allow_custom": true
+    }
+   ]
+  },
+  "is_complete": false,
+  "conversation_id": "63564bb1-32f4-4069-9861-bfcdb17878f7"
+ }
+]

@@ -1,0 +1,112 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "37b72c2d-0efa-4980-bc08-a73e025491a5",
+   "title": "Conversation 37b72c2d-0efa-4980-bc08-a73e025491a5",
+   "created_at": "2026-09-02T17:17:48.061073+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T17:17:48.061478+00:00",
+  "question_data": null,
+  "conversation_id": "37b72c2d-0efa-4980-bc08-a73e025491a5"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 17/20)",
+  "credit_info": {
+   "remaining_credits": 17,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T05:09:17.296551+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "37b72c2d-0efa-4980-bc08-a73e025491a5",
+   "title": "Summarize Attached Document"
+  },
+  "message": "Conversation titled: Summarize Attached Document",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "get_skills",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "get_skills",
+  "tool_status": "completed",
+  "display": "collapse",
+  "data": {
+   "success": true,
+   "skill_name": "documentReading"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "ask_questions",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "user_question",
+  "message": "I need to ask you some questions to better understand your needs",
+  "question_data": {
+   "questions": [
+    {
+     "question": "How would you like me to summarize this document?",
+     "is_multiple": false,
+     "options": [
+      "Concise summary — Brief overview of the main points.",
+      "Detailed summary — In-depth breakdown with structure and key details.",
+      "Guided close reading — Section-by-section walkthrough with insights."
+     ],
+     "allow_custom": true
+    }
+   ]
+  },
+  "is_complete": false,
+  "conversation_id": "37b72c2d-0efa-4980-bc08-a73e025491a5"
+ }
+]

@@ -1,0 +1,141 @@
+ROUTE /
+INNER TEXT
+Home
+Courses
+Learning Feed
+History
+Marketplace
+More options
+Recent Activities
+
+No activity yet
+
+Start a new chat or session to see your history here
+What's new · v1.3.13
+Attention, Drifting
+Dot field, cursor light, 2026
+FREE
+20
+Talk to Founders
+Earn 20% commission
+as an affiliate
+Join now
+Craft Courses
+Instant Assistance
+Craft your personalized courses with
+Hyperknow,
+
+For mastering anything in human knowledge
+
+Just enter the topic you'd like to learn, and Hyperknow can generate a full course for you!
+Self Study
+School Sync
+10
+Or import directly from 
+your school's LMS
+What topic can I use for generating courses?
+Marketplace
+View all
+ARIA
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img "HyperKnow" [ref=e6]
+      - img "Collapse" [ref=e8] [cursor=pointer]
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]:
+          - img "Home" [ref=e12]
+          - generic [ref=e13]: Home
+        - generic [ref=e14] [cursor=pointer]:
+          - img "Courses" [ref=e15]
+          - generic [ref=e16]: Courses
+        - generic [ref=e17] [cursor=pointer]:
+          - img "Learning Feed" [ref=e18]
+          - generic [ref=e19]: Learning Feed
+        - generic [ref=e20] [cursor=pointer]:
+          - img "History" [ref=e21]
+          - generic [ref=e22]: History
+        - generic [ref=e23] [cursor=pointer]:
+          - img "Marketplace" [ref=e24]
+          - generic [ref=e25]: Marketplace
+        - generic [ref=e27] [cursor=pointer]: More options
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - heading "Recent Activities" [level=3] [ref=e31]
+          - button "Collapse recent activities"
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: No activity yet
+          - generic [ref=e35]: Start a new chat or session to see your history here
+      - button "What's new · v1.3.13" [ref=e37] [cursor=pointer]:
+        - img [ref=e39]
+        - text: What's new · v1.3.13
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]: Attention, Drifting
+        - generic [ref=e45]: Dot field, cursor light, 2026
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: FREE
+            - generic "20 credits left" [ref=e50]:
+              - img [ref=e51]
+              - generic [ref=e53]: "20"
+          - button "Switch language" [ref=e55] [cursor=pointer]
+          - button "Talk to Founders Talk to Founders" [ref=e57] [cursor=pointer]:
+            - img "Talk to Founders" [ref=e58]
+            - generic [ref=e59]: Talk to Founders
+          - img "User Avatar" [ref=e61] [cursor=pointer]
+        - button "Earn as Affiliate" [ref=e62] [cursor=pointer]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: Earn 20% commission
+            - generic [ref=e66]: as an affiliate
+            - generic [ref=e68]: Join now
+        - generic [ref=e69]:
+          - tablist "Home mode" [ref=e70]:
+            - tab "Craft Courses" [selected] [ref=e71] [cursor=pointer]
+            - tab "Instant Assistance" [ref=e72] [cursor=pointer]
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - heading "Craft your personalized courses with Hyperknow," [level=2] [ref=e75]:
+                - generic [ref=e76]: Craft your personalized courses with
+                - generic [ref=e77]: Hyperknow,
+              - paragraph [ref=e79]: For mastering anything in human knowledge
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]:
+                  - textbox [ref=e83]
+                  - generic:
+                    - generic:
+                      - generic: Just enter the topic you'd like to learn, and Hyperknow can generate a full course for you!
+                - generic [ref=e84]:
+                  - generic [ref=e85]:
+                    - button "Add" [ref=e87] [cursor=pointer]:
+                      - img "Add" [ref=e88]
+                    - radiogroup "Course source" [ref=e89]:
+                      - radio "Self Study" [checked] [ref=e90] [cursor=pointer]:
+                        - img [ref=e91]
+                        - generic [ref=e92]: Self Study
+                      - radio "School Sync" [ref=e93] [cursor=pointer]:
+                        - img [ref=e94]
+                        - generic: School Sync
+                  - generic [ref=e95]:
+                    - generic "This course costs 10 credits" [ref=e96]:
+                      - img [ref=e97]
+                      - generic [ref=e99]: "10"
+                    - button "Send" [disabled] [ref=e100]:
+                      - img "Send" [ref=e101]
+              - button "Or import directly from your school's LMS" [ref=e102] [cursor=pointer]:
+                - text: Or import directly from
+                - generic [ref=e103]: your school's LMS
+              - button "What topic can I use for generating courses?" [ref=e104] [cursor=pointer]:
+                - img [ref=e105]
+                - generic [ref=e109]: What topic can I use for generating courses?
+        - generic [ref=e111]:
+          - heading "Marketplace" [level=2] [ref=e112]:
+            - img [ref=e113]
+            - text: Marketplace
+          - button "View all" [ref=e114] [cursor=pointer]:
+            - text: View all
+            - img [ref=e115]

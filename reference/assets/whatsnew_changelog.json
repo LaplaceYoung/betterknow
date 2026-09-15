@@ -1,0 +1,141 @@
+[
+ {
+  "version": "v1313",
+  "date": "August 6, 2026",
+  "changes": [
+   "Added Fast Mode — switch between Standard and Fast replies from the input bar",
+   "Various bug fixes"
+  ]
+ },
+ {
+  "version": "v1312",
+  "date": "May 27, 2026",
+  "changes": [
+   "Model performance improved with better support for long-context conversations",
+   "More stable Cheatsheet experience",
+   "Easier search, add, and delete",
+   "Overall performance optimizations"
+  ]
+ },
+ {
+  "version": "v1311",
+  "date": "May 18, 2026",
+  "changes": [
+   "Encyclopedia-style inline layout — images and diagrams weave into reply text instead of sitting in separate blocks",
+   "Audio feature coming soon"
+  ]
+ },
+ {
+  "version": "v1310",
+  "date": "May 14, 2026",
+  "changes": [
+   "History page — browse, search, star, rename, and delete your past conversations and Deep Learn sessions all in one place",
+   "Trending topics on the home page — discover what's hapenning in the world and jump straight into learning"
+  ]
+ },
+ {
+  "version": "v139",
+  "date": "Apr 20, 2026",
+  "changes": [
+   "Cheatsheet edit mode — a finals-season perk — plus fixes from user feedback",
+   "Canvas automatic file search in chat",
+   "Occasional unexpected logout",
+   "Further stability fixes from user reports, including behavior under heavy load"
+  ]
+ },
+ {
+  "version": "v138",
+  "date": "Apr 9, 2026",
+  "changes": [
+   "Various fixes from user feedback",
+   "Citations upgrade: tap a file citation to see the original page number",
+   "Canvas auto-predict preview",
+   "Updated frontend fonts",
+   "Assorted UI polish and fixes"
+  ]
+ },
+ {
+  "version": "v137",
+  "date": "Mar 26, 2026",
+  "changes": [
+   "Model improved with better generalization capability and stability",
+   "Fixed image reading inside uploaded files",
+   "Fixed overall file reading reliability",
+   "Additional fixes and polish from user feedback",
+   "Improved Deep Learn session quality"
+  ]
+ },
+ {
+  "version": "v136",
+  "date": "Mar 16, 2026",
+  "changes": [
+   "Improved step selection and content generation quality in Deep Learn Sessions",
+   "More Canvas-related features coming soon",
+   "Fixed issues with the memory tool",
+   "Fixed content output sometimes being unrelated to uploaded files",
+   "Improved LaTeX formula rendering in responses"
+  ]
+ },
+ {
+  "version": "v135",
+  "date": "Mar 13, 2026",
+  "changes": [
+   "Fixed code sandbox runtime errors",
+   "Fixed learning preference selection in settings sometimes not saving completely",
+   "Fixed conversation history possibly losing latest output after refresh",
+   "Fixed file upload getting stuck during onboarding",
+   "Fixed sudden white screen during conversation",
+   "Optimized model performance for file search, text output, and graphic generation",
+   "Added star and delete for Deep Learning sessions"
+  ]
+ },
+ {
+  "version": "v134",
+  "date": "Mar 10, 2026",
+  "changes": [
+   "Personalized memory extraction display — the agent can now remember your learning progress and preferences in a more long-term, structured way",
+   "Support for analyzing YouTube videos and web links you provide",
+   "Improved accuracy of user intention clarification",
+   "File upload size limit in chat increased to 100MB",
+   "Chat page responsive layout issues",
+   "Knowledge Base: drag-and-drop file upload and multi-file upload support"
+  ]
+ },
+ {
+  "version": "v133",
+  "date": "Mar 8, 2026",
+  "changes": [
+   "Quota usage reminder display in conversation page",
+   "Better handling of larger files"
+  ]
+ },
+ {
+  "version": "v132",
+  "date": "Mar 6, 2026",
+  "changes": [
+   "Significantly improved server response efficiency and reply speed",
+   "Prevent complex rendered content from occasionally overflowing the highlight box",
+   "Issue with generated videos not playing in conversation history"
+  ]
+ },
+ {
+  "version": "v131",
+  "date": "Mar 4, 2026",
+  "changes": [
+   "Service stability improvements in backend and model layer",
+   "Support browser zoom in/out across all pages",
+   "Enriched shared conversation view functionality",
+   "Multi-lingual support for the Learning Feed page",
+   "Re-login prompt when navigating from Hyperknow.io",
+   "Optimized file upload display",
+   "Various issues reported by users"
+  ]
+ },
+ {
+  "version": "v130",
+  "date": "Feb 26, 2026",
+  "changes": [
+   "Launching Hyperknow Agent 3.0 — the general-purpose, proactive agent for learning. Your all-round learning companion"
+  ]
+ }
+]

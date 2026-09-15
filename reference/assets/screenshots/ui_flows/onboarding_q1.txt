@@ -1,0 +1,218 @@
+ROUTE https://agent.hyperknow.io/onboarding/
+
+INNER TEXT
+Home
+Courses
+Learning Feed
+History
+Marketplace
+More options
+Recent Activities
+
+No activity yet
+
+Start a new chat or session to see your history here
+What's new · v1.3.13
+Where did you find Hyperknow?
+Have a referral code?
+Search engine (e.g. Google, Bing)
+Instagram or TikTok
+LinkedIn or X
+Xiaohongshu (RedNote)
+Friend, classmate, or colleague
+On campus (posters, flyers, or student clubs)
+Blog, podcast, or news articles
+Other
+Back
+Continue
+
+ARIA
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img "HyperKnow" [ref=e6]
+      - img "Collapse" [ref=e8] [cursor=pointer]
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]:
+          - img "Home" [ref=e12]
+          - generic [ref=e13]: Home
+        - generic [ref=e14] [cursor=pointer]:
+          - img "Courses" [ref=e15]
+          - generic [ref=e16]: Courses
+        - generic [ref=e17] [cursor=pointer]:
+          - img "Learning Feed" [ref=e18]
+          - generic [ref=e19]: Learning Feed
+        - generic [ref=e20] [cursor=pointer]:
+          - img "History" [ref=e21]
+          - generic [ref=e22]: History
+        - generic [ref=e23] [cursor=pointer]:
+          - img "Marketplace" [ref=e24]
+          - generic [ref=e25]: Marketplace
+        - generic [ref=e27] [cursor=pointer]: More options
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - heading "Recent Activities" [level=3] [ref=e31]
+          - button "Collapse recent activities"
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: No activity yet
+          - generic [ref=e35]: Start a new chat or session to see your history here
+      - button "What's new · v1.3.13" [ref=e37] [cursor=pointer]:
+        - img [ref=e39]
+        - text: What's new · v1.3.13
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - img "Hyperknow"
+      - generic [ref=e44]:
+        - img [ref=e45]
+        - heading "Where did you find Hyperknow?" [level=2] [ref=e46]
+        - button "Have a referral code?" [ref=e49] [cursor=pointer]
+        - radiogroup "Where did you find Hyperknow?" [ref=e50]:
+          - generic [ref=e51]:
+            - radio "Search engine (e.g. Google, Bing)" [ref=e52] [cursor=pointer]
+            - radio "Instagram or TikTok" [ref=e53] [cursor=pointer]
+            - radio "LinkedIn or X" [ref=e54] [cursor=pointer]
+            - radio "Xiaohongshu (RedNote)" [ref=e55] [cursor=pointer]
+            - radio "Friend, classmate, or colleague" [ref=e56] [cursor=pointer]
+            - radio "On campus (posters, flyers, or student clubs)" [ref=e57] [cursor=pointer]
+            - radio "Blog, podcast, or news articles" [ref=e58] [cursor=pointer]
+          - generic [ref=e59] [cursor=pointer]:
+            - radio "Other" [ref=e60]
+            - textbox "Tell us where you heard about us..." [disabled]
+        - generic [ref=e61]:
+          - button "Back" [ref=e62] [cursor=pointer]
+          - button "Continue" [disabled] [ref=e63]
+
+INTERACTIONS
+[
+  {
+    "tag": "IMG",
+    "text": "Collapse recent activities",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "What's new · v1.3.13",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Continue",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "English",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "简体中文",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "繁體中文",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Español",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "한국어",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "हिन्दी",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "اردو",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Confirm",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Have a referral code?",
+    "disabled": false
+  },
+  {
+    "tag": "INPUT",
+    "text": "Have a referral code?",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "disabled": true
+  },
+  {
+    "tag": "BUTTON",
+    "text": "",
+    "disabled": true
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Search engine (e.g. Google, Bing)",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Instagram or TikTok",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "LinkedIn or X",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Xiaohongshu (RedNote)",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Friend, classmate, or colleague",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "On campus (posters, flyers, or student clubs)",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Blog, podcast, or news articles",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Other",
+    "disabled": false
+  },
+  {
+    "tag": "INPUT",
+    "text": "Tell us where you heard about us...",
+    "disabled": true
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Back",
+    "disabled": false
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Continue",
+    "disabled": true
+  }
+]

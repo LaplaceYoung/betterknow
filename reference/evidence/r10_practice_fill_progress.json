@@ -1,0 +1,52 @@
+{
+ "check_fill_wrong": [
+  200,
+  {
+   "correct": false,
+   "feedback": "'Banana' is not related to the concept being described. Think about a term that describes a predictable, non-intelligent technical process or software task.",
+   "judged": true
+  }
+ ],
+ "check_fill_right1": [
+  200,
+  {
+   "correct": true,
+   "feedback": "",
+   "judged": false
+  }
+ ],
+ "check_fill_right_variant": [
+  200,
+  {
+   "correct": true,
+   "feedback": "",
+   "judged": false
+  }
+ ],
+ "progress_dict": [
+  422,
+  {
+   "detail": [
+    {
+     "type": "missing",
+     "loc": [
+      "body",
+      "items",
+      "q1",
+      "state"
+     ],
+     "msg": "Field required",
+     "input": {
+      "correct": true
+     }
+    }
+   ]
+  }
+ ],
+ "progress_state_ok": [
+  200,
+  {
+   "status": "ok"
+  }
+ ]
+}

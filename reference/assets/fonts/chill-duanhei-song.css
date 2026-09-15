@@ -1,0 +1,15 @@
+/**
+ * 寒蝉端黑宋 Light (ChillDuanHeiSong Light)
+ * License: SIL Open Font License 1.1
+ * Source: https://github.com/Warren2060/ChillDuanHeiSong
+ *
+ * Self-hosted, subset to GB2312 hanzi + Latin/punctuation via
+ * scripts/subset-chill-font.py (12MB .otf -> ~1.5MB .woff2).
+ */
+@font-face {
+  font-family: 'ChillDuanHeiSong';
+  src: url('./ChillDuanHeiSong-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

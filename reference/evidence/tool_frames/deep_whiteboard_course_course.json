@@ -1,0 +1,51 @@
+[
+ {
+  "type": "connection_established"
+ },
+ {
+  "type": "session_ready",
+  "session_id": "706d4d5c-1b4d-4707-abb0-45fc9b1f4926__b38a83f7-1f82-4f7c-a309-3598f1ac9e7a",
+  "resumed": false,
+  "status": "active",
+  "session": false,
+  "messages": [],
+  "conversation_id": null,
+  "session_title": "Patterns in the Cloud: Scatterplots and Correlation"
+ },
+ {
+  "type": "lecture_outline_selected",
+  "lecture_outline_id": "706d4d5c-1b4d-4707-abb0-45fc9b1f4926:b38a83f7-1f82-4f7c-a309-3598f1ac9e7a",
+  "ok": true
+ },
+ {
+  "type": "tts_config",
+  "voice_id": "calm",
+  "speed": 1
+ },
+ {
+  "type": "group",
+  "actions": [
+   {
+    "type": "board",
+    "board_content": "# Linear Regression: The Geometric Anchor\n\n- Moving from individual data points to the **'Cloud'**\n- Goal: Mastering the visual vocabulary of relationships",
+    "step_id": 0,
+    "board_uid": 0,
+    "page_id": "page-1"
+   },
+   {
+    "type": "speak",
+    "spoken_text": "Hello rk1788362937! Welcome to the start of our journey into Linear Regression. Today, we're going to learn how to 'see' like a data scientist by looking at the big picture—the data cloud—instead of just individual numbers.",
+    "step_id": 1
+   }
+  ]
+ },
+ {
+  "type": "tts_segment",
+  "audio_url": "/api/v1/whiteboard/audio-stream/32074324-9ecb-467c-ac9b-2234d1a4b814/706d4d5c-1b4d-4707-abb0-45fc9b1f4926__b38a83f7-1f82-4f7c-a309-3598f1ac9e7a/tts_706d4d5c_0_31157b.webm",
+  "sequence": 0,
+  "step_id": 1,
+  "tts_cjk": 0,
+  "tts_latin": 179,
+  "speed": 1
+ }
+]

@@ -1,0 +1,272 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "c5379cd0-3507-4f6d-af53-add49fae9faf",
+   "title": "Conversation c5379cd0-3507-4f6d-af53-add49fae9faf",
+   "created_at": "2026-09-02T19:15:50.344605+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T19:15:50.344999+00:00",
+  "question_data": null,
+  "conversation_id": "c5379cd0-3507-4f6d-af53-add49fae9faf"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 18/20)",
+  "credit_info": {
+   "remaining_credits": 18,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T06:52:24.179957+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "c5379cd0-3507-4f6d-af53-add49fae9faf",
+   "title": "Gravity Instructional Video Creation"
+  },
+  "message": "Conversation titled: Gravity Instructional Video Creation",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "started",
+  "display": "display",
+  "data": {
+   "message": "Initializing educational video generator...",
+   "stage": "initializing"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Scene planning completed: 2 scenes",
+   "stage": "script_writing",
+   "scene_count": 2,
+   "preview": "Have you ever wondered why things always fall DOWN? It's all because of a mysterious, invisible force called GRAVITY."
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Voice generation completed: 4 clips",
+   "stage": "generate_narration",
+   "total_audio_duration": 44.21
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Code generation completed for 2 scenes",
+   "stage": "code_generation",
+   "total_scenes": 2,
+   "scene_types": [
+    "remotion",
+    "manim"
+   ]
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Scene 2 (manim) rendered successfully - 1/2 completed",
+   "stage": "video_render",
+   "type": "render_progress",
+   "rendered_count": 1,
+   "total_scenes": 2,
+   "scene_index": 2,
+   "scene_type": "manim"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Scene 1 (remotion) rendered successfully - 2/2 completed",
+   "stage": "video_render",
+   "type": "render_progress",
+   "rendered_count": 2,
+   "total_scenes": 2,
+   "scene_index": 1,
+   "scene_type": "remotion"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "All scenes rendered, compositing final video...",
+   "stage": "video_render",
+   "rendered_scenes": 2
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Video generation completed! 2 scenes, 52.0 seconds",
+   "stage": "video_render",
+   "final_video_url": "https://api.hyperknow.io/api/v1/video/iSFmVT78b/final_video.mp4",
+   "scene_count": 2,
+   "duration_seconds": 52
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "completed",
+  "display": "display",
+  "data": {
+   "video_path": "/app/public/video/iSFmVT78b/final_video.mp4",
+   "final_video_url": "https://api.hyperknow.io/api/v1/video/iSFmVT78b/final_video.mp4",
+   "duration_seconds": 0,
+   "message": "Video generated successfully! Access URL: https://api.hyperknow.io/api/v1/video/iSFmVT78b/final_video.mp4"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "started",
+  "display": "display",
+  "data": {
+   "message": "Initializing educational video generator...",
+   "stage": "initializing"
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Scene planning completed: 2 scenes",
+   "stage": "script_writing",
+   "scene_count": 2,
+   "preview": "Ever wonder why things always fall DOWN? It's because of GRAVITY... a force that's constantly pulling everything toward the Earth's center."
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Voice generation completed: 4 clips",
+   "stage": "generate_narration",
+   "total_audio_duration": 44.62
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Code generation completed for 2 scenes",
+   "stage": "code_generation",
+   "total_scenes": 2,
+   "scene_types": [
+    "manim",
+    "manim"
+   ]
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "generate_instructional_video",
+  "tool_status": "processing",
+  "display": "display",
+  "data": {
+   "message": "Scene 1 (manim) rendered successfully - 1/2 completed",
+   "stage": "video_render",
+   "type": "render_progress",
+   "rendered_count": 1,
+   "total_scenes": 2,
+   "scene_index": 1,
+   "scene_type": "manim"
+  },
+  "is_complete": false
+ }
+]

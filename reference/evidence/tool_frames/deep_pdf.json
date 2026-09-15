@@ -1,0 +1,19 @@
+{
+  "capture": "2026-09-03",
+  "upload": {
+    "method": "POST",
+    "path": "/api/v1/pdf-annotation/upload",
+    "status": 200,
+    "request": {"multipart_file":"deep-protocol.pdf","size":131,"session_id":"e9ffb35f666b49a6b7bf04e5c45da2a1"},
+    "response": {"file_id":"cc1a9c6ec29143a2bc160f7f937f6674","filename":"deep-protocol.pdf","size":131}
+  },
+  "ws": {
+    "endpoint": "wss://api.hyperknow.io/api/v1/pdf-annotation/ws?access_token=<redacted>",
+    "sent": {"type":"resume_session","session_id":"e9ffb35f666b49a6b7bf04e5c45da2a1"},
+    "frames": [
+      {"type":"connection_established"},
+      {"type":"error","message":"Session not found","is_complete":true}
+    ]
+  },
+  "negative_upload": {"status":422,"body":{"detail":[{"type":"missing","loc":["body","session_id"],"msg":"Field required","input":null}]}}
+}

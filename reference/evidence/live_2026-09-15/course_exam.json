@@ -1,0 +1,1320 @@
+{
+ "status": 200,
+ "body": {
+  "courseUuid": "f3d744b7-a65f-412b-9743-94856814d7c8",
+  "exams": [
+   {
+    "unitId": "unit1",
+    "title": "社会学视角综合考试",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "single",
+      "prompt": "根据 C. Wright Mills 的观点，什么是“社会学想象力” (sociological imagination)？",
+      "options": [
+       "一种用于识别个人人格障碍的心理学工具。",
+       "一种将个人传记与历史和社会结构联系起来的思维方式。",
+       "一种利用统计数据预测未来社会趋势的方法。",
+       "一种认为个人选择是塑造生活的唯一因素的信念。"
+      ],
+      "correctAnswers": [
+       "一种将个人传记与历史和社会结构联系起来的思维方式。"
+      ],
+      "explanation": "Mills 将社会学想象力定义为观察个人生活（传记）与更大的社会力量（历史）之间交集的能力。"
+     },
+     {
+      "id": "q2",
+      "type": "multiple",
+      "prompt": "根据 Mills 的框架，以下哪些场景应被归类为“公共议题” (public issues) 而非“个人烦恼” (personal troubles)？",
+      "options": [
+       "一个人因为没复习而考试不及格。",
+       "由于国家经济衰退导致的大规模失业。",
+       "由于联邦教育政策变化导致的高额学生债务。",
+       "一个人因为闹钟坏了上班迟到。",
+       "影响城市中数千个家庭的系统性住房短缺。"
+      ],
+      "correctAnswers": [
+       "由于国家经济衰退导致的大规模失业。",
+       "由于联邦教育政策变化导致的高额学生债务。",
+       "影响城市中数千个家庭的系统性住房短缺。"
+      ],
+      "explanation": "公共议题是影响大量人口并根植于社会组织的结构性问题，而个人烦恼则局限于个人的即时环境和性格。"
+     },
+     {
+      "id": "q3",
+      "type": "fill",
+      "prompt": "根据课程材料，我们通常感受不到社会事实的重量，直到我们试图 ____ 它们。",
+      "correctAnswers": [
+       "resist",
+       "defy",
+       "break",
+       "challenge"
+      ],
+      "placeholder": "输入动词"
+     },
+     {
+      "id": "q4",
+      "type": "single",
+      "prompt": "“国际象棋游戏”的比喻如何解释结构 (structure) 与能动性 (agency) 之间的关系？",
+      "options": [
+       "它暗示社会生活是一场只有强者才能生存的竞争。",
+       "它表明没有规则，玩家可以随心所欲地移动。",
+       "它表明虽然玩家可以选择如何走棋，但他们必须遵守既定的游戏规则。",
+       "它证明了游戏规则比玩家本身更重要。"
+      ],
+      "correctAnswers": [
+       "它表明虽然玩家可以选择如何走棋，但他们必须遵守既定的游戏规则。"
+      ],
+      "explanation": "能动性是玩家对走法的选择，而结构则代表了约束并实现这些走法的规则。",
+      "image": {
+       "src": "/api/v1/course-generation/users/marketplaceSeed/courses/091d5945-4f34-4bfc-9d3b-c34b76d62ee5/exam/images/unit1-q4.png",
+       "alt": "代表结构内能动性的国际象棋图表。"
+      }
+     },
+     {
+      "id": "q5",
+      "type": "multiple",
+      "prompt": "Émile Durkheim 所说的“社会事实” (social facts) 的主要特征是什么？",
+      "options": [
+       "它们是内在的心理状态。",
+       "它们对个人而言是外在的。",
+       "它们施加一种强制力或社会控制。",
+       "它们对每一个人来说都是独特的。",
+       "它们在个体出生前就已存在，并在个体死后继续存在。"
+      ],
+      "correctAnswers": [
+       "它们对个人而言是外在的。",
+       "它们施加一种强制力或社会控制。",
+       "它们在个体出生前就已存在，并在个体死后继续存在。"
+      ],
+      "explanation": "社会事实是“sui generis”（自成一类）；它们是外在的、强制性的，并且独立于任何个人的意志而存在。"
+     },
+     {
+      "id": "q6",
+      "type": "fill",
+      "prompt": "任何社会模式的公认且预期的后果被称为 ____ 功能。",
+      "correctAnswers": [
+       "manifest"
+      ],
+      "placeholder": "输入术语"
+     },
+     {
+      "id": "q7",
+      "type": "single",
+      "prompt": "在社会学语境中，“使熟悉变得陌生” (make the familiar strange) 是什么意思？",
+      "options": [
+       "完全忽略常识，只关注抽象理论。",
+       "去外国文化旅行，看它们与我们有何不同。",
+       "对平凡的日常活动进行质疑和分析，就像我们第一次见到它们一样。",
+       "在公共场合表现得怪异，观察人们的反应。"
+      ],
+      "correctAnswers": [
+       "对平凡的日常活动进行质疑和分析，就像我们第一次见到它们一样。"
+      ],
+      "explanation": "社会学涉及剥离日常生活的“自然性”，以揭示背后的社会模式和规范。"
+     },
+     {
+      "id": "q8",
+      "type": "multiple",
+      "prompt": "如果功能主义者 (functionalist) 正在分析教育制度，他们最可能关注以下哪一项？",
+      "options": [
+       "学校如何传授未来劳动力所需的技能。",
+       "学校如何为双职工父母提供育儿服务。",
+       "教育如何固化富人和穷人之间的社会不平等。",
+       "学校系统如何使儿童社会化，让他们接受共同的国家价值观。",
+       "教师如何利用权力让反叛的学生噤声。"
+      ],
+      "correctAnswers": [
+       "学校如何传授未来劳动力所需的技能。",
+       "学校如何为双职工父母提供育儿服务。",
+       "学校系统如何使儿童社会化，让他们接受共同的国家价值观。"
+      ],
+      "explanation": "功能主义者（Functionalists）关注有助于社会秩序和稳定的显性功能（manifest functions）和隐性功能（latent functions），而不是冲突论（conflict theory）所强调的权力斗争。"
+     },
+     {
+      "id": "q9",
+      "type": "fill",
+      "prompt": "Durkheim 将社会描述为一个 ____ 现实，意指它是一个独立存在的实体，与其组成个体截然不同。",
+      "correctAnswers": [
+       "sui generis"
+      ],
+      "placeholder": "输入拉丁术语"
+     },
+     {
+      "id": "q10",
+      "type": "single",
+      "prompt": "哪种隐喻最能体现社会功能主义视角的核心？",
+      "options": [
+       "不同群体为了权力而挣扎的战场。",
+       "各个器官协同工作以维持生存的生物有机体。",
+       "个体表演角色的戏剧舞台。",
+       "人们为了个人利益进行商品贸易的场所。"
+      ],
+      "correctAnswers": [
+       "各个器官协同工作以维持生存的生物有机体。"
+      ],
+      "explanation": "功能主义将社会视为一个由相互关联的部分（制度）组成的系统，这些部分像器官一样运作，以维持稳定和平衡（equilibrium）。",
+      "image": {
+       "src": "/api/v1/course-generation/users/marketplaceSeed/courses/091d5945-4f34-4bfc-9d3b-c34b76d62ee5/exam/images/unit1-q10.png",
+       "alt": "功能主义的生物学隐喻。"
+      }
+     },
+     {
+      "id": "q11",
+      "type": "multiple",
+      "prompt": "识别出符合社会学视角（Sociological Perspective）核心假设的陈述。",
+      "options": [
+       "社会是一个超越其个体总和的现实。",
+       "个人的行为主要由遗传倾向决定。",
+       "个体受其所生活的社会情境所塑造。",
+       "社会结构既限制也赋能人类的行动。",
+       "社会学是一门研究社会事实（social facts）的科学。"
+      ],
+      "correctAnswers": [
+       "社会是一个超越其个体总和的现实。",
+       "个体受其所生活的社会情境所塑造。",
+       "社会结构既限制也赋能人类的行动。",
+       "社会学是一门研究社会事实（social facts）的科学。"
+      ],
+      "explanation": "社会学视角强调社会力量（事实、结构、情境）的作用，而非单纯的生物学或心理学解释。"
+     },
+     {
+      "id": "q12",
+      "type": "single",
+      "prompt": "一位社会学家在分析一家咖啡店。他们注意到，虽然人们去那里是为了喝咖啡（显性功能），但咖啡店也起到了社区建设的作用（隐性功能）。他们使用的是哪种视角？",
+      "options": [
+       "冲突论",
+       "符号互动论",
+       "功能主义",
+       "后结构主义"
+      ],
+      "correctAnswers": [
+       "功能主义"
+      ],
+      "explanation": "区分显性（预期的）和隐性（非预期的）功能是功能主义范式的核心组成部分。"
+     },
+     {
+      "id": "q13",
+      "type": "multiple",
+      "prompt": "在“结构与能动性”（Structure and Agency）的语境下，以下哪些是社会结构的例子？",
+      "options": [
+       "法律体系及其法律。",
+       "个人对辛辣食物的偏好。",
+       "性别角色与期望。",
+       "经济阶级制度。",
+       "一个人决定在周二去跑步。"
+      ],
+      "correctAnswers": [
+       "法律体系及其法律。",
+       "性别角色与期望。",
+       "经济阶级制度。"
+      ],
+      "explanation": "结构是社会安排中稳定的、反复出现的模式。个人偏好和特定的日常决策则代表了能动性或个人特征。"
+     },
+     {
+      "id": "q14",
+      "type": "single",
+      "prompt": "为什么“语言”被 Durkheim 视为一种社会事实？",
+      "options": [
+       "因为每个人在成长过程中都会发明自己的语言。",
+       "因为它是一种没有外部规则的内部思维过程。",
+       "因为它在我们出生前就已存在，拥有我们必须遵守的规则，如果我们使用不当，就会面临“制裁”。",
+       "因为它是一种像呼吸一样的自然生物本能。"
+      ],
+      "correctAnswers": [
+       "因为它在我们出生前就已存在，拥有我们必须遵守的规则，如果我们使用不当，就会面临“制裁”。"
+      ],
+      "explanation": "语言符合社会事实的所有标准：它是先于个体存在的、外部的，并且具有强制力（为了被理解而必须遵守语法）。"
+     },
+     {
+      "id": "q15",
+      "type": "animation",
+      "prompt": "在这个繁忙的行人路口模拟中，请观察个体的移动方式。为什么即使没有可见的指挥者或警察，人群的“流向”依然能保持秩序井然？",
+      "options": [
+       "人类在生物学上被设定为直线行走以节省能量。",
+       "行人遵循的是内化的“背景预期”以及管理共享空间的成文或不成文的社会规则。",
+       "每个个体都预先规划好了路线，以避开场景中的其他所有人。",
+       "人行道的物理结构使得人们不可能发生碰撞。"
+      ],
+      "correctAnswers": [
+       "行人遵循的是内化的“背景预期”以及管理共享空间的成文或不成文的社会规则。"
+      ],
+      "explanation": "日常生活中的社会秩序（例如在人群中穿梭）是由人们自动遵循的“理所当然”的准则来维持的。",
+      "animationHtml": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>行人密度模拟</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Microsoft YaHei\", sans-serif;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        h1.sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .simulation-canvas {\n            width: 100%;\n            height: auto;\n            aspect-ratio: 16 / 9;\n            background: #fff;\n            border: 1px solid var(--rule);\n            display: block;\n        }\n\n        .dashboard {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 20px;\n            padding: 4px 0;\n        }\n\n        .metric {\n            display: flex;\n            flex-direction: column;\n            gap: 4px;\n        }\n\n        .metric-label {\n            font-family: Georgia, \"Source Han Serif CN\", serif;\n            font-size: 12px;\n            font-style: italic;\n            color: var(--muted);\n        }\n\n        .axis-container {\n            position: relative;\n            height: 24px;\n            width: 100%;\n            margin-top: 4px;\n        }\n\n        .axis-line {\n            position: absolute;\n            top: 10px;\n            left: 0;\n            right: 0;\n            height: 1px;\n            background: var(--rule);\n        }\n\n        .axis-tick {\n            position: absolute;\n            top: 8px;\n            width: 1px;\n            height: 5px;\n            background: var(--muted);\n        }\n\n        .axis-tick-label {\n            position: absolute;\n            top: 14px;\n            font-size: 9px;\n            color: var(--muted);\n            transform: translateX(-50%);\n        }\n\n        .axis-indicator {\n            position: absolute;\n            top: 0;\n            width: 1px;\n            height: 20px;\n            background: var(--ink);\n            z-index: 2;\n        }\n\n        .caption {\n            font-family: Georgia, \"Source Han Serif CN\", serif;\n            font-size: 13px;\n            color: var(--muted);\n            text-align: center;\n            margin-top: 8px;\n        }\n\n        .collision-flash {\n            position: absolute;\n            top: 10px;\n            left: 10px;\n            font-size: 10px;\n            text-transform: uppercase;\n            color: var(--amber);\n            font-weight: bold;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"sr-only\">在不同密度下穿过广场的人流俯视模拟</h1>\n    \n    <div class=\"container\" id=\"widget-root\">\n        <canvas id=\"simCanvas\" class=\"simulation-canvas\" aria-label=\"广场的俯视图，圆点向相反方向移动。\"></canvas>\n        \n        <div class=\"dashboard\">\n            <div class=\"metric\">\n                <span class=\"metric-label\">人群密度 (人数)</span>\n                <div class=\"axis-container\" id=\"density-axis\">\n                    <div class=\"axis-line\"></div>\n                    <div class=\"axis-tick\" style=\"left: 0%\"></div>\n                    <div class=\"axis-tick-label\" style=\"left: 0%\">低</div>\n                    <div class=\"axis-tick\" style=\"left: 50%\"></div>\n                    <div class=\"axis-tick-label\" style=\"left: 50%\">中</div>\n                    <div class=\"axis-tick\" style=\"left: 100%\"></div>\n                    <div class=\"axis-tick-label\" style=\"left: 100%\">高</div>\n                    <div id=\"density-marker\" class=\"axis-indicator\"></div>\n                </div>\n            </div>\n            <div class=\"metric\">\n                <span class=\"metric-label\">步行速度 (固定)</span>\n                <div style=\"font-size: 13px; margin-top: 6px; color: var(--ink); font-variant-numeric: tabular-nums;\">\n                    1.4 m/s &middot; 固定\n                </div>\n            </div>\n        </div>\n\n        <div class=\"caption\">公共通道内的模拟人流运动</div>\n    </div>\n\n    <script>\n        // Seeded random for determinism\n        let seed = 12345;\n        function random() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const canvas = document.getElementById('simCanvas');\n        const ctx = canvas.getContext('2d');\n        const densityMarker = document.getElementById('density-marker');\n\n        let width, height;\n        const AGENTS_MAX = 80;\n        const agents = [];\n\n        class Agent {\n            constructor(id) {\n                this.id = id;\n                this.reset();\n            }\n\n            reset() {\n                this.direction = random() > 0.5 ? 1 : -1;\n                this.color = this.direction === 1 ? 'var(--accent)' : 'var(--amber)';\n                this.x = random() * width;\n                this.y = 20 + (random() * (height - 40));\n                this.speed = 1.2 + (random() * 0.4);\n                this.radius = 4;\n                this.vy = 0;\n            }\n\n            update(activeAgents) {\n                // Main horizontal movement\n                this.x += this.speed * this.direction;\n\n                // Wrapping\n                if (this.x > width + 10) this.x = -10;\n                if (this.x < -10) this.x = width + 10;\n\n                // Simple social force / collision avoidance\n                let forceY = 0;\n                for (let other of activeAgents) {\n                    if (other === this) continue;\n\n                    const dx = other.x - this.x;\n                    const dy = other.y - this.y;\n                    const distSq = dx*dx + dy*dy;\n                    const minDist = 18;\n\n                    if (distSq < minDist * minDist) {\n                        const dist = Math.sqrt(distSq);\n                        // Push away vertically if someone is in front or too close\n                        if (Math.abs(dx) < 25 && Math.sign(dx) === this.direction) {\n                             forceY += (dy > 0 ? -0.5 : 0.5);\n                        }\n                    }\n                }\n\n                // Apply vertical force with damping and boundary constraints\n                this.vy += forceY * 0.1;\n                this.vy *= 0.8;\n                this.y += this.vy;\n\n                if (this.y < 15) this.y = 15;\n                if (this.y > height - 15) this.y = height - 15;\n            }\n\n            draw() {\n                ctx.fillStyle = this.color;\n                ctx.beginPath();\n                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);\n                ctx.fill();\n            }\n        }\n\n        function init() {\n            width = canvas.width = canvas.offsetWidth * 2;\n            height = canvas.height = canvas.offsetHeight * 2;\n            \n            for (let i = 0; i < AGENTS_MAX; i++) {\n                agents.push(new Agent(i));\n            }\n        }\n\n        let frame = 0;\n        const CYCLE_FRAMES = 600; // ~10 seconds at 60fps\n\n        function loop() {\n            ctx.clearRect(0, 0, width, height);\n\n            // Draw faint floor texture/boundaries\n            ctx.strokeStyle = 'var(--rule)';\n            ctx.setLineDash([5, 5]);\n            ctx.beginPath();\n            ctx.moveTo(0, 10); ctx.lineTo(width, 10);\n            ctx.moveTo(0, height - 10); ctx.lineTo(width, height - 10);\n            ctx.stroke();\n            ctx.setLineDash([]);\n\n            // Calculate current density based on cycle\n            // Use a sine wave to sweep density up and down smoothly\n            const progress = (frame % CYCLE_FRAMES) / CYCLE_FRAMES;\n            const t = (Math.sin(progress * Math.PI * 2 - Math.PI / 2) + 1) / 2;\n            const currentCount = Math.floor(10 + t * (AGENTS_MAX - 10));\n\n            // Update axis marker\n            densityMarker.style.left = (t * 100) + '%';\n\n            const activeAgents = agents.slice(0, currentCount);\n            \n            activeAgents.forEach(a => {\n                a.update(activeAgents);\n                a.draw();\n            });\n\n            frame++;\n            requestAnimationFrame(loop);\n        }\n\n        // Handle height reporting\n        const notifyHeight = () => {\n            const h = document.getElementById('widget-root').getBoundingClientRect().height;\n            try {\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(h) + 32 }, '*');\n            } catch(e) {}\n        };\n\n        window.addEventListener('load', () => {\n            init();\n            loop();\n            notifyHeight();\n            new ResizeObserver(notifyHeight).observe(document.body);\n        });\n\n        // Resolve colors dynamically\n        function updateColors() {\n            const style = getComputedStyle(document.documentElement);\n            agents.forEach(a => {\n                a.color = a.direction === 1 ? style.getPropertyValue('--accent').trim() : style.getPropertyValue('--amber').trim();\n            });\n        }\n        window.addEventListener('resize', () => {\n            width = canvas.width = canvas.offsetWidth * 2;\n            height = canvas.height = canvas.offsetHeight * 2;\n        });\n    </script>\n</body>\n</html>"
+     }
+    ]
+   },
+   {
+    "unitId": "unit2",
+    "title": "文化与自我综合考试",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "single",
+      "prompt": "如果一个社会将“个人隐私”视为核心价值，那么下列哪项代表了与之对应的规范 (norm)？",
+      "options": [
+       "每个人都理应拥有私生活的信念。",
+       "进入关着的门之前先敲门。",
+       "关于个人自由的抽象理想。",
+       "当有人被注视时产生的不适感。"
+      ],
+      "correctAnswers": [
+       "进入关着的门之前先敲门。"
+      ],
+      "explanation": "价值是抽象的理想（即“为什么”），而规范是具体的行为预期（即“怎么做”）。敲门是实现隐私这一抽象价值的具体行动。"
+     },
+     {
+      "id": "q2",
+      "type": "multiple",
+      "prompt": "下列哪些属于“非正式负面制裁” (informal negative sanctions) 的例子？",
+      "options": [
+       "法官判处被告进行社区服务。",
+       "一群朋友对一句粗鲁的评论翻白眼。",
+       "社交媒体上的“抵制文化” (cancel culture) 舆论回击。",
+       "大学对学生处以学业留校察看。",
+       "在杂货店里，陌生人投来不赞成的目光。"
+      ],
+      "correctAnswers": [
+       "一群朋友对一句粗鲁的评论翻白眼。",
+       "社交媒体上的“抵制文化” (cancel culture) 舆论回击。",
+       "在杂货店里，陌生人投来不赞成的目光。"
+      ],
+      "explanation": "非正式制裁是对行为的非官方反应，而正式制裁（如法庭判决或学业处分）是由获得授权的机构执行的。"
+     },
+     {
+      "id": "q3",
+      "type": "fill",
+      "prompt": "那些令人厌恶到引起生理不适，且在几乎所有情况下都被严格禁止的行为被称为 ____。",
+      "correctAnswers": [
+       "taboos",
+       "taboo"
+      ],
+      "placeholder": "输入术语"
+     },
+     {
+      "id": "q4",
+      "type": "single",
+      "prompt": "在“社会分量”的语境下，民俗 (folkway) 与民德 (more) 有何区别？",
+      "options": [
+       "民俗是成文法，而民德是成文的。",
+       "违反民俗会让人显得“怪异”，而违反民德则会让人显得“邪恶”。",
+       "民德仅存在于现代社会；民俗则是普世的。",
+       "民俗由国家强制执行，而民德由同伴强制执行。"
+      ],
+      "correctAnswers": [
+       "违反民俗会让人显得“怪异”，而违反民德则会让人显得“邪恶”。"
+      ],
+      "explanation": "民俗是日常互动的习俗，道德分量较低；民德具有重大的道德意义，违反民德会招致强烈的社会谴责。"
+     },
+     {
+      "id": "q5",
+      "type": "multiple",
+      "prompt": "根据萨皮尔-沃尔夫假说 (Sapir-Whorf hypothesis)，即语言相对论，语言在人类体验中扮演了什么角色？",
+      "options": [
+       "它充当了影响感知的认知过滤器。",
+       "它是翻译普世思想的中性工具。",
+       "它反映了特定文化认为重要或需要细化处理的事物。",
+       "它精确地决定了人类能够思考的内容。",
+       "它构建了我们在日常生活中对现象进行分类的方式。"
+      ],
+      "correctAnswers": [
+       "它充当了影响感知的认知过滤器。",
+       "它反映了特定文化认为重要或需要细化处理的事物。",
+       "它构建了我们在日常生活中对现象进行分类的方式。"
+      ],
+      "explanation": "现代社会学将语言视为对思维的影响（相对论），而非绝对的决定因素（决定论），强调了文化优先级是如何在词汇中体现出来的。"
+     },
+     {
+      "id": "q6",
+      "type": "fill",
+      "prompt": "当一个群体的价值观和规范不仅不同于主流，而且积极地拒绝和批判主导文化时，它们被视为 ____。",
+      "correctAnswers": [
+       "counterculture",
+       "counter-culture"
+      ],
+      "placeholder": "例如：亚文化"
+     },
+     {
+      "id": "q7",
+      "type": "single",
+      "prompt": "哪个概念描述了在文本通信中使用表情符号 (emojis) 来替代语气和面部表情？",
+      "options": [
+       "语言决定论",
+       "数字副语言 (Digital Paralanguage)",
+       "文化滞后",
+       "萨丕尔-沃尔夫假说演变"
+      ],
+      "correctAnswers": [
+       "数字副语言 (Digital Paralanguage)"
+      ],
+      "explanation": "数字副语言 (Digital paralanguage) 指的是表情符号等符号，它们提供了在数字文本中缺失的非语言线索（如语气、表情）。"
+     },
+     {
+      "id": "q8",
+      "type": "multiple",
+      "prompt": "以下哪项会被皮埃尔·布尔迪厄 (Pierre Bourdieu) 归类为“文化资本”？",
+      "options": [
+       "对名酒和高级艺术史的了解。",
+       "一个拥有 5 万美元的储蓄账户。",
+       "体现精英阶层教养的口音。",
+       "精通企业社交中那些“不成文的规则”。",
+       "拥有一家工厂或实体机械设备。"
+      ],
+      "correctAnswers": [
+       "对名酒和高级艺术史的了解。",
+       "体现精英阶层教养的口音。",
+       "精通企业社交中那些“不成文的规则”。"
+      ],
+      "explanation": "文化资本 (Cultural capital) 由教育、智力、语言风格和礼仪等非财务社会资产组成，与经济资本（金钱和资产）相对。"
+     },
+     {
+      "id": "q9",
+      "type": "fill",
+      "prompt": "当一个同时身为母亲和全职企业高管的人，在面对这两个不同身份对时间的要求产生竞争时，她会经历 ____。",
+      "correctAnswers": [
+       "role conflict"
+      ],
+      "placeholder": "四个字的术语"
+     },
+     {
+      "id": "q10",
+      "type": "single",
+      "prompt": "社会学中，主流文化通过将亚文化的符号转化为大众市场产品，从而“吞噬”该亚文化的过程称为什么？",
+      "options": [
+       "文化扩散",
+       "语言相对论",
+       "吸纳",
+       "制裁"
+      ],
+      "correctAnswers": [
+       "吸纳"
+      ],
+      "explanation": "吸纳 (Co-optation) 发生在主流文化将反抗文化商品化时，这通常会剥夺其原本的政治或反叛含义。"
+     },
+     {
+      "id": "q11",
+      "type": "multiple",
+      "prompt": "在戈夫曼 (Goffman) 的拟剧论中，以下哪些行为发生在“后台”？",
+      "options": [
+       "个人面向观众表演其社会角色。",
+       "个人放松下来并脱离其社会角色。",
+       "个人为其“前台”表演做准备。",
+       "个人进行“印象管理”以影响他人。",
+       "个人可能会表达出他们在公开场合隐藏的情感或行为。"
+      ],
+      "correctAnswers": [
+       "个人放松下来并脱离其社会角色。",
+       "个人为其“前台”表演做准备。",
+       "个人可能会表达出他们在公开场合隐藏的情感或行为。"
+      ],
+      "explanation": "后台 (Back Stage) 是“表演者”可以放下戒备、练习表演、并在远离观众视线的地方展现“真实”自我的地方。"
+     },
+     {
+      "id": "q12",
+      "type": "fill",
+      "prompt": "学校里的“隐性课程”是 ____ 社会化的一种形式，学生在这里学习守时和尊重权威等不成文的规则。",
+      "correctAnswers": [
+       "secondary"
+      ],
+      "placeholder": "社会化类型"
+     },
+     {
+      "id": "q13",
+      "type": "single",
+      "prompt": "当技术创新比社会制定伦理和法律来规范它的能力发展得更快时，会出现哪种现象？",
+      "options": [
+       "文化扩散",
+       "文化滞后",
+       "社会化",
+       "萨丕尔-沃尔夫效应"
+      ],
+      "correctAnswers": [
+       "文化滞后"
+      ],
+      "explanation": "文化滞后 (Cultural lag) 描述的是当非物质文化（规范、法律）难以跟上物质文化（技术）的快速变化时，所出现的失调时期。"
+     },
+     {
+      "id": "q14",
+      "type": "multiple",
+      "prompt": "与“首属群体”相比，“次属群体”具有以下哪些特征？",
+      "options": [
+       "它们通常规模较大且缺乏人情味。",
+       "它们基于情感纽带和长期承诺。",
+       "它们是以任务为导向和目标为驱动的。",
+       "成员身份通常是临时性的，或基于特定职能。",
+       "它们是个人情感支持的主要来源。"
+      ],
+      "correctAnswers": [
+       "它们通常规模较大且缺乏人情味。",
+       "它们是以任务为导向和目标为驱动的。",
+       "成员身份通常是临时性的，或基于特定职能。"
+      ],
+      "explanation": "次属群体 (Secondary groups，如职场或大班级) 是工具性的且缺乏人情味的，而首属群体 (Primary groups，如家庭、亲密朋友) 则是表现性的且充满人情味的。"
+     },
+     {
+      "id": "q15",
+      "type": "single",
+      "prompt": "“印象管理”（impression management）如何应用于社交媒体的使用？",
+      "options": [
+       "它是指为了保持神秘感而忽视关注者的过程。",
+       "它是指通过策划帖子和照片，向受众展示特定的形象。",
+       "它是指通过偷拍照片无意中流露出真实情感。",
+       "它是指发布照片与获得点赞之间的技术延迟。"
+      ],
+      "correctAnswers": [
+       "它是指通过策划帖子和照片，向受众展示特定的形象。"
+      ],
+      "explanation": "用 Goffman 的术语来说，社交媒体用户通过策划个人资料（前台，Front Stage）来控制他人对自己的看法，这是印象管理的一个典型例子。"
+     },
+     {
+      "id": "q16",
+      "type": "multiple",
+      "prompt": "以下哪些被认为是“社会化主体”（Agents of Socialization）？",
+      "options": [
+       "家庭成员",
+       "大众媒体",
+       "宗教机构",
+       "自然地理",
+       "同龄人群体"
+      ],
+      "correctAnswers": [
+       "家庭成员",
+       "大众媒体",
+       "宗教机构",
+       "同龄人群体"
+      ],
+      "explanation": "社会化主体是指有助于文化传承和自我发展的社会机构和群体；地理是一个物理因素，而不是社会主体。"
+     },
+     {
+      "id": "q17",
+      "type": "single",
+      "prompt": "在社会学中，“地位”（status）与“角色”（role）的主要区别是什么？",
+      "options": [
+       "地位是一种行动，而角色是一种社会位置。",
+       "地位是一种社会位置，而角色是该位置所期望的行为。",
+       "地位总是成就地位，而角色总是先赋角色。",
+       "地位只存在于小群体中，而角色存在于大型组织中。"
+      ],
+      "correctAnswers": [
+       "地位是一种社会位置，而角色是该位置所期望的行为。"
+      ],
+      "explanation": "你 *占据* 一个地位（如“学生”），但你 *扮演* 一个角色（如“学习”或“去上课”）。"
+     },
+     {
+      "id": "q18",
+      "type": "animation",
+      "prompt": "随着模拟的进行，为什么物质文化曲线与非物质文化曲线之间的“滞后差距”（Lag Gap）往往在技术激增后不久会扩大？",
+      "options": [
+       "因为发明技术工具本质上比就如何使用它们建立社会共识要容易。",
+       "因为社会在技术成为日常生活的主导力量之前，会有意忽略它。",
+       "因为非物质文化旨在抵制变革，而物质文化旨在被淘汰。",
+       "因为实施新法律的成本高于发明新数字工具的成本。"
+      ],
+      "correctAnswers": [
+       "因为发明技术工具本质上比就如何使用它们建立社会共识要容易。"
+      ],
+      "explanation": "物质文化（技术）可以通过个人创新快速改变，但非物质文化需要集体协商，从而在模拟中产生明显的差距。",
+      "animationHtml": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>物质文化与非物质文化趋势</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696; /* Material Culture */\n            --amber: #c47c00;  /* Non-Material Culture */\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        h1 {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-container {\n            width: 100%;\n            background: var(--bg);\n            position: relative;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-serif {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .axis-label {\n            font-family: -apple-system, sans-serif;\n            font-size: 11px;\n            fill: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n        }\n\n        .readout-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 20px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n            gap: 4px;\n        }\n\n        .readout-label {\n            font-size: 11px;\n            color: var(--muted);\n            text-transform: uppercase;\n            letter-spacing: 0.02em;\n        }\n\n        .readout-value {\n            font-size: 16px;\n            font-weight: 500;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .color-mat { color: var(--accent); }\n        .color-non { color: var(--amber); }\n\n        .legend {\n            display: flex;\n            gap: 16px;\n            font-size: 12px;\n            color: var(--ink);\n            justify-content: center;\n            margin-top: 4px;\n        }\n\n        .legend-item {\n            display: flex;\n            align-items: center;\n            gap: 6px;\n        }\n\n        .swatch {\n            width: 12px;\n            height: 2px;\n        }\n\n        .lag-bracket {\n            stroke: var(--ink);\n            stroke-width: 1px;\n            fill: none;\n        }\n\n        .lag-text {\n            font-family: Georgia, \"PingFang SC\", serif;\n            font-style: italic;\n            font-size: 11px;\n            fill: var(--ink);\n        }\n    </style>\n</head>\n<body>\n\n    <h1>物质文化与非物质文化随时间变化的比较</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-container\">\n            <svg class=\"fig\" viewBox=\"0 0 400 220\" aria-hidden=\"true\">\n                <!-- Axes -->\n                <line x1=\"40\" y1=\"180\" x2=\"380\" y2=\"180\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"180\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Axis Labels -->\n                <text x=\"210\" y=\"205\" text-anchor=\"middle\" class=\"axis-label\">时间</text>\n                <text x=\"15\" y=\"100\" text-anchor=\"middle\" transform=\"rotate(-90, 15, 100)\" class=\"axis-label\">发展水平</text>\n\n                <!-- Ticks -->\n                <line x1=\"40\" y1=\"180\" x2=\"40\" y2=\"185\" stroke=\"var(--rule)\" />\n                <line x1=\"380\" y1=\"180\" x2=\"380\" y2=\"185\" stroke=\"var(--rule)\" />\n                \n                <!-- Paths -->\n                <path id=\"path-material\" d=\"\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" />\n                <path id=\"path-non-material\" d=\"\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" />\n                \n                <!-- Current Lag Indicator -->\n                <g id=\"lag-indicator\">\n                    <line id=\"lag-line\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"0\" stroke=\"var(--ink)\" stroke-width=\"1\" stroke-dasharray=\"2,2\" />\n                    <path id=\"lag-bracket\" class=\"lag-bracket\" d=\"\" />\n                    <text id=\"lag-label\" class=\"lag-text\" x=\"0\" y=\"0\">滞后差距</text>\n                </g>\n\n                <!-- Current points -->\n                <circle id=\"dot-material\" r=\"3\" fill=\"var(--accent)\" />\n                <circle id=\"dot-non-material\" r=\"3\" fill=\"var(--amber)\" />\n            </svg>\n        </div>\n\n        <div class=\"legend\">\n            <div class=\"legend-item\">\n                <div class=\"swatch\" style=\"background: var(--accent);\"></div>\n                <span>物质文化</span>\n            </div>\n            <div class=\"legend-item\">\n                <div class=\"swatch\" style=\"background: var(--amber);\"></div>\n                <span>非物质文化</span>\n            </div>\n        </div>\n\n        <div class=\"readout-grid\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">物质文化指数</span>\n                <span id=\"val-mat\" class=\"readout-value color-mat\">0.0</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">非物质文化指数</span>\n                <span id=\"val-non\" class=\"readout-value color-non\">0.0</span>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        const svg = document.querySelector('.fig');\n        const pathMat = document.getElementById('path-material');\n        const pathNon = document.getElementById('path-non-material');\n        const dotMat = document.getElementById('dot-material');\n        const dotNon = document.getElementById('dot-non-material');\n        const valMat = document.getElementById('val-mat');\n        const valNon = document.getElementById('val-non');\n        const lagBracket = document.getElementById('lag-bracket');\n        const lagLabel = document.getElementById('lag-label');\n        const lagLine = document.getElementById('lag-line');\n\n        // Deterministic Pseudo-Random Generator\n        let seed = 42;\n        function random() {\n            seed = (seed * 16807) % 2147483647;\n            return (seed - 1) / 2147483646;\n        }\n\n        const DURATION = 12000; // 12 seconds for full loop\n        const MARGIN_X = 40;\n        const MARGIN_Y = 180;\n        const WIDTH = 340;\n        const HEIGHT = 160;\n\n        // Generate data once\n        const points = 200;\n        const dataMat = [];\n        const dataNon = [];\n        \n        let currentMat = 10;\n        let currentNon = 10;\n        let lastStepTime = 0;\n\n        for (let i = 0; i <= points; i++) {\n            const t = i / points;\n            \n            // Material: frequent upward spikes/jumps\n            if (random() < 0.1) {\n                currentMat += 15 + random() * 20;\n            } else {\n                currentMat += 0.5;\n            }\n            \n            // Non-material: slow, flat steps\n            // Only updates every 40 points, lagging behind\n            if (i % 45 === 0) {\n                currentNon = currentMat * 0.4 + (dataNon.length > 0 ? dataNon[dataNon.length-1].y : 10) * 0.6;\n            }\n            \n            dataMat.push({ x: t, y: currentMat });\n            dataNon.push({ x: t, y: currentNon });\n        }\n\n        // Normalize Y\n        const maxVal = Math.max(...dataMat.map(d => d.y));\n        dataMat.forEach(d => d.y = MARGIN_Y - (d.y / maxVal) * HEIGHT);\n        dataNon.forEach(d => d.y = MARGIN_Y - (d.y / maxVal) * HEIGHT);\n\n        function animate(timestamp) {\n            const elapsed = timestamp % DURATION;\n            const progress = elapsed / DURATION;\n            \n            const currentIndex = Math.floor(progress * points);\n            \n            let dMat = `M ${MARGIN_X + dataMat[0].x * WIDTH} ${dataMat[0].y}`;\n            let dNon = `M ${MARGIN_X + dataNon[0].x * WIDTH} ${dataNon[0].y}`;\n            \n            for (let i = 1; i <= currentIndex; i++) {\n                dMat += ` L ${MARGIN_X + dataMat[i].x * WIDTH} ${dataMat[i].y}`;\n                dNon += ` L ${MARGIN_X + dataNon[i].x * WIDTH} ${dataNon[i].y}`;\n            }\n            \n            pathMat.setAttribute('d', dMat);\n            pathNon.setAttribute('d', dNon);\n            \n            const curX = MARGIN_X + dataMat[currentIndex].x * WIDTH;\n            const curYMat = dataMat[currentIndex].y;\n            const curYNon = dataNon[currentIndex].y;\n            \n            dotMat.setAttribute('cx', curX);\n            dotMat.setAttribute('cy', curYMat);\n            dotNon.setAttribute('cx', curX);\n            dotNon.setAttribute('cy', curYNon);\n            \n            valMat.textContent = ((MARGIN_Y - curYMat) / 1.6).toFixed(1);\n            valNon.textContent = ((MARGIN_Y - curYNon) / 1.6).toFixed(1);\n\n            // Update Bracket\n            const bracketX = curX + 8;\n            const bTop = Math.min(curYMat, curYNon);\n            const bBot = Math.max(curYMat, curYNon);\n            \n            if (bBot - bTop > 5) {\n                lagBracket.setAttribute('d', `M ${bracketX-4} ${bTop} L ${bracketX} ${bTop} L ${bracketX} ${bBot} L ${bracketX-4} ${bBot}`);\n                lagLabel.setAttribute('x', bracketX + 6);\n                lagLabel.setAttribute('y', (bTop + bBot) / 2 + 4);\n                lagLabel.style.opacity = 1;\n                lagLine.setAttribute('x1', curX);\n                lagLine.setAttribute('x2', bracketX);\n                lagLine.setAttribute('y1', curYMat);\n                lagLine.setAttribute('y2', curYMat);\n                lagLine.style.opacity = 0.3;\n            } else {\n                lagBracket.setAttribute('d', '');\n                lagLabel.style.opacity = 0;\n                lagLine.style.opacity = 0;\n            }\n\n            requestAnimationFrame(animate);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n                parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n        });\n\n        const resizeObserver = new ResizeObserver(reportHeight);\n        resizeObserver.observe(document.body);\n    </script>\n</body>\n</html>"
+     }
+    ]
+   },
+   {
+    "unitId": "unit3",
+    "title": "不平等与社会分层考试",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "single",
+      "prompt": "根据材料中提供的建筑楼层类比，为什么在顶层的人拥有“更好的视野”？",
+      "options": [
+       "因为他们拥有卓越的个人眼光和才能",
+       "因为他们在建筑结构中所处的特定位置",
+       "因为他们比底层的人工作更努力",
+       "因为他们为了获得更好的视角而选择了搬到更高的楼层"
+      ],
+      "correctAnswers": [
+       "因为他们在建筑结构中所处的特定位置"
+      ],
+      "explanation": "这个类比说明了社会分层是社会（结构）的一个特征，而不是个人差异或个人功绩的反映。"
+     },
+     {
+      "id": "q2",
+      "type": "multiple",
+      "prompt": "以下哪些被定义为任何分层系统的三大支柱？",
+      "options": [
+       "世代间的持续性",
+       "普遍性但表现形式各异",
+       "意识形态或信仰的支持",
+       "在任何情况下都完全的社会封闭",
+       "成就地位的公平分配"
+      ],
+      "correctAnswers": [
+       "世代间的持续性",
+       "普遍性但表现形式各异",
+       "意识形态或信仰的支持"
+      ],
+      "explanation": "社会围绕历史持续性、全球各种形式的存在以及证明等级制度合理性的文化意识形态来组织社会分层。"
+     },
+     {
+      "id": "q3",
+      "type": "fill",
+      "prompt": "在 ____ 制度中，社会地位由出生决定且终身固定，通常通过内部通婚来维持。",
+      "correctAnswers": [
+       "caste",
+       "Caste"
+      ],
+      "placeholder": "输入系统类型",
+      "explanation": "种姓制度是一种“封闭式”的阶层化系统，其特征在于先赋地位（由出生决定的地位），且几乎没有或完全没有社会流动性。"
+     },
+     {
+      "id": "q4",
+      "type": "single",
+      "prompt": "卡尔·马克思（Karl Marx）主要如何定义一个人的社会阶层？",
+      "options": [
+       "根据其职业在社会中享有的声望水平",
+       "根据其年收入和消费习惯",
+       "根据其与生产资料（means of production）的关系",
+       "根据其能够行使的政治权力的大小"
+      ],
+      "correctAnswers": [
+       "根据其与生产资料（means of production）的关系"
+      ],
+      "explanation": "马克思的二元观点侧重于一个人是拥有生产资料（资产阶级，Bourgeoisie），还是必须出卖劳动力才能生存（无产阶级，Proletariat）。"
+     },
+     {
+      "id": "q5",
+      "type": "multiple",
+      "prompt": "马克斯·韦伯（Max Weber）的“阶层化三要素理论”包括以下哪些维度？",
+      "options": [
+       "财产（经济阶层）",
+       "权力（政治影响力）",
+       "声望（社会地位）",
+       "最低热量摄入",
+       "遗传生物学特征"
+      ],
+      "correctAnswers": [
+       "财产（经济阶层）",
+       "权力（政治影响力）",
+       "声望（社会地位）"
+      ],
+      "explanation": "韦伯认为社会阶层化是多维的，涉及经济资源、政治影响力和社会地位/荣誉。"
+     },
+     {
+      "id": "q6",
+      "type": "fill",
+      "prompt": "一个人的社会地位在财产、权力和声望这三个维度上保持一致的程度被称为 ____。",
+      "correctAnswers": [
+       "status consistency",
+       "Status Consistency"
+      ],
+      "placeholder": "输入一个四字词语",
+      "explanation": "地位一致性（Status consistency）衡量的是一个人在韦伯的三个维度上是否平衡；高收入但低声望的人其地位一致性较低。"
+     },
+     {
+      "id": "q7",
+      "type": "single",
+      "prompt": "如果一名高薪外科医生在一家他不拥有的公立医院系统中工作，按照严格的马克思主义分类，应如何定义他们？",
+      "options": [
+       "资产阶级，因为他们拥有高收入",
+       "无产阶级，因为他们出卖劳动力",
+       "地位不一致，因为他们拥有很高的声望",
+       "上层阶级，因为他们是专业人士"
+      ],
+      "correctAnswers": [
+       "无产阶级，因为他们出卖劳动力"
+      ],
+      "explanation": "马克思主义关注所有权；如果一个人不拥有生产资料（医院），无论其薪水多高，从技术层面讲，他们都属于劳动阶级。"
+     },
+     {
+      "id": "q8",
+      "type": "multiple",
+      "prompt": "代际流动与代内流动之间有什么区别？",
+      "options": [
+       "代际流动（Intergenerational mobility）比较子女与父母的地位。",
+       "代内流动（Intragenerational mobility）考查个体在其自身职业生涯中的变动。",
+       "代际流动只衡量水平流动。",
+       "代内流动仅用于种姓制度。",
+       "两者都是在不同时间尺度上衡量“美国梦”的实现程度。"
+      ],
+      "correctAnswers": [
+       "代际流动（Intergenerational mobility）比较子女与父母的地位。",
+       "代内流动（Intragenerational mobility）考查个体在其自身职业生涯中的变动。",
+       "两者都是在不同时间尺度上衡量“美国梦”的实现程度。"
+      ],
+      "explanation": "Inter- 表示代“际”之间；Intra- 表示单个人职业生涯或一生“内”。两者都有助于社会学家追踪一个社会的“开放”程度。"
+     },
+     {
+      "id": "q9",
+      "type": "fill",
+      "prompt": "“精英政治神话”（Meritocracy Myth）是指这样一种观点：无论起点如何，社会流动的箭头对每个人来说都是 ____ 移动的。",
+      "correctAnswers": [
+       "equally",
+       "the same"
+      ],
+      "placeholder": "输入一个副词",
+      "explanation": "精英政治的神话暗示了一个公平的竞争环境，却忽略了先赋地位如何“把关”或影响通往成功的路径。"
+     },
+     {
+      "id": "q10",
+      "type": "single",
+      "prompt": "以下哪种情景最能说明“水平流动”（Horizontal Mobility）？",
+      "options": [
+       "一名仓库工人被提升为区域经理",
+       "一名成功的律师决定转行成为一名职业厨师",
+       "一名工厂工人的孩子成为了医生",
+       "一名首席执行官因市场崩盘而失去财富"
+      ],
+      "correctAnswers": [
+       "一名成功的律师决定转行成为一名职业厨师"
+      ],
+      "explanation": "水平流动涉及角色或职业的转换，但其整体社会地位或在等级制度中的位置没有发生显著变化。"
+     },
+     {
+      "id": "q11",
+      "type": "multiple",
+      "prompt": "根据 Max Weber 的观点，一个人的“生活机会” (Life Chances) 对哪些核心方面的影响最大？",
+      "options": [
+       "健康与营养状况",
+       "受教育机会",
+       "生物本能",
+       "寿命与预期寿命",
+       "个人音乐品味"
+      ],
+      "correctAnswers": [
+       "健康与营养状况",
+       "受教育机会",
+       "寿命与预期寿命"
+      ],
+      "explanation": "生活机会是指一个人的生活在健康、教育和生存等领域遵循特定路径的统计概率。"
+     },
+     {
+      "id": "q12",
+      "type": "fill",
+      "prompt": "Weber 的 ____ 概念描述了由于社会地位的不同，而产生的使个人努力变得更有效或更无效的阻力或助力。",
+      "correctAnswers": [
+       "life chances",
+       "Life Chances"
+      ],
+      "placeholder": "输入由两个词组成的术语",
+      "explanation": "生活机会代表了影响个人成功统计概率的结构性优势或劣势。"
+     },
+     {
+      "id": "q13",
+      "type": "single",
+      "prompt": "“结构流动” (Structural Mobility) 的概念对社会阶层变动有何启示？",
+      "options": [
+       "大多数人的上下流动完全取决于个人才能",
+       "经济或技术的转变可以使整个群体发生移动，而无论其个人努力如何",
+       "在现代资本主义社会中，社会流动是不可能的",
+       "向上流动只能通过高等教育实现"
+      ],
+      "correctAnswers": [
+       "经济或技术的转变可以使整个群体发生移动，而无论其个人努力如何"
+      ],
+      "explanation": "结构流动是指当整体经济发生转变（如制造业衰退）时，迫使成千上万人的社会地位同时发生变化。"
+     },
+     {
+      "id": "q14",
+      "type": "multiple",
+      "prompt": "关于教材中描述的阶级制度 (Class system)，哪些说法是正确的？",
+      "options": [
+       "它被认为是一种“开放”的分层体系。",
+       "各阶层之间的界限通常是模糊的，而非法律固定的。",
+       "它主要由经济地位决定。",
+       "宗教法律严禁社会流动。",
+       "起始位置（先赋地位）对最终结果没有影响。"
+      ],
+      "correctAnswers": [
+       "它被认为是一种“开放”的分层体系。",
+       "各阶层之间的界限通常是模糊的，而非法律固定的。",
+       "它主要由经济地位决定。"
+      ],
+      "explanation": "阶级制度允许流动并基于经济因素，尽管它们并非完美的功绩制 (meritocratic)。"
+     },
+     {
+      "id": "q15",
+      "type": "single",
+      "prompt": "“相对贫困” (Relative Poverty) 与“绝对贫困” (Absolute Poverty) 有何不同？",
+      "options": [
+       "相对贫困是指缺乏清洁饮水等基本生物必需品",
+       "相对贫困是根据个人与所在社会平均生活水平相比的匮乏程度来定义的",
+       "绝对贫困仅存在于美国",
+       "相对贫困意味着个人无法获得最低热量摄入"
+      ],
+      "correctAnswers": [
+       "相对贫困是根据个人与所在社会平均生活水平相比的匮乏程度来定义的"
+      ],
+      "explanation": "绝对贫困关乎生理生存；相对贫困则关乎基于特定社会标准（如缺乏互联网）的社会排斥。"
+     },
+     {
+      "id": "q16",
+      "type": "multiple",
+      "prompt": "在关于社会流动的课程中，哪些因素可能导致大规模人口的“向下结构流动”？",
+      "options": [
+       "制造业的衰退",
+       "自动化和人工智能的兴起",
+       "普遍的个人懒惰增加",
+       "国家劳动法的修订",
+       "突然向服务型经济转型"
+      ],
+      "correctAnswers": [
+       "制造业的衰退",
+       "自动化和人工智能的兴起",
+       "国家劳动法的修订",
+       "突然向服务型经济转型"
+      ],
+      "explanation": "结构流动是由社会变革（经济、技术、法律）引起的，而非个人的失败。"
+     },
+     {
+      "id": "q17",
+      "type": "single",
+      "prompt": "什么是“健康的社会梯度” (Social Gradient in Health)？",
+      "options": [
+       "认为只有处于绝对贫困中的人才会遭受健康问题",
+       "观察到社会阶梯每上升一级，都对应着更好的健康结果",
+       "认为健康完全是个人饮食和运动选择的结果",
+       "不论阶层向所有公民提供免费医疗服务的政策"
+      ],
+      "correctAnswers": [
+       "观察到社会阶梯每上升一级，都对应着更好的健康结果"
+      ],
+      "explanation": "社会梯度（social gradient）显示了社会阶层与健康之间存在的系统性相关性，这表明资源和地位在每一个层面上都会影响福祉。",
+      "image": {
+       "src": "/api/v1/course-generation/users/marketplaceSeed/courses/091d5945-4f34-4bfc-9d3b-c34b76d62ee5/exam/images/unit3-q17.png",
+       "alt": "图表显示，随着社会阶层的提升，健康状况也随之改善。"
+      }
+     },
+     {
+      "id": "q18",
+      "type": "multiple",
+      "prompt": "根据单元材料，种姓制度（Caste system）的特征有哪些？",
+      "options": [
+       "社会地位在出生时即被确定（先赋地位）。",
+       "它是一种“封闭式”的分层系统。",
+       "通过努力工作来鼓励社会流动。",
+       "通常通过同族通婚（endogamy）来维持。",
+       "它允许频繁的水平和垂直流动。"
+      ],
+      "correctAnswers": [
+       "社会地位在出生时即被确定（先赋地位）。",
+       "它是一种“封闭式”的分层系统。",
+       "通常通过同族通婚（endogamy）来维持。"
+      ],
+      "explanation": "种姓制度具有僵化性，以出身为基础，并通过同族通婚等社会和婚姻规则阻止流动。"
+     },
+     {
+      "id": "q19",
+      "type": "animation",
+      "prompt": "随着模拟的进行，为什么两组人的生活结果差距会随时间而扩大？",
+      "options": [
+       "因为初始资源较多的组会产生复利效应，每一种优势都会促进进一步的收益",
+       "因为资源较少的组在目睹另一组成功时，失去了个人动力",
+       "因为模拟程序随机给屏幕右侧的个体分配了更高的成功率",
+       "因为这两组人在生物学上不同，导致健康和财富路径自然分化"
+      ],
+      "correctAnswers": [
+       "因为初始资源较多的组会产生复利效应，每一种优势都会促进进一步的收益"
+      ],
+      "explanation": "模拟显示，分层是结构性的；初始资源优势（顺风效应）在健康和教育方面创造了累积收益，使差距随时间推移而扩大。",
+      "animationHtml": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>社会分层与生活机遇模拟器</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n            --serif: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            --sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            color: var(--ink);\n            font-family: var(--sans);\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 640px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 12px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .fig-wrapper {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 20px;\n            align-items: start;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .fig text {\n            font-family: var(--serif);\n            font-size: 12px;\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .fig .label-bold {\n            font-family: var(--sans);\n            font-weight: 600;\n            font-style: normal;\n            font-size: 11px;\n            fill: var(--ink);\n        }\n\n        .readouts {\n            display: flex;\n            justify-content: space-around;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n            margin-top: 4px;\n        }\n\n        .readout-item {\n            text-align: center;\n        }\n\n        .readout-label {\n            font-family: var(--serif);\n            font-size: 12px;\n            color: var(--muted);\n            font-style: italic;\n            margin-bottom: 2px;\n        }\n\n        .readout-value {\n            font-family: var(--sans);\n            font-weight: 500;\n            font-size: 14px;\n            font-variant-numeric: tabular-nums;\n        }\n\n        .readout-fixed {\n            font-size: 10px;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            opacity: 0.6;\n            margin-left: 4px;\n        }\n\n        .caption {\n            text-align: center;\n            font-family: var(--serif);\n            font-style: italic;\n            font-size: 12px;\n            color: var(--muted);\n            margin-top: 4px;\n        }\n\n        @media (prefers-reduced-motion: reduce) {\n            .animating { animation: none; }\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">基于初始垂直位置的路径分歧模拟</h1>\n\n    <div class=\"container\">\n        <div class=\"fig-wrapper\">\n            <!-- Scene: The Ladder and Resource Nodes -->\n            <svg class=\"fig\" viewBox=\"0 0 200 300\" aria-label=\"一个带有两组向上移动的人员的垂直阶梯。\">\n                <!-- Grid / Ladder Background -->\n                <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"280\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"280\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <g id=\"rungs\"></g>\n\n                <!-- Resource Nodes (Health/Education) -->\n                <g id=\"nodes\"></g>\n\n                <!-- Group A (Amber) -->\n                <circle id=\"groupA\" cx=\"100\" cy=\"240\" r=\"5\" fill=\"var(--amber)\" stroke=\"var(--bg)\" stroke-width=\"1.5\" />\n                <!-- Group B (Accent) -->\n                <circle id=\"groupB\" cx=\"100\" cy=\"80\" r=\"5\" fill=\"var(--accent)\" stroke=\"var(--bg)\" stroke-width=\"1.5\" />\n                \n                <text x=\"10\" y=\"285\" class=\"label-bold\">底层</text>\n                <text x=\"10\" y=\"25\" class=\"label-bold\">顶层</text>\n            </svg>\n\n            <!-- Graph: Progress Over Time -->\n            <svg class=\"fig\" viewBox=\"0 0 200 300\" aria-label=\"显示随时间进展的折线图。\">\n                <!-- Axes -->\n                <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"270\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <line x1=\"30\" y1=\"270\" x2=\"190\" y2=\"270\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                \n                <text x=\"110\" y=\"290\" text-anchor=\"middle\">时间</text>\n                <text x=\"25\" y=\"150\" text-anchor=\"middle\" transform=\"rotate(-90 25,150)\">位置</text>\n\n                <!-- Ticks -->\n                <line x1=\"30\" y1=\"270\" x2=\"30\" y2=\"275\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <line x1=\"185\" y1=\"270\" x2=\"185\" y2=\"275\" stroke=\"var(--muted)\" stroke-width=\"1\" />\n                <text x=\"185\" y=\"285\" text-anchor=\"middle\">结束</text>\n\n                <!-- Paths -->\n                <path id=\"pathA\" fill=\"none\" stroke=\"var(--amber)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n                <path id=\"pathB\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" stroke-linecap=\"round\" />\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <div class=\"readout-label\">资源节点</div>\n                <div class=\"readout-value\">固定密度<span class=\"readout-fixed\">固定</span></div>\n            </div>\n            <div class=\"readout-item\">\n                <div class=\"readout-label\">组间差距</div>\n                <div id=\"gap-val\" class=\"readout-value\">0 单位</div>\n            </div>\n        </div>\n\n        <div class=\"caption\">在一个完整周期内垂直移动与累积进展的双视图。</div>\n    </div>\n\n    <script>\n        // Seeded random for deterministic resource node placement\n        function seededRandom(seed) {\n            const m = 0x80000000;\n            const a = 1103515245;\n            const c = 12345;\n            let state = seed;\n            return function() {\n                state = (a * state + c) % m;\n                return state / (m - 1);\n            };\n        }\n\n        const rng = seededRandom(42);\n        const nodeGroup = document.getElementById('nodes');\n        const rungGroup = document.getElementById('rungs');\n        const nodes = [];\n\n        // Generate static environment\n        for (let i = 0; i < 15; i++) {\n            const y = 20 + (i * 18);\n            const line = document.createElementNS(\"http://www.w3.org/2000/svg\", \"line\");\n            line.setAttribute(\"x1\", \"40\");\n            line.setAttribute(\"y1\", y);\n            line.setAttribute(\"x2\", \"160\");\n            line.setAttribute(\"y2\", y);\n            line.setAttribute(\"stroke\", \"var(--rule)\");\n            line.setAttribute(\"stroke-width\", \"0.5\");\n            rungGroup.appendChild(line);\n        }\n\n        // Place resource nodes primarily in upper half\n        for (let i = 0; i < 22; i++) {\n            const x = 50 + rng() * 100;\n            const y = 30 + rng() * 240;\n            const circle = document.createElementNS(\"http://www.w3.org/2000/svg\", \"circle\");\n            circle.setAttribute(\"cx\", x);\n            circle.setAttribute(\"cy\", y);\n            circle.setAttribute(\"r\", \"2.5\");\n            circle.setAttribute(\"fill\", \"var(--rule)\");\n            circle.setAttribute(\"opacity\", \"0.6\");\n            nodeGroup.appendChild(circle);\n            nodes.push({x, y});\n        }\n\n        const groupA = document.getElementById('groupA');\n        const groupB = document.getElementById('groupB');\n        const pathA = document.getElementById('pathA');\n        const pathB = document.getElementById('pathB');\n        const gapVal = document.getElementById('gap-val');\n\n        let start = null;\n        const duration = 10000; // 10 seconds per loop\n\n        function animate(timestamp) {\n            if (!start) start = timestamp;\n            let progress = ((timestamp - start) % duration) / duration;\n\n            // Simplified physics:\n            // y_pos = initial - (base_speed * t + accumulated_resources * t^2)\n            // Group B (Top) starts higher and encounters more nodes in the \"upper\" region\n            \n            const startY_A = 260;\n            const startY_B = 120;\n            \n            // Non-linear progress simulation\n            // A moves slower, B hits a \"sweet spot\" of resources and accelerates\n            const t = progress;\n            const posA = startY_A - (120 * t) - (40 * Math.pow(t, 2));\n            const posB = startY_B - (100 * t) - (150 * Math.pow(t, 2));\n\n            // Scene Updates\n            groupA.setAttribute('cy', posA);\n            groupB.setAttribute('cy', posB);\n\n            // Highlight nodes as they are \"passed\"\n            const nodeElements = nodeGroup.children;\n            for(let i=0; i<nodes.length; i++) {\n                if (posA < nodes[i].y && nodes[i].y < startY_A) {\n                    // Group A technically \"passes\" it, but we won't highlight for simplicity\n                }\n                if (posB < nodes[i].y && nodes[i].y < startY_B) {\n                    nodeElements[i].setAttribute('fill', 'var(--accent)');\n                    nodeElements[i].setAttribute('opacity', '1');\n                } else {\n                    nodeElements[i].setAttribute('fill', 'var(--rule)');\n                    nodeElements[i].setAttribute('opacity', '0.6');\n                }\n            }\n\n            // Graph Updates\n            const graphX = 30 + (progress * 155);\n            const graphY_A = 270 - ((startY_A - posA) * 0.9);\n            const graphY_B = 270 - ((startY_B - posB) * 0.9);\n\n            updatePath(pathA, graphX, graphY_A, progress === 0);\n            updatePath(pathB, graphX, graphY_B, progress === 0);\n\n            // Readout\n            const gap = Math.abs(posA - posB).toFixed(1);\n            gapVal.textContent = `${gap} 单位`;\n\n            requestAnimationFrame(animate);\n        }\n\n        let historyA = [];\n        let historyB = [];\n\n        function updatePath(pathEl, x, y, reset) {\n            const hist = pathEl.id === 'pathA' ? historyA : historyB;\n            if (reset) hist.length = 0;\n            hist.push(`${x},${y}`);\n            if (hist.length > 100) hist.shift();\n            pathEl.setAttribute('d', `M ${hist.join(' L ')}`);\n        }\n\n        // Height reporting\n        function reportHeight() {\n            try {\n                parent.postMessage({ \n                    type: 'hk-anim-height', \n                    height: Math.ceil(document.documentElement.getBoundingClientRect().height) \n                }, '*');\n            } catch (e) {}\n        }\n\n        window.addEventListener('load', () => {\n            reportHeight();\n            requestAnimationFrame(animate);\n        });\n\n        const observer = new ResizeObserver(reportHeight);\n        observer.observe(document.body);\n    </script>\n</body>\n</html>"
+     }
+    ]
+   },
+   {
+    "unitId": "unit4",
+    "title": "制度单元考试",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "single",
+      "prompt": "根据“功能契合”（Functional Fit）理论，从大家庭向核心家庭转变的主要驱动力是什么？",
+      "options": [
+       "现代社会保障体系的出现",
+       "工业革命期间对地理流动的需求",
+       "人类育儿本能的生物学演变",
+       "向世俗主义和个人选择的文化转变"
+      ],
+      "correctAnswers": [
+       "工业革命期间对地理流动的需求"
+      ],
+      "explanation": "功能契合理论认为家庭会适应经济需求；工业化需要小型、灵活的单位（核心家庭），以便轻松迁移到城镇中心从事工厂工作。"
+     },
+     {
+      "id": "q2",
+      "type": "multiple",
+      "prompt": "在当代家庭变化的背景下，以下哪些是对延迟结婚的社会学解释，而非仅仅是“缺乏承诺”？",
+      "options": [
+       "“收入效应”（Income Effect）使得稳定的婚姻在人生后期更具经济负担能力",
+       "“经济独立效应”（Economic Independence Effect）允许女性避开不幸福的结合",
+       "对终身伴侣关系欲望的生物学衰退",
+       "对情感满足的要求高于单纯的经济生存",
+       "传统亲属网络的完全消失"
+      ],
+      "correctAnswers": [
+       "“收入效应”（Income Effect）使得稳定的婚姻在人生后期更具经济负担能力",
+       "“经济独立效应”（Economic Independence Effect）允许女性避开不幸福的结合",
+       "对情感满足的要求高于单纯的经济生存"
+      ],
+      "explanation": "社会学家认为延迟结婚是结构性经济转变（收入/独立效应）和对情感亲密关系更高文化标准（个人化婚姻）的结果。"
+     },
+     {
+      "id": "q3",
+      "type": "fill",
+      "prompt": "证书和学位作为就业筛选机制的过程（通常不考虑实际学到的技能）被称为 ____。",
+      "correctAnswers": [
+       "Credentialism",
+       "credential inflation",
+       "credentialing"
+      ],
+      "placeholder": "输入术语"
+     },
+     {
+      "id": "q4",
+      "type": "single",
+      "prompt": "冲突论者（conflict theorist）最有可能认为，名牌大学的学位是：",
+      "options": [
+       "对一个人技术性人力资本的客观衡量",
+       "精英群体用来排斥他人的“成员身份徽章”",
+       "寻找最有才华个体的理性分拣机器",
+       "专业化、高科技经济的必要工具"
+      ],
+      "correctAnswers": [
+       "精英群体用来排斥他人的“成员身份徽章”"
+      ],
+      "explanation": "冲突论者认为教育是社会排斥的工具，其声望的作用是验证精英阶层的文化背景，而不仅仅是技术技能。"
+     },
+     {
+      "id": "q5",
+      "type": "multiple",
+      "prompt": "哪些概念被用来解释学校如何促成“社会再生产”（social reproduction）？",
+      "options": [
+       "隐性课程（Hidden Curriculum）",
+       "文化资本 (Cultural Capital)",
+       "分流与跟踪教育 (Tracking and Streaming)",
+       "精英管理的阶梯 (The Meritocratic Ladder)",
+       "全民读写能力"
+      ],
+      "correctAnswers": [
+       "隐性课程（Hidden Curriculum）",
+       "文化资本 (Cultural Capital)",
+       "分流与跟踪教育 (Tracking and Streaming)"
+      ],
+      "explanation": "社会再生产是通过成文规则以外的隐性课程 (hidden curriculum)、继承而来的社会导航技能（文化资本）以及机构对学生进行的不同路径分类（分流）来实现的。"
+     },
+     {
+      "id": "q6",
+      "type": "fill",
+      "prompt": "安东尼·吉登斯 (Anthony Giddens) 使用“____”一词来描述现代关系，即为了关系本身而进入、且仅在能提供满足感时才维持的关系。",
+      "correctAnswers": [
+       "pure relationship",
+       "pure relationships",
+       "the pure relationship"
+      ],
+      "placeholder": "两个词的术语"
+     },
+     {
+      "id": "q7",
+      "type": "single",
+      "prompt": "对皮埃尔·布尔迪厄 (Pierre Bourdieu) 的“文化资本”最准确的描述是：",
+      "options": [
+       "家庭传给子女的所有金融资产",
+       "赋予地位的语言风格、品味和社交技能",
+       "精英私立学校教授的正式课程",
+       "对更高学术智力的遗传倾向"
+      ],
+      "correctAnswers": [
+       "赋予地位的语言风格、品味和社交技能"
+      ],
+      "explanation": "文化资本是指非财务性的社会资产，例如对“高雅文化”的认知或特定的说话方式，这些资产有助于个人在学校等机构环境中游刃有余。"
+     },
+     {
+      "id": "q8",
+      "type": "multiple",
+      "prompt": "传统学校如何通过隐性课程让工人阶级学生为其“可能的阶级归宿”做准备？",
+      "options": [
+       "通过强调对权威的服从",
+       "通过教导学生如何与管理层谈判",
+       "通过侧重于机械式指令和遵守规则",
+       "通过鼓励自主领导力和创造性的问题解决",
+       "通过训练准时观念和重复性任务"
+      ],
+      "correctAnswers": [
+       "通过强调对权威的服从",
+       "通过侧重于机械式指令和遵守规则",
+       "通过训练准时观念和重复性任务"
+      ],
+      "explanation": "工人阶级学校中的隐性课程往往反映了体力劳动或服务性劳动的要求：服从、重复和准时。"
+     },
+     {
+      "id": "q9",
+      "type": "fill",
+      "prompt": "历史基准家庭形式是 ____ 家庭，其特征是多代同堂、共同劳动并分担风险。",
+      "correctAnswers": [
+       "extended",
+       "extended family"
+      ],
+      "placeholder": "输入形式"
+     },
+     {
+      "id": "q10",
+      "type": "single",
+      "prompt": "哪种现象描述了学生在被“分流”后，因他人对其抱有的期望而导致表现发生变化？",
+      "options": [
+       "筛选效应 (The Screening Effect)",
+       "自我实现预言 (The Self-Fulfilling Prophecy)",
+       "人力资本积累 (Human Capital Accumulation)",
+       "学历贬值 (Credential Inflation)"
+      ],
+      "correctAnswers": [
+       "自我实现预言 (The Self-Fulfilling Prophecy)"
+      ],
+      "explanation": "分流会产生一种自我实现预言，即教师的期望和同伴环境会影响学生的实际成就，使其与被分配的“轨道”相匹配。"
+     },
+     {
+      "id": "q11",
+      "type": "multiple",
+      "prompt": "以下哪些是当代社会“个人化婚姻” (Individualized Marriage) 的特征？",
+      "options": [
+       "关注个人成长和情感满足",
+       "婚姻作为一种僵化的经济生产单位",
+       "双方自主权的增加",
+       "将机构的永久性置于个人幸福之上",
+       "将关系视为一种靠选择维持的“纯粹”纽带"
+      ],
+      "correctAnswers": [
+       "关注个人成长和情感满足",
+       "双方自主权的增加",
+       "将关系视为一种靠选择维持的“纯粹”纽带"
+      ],
+      "explanation": "个人化婚姻将焦点从生存和社会义务转向了个人发展、选择和情感满足。"
+     },
+     {
+      "id": "q12",
+      "type": "fill",
+      "prompt": "当学校将期望与中产阶级学生的“文化资本”对齐时，就会产生一种常被误认为是先天智力的 ____。",
+      "correctAnswers": [
+       "halo effect",
+       "bias"
+      ],
+      "placeholder": "输入术语"
+     },
+     {
+      "id": "q13",
+      "type": "single",
+      "prompt": "从功能主义视角看，教育在专业化经济中的首要作用是什么？",
+      "options": [
+       "维持统治阶级的统治地位",
+       "作为一个“分拣机”，将人才与复杂的角色进行匹配",
+       "向学生灌输特定的宗教意识形态",
+       "人为抬高高地位学位的价值"
+      ],
+      "correctAnswers": [
+       "作为一个“分拣机”，将人才与复杂的角色进行匹配"
+      ],
+      "explanation": "功能主义者（Functionalists）将教育视为一个理性的系统，旨在识别有技能的人才，并使他们准备好满足复杂劳动力市场的特定需求。"
+     },
+     {
+      "id": "q14",
+      "type": "multiple",
+      "prompt": "在美国，学校资金通常如何导致社会再生产 (social reproduction)？",
+      "options": [
+       "通过依赖地方财产税，导致不同学区之间出现差异",
+       "通过确保每位学生获得完全相同的人均预算",
+       "通过为郊区学校提供更多资源以开设高级课程",
+       "通过消除城市学区对私人捐赠的需求",
+       "通过设施质量为不平等创造“物质支柱”"
+      ],
+      "correctAnswers": [
+       "通过依赖地方财产税，导致不同学区之间出现差异",
+       "通过为郊区学校提供更多资源以开设高级课程",
+       "通过设施质量为不平等创造“物质支柱”"
+      ],
+      "explanation": "基于财产税的融资模式创造了一种循环，即富裕地区的学校拥有更充裕的资金，从而巩固了居住在当地儿童的阶级优势。"
+     },
+     {
+      "id": "q15",
+      "type": "single",
+      "prompt": "为什么一些现代社会学家会对高离婚率给出积极的解释？",
+      "options": [
+       "这表明家庭的经济生存正变得越来越困难",
+       "这表明社会对情感生活质量的重视超过了婚姻的持久度",
+       "这证明了人们在根本上正变得越来越缺乏爱的能力",
+       "这导致了家庭总数的减少"
+      ],
+      "correctAnswers": [
+       "这表明社会对情感生活质量的重视超过了婚姻的持久度"
+      ],
+      "explanation": "在“流动的爱”(Liquid Love) 和个体化婚姻的时代，离开一段不幸福关系的能力被视为行使自主权和优先考虑情感健康。 "
+     },
+     {
+      "id": "q16",
+      "type": "multiple",
+      "prompt": "在从“同伴式”向“个体化”婚姻转型的过程中，发生了哪些变化？",
+      "options": [
+       "衡量成功婚姻的“门槛”升高，包含了对深度亲密的追求",
+       "严格的性别角色对家庭而言变得更具功能性",
+       "经济生存成为维持婚姻的主要原因",
+       "僵化的传统角色被灵活、基于选择的角色所取代",
+       "离婚作为一种成长的途径，在社会上变得更被接受"
+      ],
+      "correctAnswers": [
+       "衡量成功婚姻的“门槛”升高，包含了对深度亲密的追求",
+       "僵化的传统角色被灵活、基于选择的角色所取代",
+       "离婚作为一种成长的途径，在社会上变得更被接受"
+      ],
+      "explanation": "这种转变涉及从 20 世纪中期那种僵化的、以生存为基础的角色，转向基于亲密关系、个人成长和灵活性的模式。"
+     },
+     {
+      "id": "q17",
+      "type": "animation",
+      "prompt": "根据对“文凭通胀”(Credential Inflation) 的长期模拟，为什么劳动力市场最终会要求曾由高中毕业生担任的职位需具备硕士学位？",
+      "options": [
+       "因为随着学位持有者群体的扩大，较低学位的相对稀缺性和信号价值（signaling value）会下降。",
+       "因为基础行政任务的技术复杂性每十年都以指数级速度增长。",
+       "因为随着国民智商的提高，法律要求雇主提高教育标准。",
+       "因为大学降低了标准，以确保每个学生无论付出多少努力都能毕业。"
+      ],
+      "correctAnswers": [
+       "因为随着学位持有者群体的扩大，较低学位的相对稀缺性和信号价值（signaling value）会下降。"
+      ],
+      "explanation": "模拟显示，随着获得特定学位的人数增加，其作为筛选机制的价值就会下降，迫使个人寻求更高的文凭，以便在“逐底竞争”中脱颖而出。",
+      "animationHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Credential Distribution and Job Requirements Simulation</title>\n    <style>\n        :root {\n            --bg: #faf9f7;\n            --ink: #1f1f1f;\n            --muted: #8a8a8a;\n            --rule: #d8d5d0;\n            --accent: #4C6696;\n            --amber: #c47c00;\n        }\n\n        html, body {\n            background: var(--bg);\n            margin: 0;\n            padding: 0;\n            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n            overflow: hidden;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 600px;\n            margin: 0 auto;\n            padding: 16px;\n            box-sizing: border-box;\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n        }\n\n        .visually-hidden {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            border: 0;\n        }\n\n        .figure-container {\n            width: 100%;\n            position: relative;\n        }\n\n        .fig {\n            width: 100%;\n            height: auto;\n            display: block;\n        }\n\n        .label-text {\n            font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, serif;\n            font-size: clamp(11px, 2.5vw, 13px);\n            fill: var(--muted);\n            font-style: italic;\n        }\n\n        .axis-label {\n            font-family: -apple-system, sans-serif;\n            font-size: 11px;\n            fill: var(--muted);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .degree-label {\n            font-family: -apple-system, sans-serif;\n            font-weight: 500;\n            font-size: 12px;\n            fill: var(--ink);\n        }\n\n        .readouts {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 12px;\n            border-top: 1px solid var(--rule);\n            padding-top: 12px;\n        }\n\n        .readout-item {\n            display: flex;\n            flex-direction: column;\n        }\n\n        .readout-label {\n            font-family: Georgia, serif;\n            font-size: 11px;\n            color: var(--muted);\n            font-style: italic;\n        }\n\n        .readout-value {\n            font-size: 14px;\n            font-weight: 600;\n            color: var(--ink);\n            font-variant-numeric: tabular-nums;\n        }\n\n        .caption {\n            font-family: Georgia, serif;\n            font-size: 12px;\n            color: var(--muted);\n            text-align: center;\n            font-style: italic;\n            margin-top: 4px;\n        }\n    </style>\n</head>\n<body>\n    <h1 class=\"visually-hidden\">Simulation of degree attainment levels and changing job requirements over time</h1>\n\n    <div class=\"container\">\n        <div class=\"figure-container\">\n            <svg class=\"fig\" viewBox=\"0 0 400 240\" aria-label=\"A chart showing educational attainment rising over time and the corresponding jump in entry-level job requirements.\">\n                <!-- Grid & Axes -->\n                <line x1=\"80\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                <line x1=\"80\" y1=\"40\" x2=\"80\" y2=\"200\" stroke=\"var(--rule)\" stroke-width=\"1\" />\n                \n                <!-- Time Axis -->\n                <text x=\"230\" y=\"230\" text-anchor=\"middle\" class=\"label-text\">Timeline (Progressive Era)</text>\n                <line x1=\"80\" y1=\"205\" x2=\"80\" y2=\"200\" stroke=\"var(--muted)\" />\n                <line x1=\"380\" y1=\"205\" x2=\"380\" y2=\"200\" stroke=\"var(--muted)\" />\n                \n                <!-- Education Bars Backgrounds -->\n                <!-- High School -->\n                <rect x=\"85\" y=\"160\" width=\"290\" height=\"24\" fill=\"var(--bg)\" stroke=\"var(--rule)\" stroke-dasharray=\"2,2\" />\n                <text x=\"75\" y=\"177\" text-anchor=\"end\" class=\"degree-label\">High School</text>\n                \n                <!-- Bachelor's -->\n                <rect x=\"85\" y=\"120\" width=\"290\" height=\"24\" fill=\"var(--bg)\" stroke=\"var(--rule)\" stroke-dasharray=\"2,2\" />\n                <text x=\"75\" y=\"137\" text-anchor=\"end\" class=\"degree-label\">Bachelor's</text>\n                \n                <!-- Master's -->\n                <rect x=\"85\" y=\"80\" width=\"290\" height=\"24\" fill=\"var(--bg)\" stroke=\"var(--rule)\" stroke-dasharray=\"2,2\" />\n                <text x=\"75\" y=\"97\" text-anchor=\"end\" class=\"degree-label\">Master's</text>\n\n                <!-- Active Fill Bars -->\n                <rect id=\"bar-hs\" x=\"85\" y=\"160\" width=\"0\" height=\"24\" fill=\"var(--accent)\" fill-opacity=\"0.2\" stroke=\"var(--accent)\" stroke-width=\"1\" />\n                <rect id=\"bar-ba\" x=\"85\" y=\"120\" width=\"0\" height=\"24\" fill=\"var(--accent)\" fill-opacity=\"0.2\" stroke=\"var(--accent)\" stroke-width=\"1\" />\n                <rect id=\"bar-ma\" x=\"85\" y=\"80\" width=\"0\" height=\"24\" fill=\"var(--accent)\" fill-opacity=\"0.2\" stroke=\"var(--accent)\" stroke-width=\"1\" />\n\n                <!-- Job Requirement Marker -->\n                <g id=\"job-req-group\">\n                    <rect id=\"job-req-bg\" x=\"85\" y=\"40\" width=\"120\" height=\"20\" rx=\"2\" fill=\"var(--amber)\" fill-opacity=\"0.1\" />\n                    <text id=\"job-req-text\" x=\"90\" y=\"54\" class=\"degree-label\" style=\"fill: var(--amber); font-size: 10px; font-weight: 700;\">JOB REQUIREMENT</text>\n                    <path id=\"job-req-arrow\" d=\"M 0 0 L 0 10\" stroke=\"var(--amber)\" stroke-width=\"2\" marker-end=\"url(#arrowhead)\" />\n                </g>\n\n                <!-- Current Time Marker (The Indicator) -->\n                <line id=\"time-marker\" x1=\"80\" y1=\"40\" x2=\"80\" y2=\"200\" stroke=\"var(--muted)\" stroke-width=\"1\" stroke-dasharray=\"4,2\" />\n                \n                <defs>\n                    <marker id=\"arrowhead\" markerWidth=\"6\" markerHeight=\"6\" refX=\"0\" refY=\"3\" orientation=\"auto\">\n                        <polygon points=\"0 0, 6 3, 0 6\" fill=\"var(--amber)\" />\n                    </marker>\n                </defs>\n            </svg>\n        </div>\n\n        <div class=\"readouts\">\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Population with Degree</span>\n                <span id=\"pop-attainment\" class=\"readout-value\">0%</span>\n            </div>\n            <div class=\"readout-item\">\n                <span class=\"readout-label\">Entry-Level Threshold</span>\n                <span id=\"req-level\" class=\"readout-value\">None</span>\n            </div>\n        </div>\n\n        <div class=\"caption\">Tracking educational attainment vs. required qualifications for the same role.</div>\n    </div>\n\n    <script>\n        const state = {\n            t: 0, // 0 to 1\n            duration: 12000,\n            startTime: null\n        };\n\n        const elements = {\n            barHs: document.getElementById('bar-hs'),\n            barBa: document.getElementById('bar-ba'),\n            barMa: document.getElementById('bar-ma'),\n            timeMarker: document.getElementById('time-marker'),\n            jobReqGroup: document.getElementById('job-req-group'),\n            jobReqText: document.getElementById('job-req-text'),\n            jobReqArrow: document.getElementById('job-req-arrow'),\n            jobReqBg: document.getElementById('job-req-bg'),\n            readoutAttainment: document.getElementById('pop-attainment'),\n            readoutReq: document.getElementById('req-level')\n        };\n\n        function lerp(a, b, t) {\n            return a + (b - a) * t;\n        }\n\n        // Logistic-like growth curves for the three degrees\n        function getAttainment(t) {\n            // High School starts first, then Bachelor's, then Master's\n            const hs = Math.min(100, Math.max(0, lerp(-20, 150, t)));\n            const ba = Math.min(100, Math.max(0, lerp(-60, 130, t)));\n            const ma = Math.min(100, Math.max(0, lerp(-90, 110, t)));\n            return { \n                hs: Math.min(100, hs), \n                ba: Math.min(100, ba), \n                ma: Math.min(100, ma) \n            };\n        }\n\n        function update(timestamp) {\n            if (!state.startTime) state.startTime = timestamp;\n            const elapsed = timestamp - state.startTime;\n            state.t = (elapsed % state.duration) / state.duration;\n\n            const data = getAttainment(state.t);\n            const barMaxWidth = 290;\n            const originX = 85;\n\n            // Update Bars\n            elements.barHs.setAttribute('width', (data.hs / 100) * barMaxWidth);\n            elements.barBa.setAttribute('width', (data.ba / 100) * barMaxWidth);\n            elements.barMa.setAttribute('width', (data.ma / 100) * barMaxWidth);\n\n            // Update Time Marker\n            const timeX = 80 + (state.t * 300);\n            elements.timeMarker.setAttribute('x1', timeX);\n            elements.timeMarker.setAttribute('x2', timeX);\n\n            // Determine Job Requirement Level\n            let reqText = \"None\";\n            let reqY = 200;\n            let currentHighestAttainment = 0;\n\n            if (data.hs > 75) {\n                reqText = \"MASTER'S DEGREE\";\n                reqY = 80;\n                currentHighestAttainment = data.ma;\n            } else if (data.hs > 40) {\n                reqText = \"BACHELOR'S DEGREE\";\n                reqY = 120;\n                currentHighestAttainment = data.ba;\n            } else if (data.hs > 10) {\n                reqText = \"HIGH SCHOOL\";\n                reqY = 160;\n                currentHighestAttainment = data.hs;\n            }\n\n            // Move Requirement Marker\n            // Smoothly vertical transition for the arrow\n            const currentY = parseFloat(elements.jobReqArrow.dataset.y || 200);\n            const targetY = reqY;\n            const newY = currentY + (targetY - currentY) * 0.1;\n            elements.jobReqArrow.dataset.y = newY;\n            \n            elements.jobReqArrow.setAttribute('d', `M ${originX + 10} ${newY - 5} L ${originX + 10} ${newY + 15}`);\n            elements.jobReqText.setAttribute('y', newY - 10);\n            elements.jobReqText.textContent = `REQ: ${reqText}`;\n            elements.jobReqBg.setAttribute('y', newY - 24);\n            elements.jobReqBg.setAttribute('width', elements.jobReqText.getComputedTextLength() + 10);\n\n            // Update Readouts\n            elements.readoutAttainment.textContent = `${Math.round(data.hs)}% HS, ${Math.round(data.ba)}% BA`;\n            elements.readoutReq.textContent = reqText === \"None\" ? \"No degree\" : reqText.toLowerCase();\n\n            requestAnimationFrame(update);\n        }\n\n        // Height reporting\n        const reportHeight = () => {\n            try {\n                parent.postMessage({ type: 'hk-anim-height', height: Math.ceil(document.documentElement.getBoundingClientRect().height) }, '*');\n            } catch (e) {}\n        };\n\n        window.addEventListener('load', () => {\n            requestAnimationFrame(update);\n            reportHeight();\n        });\n\n        new ResizeObserver(reportHeight).observe(document.body);\n    </script>\n</body>\n</html>"
+     }
+    ]
+   },
+   {
+    "unitId": "unit5",
+    "title": "偏差与社会变迁综合考试",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "single",
+      "prompt": "根据关于偏差（deviance）的社会学观点，为什么在法庭穿泳装被视为偏差行为，而在海滩穿泳装却不是？",
+      "options": [
+       "因为这种行为本身就是不道德的，且对法律不尊重",
+       "因为偏差是社会情境和他人反应的属性",
+       "因为法庭是正式机构，而海滩是私人空间",
+       "因为去海滩的人天生更容易产生不从众行为"
+      ],
+      "correctAnswers": [
+       "因为偏差是社会情境和他人反应的属性"
+      ],
+      "explanation": "从社会学角度来看，偏差不是行为本身固有的品质，而是相对于社会情境（空间）以及社会对特定环境下违反规范行为的反应而言的。"
+     },
+     {
+      "id": "q2",
+      "type": "multiple",
+      "prompt": "以下哪些是非正式社会控制（informal social control）机制的例子？",
+      "options": [
+       "法官判处被告进行社区服务",
+       "一群朋友对某人的粗鲁言论翻白眼",
+       "陌生人盯着一个在公共场合挖鼻子的人看",
+       "警察开出乱扔垃圾的罚单",
+       "父母因孩子违反宵禁而对其禁足"
+      ],
+      "correctAnswers": [
+       "一群朋友对某人的粗鲁言论翻白眼",
+       "陌生人盯着一个在公共场合挖鼻子的人看",
+       "父母因孩子违反宵禁而对其禁足"
+      ],
+      "explanation": "非正式社会控制（Informal social control）指的是社会执行规范的非官方方式，例如面部表情、八卦或父母管教；而正式控制则涉及法律体系和国家机构。"
+     },
+     {
+      "id": "q3",
+      "type": "fill",
+      "prompt": "根据 Robert Merton 的压力理论（Strain Theory），____ 这一类别描述了那些接受财富等文化目标，但通过非法或非传统手段去实现这些目标的人。",
+      "correctAnswers": [
+       "Innovation",
+       "innovators",
+       "innovator"
+      ],
+      "placeholder": "输入术语"
+     },
+     {
+      "id": "q4",
+      "type": "single",
+      "prompt": "在标签理论（Labeling Theory）中，“主导身份”（Master Status）是如何导致继发性越轨的？",
+      "options": [
+       "它为个人提供了实施更严重犯罪的经济资源",
+       "它作为一个主要标签掩盖了所有其他身份，限制了合法机会",
+       "它允许个人成功地向社区隐藏其过去的越轨行为",
+       "它代表了个人实施轻微不符合规范行为的初始阶段"
+      ],
+      "correctAnswers": [
+       "它作为一个主要标签掩盖了所有其他身份，限制了合法机会"
+      ],
+      "explanation": "像“前科犯”这样的主导身份，会成为他人审视该个体的首要棱镜，由于他们被排斥在常规社会角色之外，往往被迫进一步陷入越轨。"
+     },
+     {
+      "id": "q5",
+      "type": "multiple",
+      "prompt": "Hirschi 的控制理论（Control Theory）认为社会纽带可以防止越轨。以下哪些元素属于这些社会纽带？",
+      "options": [
+       "对重要他人的依恋",
+       "对常规目标的投入",
+       "对体制的经济挫折感",
+       "对合法活动的参与",
+       "对越轨标签的内化"
+      ],
+      "correctAnswers": [
+       "对重要他人的依恋",
+       "对常规目标的投入",
+       "对合法活动的参与"
+      ],
+      "explanation": "Hirschi 确定了四种纽带：依恋（Attachment）、投入（Commitment）、参与（Involvement）和信念（Belief）。这些“社会胶水”使个体与社会保持融合，从而减少越轨的可能性。"
+     },
+     {
+      "id": "q6",
+      "type": "fill",
+      "prompt": "____ 调查是一种方法论工具，通过询问个人有关其犯罪行为的亲身经历，来揭示“犯罪黑数”（Dark Figure of Crime）。",
+      "correctAnswers": [
+       "National Crime Victimization Survey",
+       "NCVS",
+       "victimization"
+      ],
+      "placeholder": "缩写或全称"
+     },
+     {
+      "id": "q7",
+      "type": "single",
+      "prompt": "社会学家为什么认为在分析 UCR 等官方统计数据时，“犯罪黑数”是一个关键概念？",
+      "options": [
+       "它指由政府高官实施且从未被调查的犯罪",
+       "它凸显了实际发生的犯罪与向警方举报或由警方记录的犯罪之间的差距",
+       "它衡量了犯罪对低收入社区受害者的心理影响",
+       "它代表了目前在监狱服无期徒刑的总人数"
+      ],
+      "correctAnswers": [
+       "它凸显了实际发生的犯罪与向警方举报或由警方记录的犯罪之间的差距"
+      ],
+      "explanation": "官方统计数据仅捕捉到了已报案的犯罪；“犯罪黑数”解释了大量未被发现或未报案的犯罪，从而提供了更完整的社会现实图景。",
+      "image": {
+       "src": "/api/v1/course-generation/users/marketplaceSeed/courses/091d5945-4f34-4bfc-9d3b-c34b76d62ee5/exam/images/unit5-q7.png",
+       "alt": "犯罪金字塔"
+      }
+     },
+     {
+      "id": "q8",
+      "type": "multiple",
+      "prompt": "在社会认知和处理方式上，街头犯罪与白领犯罪（white-collar crime）的社会学特征有何不同？",
+      "options": [
+       "街头犯罪通常被认为更危险，因为它更具可见性",
+       "白领犯罪造成的经济损失通常比街头犯罪小",
+       "白领犯罪更有可能导致罚款而非长期监禁",
+       "街头犯罪通常由社会地位较高的人实施",
+       "我们的社会将更多的警力资源投入到“街头”而非企业董事会"
+      ],
+      "correctAnswers": [
+       "街头犯罪通常被认为更危险，因为它更具可见性",
+       "白领犯罪更有可能导致罚款而非长期监禁",
+       "我们的社会将更多的警力资源投入到“街头”而非企业董事会"
+      ],
+      "explanation": "社会学分析表明，虽然企业犯罪造成了巨大的总体损害，但公众的注意力和国家资源却不成比例地投向了通常与较低社会经济群体相关的可见街头犯罪。"
+     },
+     {
+      "id": "q9",
+      "type": "fill",
+      "prompt": "司法系统中的“惩罚性转向”往往会导致 ____ 后果，例如丧失投票权或就业歧视，从而产生一个永久性的底层阶级。",
+      "correctAnswers": [
+       "collateral",
+       "collateral consequences"
+      ],
+      "placeholder": "输入术语"
+     },
+     {
+      "id": "q10",
+      "type": "single",
+      "prompt": "哪种惩罚哲学侧重于通过确保“罪刑相称”来恢复道德平衡，而不一定关注未来的行为结果？",
+      "options": [
+       "威慑 (Deterrence)",
+       "改造 (Rehabilitation)",
+       "报应 (Retribution)",
+       "剥夺行为能力 (Incapacitation)"
+      ],
+      "correctAnswers": [
+       "报应 (Retribution)"
+      ],
+      "explanation": "报应论 (Retribution) 基于“以眼还眼”的逻辑，强调对过去行为的道德惩罚，而非未来的预防或改造。"
+     },
+     {
+      "id": "q11",
+      "type": "multiple",
+      "prompt": "自 20 世纪 70 年代以来，哪些因素促使了美国“大规模监禁 (Mass Incarceration)”的兴起？",
+      "options": [
+       "各类暴力犯罪持续且显著的增长",
+       "“强制性最低刑期 (mandatory minimum)”法律的实施",
+       "“监狱工业复合体 (Prison-Industrial Complex)”的兴起，即私人利益从监狱扩张中获利",
+       "政策重心向“三振出局法 (three strikes laws)”的转变",
+       "司法系统普遍转向康复治疗"
+      ],
+      "correctAnswers": [
+       "“强制性最低刑期 (mandatory minimum)”法律的实施",
+       "“监狱工业复合体 (Prison-Industrial Complex)”的兴起，即私人利益从监狱扩张中获利",
+       "政策重心向“三振出局法 (three strikes laws)”的转变"
+      ],
+      "explanation": "大规模监禁在很大程度上是由惩罚性政策的转变和监狱产业的系统性增长驱动的，即便在犯罪率实际下降的时期也是如此。"
+     },
+     {
+      "id": "q12",
+      "type": "fill",
+      "prompt": "越轨标签成为一个人的 ____ 身份的过程意味着社会主要通过该标签来看待他们，从而实际上忽视了他们作为父母、雇员或邻居等其他角色。",
+      "correctAnswers": [
+       "master",
+       "master status"
+      ],
+      "placeholder": "输入术语"
+     },
+     {
+      "id": "q13",
+      "type": "single",
+      "prompt": "在监狱工业复合体的背景下，社会学对于“累犯 (Recidivism)”的主要关注点是什么？",
+      "options": [
+       "这证明了某些人天生就是罪犯",
+       "这表明高回笼率可以为受利益驱动的系统提供稳定的“客源”",
+       "这证明了报应论哲学是唯一有效的方法",
+       "这表明康复计划资金过度，牺牲了安全保障"
+      ],
+      "correctAnswers": [
+       "这表明高回笼率可以为受利益驱动的系统提供稳定的“客源”"
+      ],
+      "explanation": "从结构角度来看，高累犯率可以被视为“矫正”的失败，但对于一个受益于维持高监狱人口的行业来说却是成功的。"
+     },
+     {
+      "id": "q14",
+      "type": "multiple",
+      "prompt": "社会学家会将下列哪项视为越轨行为的“社会建构 (social construction)”？",
+      "options": [
+       "大麻合法化在不同州之间的变化",
+       "纹身从被视为越轨到被视为社会主流的历史转变",
+       "谋杀在每个现代民族国家都是违法的这一事实",
+       "在一种文化中将公共场所醉酒视为道德沦丧，而在另一种文化中将其视为健康问题",
+       "保护后代的普遍人类本能"
+      ],
+      "correctAnswers": [
+       "大麻合法化在不同州之间的变化",
+       "纹身从被视为越轨到被视为社会主流的历史转变",
+       "在一种文化中将公共场所醉酒视为道德沦丧，而在另一种文化中将其视为健康问题"
+      ],
+      "explanation": "社会建构是指社会如何随时间和空间定义和重新定义行为，而不是依赖于普遍或生物性的定数。"
+     },
+     {
+      "id": "q15",
+      "type": "animation",
+      "prompt": "根据人口转型模型 (Demographic Transition Model) 的模拟，为什么在死亡率开始显著下降后，人口规模仍持续激增？",
+      "options": [
+       "因为在转型期间出生率保持在高位，造成了巨大的“自然增长”差距",
+       "因为随着死亡率下降，来自其他国家的移民增加了",
+       "因为在达到最后阶段之前，死亡率实际上会暂时上升",
+       "因为在第二阶段，出生率的增长速度甚至快于死亡率的下降速度"
+      ],
+      "correctAnswers": [
+       "因为在转型期间出生率保持在高位，造成了巨大的“自然增长”差距"
+      ],
+      "explanation": "在人口转型模型的第二阶段，由于医疗卫生条件的改善，死亡率下降，但由于社会规范改变较慢，出生率仍然很高，从而导致一段时期的人口快速增长。",
+      "animationHtml": "<!DOCTYPE html>\n<html lang=\"zh-Hans\">\n<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'\">\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>人口转型模拟</title>\n  <style>\n    :root {\n      --bg: #faf9f7;\n      --ink: #1f1f1f;\n      --muted: #8a8a8a;\n      --rule: #d8d5d0;\n      --accent: #4C6696; /* Birth Rate */\n      --amber: #c47c00;  /* Death Rate */\n      --pop: #5a5a5a;    /* Total Population */\n    }\n\n    html, body {\n      background: var(--bg);\n      margin: 0;\n      padding: 0;\n      font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans SC\", sans-serif;\n      overflow: hidden;\n    }\n\n    .container {\n      width: 100%;\n      max-width: 600px;\n      margin: 0 auto;\n      padding: 16px;\n      box-sizing: border-box;\n      display: flex;\n      flex-direction: column;\n      gap: 20px;\n    }\n\n    .visually-hidden {\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      padding: 0;\n      margin: -1px;\n      overflow: hidden;\n      clip: rect(0, 0, 0, 0);\n      border: 0;\n    }\n\n    .fig-label {\n      font-family: Georgia, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, \"Noto Serif SC\", serif;\n      font-size: clamp(11px, 2.5vw, 13px);\n      fill: var(--muted);\n      font-style: italic;\n    }\n\n    .axis-label {\n      font-family: -apple-system, sans-serif;\n      font-size: 10px;\n      fill: var(--muted);\n      text-transform: uppercase;\n      letter-spacing: 0.05em;\n    }\n\n    .readout-grid {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n      gap: 8px;\n      border-top: 1px solid var(--rule);\n      padding-top: 12px;\n    }\n\n    .readout-item {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n    }\n\n    .readout-val {\n      font-variant-numeric: tabular-nums;\n      font-weight: 600;\n      font-size: 14px;\n      color: var(--ink);\n    }\n\n    .readout-key {\n      font-size: 10px;\n      color: var(--muted);\n      text-transform: uppercase;\n    }\n\n    .caption {\n      text-align: center;\n      font-family: Georgia, \"Noto Serif SC\", serif;\n      font-size: 13px;\n      color: var(--muted);\n      margin-top: 4px;\n    }\n\n    .gap-shading {\n      fill: var(--rule);\n      opacity: 0.3;\n    }\n\n    .line {\n      fill: none;\n      stroke-width: 2;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n    }\n\n    .cursor-line {\n      stroke: var(--rule);\n      stroke-width: 1;\n      stroke-dasharray: 4 2;\n    }\n  </style>\n</head>\n<body>\n\n  <h1 class=\"visually-hidden\">折线图显示出生率、死亡率和总人口随时间的变化。</h1>\n\n  <div class=\"container\">\n    <svg class=\"fig\" viewBox=\"0 0 400 240\" aria-hidden=\"true\" style=\"width:100%; height:auto; display:block;\">\n      <!-- Axes -->\n      <line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n      <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"200\" stroke=\"var(--ink)\" stroke-width=\"1\" />\n      \n      <!-- Ticks & Grid -->\n      <line x1=\"40\" y1=\"110\" x2=\"380\" y2=\"110\" stroke=\"var(--rule)\" stroke-width=\"0.5\" stroke-dasharray=\"2 2\" />\n      \n      <!-- Labels -->\n      <text x=\"210\" y=\"215\" class=\"axis-label\" text-anchor=\"middle\">时间</text>\n      <text x=\"35\" y=\"110\" class=\"axis-label\" text-anchor=\"end\" transform=\"rotate(-90, 35, 110)\">比率 / 人口数量</text>\n      \n      <text x=\"385\" y=\"195\" class=\"fig-label\" text-anchor=\"end\">第 1 阶段</text>\n      <text x=\"45\" y=\"195\" class=\"fig-label\">第 4 阶段</text>\n\n      <!-- The Gap Shading -->\n      <path id=\"gap-poly\" class=\"gap-shading\" d=\"\" />\n\n      <!-- Data Lines -->\n      <path id=\"path-birth\" class=\"line\" stroke=\"var(--accent)\" d=\"\" />\n      <path id=\"path-death\" class=\"line\" stroke=\"var(--amber)\" d=\"\" />\n      <path id=\"path-pop\" class=\"line\" stroke=\"var(--pop)\" d=\"\" />\n\n      <!-- Active Cursor -->\n      <line id=\"cursor\" class=\"cursor-line\" x1=\"40\" y1=\"20\" x2=\"40\" y2=\"200\" />\n      \n      <!-- Dynamic Labels -->\n      <text id=\"label-birth\" x=\"0\" y=\"0\" class=\"fig-label\" style=\"fill: var(--accent); font-weight: bold;\">出生率</text>\n      <text id=\"label-death\" x=\"0\" y=\"0\" class=\"fig-label\" style=\"fill: var(--amber); font-weight: bold;\">死亡率</text>\n      <text id=\"label-pop\" x=\"0\" y=\"0\" class=\"fig-label\" style=\"fill: var(--pop); font-weight: bold;\">总人口</text>\n    </svg>\n\n    <div class=\"readout-grid\">\n      <div class=\"readout-item\">\n        <span class=\"readout-val\" id=\"val-birth\">0</span>\n        <span class=\"readout-key\">出生率</span>\n      </div>\n      <div class=\"readout-item\">\n        <span class=\"readout-val\" id=\"val-death\">0</span>\n        <span class=\"readout-key\">死亡率</span>\n      </div>\n      <div class=\"readout-item\">\n        <span class=\"readout-val\" id=\"val-pop\">0</span>\n        <span class=\"readout-key\">总人口</span>\n      </div>\n    </div>\n\n    <div class=\"caption\">完整周期内的生命统计率与人口增长情况。</div>\n  </div>\n\n  <script>\n    const svgWidth = 400;\n    const chartLeft = 40;\n    const chartRight = 380;\n    const chartBottom = 200;\n    const chartTop = 20;\n    const chartWidth = chartRight - chartLeft;\n\n    const pathBirth = document.getElementById('path-birth');\n    const pathDeath = document.getElementById('path-death');\n    const pathPop = document.getElementById('path-pop');\n    const gapPoly = document.getElementById('gap-poly');\n    const cursor = document.getElementById('cursor');\n    \n    const labelBirth = document.getElementById('label-birth');\n    const labelDeath = document.getElementById('label-death');\n    const labelPop = document.getElementById('label-pop');\n\n    const valBirth = document.getElementById('val-birth');\n    const valDeath = document.getElementById('val-death');\n    const valPop = document.getElementById('val-pop');\n\n    // Model parameters\n    // x: 0 to 1\n    function getBirthRate(x) {\n      if (x < 0.2) return 0.2; // High stable\n      if (x < 0.6) return 0.2; // Stays high while death falls\n      if (x < 0.8) return 0.2 - (x - 0.6) * 0.6; // Falls\n      return 0.08; // Low stable\n    }\n\n    function getDeathRate(x) {\n      if (x < 0.2) return 0.18; // High stable\n      if (x < 0.5) return 0.18 - (x - 0.2) * 0.4; // Falls early\n      return 0.06; // Low stable\n    }\n\n    function getPopulation(x) {\n      // Integration of (Birth - Death)\n      let pop = 20;\n      const steps = 100;\n      const dx = x / steps;\n      for (let i = 0; i < steps; i++) {\n        const curX = i * dx;\n        pop += (getBirthRate(curX) - getDeathRate(curX)) * 400 * dx;\n      }\n      return pop;\n    }\n\n    function mapX(x) { return chartLeft + x * chartWidth; }\n    function mapYRate(y) { return chartBottom - y * 600; }\n    function mapYPop(y) { return chartBottom - y * 1.8; }\n\n    let startTime = null;\n    const duration = 12000; // 12 seconds for a full cycle\n\n    function animate(timestamp) {\n      if (!startTime) startTime = timestamp;\n      let progress = ((timestamp - startTime) % duration) / duration;\n      \n      // We want to draw the full history up to \"progress\", \n      // but let's draw the whole thing and just move a cursor \n      // to make the correlation at the current time clear.\n      \n      let birthPoints = [];\n      let deathPoints = [];\n      let popPoints = [];\n      let gapPath = \"\";\n\n      const resolution = 60;\n      for (let i = 0; i <= resolution; i++) {\n        let x = i / resolution;\n        let bx = mapX(x);\n        let brY = mapYRate(getBirthRate(x));\n        let drY = mapYRate(getDeathRate(x));\n        let pY = mapYPop(getPopulation(x));\n\n        birthPoints.push(`${bx},${brY}`);\n        deathPoints.push(`${bx},${drY}`);\n        popPoints.push(`${bx},${pY}`);\n      }\n\n      pathBirth.setAttribute('d', 'M' + birthPoints.join(' L'));\n      pathDeath.setAttribute('d', 'M' + deathPoints.join(' L'));\n      pathPop.setAttribute('d', 'M' + popPoints.join(' L'));\n\n      // Construct gap polygon (area between birth and death)\n      let gapTop = [];\n      let gapBottom = [];\n      for (let i = 0; i <= resolution; i++) {\n        let x = i / resolution;\n        gapTop.push(`${mapX(x)},${mapYRate(getBirthRate(x))}`);\n        gapBottom.unshift(`${mapX(x)},${mapYRate(getDeathRate(x))}`);\n      }\n      gapPoly.setAttribute('d', `M${gapTop.join(' L')} L${gapBottom.join(' L')} Z`);\n\n      // Update Cursor and Readouts\n      let curX = mapX(progress);\n      cursor.setAttribute('x1', curX);\n      cursor.setAttribute('x2', curX);\n\n      let bVal = getBirthRate(progress);\n      let dVal = getDeathRate(progress);\n      let pVal = getPopulation(progress);\n\n      let bY = mapYRate(bVal);\n      let dY = mapYRate(dVal);\n      let pY = mapYPop(pVal);\n\n      labelBirth.setAttribute('x', curX + 5);\n      labelBirth.setAttribute('y', bY - 5);\n      labelDeath.setAttribute('x', curX + 5);\n      labelDeath.setAttribute('y', dY + 12);\n      labelPop.setAttribute('x', curX + 5);\n      labelPop.setAttribute('y', pY - 5);\n\n      valBirth.textContent = (bVal * 200).toFixed(1);\n      valDeath.textContent = (dVal * 200).toFixed(1);\n      valPop.textContent = Math.round(pVal * 10);\n\n      requestAnimationFrame(animate);\n    }\n\n    // Height reporting\n    function reportHeight() {\n      try {\n        const height = Math.ceil(document.documentElement.getBoundingClientRect().height);\n        parent.postMessage({ type: 'hk-anim-height', height: height }, '*');\n      } catch (e) {}\n    }\n\n    window.addEventListener('load', () => {\n      reportHeight();\n      requestAnimationFrame(animate);\n    });\n\n    const observer = new ResizeObserver(reportHeight);\n    observer.observe(document.body);\n\n  </script>\n</body>\n</html>"
+     }
+    ]
+   }
+  ]
+ }
+}

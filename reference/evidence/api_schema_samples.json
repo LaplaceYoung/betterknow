@@ -1,0 +1,33 @@
+{
+  "captured_at": "2026-09-02",
+  "note": "自有账号 Bearer JWT,agent.hyperknow.io 会话内采集,均为单发请求",
+  "endpoints": {
+    "GET /api/v1/auth/get_user_info": {
+      "status": 200,
+      "shape": "{success, data:{user_id, email, username, canvas_lms:{has_credentials, credentials:{school,canvas_url,access_token,last_sync}}, subscription:{id,tier,plan_id,status,remaining_credits,max_credits,expires_at,will_reset_at,reset_interval_hours,last_reset_at,billing_reason}}}"
+    },
+    "GET /api/v1/auth/other_function_usage_limits": {
+      "status": 200,
+      "shape": "{tier, file_upload:{remaining,limit,last_reset_at}, calendar_add:{remaining:2,limit:2}, file_generation:{remaining:5,limit:5}, deep_learn_session:{remaining:5,limit:5}}"
+    },
+    "GET /api/v1/memory/get_profile_memory": {
+      "status": 200,
+      "shape": "{success, message, profile_data:[{question_id, answer_ids, last_updated_at}]}", 
+      "notes": "onboarding 的画像问答以 Q&A 对持久化(4 题)"
+    },
+    "GET /api/v1/stripe/plans": {
+      "status": 200,
+      "shape": "{plans:[{plan_id,tier,name,price_usd,interval,rank,purchasable,max_credits,reset_interval_hours}], current:{...billing_reason,change_flow,can_change_plan}}",
+      "notes": "档: Free 20 / Pro 12$40 / Pro 18$80 / Max 50$300, 每 12h 重置"
+    },
+    "GET /api/v1/conversations/list_past_conversations": {
+      "status": 200,
+      "shape": "{conversations:[], pagination:{next_cursor,has_more}, recent_course}"
+    },
+    "POST /api/v1/invite/generate_invite_register_link_with_rewards": {
+      "status": 422,
+      "shape": "FastAPI 风格 422 detail:[{type:missing, loc:[body], msg}]",
+      "notes": "确认为 FastAPI 后端"
+    }
+  }
+}

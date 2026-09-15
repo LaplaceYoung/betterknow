@@ -1,0 +1,68 @@
+{
+  "request_count": 9,
+  "probes": [
+    {
+      "artifact": "probe-get-admin-placeholder.headers.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/admin/schools/%7Bslug%7D</pre>\n</body>\n</html>\n",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-get-admin-qrcode-placeholder.headers.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/admin/schools/%7Bslug%7D/qrcode</pre>\n</body>\n</html>\n",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-get-admin-schools.headers.txt",
+      "status": 401,
+      "content_type": "application/json; charset=utf-8",
+      "body": "{\"error\":\"未授权\"}",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-get-admin-ui.headers.txt",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "body": "<!doctype html>\n<html lang=\"zh-CN\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Hyperknow 入群码</title>\n    <script type=\"module\" crossorigin src=\"/assets/index-B_JPVKLE.js\"></script>\n    <link rel=\"stylesheet\" crossorigin href=\"/assets/index-GE9cRlkg.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-get-root.headers.txt",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "body": "<!doctype html>\n<html lang=\"zh-CN\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Hyperknow 入群码</title>\n    <script type=\"module\" crossorigin src=\"/assets/index-B_JPVKLE.js\"></script>\n    <link rel=\"stylesheet\" crossorigin href=\"/assets/index-GE9cRlkg.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-get-school-pku.headers.txt",
+      "status": 404,
+      "content_type": "application/json; charset=utf-8",
+      "body": "{\"error\":\"学校不存在\"}",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-get-school-placeholder.headers.txt",
+      "status": 400,
+      "content_type": "application/json; charset=utf-8",
+      "body": "{\"error\":\"无效的 slug\"}",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-post-admin-qrcode.headers.txt",
+      "status": 401,
+      "content_type": "application/json; charset=utf-8",
+      "body": "{\"error\":\"未授权\"}",
+      "rate_limit_headers": []
+    },
+    {
+      "artifact": "probe-post-admin-schools.headers.txt",
+      "status": 401,
+      "content_type": "application/json; charset=utf-8",
+      "body": "{\"error\":\"未授权\"}",
+      "rate_limit_headers": []
+    }
+  ]
+}

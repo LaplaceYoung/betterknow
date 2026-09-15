@@ -1,0 +1,399 @@
+[
+ {
+  "type": "conversation_created",
+  "data": {
+   "conversation_id": "a59d2815-093b-4fa7-8fc4-33fe59e1b8fb",
+   "title": "Conversation a59d2815-093b-4fa7-8fc4-33fe59e1b8fb",
+   "created_at": "2026-09-02T17:51:56.736057+00:00"
+  },
+  "message": "💬 New conversation started",
+  "chunk": null,
+  "tool_name": null,
+  "tool_status": null,
+  "display": null,
+  "is_complete": true,
+  "timestamp": "2026-09-02T17:51:56.736407+00:00",
+  "question_data": null,
+  "conversation_id": "a59d2815-093b-4fa7-8fc4-33fe59e1b8fb"
+ },
+ {
+  "type": "credit_status",
+  "message": "Processing your request (Credits remaining: 9/20)",
+  "credit_info": {
+   "remaining_credits": 9,
+   "max_credits": 20,
+   "tier": "free"
+  },
+  "next_reset_time": "2026-09-03T05:09:17.296551+00:00",
+  "is_complete": false
+ },
+ {
+  "type": "conversation_title_updated",
+  "data": {
+   "conversation_id": "a59d2815-093b-4fa7-8fc4-33fe59e1b8fb",
+   "title": "Analyze website content"
+  },
+  "message": "Conversation titled: Analyze website content",
+  "is_complete": true
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 1,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "analyze_url_content",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 1,
+  "index": 0,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "analyze_url_content",
+  "tool_status": "completed",
+  "display": "display",
+  "data": {
+   "results": [
+    {
+     "web_id": "WB1IBAttDe",
+     "url": "https://example.com"
+    }
+   ],
+   "errors": []
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "directorAgent",
+  "tool_status": "completed",
+  "display": "display",
+  "round_index": 2,
+  "data": {
+   "phase": "thinking",
+   "thought_chunk_count": 0
+  },
+  "is_complete": false
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "generate_content",
+  "tool_status": "started",
+  "display": "display",
+  "round_index": 2,
+  "index": 0,
+  "is_complete": false,
+  "task_title": "Analyzing webpage content",
+  "model_name": "gemini-3-flash-preview",
+  "response_style": "normal",
+  "response_type": "normal",
+  "guideline": "Analyze and summarize the content of the provided webpage (web_id: WB1IBAttDe). Provide a clear, scannable overview of the main topics, key information, and any significant details found on the page. Ensure the response is in English."
+ },
+ {
+  "type": "tool_execution",
+  "data": null,
+  "message": "Starting content generation with streaming...",
+  "chunk": null,
+  "tool_name": "generate_content",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false,
+  "response_style": "normal",
+  "response_type": "normal",
+  "guideline": "Analyze and summarize the content of the provided webpage (web_id: WB1IBAttDe). Provide a clear, scannable overview of the main topics, key information, and any significant details found on the page. Ensure the response is in English."
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "## Understanding the \"Example Domain\"\n\nThe webpage provided refers to **Example.com**,",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " which serves as a placeholder domain specifically reserved for documentation and educational purposes. \n\n<div content-section=\"definition\">",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n<p>An <strong>Example Domain</strong> is a reserved domain name (like example.com, example.net",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ", or example.org) that is guaranteed to exist but is not used for a real website or service. It allows",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " writers and developers to demonstrate web concepts without accidentally linking to a live, private, or malicious site.</p>\n</div>",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\n\n### Why This Domain Exists\nWhen technical writers create tutorials—for instance, explaining how to set up a server",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " or how to write HTML—they often need to show a URL. If they used a random name like `mytestsite",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ".com`, someone might actually register that domain and put up confusing or harmful content. By using `example.com`, the **",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "Internet Assigned Numbers Authority (IANA)** ensures that the link will always point to this simple, safe landing page. <span class=\"inline-cite",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "\" data-type=\"web\" data-title=\"Example Domain\" data-url=\"https://example.com\"></span>\n\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "### Key Information from the Page\n*   **Purpose:** It is strictly for use in illustrative examples and documentation.\n*   ",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "**Permission:** No prior coordination or permission is required to use this domain in your own projects or books.\n*   ",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "**Restriction:** It should not be used in \"operations\"—meaning you shouldn't use it as a real address for sending",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " emails or hosting actual business data.\n\n<div content-section=\"key_points\">\n<ul>\n<li><strong>Ownership",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": ":</strong> Managed by IANA, a body that oversees global IP address allocation and domain name system (DNS) root zone management.",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "</li>\n<li><strong>Reserved Status:</strong> These domains are defined by RFC 2606, which sets them aside so",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " they can't be bought by private companies.</li>\n<li><strong>Educational Value:</strong> Provides a \"blank canvas\" for testing",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " network configurations without external consequences.</li>\n</ul>\n</div>\n\nThe page itself is intentionally minimal, containing only a heading and a brief",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " explanation to keep the focus on its role as a documentation tool.\n\n",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": "<diagram data-placeholder-id=\"dg_476fa7d5c115\" data-subtype=\"gemini_image\" data-layout=\"right\" data-status=\"pending\" data-caption=\"Visual representation of the Example Domain placeholder\"></diagram>\n\nI have finished",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " analyzing the provided URL. If you would like to explore how these reserved domains are managed by IANA or need help drafting",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "content_chunk",
+  "data": null,
+  "message": null,
+  "chunk": " documentation using these examples, feel free to ask!",
+  "tool_name": "generate_content",
+  "tool_status": "streaming",
+  "display": null,
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "data": {
+   "model_used": "gemini-3-flash-preview",
+   "chunk_count": 22,
+   "total_length": 2551,
+   "content": "## Understanding the \"Example Domain\"\n\nThe webpage provided refers to **Example.com**, which serves as a placeholder domain specifically reserved for documentation and educational purposes. \n\n<div content-section=\"definition\">\n<p>An <strong>Example Domain</strong> is a reserved domain name (like example.com, example.net, or example.org) that is guaranteed to exist but is not used for a real website or service. It allows writers and developers to demonstrate web concepts without accidentally linking to a live, private, or malicious site.</p>\n</div>\n\n### Why This Domain Exists\nWhen technical writers create tutorials—for instance, explaining how to set up a server or how to write HTML—they often need to show a URL. If they used a random name like `mytestsite.com`, someone might actually register that domain and put up confusing or harmful content. By using `example.com`, the **Internet Assigned Numbers Authority (IANA)** ensures that the link will always point to this simple, safe landing page. <span class=\"inline-cite\" data-type=\"web\" data-title=\"Example Domain\" data-url=\"https://example.com\"></span>\n\n### Key Information from the Page\n*   **Purpose:** It is strictly for use in illustrative examples and documentation.\n*   **Permission:** No prior coordination or permission is required to use this domain in your own projects or books.\n*   **Restriction:** It should not be used in \"operations\"—meaning you shouldn't use it as a real address for sending emails or hosting actual business data.\n\n<div content-section=\"key_points\">\n<ul>\n<li><strong>Ownership:</strong> Managed by IANA, a body that oversees global IP address allocation and domain name system (DNS) root zone management.</li>\n<li><strong>Reserved Status:</strong> These domains are defined by RFC 2606, which sets them aside so they can't be bought by private companies.</li>\n<li><strong>Educational Value:</strong> Provides a \"blank canvas\" for testing network configurations without external consequences.</li>\n</ul>\n</div>\n\nThe page itself is intentionally minimal, containing only a heading and a brief explanation to keep the focus on its role as a documentation tool.\n\n<diagram data-placeholder-id=\"dg_476fa7d5c115\" data-subtype=\"gemini_image\" data-layout=\"right\" data-status=\"pending\" data-caption=\"Visual representation of the Example Domain placeholder\"></diagram>\n\nI have finished analyzing the provided URL. If you would like to explore how these reserved domains are managed by IANA or need help drafting documentation using these examples, feel free to ask!",
+   "guideline": "Analyze and summarize the content of the provided webpage (web_id: WB1IBAttDe). Provide a clear, scannable overview of the main topics, key information, and any significant details found on the page. Ensure the response is in English.",
+   "error": null,
+   "stopped_early": false
+  },
+  "message": "✅ generate_content completed (chunks=22)",
+  "chunk": null,
+  "tool_name": "generate_content",
+  "tool_status": "completed",
+  "display": "display",
+  "is_complete": false,
+  "response_style": "normal",
+  "response_type": "normal"
+ },
+ {
+  "type": "tool_selection",
+  "tool_name": "recommend_next_step",
+  "tool_status": "started",
+  "display": "display",
+  "is_complete": false
+ },
+ {
+  "type": "tool_execution",
+  "tool_name": "recommend_next_step",
+  "tool_status": "completed",
+  "display": "display",
+  "data": {
+   "has_steps": true,
+   "next_steps": [
+    {
+     "display_step": "Create flashcards for review",
+     "step_prompt": "Create flashcards about Example.com and its purpose as a reserved domain."
+    },
+    {
+     "display_step": "Generate a quiz on Example.com",
+     "step_prompt": "Generate a multiple-choice quiz about Example.com and its significance in documentation."
+    },
+    {
+     "display_step": "Learn more about IANA",
+     "step_prompt": "Tell me more about IANA and its role in managing domain names."
+    }
+   ],
+   "learning_progress": {
+    "title_action": "new",
+    "current_title": "Understanding Example Domain",
+    "topic": "Example.com explanation",
+    "percentage": 20,
+    "predicted_next_title": "IANA and domain management"
+   }
+  },
+  "is_complete": false
+ },
+ {
+  "type": "complete",
+  "conversation_id": "a59d2815-093b-4fa7-8fc4-33fe59e1b8fb",
+  "is_complete": true,
+  "tts_pending": false
+ }
+]
