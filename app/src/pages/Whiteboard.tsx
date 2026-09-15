@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, ArrowUp, Mic, Pause, Play, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX } from 'lucide-react'
+import { ArrowLeft, ArrowUp, Mic, Pause, Play, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -13,6 +13,7 @@ interface Page { id: string; title: string; boards: string[]; annotations: { tex
 export default function Whiteboard() {
   const { sessionId = '', courseId } = useParams()
   const nav = useNavigate()
+  const containerRef = useRef<HTMLDivElement>(null)
   const wsRef = useRef<WebSocket | null>(null)
   const [title, setTitle] = useState('白板课堂')
   const [pages, setPages] = useState<Page[]>([])
@@ -27,6 +28,8 @@ export default function Whiteboard() {
   const [credits, setCredits] = useState<string>('')
   const [ttsVoice, setTtsVoice] = useState(true)
   const [isSpeaking, setIsSpeaking] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [playbackRate, setPlaybackRate] = useState(1.0)
   const scriptBottomRef = useRef<HTMLDivElement>(null)
 
   const speakText = (text: string) => {
@@ -36,7 +39,7 @@ export default function Whiteboard() {
       const clean = text.replace(/[*#`_~\[\]]/g, '').trim()
       if (!clean) return
       const utter = new SpeechSynthesisUtterance(clean)
-      utter.rate = 1.05
+      utter.rate = playbackRate * 1.05
       utter.pitch = 1.0
       utter.lang = /[\u4e00-\u9fa5]/.test(clean) ? 'zh-CN' : 'en-US'
       utter.onstart = () => setIsSpeaking(true)
@@ -97,6 +100,58 @@ export default function Whiteboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId])
 
+  useEffect(() => {
+    const onFsChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement))
+    }
+    document.addEventListener('fullscreenchange', onFsChange)
+    return () => document.removeEventListener('fullscreenchange', onFsChange)
+  }, [])
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      containerRef.current?.requestFullscreen?.().catch(() => {})
+    } else {
+      document.exitFullscreen?.().catch(() => {})
+    }
+  }
+
+  const exportNotes = () => {
+    const parts: string[] = []
+    parts.push(`# ${title} · 白板笔记与讲稿\n`)
+    parts.push(`> 导出时间：${new Date().toLocaleString('zh-CN')}\n\n---\n`)
+
+    if (pages.length > 0) {
+      parts.push(`## 📑 板书内容\n`)
+      pages.forEach((p, idx) => {
+        parts.push(`### 第 ${idx + 1} 页：${p.title}\n`)
+        if (p.boards.length > 0) {
+          parts.push(p.boards.join('\n\n') + '\n')
+        }
+        if (p.annotations.length > 0) {
+          parts.push(`**重点批注：**\n` + p.annotations.map((a) => `- ${a.text}`).join('\n') + '\n')
+        }
+        parts.push('---\n')
+      })
+    }
+
+    if (script.length > 0) {
+      parts.push(`## 🎙️ 课堂讲稿与交互记录\n`)
+      script.forEach((s) => {
+        const role = s.who === 'teacher' ? '👨‍🏫 老师' : '🙋 我'
+        parts.push(`**${role}**：\n${s.text}\n`)
+      })
+    }
+
+    const blob = new Blob([parts.join('\n')], { type: 'text/markdown;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${title.replace(/[\/\\?%*:|"<>]/g, '_')}_板书笔记.md`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
   // [D10] 板面逐段绘出
   const page = pages[pageIdx] ?? pages[pages.length - 1]
   useEffect(() => { setRevealed(0) }, [pageIdx])
@@ -105,8 +160,40 @@ export default function Whiteboard() {
   const ask = () => { const text = q.trim(); if (!text || !wsRef.current) return; wsRef.current.send(JSON.stringify({ type: 'interject_question', text })); setScript((s) => [...s, { who: 'you', text }]); setQ(''); setAsking(null) }
   const resume = () => { setPaused(false); setAsking(null); wsRef.current?.send(JSON.stringify({ type: 'interject_resume' })) }
 
+  // 快捷键支持：空格暂停/继续，左右箭头切页，F键全屏
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
+        return
+      }
+      if (e.code === 'Space') {
+        e.preventDefault()
+        setPaused((p) => {
+          if (p) {
+            resume()
+            return false
+          } else {
+            return true
+          }
+        })
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault()
+        setPageIdx((i) => Math.max(0, i - 1))
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault()
+        setPageIdx((i) => Math.min(pages.length - 1, i + 1))
+      } else if (e.key === 'f' || e.key === 'F') {
+        e.preventDefault()
+        toggleFullscreen()
+      }
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [pages.length])
+
   return (
-    <div className="flex h-full" style={{ background: 'var(--app-bg)' }}>
+    <div ref={containerRef} className="flex h-full" style={{ background: 'var(--app-bg)' }}>
       <section className="flex-1 min-w-0 flex flex-col">
         <header className="flex items-center gap-3 px-4" style={{ height: 52 }}>
           <button onClick={() => nav(courseId ? `/course/${courseId}` : '/history')} className="hk-icon-btn h-8 w-8" aria-label="返回"><ArrowLeft size={15} /></button>
@@ -125,11 +212,20 @@ export default function Whiteboard() {
             >
               {ttsVoice ? <Volume2 size={14} className={isSpeaking ? 'text-[#2563eb] animate-pulse' : 'text-[#3d3d3f]'} /> : <VolumeX size={14} className="text-[#a1a1aa]" />}
             </button>
+            <button
+              className="hk-pill h-7 px-2 text-[11px] font-mono"
+              onClick={() => setPlaybackRate((r) => (r === 1.0 ? 1.25 : r === 1.25 ? 1.5 : r === 1.5 ? 2.0 : 1.0))}
+              title="切换语音语速"
+            >
+              {playbackRate}x
+            </button>
             <button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.max(50, z - 10))} aria-label="缩小"><ZoomOut size={14} /></button><span className="w-10 text-center">{zoom}%</span><button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.min(200, z + 10))} aria-label="放大"><ZoomIn size={14} /></button>
             <span className="mx-2 text-[#8a8a90]">{Math.min(pageIdx + 1, Math.max(pages.length, 1))} / {Math.max(pages.length, 1)}</span>
-            <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.max(0, i - 1))} aria-label="上一页"><SkipBack size={14} /></button>
-            <button className="hk-icon-btn h-8 w-8" onClick={() => (paused ? resume() : setPaused(true))} aria-label={paused ? '继续' : '暂停'}>{paused ? <Play size={14} /> : <Pause size={14} />}</button>
-            <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.min(pages.length - 1, i + 1))} aria-label="下一页"><SkipForward size={14} /></button>
+            <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.max(0, i - 1))} aria-label="上一页" title="上一页 (←)"><SkipBack size={14} /></button>
+            <button className="hk-icon-btn h-8 w-8" onClick={() => (paused ? resume() : setPaused(true))} aria-label={paused ? '继续' : '暂停'} title={paused ? '继续 (Space)' : '暂停 (Space)'}>{paused ? <Play size={14} /> : <Pause size={14} />}</button>
+            <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.min(pages.length - 1, i + 1))} aria-label="下一页" title="下一页 (→)"><SkipForward size={14} /></button>
+            <button className="hk-icon-btn h-8 w-8" onClick={exportNotes} aria-label="导出 Markdown 笔记" title="导出 Markdown 笔记"><Download size={14} /></button>
+            <button className="hk-icon-btn h-8 w-8" onClick={toggleFullscreen} aria-label={isFullscreen ? '退出全屏' : '全屏沉浸模式'} title={isFullscreen ? '退出全屏 (F)' : '全屏沉浸模式 (F)'}>{isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
             <button className="hk-icon-btn h-8 w-8" aria-label="录音"><Mic size={14} /></button>
             <button className="hk-icon-btn h-8 w-8" aria-label="分享"><Share2 size={14} /></button>
           </div>
