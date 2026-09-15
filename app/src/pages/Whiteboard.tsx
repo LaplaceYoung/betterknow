@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, ArrowUp, Mic, Pause, Play, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut } from 'lucide-react'
+import { ArrowLeft, ArrowUp, Mic, Pause, Play, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -25,6 +25,46 @@ export default function Whiteboard() {
   const [q, setQ] = useState('')
   const [revealed, setRevealed] = useState(0)
   const [credits, setCredits] = useState<string>('')
+  const [ttsVoice, setTtsVoice] = useState(true)
+  const [isSpeaking, setIsSpeaking] = useState(false)
+  const scriptBottomRef = useRef<HTMLDivElement>(null)
+
+  const speakText = (text: string) => {
+    if (!ttsVoice || typeof window === 'undefined' || !window.speechSynthesis) return
+    try {
+      window.speechSynthesis.cancel()
+      const clean = text.replace(/[*#`_~\[\]]/g, '').trim()
+      if (!clean) return
+      const utter = new SpeechSynthesisUtterance(clean)
+      utter.rate = 1.05
+      utter.pitch = 1.0
+      utter.lang = /[\u4e00-\u9fa5]/.test(clean) ? 'zh-CN' : 'en-US'
+      utter.onstart = () => setIsSpeaking(true)
+      utter.onend = () => setIsSpeaking(false)
+      utter.onerror = () => setIsSpeaking(false)
+      window.speechSynthesis.speak(utter)
+    } catch (e) {
+      console.warn('SpeechSynthesis error:', e)
+    }
+  }
+
+  useEffect(() => {
+    if (paused) {
+      window.speechSynthesis?.pause()
+    } else {
+      window.speechSynthesis?.resume()
+    }
+  }, [paused])
+
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis?.cancel()
+    }
+  }, [])
+
+  useEffect(() => {
+    scriptBottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [script])
 
   useEffect(() => {
     const ws = new WebSocket(wsUrl('/api/v1/whiteboard/ws', { access_token: localStorage.getItem('access_token') ?? '', ...(sessionId && sessionId !== 'new' ? { session_id: sessionId } : {}) }))
@@ -32,8 +72,8 @@ export default function Whiteboard() {
     const apply = (a: Action) => {
       if (a.type === 'new_page') setPages((ps) => [...ps, { id: a.page_id ?? String(ps.length), title: a.title ?? `Page ${ps.length + 1}`, boards: [], annotations: [] }])
       else if (a.type === 'board') setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next })
-      else if (a.type === 'speak') { const t = a.spoken_text ?? a.say ?? ''; if (t) setScript((s) => [...s, { who: 'teacher', text: t }]) }
-      else if (a.type === 'annotation') { setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, annotations: [...last.annotations, { text: a.text ?? '', say: a.say }] }; return next }); if (a.say) setScript((s) => [...s, { who: 'teacher', text: a.say! }]) }
+      else if (a.type === 'speak') { const t = a.spoken_text ?? a.say ?? ''; if (t) { setScript((s) => [...s, { who: 'teacher', text: t }]); speakText(t) } }
+      else if (a.type === 'annotation') { setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, annotations: [...last.annotations, { text: a.text ?? '', say: a.say }] }; return next }); if (a.say) { setScript((s) => [...s, { who: 'teacher', text: a.say! }]); speakText(a.say) } }
       else if (a.type === 'ask') { setAsking(a.question ?? ''); setPaused(true) }
       else if (a.type === 'done') setStatus('done')
     }
@@ -72,6 +112,19 @@ export default function Whiteboard() {
           <button onClick={() => nav(courseId ? `/course/${courseId}` : '/history')} className="hk-icon-btn h-8 w-8" aria-label="返回"><ArrowLeft size={15} /></button>
           <h1 className="text-[14px] font-semibold truncate">{title}：知识讲解</h1>
           <div className="ml-auto flex items-center gap-1.5 text-[12px]">
+            <button
+              className="hk-icon-btn h-8 w-8"
+              onClick={() => {
+                setTtsVoice((v) => {
+                  if (v && typeof window !== 'undefined') window.speechSynthesis?.cancel()
+                  return !v
+                })
+              }}
+              aria-label="语音播报"
+              title={ttsVoice ? '语音朗读已开启' : '语音朗读已静音'}
+            >
+              {ttsVoice ? <Volume2 size={14} className={isSpeaking ? 'text-[#2563eb] animate-pulse' : 'text-[#3d3d3f]'} /> : <VolumeX size={14} className="text-[#a1a1aa]" />}
+            </button>
             <button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.max(50, z - 10))} aria-label="缩小"><ZoomOut size={14} /></button><span className="w-10 text-center">{zoom}%</span><button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.min(200, z + 10))} aria-label="放大"><ZoomIn size={14} /></button>
             <span className="mx-2 text-[#8a8a90]">{Math.min(pageIdx + 1, Math.max(pages.length, 1))} / {Math.max(pages.length, 1)}</span>
             <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.max(0, i - 1))} aria-label="上一页"><SkipBack size={14} /></button>
@@ -104,10 +157,18 @@ export default function Whiteboard() {
       </section>
 
       <aside className="w-[340px] shrink-0 border-l bg-white flex flex-col">
-        <div role="tablist" className="flex text-[13px] border-b"><button role="tab" aria-selected className="flex-1 h-10 font-medium relative">讲稿<span className="absolute left-4 right-4 -bottom-px h-0.5 bg-black" /></button><button role="tab" className="flex-1 h-10 text-[#8a8a90]">对话</button></div>
+        <div role="tablist" className="flex text-[13px] border-b">
+          <button role="tab" aria-selected className="flex-1 h-10 font-medium relative flex items-center justify-center gap-1.5">
+            讲稿
+            {isSpeaking && <span className="inline-flex items-center gap-0.5 text-[11px] text-[#2563eb] font-normal"><Volume2 size={11} className="animate-pulse" /> 朗读中</span>}
+            <span className="absolute left-4 right-4 -bottom-px h-0.5 bg-black" />
+          </button>
+          <button role="tab" className="flex-1 h-10 text-[#8a8a90]">对话</button>
+        </div>
         <div className="flex-1 overflow-y-auto hk-scroll p-4 space-y-3 text-[13px] leading-6">
           {script.length === 0 && <div className="text-[#8a8a90]">讲解开始后，老师的讲稿会同步显示在这里。</div>}
           {script.map((s, i) => <div key={i} className={`hk-fade-in-up ${s.who === 'you' ? 'ml-6 rounded-xl bg-[#f1f2f4] px-3 py-2' : ''}`}>{s.who === 'teacher' && <span className="text-[11px] text-[#8a8a90] block">老师</span>}{s.text}</div>)}
+          <div ref={scriptBottomRef} />
         </div>
         <div className="p-3 border-t">
           <div className="hk-composer p-2 flex items-center gap-2">

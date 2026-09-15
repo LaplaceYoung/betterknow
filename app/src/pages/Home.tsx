@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Plus, ArrowUp, Sparkles, ChevronRight, ChevronDown, Mic, HardDrive, Wrench, PenLine, CalendarCheck, TrendingUp, RefreshCw, Check } from 'lucide-react'
+import { Plus, ArrowUp, Sparkles, ChevronRight, ChevronDown, Mic, HardDrive, Wrench, PenLine, CalendarCheck, TrendingUp, RefreshCw, Check, X, FileText, Image as ImageIcon } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { DotField } from '@/components/DotField'
 import { CourseCard } from '@/components/CourseCard'
@@ -82,6 +82,59 @@ export default function Home() {
     }
   }
 
+  const [assistFiles, setAssistFiles] = useState<Array<{ name: string; type: string; data?: string; size?: number }>>([])
+  const assistFileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleAssistPaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    const items = e.clipboardData?.items
+    if (!items) return
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i]
+      if (item.type.startsWith('image/')) {
+        const file = item.getAsFile()
+        if (file) {
+          e.preventDefault()
+          const reader = new FileReader()
+          reader.onload = () => {
+            setAssistFiles((prev) => [
+              ...prev,
+              {
+                name: file.name || `截图-${new Date().toLocaleTimeString('zh-CN')}.png`,
+                type: file.type,
+                data: reader.result as string,
+                size: file.size,
+              },
+            ])
+          }
+          reader.readAsDataURL(file)
+        }
+      }
+    }
+  }
+
+  const handleAssistFilesSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+    Array.from(files).forEach((file) => {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader()
+        reader.onload = () => {
+          setAssistFiles((prev) => [
+            ...prev,
+            { name: file.name, type: file.type, data: reader.result as string, size: file.size },
+          ])
+        }
+        reader.readAsDataURL(file)
+      } else {
+        setAssistFiles((prev) => [
+          ...prev,
+          { name: file.name, type: file.type, size: file.size },
+        ])
+      }
+    })
+    e.target.value = ''
+  }
+
   const submitCraft = () => {
     const defaultTopic = source === 'school_sync'
       ? (schoolFiles.syllabus?.name.replace(/\.[^/.]+$/, '') ?? '学校同步定制课程')
@@ -92,8 +145,18 @@ export default function Home() {
   }
   const submitAssist = () => {
     const q = assistText.trim()
-    if (!q) return
-    nav('/response/new', { state: { message: q, speed_mode: speed, tts_enabled: voice, mode: tool === 'none' ? undefined : tool, ui_language: language } })
+    if (!q && assistFiles.length === 0) return
+    const message = q || '请帮我解析这份材料'
+    nav('/response/new', {
+      state: {
+        message,
+        speed_mode: speed,
+        tts_enabled: voice,
+        mode: tool === 'none' ? undefined : tool,
+        ui_language: language,
+        attachments: assistFiles,
+      },
+    })
   }
 
   return (
@@ -255,14 +318,44 @@ export default function Home() {
             </h1>
 
             <div className="hk-composer mt-6 p-4">
+              <input
+                type="file"
+                ref={assistFileInputRef}
+                className="hidden"
+                multiple
+                accept="image/*,.pdf,.doc,.docx,.txt,.md"
+                onChange={handleAssistFilesSelected}
+              />
+              {assistFiles.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-2.5 pt-1">
+                  {assistFiles.map((f, i) => (
+                    <div key={i} className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-[#f4f4f5] border border-[#e4e4e7] text-[12px] text-[#1c1c1e]">
+                      {f.data ? (
+                        <img src={f.data} alt={f.name} className="h-6 w-6 rounded object-cover border border-[#d4d4d8]" />
+                      ) : (
+                        <FileText size={14} className="text-[#3b5bdb]" />
+                      )}
+                      <span className="max-w-[160px] truncate font-medium">{f.name}</span>
+                      <button
+                        type="button"
+                        onClick={() => setAssistFiles((fs) => fs.filter((_, idx) => idx !== i))}
+                        className="text-[#a1a1aa] hover:text-[#dc2626] ml-0.5"
+                        aria-label="移除附件"
+                      >
+                        <X size={13} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div className="relative">
-                <textarea ref={assistRef} value={assistText} onChange={(e) => setAssistText(e.target.value)} rows={2}
+                <textarea ref={assistRef} value={assistText} onChange={(e) => setAssistText(e.target.value)} onPaste={handleAssistPaste} rows={2}
                   onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitAssist() } }}
-                  className="w-full resize-none bg-transparent outline-none text-[15px] leading-6 placeholder:text-transparent" placeholder="问我任何问题" aria-label="即时协助输入" />
+                  className="w-full resize-none bg-transparent outline-none text-[15px] leading-6 placeholder:text-transparent" placeholder="问我任何问题，可粘贴截图或上传材料" aria-label="即时协助输入" />
                 {!assistText && <div className="pointer-events-none absolute left-0 top-0 text-[15px] leading-6 text-[#a1a1aa] hk-caret">{assistGhost}</div>}
               </div>
               <div className="flex items-center gap-2 mt-3">
-                <button className="hk-icon-btn" aria-label="上传文件"><Plus size={16} /></button>
+                <button type="button" onClick={() => assistFileInputRef.current?.click()} className="hk-icon-btn" aria-label="上传文件" title="上传图片或文件"><Plus size={16} /></button>
                 <button className="hk-icon-btn" aria-label="Drive 集成" title="Drive 集成"><HardDrive size={15} /></button>
                 <Popover>
                   <PopoverTrigger asChild>
@@ -289,7 +382,7 @@ export default function Home() {
                       ))}
                     </PopoverContent>
                   </Popover>
-                  <button onClick={submitAssist} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center hover:bg-black/80 disabled:opacity-40" aria-label="发送" disabled={!assistText.trim()}><ArrowUp size={16} /></button>
+                  <button onClick={submitAssist} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center hover:bg-black/80 disabled:opacity-40" aria-label="发送" disabled={!assistText.trim() && assistFiles.length === 0}><ArrowUp size={16} /></button>
                 </div>
               </div>
             </div>

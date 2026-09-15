@@ -545,11 +545,24 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       : { correct: false, judged: true, feedback: 'Not quite. Review the explanation and try again.' };
   });
 
-  app.post('/api/v1/course-generation/courses/:course_uuid/practice/assistant', protectedRoute, async (request, reply) =>
-    (await ownedCourse(request))
-      ? { success: true, message: 'Focus on the key relationship, then test it with a small example.', citations: [] }
-      : reply.code(404).send({ detail: 'Course not found' })
-  );
+  app.post('/api/v1/course-generation/courses/:course_uuid/practice/assistant', protectedRoute, async (request, reply) => {
+    if (!(await ownedCourse(request))) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { message?: string; questionPrompt?: string; questionOptions?: string[]; questionExplanation?: string };
+    const q = String(body.message ?? '').trim();
+    const prompt = String(body.questionPrompt ?? '');
+
+    let responseMsg = '💡 我们可以从最基础的第一性原理开始思考：\n\n1. **题干核心对象**：审视题目中给出的已知条件与约束前提。\n2. **状态转移关系**：如果条件发生变化，哪个物理量或逻辑关系必须保持守恒？\n3. **排除直觉陷阱**：留意题目中常见的极端边界条件。\n\n试着用你自己的话将已知量代入，看看能推导出什么结论？';
+
+    if (/公式|推导|计算/i.test(q)) {
+      responseMsg = '📐 **关于核心推导与公式分析**：\n\n这道题考察的本质是两个关键状态量之间的映射。先不要急于套用复杂的二级公式，回顾基本定义：\n• 将左侧输入项与右侧守恒项对齐\n• 检查量纲与极限情况（如当输入趋近于 0 或无穷大时结果是否合理）\n• 尝试通过控制变量法消去无关干扰项。';
+    } else if (/类比|比喻|通俗|大白话/i.test(q)) {
+      responseMsg = '🍎 **通俗生活类比**：\n\n想象你在整理一个传达信息的链条：输入的信息就像寄出的一封信，中途可能受到外界噪声的干扰。\n题目的核心其实就在于问：**“在收到信件的最终状态后，我们有多大把握推断出寄出时的真实原貌？”**\n抓住这个逆向推导的因果链，答案的线索就非常清晰了。';
+    } else if (/排除|干扰|选项/i.test(q)) {
+      responseMsg = '🚫 **干扰项排除技巧**：\n\n1. 警惕带有绝对化词汇（如“必然始终不变”、“完全无关”）的选项。\n2. 检查选项是否偷换了“因”和“果”的时序关系。\n3. 如果某个选项在极端边界（0 或无穷）下产生荒谬的结论，它大概率就是干扰项。';
+    }
+
+    return { success: true, message: responseMsg, citations: [] };
+  });
 
   app.post('/api/v1/course-generation/courses/:course_uuid/practice/progress', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
@@ -596,8 +609,36 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return project;
   });
 
-  app.post('/api/v1/course-generation/courses/:course_uuid/project/assistant', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? { success: true, message: 'Break the step into an input, a transformation, and a verifiable output.', citations: [] } : reply.code(404).send({ detail: 'Course not found' }));
-  app.route({ method: ['GET', 'POST'], url: '/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/state', preHandler: authenticate, handler: async (request, reply) => (await ownedCourse(request)) ? { success: true, stage_id: (request.params as { stage_id: string }).stage_id, state: request.method === 'POST' ? request.body ?? {} : {}, updated_at: now() } : reply.code(404).send({ detail: 'Course not found' }) });
+  app.post('/api/v1/course-generation/courses/:course_uuid/project/assistant', protectedRoute, async (request, reply) => {
+    if (!(await ownedCourse(request))) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { message?: string; stageTitle?: string; draft?: string };
+    const q = String(body.message ?? '').trim();
+    return {
+      success: true,
+      message: `🛠️ **项目实战指导建议**：\n\n针对「${body.stageTitle ?? '当前阶段'}」的实施目标：\n1. **明确输入输出契约**：明确初始数据源与最终交付形式，切忌一上来堆砌未经验证的复杂架构。\n2. **阶段自测基准**：在提交前至少设计 2 组基准用例（常规用例与极限边界用例）。\n3. **增量交付**：优先跑通端到端主流程（Happy Path），再完善异常处理。\n\n你可以随时把代码片段或设计思路发送给我，我来帮你做代码走查与推演审查。`,
+      citations: [],
+    };
+  });
+
+  app.route({
+    method: ['GET', 'POST'],
+    url: '/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/state',
+    preHandler: authenticate,
+    handler: async (request, reply) => {
+      const course = await ownedCourse(request);
+      if (!course) return reply.code(404).send({ detail: 'Course not found' });
+      const stageIdParam = (request.params as { stage_id: string }).stage_id;
+      if (request.method === 'POST') {
+        const body = (request.body ?? {}) as { submission?: string; status?: string };
+        const text = String(body.submission ?? '').trim();
+        const score = Math.min(100, Math.max(78, 80 + Math.floor(Math.min(text.length, 500) / 25)));
+        const feedback = `🎉 **阶段评审通过 · 综合评分：${score} / 100**\n\n• **建模完整度 (优秀)**：清晰界定了系统边界与关键状态量。\n• **推导严谨性 (良好)**：逻辑论证扎实，核心算法满足预期契约。\n• **进阶优化建议**：下一阶段可尝试引入异常边界断言以进一步增强工程健壮性。`;
+        const updatedState = { ...body, status: 'completed', score, feedback, updated_at: now() };
+        return { success: true, stage_id: stageIdParam, state: updatedState, score, feedback };
+      }
+      return { success: true, stage_id: stageIdParam, state: {}, updated_at: now() };
+    },
+  });
   for (const action of ['draft', 'submission', 'submission/text']) app.post(`/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/steps/:step_id/${action}`, protectedRoute, async (request, reply) => (await ownedCourse(request)) ? { success: true, action, stage_id: (request.params as { stage_id: string }).stage_id, step_id: (request.params as { step_id: string }).step_id, submission: request.body ?? {}, updated_at: now() } : reply.code(404).send({ detail: 'Course not found' }));
   app.get('/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/steps/:step_id/tts', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? reply.type('audio/webm').send(placeholderWebm) : reply.code(404).send({ detail: 'Course not found' }));
   app.get('/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/steps/_first/tts', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? reply.type('audio/webm').send(placeholderWebm) : reply.code(404).send({ detail: 'Course not found' }));
@@ -648,6 +689,27 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       courses_enrolled: myCourses.length,
       total_sessions: totalSessions,
     };
+  });
+  // [S18] 课节学习状态与掌握度更新
+  app.post('/api/v1/course-generation/courses/:course_uuid/sessions/:session_id/state', protectedRoute, async (request) => {
+    const params = request.params as { course_uuid: string; session_id: string };
+    const body = request.body as { status?: string; mastery?: string };
+    await updateState((state) => {
+      const course = state.courses[params.course_uuid];
+      if (!course) return;
+      const units = (course.units as Array<{ lectures?: Array<{ sessions?: Array<{ sessionId?: string; status?: string; mastery?: string }> }> }> | undefined) ?? [];
+      for (const unit of units) {
+        for (const lec of unit.lectures ?? []) {
+          for (const ses of lec.sessions ?? []) {
+            if (ses.sessionId === params.session_id) {
+              if (body.status) ses.status = body.status;
+              if (body.mastery) ses.mastery = body.mastery;
+            }
+          }
+        }
+      }
+    });
+    return { success: true };
   });
   app.get('/api/v1/whiteboard/audio-stream/:user/:session/:file', async (_request, reply) => reply.type('audio/webm').send(placeholderWebm));
   app.get('/sb-stub/auth/v1/settings', async (_request, reply) => reply.send({ disable_signup: false, mailer_autoconfirm: true, phone_autoconfirm: true, sms_otp_exp: 3600, external: { email: true, phone: false, apple: false, azure: false, bitbucket: false, discord: false, facebook: false, figma: false, github: false, gitlab: false, google: false, kakao: false, keycloak: false, linkedin: false, notion: false, spotify: false, slack: false, twitch: false, twitter: false, workos: false, zoom: false }, saml_enabled: false, security_update_password_require_reauthentication: false }));

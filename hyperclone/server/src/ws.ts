@@ -134,7 +134,7 @@ async function runChatTool(socket: WebSocket, tool: ChatTool, message: string, u
 async function chatRound(socket: WebSocket, input: Incoming, userId: string, conversationId: string): Promise<void> {
   const message = typeof input.message === 'string' ? input.message : typeof input.answer === 'string' ? input.answer : ''; const state = await readState(); const user = state.users[userId] ?? await ensureOpenUser(); const conversation = state.conversations[conversationId];
   if (!user || !conversation) { chatSend(socket, { type: 'error', message: 'Conversation not found', is_complete: true }); return; }
-  await updateState((next) => { const value = next.conversations[conversationId]!; value.history_index += 1; value.history.push({ index: value.history_index, role: 'user', content: JSON.stringify({ type: 'user_message', message, file_info: input.attachments ?? null, mode: input.mode ?? null, integrations: input.integrations ?? [], reply_language: input.reply_language ?? null }), timestamp: now() }); value.updated_at = now(); if (value.title.startsWith('Conversation ')) value.title = message.replace(/\s+/g, ' ').trim().slice(0, 40) || value.title; });
+  await updateState((next) => { const value = next.conversations[conversationId]!; value.history_index += 1; const atts = input.attachments ?? input.images ?? null; value.history.push({ index: value.history_index, role: 'user', content: JSON.stringify({ type: 'user_message', message, file_info: atts, attachments: atts, images: atts, mode: input.mode ?? null, integrations: input.integrations ?? [], reply_language: input.reply_language ?? null }), timestamp: now() }); value.updated_at = now(); if (value.title.startsWith('Conversation ')) value.title = message.replace(/\s+/g, ' ').trim().slice(0, 40) || value.title; });
   chatSend(socket, { type: 'credit_status', message: 'Processing your request (BYOK Mode: Unlimited)', credit_info: { remaining_credits: 999999, max_credits: 999999, tier: 'byok' }, next_reset_time: new Date(Date.now() + 86400000).toISOString() });
   if (process.env.AGENT_CORE === 'dsh') {
     // Agent 核心 = DeepSeek Harness：推理流→thinking_chunk，答复→content_chunk；失败则回退内置管线
@@ -151,6 +151,7 @@ async function chatRound(socket: WebSocket, input: Incoming, userId: string, con
   }
   if (process.env.AGENT_CORE !== 'dsh' && process.env.BUILTIN_DIRECTOR !== 'legacy') {
     // 默认内置管线：6 skills 行为复刻（director.ts;原站回执形状）
+    const attList = Array.isArray(input.attachments) ? input.attachments : (Array.isArray(input.images) ? input.images : undefined);
     await runDirectorRound({ userId, conversationId, send: (frame) => chatSend(socket, frame), eff: await effFor(userId) }, {
       message,
       mode: typeof input.mode === 'string' ? input.mode : undefined,
@@ -158,6 +159,7 @@ async function chatRound(socket: WebSocket, input: Incoming, userId: string, con
       speed_mode: typeof input.speed_mode === 'string' ? input.speed_mode : undefined,
       ui_language: typeof input.ui_language === 'string' ? input.ui_language : (typeof input.reply_language === 'object' && input.reply_language ? String((input.reply_language as Record<string, unknown>).value ?? '') : undefined),
       tts_enabled: Boolean(input.tts_enabled),
+      attachments: attList,
     });
     return;
   }

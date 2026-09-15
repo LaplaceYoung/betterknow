@@ -305,4 +305,273 @@ export function PdfSession() {
 }
 
 export function DevCsmPreview() { return <div className="p-10 text-[13px] text-[#8a8a90]">/dev/csm — 内部客服预览面（契约来源，无用户可见功能）</div> }
-export function SampleMindmap() { return <div className="p-10"><h1 className="text-[20px] font-semibold">思维导图示例</h1><div className="hk-card mt-4 p-6 text-[13px] text-[#6b6b70]">示例响应：可视化能力会把回答渲染为思维导图（New）</div></div> }
+
+interface MindmapNode {
+  id: string
+  title: string
+  detail?: string
+  tag?: string
+  children?: MindmapNode[]
+}
+
+const SAMPLE_TREES: Record<string, { title: string; root: MindmapNode }> = {
+  quantum: {
+    title: '量子计算核心知识拓扑图',
+    root: {
+      id: 'root',
+      title: '量子计算第一性原理',
+      detail: '基于量子力学基本公理与线性代数复数希尔伯特空间的全新计算范式',
+      tag: '核心根节点',
+      children: [
+        {
+          id: 'math',
+          title: '数学语言：希尔伯特空间',
+          detail: '向量空间公理、内积、柯西-施瓦茨不等式与狄拉克符号系统',
+          tag: '数学公理',
+          children: [
+            { id: 'math-1', title: '态矢量 |ψ⟩ 与对偶空间 ⟨ψ|', detail: '行向量与列向量的复共轭转置映射' },
+            { id: 'math-2', title: '正交归一化基矢', detail: '总概率守恒条件：|α|² + |β|² = 1' },
+            { id: 'math-3', title: '厄米算符与自伴性', detail: '物理可观测量对应厄米矩阵，特征值必然为实数' },
+          ],
+        },
+        {
+          id: 'qubit',
+          title: '量子比特与叠加态',
+          detail: '经典比特向二维复平面的扩展，布洛赫球面几何表征',
+          tag: '物理基础',
+          children: [
+            { id: 'qubit-1', title: '布洛赫球 (Bloch Sphere)', detail: '极角 θ 与方位角 φ 刻画纯态在三维单位球面上的分布' },
+            { id: 'qubit-2', title: '阿达马门 (Hadamard Gate)', detail: '创建均等叠加态：H|0⟩ = (|0⟩+|1⟩)/√2' },
+            { id: 'qubit-3', title: '量子干涉效应', detail: '相长干涉与相消干涉在振幅层面的代数求和' },
+          ],
+        },
+        {
+          id: 'algo',
+          title: '前沿量子算法实战',
+          detail: '利用量子并行性打破经典多项式时间复杂度极限',
+          tag: '算法突破',
+          children: [
+            { id: 'algo-1', title: 'Shor 大数分解算法', detail: '利用量子傅里叶变换（QFT）求模指数周期，指数加速破解 RSA' },
+            { id: 'algo-2', title: 'Grover 无序数据库搜索', detail: '振幅放大技术实现 O(√N) 级别二次加速' },
+            { id: 'algo-3', title: '量子纠错码 (QEC)', detail: '表面码（Surface Codes）对抗环境热噪声退相干' },
+          ],
+        },
+      ],
+    },
+  },
+  ai: {
+    title: '深度学习与 Transformer 知识图谱',
+    root: {
+      id: 'root-ai',
+      title: '现代深度学习架构基石',
+      detail: '从计算图求导到自注意力与基础大语言模型',
+      tag: '核心系统',
+      children: [
+        {
+          id: 'backprop',
+          title: '计算图与自动微分',
+          detail: '多元微积分链式法则在有向无环图上的反向传播',
+          tag: '优化理论',
+          children: [
+            { id: 'bp-1', title: '链式法则雅可比矩阵', detail: '梯度向量在计算节点间的反向递归传递' },
+            { id: 'bp-2', title: '梯度消失与爆炸', detail: '深层网络连乘衰减，引出残差连接与 LayerNorm' },
+          ],
+        },
+        {
+          id: 'transformer',
+          title: 'Transformer 自注意力机制',
+          detail: 'Attention Is All You Need: Q, K, V 缩放点积匹配',
+          tag: '核心模型',
+          children: [
+            { id: 'tf-1', title: 'Scaled Dot-Product Attention', detail: 'Softmax(QK^T / √d_k) V 动态上下文寻址' },
+            { id: 'tf-2', title: '多头注意力 (Multi-Head)', detail: '投影到不同表示子空间并行捕获多元语义相关性' },
+            { id: 'tf-3', title: '旋转位置编码 (RoPE)', detail: '复数域旋转乘法注入相对位置信息，支持外推扩展' },
+          ],
+        },
+      ],
+    },
+  },
+}
+
+export function SampleMindmap() {
+  const [topicKey, setTopicKey] = useState<'quantum' | 'ai'>('quantum')
+  const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
+  const [activeNode, setActiveNode] = useState<MindmapNode | null>(null)
+  const [scale, setScale] = useState(1)
+
+  const tree = SAMPLE_TREES[topicKey]
+
+  const toggleCollapse = (id: string) => {
+    setCollapsed((prev) => ({ ...prev, [id]: !prev[id] }))
+  }
+
+  return (
+    <div className="mx-auto max-w-[1180px] px-6 py-6 pb-24">
+      {/* Top Header & Actions */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-5">
+        <div>
+          <div className="text-[12px] font-semibold text-[#3b5bdb] uppercase tracking-wider">
+            交互式思维导图 · 知识拓扑引擎 (Interactive Mindmap)
+          </div>
+          <h1 className="text-[24px] font-semibold tracking-tight text-[#0a0a0a] mt-1">
+            {tree.title}
+          </h1>
+        </div>
+        <div className="flex items-center gap-2">
+          {/* Topic Switcher */}
+          <div className="flex bg-[#f4f4f5] p-1 rounded-xl text-[12px]">
+            <button
+              onClick={() => {
+                setTopicKey('quantum')
+                setActiveNode(null)
+              }}
+              className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                topicKey === 'quantum' ? 'bg-white text-black shadow-sm' : 'text-[#6b6b70]'
+              }`}
+            >
+              量子计算导论
+            </button>
+            <button
+              onClick={() => {
+                setTopicKey('ai')
+                setActiveNode(null)
+              }}
+              className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                topicKey === 'ai' ? 'bg-white text-black shadow-sm' : 'text-[#6b6b70]'
+              }`}
+            >
+              深度学习与 Transformer
+            </button>
+          </div>
+
+          {/* Zoom controls */}
+          <div className="flex items-center gap-1 bg-[#f4f4f5] p-1 rounded-xl text-[12px]">
+            <button
+              onClick={() => setScale((s) => Math.min(s + 0.1, 1.4))}
+              className="hk-icon-btn h-7 w-7 text-[#6b6b70] hover:text-black"
+              title="放大"
+            >
+              +
+            </button>
+            <span className="text-[11px] px-1 text-[#8a8a90] font-mono">{Math.round(scale * 100)}%</span>
+            <button
+              onClick={() => setScale((s) => Math.max(s - 0.1, 0.7))}
+              className="hk-icon-btn h-7 w-7 text-[#6b6b70] hover:text-black"
+              title="缩小"
+            >
+              -
+            </button>
+            <button
+              onClick={() => setScale(1)}
+              className="hk-icon-btn h-7 w-7 text-[#6b6b70] hover:text-black text-[11px]"
+              title="重置缩放"
+            >
+              1:1
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Canvas Area */}
+      <div className="mt-6 border rounded-2xl bg-[#fafafa] overflow-auto hk-scroll p-8 min-h-[540px] relative shadow-inner">
+        <div
+          style={{ transform: `scale(${scale})`, transformOrigin: 'top left', transition: 'transform 0.2s ease-out' }}
+          className="min-w-[800px]"
+        >
+          {/* Root Node */}
+          <div className="flex items-center gap-4 mb-8">
+            <div
+              onClick={() => setActiveNode(tree.root)}
+              className="cursor-pointer px-5 py-3.5 rounded-2xl bg-[#0a0a0a] text-white shadow-md hover:scale-105 transition-transform max-w-[280px]"
+            >
+              <div className="text-[10px] uppercase font-bold text-[#818cf8] tracking-widest">
+                {tree.root.tag}
+              </div>
+              <div className="text-[16px] font-semibold mt-0.5">{tree.root.title}</div>
+            </div>
+            <div className="text-[12px] text-[#8a8a90] max-w-[340px]">
+              点击任意节点展开/收起分支，或查看知识定义与第一性原理推导
+            </div>
+          </div>
+
+          {/* Main Branches */}
+          <div className="space-y-6 pl-6 border-l-2 border-[#e4e4e7] ml-6">
+            {(tree.root.children ?? []).map((branch) => {
+              const isCollapsed = collapsed[branch.id]
+              return (
+                <div key={branch.id} className="relative">
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => toggleCollapse(branch.id)}
+                      className="h-6 w-6 rounded-full bg-white border flex items-center justify-center text-[12px] text-[#6b6b70] hover:border-black transition-colors"
+                      title={isCollapsed ? '展开子分支' : '收起子分支'}
+                    >
+                      {isCollapsed ? '+' : '−'}
+                    </button>
+                    <div
+                      onClick={() => setActiveNode(branch)}
+                      className="cursor-pointer px-4 py-2.5 rounded-xl bg-white border border-[#e4e4e7] hover:border-[#3b5bdb] hover:shadow-sm transition-all text-left max-w-[320px]"
+                    >
+                      {branch.tag && (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#eef2ff] text-[#3b5bdb] font-medium mr-1.5">
+                          {branch.tag}
+                        </span>
+                      )}
+                      <span className="text-[14px] font-semibold text-[#1c1c1e]">{branch.title}</span>
+                    </div>
+                  </div>
+
+                  {/* Subtopics */}
+                  {!isCollapsed && branch.children && (
+                    <div className="mt-3 pl-8 border-l border-dashed border-[#d4d4d8] ml-3 space-y-2.5">
+                      {branch.children.map((sub) => (
+                        <div
+                          key={sub.id}
+                          onClick={() => setActiveNode(sub)}
+                          className="cursor-pointer px-3.5 py-2 rounded-xl bg-white border border-[#f4f4f5] hover:border-[#a1a1aa] transition-all text-[13px] text-[#3d3d3f] flex items-center justify-between max-w-[360px] shadow-2xs hover:shadow-sm"
+                        >
+                          <span className="font-medium text-[#0a0a0a]">{sub.title}</span>
+                          <span className="text-[11px] text-[#8a8a90] ml-2">详情 →</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Node Detail Drawer / Popover */}
+        {activeNode && (
+          <div className="absolute right-6 top-6 w-[340px] bg-white rounded-2xl shadow-xl border p-5 hk-fade-in z-20">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#f1f2f4] font-semibold text-[#6b6b70]">
+                {activeNode.tag ?? '知识节点'}
+              </span>
+              <button
+                onClick={() => setActiveNode(null)}
+                className="hk-icon-btn h-6 w-6 text-[#8a8a90] hover:text-black text-[12px]"
+              >
+                ✕
+              </button>
+            </div>
+            <h3 className="text-[16px] font-semibold text-[#0a0a0a]">{activeNode.title}</h3>
+            <p className="text-[13px] text-[#4b4b50] leading-6 mt-3">
+              {activeNode.detail ?? '该知识点构成了本体系的核心推导环节。'}
+            </p>
+            <div className="mt-4 pt-3 border-t flex items-center justify-between text-[12px]">
+              <span className="text-[#8a8a90]">已收录于 betterknow 知识图谱</span>
+              <button
+                onClick={() => setActiveNode(null)}
+                className="hk-pill h-7 px-3 text-[11px] font-medium"
+              >
+                关闭
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}

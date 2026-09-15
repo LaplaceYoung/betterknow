@@ -963,11 +963,23 @@ $$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$$
     }
 
     case 'documentReading': {
+      const directAtts = Array.isArray(input.attachments) ? input.attachments : [];
       const files = await tool(
         'search_files',
-        { query: topic, sources: ['drive'] },
+        { query: topic, sources: ['drive', 'upload'] },
         'collapse',
         async () => {
+          if (directAtts.length) {
+            return {
+              files: directAtts.map((att: any, idx: number) => ({
+                file_id: att.id ?? `att-${idx}-${Date.now()}`,
+                file_name: att.name ?? `上传图片/材料 ${idx + 1}`,
+                file_ext: att.type?.includes('image') ? '.png' : (att.name?.match(/\.[^.]+$/)?.[0] ?? '.pdf'),
+                short_summary: `用户即时上传材料：${att.name ?? '图片/讲义'}`,
+                source: 'upload',
+              })),
+            };
+          }
           const s = await readState();
           const drive = Object.values(s.drive[ctx.userId] ?? {});
           const norm = (v: unknown) =>
@@ -1004,7 +1016,9 @@ $$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$$
           failed: [],
           attached_count: fileIds.length,
           attached_part_count: fileIds.length,
-          note: 'Document content parsed successfully for guided reading.',
+          note: directAtts.length
+            ? '多模态材料与图像视觉特征已成功提取，接入苏格拉底教学管线。'
+            : 'Document content parsed successfully for guided reading.',
         }));
       }
       break;

@@ -86,6 +86,28 @@ export async function registerExtraRoutes(app: FastifyInstance): Promise<void> {
     return { tasks: tasks.map((t) => ({ id: String(t.task_id ?? t.id ?? randomUUID()), title: String(t.title ?? t.task_title ?? '学习任务'), course_uuid: t.course_uuid, course_title: t.course_title, scheduled_for: String(t.scheduled_for ?? t.due_at ?? now()), status: String(t.status ?? 'pending'), type: t.type, duration_min: t.duration_min })) };
   });
 
+  // 添加日历学习任务
+  app.post('/api/v1/calendar/tasks', protectedRoute, async (request) => {
+    const uid = request.userId!;
+    const body = request.body as { title?: string; course_uuid?: string; course_title?: string; scheduled_for?: string; duration_min?: number; type?: string };
+    const newTask = {
+      task_id: randomUUID(),
+      id: randomUUID(),
+      title: body.title || '学习任务',
+      course_uuid: body.course_uuid,
+      course_title: body.course_title,
+      scheduled_for: body.scheduled_for || now(),
+      status: 'pending',
+      type: body.type || 'study',
+      duration_min: body.duration_min || 30,
+      created_at: now(),
+    };
+    await updateState((state) => {
+      state.calendar[uid] = [...(state.calendar[uid] ?? []), newTask];
+    });
+    return { success: true, task: newTask };
+  });
+
   // [B13] 收件箱已读
   app.post('/api/v1/usr-msg-inbox/mark_read', protectedRoute, async (request) => { const body = request.body as { message_id?: string }; return { success: true, message_id: body.message_id ?? null }; });
 

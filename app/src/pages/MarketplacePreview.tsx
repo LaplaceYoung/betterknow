@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, BadgeCheck, Upload, Play, PenLine, ChevronRight, Hash, Share2, LogOut } from 'lucide-react'
+import { ArrowLeft, BadgeCheck, Upload, Play, PenLine, ChevronRight, Hash, Share2, LogOut, MoreHorizontal, CalendarPlus, Copy, Sparkles, CheckCircle2, Check } from 'lucide-react'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { apiGet, apiPost, type MarketplaceCourse } from '@/lib/api'
 import { UploadMaterialModal } from '@/components/UploadMaterialModal'
 import { DropCourseModal } from '@/components/DropCourseModal'
@@ -35,11 +36,60 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
   const [uploadModal, setUploadModal] = useState(false)
   const [dropModal, setDropModal] = useState(false)
   const [bugModal, setBugModal] = useState(false)
+  const [actionToast, setActionToast] = useState<{ id: string; text: string } | null>(null)
   const unit = course.units[unitIdx]
   const allPractice = useMemo(() => course.units.flatMap((u, ui) => u.lectures.flatMap((l) => l.sessions.filter((s) => s.session_type !== 'whiteboard').map((s) => ({ ...s, unitNo: ui + 1, lecture: l.title })))), [course.units])
   const goSession = (s: Session) => {
     if (!enrolled || !courseUuid) { onJoin?.(); return }
     nav(s.session_type === 'whiteboard' ? `/course/${courseUuid}/sessions/whiteboard/${s.sessionId}` : `/course/${courseUuid}/practice/${s.sessionId}`)
+  }
+
+  const handleAddToCalendar = async (s: Session, lecTitle: string) => {
+    try {
+      await apiPost('/calendar/tasks', {
+        title: `${course.courseTitle} · ${s.title ?? lecTitle}`,
+        course_uuid: courseUuid,
+        course_title: course.courseTitle,
+        type: 'study',
+        duration_min: 30,
+      })
+      setActionToast({ id: s.sessionId, text: '已添加至学习日程' })
+      setTimeout(() => setActionToast(null), 2500)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const handleCopyOutline = async (s: Session, lec: Lecture) => {
+    const text = `# ${course.courseTitle}\n## 讲次：${lec.title}\n### 课节 ${s.sessionIndex}：${s.title ?? '核心概念'}\n- 讲次概览：${lec.description}\n- 掌握目标：苏格拉底第一性原理探究与实践演练`
+    try {
+      await navigator.clipboard.writeText(text)
+      setActionToast({ id: s.sessionId, text: '大纲已复制到剪贴板' })
+      setTimeout(() => setActionToast(null), 2500)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const handleViewMindmap = (s: Session, lec: Lecture) => {
+    nav(`/sampleMindmapResponse?topic=${encodeURIComponent(s.title ?? lec.title)}`)
+  }
+
+  const handleToggleMastery = async (s: Session) => {
+    if (!courseUuid) return
+    const nextStatus = s.status === 'mastered' ? 'todo' : 'mastered'
+    try {
+      await apiPost(`/course-generation/courses/${courseUuid}/sessions/${s.sessionId}/state`, {
+        status: nextStatus,
+        mastery: nextStatus,
+      })
+      s.status = nextStatus
+      s.mastery = nextStatus
+      setActionToast({ id: s.sessionId, text: nextStatus === 'mastered' ? '已标记为掌握' : '已重置进度' })
+      setTimeout(() => setActionToast(null), 2500)
+    } catch (e) {
+      console.error(e)
+    }
   }
   return (
     <div className="mx-auto max-w-[1180px] px-8 pb-16 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}>
@@ -101,11 +151,40 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
                   <div className="flex items-start gap-3"><span className="mt-0.5 h-6 w-6 shrink-0 rounded-full bg-[#f1f2f4] text-[12px] flex items-center justify-center">{li + 1}</span><div className="flex-1"><h3 className="text-[15px] font-semibold">讲次 {li + 1}：{lec.title}</h3><p className="text-[12px] text-[#6b6b70] leading-5 mt-1">{lec.description}</p></div></div>
                   <ul className="mt-3 divide-y">
                     {lec.sessions.map((s) => (
-                      <li key={s.sessionId} className="flex items-center gap-3 py-2 text-[13px]">
+                      <li key={s.sessionId} className="flex items-center gap-3 py-2 text-[13px] group">
                         <span className="flex-1 truncate">{s.title ?? `${lec.title} · 第 ${s.sessionIndex} 节`}</span>
+                        {actionToast?.id === s.sessionId && (
+                          <span className="text-[11px] text-[#16a34a] font-medium inline-flex items-center gap-1 bg-[#f0fdf4] px-2 py-0.5 rounded-full border border-[#bbf7d0] hk-fade-in">
+                            <Check size={11} /> {actionToast.text}
+                          </span>
+                        )}
                         <button onClick={() => goSession({ ...s, session_type: 'whiteboard' })} className="hk-pill h-7 text-[12px] px-2.5"><Play size={11} />学习</button>
                         <button onClick={() => goSession({ ...s, session_type: 'practice' })} className="hk-pill h-7 text-[12px] px-2.5"><PenLine size={11} />练习</button>
                         <StatusDot status={s.status} />
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <button className="hk-icon-btn h-7 w-7 text-[#8a8a90] hover:text-black opacity-60 group-hover:opacity-100 transition-opacity" aria-label="更多操作" title="更多操作">
+                              <MoreHorizontal size={14} />
+                            </button>
+                          </PopoverTrigger>
+                          <PopoverContent align="end" className="w-[180px] p-1.5 hk-pop space-y-0.5">
+                            <button onClick={() => handleAddToCalendar(s, lec.title)} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px] flex items-center gap-2 text-[#3d3d3f]">
+                              <CalendarPlus size={13} className="text-[#3b5bdb]" /> 加入学习日程
+                            </button>
+                            <button onClick={() => handleCopyOutline(s, lec)} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px] flex items-center gap-2 text-[#3d3d3f]">
+                              <Copy size={13} className="text-[#6b6b70]" /> 复制本讲大纲
+                            </button>
+                            <button onClick={() => handleViewMindmap(s, lec)} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px] flex items-center gap-2 text-[#3d3d3f]">
+                              <Sparkles size={13} className="text-[var(--pro-gold)]" /> 查看知识图谱
+                            </button>
+                            {enrolled && (
+                              <button onClick={() => handleToggleMastery(s)} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px] flex items-center gap-2 text-[#3d3d3f] border-t border-[#f4f4f5] mt-1 pt-1.5">
+                                <CheckCircle2 size={13} className={s.status === 'mastered' ? 'text-[#a1a1aa]' : 'text-[#16a34a]'} />
+                                {s.status === 'mastered' ? '重置为未学' : '标记为已掌握'}
+                              </button>
+                            )}
+                          </PopoverContent>
+                        </Popover>
                       </li>
                     ))}
                   </ul>

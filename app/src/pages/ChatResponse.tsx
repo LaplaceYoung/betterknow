@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router'
-import { ArrowUp, Check, ChevronRight, ExternalLink, Languages, LifeBuoy, Share2, Sparkles, ArrowRight, Download, FileText } from 'lucide-react'
+import { ArrowUp, Check, ChevronRight, ExternalLink, Languages, LifeBuoy, Share2, Sparkles, ArrowRight, Download, FileText, Plus, X, Image as ImageIcon } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
@@ -14,6 +14,7 @@ interface Frame { type: string; [k: string]: unknown }
 interface ChatItem {
   kind: 'user' | 'thinking' | 'tool' | 'content' | 'question' | 'diagram' | 'complete' | 'board' | 'quiz' | 'deep_learn' | 'cheatsheet' | 'recommend'
   text?: string
+  attachments?: Array<{ name?: string; type?: string; data?: string; url?: string }>
   tool?: string
   status?: string
   question?: QuestionData
@@ -274,9 +275,60 @@ export default function ChatResponse() {
   const [genCourse, setGenCourse] = useState<{ courseUuid: string; courseTitle: string } | null>(null)
   const [done, setDone] = useState(false)
   const [rated, setRated] = useState(0)
+  const [followupFiles, setFollowupFiles] = useState<Array<{ name: string; type: string; data?: string }>>([])
+  const followupFileRef = useRef<HTMLInputElement>(null)
   const wsRef = useRef<WebSocket | null>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const startedRef = useRef(false)
+
+  const handleFollowupPaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    const items = e.clipboardData?.items
+    if (!items) return
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i]
+      if (item.type.startsWith('image/')) {
+        const file = item.getAsFile()
+        if (file) {
+          e.preventDefault()
+          const reader = new FileReader()
+          reader.onload = () => {
+            setFollowupFiles((prev) => [
+              ...prev,
+              {
+                name: file.name || `截图-${new Date().toLocaleTimeString('zh-CN')}.png`,
+                type: file.type,
+                data: reader.result as string,
+              },
+            ])
+          }
+          reader.readAsDataURL(file)
+        }
+      }
+    }
+  }
+
+  const handleFollowupFilesSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+    Array.from(files).forEach((file) => {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader()
+        reader.onload = () => {
+          setFollowupFiles((prev) => [
+            ...prev,
+            { name: file.name, type: file.type, data: reader.result as string },
+          ])
+        }
+        reader.readAsDataURL(file)
+      } else {
+        setFollowupFiles((prev) => [
+          ...prev,
+          { name: file.name, type: file.type },
+        ])
+      }
+    })
+    e.target.value = ''
+  }
 
   const push = useCallback((it: ChatItem) => setItems((xs) => [...xs, it]), [])
 
@@ -330,7 +382,7 @@ export default function ChatResponse() {
       const f = JSON.parse(ev.data) as Frame
       if (f.type === 'conversation_created') { const d = f.data as { conversation_id: string }; setConvId(String(d.conversation_id)); window.history.replaceState({}, '', `/response/${String(d.conversation_id)}`) }
       else if (f.type === 'conversation_resumed') { const d = f.data as { title?: string }; setTitle(String(d.title ?? '')) }
-      else if (f.type === 'user_message') { push({ kind: 'user', text: String(f.message ?? '') }); setStreaming(true) }
+      else if (f.type === 'user_message') { push({ kind: 'user', text: String(f.message ?? ''), attachments: Array.isArray(f.attachments) ? f.attachments as any : undefined }); setStreaming(true) }
       else if (f.type === 'thinking') { push({ kind: 'thinking', tool: String(f.tool_name ?? 'directorAgent'), status: String(f.tool_status ?? '') }) }
       else if (f.type === 'thinking_chunk') { setItems((xs) => [...xs, { kind: 'content', text: String(f.chunk ?? ''), whisper: true } as ChatItem]) }
       else if (f.type === 'tool_execution') {
@@ -361,8 +413,9 @@ export default function ChatResponse() {
       else if (f.type === 'error') { push({ kind: 'content', text: `⚠️ ${String(f.message ?? '出错了')}` }); setStreaming(false) }
     }
     ws.onopen = () => {
-      if (pending && loc.state?.message) { push({ kind: 'user', text: loc.state.message }); setStreaming(true) }
-      if (pending && loc.state?.message) ws.send(JSON.stringify({ type: 'user_message', message: loc.state.message, ui_language: language, speed_mode: loc.state.speed_mode ?? 'standard', tts_enabled: Boolean(loc.state.tts_enabled), ...(loc.state.mode ? { mode: loc.state.mode } : {}) }))
+      const initialAttachments = (loc.state as any)?.attachments
+      if (pending && loc.state?.message) { push({ kind: 'user', text: loc.state.message, attachments: initialAttachments }); setStreaming(true) }
+      if (pending && loc.state?.message) ws.send(JSON.stringify({ type: 'user_message', message: loc.state.message, ui_language: language, speed_mode: loc.state.speed_mode ?? 'standard', tts_enabled: Boolean(loc.state.tts_enabled), attachments: initialAttachments, ...(loc.state.mode ? { mode: loc.state.mode } : {}) }))
     }
     // 已有会话：回放历史
     if (!pending) {
@@ -377,7 +430,11 @@ export default function ChatResponse() {
           if (h.role === 'system') continue
           let parsed: Record<string, unknown> | null = null
           try { parsed = JSON.parse(h.content) as Record<string, unknown> } catch { parsed = null }
-          if (h.role === 'user') { out.push({ kind: 'user', text: String(parsed?.message ?? h.content) }); continue }
+          if (h.role === 'user') {
+            const atts = (parsed?.attachments ?? parsed?.images ?? parsed?.file_info ?? []) as Array<{ name?: string; type?: string; data?: string; url?: string }>
+            out.push({ kind: 'user', text: String(parsed?.message ?? h.content), attachments: Array.isArray(atts) ? atts : [] });
+            continue
+          }
           if (h.role === 'tool') {
             const toolName = String(h.tool_name ?? parsed?.tool_name ?? '')
             const res = (h.result as Record<string, unknown> | undefined)?.result as Record<string, unknown> | undefined
@@ -400,12 +457,22 @@ export default function ChatResponse() {
 
   const sendFollowup = (customText?: string) => {
     const m = (customText ?? input).trim()
-    if (!m || !wsRef.current) return
-    wsRef.current.send(JSON.stringify({ type: 'user_message', message: m, ui_language: language, speed_mode: 'standard' }))
-    push({ kind: 'user', text: m })
+    if ((!m && followupFiles.length === 0) || !wsRef.current) return
+    const msg = m || '请查看上传的附件材料'
+    wsRef.current.send(JSON.stringify({
+      type: 'user_message',
+      message: msg,
+      ui_language: language,
+      speed_mode: 'standard',
+      attachments: followupFiles.length > 0 ? followupFiles : undefined,
+    }))
+    push({ kind: 'user', text: msg, attachments: followupFiles.length > 0 ? followupFiles : undefined })
     setStreaming(true)
     setDone(false)
-    if (!customText) setInput('')
+    if (!customText) {
+      setInput('')
+      setFollowupFiles([])
+    }
   }
 
   const submitAnswers = (skip = false) => {
@@ -423,7 +490,33 @@ export default function ChatResponse() {
       {title && <div className="text-[12px] text-[#8a8a90] mb-4">{title}</div>}
       <div className="space-y-4">
         {grouped.map((it, i) => {
-          if (it.kind === 'user') return <div key={i} className="flex justify-end hk-fade-in-up"><div className="max-w-[80%] rounded-2xl bg-[#f1f2f4] px-4 py-2.5 text-[14px] whitespace-pre-wrap">{it.text}</div></div>
+          if (it.kind === 'user') return (
+            <div key={i} className="flex justify-end hk-fade-in-up">
+              <div className="max-w-[80%] rounded-2xl bg-[#f1f2f4] px-4 py-2.5 text-[14px]">
+                {it.attachments && it.attachments.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {it.attachments.map((att, ai) => (
+                      att.data || att.url ? (
+                        <img
+                          key={ai}
+                          src={att.data ?? att.url}
+                          alt={att.name ?? 'attachment'}
+                          className="max-h-48 max-w-full rounded-lg object-contain border border-[#d4d4d8] bg-white cursor-pointer hover:opacity-95"
+                          onClick={() => window.open(att.data ?? att.url, '_blank')}
+                        />
+                      ) : (
+                        <div key={ai} className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white border border-[#e4e4e7] text-[12px] text-[#3d3d3f]">
+                          <FileText size={13} className="text-[#8a8a90]" />
+                          <span className="truncate max-w-[200px]">{att.name ?? '附件'}</span>
+                        </div>
+                      )
+                    ))}
+                  </div>
+                )}
+                <div className="whitespace-pre-wrap">{it.text}</div>
+              </div>
+            </div>
+          )
           if (it.kind === 'thinking') return it.status === 'started' ? <div key={i} className="flex items-center gap-2 text-[12px] text-[#8a8a90]"><span className="h-3.5 w-3.5 rounded-full border-2 border-[#d4d4d8] border-t-[#0a0a0a] animate-spin" />思考中…</div> : null
           if (it.kind === 'tool') {
             const label = (it.tool ? (TOOL_LABELS[it.tool]?.[language === 'en' ? 'en' : 'zh'] ?? it.tool) : '执行工具')
@@ -675,15 +768,46 @@ export default function ChatResponse() {
         <div className="fixed bottom-0 inset-x-0 pointer-events-none">
           <div className="max-w-[860px] mx-auto px-6 pb-6 pointer-events-auto">
             <div className="hk-composer p-3.5">
+              <input
+                type="file"
+                ref={followupFileRef}
+                className="hidden"
+                multiple
+                accept="image/*,.pdf,.doc,.docx,.txt,.md"
+                onChange={handleFollowupFilesSelected}
+              />
+              {followupFiles.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-2 pb-1">
+                  {followupFiles.map((f, i) => (
+                    <div key={i} className="flex items-center gap-2 px-2.5 py-1 rounded-xl bg-[#f4f4f5] border border-[#e4e4e7] text-[12px] text-[#1c1c1e]">
+                      {f.data ? (
+                        <img src={f.data} alt={f.name} className="h-5 w-5 rounded object-cover border border-[#d4d4d8]" />
+                      ) : (
+                        <FileText size={13} className="text-[#3b5bdb]" />
+                      )}
+                      <span className="max-w-[140px] truncate font-medium">{f.name}</span>
+                      <button
+                        type="button"
+                        onClick={() => setFollowupFiles((fs) => fs.filter((_, idx) => idx !== i))}
+                        className="text-[#a1a1aa] hover:text-[#dc2626] ml-0.5"
+                        aria-label="移除附件"
+                      >
+                        <X size={12} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div className="relative">
-                <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={1} onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendFollowup() } }} placeholder="继续提问…" aria-label="继续提问" className="w-full resize-none bg-transparent outline-none text-[14px] leading-6" />
+                <textarea value={input} onChange={(e) => setInput(e.target.value)} onPaste={handleFollowupPaste} rows={1} onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendFollowup() } }} placeholder="继续提问，或粘贴截图与上传材料…" aria-label="继续提问" className="w-full resize-none bg-transparent outline-none text-[14px] leading-6" />
               </div>
               <div className="flex items-center gap-2 mt-2">
+                <button type="button" onClick={() => followupFileRef.current?.click()} className="hk-icon-btn h-7 w-7" aria-label="上传附件" title="上传图片或文件"><Plus size={14} /></button>
                 <span className="hk-pill h-7 text-[12px]"><Languages size={11} /> {language === 'zh' ? '中文' : language === 'en' ? 'English' : '한국어'}</span>
                 <div className="ml-auto flex items-center gap-2">
                   <button className="hk-pill h-7 text-[12px]" onClick={async () => { const token = localStorage.getItem('access_token') ?? ''; const r = await fetch('/api/v1/share_record/share_records', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` }, body: JSON.stringify({ type: 'conversation', shared_object_id: convId, shared_with: { share_to_everyone: true } }) }).then((x) => x.json() as Promise<{ shared_url?: string }>).catch((): { shared_url?: string } => ({})); nav(r.shared_url ?? `/share/c/${convId}`) }}><Share2 size={11} /> 分享对话</button>
                   <button className="hk-pill h-7 text-[12px]"><LifeBuoy size={11} /> 遇到问题？</button>
-                  <button onClick={() => sendFollowup()} disabled={streaming || !input.trim()} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40" aria-label="发送"><ArrowUp size={15} /></button>
+                  <button onClick={() => sendFollowup()} disabled={streaming || (!input.trim() && followupFiles.length === 0)} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40" aria-label="发送"><ArrowUp size={15} /></button>
                 </div>
               </div>
             </div>
