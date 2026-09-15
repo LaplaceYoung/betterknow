@@ -4,12 +4,14 @@ import { basename, extname, resolve } from 'node:path';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { authenticate } from './auth.js';
 import { diagrams, placeholderPng, placeholderWebm, publicFiles } from './artifacts.js';
-import { mimeFor, readTtsAudio, readWhiteboardImage } from './media.js';
+import { mimeFor, readTtsAudio, readWhiteboardImage, ttsCounts } from './media.js';
 import { now, readState, updateState, type UserRecord } from './store.js';
 import { decorateMarketplace } from './extras.js';
 import { probeSeam, seamStatus, type Seam } from './providers/index.js';
-import type { ByokConfig } from './config.js';
-import { listRuns, readRun } from './runs.js';
+import { resolveByok, type ByokConfig, type UserByok } from './config.js';
+import { activeRuns, generatingTargets, listRuns, readRun, sweepStaleRuns } from './runs.js';
+import { enumerateCourseSessions } from './courseModel.js';
+import { listVoices, readTtsFile, synthesize, ttsFileCount, ttsStats } from './tts.js';
 import { getSeedExam, getSeedPractice, getSeedProgress, getSeedProject, resolveSeedByMarketplaceId, resolveSeedCourse } from './seedCourses.js';
 
 const protectedRoute = { preHandler: authenticate };
@@ -25,13 +27,27 @@ async function currentUser(request: FastifyRequest): Promise<UserRecord> {
 function courseSummary(course: Record<string, unknown>): Record<string, unknown> {
   const units = Array.isArray(course.units) ? course.units : [];
   const sessionCount = units.reduce<number>((count, unit) => count + (typeof unit === 'object' && unit && 'sessions' in unit && Array.isArray(unit.sessions) ? unit.sessions.length : 0), 0);
-  const coverUrl = String(course.coverImageUrl || `/api/v1/marketplace/cover/${course.marketplaceSourceId ?? course.courseUuid}/cover.png`);
+  const cover = course.coverImage as { hash?: string; filePath?: string; url?: string } | undefined;
+  const coverUrl = String(
+    course.coverImageUrl ||
+    cover?.url ||
+    (cover?.hash && cover.filePath ? `/api/v1/covers/${cover.filePath.split('/').pop()}` : '') ||
+    `/api/v1/marketplace/cover/${course.marketplaceSourceId ?? course.courseUuid}/cover.png`,
+  );
   return {
     courseUuid: course.courseUuid, courseTitle: course.courseTitle, courseDescription: course.courseDescription,
     targetLearner: course.targetLearner, tags: course.tags ?? [], unitCount: units.length, sessionCount,
     assignmentCount: 0, examCount: 0, ticketVariant: course.ticketVariant ?? 1, coverImageUrl: coverUrl,
     wideCoverImageUrl: course.wideCoverImageUrl || coverUrl, updatedAt: course.updated_at ?? course.created_at, createdAt: course.created_at,
-    source: course.source ?? 'generated', progress: course.progress ?? 0, nextItem: course.nextItem ?? null,
+    source: course.source ?? 'generated',
+    // 线上 progress 是对象 {completed_sessions,total_sessions,percentage}；列表按数字百分比渲染，这里归一化
+    progress: (() => {
+      const value = course.progress;
+      if (typeof value === 'number') return value;
+      if (value && typeof value === 'object') return Number((value as { percentage?: number }).percentage ?? 0);
+      return 0;
+    })(),
+    nextItem: course.nextItem ?? null,
   };
 }
 async function marketplaceCourses(): Promise<Array<Record<string, unknown>>> {
@@ -291,8 +307,58 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/subscription/redeem_coupon', protectedRoute, async () => ({ success: true, message: 'Coupon accepted in local mode' }));
 
   app.get('/api/v1/whiteboard/course-outlines', protectedRoute, async (request) => ({ courses: Object.values((await readState()).courses).filter((course) => course.user_id === request.userId).map((course) => ({ id: course.courseUuid, uuid: course.courseUuid, title: course.courseTitle })) }));
-  app.get('/api/v1/whiteboard/course-outlines/:courseUuid/sessions', protectedRoute, async (request, reply) => { const id = (request.params as { courseUuid: string }).courseUuid; const course = (await readState()).courses[id]; if (!course || course.user_id !== request.userId) return reply.code(404).send({ detail: 'Course not found' }); const units: unknown[] = Array.isArray(course.units) ? course.units : []; const sessions = units.flatMap((unit, unitIndex) => { if (!unit || typeof unit !== 'object' || !('sessions' in unit) || !Array.isArray(unit.sessions)) return []; return (unit.sessions as unknown[]).map((session: unknown, sessionIndex: number) => { const source = typeof session === 'string' ? { title: session } : session as Record<string, unknown>; const sessionId = String(source.id ?? randomUUID()); return { id: `${id}:${sessionId}`, course_uuid: id, session_id: sessionId, title: source.title ?? `Session ${sessionIndex + 1}`, description: source.description ?? '', lectureOutline: source.lectureOutline ?? '', session_type: 'lecture', unit_id: `unit-${unitIndex + 1}`, unit_title: 'title' in unit ? unit.title : `Unit ${unitIndex + 1}`, lecture_id: `lecture-${sessionIndex + 1}`, lecture_title: source.title ?? '', session_index: sessionIndex, estimated_minutes: 20, key_points: source.key_points ?? [], references: [] }; }); }); return { sessions }; });
+  app.get('/api/v1/whiteboard/course-outlines/:courseUuid/sessions', protectedRoute, async (request, reply) => {
+    const id = (request.params as { courseUuid: string }).courseUuid;
+    const course = (await readState()).courses[id];
+    if (!course || course.user_id !== request.userId) return reply.code(404).send({ detail: 'Course not found' });
+    const sessions = enumerateCourseSessions(course).map((session) => ({
+      id: `${id}:${session.sessionId}`,
+      course_uuid: id,
+      session_id: session.sessionId,
+      title: session.title,
+      description: session.description,
+      lectureOutline: session.source.lectureOutline ?? session.source.sessionOutline ?? '',
+      session_type: session.sessionType,
+      unit_id: session.unitId,
+      unit_title: session.unitTitle,
+      lecture_id: session.lectureId,
+      lecture_title: session.lectureTitle,
+      session_index: session.sessionIndex,
+      estimated_minutes: 20,
+      key_points: session.keyPoints,
+      references: [],
+    }));
+    return { sessions };
+  });
 
+  // ── TTS（seam 之上）：缓存命中即回同一 URL；voice/speed 未传时取会话里保存的 tts_config ──
+  app.get('/api/v1/tts/audio/:file', async (request, reply) => {
+    const file = (request.params as { file: string }).file;
+    const stored = await readTtsFile(file);
+    return stored ? reply.type(stored.mime).header('cache-control', 'public, max-age=31536000, immutable').send(stored.bytes) : reply.code(404).send({ detail: 'Not found' });
+  });
+  app.get('/api/v1/tts/voices', protectedRoute, async (request) => {
+    const state = await readState();
+    const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+    const voices = await listVoices(eff);
+    return { voices, default_voice_id: 'calm', speed_range: [0.5, 2], tts_config: (Object.values(state.whiteboards).find((session) => session.user_id === request.userId)?.tts_config as Record<string, unknown>) ?? { voice_id: 'calm', speed: 1 } };
+  });
+  app.get('/api/v1/tts/stats', protectedRoute, async () => ({ ...ttsStats(), files: await ttsFileCount() }));
+  app.post('/api/v1/tts/synthesize', protectedRoute, async (request, reply) => {
+    const body = (request.body ?? {}) as { text?: string; voice_id?: string; speed?: number; format?: 'mp3' | 'wav' | 'pcm'; session_id?: string };
+    const text = String(body.text ?? '').trim();
+    if (!text) return reply.code(400).send({ detail: 'text is required' });
+    const state = await readState();
+    const session = body.session_id ? state.whiteboards[body.session_id] : Object.values(state.whiteboards).find((value) => value.user_id === request.userId);
+    const saved = (session?.tts_config ?? {}) as { voice_id?: string; speed?: number };
+    const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+    const segment = await synthesize(text, { voice: body.voice_id ?? saved.voice_id ?? 'calm', speed: body.speed ?? saved.speed ?? 1, format: body.format ?? 'mp3', eff });
+    const counts = ttsCounts(text);
+    return { audio_url: segment.url, url: segment.url, ext: segment.ext, mime: segment.mime, cached: segment.cached, stub: segment.stub, bytes: segment.bytes, hash: segment.hash, tts_cjk: counts.tts_cjk, tts_latin: counts.tts_latin, voice_id: body.voice_id ?? saved.voice_id ?? 'calm', speed: body.speed ?? saved.speed ?? 1, ...(segment.error ? { error: segment.error } : {}) };
+  });
+
+  // 线上：{enabled:true, post:null}；本轮四次抓包 post 均为 null，非空结构未观测，故本地恒 null
+  app.get('/api/v1/social/latest', async () => ({ enabled: true, post: null }));
   app.get('/api/v1/course-generation/courses', protectedRoute, async (request) => ({ courses: Object.values((await readState()).courses).filter((course) => course.user_id === request.userId).map(courseSummary) }));
   app.get('/api/v1/course-generation/courses/:uuid', protectedRoute, async (request, reply) => { const course = await ownedCourse(request); return course ? course : reply.code(404).send({ detail: 'Course not found' }); });
   app.delete('/api/v1/course-generation/courses/:uuid', protectedRoute, async (request) => { await updateState((state) => { const id = (request.params as { uuid: string }).uuid; if (state.courses[id]?.user_id === request.userId) delete state.courses[id]; }); return { success: true }; });
@@ -304,62 +370,42 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   };
   const seedUuid = async (course: Record<string, unknown>): Promise<string> => typeof course.seedOf === 'string' ? course.seedOf : String(course.courseUuid ?? '');
   // 课程资料解析：练习 / 考试 / 项目各自的 seed → 合成兜底，状态端点与内容端点共用同一条判定
-  // 课程的 session 挂载有两种形态：unit.sessions[]（合成课程）与 unit.lectures[].sessions[]（生成课程）
-  const courseSessions = (course: Record<string, unknown>): Array<{ sessionId: string; unitId: string }> => {
-    const units = Array.isArray(course.units) ? (course.units as Array<Record<string, unknown>>) : [];
-    const out: Array<{ sessionId: string; unitId: string }> = [];
-    units.forEach((unit, unitIndex) => {
-      const unitId = String(unit.id ?? unit.unitId ?? `unit-${unitIndex + 1}`);
-      const lectures = Array.isArray(unit.lectures) ? (unit.lectures as Array<Record<string, unknown>>) : [];
-      const buckets: Array<Array<Record<string, unknown> | string>> = [Array.isArray(unit.sessions) ? (unit.sessions as Array<Record<string, unknown> | string>) : []];
-      for (const lecture of lectures) buckets.push(Array.isArray(lecture.sessions) ? (lecture.sessions as Array<Record<string, unknown> | string>) : []);
-      let index = 0;
-      for (const bucket of buckets) {
-        for (const session of bucket) {
-          index += 1;
-          const fallback = `session-${unitIndex + 1}-${index}`;
-          const sessionId = typeof session === 'string' ? fallback : String((session as Record<string, unknown>).sessionId ?? (session as Record<string, unknown>).id ?? fallback);
-          out.push({ sessionId, unitId });
-        }
-      }
-    });
-    return out;
-  };
-  const resolvePractice = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown> | undefined> => {
-    const seeded = await getSeedPractice(await seedUuid(course));
-    if (seeded && ((seeded as { sessions?: unknown[] }).sessions?.length ?? 0) > 0) return seeded as Record<string, unknown>;
+  const resolvePractice = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown>> => {
+    const seeded = (await getSeedPractice(await seedUuid(course))) as Record<string, unknown> | undefined;
+    if ((seeded?.sessions as unknown[] | undefined)?.length) return seeded!;
     return synthesizeCoursePractice(course, id);
   };
-  const resolveExam = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown> | undefined> => {
-    const seeded = await getSeedExam(await seedUuid(course));
-    if (seeded && ((seeded as { exams?: unknown[] }).exams?.length ?? 0) > 0) return seeded as Record<string, unknown>;
+  const resolveExam = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown>> => {
+    const seeded = (await getSeedExam(await seedUuid(course))) as Record<string, unknown> | undefined;
+    if ((seeded?.exams as unknown[] | undefined)?.length) return seeded!;
     return synthesizeCourseExams(course, id);
   };
-  const resolveProject = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown> | undefined> => {
-    const seeded = await getSeedProject(await seedUuid(course));
-    if (seeded && ((seeded as { stages?: unknown[] }).stages?.length ?? 0) > 0) return seeded as Record<string, unknown>;
+  const resolveProject = async (course: Record<string, unknown>, id: string): Promise<Record<string, unknown>> => {
+    const seeded = (await getSeedProject(await seedUuid(course))) as Record<string, unknown> | undefined;
+    if ((seeded?.stages as unknown[] | undefined)?.length) return seeded!;
     return synthesizeCourseProject(course, id);
   };
-
-  // 线上契约（2026-09-15 实测）：状态与进度是两组不同形状的表，前端逐键读取。
   app.get('/api/v1/course-generation/courses/:course_uuid/generation-status', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    const sessions = courseSessions(course);
+    const sessions = enumerateCourseSessions(course);
     const practice = await resolvePractice(course, courseId(request));
     const examData = await resolveExam(course, courseId(request));
     const project = await resolveProject(course, courseId(request));
     const readySessions = new Set(((practice?.sessions ?? []) as Array<Record<string, unknown>>).map((session) => String(session.sessionId ?? session.session_id ?? '')));
     const practiceBySession: Record<string, string> = {};
     for (const session of sessions) practiceBySession[session.sessionId] = readySessions.size === 0 ? 'none' : readySessions.has(session.sessionId) ? 'ready' : 'locked';
+    // 生成中的目标来自活跃 run 的事件重放；过期的 run 先收掉，免得状态卡在 running
+    await sweepStaleRuns();
+    const active = generatingTargets(await activeRuns({ userId: String(request.userId), courseUuid: courseId(request) }));
+    const generating = active.assessments;
     return {
-      practice: practice ? 'ready' : 'none',
-      exam: examData ? 'ready' : 'none',
-      project: project ? 'ready' : 'none',
-      // 生成中列表：本仓课程生成是单次同步管线，没有长驻的按 session 生成队列
-      generatingSessionIds: [],
-      generatingUnitIds: [],
-      generatingStageIds: [],
+      practice: generating ? 'generating' : practice ? 'ready' : 'none',
+      exam: generating ? 'generating' : examData ? 'ready' : 'none',
+      project: generating ? 'generating' : project ? 'ready' : 'none',
+      generatingSessionIds: active.sessionIds,
+      generatingUnitIds: active.unitIds,
+      generatingStageIds: active.stageIds,
       practiceBySession,
     };
   });

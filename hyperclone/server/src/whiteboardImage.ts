@@ -1,7 +1,16 @@
 // 白板插图动作与提示词模板。
 // 模板来源：线上会话持久化消息里的 image_generation 动作（抓包实证，非模型自述），
 // 逐条样例见 hyperclone/seed/prompts/whiteboard_image_prompt.md。
-export interface WhiteboardImageAction { type: 'image_generation'; prompt: string; language: string; caption: string }
+export interface WhiteboardImageAction {
+  type: 'image_generation';
+  prompt: string;
+  language: string;
+  caption: string;
+  // 线上帧里有这两个可选字段：source="reference_page" 表示插图取自课件页本身（不调图像模型）
+  source?: 'reference_page';
+  reference_name?: string;
+  page_index?: number;
+}
 
 // 线上实测：generated_image 固定 512×512（board_image overlay 的 width/height 亦为 512）。
 export const WHITEBOARD_IMAGE_SIZE = '512x512';
@@ -26,7 +35,10 @@ export function normalizeImageAction(raw: Record<string, unknown>, fallback: { t
   const caption = typeof raw.caption === 'string' && raw.caption.trim() ? raw.caption.trim() : fallback.topic;
   const rawPrompt = typeof raw.prompt === 'string' ? raw.prompt.trim() : '';
   const prompt = rawPrompt || buildImagePrompt({ topic: fallback.topic, caption, language });
-  return { type: 'image_generation', prompt, language, caption };
+  const source = raw.source === 'reference_page' ? 'reference_page' as const : undefined;
+  const referenceName = typeof raw.reference_name === 'string' && raw.reference_name.trim() ? raw.reference_name.trim() : undefined;
+  const pageIndex = typeof raw.page_index === 'number' && Number.isFinite(raw.page_index) ? raw.page_index : undefined;
+  return { type: 'image_generation', prompt, language, caption, ...(source ? { source } : {}), ...(referenceName ? { reference_name: referenceName } : {}), ...(pageIndex !== undefined ? { page_index: pageIndex } : {}) };
 }
 
 // 供 directorAgent / 白板教师提示词引用：模板契约（与 seed/prompts/whiteboard_image_prompt.md 同源）

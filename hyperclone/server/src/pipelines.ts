@@ -6,12 +6,14 @@ import { randomUUID } from 'node:crypto';
 import { config, type ByokConfig } from './config.js';
 import { now } from './store.js';
 import { publicFiles } from './artifacts.js';
+import { buildCourseCover, storeCover } from './media.js';
+import { image } from './providers/index.js';
 
 export const COURSE_PHASE_PROMPTS = {
   researching_the_web: 'Research the learner topic with up to five focused searches. Return JSON {keywords:string[],results:Array<{title:string,url:string,snippet:string}>,references:string[]}; do not invent citations.',
   generating_initial_syllabus: 'Create an initial course syllabus for the requested topic and learner profile. Return JSON {title:string,description:string,targetLearner:string,tags:string[],units:Array<{title:string,description:string,sessions:Array<string|{title:string,description?:string}>}>}.',
   generating_structure: 'Turn the syllabus into a complete learning structure. Return JSON {units:Array<{title:string,description:string,sessions:Array<string|{title:string,description?:string}>}>}, preserving a clear progression from foundations to application.',
-  generating_session_outlines: 'Write concise instructional session outlines. Return JSON {description:string,outline:string,practice:string[],depthTags:string[]} for the supplied session title and topic.',
+  generating_session_outlines: 'Write concise instructional session outlines. Return JSON {description:string,outline:string,practice:string[],depthTags:string[],keyPoints:string[]} for the supplied session title and topic. keyPoints = 4-5 short learning objectives for this session, each a self-contained phrase (no numbering prefix).',
   complete: 'Validate the complete course JSON: every unit has sessions and every session has a title, description, outline, practice, session time, and depth tags. Return the corrected JSON only.',
 } as const;
 
@@ -112,6 +114,12 @@ function materializeAssessments(courseUuid: string, units: Unit[]): { exam: Json
   return { exam: { exams, courseUuid }, practice: { sessions: practiceSessions, courseUuid }, project: { stages, projects: [projectItem], courseUuid } };
 }
 
+// stub 模式没有模型可问：把课节描述切成可读要点；切不出两条就退回标题。
+function stubKeyPoints(title: string, description: string): string[] {
+  const clauses = description.split(/[。；;.!?\n]/).map((part) => part.trim()).filter((part) => part.length >= 6).slice(0, 4);
+  return clauses.length >= 2 ? clauses : [title, ...clauses];
+}
+
 function emitStep(emit: (frame: Record<string, unknown>) => void, courseUuid: string, stepId: string, status: 'loading' | 'completed', title?: string, placeholder?: string): void {
   emit({ type: 'course_generation_step', step_id: stepId, status, ...(title ? { title } : {}), ...(placeholder ? { placeholder } : {}), course_uuid: courseUuid });
 }
@@ -125,14 +133,14 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
   emitStep(emit, courseUuid, 'boot', 'completed');
 
   emitStep(emit, courseUuid, 'researching_the_web', 'loading', 'Researching the web', 'Scouring the web for material...');
-  const research = useModel ? await askModel(`${COURSE_PHASE_PROMPTS.researching_the_web}\nTopic: ${topic}`, 'director') : undefined;
+  const research = useModel ? await askModel(`${COURSE_PHASE_PROMPTS.researching_the_web}\nTopic: ${topic}`, 'director', opts.eff) : undefined;
   const keywords = list(research?.keywords).map(String).slice(0, 8).length ? list(research?.keywords).map(String).slice(0, 8) : topic.split(/\s+/).filter(Boolean).slice(0, 5);
   const results = list(research?.results).slice(0, 5);
   emit({ type: 'course_generation_progress', message: results.length ? `Found ${results.length} reference(s)` : 'Web research not needed', keywords, results, data: { stage_name: 'researching_the_web', keywords, results, references: list(research?.references).map(String).slice(0, 5) }, course_uuid: courseUuid });
   emitStep(emit, courseUuid, 'researching_the_web', 'completed');
 
   emitStep(emit, courseUuid, 'generating_initial_syllabus', 'loading', 'Generating initial syllabus', 'Cooking the big picture...');
-  const syllabus = useModel ? await askModel(`${COURSE_PHASE_PROMPTS.generating_initial_syllabus}\nTopic: ${topic}\nAnswers: ${JSON.stringify(opts.answers)}`) : undefined;
+  const syllabus = useModel ? await askModel(`${COURSE_PHASE_PROMPTS.generating_initial_syllabus}\nTopic: ${topic}\nAnswers: ${JSON.stringify(opts.answers)}`, 'content', opts.eff) : undefined;
   emit({ type: 'course_generation_progress', message: 'Selected 0 reference(s) for initial_syllabus', data: { stage_name: 'initial_syllabus', references: [] }, course_uuid: courseUuid });
   emitStep(emit, courseUuid, 'generating_initial_syllabus', 'completed');
   const questions = questionsFor(topic);
@@ -143,7 +151,7 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
   }
 
   emitStep(emit, courseUuid, 'generating_structure', 'loading', 'Generating course structure', 'Crafting course structure...');
-  const structure = useModel ? await askModel(`${COURSE_PHASE_PROMPTS.generating_structure}\nTopic: ${topic}\nSyllabus: ${JSON.stringify(syllabus ?? {})}\nAnswers: ${JSON.stringify(opts.answers)}`) : undefined;
+  const structure = useModel ? await askModel(`${COURSE_PHASE_PROMPTS.generating_structure}\nTopic: ${topic}\nSyllabus: ${JSON.stringify(syllabus ?? {})}\nAnswers: ${JSON.stringify(opts.answers)}`, 'content', opts.eff) : undefined;
   emit({ type: 'course_generation_progress', message: 'Selected 0 reference(s) for course_structure', data: { stage_name: 'course_structure', references: [] }, course_uuid: courseUuid });
   emitStep(emit, courseUuid, 'generating_structure', 'completed');
 
@@ -174,7 +182,7 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
               title: s.title,
               description: s.description,
               depthTags: s.depthTags || (si % 2 === 0 ? ['intuition', 'definition'] : ['formula', 'application']),
-              keyPoints: [s.title, '核心机理', '实战案例'],
+              keyPoints: stubKeyPoints(s.title, String(s.description ?? '')),
             })),
           },
         ],
@@ -185,12 +193,15 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
   emitStep(emit, courseUuid, 'generating_session_outlines', 'loading', 'Generating session outlines', 'Weaving lectures into a journey...');
   if (useModel) {
     await Promise.all(units.flatMap((unit) => unit.sessions.map(async (session) => {
-      const generated = await askModel(`${COURSE_PHASE_PROMPTS.generating_session_outlines}\nTopic: ${topic}\nUnit: ${unit.title}\nSession: ${session.title}`);
+      const generated = await askModel(`${COURSE_PHASE_PROMPTS.generating_session_outlines}\nTopic: ${topic}\nUnit: ${unit.title}\nSession: ${session.title}`, 'content', opts.eff);
       if (!generated) return;
       session.description = text(generated.description, String(session.description));
       session.sessionOutline = text(generated.outline ?? generated.sessionOutline, String(session.sessionOutline));
       const tasks = list(generated.practice).map(String).slice(0, 4); if (tasks.length) session.practice = { tasks };
       const tags = list(generated.depthTags).map(String).slice(0, 5); if (tags.length) session.depthTags = tags;
+      // key_points 是白板 session_ready 与课程大纲路由共用的字段（线上按 session 持久化）
+      const points = list(generated.keyPoints ?? generated.key_points).map((point) => String(point).replace(/^\s*\d+[.、)]\s*/, '').trim()).filter(Boolean).slice(0, 5);
+      if (points.length) session.keyPoints = points;
       emit({ type: 'course_generation_progress', message: `Selected 0 reference(s) for session_outline:${unit.unitId}:${session.sessionId}`, data: { stage_name: `session_outline:${unit.unitId}:${session.sessionId}`, references: [] }, course_uuid: courseUuid });
     })));
   } else {
@@ -198,7 +209,21 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
   }
   emitStep(emit, courseUuid, 'generating_session_outlines', 'completed');
 
+  emitStep(emit, courseUuid, 'generating_assessments', 'loading', 'Generating practice, exam and project stages', 'Building checkpoints...');
   const assessments = materializeAssessments(courseUuid, units);
+  for (const stage of (assessments.project.stages ?? []) as Array<{ unit_id?: string; stage_id?: string }>) {
+    emit({ type: 'course_generation_progress', message: `Selected 0 reference(s) for project_stage:${stage.unit_id}`, data: { stage_name: `project_stage:${stage.unit_id}:${stage.stage_id}`, references: [] }, course_uuid: courseUuid });
+  }
+  emitStep(emit, courseUuid, 'generating_assessments', 'completed');
+  // 封面：内容寻址（hash 进 URL）。有图像 seam 就让模型画，没有就用标题渲一张本地封面。
+  const courseTags = list(syllabus?.tags).map(String).slice(0, 12).length ? list(syllabus?.tags).map(String).slice(0, 12) : [topic.split(/\s+/)[0] ?? 'Learning', 'Foundations', 'Critical Thinking'];
+  let cover;
+  if (useModel) {
+    const drawn = await image.generate(`Academic course cover illustration for “${title}”, clean editorial style, no text, soft light, subject: ${courseTags.slice(0, 3).join(', ')}`, { size: '512x512' }, opts.eff);
+    cover = drawn.bytes ? await storeCover(drawn.bytes, drawn.ext, 'model', { width: 512, height: 512 }) : await buildCourseCover({ title, tags: courseTags });
+  } else {
+    cover = await buildCourseCover({ title, tags: courseTags });
+  }
   const course: Course = {
     courseUuid,
     created_at: now(),
@@ -206,10 +231,10 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
     courseDescription: text(syllabus?.description ?? structure?.description, `A practical, structured exploration of ${topic}, moving from first principles to confident application.`),
     targetLearner: text(syllabus?.targetLearner, 'Curious learners seeking a clear concept-first foundation and practical application.'),
     outputLanguage: 'English',
-    tags: list(syllabus?.tags).map(String).slice(0, 12).length ? list(syllabus?.tags).map(String).slice(0, 12) : [topic.split(/\s+/)[0] ?? 'Learning', 'Foundations', 'Critical Thinking'],
+    tags: courseTags,
     projects: assessments.project.projects,
     ticketVariant: 3,
-    coverImage: { filePath: 'coverImages/cover.png', wideFilePath: 'coverImages/cover_wide.png', style: 'monet', backgroundColor: '#F7F6F2' },
+    coverImage: { filePath: cover.filePath, wideFilePath: cover.wideFilePath, hash: cover.hash, url: cover.url, source: cover.source, style: 'monet', backgroundColor: '#F7F6F2' },
     course: { from: 'betterknow' },
     units,
     subjects: ['general'],
@@ -219,7 +244,7 @@ export async function runCourseGeneration(emit: (frame: Record<string, unknown>)
     practice: assessments.practice,
     project: assessments.project,
   };
-  if (useModel) await askModel(`${COURSE_PHASE_PROMPTS.complete}\nCourse: ${JSON.stringify(course)}`, 'content');
+  if (useModel) await askModel(`${COURSE_PHASE_PROMPTS.complete}\nCourse: ${JSON.stringify(course)}`, 'content', opts.eff);
   emit({ type: 'course_generation_progress', message: 'Saved final course', data: { output_path: `var/data/courses/${courseUuid}/finalCourse.json` }, course_uuid: courseUuid });
   emitStep(emit, courseUuid, 'complete', 'completed');
   emit({ type: 'course_generation_complete', course, course_uuid: courseUuid });

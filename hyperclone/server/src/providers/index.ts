@@ -113,20 +113,30 @@ async function postJson<T>(url: string, apiKey: string, body: unknown): Promise<
 // ── TTS：OpenAI 兼容 /audio/speech；stub 返回占位音频（前端可用浏览器 SpeechSynthesis 兜底）
 export interface TtsResult { bytes?: Buffer; ext: string; mime: string; stub: boolean; error?: string }
 export const tts = {
-  async synthesize(text: string, opts: { voice?: string; speed?: number } = {}, byok?: ByokConfig): Promise<TtsResult> {
+  // format 直通 response_format：pcm 是 OpenAI 兼容网关的原始 PCM16（免解码），wav 可本地转 PCM
+  async synthesize(text: string, opts: { voice?: string; speed?: number; format?: 'mp3' | 'wav' | 'pcm' } = {}, byok?: ByokConfig): Promise<TtsResult> {
     const s = slot('tts', byok);
-    if (!s?.baseUrl || !text.trim()) return { ext: 'webm', mime: 'audio/webm', stub: true };
-    const format = 'mp3';
-    try {
+    const format = opts.format ?? 'mp3';
+    const mime = format === 'pcm' ? 'audio/L16' : format === 'wav' ? 'audio/wav' : 'audio/mpeg';
+    if (!s?.baseUrl || !text.trim()) return { ext: format === 'pcm' ? 'pcm' : format, mime, stub: true };
+    const attempt = async (want: 'mp3' | 'wav' | 'pcm'): Promise<TtsResult> => {
       const res = await fetch(`${s.baseUrl.replace(/\/$/, '')}/audio/speech`, {
         method: 'POST',
         headers: { 'content-type': 'application/json', ...(s.apiKey ? { authorization: `Bearer ${s.apiKey}` } : {}) },
-        body: JSON.stringify({ model: s.model || 'tts-1', input: text, voice: opts.voice ?? 'alloy', speed: opts.speed ?? 1, response_format: format }),
+        body: JSON.stringify({ model: s.model || 'tts-1', input: text, voice: opts.voice ?? 'alloy', speed: opts.speed ?? 1, response_format: want }),
       });
-      if (!res.ok) return { ext: format, mime: 'audio/mpeg', stub: true, error: `${res.status}` };
-      return { bytes: Buffer.from(await res.arrayBuffer()), ext: format, mime: 'audio/mpeg', stub: false };
+      if (!res.ok) return { ext: want, mime: want === 'pcm' ? 'audio/L16' : want === 'wav' ? 'audio/wav' : 'audio/mpeg', stub: true, error: `${res.status}` };
+      const bytes = Buffer.from(await res.arrayBuffer());
+      if (!bytes.length) return { ext: want, mime, stub: true, error: 'empty audio' };
+      return { bytes, ext: want, mime: want === 'pcm' ? 'audio/L16' : want === 'wav' ? 'audio/wav' : 'audio/mpeg', stub: false };
+    };
+    try {
+      const first = await attempt(format);
+      // 网关不支持 pcm/wav 时退回 mp3，避免因为 PCM 请求把整条朗读打挂
+      if (first.stub && format !== 'mp3' && first.error) return await attempt('mp3');
+      return first;
     } catch (error) {
-      return { ext: format, mime: 'audio/mpeg', stub: true, error: error instanceof Error ? error.message : 'tts failed' };
+      return { ext: format, mime, stub: true, error: error instanceof Error ? error.message : 'tts failed' };
     }
   },
 };

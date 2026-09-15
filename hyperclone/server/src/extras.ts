@@ -6,6 +6,7 @@ import { randomUUID } from 'node:crypto';
 import { readState, updateState, now } from './store.js';
 import { resolveSeedByMarketplaceId } from './seedCourses.js';
 import { authenticate } from './auth.js';
+import { readCover } from './media.js';
 import { seamStatus } from './providers/index.js';
 import { dshAvailable } from './agent/dsh-adapter.js';
 
@@ -159,6 +160,11 @@ export async function registerExtraRoutes(app: FastifyInstance): Promise<void> {
     return reply.type('image/svg+xml').header('cache-control', 'no-store').send(svg);
   };
 
+  // 内容寻址封面：hash 进 URL → 可以放心 immutable
+  app.get('/api/v1/covers/:file', async (request, reply) => {
+    const stored = await readCover((request.params as { file: string }).file);
+    return stored ? reply.type(stored.mime).header('cache-control', 'public, max-age=31536000, immutable').send(stored.bytes) : reply.code(404).send({ detail: 'Not found' });
+  });
   app.get('/api/v1/marketplace/cover/:id', async (request, reply) => serveCover((request.params as { id: string }).id, reply));
   app.get('/api/v1/marketplace/cover/:id/:file', async (request, reply) => serveCover((request.params as { id: string }).id, reply));
   app.get('/api/v1/course-generation/users/:userId/courses/:courseId/cover/:file', async (request, reply) => serveCover((request.params as { courseId: string }).courseId, reply));
