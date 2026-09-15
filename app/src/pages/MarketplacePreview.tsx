@@ -1,0 +1,190 @@
+import { useEffect, useMemo, useState } from 'react'
+import { useNavigate, useParams } from 'react-router'
+import { ArrowLeft, BadgeCheck, Upload, Play, PenLine, ChevronRight, Hash, Share2, LogOut } from 'lucide-react'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
+import { apiGet, apiPost, type MarketplaceCourse } from '@/lib/api'
+import { UploadMaterialModal } from '@/components/UploadMaterialModal'
+import { DropCourseModal } from '@/components/DropCourseModal'
+import { BugReportModal } from '@/components/BugReportModal'
+
+export interface Session { sessionIndex: number; sessionId: string; session_type: string; title?: string; status?: string; mastery?: string }
+export interface Lecture { lectureId: string; title: string; description: string; order: number; sessions: Session[]; learning_finished?: boolean }
+export interface Stage { stage_id: string; stage_title: string; stage_description: string; order: number }
+export interface Exam { title: string; goal: string; order: number; unitId?: string }
+export interface Unit { unitId: string; title: string; description: string; lectures: Lecture[]; projects?: Stage[]; exams?: Exam[]; learning_finished?: boolean }
+export interface CourseFull extends Partial<MarketplaceCourse> {
+  courseUuid?: string; courseTitle: string; courseDescription: string; targetLearner?: string; tags?: string[]; units: Unit[];
+  coverImageUrl?: string; coverImage?: { backgroundColor?: string }; marketplaceId?: string; enrolled?: boolean; enrolledCourseUuid?: string | null; outputLanguage?: string; languages?: string[];
+}
+
+export const LEGEND = [
+  { k: 'mastered', label: '已掌握', color: '#16a34a', fill: true }, { k: 'proficient', label: '熟练', color: '#2563eb', fill: true }, { k: 'familiar', label: '熟悉', color: '#2563eb', fill: false },
+  { k: 'attempted', label: '已尝试', color: '#f59e0b', fill: false }, { k: 'todo', label: '未开始', color: '#a1a1aa', fill: false }, { k: 'project', label: '项目', color: '#0a0a0a', fill: false, sq: true }, { k: 'exam', label: '测验', color: '#0a0a0a', fill: false, sq: true },
+]
+export function StatusDot({ status }: { status?: string }) {
+  const l = LEGEND.find((x) => x.k === status) ?? LEGEND[4]
+  return <span aria-label={l.label} title={l.label} className={`inline-block h-3.5 w-3.5 ${l.sq ? 'rounded-sm' : 'rounded-full'}`} style={{ border: `1.5px solid ${l.color}`, background: l.fill ? l.color : 'transparent' }} />
+}
+
+// [S15]/[S18] 课程结构两栏视图：预览（未加入）与课程主页（已加入）共用
+export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUuid }: { course: CourseFull; enrolled: boolean; onJoin?: () => void; onExit?: () => void; courseUuid?: string }) {
+  const nav = useNavigate()
+  const [tab, setTab] = useState<'units' | 'materials' | 'practice'>('units')
+  const [unitIdx, setUnitIdx] = useState(0)
+  const [more, setMore] = useState(false)
+  const [uploadModal, setUploadModal] = useState(false)
+  const [dropModal, setDropModal] = useState(false)
+  const [bugModal, setBugModal] = useState(false)
+  const unit = course.units[unitIdx]
+  const allPractice = useMemo(() => course.units.flatMap((u, ui) => u.lectures.flatMap((l) => l.sessions.filter((s) => s.session_type !== 'whiteboard').map((s) => ({ ...s, unitNo: ui + 1, lecture: l.title })))), [course.units])
+  const goSession = (s: Session) => {
+    if (!enrolled || !courseUuid) { onJoin?.(); return }
+    nav(s.session_type === 'whiteboard' ? `/course/${courseUuid}/sessions/whiteboard/${s.sessionId}` : `/course/${courseUuid}/practice/${s.sessionId}`)
+  }
+  return (
+    <div className="mx-auto max-w-[1180px] px-8 pb-16 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}>
+      <aside className="space-y-4">
+        <button onClick={() => (enrolled ? nav('/courses') : nav('/marketplace'))} className="inline-flex items-center gap-1 text-[12px] text-[#6b6b70] hover:text-black"><ArrowLeft size={13} />{enrolled ? '返回我的课程' : '返回课程集市'}</button>
+        <div className="rounded-2xl overflow-hidden" style={{ background: course.coverImage?.backgroundColor ?? '#e9ecf5', aspectRatio: '4/3' }}>
+          {course.coverImageUrl && <img src={course.coverImageUrl} alt="" className="w-full h-full object-contain p-6 mix-blend-multiply" />}
+        </div>
+        <div className="flex items-center gap-1.5 text-[12px] text-[#6b6b70]"><span className="inline-block h-4 w-4 rounded-full bg-[#0a0a0a]" />策划自 <span className="text-black">betterknow Official</span><BadgeCheck size={13} className="text-[#2563eb]" /></div>
+        <h1 className="hk-title-serif text-[20px] leading-snug">{course.courseTitle}</h1>
+        <p className={`text-[12px] text-[#6b6b70] leading-5 ${more ? '' : 'line-clamp-4'}`}>{course.courseDescription}</p>
+        <button onClick={() => setMore((m) => !m)} className="text-[12px] text-[#3d3d3f] underline-offset-2 hover:underline">{more ? '收起' : '显示更多'}</button>
+        {course.tags?.length ? <div className="flex flex-wrap gap-1.5">{course.tags.slice(0, 6).map((t) => <span key={t} className="text-[11px] px-1.5 py-0.5 rounded bg-[#f1f2f4] text-[#6b6b70] inline-flex items-center gap-0.5"><Hash size={10} />{t}</span>)}</div> : null}
+        {!enrolled ? (
+          <button onClick={onJoin} className="w-full h-11 rounded-xl bg-[#0a0a0a] text-white font-medium hover:bg-black/85">加入课程</button>
+        ) : (
+          <div className="flex gap-2"><button className="hk-pill flex-1 justify-center"><Share2 size={13} />分享</button><button onClick={() => setDropModal(true)} className="hk-pill flex-1 justify-center text-[#dc2626]"><LogOut size={13} />退出课程</button></div>
+        )}
+        <div role="tablist" className="flex gap-1 border-b text-[13px]">
+          {([['units', '单元'], ['materials', '资料'], ['practice', '练习']] as const).map(([k, l]) => (
+            <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className="relative px-2.5 h-9 text-[#6b6b70] data-[on=true]:text-black data-[on=true]:font-medium" data-on={tab === k}>{l}{tab === k && <span className="absolute left-2 right-2 -bottom-px h-0.5 bg-black" />}</button>
+          ))}
+        </div>
+        {tab === 'units' && (
+          <ol className="space-y-1">
+            {course.units.map((u, i) => (
+              <li key={u.unitId}><button onClick={() => setUnitIdx(i)} className="w-full text-left flex items-start gap-2.5 px-2.5 py-2 rounded-lg hover:bg-[#f4f4f5] data-[on=true]:bg-[#eef2ff]" data-on={unitIdx === i}><span className="mt-0.5 h-5 w-5 shrink-0 rounded-md bg-[#f1f2f4] text-[11px] flex items-center justify-center font-medium data-[on=true]:bg-[#3b5bdb] data-[on=true]:text-white" data-on={unitIdx === i}>{i + 1}</span><span className="text-[13px] leading-5">{u.title}</span></button></li>
+            ))}
+          </ol>
+        )}
+        {tab === 'materials' && <div className="text-[13px] text-[#8a8a90] py-6 text-center">本课程暂无资料</div>}
+        {tab === 'practice' && (
+          <ul className="space-y-1 text-[13px]">
+            {allPractice.slice(0, 40).map((p) => (
+              <li key={p.sessionId}><button onClick={() => goSession(p)} className="w-full text-left px-2.5 py-2 rounded-lg hover:bg-[#f4f4f5]"><div className="truncate">{p.title ?? p.lecture}</div><div className="text-[11px] text-[#8a8a90]">单元 {p.unitNo} · {p.session_type === 'quiz' ? '测验' : p.session_type === 'project' ? '项目' : '练习'}</div></button></li>
+            ))}
+          </ul>
+        )}
+        <div className="pt-4 border-t flex justify-center">
+          <button onClick={() => setBugModal(true)} className="text-[12px] text-[#8a8a90] hover:text-[#0a0a0a] transition-colors">
+            遇到问题？向我们反馈
+          </button>
+        </div>
+      </aside>
+
+      <section>
+        {unit && (
+          <div key={unit.unitId} className="hk-fade-in-up">
+            <div className="text-[11px] text-[#3b5bdb] font-medium mb-1 px-1.5 py-0.5 rounded bg-[#eef2ff] inline-block">第 {unitIdx + 1} 单元，共 {course.units.length} 单元</div>
+            <h2 className="text-[22px] font-semibold mt-2">单元 {unitIdx + 1}：{unit.title}</h2>
+            <p className="text-[13px] text-[#6b6b70] mt-2 leading-6 max-w-[760px]">{unit.description}</p>
+            <button onClick={() => setUploadModal(true)} className="mt-4 w-full hk-card p-4 flex items-center gap-3 text-left hover:shadow-md cursor-pointer"><span className="flex -space-x-2"><span className="h-8 w-8 rounded-lg bg-[#fde68a]" /><span className="h-8 w-8 rounded-lg bg-[#bfdbfe]" /><span className="h-8 w-8 rounded-lg bg-[#fecaca]" /></span><span><span className="block text-[13px] font-medium inline-flex items-center gap-1"><Upload size={13} />上传材料，扩展这门课程</span><span className="block text-[12px] text-[#8a8a90]">上传教材的 PDF，或直接描述你想添加、修改的内容</span></span></button>
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-[11px] text-[#6b6b70]">{LEGEND.map((l) => <span key={l.k} className="inline-flex items-center gap-1"><StatusDot status={l.k} />{l.label}</span>)}</div>
+            <div className="mt-3 inline-flex items-center gap-2 text-[12px] px-3 h-8 rounded-full bg-[#f4f4f5]"><Play size={11} />{enrolled ? `下一步：单元 ${unitIdx + 1} · ${unit.lectures[0]?.title ?? ''}` : '这是新课程，请从这里开始：单元 1'}<ChevronRight size={12} /></div>
+
+            <div className="mt-6 space-y-4">
+              {unit.lectures.map((lec, li) => (
+                <div key={lec.lectureId} className="hk-card p-4">
+                  <div className="flex items-start gap-3"><span className="mt-0.5 h-6 w-6 shrink-0 rounded-full bg-[#f1f2f4] text-[12px] flex items-center justify-center">{li + 1}</span><div className="flex-1"><h3 className="text-[15px] font-semibold">讲次 {li + 1}：{lec.title}</h3><p className="text-[12px] text-[#6b6b70] leading-5 mt-1">{lec.description}</p></div></div>
+                  <ul className="mt-3 divide-y">
+                    {lec.sessions.map((s) => (
+                      <li key={s.sessionId} className="flex items-center gap-3 py-2 text-[13px]">
+                        <span className="flex-1 truncate">{s.title ?? `${lec.title} · 第 ${s.sessionIndex} 节`}</span>
+                        <button onClick={() => goSession({ ...s, session_type: 'whiteboard' })} className="hk-pill h-7 text-[12px] px-2.5"><Play size={11} />学习</button>
+                        <button onClick={() => goSession({ ...s, session_type: 'practice' })} className="hk-pill h-7 text-[12px] px-2.5"><PenLine size={11} />练习</button>
+                        <StatusDot status={s.status} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              {(unit.projects ?? []).map((st) => (
+                <div key={st.stage_id} className="hk-card p-4 flex items-start gap-3"><StatusDot status="project" /><div className="flex-1"><h3 className="text-[14px] font-semibold">项目：{st.stage_title}</h3><p className="text-[12px] text-[#6b6b70] leading-5 mt-1">{st.stage_description}</p></div><button onClick={() => enrolled && courseUuid ? nav(`/course/${courseUuid}/project/${st.stage_id}`) : onJoin?.()} className="hk-pill h-8">开始</button></div>
+              ))}
+              {(unit.exams ?? []).map((ex, i) => (
+                <div key={i} className="hk-card p-4 flex items-start gap-3"><StatusDot status="exam" /><div className="flex-1"><h3 className="text-[14px] font-semibold">{ex.title}</h3><p className="text-[12px] text-[#6b6b70] leading-5 mt-1">{ex.goal}</p></div><button onClick={() => enrolled && courseUuid ? nav(`/course/${courseUuid}/exam/${unit.unitId}`) : onJoin?.()} className="hk-pill h-8">开始</button></div>
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+
+      <UploadMaterialModal
+        open={uploadModal}
+        onOpenChange={setUploadModal}
+        courseTitle={course.courseTitle}
+        courseUuid={courseUuid}
+        units={course.units.map((u) => ({
+          unitId: u.unitId,
+          title: u.title,
+          lectures: u.lectures.map((l) => ({ lectureId: l.lectureId, title: l.title })),
+        }))}
+      />
+      <DropCourseModal
+        open={dropModal}
+        onOpenChange={setDropModal}
+        courseTitle={course.courseTitle}
+        onConfirm={() => onExit?.()}
+      />
+      <BugReportModal
+        open={bugModal}
+        onOpenChange={setBugModal}
+        context={`Course: ${course.courseTitle}`}
+      />
+    </div>
+  )
+}
+
+// [S16] 加入课程弹窗
+export function JoinDialog({ open, onOpenChange, title, onConfirm, languages }: { open: boolean; onOpenChange: (o: boolean) => void; title: string; onConfirm: (lang: string) => Promise<void>; languages?: string[] }) {
+  const [lang, setLang] = useState('zh')
+  const [busy, setBusy] = useState(false)
+  const opts = (languages?.length ? languages : ['en', 'zh']).map((l) => ({ v: l, label: l === 'zh' ? '中文' : l === 'en' ? 'English' : l }))
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-[440px] rounded-2xl hk-pop">
+        <DialogTitle className="text-[18px] font-semibold">加入这门课程？</DialogTitle>
+        <div className="text-[13px] text-[#3d3d3f]">「{title}」</div>
+        <p className="text-[13px] text-[#6b6b70]">课程将添加到你的课程列表中，你可以随时开始学习。</p>
+        <div><div className="text-[13px] font-medium mb-1.5">课程语言</div>
+          <div className="inline-flex rounded-lg border p-0.5">{opts.map((o) => <button key={o.v} onClick={() => setLang(o.v)} className="px-3 h-8 rounded-md text-[13px] data-[on=true]:bg-[#f1f2f4] data-[on=true]:font-medium" data-on={lang === o.v}>{o.label}</button>)}</div>
+          <p className="text-[12px] text-[#8a8a90] mt-1.5">讲解、练习和考试都将使用这个语言，加入后无法更改。</p></div>
+        <div className="flex justify-end gap-2 pt-1"><button onClick={() => onOpenChange(false)} className="hk-pill h-9 px-4">再想想</button><button disabled={busy} onClick={async () => { setBusy(true); try { await onConfirm(lang) } finally { setBusy(false) } }} className="h-9 px-4 rounded-full bg-[#0a0a0a] text-white disabled:opacity-50">确认加入</button></div>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+export default function MarketplacePreview() {
+  const { courseId = '' } = useParams()
+  const nav = useNavigate()
+  const [course, setCourse] = useState<CourseFull | null>(null)
+  const [join, setJoin] = useState(false)
+  useEffect(() => { apiGet<CourseFull>(`/marketplace/courses/${courseId}/preview`).then(setCourse).catch(() => setCourse(null)) }, [courseId])
+  if (!course) return <div className="mx-auto max-w-[1180px] px-8 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}><div className="space-y-3"><div className="hk-skeleton rounded-2xl h-[220px]" /><div className="hk-skeleton h-6 rounded" /><div className="hk-skeleton h-16 rounded" /></div><div className="space-y-3"><div className="hk-skeleton h-8 rounded w-1/2" /><div className="hk-skeleton h-24 rounded" /><div className="hk-skeleton h-40 rounded-2xl" /></div></div>
+  // [B7] 加入 → 服务端 enroll → 跳课程主页
+  const confirm = async (lang: string) => {
+    const r = await apiPost<{ courseUuid: string }>(`/marketplace/courses/${courseId}/enroll`, { language: lang })
+    setJoin(false)
+    nav(`/course/${r.courseUuid}`)
+  }
+  return (
+    <>
+      <CourseStructureView course={course} enrolled={false} onJoin={() => (course.enrolled && course.enrolledCourseUuid ? nav(`/course/${course.enrolledCourseUuid}`) : setJoin(true))} />
+      <JoinDialog open={join} onOpenChange={setJoin} title={course.courseTitle} onConfirm={confirm} languages={course.languages} />
+    </>
+  )
+}

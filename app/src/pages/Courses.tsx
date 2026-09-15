@@ -1,0 +1,80 @@
+import { useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { Search, Share2, MoreHorizontal, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
+import { apiGet, type MarketplaceCourse } from '@/lib/api'
+
+interface MyCourse { courseUuid: string; courseTitle: string; courseDescription: string; tags?: string[]; unitCount: number; sessionCount: number; coverImageUrl: string; createdAt: string; source?: string; progress?: number; nextItem?: { title?: string; unitTitle?: string; type?: string } | null }
+
+const fmtDate = (s: string) => { const d = new Date(s); return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日` }
+const WEEK = ['一', '二', '三', '四', '五', '六', '日']
+
+export default function Courses() {
+  const nav = useNavigate()
+  const [courses, setCourses] = useState<MyCourse[] | null>(null)
+  const [tab, setTab] = useState<'all' | 'active' | 'done'>('all')
+  const [q, setQ] = useState('')
+  const [recs, setRecs] = useState<MarketplaceCourse[]>([])
+  useEffect(() => {
+    apiGet<{ courses: MyCourse[] }>('/course-generation/courses').then((r) => setCourses(r.courses)).catch(() => setCourses([]))
+    apiGet<{ courses: MarketplaceCourse[] }>('/marketplace/courses').then((r) => setRecs(r.courses.filter((c) => !c.enrolled).slice(0, 3))).catch(() => {})
+  }, [])
+  const shown = useMemo(() => (courses ?? []).filter((c) => (tab === 'all' || (tab === 'done' ? (c.progress ?? 0) >= 100 : (c.progress ?? 0) < 100)) && (!q || c.courseTitle.toLowerCase().includes(q.toLowerCase()))), [courses, tab, q])
+  const today = new Date().getDay() // 0=Sun
+  const todayIdx = (today + 6) % 7
+  const first = courses?.[0]
+
+  return (
+    <div className="mx-auto max-w-[1180px] px-8 pb-16 grid gap-8" style={{ gridTemplateColumns: '1fr 300px' }}>
+      <section>
+        <h1 className="text-[22px] font-semibold">我的课程</h1>
+        <div className="flex items-center gap-2 mt-4">
+          <div role="tablist" aria-label="课程状态" className="inline-flex gap-1 text-[13px]">
+            {([['all', '全部'], ['active', '进行中'], ['done', '已完成']] as const).map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className="px-3 h-8 rounded-full text-[#6b6b70] data-[on=true]:bg-[#e6e8ec] data-[on=true]:text-black" data-on={tab === k}>{l}</button>)}
+          </div>
+          <label className="ml-auto flex items-center gap-2 h-9 px-3 rounded-full border bg-white w-[240px]"><Search size={14} className="text-[#8a8a90]" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="搜索课程…" className="flex-1 bg-transparent outline-none text-[13px]" /></label>
+        </div>
+
+        <div className="mt-5 space-y-3">
+          {courses === null && <div className="hk-skeleton rounded-2xl h-[140px]" />}
+          {courses && shown.length === 0 && (
+            <div className="hk-card p-12 text-center text-[#8a8a90]"><div className="text-[40px] mb-2">🧑‍🎓</div>正在加载你的课程…<div className="text-[12px] mt-1">还没有课程？去 <button onClick={() => nav('/marketplace')} className="underline">课程集市</button> 挑一门，或在首页打造一门</div></div>
+          )}
+          {shown.map((c) => {
+            const isNew = Date.now() - new Date(c.createdAt).getTime() < 12 * 3600e3
+            return (
+              <button key={c.courseUuid} onClick={() => nav(`/course/${c.courseUuid}`)} className="hk-card w-full text-left p-4 grid gap-4 items-center hover:shadow-md transition-shadow" style={{ gridTemplateColumns: '1fr 160px 180px' }}>
+                <div className="min-w-0">
+                  <div className="text-[11px] text-[#8a8a90]">课程名称</div>
+                  <div className="flex items-center gap-2"><span className="hk-title-serif text-[18px] truncate">{c.courseTitle}</span>{isNew && <span title="This course was added in the last 12 hours." className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#dbeafe] text-[#1d4ed8] font-medium">新</span>}</div>
+                  <div className="grid grid-cols-2 gap-3 mt-3 text-[12px]"><div><div className="text-[#8a8a90]">来源</div><div>由 betterknow 设计</div></div><div><div className="text-[#8a8a90]">添加日期</div><div>{fmtDate(c.createdAt)}</div></div></div>
+                  <div className="mt-3 flex items-center gap-2"><div className="flex-1 h-1.5 rounded-full bg-[#f1f2f4] overflow-hidden"><div className="h-full rounded-full bg-[#0a0a0a]" style={{ width: `${c.progress ?? 0}%` }} /></div><span className="text-[11px] text-[#8a8a90]">{c.progress ?? 0}%</span></div>
+                </div>
+                <div className="rounded-xl overflow-hidden bg-[#eef0f6]" style={{ aspectRatio: '4/3' }}><img src={c.coverImageUrl} alt="" className="w-full h-full object-contain p-3 mix-blend-multiply" /></div>
+                <div className="text-[12px] self-start"><div className="text-[#8a8a90]">接下来</div><div className="mt-1 inline-block text-[10px] px-1.5 py-0.5 rounded bg-[#f1f2f4] text-[#6b6b70]">讲座</div><div className="text-[13px] font-medium mt-1 line-clamp-2">{c.nextItem?.title ?? c.nextItem?.unitTitle ?? '第一讲'}</div>
+                  <div className="flex gap-1 mt-3"><span className="hk-icon-btn h-7 w-7" aria-label="Share course"><Share2 size={12} /></span><span className="hk-icon-btn h-7 w-7" aria-label="More course actions"><MoreHorizontal size={12} /></span></div></div>
+              </button>
+            )
+          })}
+        </div>
+      </section>
+
+      <aside className="space-y-4">
+        <div className="hk-card p-4">
+          <div className="flex items-center justify-between text-[12px] text-[#8a8a90]"><span>本周</span><span className="inline-flex gap-1"><ChevronLeft size={14} /><ChevronRight size={14} /></span></div>
+          <div className="text-[18px] font-semibold mt-1">已学 <span className="text-[22px]">0</span> 个 session</div>
+          <p className="text-[12px] text-[#8a8a90] mt-1">完成一个 session 后解锁你的 token 里程碑。</p>
+          <div className="grid grid-cols-7 gap-1 mt-3">{WEEK.map((w, i) => <div key={w} className="h-9 rounded-lg border text-[11px] flex items-center justify-center data-[today=true]:bg-[#0a0a0a] data-[today=true]:text-white text-[#8a8a90]" data-today={i === todayIdx}>{w}</div>)}</div>
+          <div className="text-[12px] text-[#8a8a90] mt-4">从上次学到的地方继续</div>
+          {first ? <button onClick={() => nav(`/course/${first.courseUuid}`)} className="mt-2 w-full text-left rounded-xl border p-3 hover:bg-[#fafafa]"><div className="text-[13px] font-semibold">{first.courseTitle}</div><div className="text-[12px] text-[#8a8a90] mt-0.5">下一讲：{first.nextItem?.title ?? '第一讲'}</div></button> : <div className="mt-2 text-[12px] text-[#8a8a90]">暂无进行中的课程</div>}
+        </div>
+        <div className="hk-card p-4">
+          <div className="flex items-center justify-between"><span className="text-[14px] font-semibold">课程市场</span><button onClick={() => nav('/marketplace')} className="text-[12px] text-[#6b6b70] inline-flex items-center gap-0.5">查看更多 <ExternalLink size={11} /></button></div>
+          <div className="text-[12px] text-[#8a8a90] mt-0.5">由 betterknow 精心策划的课程</div>
+          <ul className="mt-3 space-y-2">{recs.map((c) => (
+            <li key={c.marketplaceId} className="flex items-center gap-3 rounded-xl border p-2"><div className="h-11 w-11 rounded-lg bg-[#eef0f6] overflow-hidden shrink-0"><img src={c.coverImageUrl} alt="" className="w-full h-full object-contain p-1 mix-blend-multiply" /></div><div className="flex-1 min-w-0"><div className="text-[13px] font-medium truncate">{c.courseTitle}</div><div className="text-[11px] text-[#8a8a90]">betterknow 官方 · ★ {(c.rating ?? 4.5).toFixed(1)}</div></div><button onClick={() => nav(`/marketplace/${c.marketplaceId}/preview`)} className="hk-pill h-7 text-[12px] px-2.5">预览</button></li>
+          ))}</ul>
+        </div>
+      </aside>
+    </div>
+  )
+}
