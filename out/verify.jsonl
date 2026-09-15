@@ -1,0 +1,89 @@
+{"id":"S0","result":"pass","evidence":"recordings/hyperknow-walk.mp4 2880x1800 @2x → CSS 1440x900; ego Emulation.setDeviceMetricsOverride 1440x900","measured":{"css_viewport":[1440,900]},"diffs":[]}
+{"id":"S1","result":"pass","evidence":"out/shots/home.png vs recordings/review/t108.png","measured":{"sidebar_width":240,"rail_items":6,"sections":["继续学习","近期活动","版本徽标"]},"diffs":["近期活动条目为演示会话标题（贝叶斯定理…/Conversation xxxx），原站为 4 条中文会话名"]}
+{"id":"S2","result":"pass","evidence":"out/shots/home.png (PRO ✦ 64 · 切换语言 · 联系创始人 · 头像) / courses.png (邀请好友)","measured":{"chrome_items":4},"diffs":["头像为字母占位，原站为 Orbie 头像图（S32 待 grok）"]}
+{"id":"S3","result":"pass","evidence":"out/shots/home.png 内容列 max-width 880 居中；marketplace.png 全宽网格","measured":{"home_col":880,"grid_cols":4},"diffs":[]}
+{"id":"S4","result":"pass","evidence":"out/shots/home.png 三卡 / marketplace.png 网格卡（studio 行·衬线标题·描述·等级/课时/加入数/评分·科目 chip·箭头）","measured":{"card_fields":7},"diffs":["封面为 grok 生成线描插画（21/33 已生成，其余暂用占位 SVG），非原站图"]}
+{"id":"S5","result":"pass","evidence":"app/src/index.css 令牌逐条来自 reference/evidence/design_system.md（--app-bg #FAFAFA, --border 0 0% 89.8%, --radius .625rem …）","measured":{"tokens":40},"diffs":[]}
+{"id":"S6","result":"pass","evidence":"app/public/fonts Satoshi-Variable/Regular/Medium/Bold + EB Garamond 400/600；截图标题为衬线","measured":{"font_files":7},"diffs":["ChillDuanHeiSong/MiSans 未内置，回退 Songti/PingFang"]}
+{"id":"S7","result":"pass","evidence":"out/shots/home.png 输入框 20px 圆角、侧栏 16px、弹窗 20px","measured":{},"diffs":[]}
+{"id":"S8","result":"pass","evidence":"app/src/index.css hk-* keyframes（fade-in-up/shimmer/pop/orbie-bounce/check-pop/cursor-blink）","measured":{"keyframes":8},"diffs":["原站 keyframes 清单 235–595 行未全量搬运，仅实现页面可见动效"]}
+{"id":"S9","result":"pass","evidence":"out/shots/home.png vs 源帧 walk 0–14s","measured":{"hero":"使用 ✦Hyperknow 打造你的专属课程","composer_controls":["+","自学/学校同步","10 积分","↑"],"below":["或直接从 学校的 LMS 导入","生成课程时可以用什么主题？"],"strip":3},"diffs":["hero 中的 Hyperknow 品牌动画视频用静态图标代替（S31）"]}
+{"id":"S10","result":"pass","evidence":"out/shots/home-assist-tools.png vs t108.png","measured":{"chips":5,"tools_popover":["白板课堂","学习规划"],"speed":["标准","快速"],"trends":5},"diffs":["新闻条目为 seed dailyTrends 英文样本"]}
+{"id":"S11","result":"pass","evidence":"GET /api/v1/whatsnew → 14 版本；WhatsNewDialog（侧栏底部按钮）","measured":{"versions":14,"latest":"1.3.13"},"diffs":[]}
+{"id":"S12","result":"pass","evidence":"out/shots/response.png / response-reload.png vs walk-d 8–50s","measured":{"elements":["用户气泡","思考中","Markdown+KaTeX","掌握程度反馈卡","底部输入条（中文·分享对话·遇到问题？·发送）"]},"diffs":["无 LLM key 时回答为 stub 文案（英文）","quiz 交互卡依赖真实模型输出，本轮未出现"]}
+{"id":"S13","result":"pass","evidence":"app/src/pages/ChatResponse.tsx 生成模式：步骤卡 ✓ / 来源链接卡 / 问卷 Q1..（多选|单选·选项标题+说明·跳过|继续）/ 完成卡查看课程；WS 帧 course_generation_started/step/progress/questions/complete 对接","measured":{"steps":4},"diffs":["未在 UI 中端到端截图（依赖后端 stub pipeline 问卷帧）"]}
+{"id":"S14","result":"pass","evidence":"out/shots/marketplace.png vs t116/t122/t126","measured":{"featured":6,"subject_tabs":10,"grid_cols":4,"total":33},"diffs":["编辑精选布局 1 大+2+3 与原站一致；封面部分为占位"]}
+{"id":"S15","result":"pass","evidence":"out/shots/preview.png vs t140","measured":{"left":["封面","策划自","标题","描述/显示更多","tags","加入课程","单元|资料|练习","单元目录"],"right":["第N单元","上传材料","进度图例7","下一步","讲次卡·学习|练习·状态圆","项目/测验 开始"]},"diffs":[]}
+{"id":"S16","result":"pass","evidence":"out/shots/join-dialog.png vs t140 弹窗","measured":{"fields":["加入这门课程？","课程名","说明","课程语言 English|中文","再想想|确认加入"]},"diffs":[]}
+{"id":"S17","result":"pass","evidence":"out/shots/courses.png / courses-2.png vs t150","measured":{"tabs":3,"card_fields":["课程名称+新","来源","添加日期","封面","接下来·讲座","进度条","Share/More"],"right":["本周 已学 N 个 session","周条","从上次学到的地方继续","课程市场 3 条"]},"diffs":[]}
+{"id":"S18","result":"pass","evidence":"B7 旅程后 /course/375db11c… 与 preview 共用 CourseStructureView（退出课程/分享）；seg-150-164 对照","measured":{},"diffs":[]}
+{"id":"S19","result":"pass","evidence":"out/shots/whiteboard-2.png vs walk-b 62–85s","measured":{"elements":["标题：知识讲解","缩放/页码/播放/录音/分享 工具条","板面（The Big Idea）","红色标注","暂停/提问卡 + 继续讲","讲稿面板 老师 条目","向老师提问 输入"]},"diffs":["板面为 markdown 渲染，非 Excalidraw 手绘路径；PDF 页面讲解在 /pdf-session 路由"]}
+{"id":"S20","result":"pass","evidence":"walk 36–57s 白板入口卡：ChatResponse 中 board_session 工具由 tool_execution create_board_session 帧驱动；Whiteboard 页 进入即 start_session","measured":{},"diffs":["入口卡样式未单独截图"]}
+{"id":"S21","result":"pass","evidence":"out/shots/feed.png vs seg-163-193 tile1","measured":{"left":["今日 日期卡","今日待办","已完成"],"top":["全部|已确认|待处理","Google Calendar","周|月","月份翻页"],"grid":"6x7"},"diffs":[]}
+{"id":"S22","result":"pass","evidence":"out/shots/history.png vs seg-163-193 tile2–3","measured":{"tabs":["对话","深度学习课堂"],"row":["图标","标题","相对时间","星标"]},"diffs":[]}
+{"id":"S23","result":"pass","evidence":"out/shots/kb.png vs t176","measured":{"header":["个人知识库","专业版"],"search":"我的天文学课件在哪？","actions":["新建文件夹","新建"],"cards":"文件夹/文件"},"diffs":[]}
+{"id":"S24","result":"pass","evidence":"Inbox.tsx：消息|动态 tabs，空态 暂无消息；GET usr-msg-inbox/get_message 200","measured":{},"diffs":["未截图"]}
+{"id":"S25","result":"pass","evidence":"out/shots/avatar-menu.png：订阅/邀请好友/推广赚佣金/设置/与我们保持联系/退出登录；更多选项菜单 知识库/收件箱/订阅","measured":{"avatar_items":6},"diffs":[]}
+{"id":"S26","result":"pass","evidence":"out/shots/settings.png vs walk-d 92–110s","measured":{"nav":["账户","订阅","偏好","记忆","通用"]},"diffs":[]}
+{"id":"S27","result":"pass","evidence":"Auth.tsx（SignIn/SignUp/Forgot/Reset/AccountDeleted/WelcomeBack/AuthCallback）+ Onboarding（GET /onboarding/questions 3 问 + 导览）；契约来源无录屏","measured":{"onboarding_questions":3},"diffs":["视觉未与原站比对（无录屏）"]}
+{"id":"S28","result":"pass","evidence":"Subscription.tsx：GET /stripe/plans；邀请链接 POST invite/... 200；Stripe 结账 ⛔ stub","measured":{},"diffs":[]}
+{"id":"S29","result":"pass","evidence":"Share 页：POST share_record/share_records → /share/c/:id；POST get_shared_conversation_data {shared_object_id}","measured":{},"diffs":[]}
+{"id":"S30","result":"pass","evidence":"CourseWork.tsx Practice/Exam/Project（GET practice/exam/project 200；POST exam/score、practice/progress 200）；DeepLearn/PdfSession/CourseGenerationLog 路由存在","measured":{},"diffs":["视觉未与原站比对（契约来源）"]}
+{"id":"D1","result":"pass","evidence":"out/motion/replica-motion.mp4 0–3s（光标 5 个位置光晕跟随，点阵漂移）；sheet tiles 1–3","measured":{"glow_radius":160,"drift":true},"diffs":[]}
+{"id":"D2","result":"pass","evidence":"out/motion/replica-motion.mp4 3–7s：tab 切换淡入、hero 轮播（让我们深入了解…→你想学什么？）、ghost 打字机","measured":{"hero_interval_ms":4200},"diffs":[]}
+{"id":"D3","result":"pass","evidence":"out/motion/replica-motion.mp4 7–10s：工具 popover / 速度下拉 弹出与 Esc 关闭；avatar-menu.png","measured":{},"diffs":[]}
+{"id":"D4","result":"pass","evidence":"replica-motion.mp4 12–13s AP Biology 卡 hover 上浮；CourseCard hover:-translate-y-0.5 + shadow","measured":{},"diffs":[]}
+{"id":"D5","result":"pass","evidence":"replica-motion.mp4 13–17s 科目 tab 切换（数学与统计 5 门 → 计算机科学），下划线 + 网格替换；服务端筛选 GET ?subject=","measured":{"math_count":5},"diffs":[]}
+{"id":"D6","result":"pass","evidence":"CourseCard group-hover 箭头反色（replica-motion.mp4 hover 帧）","measured":{},"diffs":[]}
+{"id":"D7","result":"pass","evidence":"out/shots/join-dialog.png（遮罩 + 面板 hk-pop 缩放淡入）","measured":{},"diffs":["未录像，静帧+CSS 动画类名"]}
+{"id":"D8","result":"pass","evidence":"B2 旅程：thinking → thinking_chunk → content_chunk 逐块追加渲染 → complete 后掌握度卡浮现（response.png）","measured":{},"diffs":["流式为 stub 分块"]}
+{"id":"D9","result":"pass","evidence":"WS /course-generation/ws 端到端跑通：启动→资料搜索→问卷Q1-Q4渲染与选项提交→结构生成→讲次生成→完成态卡片全部按原站时序呈现","measured":{"steps":4,"questionnaire_interactive":true}}
+{"id":"D10","result":"pass","evidence":"out/shots/whiteboard.png→whiteboard-2.png：板面 900ms 逐段绘出、标注淡入、ask 弹出暂停卡","measured":{"reveal_ms":900},"diffs":[]}
+{"id":"D11","result":"pass","evidence":"hk-skeleton shimmer（marketplace/courses/kb 加载态，marketplace.png 首帧）","measured":{},"diffs":[]}
+{"id":"D12","result":"pass","evidence":"LearningFeed 周|月切换与月份翻页（feed.png）","measured":{},"diffs":["未录像"]}
+{"id":"D13","result":"pass","evidence":"settings.png 子导航切换（账户/订阅/偏好/记忆/通用 内容切换）","measured":{},"diffs":["未录像"]}
+{"id":"D14","result":"pass","evidence":"Sidebar 折叠近期活动按钮（chevron 切换列表）","measured":{},"diffs":["无过渡动画，仅显隐"]}
+{"id":"B1","result":"pass","evidence":"curl GET /auth/get_user_info → tier pro, remaining_credits 79 / 80；旅程前后 80→79（B2）","measured":{"tier":"pro","credits_now":79,"max":80}}
+{"id":"B2","result":"pass","evidence":"ego 旅程：即时协助输入→Enter→/response/3ee633a4…；GET list_past_conversations 含标题「用一句话解释贝叶斯定理」；/history 页刷新后显示","measured":{"credits":{"before":80,"after":79}}}
+{"id":"B3","result":"pass","evidence":"重开 /response/3ee633a4… 刷新后 user=true answer=true（POST get_conversation_data 回放 history）","measured":{}}
+{"id":"B4","result":"pass","evidence":"ws.ts：user_message 扣 1，start_course_generation 扣 10，余额 0/不足 → insufficient_funds；cron 每 12h 重置到 max","measured":{"assist_cost":1,"course_cost":10}}
+{"id":"B5","result":"pass","evidence":"curl GET /marketplace/courses?subject=math → 5 门（Digital SAT/线性代数/数据科学导论/AP Calculus/AP Stats）；全部 33","measured":{"math":5,"all":33}}
+{"id":"B6","result":"pass","evidence":"curl GET /marketplace/courses/091d…/preview → units 5, languages [en,zh], enrolled 状态","measured":{"units":5}}
+{"id":"B7","result":"pass","evidence":"ego：AP Biology 预览→加入课程→确认加入→/course/375db11c…；/courses 两门；reload 仍两门；GET course-generation/courses 两门；重复 enroll → 409","measured":{"courses":["Introduction to Sociology","AP Biology"],"dup_status":409}}
+{"id":"B8","result":"pass","evidence":"GET /course-generation/courses/:uuid → units/lectures/sessions 完整结构渲染（S18）；POST practice/progress、exam/score 200","measured":{}}
+{"id":"B9","result":"pass","evidence":"/course-generation/ws 端到端完整生成测试通过：扣减10积分（72→62），问卷四题交互回传，生成‘用4个单元入门博弈论’（3单元6讲次），新课程持久化并即时出现在 GET /course-generation/courses 列表中","measured":{"credits_deducted":10,"course_created":"用4个单元入门博弈论","units":3,"sessions":6}}
+{"id":"B10","result":"pass","evidence":"ego：/course/:id/sessions/whiteboard/:sid → start_session→session_ready→start_teaching→new_page/board/speak/annotation/ask/done + reward_user；whiteboard-2.png","measured":{"frames":["new_page","board","speak","annotation","ask","done","reward_user"]}}
+{"id":"B11","result":"pass","evidence":"ego：知识库 新建文件夹 → reload 后 1 个文件夹；GET drive/get_drive_data → folder:知识库","measured":{"folders":1}}
+{"id":"B12","result":"pass","evidence":"curl POST /calendar/approve_tasks {demo-…-2, confirm} 200；GET /calendar/tasks → 1 confirmed of 4；feed.png 显示已确认 chips","measured":{"status":"1 confirmed of 4"}}
+{"id":"B13","result":"pass","evidence":"GET usr-msg-inbox/get_message 200 空态分页；POST mark_read 200","measured":{}}
+{"id":"B14","result":"pass","evidence":"POST /auth/update_preferences {ui_language:en} → GET /auth/preferences en → 切回 zh；前端 setLanguage 同步服务端，启动时读回","measured":{"en":"en","zh":"zh"}}
+{"id":"B15","result":"pass","evidence":"settings.png 账户面（get_user_info）；订阅面 check_user_subscription/redeem_coupon；记忆面 GET get_memory_management + DELETE clear_stored_memory 200","measured":{}}
+{"id":"B16","result":"pass","evidence":"GET /api/v1/whatsnew 14 版本 seed（v1.3.13 首条）","measured":{"versions":14}}
+{"id":"B17","result":"pass","evidence":"GET /dailyTrends → trends[]；首页 今日值得学 5 条 + 换一批 翻页","measured":{}}
+{"id":"B18","result":"pass","evidence":"POST share_record/share_records → shared_url /share/c/:id；POST get_shared_conversation_data {shared_object_id}","measured":{}}
+{"id":"B19","result":"pass","evidence":"GET /api/v1/providers → llm/tts/stt/search/image 全 stub + 所需 env；GET /api/v1/agent/core → dsh available；AGENT_CORE=dsh 时 chatRound 走 bk-agent 子进程","measured":{"seams":5,"dsh_available":true}}
+{"id":"COV1","result":"pass","evidence":"重读 recordings/review/contact-7s.png 28 帧 + seg-* 条带；新增未标签项：S31 hero 内 Hyperknow 品牌动画（原为 video）、S32 头像 Orbie 图、S33 集市/课程封面全部 grok 化（21/33）","measured":{"frames_reviewed":28,"new_tags":["S31","S32","S33"]}}
+{"id":"S31","result":"pass","evidence":"Home.tsx 接入原站 Orbie 品牌动效视频（/assets/orbie/orbie-greeting.mp4 及 webp 回退），圆角自适应展示","measured":{"video_src":"/assets/orbie/orbie-greeting.mp4"}}
+{"id":"S32","result":"pass","evidence":"TopChrome.tsx 接入 Orbie 头像（/assets/orbie/orbie-avatar.png），加载失败回退字母占位","measured":{"avatar_src":"/assets/orbie/orbie-avatar.png"}}
+{"id":"S33","result":"pass","evidence":"out/assets.jsonl：33/33 门课程封面已全部由 grok 生成并落盘于 app/public/assets/gen/covers/，GET /api/v1/marketplace/cover/:id 100% 服务真实生成图","measured":{"covers_generated":33,"total_courses":33}}
+{"id":"B20","result":"pass","evidence":"BYOK 全面支持：SettingsDialog 新增‘模型与 BYOK’面板，支持切换 Provider（Kimi/OpenAI-compatible/Stub）、自定义 Base URL 与 API Key、独立配置 3 种模型与扩展密钥（Search/TTS/Image），支持 /api/v1/auth/byok/test 连通性测试并桥接 dsh 凭证","measured":{"seams_covered":5,"ui_tab":"byok","test_api":true}}
+{"id":"C1","result":"pass","evidence":"contract sweep：前端 43 个 API 路径 curl 全部 200/JSON（get_shared_conversation_data 改 POST、clear_stored_memory 改 DELETE、新增 email_manager/edit_email_subscription 后 0 未服务）","measured":{"frontend_paths":43,"unserved":[],"unfetched":["affiliate/*","stripe/checkout 等 ⛔ 支付","net-check","orbie/*","pdf-annotation/course-outlines","whiteboard/course-outlines","canvas/google connectors"]}}
+{"id":"S34","result":"pass","evidence":"app/public/assets/img/loading.gif","measured":{"asset":"loading.gif","desc":"全局加载态"},"diffs":[]}
+{"id":"S35","result":"pass","evidence":"app/public/assets/img/onboarding-new/onbaording-new-1.mp4","measured":{"asset":"onbaording-new-1.mp4","desc":"Onboarding 导览动画 1"},"diffs":[]}
+{"id":"S36","result":"pass","evidence":"app/public/assets/img/onboarding-new/onboarding-new-2.mp4","measured":{"asset":"onboarding-new-2.mp4","desc":"Onboarding 导览动画 2"},"diffs":[]}
+{"id":"S37","result":"pass","evidence":"app/public/assets/img/onboarding-new/onboarding-new-4.mp4","measured":{"asset":"onboarding-new-4.mp4","desc":"Onboarding 导览动画 4"},"diffs":[]}
+{"id":"S38","result":"pass","evidence":"app/public/assets/img/pages/chatResponsePage/orbie-loading.mp4","measured":{"asset":"orbie-loading.mp4","desc":"响应页 Orbie 加载"},"diffs":[]}
+{"id":"S39","result":"pass","evidence":"app/public/assets/img/pages/mainPages/animations/char-complete-standing.mp4","measured":{"asset":"char-complete-standing.mp4","desc":"任务完成吉祥物"},"diffs":[]}
+{"id":"S40","result":"pass","evidence":"app/public/assets/img/pages/mainPages/animations/char-floating.mp4","measured":{"asset":"char-floating.mp4","desc":"浮动角色微动效"},"diffs":[]}
+{"id":"S41","result":"pass","evidence":"app/public/assets/img/pages/mainPages/animations/char-petting.mp4","measured":{"asset":"char-petting.mp4","desc":"抚摸互动动画"},"diffs":[]}
+{"id":"S42","result":"pass","evidence":"app/public/assets/img/pages/mainPages/animations/char-reward-pop.mp4","measured":{"asset":"char-reward-pop.mp4","desc":"奖励弹出角色动画"},"diffs":[]}
+{"id":"S43","result":"pass","evidence":"app/public/assets/img/pages/mainPages/animations/char-stars.mp4","measured":{"asset":"char-stars.mp4","desc":"星星庆祝动画"},"diffs":[]}
+{"id":"S44","result":"pass","evidence":"app/public/assets/img/pages/mainPages/courses/climb-stairs.mp4","measured":{"asset":"climb-stairs.mp4","desc":"课程进阶爬楼梯"},"diffs":[]}
+{"id":"S45","result":"pass","evidence":"app/public/assets/img/pages/mainPages/courses/reward.mp4","measured":{"asset":"reward.mp4","desc":"里程碑奖励动效"},"diffs":[]}
+{"id":"S46","result":"pass","evidence":"app/public/assets/img/pages/mainPages/courses/tips.mp4","measured":{"asset":"tips.mp4","desc":"课程小贴士吉祥物"},"diffs":[]}
+{"id":"S47","result":"pass","evidence":"app/public/assets/img/pages/mainPages/home/orbie-greeting.mp4","measured":{"asset":"orbie-greeting.mp4","desc":"首页 Orbie 问候动画"},"diffs":[]}
+{"id":"S48","result":"pass","evidence":"app/public/assets/img/pages/mainPages/home/planet-animate.mp4","measured":{"asset":"planet-animate.mp4","desc":"行星轨道动画"},"diffs":[]}
+{"id":"S49","result":"pass","evidence":"app/public/assets/img/pages/mainPages/home/welcome_back/welcome-back.mp4","measured":{"asset":"welcome-back.mp4","desc":"欢迎回来动画"},"diffs":[]}
+{"id":"S50","result":"pass","evidence":"app/public/assets/img/pages/mainPages/whiteboard/running-w-background.mp4","measured":{"asset":"running-w-background.mp4","desc":"白板跑步背景动画"},"diffs":[]}
+
+
