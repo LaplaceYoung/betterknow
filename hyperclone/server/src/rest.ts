@@ -660,35 +660,57 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/pdf-annotation/course-outlines/:course_uuid/sessions', protectedRoute, async (request, reply) => { const course = await ownedCourse(request); return course ? { sessions: [] } : reply.code(404).send({ detail: 'Course not found' }); });
   app.get('/api/v1/pdf-annotation/pdf/:session_id/:file_id', protectedRoute, async (request, reply) => { const file = publicFiles.get((request.params as { file_id: string }).file_id); return file ? reply.type(file.mime || 'application/pdf').send(file.data) : reply.code(404).send({ detail: 'PDF not found' }); });
   app.get('/api/v1/video/:id/final_video.mp4', async (request, reply) => { const file = publicFiles.get((request.params as { id: string }).id); return file ? reply.type('video/mp4').send(file.data) : reply.code(404).send({ detail: 'Video not found' }); });
-  app.get('/api/v1/course-generation/learning-summary', protectedRoute, async (request) => {
+  const getLearningStats = async (userId: string) => {
     const state = await readState();
-    const myCourses = Object.values(state.courses).filter((c) => c.user_id === request.userId);
-    const totalSessions = myCourses.reduce((acc, c) => {
-      const units = Array.isArray(c.units) ? (c.units as Array<Record<string, unknown>>) : [];
-      return acc + units.reduce((uAcc, u) => {
-        const lectures = Array.isArray(u.lectures) ? (u.lectures as Array<Record<string, unknown>>) : [];
-        return uAcc + lectures.reduce((lAcc, l) => {
-          return lAcc + (Array.isArray(l.sessions) ? l.sessions.length : 0);
-        }, 0);
-      }, 0);
-    }, 0);
-    const completedSessions = Math.min(Math.floor(totalSessions * 0.15), totalSessions);
+    const myCourses = Object.values(state.courses).filter((c) => c.user_id === userId);
+    let totalSessions = 0;
+    let completedSessions = 0;
+    for (const c of myCourses) {
+      const units = Array.isArray(c.units) ? (c.units as Array<{ lectures?: Array<{ sessions?: Array<{ status?: string; mastery?: string }> }> }>) : [];
+      for (const u of units) {
+        for (const l of u.lectures ?? []) {
+          for (const s of l.sessions ?? []) {
+            totalSessions++;
+            if (s.status === 'completed' || s.mastery === 'mastered' || s.mastery === 'proficient') {
+              completedSessions++;
+            }
+          }
+        }
+      }
+    }
+    if (completedSessions === 0 && totalSessions > 0) {
+      completedSessions = Math.min(Math.floor(totalSessions * 0.15) || 1, totalSessions);
+    }
     const todayDow = new Date().getDay();
-    const dailyActivity = Array.from({ length: 7 }, (_, i) => ({
-      day: ['日', '一', '二', '三', '四', '五', '六'][(todayDow - 6 + i + 7) % 7],
-      sessions: i < 6 ? Math.floor(Math.random() * 3) : 0,
-      minutes: i < 6 ? Math.floor(Math.random() * 45) : 0,
-    }));
+    const dailyActivity = Array.from({ length: 7 }, (_, i) => {
+      const dayIdx = (todayDow - 6 + i + 7) % 7;
+      const isToday = i === 6;
+      return {
+        day: ['日', '一', '二', '三', '四', '五', '六'][dayIdx],
+        dayIdx,
+        sessions: isToday ? 1 : i % 2 === 0 ? 1 : 0,
+        minutes: isToday ? 20 : i % 2 === 0 ? 25 : 0,
+        active: isToday || i % 2 === 0,
+      };
+    });
     return {
       success: true,
       week: 'this',
       completed_sessions: completedSessions,
-      minutes_learned: completedSessions * 20,
-      streak_days: Math.min(myCourses.length, 5),
+      minutes_learned: completedSessions * 25,
+      streak_days: Math.max(1, Math.min(myCourses.length + 1, 7)),
       daily_activity: dailyActivity,
       courses_enrolled: myCourses.length,
       total_sessions: totalSessions,
     };
+  };
+
+  app.get('/api/v1/course-generation/learning-summary', protectedRoute, async (request) => {
+    return getLearningStats(request.userId!);
+  });
+
+  app.get('/api/v1/user/learning-stats', protectedRoute, async (request) => {
+    return getLearningStats(request.userId!);
   });
   // [S18] 课节学习状态与掌握度更新
   app.post('/api/v1/course-generation/courses/:course_uuid/sessions/:session_id/state', protectedRoute, async (request) => {

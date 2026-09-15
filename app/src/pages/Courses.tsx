@@ -5,18 +5,29 @@ import { apiGet, type MarketplaceCourse } from '@/lib/api'
 
 interface MyCourse { courseUuid: string; courseTitle: string; courseDescription: string; tags?: string[]; unitCount: number; sessionCount: number; coverImageUrl: string; createdAt: string; source?: string; progress?: number; nextItem?: { title?: string; unitTitle?: string; type?: string } | null }
 
+interface LearningStats {
+  completed_sessions: number
+  minutes_learned: number
+  streak_days: number
+  daily_activity: Array<{ day: string; dayIdx: number; sessions: number; minutes: number; active: boolean }>
+  courses_enrolled: number
+  total_sessions: number
+}
+
 const fmtDate = (s: string) => { const d = new Date(s); return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日` }
 const WEEK = ['一', '二', '三', '四', '五', '六', '日']
 
 export default function Courses() {
   const nav = useNavigate()
   const [courses, setCourses] = useState<MyCourse[] | null>(null)
+  const [stats, setStats] = useState<LearningStats | null>(null)
   const [tab, setTab] = useState<'all' | 'active' | 'done'>('all')
   const [q, setQ] = useState('')
   const [recs, setRecs] = useState<MarketplaceCourse[]>([])
   useEffect(() => {
     apiGet<{ courses: MyCourse[] }>('/course-generation/courses').then((r) => setCourses(r.courses)).catch(() => setCourses([]))
     apiGet<{ courses: MarketplaceCourse[] }>('/marketplace/courses').then((r) => setRecs(r.courses.filter((c) => !c.enrolled).slice(0, 3))).catch(() => {})
+    apiGet<LearningStats>('/user/learning-stats').then(setStats).catch(() => {})
   }, [])
   const shown = useMemo(() => (courses ?? []).filter((c) => (tab === 'all' || (tab === 'done' ? (c.progress ?? 0) >= 100 : (c.progress ?? 0) < 100)) && (!q || c.courseTitle.toLowerCase().includes(q.toLowerCase()))), [courses, tab, q])
   const today = new Date().getDay() // 0=Sun
@@ -60,12 +71,60 @@ export default function Courses() {
 
       <aside className="space-y-4">
         <div className="hk-card p-4">
-          <div className="flex items-center justify-between text-[12px] text-[#8a8a90]"><span>本周</span><span className="inline-flex gap-1"><ChevronLeft size={14} /><ChevronRight size={14} /></span></div>
-          <div className="text-[18px] font-semibold mt-1">已学 <span className="text-[22px]">0</span> 个 session</div>
-          <p className="text-[12px] text-[#8a8a90] mt-1">完成一个 session 后解锁你的 token 里程碑。</p>
-          <div className="grid grid-cols-7 gap-1 mt-3">{WEEK.map((w, i) => <div key={w} className="h-9 rounded-lg border text-[11px] flex items-center justify-center data-[today=true]:bg-[#0a0a0a] data-[today=true]:text-white text-[#8a8a90]" data-today={i === todayIdx}>{w}</div>)}</div>
+          <div className="flex items-center justify-between text-[12px] text-[#8a8a90]">
+            <span>本周学习概览</span>
+            {stats && stats.streak_days > 0 && (
+              <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#ea580c] bg-[#fff7ed] px-2 py-0.5 rounded-full border border-[#fed7aa]">
+                🔥 连胜 {stats.streak_days} 天
+              </span>
+            )}
+          </div>
+          <div className="text-[18px] font-semibold mt-2">
+            已学 <span className="text-[24px] text-[#0a0a0a] font-bold">{stats?.completed_sessions ?? 0}</span> 个 session
+          </div>
+          <p className="text-[12px] text-[#8a8a90] mt-1">
+            累计学习 {stats?.minutes_learned ?? 0} 分钟 · 完成任意随堂练习即刻点亮连胜
+          </p>
+          <div className="grid grid-cols-7 gap-1.5 mt-3">
+            {(stats?.daily_activity ?? WEEK.map((w, i) => ({ day: w, dayIdx: i, sessions: 0, minutes: 0, active: false }))).map((act, i) => {
+              const isToday = i === 6 || act.dayIdx === today
+              const hasLearned = act.sessions > 0 || act.active
+              return (
+                <div
+                  key={act.day + i}
+                  title={`${act.day}：${act.sessions} 节 (${act.minutes} 分钟)`}
+                  className={`h-10 rounded-lg border text-[11px] flex flex-col items-center justify-center transition-all ${
+                    isToday
+                      ? 'bg-[#0a0a0a] text-white border-black font-semibold'
+                      : hasLearned
+                      ? 'bg-[#f0fdf4] text-[#16a34a] border-[#bbf7d0] font-medium'
+                      : 'bg-white text-[#8a8a90] border-[#e4e4e7]'
+                  }`}
+                >
+                  <span>{act.day}</span>
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full mt-0.5 ${
+                      isToday ? 'bg-[#38bdf8]' : hasLearned ? 'bg-[#16a34a]' : 'bg-transparent'
+                    }`}
+                  />
+                </div>
+              )
+            })}
+          </div>
           <div className="text-[12px] text-[#8a8a90] mt-4">从上次学到的地方继续</div>
-          {first ? <button onClick={() => nav(`/course/${first.courseUuid}`)} className="mt-2 w-full text-left rounded-xl border p-3 hover:bg-[#fafafa]"><div className="text-[13px] font-semibold">{first.courseTitle}</div><div className="text-[12px] text-[#8a8a90] mt-0.5">下一讲：{first.nextItem?.title ?? '第一讲'}</div></button> : <div className="mt-2 text-[12px] text-[#8a8a90]">暂无进行中的课程</div>}
+          {first ? (
+            <button
+              onClick={() => nav(`/course/${first.courseUuid}`)}
+              className="mt-2 w-full text-left rounded-xl border p-3 hover:bg-[#fafafa] transition-colors"
+            >
+              <div className="text-[13px] font-semibold truncate">{first.courseTitle}</div>
+              <div className="text-[12px] text-[#8a8a90] mt-0.5">
+                下一讲：{first.nextItem?.title ?? '第一讲'}
+              </div>
+            </button>
+          ) : (
+            <div className="mt-2 text-[12px] text-[#8a8a90]">暂无进行中的课程</div>
+          )}
         </div>
         <div className="hk-card p-4">
           <div className="flex items-center justify-between"><span className="text-[14px] font-semibold">课程市场</span><button onClick={() => nav('/marketplace')} className="text-[12px] text-[#6b6b70] inline-flex items-center gap-0.5">查看更多 <ExternalLink size={11} /></button></div>
