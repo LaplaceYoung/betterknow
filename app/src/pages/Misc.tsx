@@ -172,8 +172,34 @@ export function DeepLearnSession() {
     const proto = location.protocol === 'https:' ? 'wss' : 'ws'
     const sock = new WebSocket(`${proto}://${location.host}/api/v1/deep_learn/ws?session_id=${encodeURIComponent(id)}&token=${encodeURIComponent(localStorage.getItem('access_token') ?? '')}`)
     sock.onmessage = (ev) => {
-      const f = JSON.parse(ev.data) as { type: string; chunk?: string; content?: string; message?: string; spoken_text?: string; step_index?: number }
+      const f = JSON.parse(ev.data) as {
+        type: string; chunk?: string; content?: string; message?: string; spoken_text?: string; step_index?: number
+        task_plan?: { title?: string; session_task_plan?: Array<{ unit_name: string; tasks: Array<{ task_id: string; task_title: string; task_description: string }> }> }
+        current_step_id?: string
+        placeholder_id?: string
+        data?: { layout?: string; tag?: string; caption?: string }
+        step_data?: { task_id?: string; task_title?: string }
+        next_step?: { task_id?: string; task_title?: string }
+      }
       if (f.step_index !== undefined) setCurrentStep(f.step_index)
+      // 会话计划（线上 resumed/created 帧带 task_plan）→ 大纲 + 当前步
+      if (f.task_plan?.session_task_plan) {
+        const items = f.task_plan.session_task_plan.flatMap((unit) => unit.tasks.map((task) => ({ title: `${unit.unit_name} · ${task.task_title}`, detail: task.task_description, task_id: task.task_id })))
+        setOutline((current) => ({ title: f.task_plan?.title ?? current?.title ?? '深度学习', items }))
+        const index = items.findIndex((item) => item.task_id === f.current_step_id)
+        if (index >= 0) setCurrentStep(index)
+      }
+      // 图解（线上 inline_diagram 的 tag 里带 data-file-url）
+      if (f.type === 'inline_diagram') {
+        const url = /data-file-url="([^"]+)"/.exec(f.data?.tag ?? '')?.[1]
+        const caption = /data-caption="([^"]*)"/.exec(f.data?.tag ?? '')?.[1]
+        if (url) setMsgs((m) => [...m, { who: 'teacher', text: `${caption ? `${caption}\n` : ''}![图解](${url})` }])
+      }
+      // 步骤完成：给出下一步提示（线上需要客户端确认）
+      if (f.type === 'step_completion' && f.next_step) {
+        setMsgs((m) => [...m, { who: 'teacher', text: `✓ 本步完成${f.next_step?.task_title ? ` · 下一步：${f.next_step.task_title}` : ''}` }])
+        sock.send(JSON.stringify({ type: 'step_acknowledged', step_id: f.next_step.task_id }))
+      }
       const t = f.chunk ?? f.content ?? f.spoken_text ?? (f.type === 'error' ? f.message : undefined)
       if (t) {
         setStreaming(true)

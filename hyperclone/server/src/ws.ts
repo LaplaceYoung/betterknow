@@ -418,7 +418,15 @@ async function deepLearnHandler(socket: WebSocket, request: FastifyRequest): Pro
   const query = request.query as { session_id?: string; subtask_id?: string }; const requested = query.session_id ?? query.subtask_id; const state = await readState(); let sessionId = requested;
   // 线上形态（r34）：resumed 帧带 task_plan（units[].tasks[]）与 current_step_id；新会话给创建帧
   const session = requested ? state.deep_learn[requested] : undefined;
-  if (requested && session?.user_id === userId) wsSend(socket, { type: 'deep_learn_session_resumed', session_id: requested, message: '♻️  Deep learning session resumed', current_step_id: String(session.current_step_id ?? '1.1'), task_plan: session.session_task_plan ?? session.conversation_data ?? {} });
+  if (requested && session?.user_id === userId) {
+    // 老会话可能没存过计划：补一份并落库，保证前端总能拿到 units/tasks 大纲
+    let plan = session.session_task_plan as DeepLearnPlan | undefined;
+    if (!plan?.session_task_plan?.length) {
+      plan = deepLearnPlan(String((session as { title?: string }).title ?? 'Deep learning session'));
+      await updateState((next) => { const value = next.deep_learn[requested]; if (value) { value.session_task_plan = plan; value.current_step_id = plan!.session_task_plan[0]?.tasks?.[0]?.task_id ?? '1.1'; } });
+    }
+    wsSend(socket, { type: 'deep_learn_session_resumed', session_id: requested, message: '♻️  Deep learning session resumed', current_step_id: String(session.current_step_id ?? plan.session_task_plan[0]?.tasks?.[0]?.task_id ?? '1.1'), task_plan: plan });
+  }
   else { sessionId = randomUUID(); const plan = deepLearnPlan(String(session?.title ?? query.subtask_id ?? 'Deep learning session')); await updateState((next) => { next.deep_learn[sessionId!] = { deep_learn_session_id: sessionId, user_id: userId, title: plan.title, session_task_plan: plan, current_step_id: plan.session_task_plan[0]?.tasks?.[0]?.task_id ?? '1.1', conversation_data: { history: [], progress: {} }, created_at: now() }; }); wsSend(socket, { type: 'deep_learn_session_created', session_id: sessionId, task_plan: plan, current_step_id: plan.session_task_plan[0]?.tasks?.[0]?.task_id ?? '1.1' }); }
   const onMessage = (raw: unknown): void => { const input = parseMessage(raw); if (!input) return; void (async () => {
     if (input.type === 'ping') { wsSend(socket, { type: 'pong', t: input.t }); return; }
@@ -426,7 +434,8 @@ async function deepLearnHandler(socket: WebSocket, request: FastifyRequest): Pro
     if (input.type === 'step_acknowledged' || input.type === 'acknowledge_step' || input.type === 'next_step') {
       const current = (await readState()).deep_learn[sessionId ?? ''] ?? {};
       const next = deepLearnNextStep(current.session_task_plan as DeepLearnPlan | undefined, String(current.current_step_id ?? ''));
-      if (next) { await updateState((state2) => { const value = state2.deep_learn[sessionId!]; if (value) value.current_step_id = next.task_id; }); wsSend(socket, { type: 'step_completion', tool_name: 'manage_task_progress', message: 'Ready to mark this step complete', step_data: next, next_step: next, requires_acknowledgment: true, is_complete: false, conversation_id: sessionId }); }
+      // 只推进指针：下一步的讲解由下一轮 user_message 触发，别在这里连环弹 step_completion
+      if (next) { await updateState((state2) => { const value = state2.deep_learn[sessionId!]; if (value) value.current_step_id = next.task_id; }); }
       return;
     }
     if (input.type !== 'user_message') return;

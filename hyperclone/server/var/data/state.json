@@ -3530,10 +3530,77 @@
         ]
       },
       "conversation_data": {
-        "history": [],
+        "history": [
+          {
+            "role": "user",
+            "content": "用一句话说明这一节的重点",
+            "step_id": "1.1"
+          },
+          {
+            "role": "user",
+            "content": "用一句话说明这一节的重点",
+            "step_id": "3.2"
+          }
+        ],
         "progress": {}
       },
-      "created_at": "2026-09-14T19:43:18.213Z"
+      "created_at": "2026-09-14T19:43:18.213Z",
+      "session_task_plan": {
+        "title": "我想开一个深度学习会话，系统学习量子力学 · 系统学习",
+        "description": "围绕「我想开一个深度学习会话，系统学习量子力学 · 系统学习」的分布式深度学习课堂，按单元推进、每步确认。",
+        "tags": [
+          "深度学习",
+          "我想开一个深度学习会话，系统学习量子力学 · 系统学习"
+        ],
+        "session_task_plan": [
+          {
+            "unit_name": "单位 1：基础与背景",
+            "tasks": [
+              {
+                "task_id": "1.1",
+                "task_title": "背景与动机",
+                "task_description": "弄清这一主题从哪来、解决什么问题。"
+              },
+              {
+                "task_id": "1.2",
+                "task_title": "核心定义",
+                "task_description": "把关键概念与符号关系讲清楚。"
+              }
+            ]
+          },
+          {
+            "unit_name": "单位 2：原理与推导",
+            "tasks": [
+              {
+                "task_id": "2.1",
+                "task_title": "主线推导",
+                "task_description": "一步步推出结论，并解释每步的理由。"
+              },
+              {
+                "task_id": "2.2",
+                "task_title": "常见误区",
+                "task_description": "识别典型错误与边界条件。"
+              }
+            ]
+          },
+          {
+            "unit_name": "单位 3：应用与检验",
+            "tasks": [
+              {
+                "task_id": "3.1",
+                "task_title": "实战演练",
+                "task_description": "在一个具体例子里用一遍。"
+              },
+              {
+                "task_id": "3.2",
+                "task_title": "自测与复盘",
+                "task_description": "用两道小题检验理解并复盘。"
+              }
+            ]
+          }
+        ]
+      },
+      "current_step_id": "3.2"
     },
     "6a786cca-7384-418c-9854-4918e03a3849": {
       "deep_learn_session_id": "6a786cca-7384-418c-9854-4918e03a3849",

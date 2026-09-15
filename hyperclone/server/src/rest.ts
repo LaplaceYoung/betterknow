@@ -272,7 +272,27 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/calendar/deep_learn_subtask_session', protectedRoute, async (request) => ({ success: true, deep_learn_session_id: randomUUID(), ...(request.body as object) }));
   app.post('/api/v1/calendar/main_task_detail', protectedRoute, async (request, reply) => { const body = request.body as { task_id?: string }; const task = ((await readState()).calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); return task ? { success: true, task } : reply.code(404).send({ detail: 'Task not found' }); });
 
-  app.post('/api/v1/deep_learn/get_session_data', protectedRoute, async (request, reply) => { const id = (request.body as { deep_learn_session_id?: string }).deep_learn_session_id ?? ''; const session = (await readState()).deep_learn[id]; return session && session.user_id === request.userId ? session : reply.code(404).send({ detail: 'Session not found' }); });
+  // 线上形状是 {success, conversation_data:{title, history}}；本仓再补 title/outline/plan/session_task_plan，
+  // 让前端既可以按线上字段渲染，也能直接画出单元-步骤大纲
+  app.post('/api/v1/deep_learn/get_session_data', protectedRoute, async (request, reply) => {
+    const id = (request.body as { deep_learn_session_id?: string }).deep_learn_session_id ?? '';
+    const session = (await readState()).deep_learn[id] as Record<string, unknown> | undefined;
+    if (!session || session.user_id !== request.userId) return reply.code(404).send({ detail: 'Session not found' });
+    const plan = session.session_task_plan as { title?: string; description?: string; tags?: string[]; session_task_plan?: Array<{ unit_name: string; tasks: Array<{ task_id: string; task_title: string; task_description: string }> }> } | undefined;
+    const outline = (plan?.session_task_plan ?? []).flatMap((unit) => unit.tasks.map((task) => ({ title: `${unit.unit_name} · ${task.task_title}`, detail: task.task_description, task_id: task.task_id })));
+    return {
+      success: true,
+      deep_learn_session_id: id,
+      title: plan?.title ?? session.title ?? 'Deep learning session',
+      description: plan?.description ?? '',
+      tags: plan?.tags ?? [],
+      outline,
+      plan: outline.map((item) => ({ title: item.title })),
+      session_task_plan: plan ?? null,
+      current_step_id: session.current_step_id ?? outline[0]?.task_id ?? null,
+      conversation_data: { title: plan?.title ?? session.title ?? 'Deep learning session', history: (session.conversation_data as { history?: unknown[] } | undefined)?.history ?? [] },
+    };
+  });
   // 线上实测是裸数组（不是 {sessions:[]}），字段 {deep_learn_session_id,title,created_at,last_modified_at,starred}
   app.get('/api/v1/deep_learn/list_deep_learn_session', protectedRoute, async (request) => Object.values((await readState()).deep_learn)
     .filter((session) => session.user_id === request.userId)
