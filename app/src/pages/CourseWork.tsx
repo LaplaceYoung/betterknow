@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkles, Send, BookOpen, Code, Trophy, RotateCcw } from 'lucide-react'
+import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkles, Send, BookOpen, Code, Trophy, RotateCcw, CalendarPlus, BookmarkCheck, FileQuestion } from 'lucide-react'
 import { apiGet, apiPost } from '@/lib/api'
 
 export interface Question {
@@ -193,7 +193,7 @@ function QuizRunner({
   questions: Question[]
   subtitle?: string
   courseId: string
-  onFinish: (score: number, total: number) => void
+  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>) => void
 }) {
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string[]>([])
@@ -203,6 +203,7 @@ function QuizRunner({
   const [speaking, setSpeaking] = useState(false)
   const [assistantOpen, setAssistantOpen] = useState(false)
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
+  const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
 
   const q = questions[i]
   if (!q) return null
@@ -216,14 +217,17 @@ function QuizRunner({
   const handleCheck = () => {
     setChecked(true)
     setAnswersState((prev) => ({ ...prev, [i]: isRight }))
+    setUserAnswers((prev) => ({ ...prev, [i]: { picked, fill, isRight } }))
   }
 
   const next = () => {
+    const updatedAnswers = { ...userAnswers, [i]: { picked, fill, isRight } }
     if (i + 1 >= questions.length) {
-      onFinish(score + (isRight ? 1 : 0), questions.length)
+      onFinish(score + (isRight ? 1 : 0), questions.length, updatedAnswers)
       return
     }
     setScore((s) => s + (isRight ? 1 : 0))
+    setUserAnswers(updatedAnswers)
     setI(i + 1)
     setPicked([])
     setFill('')
@@ -426,7 +430,11 @@ export function Practice() {
   const [data, setData] = useState<{
     sessions: { title: string; sessionId: string; questions: Question[] }[]
   } | null>(null)
-  const [result, setResult] = useState<{ score: number; total: number } | null>(null)
+  const [result, setResult] = useState<{
+    score: number
+    total: number
+    userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
+  } | null>(null)
 
   useEffect(() => {
     apiGet<{ sessions: { title: string; sessionId: string; questions: Question[] }[] }>(
@@ -456,6 +464,10 @@ export function Practice() {
         score={result.score}
         total={result.total}
         label="随堂练习完成"
+        questions={session.questions}
+        userAnswers={result.userAnswers}
+        courseId={courseId}
+        courseTitle={session.title}
       />
     )
 
@@ -467,14 +479,14 @@ export function Practice() {
         subtitle="随堂练习 · 巩固内化"
         courseId={courseId}
         questions={session.questions}
-        onFinish={async (score, total) => {
+        onFinish={async (score, total, userAnswers) => {
           await apiPost(`/course-generation/courses/${courseId}/practice/progress`, {
             sessionId: session.sessionId,
             score,
             total,
             completed: true,
           }).catch(() => {})
-          setResult({ score, total })
+          setResult({ score, total, userAnswers })
         }}
       />
     </>
@@ -488,7 +500,11 @@ export function Exam() {
   const [data, setData] = useState<{
     exams: { title: string; unitId: string; questions: Question[] }[]
   } | null>(null)
-  const [result, setResult] = useState<{ score: number; total: number } | null>(null)
+  const [result, setResult] = useState<{
+    score: number
+    total: number
+    userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
+  } | null>(null)
 
   useEffect(() => {
     apiGet<{ exams: { title: string; unitId: string; questions: Question[] }[] }>(
@@ -518,6 +534,10 @@ export function Exam() {
         score={result.score}
         total={result.total}
         label="单元综合考试完成"
+        questions={exam.questions}
+        userAnswers={result.userAnswers}
+        courseId={courseId}
+        courseTitle={exam.title}
       />
     )
 
@@ -529,12 +549,12 @@ export function Exam() {
         subtitle="单元综合考试"
         courseId={courseId}
         questions={exam.questions}
-        onFinish={async (score, total) => {
+        onFinish={async (score, total, userAnswers) => {
           await apiPost(`/course-generation/courses/${courseId}/exam/score`, {
             unitId: exam.unitId,
             score: Math.round((score / total) * 100),
           }).catch(() => {})
-          setResult({ score, total })
+          setResult({ score, total, userAnswers })
         }}
       />
     </>
@@ -753,37 +773,364 @@ function Result({
   score,
   total,
   label,
+  questions = [],
+  userAnswers = {},
+  courseId = '',
+  courseTitle = '',
 }: {
   back: () => void
   onRetry?: () => void
   score: number
   total: number
   label: string
+  questions?: Question[]
+  userAnswers?: Record<number, { picked: string[]; fill: string; isRight: boolean }>
+  courseId?: string
+  courseTitle?: string
 }) {
+  const [activeTab, setActiveTab] = useState<'summary' | 'review'>('summary')
+  const [filter, setFilter] = useState<'all' | 'wrong'>('all')
+  const [scheduledIndices, setScheduledIndices] = useState<Record<number, boolean>>({})
+  const [batchScheduled, setBatchScheduled] = useState(false)
+  const [scheduling, setScheduling] = useState(false)
+
   const pct = Math.round((score / Math.max(total, 1)) * 100)
+  const wrongCount = Math.max(total - score, 0)
+
+  const wrongIndices = useMemo(() => {
+    return questions.map((_, i) => i).filter((i) => {
+      const ans = userAnswers[i]
+      return ans ? !ans.isRight : false
+    })
+  }, [questions, userAnswers])
+
+  const displayedIndices = useMemo(() => {
+    if (filter === 'wrong') return wrongIndices
+    return questions.map((_, i) => i)
+  }, [filter, questions, wrongIndices])
+
+  const handleScheduleOne = async (idx: number, q: Question) => {
+    if (scheduledIndices[idx]) return
+    try {
+      const tomorrow = new Date(Date.now() + 86400000).toISOString()
+      await apiPost('/calendar/tasks', {
+        title: `错题攻克 · ${q.prompt.slice(0, 24)}...`,
+        course_uuid: courseId,
+        course_title: courseTitle,
+        scheduled_for: tomorrow,
+        duration_min: 15,
+        type: 'review',
+      })
+      setScheduledIndices((prev) => ({ ...prev, [idx]: true }))
+    } catch {
+      setScheduledIndices((prev) => ({ ...prev, [idx]: true }))
+    }
+  }
+
+  const handleBatchSchedule = async () => {
+    if (batchScheduled || scheduling || wrongIndices.length === 0) return
+    setScheduling(true)
+    try {
+      const tomorrow = new Date(Date.now() + 86400000).toISOString()
+      await apiPost('/calendar/tasks', {
+        title: `错题复盘 ·「${courseTitle || '知识专项'}」${wrongIndices.length} 道难点攻坚`,
+        course_uuid: courseId,
+        course_title: courseTitle,
+        scheduled_for: tomorrow,
+        duration_min: 25,
+        type: 'review',
+      })
+      const map: Record<number, boolean> = {}
+      wrongIndices.forEach((idx) => {
+        map[idx] = true
+      })
+      setScheduledIndices(map)
+      setBatchScheduled(true)
+    } finally {
+      setScheduling(false)
+    }
+  }
+
   return (
-    <div className="mx-auto max-w-[520px] px-8 pt-16 text-center hk-fade-in-up">
-      <div className="text-[52px] animate-bounce">
-        {pct >= 80 ? '🎉' : pct >= 60 ? '👏' : '💪'}
-      </div>
-      <h1 className="text-[24px] font-semibold mt-2">{label}</h1>
-      <div className="text-[44px] font-bold mt-3 text-[#0a0a0a]">
-        {pct}
-        <span className="text-[18px] text-[#8a8a90] font-normal"> 分</span>
-      </div>
-      <p className="text-[14px] text-[#6b6b70] mt-2">
-        共答对 {score} / {total} 题 · 学习掌握度已即时写回知识图谱
-      </p>
-      <div className="flex items-center justify-center gap-3 mt-8">
-        {onRetry && (
-          <button onClick={onRetry} className="hk-pill h-10 px-5 inline-flex items-center gap-1.5">
-            <RotateCcw size={13} /> 再练一次
+    <div className="mx-auto max-w-[760px] px-6 py-10 hk-fade-in-up">
+      {/* Top Tab Bar */}
+      <div className="flex items-center justify-between border-b pb-4 mb-8">
+        <div className="flex items-center gap-2 bg-[#f4f4f5] p-1 rounded-xl text-[13px]">
+          <button
+            onClick={() => setActiveTab('summary')}
+            className={`px-4 py-1.5 rounded-lg font-medium transition-all ${
+              activeTab === 'summary' ? 'bg-white shadow-sm text-black' : 'text-[#71717a] hover:text-black'
+            }`}
+          >
+            成绩报告
           </button>
-        )}
-        <button onClick={back} className="h-10 px-6 rounded-full bg-[#0a0a0a] text-white text-[13px] font-medium">
-          返回课程主页
+          <button
+            onClick={() => setActiveTab('review')}
+            className={`px-4 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+              activeTab === 'review' ? 'bg-white shadow-sm text-black' : 'text-[#71717a] hover:text-black'
+            }`}
+          >
+            答题解析与错题本
+            {wrongCount > 0 && (
+              <span className="px-1.5 py-0.2 rounded-full text-[11px] bg-[#fee2e2] text-[#dc2626] font-semibold">
+                {wrongCount}
+              </span>
+            )}
+          </button>
+        </div>
+
+        <button
+          onClick={back}
+          className="hk-pill h-8 text-[12px] px-3 inline-flex items-center gap-1 text-[#6b6b70] hover:text-black"
+        >
+          <ArrowLeft size={12} /> 返回课程主页
         </button>
       </div>
+
+      {activeTab === 'summary' ? (
+        <div className="text-center pt-6 max-w-[540px] mx-auto">
+          <div className="text-[52px] animate-bounce mb-2">
+            {pct >= 80 ? '🎉' : pct >= 60 ? '👏' : '💪'}
+          </div>
+          <h1 className="text-[24px] font-semibold">{label}</h1>
+          <div className="text-[48px] font-bold mt-2 text-[#0a0a0a]">
+            {pct}
+            <span className="text-[18px] text-[#8a8a90] font-normal"> 分</span>
+          </div>
+
+          <p className="text-[14px] text-[#6b6b70] mt-2">
+            共答对 {score} / {total} 题 · 学习掌握度已即时写回知识图谱
+          </p>
+
+          <div className="grid grid-cols-3 gap-3 my-8 text-left">
+            <div className="hk-card p-4 text-center">
+              <div className="text-[11px] text-[#8a8a90]">正确率</div>
+              <div className="text-[20px] font-bold mt-1 text-[#16a34a]">{pct}%</div>
+            </div>
+            <div className="hk-card p-4 text-center">
+              <div className="text-[11px] text-[#8a8a90]">做对题数</div>
+              <div className="text-[20px] font-bold mt-1 text-[#0a0a0a]">{score} <span className="text-[12px] font-normal text-[#8a8a90]">/ {total}</span></div>
+            </div>
+            <div className="hk-card p-4 text-center">
+              <div className="text-[11px] text-[#8a8a90]">待巩固错题</div>
+              <div className="text-[20px] font-bold mt-1 text-[#dc2626]">{wrongCount}</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center justify-center gap-3">
+              <button
+                onClick={() => {
+                  setActiveTab('review')
+                  setFilter(wrongCount > 0 ? 'wrong' : 'all')
+                }}
+                className="h-10 px-5 rounded-full bg-[#0a0a0a] text-white text-[13px] font-medium inline-flex items-center gap-1.5 shadow-sm hover:bg-black/90"
+              >
+                <BookOpen size={14} /> 查看答题解析与错题本
+              </button>
+              {onRetry && (
+                <button onClick={onRetry} className="hk-pill h-10 px-5 inline-flex items-center gap-1.5">
+                  <RotateCcw size={13} /> 再练一次
+                </button>
+              )}
+            </div>
+
+            {wrongCount > 0 && (
+              <button
+                onClick={handleBatchSchedule}
+                disabled={batchScheduled || scheduling}
+                className="mt-2 text-[12px] text-[#6366f1] hover:text-[#4f46e5] inline-flex items-center justify-center gap-1.5 py-1.5"
+              >
+                {batchScheduled ? (
+                  <>
+                    <BookmarkCheck size={14} className="text-[#16a34a]" /> 已一键加入明日间隔复习计划
+                  </>
+                ) : (
+                  <>
+                    <CalendarPlus size={14} /> 一键将 {wrongCount} 道错题加入明日智能间隔复习日程
+                  </>
+                )}
+              </button>
+            )}
+          </div>
+        </div>
+      ) : (
+        /* Review / Wrong Notebook View */
+        <div className="space-y-6">
+          <div className="flex items-center justify-between pb-2 border-b">
+            <div className="flex items-center gap-2 text-[12px]">
+              <button
+                onClick={() => setFilter('all')}
+                className={`px-3 py-1 rounded-full font-medium transition-colors ${
+                  filter === 'all' ? 'bg-[#0a0a0a] text-white' : 'bg-[#f4f4f5] text-[#71717a] hover:text-black'
+                }`}
+              >
+                全部解析 ({questions.length})
+              </button>
+              <button
+                onClick={() => setFilter('wrong')}
+                className={`px-3 py-1 rounded-full font-medium transition-colors ${
+                  filter === 'wrong' ? 'bg-[#fee2e2] text-[#dc2626]' : 'bg-[#f4f4f5] text-[#71717a] hover:text-black'
+                }`}
+              >
+                仅看错题 ({wrongCount})
+              </button>
+            </div>
+
+            {wrongCount > 0 && (
+              <button
+                onClick={handleBatchSchedule}
+                disabled={batchScheduled || scheduling}
+                className="hk-pill h-7 text-[11px] px-3 inline-flex items-center gap-1 text-[#6366f1] hover:bg-[#eef2ff]"
+              >
+                {batchScheduled ? <BookmarkCheck size={12} className="text-[#16a34a]" /> : <CalendarPlus size={12} />}
+                {batchScheduled ? '已加入日程' : '一键安排错题复习'}
+              </button>
+            )}
+          </div>
+
+          {displayedIndices.length === 0 ? (
+            <div className="p-12 text-center text-[#8a8a90] hk-card">
+              <Sparkles size={28} className="mx-auto mb-2 text-[#eab308]" />
+              <div className="text-[14px] font-medium text-[#0a0a0a]">全对通过！没有错题需要复习</div>
+              <div className="text-[12px] mt-1 text-[#71717a]">太棒了，本章节概念你已经彻底掌握。</div>
+            </div>
+          ) : (
+            displayedIndices.map((idx) => {
+              const q = questions[idx]
+              if (!q) return null
+              const ans = userAnswers[idx]
+              const isRight = ans?.isRight ?? false
+              const isFill = q.type === 'fill'
+              const isMulti = q.type === 'multiple'
+              const correctAnswers = q.correctAnswers ?? []
+              const userPicked = ans?.picked ?? []
+
+              return (
+                <div
+                  key={q.id || idx}
+                  className={`hk-card p-5 transition-all border ${
+                    isRight ? 'border-[#e4e4e7]' : 'border-[#fca5a5] bg-[#fffbfb]'
+                  }`}
+                >
+                  {/* Question Header */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[12px] font-semibold text-[#0a0a0a]">第 {idx + 1} 题</span>
+                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#f1f2f4] text-[#71717a]">
+                        {isFill ? '填空题' : isMulti ? '多选题' : '单选题'}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      {isRight ? (
+                        <span className="inline-flex items-center gap-1 text-[12px] text-[#16a34a] font-medium bg-[#f0fdf4] px-2.5 py-0.5 rounded-full border border-[#bbf7d0]">
+                          <Check size={12} /> 回答正确
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-[12px] text-[#dc2626] font-medium bg-[#fef2f2] px-2.5 py-0.5 rounded-full border border-[#fecaca]">
+                          <X size={12} /> 回答错误
+                        </span>
+                      )}
+
+                      {!isRight && (
+                        <button
+                          onClick={() => handleScheduleOne(idx, q)}
+                          disabled={scheduledIndices[idx]}
+                          className="hk-pill h-6 text-[11px] px-2 inline-flex items-center gap-1 text-[#6b6b70] hover:text-black"
+                          title="加入间隔复习日历"
+                        >
+                          {scheduledIndices[idx] ? (
+                            <>
+                              <BookmarkCheck size={11} className="text-[#16a34a]" /> 已安排
+                            </>
+                          ) : (
+                            <>
+                              <CalendarPlus size={11} /> 安排复习
+                            </>
+                          )}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Question Prompt */}
+                  <div className="text-[14px] font-medium leading-relaxed text-[#0a0a0a] mb-4">
+                    {q.prompt}
+                  </div>
+
+                  {/* Options or Fill Display */}
+                  {isFill ? (
+                    <div className="space-y-2 mb-4 text-[13px]">
+                      <div className="p-3 rounded-xl bg-white border border-[#e4e4e7] flex items-center justify-between">
+                        <span className="text-[#71717a]">你的填写：</span>
+                        <span className={`font-mono font-medium ${isRight ? 'text-[#16a34a]' : 'text-[#dc2626]'}`}>
+                          {ans?.fill || '（未作答）'}
+                        </span>
+                      </div>
+                      {!isRight && (
+                        <div className="p-3 rounded-xl bg-[#f0fdf4] border border-[#bbf7d0] flex items-center justify-between">
+                          <span className="text-[#15803d]">参考标准答案：</span>
+                          <span className="font-mono font-medium text-[#15803d]">
+                            {correctAnswers.join(' / ')}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="space-y-2 mb-4">
+                      {(q.options ?? []).map((opt) => {
+                        const isCorrect = correctAnswers.includes(opt)
+                        const wasPicked = userPicked.includes(opt)
+                        let optStyle = 'border-[#e4e4e7] bg-white'
+                        if (isCorrect) {
+                          optStyle = 'border-[#86efac] bg-[#f0fdf4]'
+                        } else if (wasPicked && !isCorrect) {
+                          optStyle = 'border-[#fca5a5] bg-[#fef2f2]'
+                        }
+
+                        return (
+                          <div
+                            key={opt}
+                            className={`p-3 rounded-xl border text-[13px] flex items-center justify-between transition-all ${optStyle}`}
+                          >
+                            <span className="leading-snug text-[#18181b]">{opt}</span>
+                            <div className="flex items-center gap-1.5 shrink-0 ml-3">
+                              {isCorrect && (
+                                <span className="text-[11px] font-medium text-[#16a34a] bg-white px-2 py-0.5 rounded-full border border-[#bbf7d0]">
+                                  ✓ 标准答案
+                                </span>
+                              )}
+                              {wasPicked && !isCorrect && (
+                                <span className="text-[11px] font-medium text-[#dc2626] bg-white px-2 py-0.5 rounded-full border border-[#fecaca]">
+                                  ✗ 你的选择
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+
+                  {/* Socratic First-Principles Deduction & Explanation */}
+                  {q.explanation && (
+                    <div className="p-3.5 rounded-xl bg-[#f8fafc] border border-[#e2e8f0] text-[12px] leading-relaxed text-[#334155]">
+                      <div className="flex items-center gap-1.5 font-medium text-[#0f172a] mb-1">
+                        <Lightbulb size={13} className="text-[#eab308]" />
+                        第一性原理深度推导与解析：
+                      </div>
+                      <div className="pl-4 border-l-2 border-[#cbd5e1] text-[#475569]">
+                        {q.explanation}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            })
+          )}
+        </div>
+      )}
     </div>
   )
 }
