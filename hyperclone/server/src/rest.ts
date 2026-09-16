@@ -1365,8 +1365,38 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return { scheduled, count: scheduled ? tasks.filter((task) => String(task.course_uuid ?? '') === courseUuid).length : 0 };
   });
   app.get('/api/v1/course-calendar/config', protectedRoute, async () => ({ enabled: true }));
-  // 线上：draft 只做预览（不落库）；accept 才把 items 写进日历任务
-  app.post('/api/v1/course-calendar/draft', protectedRoute, async (request) => ({ success: true, draft: { ...(request.body as object), tasks: [] } }));
+  // 线上 draft（r114 实证）：POST {course_uuid, start_date, duration_days, preferred_weekdays} →
+  // {success, items, course_title}；只做预览不落库，缺字段 422。分配算法线上没抓到，本仓按顺序均摊（与客户端同一口径）
+  app.post('/api/v1/course-calendar/draft', protectedRoute, async (request, reply) => {
+    const body = (request.body ?? {}) as { course_uuid?: string; start_date?: string; duration_days?: number; preferred_weekdays?: number[] };
+    const course = (await readState()).courses[String(body.course_uuid ?? '')];
+    if (!course || course.user_id !== request.userId) return reply.code(404).send({ detail: 'Course not found' });
+    const durationDays = Number(body.duration_days);
+    if (!Number.isFinite(durationDays) || durationDays < 1 || durationDays > 365) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'duration_days'], msg: 'Field required' }] });
+    if (typeof body.start_date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(body.start_date)) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'start_date'], msg: 'Field required' }] });
+    const weekdays = Array.isArray(body.preferred_weekdays) ? body.preferred_weekdays.filter((day) => Number.isInteger(day) && day >= 0 && day <= 6) : [];
+    const [year, month, day] = body.start_date.split('-').map(Number);
+    const start = new Date(year, month - 1, day);
+    const slots: Date[] = [];
+    for (let offset = 0; slots.length < 400 && offset <= durationDays; offset += 1) {
+      const current = new Date(start.getFullYear(), start.getMonth(), start.getDate() + offset);
+      if (weekdays.length === 0 || weekdays.includes(current.getDay())) slots.push(current);
+    }
+    const sessions = enumerateCourseSessions(course as unknown as Record<string, unknown>);
+    const perDay = Math.max(1, Math.ceil(sessions.length / Math.max(1, slots.length)));
+    const iso = (date: Date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    const items = sessions.map((session, index) => {
+      const slot = slots[Math.min(Math.floor(index / perDay), slots.length - 1)] ?? start;
+      return {
+        course_object_type: session.sessionType === 'practice' ? 'practice' : 'session',
+        course_object_id: session.sessionId,
+        title: session.title,
+        description: session.description,
+        scheduled_for: iso(slot),
+      };
+    });
+    return { success: true, items, course_title: String(course.courseTitle ?? course.title ?? '') };
+  });
   app.post('/api/v1/course-calendar/accept', protectedRoute, async (request) => {
     const body = (request.body ?? {}) as { course_uuid?: string; course_title?: string; items?: Array<Record<string, unknown>> };
     const courseUuid = String(body.course_uuid ?? '');

@@ -202,6 +202,14 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - 本仓：`POST /calendar/deep_learn_subtask_session {subtask_id|task_id, title}` → 建一节带计划的深度学习会话，返回 `{deep_learn_session_id, task_plan, deep_learn_session_url:"/deep-learn-session/outline/<id>"}`；`POST /calendar/remove_task {task_id}` 删除；`POST /calendar/approve_tasks {task_id, action}` 确认/完成。
 - 知识库文件卡（`knowledge-base`）结构：`.file-card > .file-card-image-preview > button.file-card-calendar-button[aria-label="Add to calendar"]`——文件可直接加入学习日程（免费版配额 2/周）。
 
+## 2.12.1 课程加入日历：draft / accept（2026-09-16 r114 客户端实证 + 本仓实现）
+
+- **出稿**：`POST /api/v1/course-calendar/draft`，体 `{course_uuid, start_date:"YYYY-MM-DD", duration_days, preferred_weekdays:[0-6]}`。
+  客户端判定 `res.success && Array.isArray(res.items) && res.items.length > 0`，否则显示「Could not generate a schedule for this course.」，成功则用 `res.items` 铺预览、`res.course_title` 作标题，然后进第 4 步。
+  缺字段回 **422**，体是 FastAPI 形状：`{"detail":[{"type":"missing","loc":["body","duration_days"],"msg":"Field required"}]}`（线上实测只带 `{course_uuid}` 时 422，文案点名 `duration_days`）。
+- **落库**：`POST /api/v1/course-calendar/accept`，体 `{course_uuid, course_title, items[]}`，item 形如 `{course_object_type, course_object_id, title, description, scheduled_for}`；**替换语义**（这门课原有计划先清掉）。
+- 本仓：draft 已从桩改为真出稿（课程结构 → `items[]`，按 `ceil(n/可用天数)` 顺序均摊、`preferred_weekdays` 过滤、日期出 `YYYY-MM-DD`），校验与 422 形状照线上；分配算法线上没抓到，均摊是本仓口径。客户端第 3 步「下一步」改为调 draft，失败沿用本地排布并报错。
+
 ## 2.13 知识库与用量（2026-09-16 实测）
 
 - 知识库页数据来自 `GET /drive/get_drive_data`（`{file_data{id:{id,ext,name,size,type,status,parent_id,created_at,modified_at,thumbnail_url}}}`, `metadata.drive_used_source_bytes`）；`drive/ws` 是同页的信道（4 条连接实测）。

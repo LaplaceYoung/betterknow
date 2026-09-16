@@ -119,6 +119,33 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
     return Array.from({ length: 42 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i))
   }, [month])
 
+  // 线上（r114）：第 3 步「下一步」把 start_date / duration_days / preferred_weekdays 交给服务端出稿，回 {success, items, course_title}
+  const draftPlan = async () => {
+    setBusy(true)
+    setError(null)
+    try {
+      const start = startDate ?? new Date()
+      const iso = `${start.getFullYear()}-${String(start.getMonth() + 1).padStart(2, '0')}-${String(start.getDate()).padStart(2, '0')}`
+      const res = await apiPost<{ success?: boolean; items?: Array<{ course_object_type?: string; course_object_id?: string; title?: string; description?: string; scheduled_for?: string }> }>(
+        '/course-calendar/draft',
+        { course_uuid: courseUuid, start_date: iso, duration_days: effectiveDays, preferred_weekdays: [...weekdays] },
+      )
+      if (!res.success || !Array.isArray(res.items) || res.items.length === 0) { setError('无法为这门课生成计划。'); return }
+      setPlan(res.items.map((item) => ({
+        course_object_type: item.course_object_type ?? 'session',
+        course_object_id: item.course_object_id ?? '',
+        title: item.title ?? '',
+        description: item.description ?? '',
+        date: String(item.scheduled_for ?? iso).slice(0, 10),
+      })))
+      setStep(4)
+    } catch {
+      setError('生成计划失败，请重试。')
+    } finally {
+      setBusy(false)
+    }
+  }
+
   const accept = async () => {
     setBusy(true)
     setError(null)
@@ -233,7 +260,7 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
             <div className="course-cal-footer">
               <button type="button" className="course-cal-btn course-cal-btn--ghost" onClick={() => setStep(2)}>返回</button>
               <button type="button" className="course-cal-btn course-cal-btn--ghost" onClick={() => { setWeekdays(new Set()); setStep(4) }}>跳过</button>
-              <button type="button" className="course-cal-btn" onClick={() => setStep(4)}>下一步</button>
+              <button type="button" className="course-cal-btn" data-testid="ccal-draft" disabled={busy} onClick={() => void draftPlan()}>下一步</button>
             </div>
           </>
         )}

@@ -580,3 +580,10 @@
 - 任务详情弹层的「评论以调整」此前已实现（`.task-detail-comment-panel` + 线上占位文案「告诉 Orbie 你希望调整什么...」+ 取消/提交评论 + `comment-toggle` 按钮），本轮补上缺的 `.task-detail-related-dues`：取同 ±7 天窗口内的其它任务（最多 5 条，按时间升序），行结构照线上 CSS（`-bar` / `-icon` / `-content` / `-name` / `-time`），点击切到那条任务。
 - **数据来源差异**：线上「相关截止日期」由服务端给关联关系；本仓没有这层数据，按时间邻近推导（记在条目上）。
 - 实测：详情里小节顺序为「描述 / 相关截止日期 / 子任务 - 提前为你准备好的学习材料…」，相关项 3 条（9月 15 09:00 / 9月 17 09:00 / 9月 18 19:00），点第一条后标题从「勾股定理第二天：证明与推导」切到「勾股定理第一天：基础与历史背景」。
+
+**第七十一批（course-calendar/draft 从桩改成真出稿）**
+- 线上契约（r114 客户端源码 + rest_sweep 422 实证）：`POST /course-calendar/draft {course_uuid, start_date, duration_days, preferred_weekdays}` → `{success, items[], course_title}`；缺字段 422 FastAPI 形状；客户端只看 `items` 是否非空。
+- 本仓实现：按课程结构（`enumerateCourseSessions`）出 `items[]`，`preferred_weekdays` 过滤可用日、`ceil(n/天数)` 顺序均摊、`scheduled_for` 出 `YYYY-MM-DD`；校验 `duration_days`（1–365）与 `start_date` 形状，422 体照线上。
+- 客户端第 3 步「下一步」改为调 draft（`data-testid="ccal-draft"`），失败显示「无法为这门课生成计划。」并留在第 3 步；成功直接进第 4 步预览。
+- 实测：缺字段 422（`loc:["body","duration_days"]`）；`{start_date:2026-09-16, duration_days:7, preferred_weekdays:[1,3,5]}` → 60 条铺到 9/16、9/18、9/21、9/23 各 15 条；浏览器里勾周一/三/五后第 4 步预览显示同样 4 天 × （3 条 + 「+12」）。
+- 分配算法线上仍未取证（只抓到了请求/响应字段），均摊口径与客户端一致。
