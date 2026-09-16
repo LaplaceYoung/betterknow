@@ -481,7 +481,7 @@ export default function ChatResponse() {
           push({ kind: 'animation', data })
         } else if (status === 'completed' && toolName === 'generate_instructional_video' && (data?.url || data?.video_id)) {
           push({ kind: 'video', data })
-        } else if (status === 'completed' && (toolName === 'publish_file' || toolName === 'generate_cheatsheet') && data?.url) {
+        } else if (status === 'completed' && toolName === 'publish_file' && data?.url) {
           push({ kind: 'file', data })
         } else if (status === 'completed' && toolName === 'generate_flashcards' && Array.isArray(data?.flashcards)) {
           push({ kind: 'flashcards', data })
@@ -491,7 +491,7 @@ export default function ChatResponse() {
           push({ kind: 'quiz', data })
         } else if (status === 'completed' && toolName === 'create_deep_learn_session' && data) {
           push({ kind: 'deep_learn', data })
-        } else if (status === 'completed' && toolName === 'generate_cheatsheet' && data) {
+        } else if (status === 'completed' && toolName === 'generate_cheatsheet' && (data?.url || data?.file_id)) {
           push({ kind: 'cheatsheet', data })
         } else if (f.display !== 'hide') {
           push({ kind: 'tool', tool: toolName, status })
@@ -536,7 +536,8 @@ export default function ChatResponse() {
             const res = (h.result as Record<string, unknown> | undefined)?.result as Record<string, unknown> | undefined
             if (toolName === 'generate_html_animation' && res?.file_url) out.push({ kind: 'animation', data: res })
           else if (toolName === 'generate_instructional_video' && (res?.url || res?.video_id)) out.push({ kind: 'video', data: res })
-          else if ((toolName === 'publish_file' || toolName === 'generate_cheatsheet') && res?.url) out.push({ kind: 'file', data: res })
+          else if (toolName === 'publish_file' && res?.url) out.push({ kind: 'file', data: res })
+          else if (toolName === 'generate_cheatsheet' && res?.url) out.push({ kind: 'cheatsheet', data: res })
           else if (toolName === 'generate_flashcards' && Array.isArray(res?.flashcards)) out.push({ kind: 'flashcards', data: res })
           else if (toolName === 'create_board_session' && res?.board_sessions) out.push({ kind: 'board', data: res })
             else if (toolName === 'generate_quiz' && res?.questions) out.push({ kind: 'quiz', data: res })
