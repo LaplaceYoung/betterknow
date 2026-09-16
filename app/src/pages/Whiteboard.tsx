@@ -9,6 +9,7 @@ import { playSfx } from '@/lib/sfx'
 import { CharVideo } from '@/components/CharVideo'
 import { IdlePrompt } from '@/components/IdlePrompt'
 import { NetCheckPanel } from '@/components/NetCheckPanel'
+import { VoiceSettingsModal } from '@/components/VoiceSettingsModal'
 import { useIdlePrompt } from '@/lib/useIdlePrompt'
 import { boardNodeToJpeg } from '@/lib/boardExport'
 
@@ -102,6 +103,10 @@ export default function Whiteboard() {
   useEffect(() => { isSpeakingRef.current = isSpeaking }, [isSpeaking])
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [playbackRate, setPlaybackRate] = useState(1.0)
+  // 线上 tts.*：音色与语速是服务端 TTS 配置（set_tts_config），不是本地播放倍速
+  const [ttsVoiceId, setTtsVoiceId] = useState('calm')
+  const [ttsSpeed, setTtsSpeed] = useState(1)
+  const [voiceSettingsOpen, setVoiceSettingsOpen] = useState(false)
   const scriptBottomRef = useRef<HTMLDivElement>(null)
 
   const speakText = (text: string) => {
@@ -225,7 +230,8 @@ export default function Whiteboard() {
         // 网络自检面板的「模型状态」用它渲染结果卡片
         window.dispatchEvent(new CustomEvent('bk:model-probe', { detail: f }))
       }
-      else if (f.type === 'pong' || f.type === 'tts_config' || f.type === 'interject_ready') { /* 心跳 / 配置回显 */ }
+      else if (f.type === 'tts_config') { const cfg = f as { voice_id?: string; speed?: number }; if (cfg.voice_id) setTtsVoiceId(cfg.voice_id); if (typeof cfg.speed === 'number') { setTtsSpeed(cfg.speed); setPlaybackRate(cfg.speed) } }
+      else if (f.type === 'pong' || f.type === 'interject_ready') { /* 心跳 */ }
       else if (f.type === 'interject_text') { setScript((s) => [...s, { who: 'teacher', text: f.text ?? '' }]); setPaused(false); setAsking(null) }
       // 语音输入：占位气泡（🎤 …）由服务端转写结果替换；interject_user_text/voice_stream_text 是流式增量
       else if (f.type === 'voice_transcript') { const text = String(f.text ?? '').trim(); if (text) replaceVoiceBubble(text) }
@@ -476,11 +482,12 @@ export default function Whiteboard() {
               {ttsVoice ? <Volume2 size={14} className={isSpeaking ? 'text-[#2563eb] animate-pulse' : 'text-[#3d3d3f]'} /> : <VolumeX size={14} className="text-[#a1a1aa]" />}
             </button>
             <button
-              className="hk-pill h-7 px-2 text-[11px] font-mono"
-              onClick={() => setPlaybackRate((r) => (r === 1.0 ? 1.25 : r === 1.25 ? 1.5 : r === 1.5 ? 2.0 : 1.0))}
-              title="切换语音语速"
+              className="hk-pill h-7 px-2 text-[11px]"
+              data-testid="voice-chip"
+              onClick={() => setVoiceSettingsOpen(true)}
+              title="点击调整音色和语速"
             >
-              {playbackRate}x
+              {{ warm: '温暖', calm: '沉稳', bright: '明亮', gentle: '柔和', firm: '专业', lively: '轻快' }[ttsVoiceId] ?? ttsVoiceId} · {ttsSpeed}×
             </button>
             <span className="hk-zoom-pill">
               <button className="hk-zoom-btn" onClick={() => setZoom((z) => Math.max(50, z - 10))} aria-label="缩小"><ZoomOut size={14} /></button>
@@ -719,6 +726,12 @@ export default function Whiteboard() {
           </div>
         )}
         {exportNote && <div className="px-4 py-1.5 text-[12px] text-[#6b7280]" data-testid="export-note">{exportNote}</div>}
+        <VoiceSettingsModal open={voiceSettingsOpen} voiceId={ttsVoiceId} speed={ttsSpeed} narrationPlaying={isSpeaking}
+          onClose={() => setVoiceSettingsOpen(false)}
+          onChange={({ voiceId, speed }) => {
+            setTtsVoiceId(voiceId); setTtsSpeed(speed); setPlaybackRate(speed)
+            wsRef.current?.send(JSON.stringify({ type: 'set_tts_config', voice_id: voiceId, speed }))
+          }} />
       </section>
 
       {/* 线上 .whiteboard-sidebar：tabs（课程大纲 / 学习记录）+ content；「讲稿」是本仓保留的第三个 tab */}

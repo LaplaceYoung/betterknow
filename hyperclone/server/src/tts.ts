@@ -15,7 +15,8 @@ export function ttsMime(ext: string): string { return MIME[ext] ?? 'application/
 // 线上 voice_id 取值实测为 warm|calm|bright|gentle|firm|lively（PROTOCOL §2.2）；本地映射到 OpenAI 兼容音色。
 const BUILTIN_VOICES = ['warm', 'calm', 'bright', 'gentle', 'firm', 'lively'] as const;
 const VOICE_ALIAS: Record<string, string> = { warm: 'nova', calm: 'shimmer', bright: 'coral', gentle: 'sage', firm: 'onyx', lively: 'alloy' };
-const LABELS: Record<string, string> = { warm: '温和', calm: '平静', bright: '明亮', gentle: '轻柔', firm: '沉稳', lively: '活泼' };
+// 音色中文名照线上 zh 词典（tts.voice.*）
+const LABELS: Record<string, string> = { warm: '温暖', calm: '沉稳', bright: '明亮', gentle: '柔和', firm: '专业', lively: '轻快' };
 
 export function providerVoice(voiceId: string): string { return VOICE_ALIAS[voiceId] ?? voiceId; }
 

@@ -231,6 +231,20 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     const result = await updateState((state) => { const value = state.conversations[body.conversation_id ?? '']; if (!value || value.user_id !== request.userId) return false; if (body.action === 'delete') delete state.conversations[value.conversation_id]; else { if (typeof body.title === 'string') value.title = body.title; if (typeof body.starred === 'boolean') value.starred = body.starred; value.updated_at = now(); } return true; });
     return result ? { success: true } : reply.code(404).send({ detail: 'Conversation not found' });
   });
+  // 音色试听：线上放的是自带的 /tts-samples/<voice>.mp3；本仓是 BYOK，试听就该听「你自己配的音色」
+  app.get('/api/v1/tts/preview', protectedRoute, async (request, reply) => {
+    const query = request.query as { voice?: string; speed?: string };
+    const state = await readState();
+    const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+    const speed = Math.min(2, Math.max(0.5, Number(query.speed) || 1));
+    const segment = await synthesize('你好，我是你的学习助手，这是当前音色的试听。', {
+      voice: providerVoice(query.voice ?? 'calm'), speed, eff,
+    });
+    const bytes = await readTtsFile(segment.url.split('/').pop() ?? '');
+    if (!bytes) return reply.code(503).send({ detail: 'tts unavailable' });
+    return reply.header('x-stub', segment.stub ? '1' : '0').header('cache-control', 'no-store').type(bytes.mime).send(bytes.bytes);
+  });
+
   // 速查表阅读器的保存：线上走 POST /conversations/save_artifact {conversation_id, artifact_id, content, layout_patch?}；
   // 本仓阅读器路由没有会话上下文，所以同时给一个按文件 id 的直接保存口
   app.put('/api/v1/files/:id', protectedRoute, async (request, reply) => {

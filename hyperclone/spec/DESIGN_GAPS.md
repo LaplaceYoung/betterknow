@@ -643,3 +643,9 @@
 - 服务端 `/api/v1/audio-probe?sample=1` 从「回 JSON」变成「真合成一小段再回音频字节」，响应头带 `x-synth-ms`（我们这边的合成耗时）与 `x-stub`；实测 `200 audio/mpeg 48000B`、`x-synth-ms: 42`。
 - 客户端量「我们的处理 / 你的下载速度 / 实时语音所需（≥ 40 KB/s）」并尝试播放，落到线上的 8 个 verdict：ok / slow_link / tts_failed / download_failed / playback_blocked / muted / unauthorized / cooldown（20 秒冷却，带剩余秒数）。静音或讲解中不播，走线上 `playbackSkipped` 文案。
 - 实测：无音频输出设备的环境里得到 `playback_blocked`（「语音收到了，但播不出来」）+ 三项指标（1 ms / 1474 KB/s / ≥40 KB/s），二次点击进冷却（「稍等一下 · 18 秒后可以再检查一次」）。**未能实测 ok/slow_link**：这台无头浏览器没有可用的音频输出，`play()` 必然失败——真实浏览器里有扬声器时会落到 ok 或 slow_link。
+
+**第八十一批（语音设置弹层）**
+- 白板原来只有一个本地倍速 pill（1×/1.25×/1.5×/2× 循环），线上其实是「音色 · 语速」入口 + 一整套语音设置弹层。现在补上：当前音色（色块 + 名称 + 试听中）+ 6 个音色网格（warm 温暖 / calm 沉稳 / bright 明亮 / gentle 柔和 / firm 专业 / lively 轻快，色板取 r84 原文）+ 语速滑杆（0.5×~2× 带刻度）+ 两条状态文案（讲解中不试听 / 已保存将从下一轮回答生效）。
+- **试听口径改为 BYOK**：线上放自带样本 `/tts-samples/<voice>.mp3`；本仓新开 `GET /api/v1/tts/preview?voice=&speed=`，用用户自己配的 TTS 槽真合成一段再回音频——自部署版本听的是「你自己的音色」。
+- 选择走 `set_tts_config {voice_id, speed}`：连接建立时先发一次，改动再发；服务端存 `whiteboards[session].tts_config` 并回 `tts_config` 帧同步本地（含 0.5–2 的夹取）。音色中文名同步对齐线上词典（沉稳/柔和/专业/轻快，此前是平静/轻柔/沉稳/活泼）。
+- 实测：chip「沉稳 · 1×」→ 弹层打开、当前音色高亮、6 个音色与 6 档刻度齐全；点「轻快」→ chip 变「轻快 · 1×」+ 已保存文案 + 发出 `set_tts_config{voice_id:'lively'}`；拖滑杆到 1.5× → 再发一帧 `{voice_id:'lively', speed:1.5}`，`state.json` 里该会话 `tts_config` = `{voice_id:'lively', speed:1.5}`；假网关侧收到 2 次 `/audio/speech`（两次试听都真合成）。

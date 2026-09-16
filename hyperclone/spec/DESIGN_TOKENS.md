@@ -1090,3 +1090,17 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 文案全部取自线上 zh 词典 `netCheck.*`（状态 9 种、原因 9 条、语音 8 种、模型 8 种）；CSS 48 条原文进 `index.css`。
 
 本仓实现：主探针 `GET /net-check?n=`（8s 超时，503 + `state:draining` 判「更新中」）+ 实时通道探测（本节课通道活着 → `viaSession`，否则单开一条 WS 试连 → `viaProbe`）+ 模型状态走白板 WS 的 `model_probe`（服务端真发一次 BYOK chat，回 `ttft_ms` 与 verdict）+ 语音那一项用 `/audio-probe` 做轻量版。**语音那一项**已按线上做全：`GET /audio-probe?sample=1` 真合成一小段并回音频（响应头带 `x-synth-ms`/`x-stub`），客户端量「我们的处理 / 你的下载速度」并与「实时语音所需 ≥ 40 KB/s」比、尝试播放，落到 8 个 verdict（ok / slow_link / tts_failed / download_failed / playback_blocked / muted / unauthorized / cooldown，冷却 20 秒）。**未做**：DNS/TLS 分项耗时、`net_check_session` 专线通道（本仓 WS `model_probe` 已够用）。
+
+### 语音设置弹层（第五十九批，VoiceSettingsModal 样式表 + tts.* 文案）
+
+`「{音色} · {语速}」chip（title「点击调整音色和语速」）` → `.voice-modal-overlay` > `.voice-modal-container`（420px、圆角 20px）：
+
+- `.voice-modal-header`（`.voice-modal-title`「语音」+ `.voice-modal-close`）
+- `.voice-modal-current`：`.voice-modal-section-label`「当前音色」+ `.voice-modal-blob-wrap` 的色块 + `.voice-modal-current-name`（`tts.voice.<id>`，试听时后缀「· 试听中…」）
+- `.voice-modal-section`「音色」+ `.voice-modal-options-grid` 的 `.voice-modal-option`（`.voice-modal-avatar` 径向渐变 + `.voice-modal-option-label`，选中加 `.selected`）
+- 语速：`.voice-modal-speed-header`（`.voice-modal-section-label`「语速」+ `.voice-modal-speed-readout`）+ `.voice-modal-speed-slider`（`--voice-speed-progress`）+ `.voice-modal-speed-ticks`（0.5×/0.75×/1×/1.25×/1.5×/2×）
+- 备注区 `.voice-modal-notes` 的 `.voice-modal-apply-note`：讲解播放中 → `tts.previewPaused`；改动后 → `tts.applyNextRound`
+
+音色与色板（r84 原文）：warm 温暖 `#F0997B→#EDB1B1`、calm 沉稳 `#85B7EB→#9AA0A6`、bright 明亮 `#EF9F27→#F0997B`、gentle 柔和 `#AFA9EC→#EDB1B1`、firm 专业 `#5DCAA5→#85B7EB`、lively 轻快 `#97C459→#5DCAA5`。
+
+本仓：结构/文案/色板照抄；**试听用的不是线上自带的 `/tts-samples/<voice>.mp3`，而是 `GET /api/v1/tts/preview?voice=&speed=` 用你自己的 BYOK 音色真合成一段**（BYOK 版里试听就该听自己配的音色）；选择走 `set_tts_config {voice_id, speed}`，服务端落 `whiteboards[session].tts_config` 并在 `tts_config` 帧回显。
