@@ -420,6 +420,6 @@ fetch(`/api/v1/course-generation/courses/${uuid}/exam/score`, {
 
 | 部件 | 线上原文 / 实测 | 本仓 |
 |---|---|---|
-| 生成页评分条 | `.course-rating-bar--generation{position:absolute;bottom:calc(clamp(44px,6vh,76px) - 52px);left:50%;transform:translate(-50%)}`（同一套 `.course-rating-bar` 内件，只换定位） | 同（`GenerationRating` 复用课程页那套内件，只有定位类不同；CSS 已在产物里） |
+| 生成页评分条 | `.course-rating-bar--generation{position:absolute;bottom:calc(clamp(44px,6vh,76px) - 52px);left:50%;transform:translate(-50%)}`（同一套 `.course-rating-bar` 内件，只换定位） | 同（实测生成完成后挂载：`absolute` / `bottom: -6.7px` / radius 20；点星展开宽 560、提交后 thanks，服务端读出评分） |
 | 欢迎卡下一步标识 | `.cj-welcome-next-kind` 默认 `#eef2f8`/`#4c6696`；`--practice{background:#eef5f0;color:#3d7a56;border-color:#3d7a5624}`；`--project{#f6f1e7/#8a6d3b/#8a6d3b29}`；`--exam{#f5edf0/#954c68/#954c6824}`；`--learn{border-color:#4c669629}` | 同（按首个节点的 `session_type` 选配色；实测讲座类型 → `--learn`，`rgb(238,242,248)`/`rgb(76,102,150)`/`rgba(76,102,150,.16)`） |
 
