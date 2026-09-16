@@ -35,17 +35,22 @@ export default function Courses() {
   const first = courses?.[0]
 
   return (
-    <div className="mx-auto max-w-[1180px] px-8 pb-16 grid gap-8" style={{ gridTemplateColumns: '1fr 300px' }}>
-      <section>
-        <h1 className="text-[22px] font-semibold">我的课程</h1>
-        <div className="flex items-center gap-2 mt-4">
-          <div role="tablist" aria-label="课程状态" className="inline-flex gap-1 text-[13px]">
-            {([['all', '全部'], ['active', '进行中'], ['done', '已完成']] as const).map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className="px-3 h-8 rounded-full text-[#6b6b70] data-[on=true]:bg-[#e6e8ec] data-[on=true]:text-black" data-on={tab === k}>{l}</button>)}
+    <div className="courses-page">
+      <div className="courses-inner">
+      <div className="courses-layout">
+      <section className="courses-main">
+        <h1 className="courses-title">我的课程</h1>
+        <div className="courses-toolbar">
+          <div role="tablist" aria-label="课程状态" className="courses-tabs">
+            {([['all', '全部'], ['active', '进行中'], ['done', '已完成']] as const).map(([k, l]) => (
+              <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className={`courses-tab ${tab === k ? 'active' : ''}`}>{l}</button>
+            ))}
           </div>
-          <label className="ml-auto flex items-center gap-2 h-9 px-3 rounded-full border bg-white w-[240px]"><Search size={14} className="text-[#8a8a90]" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="搜索课程…" className="flex-1 bg-transparent outline-none text-[13px]" /></label>
+          <label className="courses-search-wrap"><Search size={14} className="courses-search-icon" color="#b8b1a7" /><input className="courses-search" aria-label="搜索课程" placeholder="搜索我的课程" value={q} onChange={(e) => setQ(e.target.value)} /></label>
         </div>
 
-        <div className="mt-5 space-y-3">
+        <div className="courses-list-scroll">
+        <div className="courses-list">
           {courses === null && <div className="hk-skeleton rounded-2xl h-[140px]" />}
           {courses && shown.length === 0 && (
             <div className="hk-card p-12 text-center text-[#8a8a90]"><div className="text-[40px] mb-2">🧑‍🎓</div>正在加载你的课程…<div className="text-[12px] mt-1">还没有课程？去 <button onClick={() => nav('/marketplace')} className="underline">课程集市</button> 挑一门，或在首页打造一门</div></div>
@@ -67,12 +72,13 @@ export default function Courses() {
             )
           })}
         </div>
+        </div>
       </section>
 
-      <aside className="space-y-4">
-        <div className="hk-card p-4">
-          <div className="flex items-center justify-between text-[12px] text-[#8a8a90]">
-            <span>本周学习概览</span>
+      <aside className="courses-aside">
+        <div className="courses-side-card courses-learning-card">
+          <div className="flex items-center justify-between text-[12px] text-[#8a8c93]">
+            <span className="courses-learning-eyebrow">本周学习概览</span>
             {stats && stats.streak_days > 0 && (
               <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#ea580c] bg-[#fff7ed] px-2 py-0.5 rounded-full border border-[#fed7aa]">
                 🔥 连胜 {stats.streak_days} 天
@@ -134,6 +140,8 @@ export default function Courses() {
           ))}</ul>
         </div>
       </aside>
+      </div>
+      </div>
     </div>
   )
 }

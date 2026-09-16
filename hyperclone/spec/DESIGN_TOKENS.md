@@ -256,3 +256,15 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 判题面板 | `.practice-verdict{flex:0 0 auto;width:var(--practice-verdict-width);overflow:hidden;transition:width .42s cubic-bezier(.22,.61,.36,1)}`；`.practice-verdict-inner{width:360px;margin-left:28px;padding:24px 4px 30px 20px;opacity:0}`；`--revealed` 时 `opacity:1` | 同（实测 inner 360/opacity 1） |
 | 底部操作条 | `.practice-actions{position:absolute;left:36px;right:36px;bottom:0;height:96px;display:flex;align-items:center}`，上方 28px 渐变遮罩 `.practice-stage:after{background:linear-gradient(to bottom,#fff0,#fff)}` | 同（96px、左右 36、渐变到 42%） |
 
+### 我的课程页（第十二批补，r90-r91）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 页与内容列 | `.courses-page{height:100dvh;background:#fafafa;display:flex;flex-direction:column;overflow:hidden}`；`.courses-inner{max-width:1120px;padding:44px 56px 0}`；`.courses-layout{gap:68px}`；`.courses-main{flex:1;min-width:0}` | 同（实测 1120 / `44px 56px 0` / gap 68） |
+| 标题与工具条 | `.courses-title{font-size:20px;font-weight:650;color:#1a1a1a;margin:0 0 24px}`；`.courses-toolbar{gap:16px;margin-bottom:24px}` | 同 |
+| 过滤胶囊 | `.courses-tab{padding:6px 15px;font-size:13px;color:#6f6b64;border-radius:999px;border:1px solid transparent}`；hover `background:#fffffcb8;color:#1f1d1a`；`.active{background:#fffffc;color:#1f1d1a;border-color:#241f1812;box-shadow:0 2px 7px #0f172a0b}` | 同 |
+| 搜索 | `.courses-search{max-width:300px;height:36px;padding:0 34px 0 38px;border:1px solid rgba(36,31,24,.08);border-radius:999px;background:#fff;box-shadow:0 1px 2px #0f172a06}`，图标 `left:13px`、占位色 `#b8b1a7` | 同 |
+| 列表 | `.courses-list-scroll{flex:1;overflow-y:auto;margin:-8px -12px 0;padding:8px 12px 32px;scrollbar-width:none}`；`.courses-list{display:flex;flex-direction:column;gap:24px}` | 同 |
+| 右栏 | `.courses-aside{width:320px;margin-top:56px;gap:28px;overflow-y:auto}`；`.courses-side-card{border-radius:18px;background:#fff;box-shadow:0 2px 6px #0f172a06;padding:13px}`；学习卡 `padding:14px;gap:12px`，眉标 11.5/650 大写 `#8a8c93` | 同 |
+| 空态 | `.courses-empty{flex column;align-items:center;padding:32px 24px 40px}`；标题 16/650；说明 13 `#9ca3af` max-width 320 | 记为后续 |
+

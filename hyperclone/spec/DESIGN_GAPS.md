@@ -310,3 +310,7 @@
 - 练习/考试页改成线上 `.practice-split` 结构：题目壳 `min(76vw,1040px)` + 判题面板 360px（`--practice-verdict-panel`），答题后 `--practice-split--revealed` 让面板从 0 展开到 388px（含 28px 间距），配 `.practice-verdict-inner` 的 0.42s 宽度过渡 + 0.3s 延后渐显。
 - 底部操作条改成 `.practice-actions`（左右 36 / 高 96 / 上缘渐变），检查与跳过键留在条内。
 - 结构改造踩过的坑记一笔：这块 JSX 嵌套深（stage → split → shell → 内容 → 判题面板 → 操作条），多次插入后闭合数错了三轮，最后靠「标签栈 + 尾部整块重建 + 渲染后 DOM 顺序核对」才收干净；以后改这种结构先跑栈检查再改。
+
+**第二十四批（我的课程页）**
+- 换成线上 `.courses-*` 骨架：1120 内容列 + `44px 56px 0` 内边距 + gap 68 的两栏（主列 flex 1 / 右栏 320 且 `margin-top:56px`）；标题 20/650、工具条 gap16 mb24、过滤胶囊（选中 `#fffffc` + `0 2px 7px #0f172a0b`）、300×36 圆角搜索（图标 13 / 占位 `#b8b1a7`）、列表 `gap:24` 独立滚动、右栏白卡 radius 18 + `0 2px 6px #0f172a06`。
+- 仍未做：`.courses-empty` 空态插画（200×200 图 + 16/650 标题 + 13px 说明）。
