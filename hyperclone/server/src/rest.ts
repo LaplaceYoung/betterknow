@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { basename, extname, resolve } from 'node:path';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
+import type { ChatMessage } from './llm.js';
 import { authenticate } from './auth.js';
 import { diagrams, placeholderPng, placeholderWebm, publicFiles, readPersistedPublicFile } from './artifacts.js';
 import { mimeFor, readTtsAudio, readWhiteboardImage, ttsCounts } from './media.js';
@@ -849,37 +850,82 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     });
     return { status: 'ok', session_id: sessionId, score: Number(body.score ?? correct), perfect: Number(body.perfect ?? 0), stars: Number(body.stars ?? 0), total, completed: body.finished, updated_at: now() };
   });
-  // 线上实测：POST /practice/assistant {session_id, messages[]}——多轮提示，不给答案
+  // 线上实测（r112 原文）：POST /practice/assistant 是 multipart/form-data：
+  //   session_id、question_id、messages(JSON 串)、images(多个文件)；多轮提示，不给答案。
+  // 兼容早期本仓的 JSON 形状（{session_id, messages[], questionPrompt...}）。
   app.post('/api/v1/course-generation/courses/:course_uuid/practice/assistant', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    const body = (request.body ?? {}) as { session_id?: string; sessionId?: string; messages?: Array<{ role?: string; content?: string }>; message?: string; questionPrompt?: string; questionOptions?: string[]; questionExplanation?: string };
-    const messages = Array.isArray(body.messages) ? body.messages : body.message ? [{ role: 'user', content: body.message }] : [];
-    if (!body.session_id && !body.sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'session_id'], msg: 'Field required' }] });
+    const isMultipart = String(request.headers['content-type'] ?? '').includes('multipart/form-data');
+    let sessionId = '';
+    let questionId = '';
+    let messages: Array<{ role?: string; content?: string }> = [];
+    const images: Array<{ mime: string; data: string }> = [];
+    let questionPrompt = '';
+    let questionOptions: string[] = [];
+    let questionExplanation = '';
+    if (isMultipart) {
+      for await (const part of request.parts()) {
+        if (part.type === 'file') {
+          if (part.fieldname !== 'images') continue;
+          const buffer = await part.toBuffer();
+          if (buffer.length && images.length < 4) images.push({ mime: part.mimetype || 'image/png', data: buffer.toString('base64') });
+          continue;
+        }
+        const value = String(part.value ?? '');
+        if (part.fieldname === 'session_id') sessionId = value;
+        else if (part.fieldname === 'question_id') questionId = value;
+        else if (part.fieldname === 'messages') {
+          try { const parsed = JSON.parse(value) as unknown; if (Array.isArray(parsed)) messages = parsed as Array<{ role?: string; content?: string }>; } catch { /* 忽略坏 JSON */ }
+        } else if (part.fieldname === 'questionPrompt') questionPrompt = value;
+        else if (part.fieldname === 'questionExplanation') questionExplanation = value;
+        else if (part.fieldname === 'questionOptions') { try { const parsed = JSON.parse(value) as unknown; if (Array.isArray(parsed)) questionOptions = parsed.map(String); } catch { /* 忽略 */ } }
+      }
+    } else {
+      const body = (request.body ?? {}) as { session_id?: string; sessionId?: string; question_id?: string; questionId?: string; messages?: Array<{ role?: string; content?: string }>; message?: string; questionPrompt?: string; questionOptions?: string[]; questionExplanation?: string };
+      sessionId = String(body.session_id ?? body.sessionId ?? '');
+      questionId = String(body.question_id ?? body.questionId ?? '');
+      messages = Array.isArray(body.messages) ? body.messages : body.message ? [{ role: 'user', content: body.message }] : [];
+      questionPrompt = String(body.questionPrompt ?? '');
+      questionOptions = Array.isArray(body.questionOptions) ? body.questionOptions : [];
+      questionExplanation = String(body.questionExplanation ?? '');
+    }
+    if (!sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'session_id'], msg: 'Field required' }] });
     if (!messages.length) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'messages'], msg: 'Field required' }] });
     const question = String(messages.filter((m) => m.role !== 'assistant').at(-1)?.content ?? '');
-    // BYOK：有模型就让模型按「只给提示不给答案」的系统提示回答；没有模型时用本地兜底话术并标 stub
+    // BYOK：有模型就让模型按「只给提示不给答案」的系统提示回答（带截图时走多模态 content）；没有模型时用本地兜底话术并标 stub
     const state = await readState();
     const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
-    let hint = `先回到题干本身：把已知条件逐条写下来，再问自己「哪一个条件限定了范围」。\n\n关于「${String(body.questionPrompt ?? question).slice(0, 60)}」：可以从最简情形出发，用一个具体数字代入检验，看看结论是否成立。\n\n（我只给方向，不给答案——你能独立走完这一步。）`;
+    let hint = `先回到题干本身：把已知条件逐条写下来，再问自己「哪一个条件限定了范围」。\n\n关于「${String(questionPrompt || question).slice(0, 60)}」：可以从最简情形出发，用一个具体数字代入检验，看看结论是否成立。\n\n（我只给方向，不给答案——你能独立走完这一步。）`;
     let stub = true;
     if (eff.provider !== 'stub') {
       try {
         const system = [
           '你是一名随堂助教，只能给提示与思路，绝不直接说出答案。',
-          body.questionPrompt ? `题目：${String(body.questionPrompt).slice(0, 800)}` : '',
-          body.questionOptions?.length ? `选项：${body.questionOptions.map((o, i) => `${i + 1}. ${o}`).join(' / ').slice(0, 800)}` : '',
-          body.questionExplanation ? `（教师解析，仅供你参考，不要原样复述）：${String(body.questionExplanation).slice(0, 400)}` : '',
+          questionPrompt ? `题目：${questionPrompt.slice(0, 800)}` : '',
+          questionOptions.length ? `选项：${questionOptions.map((o, i) => `${i + 1}. ${o}`).join(' / ').slice(0, 800)}` : '',
+          questionExplanation ? `（教师解析，仅供你参考，不要原样复述）：${questionExplanation.slice(0, 400)}` : '',
+          images.length ? `学生附了 ${images.length} 张截图，请结合截图内容给提示。` : '',
         ].filter(Boolean).join('\n');
-        hint = await chat([
-          { role: 'system', content: system },
-          ...messages.map((m) => ({ role: m.role === 'assistant' ? 'assistant' as const : 'user' as const, content: String(m.content ?? '') })),
-        ], 'content', eff);
+        const history: ChatMessage[] = messages.map((m) => ({ role: m.role === 'assistant' ? 'assistant' as const : 'user' as const, content: String(m.content ?? '') }));
+        if (images.length) {
+          const last = history[history.length - 1];
+          const lastText = typeof last?.content === 'string' ? last.content : question;
+          history[history.length - 1] = {
+            role: 'user',
+            content: [
+              { type: 'text', text: lastText },
+              ...images.map((img) => ({ type: 'image_url' as const, image_url: { url: `data:${img.mime};base64,${img.data}` } })),
+            ],
+          };
+        }
+        hint = await chat([{ role: 'system', content: system }, ...history], 'content', eff);
         stub = false;
       } catch { /* 模型不可用：退回本地兜底，并标 stub */ }
     }
-    return { role: 'assistant', message: hint, hint, stub, messages: [...messages, { role: 'assistant', content: hint }] };
+    return { role: 'assistant', message: hint, hint, stub, question_id: questionId, received_images: images.length, messages: [...messages.map((m) => ({ role: m.role, content: m.content })), { role: 'assistant', content: hint }] };
   });
+
   // 线上实测：GET /exam/status → {status:"none"|"in_progress"|"completed"}；POST /exam/start {unitId}
   app.get('/api/v1/course-generation/courses/:course_uuid/exam/status', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);

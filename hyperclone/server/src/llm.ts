@@ -2,7 +2,9 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { config, type ByokConfig } from './config.js';
 
-export type ChatMessage = { role: 'system' | 'user' | 'assistant'; content: string };
+// 线上助手会把截图作为多部分表单上传，模型侧用 OpenAI 兼容的多模态 content 数组承载
+export type ChatContentPart = { type: 'text'; text: string } | { type: 'image_url'; image_url: { url: string } };
+export type ChatMessage = { role: 'system' | 'user' | 'assistant'; content: string | ChatContentPart[] };
 export type ModelPurpose = 'director' | 'content' | 'quiz' | 'tts';
 let stubCache: Record<string, unknown> | undefined;
 

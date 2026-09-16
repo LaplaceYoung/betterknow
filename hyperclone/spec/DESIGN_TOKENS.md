@@ -765,3 +765,27 @@ zh 原文：`emptyStateHint:"这道题卡住了？向我要个提示或讲解吧
 
 实测：面板 `aside.practice-assistant--open`（340px）、空态文案与输入占位符正确、附截图按钮与隐藏 file input 就位、未输入时发送禁用、打开后顶栏按钮加 `--active`；无 key 时回复走兜底；配好假网关后同一次对话返回模型文本（`stub:false`，界面显示「OK-提示：先看题干里的限定词。」）。
 
+### 助手请求的 multipart 契约与截图输入（第三十八批，r112）
+
+线上（r112 原文）：练习助手不是 JSON，而是 **multipart/form-data**：
+
+```js
+const message = { role: 'user', content: text, images }        // images = 截图的 blob URL 数组
+const history = [...sent, message]
+const form = new FormData()
+form.append('session_id', sessionId)
+if (questionId) form.append('question_id', questionId)
+form.append('messages', JSON.stringify(history.map(({ role, content }) => ({ role, content }))))
+for (const img of images ?? []) form.append('images', img)
+fetch(`/api/v1/course-generation/courses/${courseId}/practice/assistant`, { method: 'POST', body: form })
+```
+
+本仓按此实现（同时保留旧的 JSON 形状兼容）：服务端 `request.parts()` 收 `session_id / question_id / messages / images[] / questionPrompt / questionOptions / questionExplanation`，并把截图拼进模型请求的多模态 `content`：
+
+```json
+[{ "type": "text", "text": "看下我的截图" },
+ { "type": "image_url", "image_url": { "url": "data:image/png;base64,…" } }]
+```
+
+实测（假网关记录请求体）：最后一条消息的 `content` 是数组，含 text 与 image_url 两段；界面侧附上截图后用户气泡显示缩略图、助手回复走模型（`stub:false`）。
+

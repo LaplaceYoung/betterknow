@@ -466,3 +466,8 @@
 - **BYOK 化**：`POST /practice/assistant` 此前永远返回写死话术；现在走 `resolveByok` 调模型（系统提示只给提示不给答案 + 题干/选项/解析上下文），模型不可用时回落并在响应里标 `stub`。实测：无 key → 兜底话术；配假网关 → 返回模型文本且 `stub:false`，界面显示「OK-提示：先看题干里的限定词。」。
 - 顺手把项目侧的助手入口也换成线上 `.practice-assistant-toggle` 样式与「助手」文案。
 - 记一笔运维教训：本轮又踩到「改了 `src` 但 8787 上跑的还是旧 `dist`」——hub 的 `restart` 在守护进程已就绪时不一定真的重启，稳妥做法是 `stop` 再 `start`，并用 `ps -o lstart` 与 `ls -l dist/*.js` 比时间。
+
+**第五十一批（助手截图真能用了：multipart + 多模态）**
+- 上一批记的「截图只是随消息发出去、服务端暂不使用」已补齐：请求改成线上原样的 **multipart/form-data**（`session_id` / `question_id` / `messages` JSON / `images` 多文件），服务端用 `request.parts()` 收，并把截图作为 OpenAI 兼容的多模态 `content`（`text` + `image_url` data URL）发给模型；没有截图时仍走纯文本。旧的 JSON 形状保留兼容。
+- `ChatMessage.content` 放宽为 `string | ChatContentPart[]`，其余调用点不受影响。
+- 实测：curl 传 1×1 PNG → 响应 `stub:false`、`received_images:1`、`question_id:q1`，假网关收到的最后一条消息 content 是数组且 image_url 前缀正确；浏览器里用 file input 附图 → 缩略图出现、用户气泡带图、助手返回模型文本「OK-看图提示：注意截图里的第二行。」、附件区清空。

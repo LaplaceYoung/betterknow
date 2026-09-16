@@ -4,7 +4,7 @@ import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkle
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import { apiGet, apiPost } from '@/lib/api'
+import { api, apiGet, apiPost } from '@/lib/api'
 import { SCORING, makeRivals, perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
 import { SlotNumber } from '@/components/SlotNumber'
 import { PracticeStars } from '@/components/PracticeStars'
@@ -91,23 +91,29 @@ function AssistantDrawer({
     setFailed(false)
     setLoading(true)
     try {
-      const endpoint = isProject
-        ? `/course-generation/courses/${courseId}/project/assistant`
-        : `/course-generation/courses/${courseId}/practice/assistant`
-      // 线上形状：{session_id|stage_id, messages[]}；旧字段一并带上，服务端两种都吃
+      // 线上（r112 原文）：练习助手走 multipart/form-data —— session_id / question_id / messages(JSON) / images(多文件)
       const history = messages.filter((row) => row.role === 'user').map((row) => ({ role: 'user', content: row.text }))
-      const payload = isProject
-        ? { stage_id: stageTitle || 'stage_1', messages: [...history, { role: 'user', content: text }], message: text, stageTitle }
-        : {
-            session_id: sessionId,
-            messages: [...history, { role: 'user', content: text }],
-            message: text,
-            questionPrompt: currentQuestion?.prompt,
-            questionOptions: currentQuestion?.options,
-            questionExplanation: currentQuestion?.explanation,
-          }
-      const res = await apiPost<{ message?: string; stub?: boolean }>(endpoint, payload)
-      setMessages((prev) => [...prev, { role: 'assistant', text: res.message ?? '' }])
+      const nextMessages = [...history, { role: 'user', content: text }]
+      if (isProject) {
+        const res = await apiPost<{ message?: string; stub?: boolean }>(`/course-generation/courses/${courseId}/project/assistant`, {
+          stage_id: stageTitle || 'stage_1', messages: nextMessages, message: text, stageTitle,
+        })
+        setMessages((prev) => [...prev, { role: 'assistant', text: res.message ?? '' }])
+      } else {
+        const form = new FormData()
+        form.append('session_id', sessionId)
+        if (currentQuestion?.id) form.append('question_id', String(currentQuestion.id))
+        form.append('messages', JSON.stringify(nextMessages))
+        if (currentQuestion?.prompt) form.append('questionPrompt', currentQuestion.prompt)
+        if (currentQuestion?.options?.length) form.append('questionOptions', JSON.stringify(currentQuestion.options))
+        if (currentQuestion?.explanation) form.append('questionExplanation', currentQuestion.explanation)
+        await Promise.all(images.map(async (url) => {
+          const blob = await (await fetch(url)).blob()
+          form.append('images', blob, `screenshot-${Date.now()}.png`)
+        }))
+        const res = await api<{ message?: string }>(`/course-generation/courses/${courseId}/practice/assistant`, { method: 'POST', body: form })
+        setMessages((prev) => [...prev, { role: 'assistant', text: res.message ?? '' }])
+      }
     } catch {
       setFailed(true)
     } finally {
