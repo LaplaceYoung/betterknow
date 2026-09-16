@@ -482,7 +482,7 @@
 - 顺带修掉一处从没接过的状态：`setCursor` 之前定义了却没渲染任何入口，月份翻页实际不存在。
 - 左栏改为跟随所选日期（线上是 sidebar 展示所选日），并保留原有的确认/完成/删除/开始课堂动作与配额面板。
 - 实测：42 格、周标题「日…六」、今日与选中高亮各 1、头部「九月 2026」→ 点右侧变「十月 2026」、事件 chip 两种色板色（`#E8F0F8`/`#EBEFFA`）、周视图 7 个 `week-view-day` 且各带任务数。
-- 仍未做：日历事件里 `kind:"course"` 的课程事件分支（带 hover 详情按钮与课程配色）、`calendar-sidebar` 那套（线上右侧还有一列日详情与统计，本仓复用了左栏）、Google Calendar 同步（自部署无 OAuth，记 N/A）、草稿态 `calendar-draft` 流程。
+- 已做：草稿态 `POST /course-calendar/draft`（真出稿，见 §2.12.1）、日历摘要卡（`.calendar-sidebar-summary` 在左栏，r172 实证线上也在左栏）。仍未做：日历事件里 `kind:"course"` 的课程事件分支（带 hover 详情按钮与课程配色）、Google Calendar 同步（自部署无 OAuth，记 N/A）。
 
 **第五十四批（单元完成层的「去做练习」）**
 - 补上此前记为未做的分支：单元完成层的主按钮现在按「本单元有没有未完成的练习」二选一 —— 有则「去做练习」+ 提示「建议先完成这节课的练习，再进入下一节。」，无则「返回主页」。数据取自 `/practice` 与 `/progress-status`（`practiceStats[id].finished`）。
