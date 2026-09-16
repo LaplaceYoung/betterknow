@@ -326,7 +326,7 @@
 .practice-progress-dot[data-tone="bad"], .exam-progress-dot[data-tone="bad"] { background: #dc2626; }
 .practice-progress-dot--active[data-tone="ok"] { border-color: #16a34a; background: transparent; }
 .practice-progress-dot--active[data-tone="bad"] { border-color: #dc2626; background: transparent; }
-.exam-stage { position: absolute; top: 52px; right: 36px; bottom: 30px; left: 36px; border: 1.5px solid #E5E5E5; border-radius: 14px; background: #fff; box-sizing: border-box; overflow-y: auto; }
+.practice-stage, .exam-stage { position: absolute; top: 52px; right: 36px; bottom: 30px; left: 36px; border: 1.5px solid #E5E5E5; border-radius: 14px; background: #fff; box-sizing: border-box; overflow-y: auto; }
 
 /* 线上 .proactive-page（学习动态页） */
 .proactive-page { width: 100%; height: 100dvh; background-color: #fafafa; position: relative; display: flex; flex-direction: column; align-items: center; padding: 16px 10px 0; overflow: hidden; }
@@ -353,3 +353,50 @@
 .folder-card-name { font-size: 14px; color: #1a1a1a; font-weight: 500; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .files-area { flex: 1; overflow-y: auto; overflow-x: hidden; padding-top: 12px; padding-bottom: 50px; margin-top: 12px; min-height: 400px; }
 .files-container, .files-empty, .files-loading { max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+
+/* 线上 .practice-topbar / -hud / 计时条 / 选项卡 / 检查键（练习与考试共用） */
+.practice-topbar-actions { position: absolute; top: 26px; right: 36px; transform: translateY(-50%); z-index: 2; display: flex; align-items: center; gap: 10px; }
+.practice-hud { display: inline-flex; align-items: center; gap: 8px; margin-right: 2px; }
+.practice-hud-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 13px; border: 1.5px solid #D6E0F0; border-radius: 999px; background: #f7faff; color: #5b6f94; font-size: 12.5px; }
+.practice-hud-chip b { color: #2a4578; font-variant-numeric: tabular-nums; font-size: 13px; }
+.practice-hud-chip--bonus { border-color: #e8d48a; background: #fffbea; color: #a68b2c; box-shadow: inset 0 1px rgba(255,255,255,.9), 0 3px #f0e4b0; }
+.practice-hud-chip--bonus b { min-width: 26px; color: #8f7620; text-align: right; }
+.practice-assistant-toggle { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 0 14px; border: 1.5px solid #E0E4EC; border-radius: 999px; background: #fff; color: #5b6472; cursor: pointer; font-size: 12.5px; transition: all .15s ease; }
+.practice-assistant-toggle:hover { border-color: #c9d2e3; background: #fafcff; color: #385da0; box-shadow: inset 0 1px rgba(255,255,255,.95), 0 4px #e2e7f0; transform: translateY(-1px); }
+.practice-assistant-toggle:active { box-shadow: inset 0 1px rgba(255,255,255,.7), 0 1px #e2e7f0; transform: translateY(2px); }
+.practice-timer { position: absolute; top: 0; right: 0; left: 0; z-index: 3; height: 3px; overflow: hidden; border-radius: 14px 14px 0 0; background: #f3f4f6; }
+.practice-timer-fill { display: block; width: 100%; height: 100%; background: linear-gradient(90deg,#f0d66a,#e0bc3a); transform-origin: left center; animation-name: practice-timer-drain; animation-timing-function: linear; animation-fill-mode: forwards; }
+@keyframes practice-timer-drain { 0% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+.practice-split { position: absolute; top: 0; bottom: 96px; left: 0; right: 0; display: flex; gap: 28px; padding: 0 36px; align-items: center; }
+.practice-options-panel { container: practice-options / inline-size; width: 100%; }
+.practice-options-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.practice-options-grid--stacked { grid-template-columns: minmax(0, 1fr); }
+.practice-option-card { position: relative; display: flex; align-items: center; gap: 12px; min-height: 76px; padding: 15px 22px 15px 18px; border: 1px solid #E2E2E2; border-radius: 15px; background: #fff; color: #333; font-size: 14px; text-align: left; cursor: pointer; transition: border-color .14s ease, background .14s ease, box-shadow .14s ease, transform .14s ease; }
+.practice-option-card:hover:not(:disabled) { border-color: #bfcde3; background: #fafcff; box-shadow: 0 4px #edf1f8; transform: translateY(-1px); }
+.practice-option-card:active:not(:disabled) { box-shadow: 0 1px #edf1f8; transform: translateY(2px); }
+.practice-option-card--selected { border-color: #4c6696; background: #f5f8fc; color: #1f2937; box-shadow: none; }
+.practice-option-card--selected:hover { border-color: #4c6696; background: #f5f8fc; box-shadow: none; transform: none; }
+.practice-option-card--correct, .practice-option-card--correct:hover { border-color: #2e8b57; background: #eaf6ef; color: #1f2937; transform: none; }
+.practice-option-card--incorrect, .practice-option-card--incorrect:hover { border-color: #c34747; background: #fdf2f2; color: #1f2937; transform: none; }
+.practice-option-shape { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; font-size: 13px; font-weight: 500; }
+.practice-options-grid > .practice-option-card:nth-child(4n+1) .practice-option-shape { background: rgba(195,71,71,.12); color: #c34747; }
+.practice-options-grid > .practice-option-card:nth-child(4n+2) .practice-option-shape { background: rgba(56,93,160,.12); color: #385da0; }
+.practice-options-grid > .practice-option-card:nth-child(4n+3) .practice-option-shape { background: rgba(201,138,30,.14); color: #c98a1e; }
+.practice-options-grid > .practice-option-card:nth-child(4n+4) .practice-option-shape { background: rgba(46,139,87,.12); color: #2e8b57; }
+.practice-option-card--correct .practice-option-shape { background: rgba(46,139,87,.14); color: #2e8b57; }
+.practice-option-card--incorrect .practice-option-shape { background: rgba(195,71,71,.14); color: #c34747; }
+.practice-option-key { position: absolute; top: 9px; right: 12px; color: #c4c4c4; font-family: ui-monospace, Menlo, monospace; font-size: 11px; line-height: 1; }
+.practice-option-card--selected .practice-option-key { color: #4c6696; }
+.practice-option-text { flex: 1 1 auto; min-width: 0; line-height: 1.5; }
+.practice-option-indicator { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; flex-shrink: 0; border-radius: 999px; border: 1.5px solid #C4C4C4; background: #fff; }
+.practice-option-card--selected .practice-option-indicator { border-color: #4c6696; background: radial-gradient(circle at center, #4C6696 0 45%, transparent 48%); box-shadow: 0 0 0 3px rgba(76,102,150,.08); }
+.practice-option-card--correct .practice-option-indicator { border-color: #2e8b57; background: radial-gradient(circle at center, #2E8B57 0 45%, transparent 48%); }
+.practice-option-card--incorrect .practice-option-indicator { border-color: #c34747; background: radial-gradient(circle at center, #C34747 0 45%, transparent 48%); }
+.practice-check-btn { padding: 15px 80px; border: none; border-radius: 999px; background: #4573c2; color: #fff; font-size: 16px; line-height: 1; cursor: pointer; box-shadow: inset 0 2px rgba(255,255,255,.3), 0 6px #33569a, 0 12px 26px rgba(69,115,194,.36); transition: transform .12s ease, box-shadow .12s ease; }
+.practice-check-btn:hover:not(:disabled) { box-shadow: inset 0 2px rgba(255,255,255,.3), 0 6px #33569a, 0 12px 26px rgba(69,115,194,.36); transform: translateY(-2px); }
+.practice-check-btn:active:not(:disabled) { box-shadow: inset 0 2px rgba(255,255,255,.16), 0 1px #33569a, 0 2px 6px rgba(69,115,194,.24); transform: translateY(3px); }
+.practice-check-btn:disabled { background: #ececec; color: #878787; box-shadow: none; cursor: default; }
+.practice-check-btn--next { min-width: 168px; padding: 14px 46px; border: 1.5px solid #BFCDE3; background: #fff; color: #385da0; box-shadow: 0 4px #dce4f2; }
+.practice-check-btn--next:hover:not(:disabled) { border-color: #385da0; background: #f7faff; box-shadow: 0 5px #cbd7ec; transform: translateY(-1px); }
+.practice-skip-btn { padding: 12px 24px; border: 1.5px solid #E0E4EC; border-radius: 999px; background: #fff; color: #6b7280; font-size: 14px; line-height: 1; cursor: pointer; }
+.practice-skip-btn:hover { border-color: #c9d2e3; color: #385da0; }

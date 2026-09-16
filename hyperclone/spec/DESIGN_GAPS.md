@@ -286,3 +286,7 @@
 - **学习动态页**换成线上 `.proactive-*` 骨架：`#fafafa` 全屏、内容 97%、两栏 `27% / 1fr`、gap 20（左栏 25）、右栏白卡 radius 12 + `0 3px 10px #0000000d` 阴影、页头 min-height 40。
 - **知识库页**换成线上 `.knowledge-base-*` 骨架：1200 内容列 + `0 20px` 内边距、页头 `margin-top:30px` + 标题 20 w650、文件夹四列网格（gap 16、卡片 radius 12 `12px 14px`、边框 `#E5E5E5`）、文件区独立滚动并留 50px 底部。
 - 仍未做：知识库**拖拽上传遮罩**（`.knowledge-base-drag-overlay`：`#fafafa59` + blur 3、卡片 `#f1f6fec7` + 1.5px 虚线 `rgba(76,102,148,.28)` + radius 25 + `42px 66px` 内边距）、文件夹卡片 hover 才出现的 `⋯` 菜单与删除下拉、文件卡横向滚动条。
+
+**第二十批（练习页交互件）**
+- 线上实操一节练习后补齐：`practice-stage` 边框舞台、**每题 10 秒速答计时条**（`practice-timer-drain`，实测 `animation-duration:10000ms`，答题后暂停）、HUD 胶囊（速答奖励 / 得分，含金色 bonus 态）、助手开关、**双列选项卡**（76 高 / radius 15 / hover 投影 / 选中 `#4c6696` / 正确 `#2e8b57` / 错误 `#c34747`）、四色轮转的 34×34 选项形状、右上键位角标、右侧圆环指示器、3D 立体检查键（`0 6px #33569a`）与描边「下一题」、跳过键。
+- 仍未做：**右侧 verdict 面板**（`.practice-split--revealed` 展开 360px 宽的判题区、`.practice-verdict-headline` 的绿/红底色）、答案揭晓时的**彩带**（`.practice-check-confetti-piece`）、得分数字的**老虎机滚动**（`.practice-slot-digit-strip` + `practice-slot-roll`）、`practice-welcome-modal` 欢迎弹窗。

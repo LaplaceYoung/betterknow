@@ -192,3 +192,18 @@
 | 知识库文件区 | `.files-area{flex:1;overflow-y:auto;padding-top:12px;padding-bottom:50px;margin-top:12px;min-height:400px}`，滚动条 6px `#0000004d` | 同（max-width 1200，padding `12px 20px 50px`） |
 | 拖拽上传态 | `.knowledge-base-drag-overlay{background:#fafafa59;backdrop-filter:blur(3px)}`；卡片 `background:#f1f6fec7;border:1.5px dashed rgba(76,102,148,.28);border-radius:25px;padding:42px 66px`；图标 44；标题 17 w600 `#2d3748`；说明 13 `#5a6578` | 记为下一批 |
 
+## 第十批对照：练习页交互件（r78-r80，live 实操）
+
+在线上真正打开一节练习（`/course/<uuid>/practice/<session>`）后抓的结构与计算值：
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 练习页骨架 | `.practice-page{height:100dvh;background:#fff}`；`main.practice-stage{top:52px;right:36px;bottom:30px;left:36px;border:1.5px solid #E5E5E5;border-radius:14px}`；顶栏 `.practice-topbar-actions{top:26px;right:36px;gap:10px}` | 同（实测 stage 52/36 radius 14 1.5px `#E5E5E5`、actions 26/36 gap 10） |
+| 速答计时条 | `.practice-timer{position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:#f3f4f6}`；`.practice-timer-fill{background:linear-gradient(90deg,#f0d66a,#e0bc3a);animation-name:practice-timer-drain;animation-timing-function:linear}`，实测 `animation-duration:10000ms`，关键帧 `scaleX(1) → scaleX(0)` | 同（每题 10s 倒计时，答题后暂停） |
+| HUD 胶囊 | `.practice-hud{gap:8px}`；`.practice-hud-chip{min-height:34px;padding:0 13px;border:1.5px solid #D6E0F0;border-radius:999px;background:#f7faff;color:#5b6f94}`，`b{color:#2a4578;13px;tabular-nums}`；`--bonus{border-color:#e8d48a;background:#fffbea;color:#a68b2c;box-shadow:inset 0 1px #ffffffe6,0 3px #f0e4b0}` | 同（实测 34 / `0 13px` / 999 / bonus `#fffbea`+`#e8d48a`） |
+| 助手开关 | `.practice-assistant-toggle{min-height:34px;padding:0 14px;border:1.5px solid #E0E4EC;border-radius:999px;background:#fff;color:#5b6472}`，hover 投影 `0 4px #e2e7f0`，激活态 `#4573c2` | 同 |
+| 选项网格 | `.practice-options-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}`；`.practice-option-card{min-height:76px;padding:15px 22px 15px 18px;border:1px solid #E2E2E2;border-radius:15px;background:#fff;color:#333}`；hover `border-color:#bfcde3;background:#fafcff;box-shadow:0 4px #edf1f8;translateY(-1px)`；选中 `border-color:#4c6696;background:#f5f8fc`；正确 `#2e8b57 / #eaf6ef`；错误 `#c34747` | 同（实测 2 列 gap 12、卡片 76 / `15px 22px 15px 18px` / radius 15 / `#e2e2e2`） |
+| 选项内件 | `.practice-option-shape{34×34;border-radius:9px}`，四色轮转 `nth-child(4n+1..4)` = `#c34747 / #385da0 / #c98a1e / #2e8b57`；`.practice-option-key{top:9px;right:12px;mono 11px #c4c4c4}`；`.practice-option-indicator{18×18;border:1.5px solid #C4C4C4}`，选中变 `radial-gradient(circle at center,#4C6696 0 45%,transparent 48%)` | 同（形状 34/radius 9，四色轮转，右上有键位角标，右侧圆环指示器） |
+| 检查/跳转按钮 | `.practice-check-btn{padding:15px 80px;border-radius:999px;background:#4573c2;color:#fff;font-size:16px;box-shadow:inset 0 2px #ffffff4d,0 6px #33569a,0 12px 26px #4573c25c}`，hover `translateY(-2px)`、active `translateY(3px)`、disabled `#ececec/#878787`；`--next{min-width:168px;padding:14px 46px;border:1.5px solid #BFCDE3;color:#385da0;box-shadow:0 4px #dce4f2}`；`.practice-skip-btn{padding:12px 24px;border:1.5px solid #E0E4EC}` | 同（实测检查键 `15px 80px` / 999 / 禁用 `rgb(236,236,236)`） |
+| 判题反馈位 | `.practice-split{--practice-verdict-panel:min(28vw,360px);--practice-verdict-gap:28px}`，`.practice-split--revealed{--practice-verdict-width:calc(panel+gap)}`；`.practice-verdict-inner` 渐显；`--correct .practice-verdict-headline{background:#2e8b571a;color:#1d6b45}` | 部分：判题后仍用行内解释卡，未做右侧滑入的 verdict 面板 |
+

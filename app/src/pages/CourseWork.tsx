@@ -215,6 +215,21 @@ function QuizRunner({
   // 线上进入练习先弹「准备好练习」：插图 + 说明 + 知道了
   const [readyOpen, setReadyOpen] = useState(true)
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
+  // 线上练习每题 10 秒速答窗口：.practice-timer-fill 的 animation-duration 实测 10000ms
+  const [remaining, setRemaining] = useState(10000)
+  const [timerKey, setTimerKey] = useState(0)
+  useEffect(() => {
+    if (checked || mode === 'exam') return
+    setRemaining(10000)
+    setTimerKey((k) => k + 1)
+    const started = Date.now()
+    const t = window.setInterval(() => {
+      const left = 10000 - (Date.now() - started)
+      setRemaining(left > 0 ? left : 0)
+      if (left <= 0) window.clearInterval(t)
+    }, 200)
+    return () => window.clearInterval(t)
+  }, [i, checked, mode])
   const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
   // 线上练习 HUD：每题 10s 倒计时 + 速答奖励（practice-hud-chip--bonus / practice-timer-fill）
   const QUESTION_SECONDS = 10
@@ -300,6 +315,13 @@ function QuizRunner({
   return (
     <div className={mode === 'exam' ? 'exam-page' : 'practice-page'}>
       <button className={mode === 'exam' ? 'exam-close-btn' : 'practice-close-btn'} onClick={() => onFinish(score, questions.length, {})} aria-label="退出"><X size={16} /></button>
+      <div className="practice-topbar-actions">
+        <div className="practice-hud">
+          <span className="practice-hud-chip practice-hud-chip--bonus">速答奖励 <b>+{SPEED_BONUS}</b>{!checked && <span>{Math.max(0, Math.ceil(remaining / 1000))}s</span>}</span>
+          <span className="practice-hud-chip practice-hud-chip--score">得分 <b>{score}</b>{bonus ? <span className="text-[11px] text-[#8f7620]">+{bonus}</span> : null}</span>
+        </div>
+        <button className="practice-assistant-toggle" onClick={() => setAssistantOpen(true)}><Lightbulb size={13} /> 助手</button>
+      </div>
       <div className={mode === 'exam' ? 'exam-progress-dots' : 'practice-progress-dots'}>
         {questions.map((_, idx) => {
           const isCurrent = idx === i
@@ -313,8 +335,11 @@ function QuizRunner({
           )
         })}
       </div>
-      <div className={mode === 'exam' ? 'exam-stage' : ''}>
+      <div className={mode === 'exam' ? 'exam-stage' : 'practice-stage'}>
       <div className="mx-auto max-w-[672px] px-8 pb-24">
+      <div className="fixed inset-x-0 top-[51px] mx-auto max-w-[672px] px-8 pointer-events-none">
+        {(mode !== 'exam') && <div className="practice-timer"><span key={timerKey} className="practice-timer-fill" style={{ animationDuration: '10000ms', animationPlayState: checked ? 'paused' : 'running' }} /></div>}
+      </div>
       {readyOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: 'rgba(20,20,20,.28)', backdropFilter: 'blur(2px)' }} data-testid="practice-ready">
           <div className="hk-card flex items-center gap-4" style={{ width: 490, padding: '22px 24px', borderRadius: 20 }}>
@@ -416,7 +441,8 @@ function QuizRunner({
             className="mt-5 w-full h-11 px-4 rounded-xl border bg-white outline-none focus:border-[#0a0a0a] text-[14px]"
           />
         ) : (
-          <div className="mt-5 grid" style={{ gap: 12 }}>
+          <div className="practice-options-panel mt-5">
+          <div className={`practice-options-grid ${(q.options ?? []).length <= 2 ? 'practice-options-grid--stacked' : ''}`}>
             {(q.options ?? []).map((o, oi) => {
               const on = picked.includes(o)
               const right = checked && correct.includes(o)
@@ -435,33 +461,16 @@ function QuizRunner({
                         : [o]
                     )
                   }
-                  className={`w-full text-left flex items-start gap-3 px-4 py-3 rounded-xl border text-[14px] transition-all ${
-                    right
-                      ? 'border-[#16a34a] bg-[#f0fdf4] text-[#15803d] font-medium'
-                      : wrong
-                      ? 'border-[#dc2626] bg-[#fef2f2] text-[#b91c1c]'
-                      : on
-                      ? 'border-[#0a0a0a] bg-[#fafafa] font-medium shadow-sm'
-                      : 'hover:border-[#a1a1aa] bg-white'
-                  }`}
+                  className={`practice-option-card ${on ? 'practice-option-card--selected' : ''} ${right ? 'practice-option-card--correct' : ''} ${wrong ? 'practice-option-card--incorrect' : ''} ${checked ? 'practice-option-card--readonly' : ''}`}
                 >
-                  {/* 线上 practice-option-shape：34×34 / radius 9px / 每项一种柔和底色 */}
-                  <span
-                    className="shrink-0 flex items-center justify-center text-[13px] font-medium"
-                    style={{
-                      width: 34, height: 34, borderRadius: 9,
-                      background: [ 'rgba(195,71,71,.12)', 'rgba(217,161,59,.14)', 'rgba(69,120,196,.12)', 'rgba(63,143,110,.12)' ][oi % 4],
-                      color: on ? '#0a0a0a' : '#333',
-                    }}
-                  >
-                    {oi + 1}
-                  </span>
-                  <span className="flex-1 leading-5">{o}</span>
-                  {right && <Check size={16} className="text-[#16a34a] shrink-0" />}
-                  {wrong && <X size={16} className="text-[#dc2626] shrink-0" />}
+                  <span className="practice-option-key">{oi + 1}</span>
+                  <span className="practice-option-shape" aria-hidden="true">{String.fromCharCode(65 + oi)}</span>
+                  <span className="practice-option-text">{o}</span>
+                  <span className="practice-option-indicator" aria-hidden="true" />
                 </button>
               )
             })}
+          </div>
           </div>
         )}
 
@@ -478,8 +487,7 @@ function QuizRunner({
         <div className="flex items-center mt-6 pt-4 border-t" style={{ gap: 23 }}>
           <button
             onClick={() => setAssistantOpen(true)}
-            className="rounded-full text-[13px] inline-flex items-center gap-[7px] bg-white"
-            style={{ padding: '0 14px', height: 34, border: '1.5px solid #e0e4ec', color: '#5b6472' }}
+            className="practice-assistant-toggle"
             data-testid="assistant-toggle"
           >
             <Lightbulb size={13} className="text-[#f59e0b]" /> 助手
@@ -489,8 +497,7 @@ function QuizRunner({
               <>
                 <button
                   onClick={() => setChecked(true)}
-                  className="rounded-full text-[14px] bg-white"
-                  style={{ padding: '12px 24px', border: '1.5px solid #e0e4ec', color: '#6b7280' }}
+                  className="practice-skip-btn"
                   data-testid="skip-btn"
                 >
                   跳过
@@ -498,8 +505,7 @@ function QuizRunner({
                 <button
                   disabled={q.type === 'fill' ? !fill.trim() : picked.length === 0}
                   onClick={handleCheck}
-                  className="rounded-full text-[16px] font-medium disabled:bg-[#ececec] disabled:text-[#878787]"
-                  style={{ padding: '15px 80px', background: '#0a0a0a', color: '#fff' }}
+                  className="practice-check-btn"
                   data-testid="check-btn"
                 >
                   检查
@@ -508,8 +514,7 @@ function QuizRunner({
             ) : (
               <button
                 onClick={next}
-                className="rounded-full text-[14px] font-medium inline-flex items-center gap-1"
-                style={{ padding: '12px 28px', background: '#0a0a0a', color: '#fff' }}
+                className="practice-check-btn practice-check-btn--next inline-flex items-center gap-1"
               >
                 {i + 1 >= questions.length ? '完成测验' : '下一题'} <ChevronRight size={14} />
               </button>
