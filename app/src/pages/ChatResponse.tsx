@@ -12,7 +12,7 @@ import { HkBoardSessionIcon } from '@/components/HkIcons'
 
 interface Frame { type: string; [k: string]: unknown }
 interface ChatItem {
-  kind: 'user' | 'thinking' | 'tool' | 'content' | 'question' | 'diagram' | 'complete' | 'board' | 'quiz' | 'flashcards' | 'deep_learn' | 'cheatsheet' | 'recommend'
+  kind: 'user' | 'thinking' | 'tool' | 'content' | 'question' | 'diagram' | 'complete' | 'board' | 'quiz' | 'flashcards' | 'animation' | 'video' | 'file' | 'deep_learn' | 'cheatsheet' | 'recommend'
   text?: string
   attachments?: Array<{ name?: string; type?: string; data?: string; url?: string }>
   tool?: string
@@ -94,6 +94,57 @@ interface QuizQuestion {
   answer_options: QuizOption[]
   correct_answer: number
   explanation?: string
+}
+
+// [S21] 对话产物：动画（iframe 播自包含 HTML）、视频（原生播放器）、发布文件（下载卡片）
+function AnimationCard({ data }: { data: { diagram_id?: string; file_url?: string; content?: string; rendered?: boolean } }) {
+  const [open, setOpen] = useState(false)
+  const url = data?.file_url ?? (data?.diagram_id ? `/api/v1/diagram/${data.diagram_id}/diagram.html` : '')
+  if (!url) return null
+  return (
+    <div className="hk-card overflow-hidden my-3" data-testid="animation-card">
+      <div className="flex items-center gap-2 px-3.5 py-2 border-b border-[#f1f2f4]">
+        <span className="text-[12px] font-medium">交互动画</span>
+        <span className="text-[11px] text-[#8a8a90] flex-1 truncate">{data.diagram_id ?? ''}{data.rendered === false ? ' · 本地兜底动画' : ''}</span>
+        <button onClick={() => setOpen((v) => !v)} className="hk-pill h-7 px-3 text-[11px]">{open ? '收起' : '展开'}</button>
+        <a href={url} target="_blank" rel="noreferrer" className="hk-pill h-7 px-3 text-[11px] inline-flex items-center">新窗口打开</a>
+      </div>
+      {open
+        ? <iframe title="交互动画" sandbox="allow-scripts" src={url} className="w-full" style={{ height: 380, border: 'none', background: '#F2EBE1' }} />
+        : <div className="px-3.5 py-3 text-[12px] text-[#6b6b70]">点击「展开」在对话里运行这段动画（拖动参数即时变化）。</div>}
+    </div>
+  )
+}
+
+function VideoCard({ data }: { data: { video_id?: string; url?: string; rendered?: boolean; scenes?: { title?: string }[] } }) {
+  const url = data?.url ?? (data?.video_id ? `/api/v1/video/${data.video_id}/final_video.mp4` : '')
+  if (!url) return null
+  return (
+    <div className="hk-card overflow-hidden my-3" data-testid="video-card">
+      <div className="flex items-center gap-2 px-3.5 py-2 border-b border-[#f1f2f4]">
+        <span className="text-[12px] font-medium">教学视频</span>
+        <span className="text-[11px] text-[#8a8a90] flex-1 truncate">{data.scenes?.length ?? 0} 幕{data.rendered === false ? ' · 未渲染出画面' : ''}</span>
+        <a href={url} target="_blank" rel="noreferrer" className="hk-pill h-7 px-3 text-[11px] inline-flex items-center">下载</a>
+      </div>
+      <video src={url} controls playsInline className="w-full bg-black" style={{ maxHeight: 380 }} />
+      {Array.isArray(data.scenes) && data.scenes.length > 0 && (
+        <ol className="px-3.5 py-2 text-[12px] text-[#6b6b70] space-y-1">
+          {data.scenes.map((scene, index) => <li key={index}>{index + 1}. {scene.title}</li>)}
+        </ol>
+      )}
+    </div>
+  )
+}
+
+function FileCard({ data }: { data: { filename?: string; url?: string; size?: number } }) {
+  if (!data?.url) return null
+  return (
+    <a href={data.url} target="_blank" rel="noreferrer" className="hk-card px-3.5 py-3 my-3 flex items-center gap-3 hover:shadow-md" data-testid="file-card">
+      <FileText size={16} className="text-[#8a8a90]" />
+      <span className="flex-1 min-w-0"><span className="block text-[13px] font-medium truncate">{data.filename ?? '导出文件'}</span>
+        <span className="block text-[11px] text-[#8a8a90]">{data.size ? `${(data.size / 1024).toFixed(1)} KB · ` : ''}点击下载</span></span>
+    </a>
+  )
 }
 
 // [S20] 抽认卡：与线上一致的前后翻页 + 翻面看答案（服务端 data.flashcards[{question,answer,index}]）
@@ -417,7 +468,13 @@ export default function ChatResponse() {
         // 线上工具帧有两种形态：包一层 result 的（技能工具）与扁平 data 的（产物工具，如 generate_flashcards）
         const rawData = (f.data as Record<string, unknown> | undefined) ?? {}
         const data = ((rawData.result as Record<string, unknown> | undefined) ?? rawData) as Record<string, unknown> | undefined
-        if (status === 'completed' && toolName === 'generate_flashcards' && Array.isArray(data?.flashcards)) {
+        if (status === 'completed' && toolName === 'generate_html_animation' && data?.file_url) {
+          push({ kind: 'animation', data })
+        } else if (status === 'completed' && toolName === 'generate_instructional_video' && (data?.url || data?.video_id)) {
+          push({ kind: 'video', data })
+        } else if (status === 'completed' && (toolName === 'publish_file' || toolName === 'generate_cheatsheet') && data?.url) {
+          push({ kind: 'file', data })
+        } else if (status === 'completed' && toolName === 'generate_flashcards' && Array.isArray(data?.flashcards)) {
           push({ kind: 'flashcards', data })
         } else if (status === 'completed' && toolName === 'create_board_session' && data?.board_sessions) {
           push({ kind: 'board', data })
@@ -468,7 +525,10 @@ export default function ChatResponse() {
           if (h.role === 'tool') {
             const toolName = String(h.tool_name ?? parsed?.tool_name ?? '')
             const res = (h.result as Record<string, unknown> | undefined)?.result as Record<string, unknown> | undefined
-            if (toolName === 'generate_flashcards' && Array.isArray(res?.flashcards)) out.push({ kind: 'flashcards', data: res })
+            if (toolName === 'generate_html_animation' && res?.file_url) out.push({ kind: 'animation', data: res })
+          else if (toolName === 'generate_instructional_video' && (res?.url || res?.video_id)) out.push({ kind: 'video', data: res })
+          else if ((toolName === 'publish_file' || toolName === 'generate_cheatsheet') && res?.url) out.push({ kind: 'file', data: res })
+          else if (toolName === 'generate_flashcards' && Array.isArray(res?.flashcards)) out.push({ kind: 'flashcards', data: res })
           else if (toolName === 'create_board_session' && res?.board_sessions) out.push({ kind: 'board', data: res })
             else if (toolName === 'generate_quiz' && res?.questions) out.push({ kind: 'quiz', data: res })
             else if (toolName === 'create_deep_learn_session' && res) out.push({ kind: 'deep_learn', data: res })
@@ -557,6 +617,9 @@ export default function ChatResponse() {
           if (it.kind === 'board' && it.data) return <BoardSessionCard key={i} data={it.data as { board_sessions?: Array<{ url?: string; title?: string; description?: string; session_id?: string }> }} />
           if (it.kind === 'quiz' && it.data) return <InteractiveQuiz key={i} data={it.data as { questions?: QuizQuestion[]; total_count?: number }} />
           if (it.kind === 'flashcards' && it.data) return <FlashcardsCard key={i} data={it.data as { flashcards?: { question: string; answer: string; index?: number }[]; title?: string }} />
+          if (it.kind === 'animation' && it.data) return <AnimationCard key={i} data={it.data as { diagram_id?: string; file_url?: string; content?: string; rendered?: boolean }} />
+          if (it.kind === 'video' && it.data) return <VideoCard key={i} data={it.data as { video_id?: string; url?: string; rendered?: boolean; scenes?: { title?: string }[] }} />
+          if (it.kind === 'file' && it.data) return <FileCard key={i} data={it.data as { filename?: string; url?: string; size?: number }} />
           if (it.kind === 'deep_learn' && it.data) return <DeepLearnSessionCard key={i} data={it.data as { task_plan?: { title?: string; description?: string }; deep_learn_session_url?: string; deep_learn_session_id?: string }} />
           if (it.kind === 'cheatsheet' && it.data) return <CheatsheetCard key={i} data={it.data as { filename?: string; pages?: number; url?: string }} />
           if (it.kind === 'recommend' && it.data) return <RecommendStepsBlock key={i} data={it.data as { next_steps?: Array<{ display_step: string; step_prompt: string }> }} onSelect={(p) => sendFollowup(p)} />

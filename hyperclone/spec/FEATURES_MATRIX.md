@@ -118,3 +118,6 @@
 | 对话产物：HTML 动画 | `generate_html_animation` → `data{diagram_id(8位),type:"html_animation",file_url,content}`；`file_url` 公开 200（diagram.png 对动画 404） | ✅ | r35 + `r35_animation_chat.html` |
 | 对话产物：发布文件 | `publish_file`：无有效条目时 `tool_status:"error"` + `{error:"No valid conversation entries found for selected indices."}` + `agent_response` 兜底 | ✅ | r35 |
 | 对话产物：教学视频 | `generate_instructional_video` 阶段帧：initializing → script_writing → generate_narration → code_generation → video_render×N（manim/remotion 逐幕）→ complete（`…/api/v1/video/<id>/final_video.mp4`） | ✅ | r36 |
+| PDF 导读通道 | `session_ready{pdf_state{revision,file_id,annotations[]},board_state,course_state}`；`speak/annotation` 带 `tts_url`（`/api/v1/pdf-annotation/audio-stream/…`，默认 voice `firm`）；`annotation.text` 是高亮原文 | ✅ | `pdf_teaching_trace.json` |
+| PDF 上传与配额 | `POST /pdf-annotation/upload`（multipart）；知识库页显示免费版：存储 1 GB、文件上传 5/周、添加到日历 2/周 | ✅ | r37/r38 |
+| 视频逐幕渲染 | 线上 manim/remotion 逐幕；本仓 KaTeX 数学幕 + 无头 Chromium HTML 幕 + ffmpeg 合成，阶段消息同构 | ✅ | 本仓实测（场景 3 幕、mp4 26.9KB） |

@@ -295,7 +295,7 @@ async function lessonImageAction(userId: string, topic: string, boardContent: st
 
 function silentPcm(): string { return Buffer.alloc(9_600).toString('base64'); }
 function splitSentences(text: string): string[] { return text.match(/[^.!?。！？]+[.!?。！？]?/g)?.map((part) => part.trim()).filter(Boolean) ?? [text]; }
-async function cascade(socket: WebSocket, userId: string, sessionId: string, text: string, voiceId: string, speed: number, voiceInput = false): Promise<void> {
+async function cascade(socket: WebSocket, userId: string, sessionId: string, text: string, voiceId: string, speed: number, voiceInput = false, audioPrefix = '/api/v1/whiteboard/audio-stream'): Promise<void> {
   const seam = await effFor(userId);
   const interjectId = randomUUID().replaceAll('-', '').slice(0, 12); wsSend(socket, { type: 'interject_ready', interject_id: interjectId, mode: 'cascade' });
   if (voiceInput) wsSend(socket, { type: 'interject_user_text', interject_id: interjectId, delta: '(voice input received)' });
@@ -309,7 +309,9 @@ async function cascade(socket: WebSocket, userId: string, sessionId: string, tex
     if (sentences[index + 1]) prefetch(sentences[index + 1], { voice: voiceId, speed, format: 'pcm', eff: seam });
     // PCM 直出优先（OpenAI 兼容网关的 response_format=pcm 是原始 PCM16，不用解码器）
     const segment = await synthesize(sentence, { voice: voiceId, speed, format: 'pcm', eff: seam });
-    const audioUrl = segment.stub ? await writeTtsAudio(userId, sessionId, audioFileName(userId, sessionId, sequence, sentence, 'webm'), placeholderWebm) : segment.url;
+    const audioUrl = segment.stub
+      ? (await writeTtsAudio(userId, sessionId, audioFileName(userId, sessionId, sequence, sentence, 'webm'), placeholderWebm)).replace('/api/v1/whiteboard/audio-stream', audioPrefix)
+      : (audioPrefix === '/api/v1/whiteboard/audio-stream' ? segment.url : `${audioPrefix}/${userId}/${sessionId}/${segment.url.split('/').pop()}`);
     wsSend(socket, { type: 'interject_text', interject_id: interjectId, delta: sentence });
     wsSend(socket, { type: 'interject_audio', interject_id: interjectId, audio_url: audioUrl, sequence, speed, text: sentence, tts_cjk: counts.tts_cjk, tts_latin: counts.tts_latin, stub: segment.stub, cached: segment.cached });
     if (segment.pcm) wsSend(socket, { type: 'interject_pcm', interject_id: interjectId, pcm_b64: segment.pcm.toString('base64'), sample_rate: segment.sample_rate ?? 24_000, stub: false });
@@ -542,18 +544,59 @@ function courseHandler(socket: WebSocket, request: FastifyRequest): void { guard
 }
 
 function pdfHandler(socket: WebSocket, request: FastifyRequest): void { guardSocket(socket);
-  const userId = acceptUser(request, socket); if (!userId) return; const effP = effFor(userId); wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let speed = 1; let audioBuffer = '';
+  const userId = acceptUser(request, socket); if (!userId) return; const effP = effFor(userId); wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let speed = 1; let voiceId = 'firm'; let audioBuffer = '';
   socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { wsSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } void (async () => {
     if (input.type === 'ping') { wsSend(socket, { type: 'pong', t: input.t }); return; }
-    if (input.type === 'resume_session' || input.type === 'start_session' || input.type === 'resume_or_start_course_session') { sessionId = typeof input.session_id === 'string' ? input.session_id : randomUUID(); await updateState((next) => { next.whiteboards[sessionId!] ??= { session_id: sessionId, user_id: userId, status: 'active', messages: [], pdf_state: null, board_state: null, created_at: now() }; }); const session = (await readState()).whiteboards[sessionId]!; wsSend(socket, { type: 'session_ready', session_id: sessionId, resumed: Boolean(input.session_id), status: session.status ?? 'active', session: false, messages: session.messages ?? [], pdf_state: session.pdf_state ?? null, board_state: session.board_state ?? null }); return; }
-    if (input.type === 'set_tts_config') { speed = typeof input.speed === 'number' ? Math.max(0.5, Math.min(2, input.speed)) : speed; wsSend(socket, { type: 'tts_config', voice_id: typeof input.voice_id === 'string' ? input.voice_id : 'firm', speed }); return; }
-    if (input.type === 'sync_pdf_state' && sessionId) { const pdfState = input.pdf_state ?? input.sync_pdf_state ?? null; await updateState((next) => { Object.assign(next.whiteboards[sessionId!]!, { pdf_state: pdfState, board_state: input.board_state ?? null, pdf_file_id: typeof pdfState === 'object' && pdfState ? (pdfState as Record<string, unknown>).file_id : undefined }); }); wsSend(socket, { type: 'pdf_state_synced', ok: true, session_id: sessionId, pdf_state: pdfState }); return; }
+    if (input.type === 'resume_session' || input.type === 'start_session' || input.type === 'resume_or_start_course_session') {
+      sessionId = typeof input.session_id === 'string' ? input.session_id : randomUUID();
+      await updateState((next) => { next.whiteboards[sessionId!] ??= { session_id: sessionId, user_id: userId, status: 'active', messages: [], pdf_state: { revision: 0, file_id: null, annotations: [] }, board_state: null, created_at: now() }; });
+      const session = (await readState()).whiteboards[sessionId]!;
+      // 线上形状：pdf_state{revision,file_id,annotations[]} + board_state + course_state
+      const pdfState = (session.pdf_state as Record<string, unknown> | null) ?? { revision: 0, file_id: session.pdf_file_id ?? null, annotations: [] };
+      wsSend(socket, {
+        type: 'session_ready', session_id: sessionId, resumed: Boolean(input.session_id), status: session.status ?? 'active', session: false,
+        messages: session.messages ?? [],
+        pdf_state: { revision: Number(pdfState.revision ?? 0), file_id: pdfState.file_id ?? session.pdf_file_id ?? null, annotations: (pdfState.annotations as unknown[]) ?? [] },
+        board_state: session.board_state ?? null,
+        course_state: session.lecture_outline_id ? { course_session_id: session.lecture_outline_id, course_session: null } : null,
+      });
+      return;
+    }
+    if (input.type === 'set_tts_config') { speed = typeof input.speed === 'number' ? Math.max(0.5, Math.min(2, input.speed)) : speed; voiceId = typeof input.voice_id === 'string' ? input.voice_id : voiceId; wsSend(socket, { type: 'tts_config', voice_id: voiceId, speed }); return; }
+    if (input.type === 'sync_pdf_state' && sessionId) { const pdfState = input.pdf_state ?? input.sync_pdf_state ?? null; await updateState((next) => { const previous = (next.whiteboards[sessionId!]!.pdf_state ?? {}) as Record<string, unknown>; const incoming = (typeof pdfState === 'object' && pdfState ? pdfState as Record<string, unknown> : {}); Object.assign(next.whiteboards[sessionId!]!, { pdf_state: { revision: Number(incoming.revision ?? (Number(previous.revision ?? 0) + 1)), file_id: incoming.file_id ?? previous.file_id ?? null, annotations: incoming.annotations ?? previous.annotations ?? [] }, board_state: input.board_state ?? null, pdf_file_id: incoming.file_id ?? next.whiteboards[sessionId!]!.pdf_file_id }); }); wsSend(socket, { type: 'pdf_state_synced', ok: true, session_id: sessionId, pdf_state: pdfState }); return; }
     if (input.type === 'start_teaching') { if (!sessionId || !(await readState()).whiteboards[sessionId]?.pdf_file_id) { wsSend(socket, { type: 'error', message: 'No PDF uploaded. Please upload a PDF first.', is_complete: true }); return; }
       // 课件讲解用「页摘录」当插图：来源是页面本身，不调图像模型（线上 source="reference_page" 的同义）
       const pageBody = JSON.stringify((await readState()).whiteboards[sessionId]?.pdf_state ?? '').slice(0, 600);
       const pageAction = normalizeImageAction({ source: 'reference_page', caption: '本页要点', reference_name: '课件页', page_index: 0 }, { topic: '课件页', language: 'Chinese' });
-      void emitImageGeneration(socket, pageAction, 'page-1', 0, await effFor(userId), undefined, pageBody); const tts = (step: number) => `/api/v1/whiteboard/audio-stream/${userId}/${sessionId}/tts_${step}.webm`; wsSend(socket, { type: 'speak', page_index: 0, step_id: 0, say: 'Let’s begin with the key idea on this page.', tts_url: tts(0) }); wsSend(socket, { type: 'annotation', annotation_type: 'highlight', page_index: 0, step_id: 1, ann_id: randomUUID(), text: 'Key idea', say: 'This highlighted phrase is the key idea.', tts_url: tts(1) }); wsSend(socket, { type: 'ask', step_id: 2, page_index: 0, mode: 'open', question: 'What is the key idea on this page?' }); wsSend(socket, { type: 'mark_response_complete', step_id: 3 }); wsSend(socket, { type: 'done', step_id: 4 }); return; }
-    if (input.type === 'interject_start') { if (!sessionId) sessionId = randomUUID(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (sessionId) await cascade(socket, userId, sessionId, 'Please acknowledge this voice question.', 'firm', speed, hadAudio); return; } if (input.type === 'interject_question') { if (sessionId) await cascade(socket, userId, sessionId, typeof input.text === 'string' ? input.text : 'Please clarify this PDF.', 'firm', speed, typeof input.audio_b64 === 'string' || typeof input.mime === 'string'); return; }
+      void emitImageGeneration(socket, pageAction, 'page-1', 0, await effFor(userId), undefined, pageBody);
+      // 真实音频：与线上同路径前缀（/api/v1/pdf-annotation/audio-stream/...），TTS 走 BYOK seam，缺失时给占位 webm
+      const pdfAudio = async (step: number, text: string): Promise<string> => {
+        const segment = await synthesize(text, { voice: voiceId, speed, eff: await effFor(userId) });
+        if (segment.stub || !segment.url) {
+          // stub：落一个占位片段到白板目录，再用 pdf 前缀回源（路由会回退到那里）
+          const name = audioFileName(userId, sessionId!, step, text, 'webm');
+          const url = await writeTtsAudio(userId, sessionId!, name, placeholderWebm);
+          return url.replace('/api/v1/whiteboard/audio-stream', '/api/v1/pdf-annotation/audio-stream');
+        }
+        return `/api/v1/pdf-annotation/audio-stream/${userId}/${sessionId}/${segment.url.split('/').pop()}`;
+      };
+      const steps: Array<{ kind: 'speak' | 'annotation' | 'ask'; say: string; text?: string }> = [
+        { kind: 'speak', say: 'Let’s begin with the key idea on this page.' },
+        { kind: 'annotation', text: 'Key idea', say: 'This highlighted phrase is the key idea.' },
+      ];
+      let page = 0; let step = 0;
+      for (const item of steps) {
+        const url = await pdfAudio(step, item.say);
+        if (item.kind === 'speak') wsSend(socket, { type: 'speak', page_index: page, step_id: step, say: item.say, tts_url: url });
+        else wsSend(socket, { type: 'annotation', annotation_type: 'highlight', page_index: page, step_id: step, ann_id: randomUUID().replaceAll('-', ''), text: item.text, say: item.say, tts_url: url });
+        step += 1;
+      }
+      wsSend(socket, { type: 'ask', step_id: step, page_index: page, mode: 'open', question: 'What is the key idea on this page?' });
+      wsSend(socket, { type: 'mark_response_complete', step_id: step + 1 });
+      wsSend(socket, { type: 'done', step_id: step + 2 });
+      return;
+    }
+    if (input.type === 'interject_start') { if (!sessionId) sessionId = randomUUID(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (sessionId) await cascade(socket, userId, sessionId, 'Please acknowledge this voice question.', voiceId, speed, hadAudio, '/api/v1/pdf-annotation/audio-stream'); return; } if (input.type === 'interject_question') { if (sessionId) await cascade(socket, userId, sessionId, typeof input.text === 'string' ? input.text : 'Please clarify this PDF.', voiceId, speed, typeof input.audio_b64 === 'string' || typeof input.mime === 'string', '/api/v1/pdf-annotation/audio-stream'); return; }
     if (input.type === 'action_step_received' || input.type === 'action_step_complete' || input.type === 'user_continue') return; if (input.type === 'navigate_page') { wsSend(socket, { type: 'go_to_page', page: input.page ?? 0, step_id: 0 }); return; }
     if (input.type === 'model_probe') { const started = performance.now(); wsSend(socket, { type: 'model_probe_started' }); try { const text = await chat([{ role: 'user', content: 'Confirm connectivity briefly.' }], 'tts', await effP); const ttft_ms = Math.round(performance.now() - started); wsSend(socket, { type: 'model_probe_result', ok: true, verdict: 'ok_no_context', ttft_ms, text, minimal: { ok: true, ttft_ms, text, error: null } }); } catch { wsSend(socket, { type: 'model_probe_result', ok: false, verdict: 'error', ttft_ms: Math.round(performance.now() - started) }); } }
   })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); });

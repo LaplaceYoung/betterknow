@@ -867,11 +867,31 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/course-calendar/draft', protectedRoute, async (request) => ({ success: true, draft: { ...(request.body as object), tasks: [] } }));
   app.post('/api/v1/course-calendar/accept', protectedRoute, async (request) => ({ success: true, accepted: true, ...(request.body as object) }));
 
-  for (const path of ['/api/v1/pdf-annotation', '/api/v1/pdf-annotation/upload']) app.post(path, protectedRoute, async (request, reply) => { let sessionId = ''; let filename = ''; let mime = 'application/pdf'; let data: Buffer | undefined; for await (const part of request.parts()) { if (part.type === 'file') { filename = part.filename; mime = part.mimetype; data = await part.toBuffer(); } else if (part.fieldname === 'session_id') sessionId = String(part.value); } if (!sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'session_id'], msg: 'Field required' }] }); if (!data) return reply.code(400).send({ detail: 'file is required' }); const fileId = randomUUID().replaceAll('-', ''); publicFiles.set(fileId, { id: fileId, filename, mime, data }); await updateState((state) => { const session = state.whiteboards[sessionId]; if (session?.user_id === request.userId) session.pdf_file_id = fileId; }); return { file_id: fileId, filename, size: data.length }; });
+  for (const path of ['/api/v1/pdf-annotation', '/api/v1/pdf-annotation/upload']) app.post(path, protectedRoute, async (request, reply) => { let sessionId = ''; let filename = ''; let mime = 'application/pdf'; let data: Buffer | undefined; for await (const part of request.parts()) { if (part.type === 'file') { filename = part.filename; mime = part.mimetype; data = await part.toBuffer(); } else if (part.fieldname === 'session_id') sessionId = String(part.value); } if (!sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'session_id'], msg: 'Field required' }] }); if (!data) return reply.code(400).send({ detail: 'file is required' }); const fileId = randomUUID().replaceAll('-', ''); publicFiles.set(fileId, { id: fileId, filename, mime, data }); await updateState((state) => {
+      // 上传可能早于 WS 建会话：这里直接建/补会话记录，否则文件 id 会丢，start_teaching 会报「没有 PDF」
+      const existing = state.whiteboards[sessionId];
+      if (!existing) {
+        state.whiteboards[sessionId] = { session_id: sessionId, user_id: request.userId, status: 'active', messages: [], pdf_state: { revision: 0, file_id: fileId, annotations: [] }, board_state: null, pdf_file_id: fileId, created_at: now() };
+      } else if (existing.user_id === request.userId) {
+        existing.pdf_file_id = fileId;
+        const pdfState = (existing.pdf_state ?? {}) as Record<string, unknown>;
+        existing.pdf_state = { revision: Number(pdfState.revision ?? 0) + 1, file_id: fileId, annotations: (pdfState.annotations as unknown[]) ?? [] };
+      }
+    });
+    return { file_id: fileId, filename, size: data.length }; });
   app.get('/api/v1/pdf-annotation/sessions', protectedRoute, async (request) => ({ sessions: Object.values((await readState()).whiteboards).filter((session) => session.user_id === request.userId && session.pdf_file_id) }));
   app.get('/api/v1/pdf-annotation/course-outlines', protectedRoute, async (request) => ({ courses: Object.values((await readState()).courses).filter((course) => course.user_id === request.userId).map((course) => ({ id: course.courseUuid, uuid: course.courseUuid, title: course.courseTitle })) }));
   app.get('/api/v1/pdf-annotation/course-outlines/:course_uuid/sessions', protectedRoute, async (request, reply) => { const course = await ownedCourse(request); return course ? { sessions: [] } : reply.code(404).send({ detail: 'Course not found' }); });
   app.get('/api/v1/pdf-annotation/pdf/:session_id/:file_id', protectedRoute, async (request, reply) => { const file = publicFiles.get((request.params as { file_id: string }).file_id); return file ? reply.type(file.mime || 'application/pdf').send(file.data) : reply.code(404).send({ detail: 'PDF not found' }); });
+  // PDF 导读的音频路径与白板分开（线上实测 tts_url: /api/v1/pdf-annotation/audio-stream/<user>/<session>/tts_<prefix>_<seq>_<6hex>.wav）
+  app.get('/api/v1/pdf-annotation/audio-stream/:user/:session/:file', async (request, reply) => {
+    const { user, session, file } = request.params as { user: string; session: string; file: string };
+    // 真音频在内容寻址缓存里；stub 时的占位片段还在白板目录，按同一路径回源即可
+    const stored = await readTtsFile(file);
+    if (stored) return reply.type(stored.mime).header('cache-control', 'public, max-age=31536000, immutable').send(stored.bytes);
+    const fallback = await readTtsAudio(user, session, file);
+    return fallback ? reply.type(mimeFor(file)).send(fallback) : reply.code(404).send({ detail: 'Not found' });
+  });
   app.get('/api/v1/video/:id/final_video.mp4', async (request, reply) => { const file = publicFiles.get((request.params as { id: string }).id); return file ? reply.type('video/mp4').send(file.data) : reply.code(404).send({ detail: 'Video not found' }); });
   const getLearningStats = async (userId: string) => {
     const state = await readState();

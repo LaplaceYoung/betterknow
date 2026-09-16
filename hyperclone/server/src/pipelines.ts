@@ -6,6 +6,9 @@ import { randomUUID } from 'node:crypto';
 import { config, type ByokConfig } from './config.js';
 import { now } from './store.js';
 import { publicFiles } from './artifacts.js';
+import { concatScenes, encodeScene, mathSceneHtml, renderFrames, rendererStatus, cleanup as cleanupSceneDir, sceneWorkDir } from './videoRender.js';
+import * as ttsService from './tts.js';
+import { readTtsFile } from './tts.js';
 import { buildCourseCover, storeCover } from './media.js';
 import { image } from './providers/index.js';
 
@@ -297,34 +300,117 @@ async function commandPath(command: string): Promise<string | undefined> {
   return result.promise;
 }
 
-async function renderVideo(scenes: InstructionalScene[]): Promise<Buffer | undefined> {
+async function renderVideoFallback(scenes: InstructionalScene[], workDir: string): Promise<Buffer | undefined> {
   const ffmpeg = await commandPath('ffmpeg'); if (!ffmpeg) return undefined;
-  const directory = await mkdtemp(join(tmpdir(), 'hyperclone-video-')); const output = join(directory, 'final_video.mp4');
+  const directory = workDir; const output = join(directory, 'fallback_video.mp4');
   const total = Math.max(1, scenes.reduce((sum, scene) => sum + Math.max(1, scene.seconds), 0)); let elapsed = 0;
   const overlays = scenes.map((scene) => { const start = elapsed; elapsed += Math.max(1, scene.seconds); const label = scene.title.replace(/[\\:'%]/g, '\\$&').replace(/\n/g, ' '); return `drawtext=text='${label}':fontcolor=white:fontsize=48:x=(w-text_w)/2:y=(h-text_h)/2:enable='between(t,${start},${elapsed})'`; }).join(',');
   const args = ['-y', '-f', 'lavfi', '-i', `color=c=#111827:s=1280x720:r=30:d=${total}`, '-vf', overlays, '-an', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', output];
   const process = spawn(ffmpeg, args, { stdio: ['ignore', 'ignore', 'pipe'] }); const result = deferred<Buffer | undefined>(); let errorText = '';
   process.stderr?.on('data', (chunk: Buffer) => { errorText += chunk.toString(); });
   process.once('error', () => result.resolve(undefined)); process.once('close', (code) => { if (code !== 0) { void errorText; result.resolve(undefined); } else void readFile(output).then(result.resolve).catch(() => result.resolve(undefined)); });
-  const buffer = await result.promise; await rm(directory, { recursive: true, force: true }); return buffer;
+  return await result.promise;
 }
 
-export async function generateInstructionalVideo(topic: string, eff?: ByokConfig, onStage?: (stage: { stage: string; message: string; status: 'started' | 'processing' | 'completed' }) => void): Promise<InstructionalVideo> {
-  const stage = (name: string, message: string, status: 'started' | 'processing' | 'completed' = 'processing'): void => { try { onStage?.({ stage: name, message, status }); } catch { /* 上报端已断 */ } };
-  const cleanTopic = topic.trim() || 'the core idea'; const useModel = (eff ?? config).provider !== 'stub'; let scenes = fallbackScenes(cleanTopic);
+export interface VideoStageReport { stage: string; message: string; status: 'started' | 'processing' | 'completed' }
+export type VideoStageSink = (stage: VideoStageReport) => void;
+
+// 逐幕渲染（manim 风格数学幕 / remotion 风格 HTML 幕）+ ffmpeg 合成；阶段消息与线上同构（r36）。
+export async function generateInstructionalVideo(topic: string, eff?: ByokConfig, onStage?: VideoStageSink): Promise<InstructionalVideo> {
+  const stage = (name: string, message: string, status: VideoStageReport['status'] = 'processing'): void => { try { onStage?.({ stage: name, message, status }); } catch { /* 上报端已断 */ } };
+  const cleanTopic = topic.trim() || 'the core idea';
+  const useModel = (eff ?? config).provider !== 'stub';
+  const renderer = await rendererStatus();
+  stage('initializing', 'Initializing educational video generator...', 'started');
+  stage('code_generation', `Renderers: ${renderer.chromium ? 'chromium' : 'none'} / ${renderer.ffmpeg ? 'ffmpeg' : 'none'} / katex:${renderer.katex ? 'yes' : 'no'}`);
+
+  // 幕：数学幕给 latex 行，HTML 幕给自包含页面
+  let scenes: Array<{ engine: 'manim' | 'remotion'; title: string; narration: string; latex?: string[]; html?: string; seconds: number }> = [];
   if (useModel) {
-    const generated = await askModel(`Create an instructional video storyboard for ${cleanTopic}. Return JSON {scenes:[{title:string,narration:string,seconds:number}]}.`, 'content', eff);
-    const candidate = list(generated?.scenes).map((value) => value && typeof value === 'object' && !Array.isArray(value) ? value as JsonRecord : undefined).filter((value): value is JsonRecord => Boolean(value));
-    if (candidate.length) scenes = candidate.slice(0, 20).map((scene) => ({ title: text(scene.title, 'Key idea'), narration: text(scene.narration, cleanTopic), seconds: typeof scene.seconds === 'number' && scene.seconds > 0 ? Math.min(120, scene.seconds) : 4 }));
+    try {
+      const generated = await askModel(`为「${cleanTopic}」设计一段教学视频分镜。只输出 JSON {"scenes":[{"engine":"manim"|"remotion","title":string,"narration":string,"latex":string[],"html":string,"seconds":number}]}。
+manim 幕用于公式推导（latex 是逐行出现的 TeX，2-5 行）；remotion 幕用于可视化（html 是自包含 HTML，必须定义 window.__seek(ms) 让动画可按时间寻帧，仅内联样式与脚本，配色用 ${'#F2EBE1/#3C3633/#A65A4B'}）。`, 'content', eff);
+      const mapped: Array<{ engine: 'manim' | 'remotion'; title: string; narration: string; latex?: string[]; html?: string; seconds: number }> = [];
+      const rawScenes: unknown[] = Array.isArray(generated?.scenes) ? generated.scenes : [];
+      for (const raw of rawScenes.slice(0, 8)) {
+        const value = (raw ?? {}) as JsonRecord;
+        const engine: 'manim' | 'remotion' = value.engine === 'remotion' ? 'remotion' : 'manim';
+        const latex = list(value.latex).map(String).slice(0, 6);
+        const html = typeof value.html === 'string' ? value.html : undefined;
+        const scene: { engine: 'manim' | 'remotion'; title: string; narration: string; latex?: string[]; html?: string; seconds: number } = {
+          engine,
+          title: text(value.title, cleanTopic),
+          narration: text(value.narration, cleanTopic),
+          seconds: typeof value.seconds === 'number' && value.seconds > 0 ? Math.min(20, value.seconds) : 5,
+          ...(engine === 'manim' ? { latex } : { html }),
+        };
+        if (engine === 'manim' ? latex.length > 0 : Boolean(html)) mapped.push(scene);
+      }
+      scenes = mapped;
+    } catch { scenes = []; }
+  }
+  if (!scenes.length) {
+    // 无模型时的确定性分镜：三幕，公式 + 直觉 + 检验
+    scenes = [
+      { engine: 'manim', title: `${cleanTopic}：核心关系`, narration: `先看 ${cleanTopic} 的核心关系。`, latex: [`${cleanTopic}`, '\text{核心关系: } a^2 + b^2 = c^2'], seconds: 4 },
+      { engine: 'remotion', title: `${cleanTopic}：直觉演示`, narration: `拖动参数观察 ${cleanTopic} 的变化。`, seconds: 4 },
+      { engine: 'manim', title: `${cleanTopic}：检验`, narration: `用一个例子检验理解。`, latex: ['a = 3,\; b = 4 \Rightarrow c = 5'], seconds: 4 },
+    ];
   }
   stage('script_writing', `Scene planning completed: ${scenes.length} scenes`);
-  stage('generate_narration', `Voice generation completed: ${scenes.length + 2} clips`);
+
+  // 旁白：逐幕合成（TTS seam，失败则该幕静音）
+  const work = await sceneWorkDir();
+  const audioPaths: Array<string | undefined> = [];
+  let clips = 0;
+  for (const [index, scene] of scenes.entries()) {
+    const segment = await ttsService.synthesize(scene.narration, { voice: 'calm', speed: 1, eff });
+    if (segment.bytes && !segment.stub) {
+      const path = join(work, `narration_${index}.${segment.ext}`);
+      const stored = await readTtsFile(segment.url.split('/').pop() ?? '');
+      if (stored) { await writeFile(path, stored.bytes); audioPaths.push(path); clips += 1; continue; }
+    }
+    audioPaths.push(undefined);
+  }
+  stage('generate_narration', clips ? `Voice generation completed: ${clips} clips` : 'Voice generation skipped (no TTS key): silent scenes');
   stage('code_generation', `Code generation completed for ${scenes.length} scenes`);
-  scenes.forEach((scene, index) => stage('video_render', `Scene ${index + 1} (local) rendered successfully - ${index + 1}/${scenes.length} completed`));
-  const videoId = randomUUID().replaceAll('-', '').slice(0, 9); const buffer = await renderVideo(scenes); const rendered = Boolean(buffer?.length);
+
+  const parts: string[] = [];
+  for (const [index, scene] of scenes.entries()) {
+    const sceneDir = join(work, `scene_${index}`);
+    const html = scene.engine === 'manim'
+      ? await mathSceneHtml({ engine: 'manim', title: scene.title, narration: scene.narration, latex: scene.latex ?? [], seconds: scene.seconds })
+      : (scene.html ?? '').replace('</head>', `<script>document.addEventListener('DOMContentLoaded',function(){var m=/t=(\d+)/.exec(location.hash||'');if(window.__seek)m&&Number(m[1]);});</script></head>`);
+    const frames = await renderFrames(html, sceneDir, { seconds: scene.seconds, fps: 12 });
+    const encoded = frames ? await encodeScene(sceneDir, 12, join(work, `scene_${index}.mp4`), audioPaths[index]) : false;
+    stage('video_render', `Scene ${index + 1} (${scene.engine}) rendered successfully - ${index + 1}/${scenes.length} completed`);
+    if (encoded) parts.push(join(work, `scene_${index}.mp4`));
+  }
   stage('video_render', 'All scenes rendered, compositing final video...');
-  publicFiles.set(videoId, { id: videoId, filename: 'final_video.mp4', mime: 'video/mp4', data: buffer ?? Buffer.alloc(0) });
-  return { video_id: videoId, rendered, scenes, url: `/api/v1/video/${videoId}/final_video.mp4`, buffer: buffer ?? Buffer.alloc(0) };
+  const videoId = randomUUID().replaceAll('-', '').slice(0, 9);
+  const finalPath = join(work, 'final_video.mp4');
+  const composed = parts.length ? await concatScenes(parts, finalPath) : false;
+
+  let buffer: Buffer = Buffer.alloc(0);
+  let seconds = scenes.reduce((sum, scene) => sum + scene.seconds, 0);
+  if (composed) buffer = Buffer.from(await readFile(finalPath).catch(() => Buffer.alloc(0)));
+  if (!buffer.length && renderer.ffmpeg) {
+    // 没有 Chromium 时的回落：纯 ffmpeg 画面（线上是 manim/remotion，这里明确标注 fallback）
+    const legacy = await renderVideoFallback(scenes.map((scene) => ({ title: scene.title, narration: scene.narration, seconds: scene.seconds })), work);
+    if (legacy?.length) { buffer = legacy; seconds = scenes.reduce((sum, scene) => sum + scene.seconds, 0); }
+  }
+  const rendered = buffer.length > 0;
+  const video: InstructionalVideo = {
+    video_id: videoId,
+    rendered,
+    scenes: scenes.map((scene) => ({ title: scene.title, narration: scene.narration, seconds: scene.seconds })),
+    url: `/api/v1/video/${videoId}/final_video.mp4`,
+    buffer,
+  };
+  publicFiles.set(videoId, { id: videoId, filename: 'final_video.mp4', mime: 'video/mp4', data: buffer });
+  stage('video_render', rendered ? `Video generation completed! ${scenes.length} scenes, ${seconds.toFixed(1)} seconds` : `Video generation finished without a renderer (${scenes.length} scenes)`);
+  await cleanupSceneDir(work);
+  return video;
 }
 
 const winAnsiSpecials: Record<string, number> = { '€': 0x80, '‚': 0x82, 'ƒ': 0x83, '„': 0x84, '…': 0x85, '†': 0x86, '‡': 0x87, 'ˆ': 0x88, '‰': 0x89, 'Š': 0x8a, '‹': 0x8b, 'Œ': 0x8c, 'Ž': 0x8e, '‘': 0x91, '’': 0x92, '“': 0x93, '”': 0x94, '•': 0x95, '–': 0x96, '—': 0x97, '˜': 0x98, '™': 0x99, 'š': 0x9a, '›': 0x9b, 'œ': 0x9c, 'ž': 0x9e, 'Ÿ': 0x9f };

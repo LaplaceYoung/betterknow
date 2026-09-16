@@ -199,3 +199,9 @@
 1. 视频渲染引擎：线上按幕用 manim / remotion 生成代码再渲染，本仓是 ffmpeg 拼场景（阶段帧与 URL 形状一致，画面复杂度差距明显）。
 2. `publish_file` 的「选择条目」在前端没有选择器（后端已按 `indices` 支持，缺 UI）。
 3. 技能产物家族里的 `generate_instructional_video` 之外，线上还有生成 PDF/抽认卡导出等后续步骤（`recommend_next_step` 里出现的「保存为 PDF」），未逐一实现。
+
+**第五批（视频渲染 / 前端 UI / PDF）**
+- 视频：从「ffmpeg 拼字符画面」换成**逐幕渲染**——数学幕 KaTeX + 时间轴寻帧、HTML 幕无头 Chromium 逐帧截图、ffmpeg 逐幕编码与合成；阶段消息与线上逐字一致（`Scene N (manim|remotion) rendered successfully - k/N completed`、`Video generation completed! N scenes, X seconds`）。仍与线上有差距：线上是 manim（Python+LaTeX 真渲染）与 remotion（React 组件），本仓是 KaTeX/Chromium 的等价近似。
+- 前端：对话新增**动画卡片**（sandbox iframe 内运行 + 新窗口打开）、**视频卡片**（原生播放器 + 分幕清单 + 下载）、**文件卡片**（下载）、抽认卡卡片（翻面 + `n / N`）；`tool_execution` 兼容扁平/包装两种 `data`。
+- PDF：通道对齐线上（`pdf_state{revision,file_id,annotations[]}`、`course_state`、`speak/annotation` 真实 `tts_url`、音频前缀 `/pdf-annotation/audio-stream/`）；前端用 **pdf.js** 渲染页面 + 标注短语高亮 + 讲稿流 + 「开始导读」+ 本页提问；上传即建会话（否则 `file_id` 丢失、`start_teaching` 报错）。
+- 原站 PDF 阅读器的入口本轮没打通（知识库 `.file-card` 点击/双击/右键都没进入阅读视图），所以标注的**坐标级**渲染（矩形/区域高亮）没有证据，本仓按「短语文本高亮」实现。

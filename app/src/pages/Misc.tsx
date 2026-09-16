@@ -318,16 +318,128 @@ export function DeepLearnSession() {
 export function PdfSession() {
   const { sessionId = '' } = useParams()
   const [s, setS] = useState<{ session_id?: string; pdf_file_id?: string; session_title?: string } | null>(null)
-  const [script, setScript] = useState<string[]>([])
+  const [script, setScript] = useState<{ say: string; kind?: string; text?: string; page?: number }[]>([])
+  const [page, setPage] = useState(0)
+  const [pdf, setPdf] = useState<{ url: string; fileId: string } | null>(null)
+  const [highlights, setHighlights] = useState<Record<number, string[]>>({})
+  const [pageText, setPageText] = useState<Record<number, string>>({})
+  const [totalPages, setTotalPages] = useState(0)
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const wsRef = useRef<WebSocket | null>(null)
+
   useEffect(() => {
-    apiGet<{ sessions: { session_id: string; pdf_file_id?: string; session_title?: string }[] }>('/pdf-annotation/sessions').then((r) => setS(r.sessions.find((x) => x.session_id === sessionId) ?? r.sessions[0] ?? {})).catch(() => setS({}))
+    apiGet<{ sessions: { session_id: string; pdf_file_id?: string; session_title?: string }[] }>('/pdf-annotation/sessions')
+      .then((r) => setS(r.sessions.find((x) => x.session_id === sessionId) ?? r.sessions[0] ?? {})).catch(() => setS({}))
     const proto = location.protocol === 'https:' ? 'wss' : 'ws'
     const sock = new WebSocket(`${proto}://${location.host}/api/v1/pdf-annotation/ws?access_token=${encodeURIComponent(localStorage.getItem('access_token') ?? '')}&session_id=${encodeURIComponent(sessionId)}`)
-    sock.onopen = () => sock.send(JSON.stringify({ type: 'start_teaching' }))
-    sock.onmessage = (ev) => { const f = JSON.parse(ev.data) as { type: string; say?: string; question?: string; message?: string }; const t = f.say ?? f.question ?? (f.type === 'error' ? f.message : undefined); if (t) setScript((x) => [...x, t]) }
+    wsRef.current = sock
+    sock.onopen = () => sock.send(JSON.stringify({ type: 'resume_session', session_id: sessionId }))
+    const speak = (text: string, url?: string) => { if (!url) return; const audio = new Audio(url); void audio.play().catch(() => {}) }
+    sock.onmessage = (ev) => {
+      const f = JSON.parse(ev.data) as { type: string; say?: string; text?: string; question?: string; message?: string; page_index?: number; tts_url?: string; pdf_state?: { file_id?: string; annotations?: { page_index?: number; text?: string }[] }; file_id?: string }
+      if (f.type === 'session_ready' && (f.pdf_state?.file_id || f.file_id)) setPdf({ url: `/api/v1/pdf-annotation/pdf/${sessionId}/${f.pdf_state?.file_id ?? f.file_id}`, fileId: String(f.pdf_state?.file_id ?? f.file_id) })
+      if (f.type === 'speak') { setScript((x) => [...x, { say: String(f.say ?? ''), kind: 'speak', page: f.page_index ?? 0 }]); speak(String(f.say ?? ''), f.tts_url) }
+      if (f.type === 'annotation') {
+        const index = f.page_index ?? 0
+        setHighlights((h) => ({ ...h, [index]: [...(h[index] ?? []), String(f.text ?? '')] }))
+        setScript((x) => [...x, { say: String(f.say ?? f.text ?? ''), kind: 'annotation', text: f.text, page: index }])
+        speak(String(f.say ?? ''), f.tts_url)
+      }
+      if (f.type === 'go_to_page') setPage(Number((f as { page?: number }).page ?? 0))
+      if (f.type === 'ask') setScript((x) => [...x, { say: String(f.question ?? ''), kind: 'ask' }])
+      if (f.type === 'interject_text') setScript((x) => [...x, { say: String((f as { delta?: string }).delta ?? ''), kind: 'interject' }])
+      if (f.type === 'interject_audio') speak(String((f as { text?: string }).text ?? ''), (f as { audio_url?: string }).audio_url)
+      if (f.type === 'error') setScript((x) => [...x, { say: String(f.message ?? '出错了'), kind: 'error' }])
+    }
     return () => sock.close()
   }, [sessionId])
-  return <div className="flex h-full"><div className="flex-1 bg-[#e9e9eb] flex items-center justify-center">{s?.pdf_file_id ? <iframe title="pdf" src={`/api/v1/pdf-annotation/pdf/${sessionId}/${s.pdf_file_id}`} className="w-[92%] h-[92%] rounded-lg bg-white shadow" /> : <div className="text-[13px] text-[#6b6b70]">{s ? '尚未上传 PDF —— 在即时协助里附上 PDF 并选择「白板课堂」即可逐页讲解' : '加载中…'}</div>}</div><aside className="w-[360px] border-l bg-white p-4 space-y-3 text-[13px] leading-6 overflow-y-auto hk-scroll"><div className="font-semibold">{s?.session_title ?? 'PDF 导读'}</div>{script.map((t, i) => <div key={i} className="hk-fade-in-up">{t}</div>)}</aside></div>
+
+  // 用 pdf.js 渲染当前页，并把 annotation 里的短语标出来（线上 annotation.text 就是页面里要高亮的原文）
+  useEffect(() => {
+    if (!pdf) return
+    let cancelled = false
+    void (async () => {
+      const pdfjs = await import('pdfjs-dist')
+      pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
+      const doc = await pdfjs.getDocument({ url: pdf.url }).promise
+      if (cancelled) return
+      setTotalPages(doc.numPages)
+      const target = Math.min(Math.max(page + 1, 1), doc.numPages)
+      const pdfPage = await doc.getPage(target)
+      const viewport = pdfPage.getViewport({ scale: 1.4 })
+      const canvas = canvasRef.current
+      if (!canvas || cancelled) return
+      canvas.width = viewport.width
+      canvas.height = viewport.height
+      const context = canvas.getContext('2d')
+      if (context) await pdfPage.render({ canvasContext: context, viewport }).promise
+      const content = await pdfPage.getTextContent()
+      const text = content.items.map((item) => ('str' in item ? item.str : '')).join(' ')
+      setPageText((t) => ({ ...t, [page]: text }))
+      const annotated = highlights[page] ?? []
+      if (annotated.length && wsRef.current?.readyState === WebSocket.OPEN) {
+        wsRef.current.send(JSON.stringify({ type: 'sync_pdf_state', pdf_state: { revision: Date.now(), file_id: pdf.fileId, current_page: target, total_pages: doc.numPages, annotations: Object.entries(highlights).flatMap(([index, items]) => items.map((item) => ({ page_index: Number(index), text: item }))) } }))
+      }
+    })().catch(() => undefined)
+    return () => { cancelled = true }
+  }, [pdf, page, highlights])
+
+  const asked = (text: string) => {
+    if (!text.trim()) return
+    wsRef.current?.send(JSON.stringify({ type: 'interject_question', text }))
+    setScript((x) => [...x, { say: text, kind: 'you' }])
+  }
+  const [draft, setDraft] = useState('')
+  const marks = highlights[page] ?? []
+
+  return (
+    <div className="flex h-full">
+      <div className="flex-1 bg-[#e9e9eb] flex flex-col items-center overflow-auto hk-scroll py-6 gap-3">
+        {pdf ? (
+          <>
+            <canvas ref={canvasRef} className="rounded-lg bg-white shadow max-w-[92%]" />
+            <div className="flex items-center gap-2 text-[12px] text-[#3d3d3f]">
+              <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0} className="hk-pill h-8 px-3 disabled:opacity-40">上一页</button>
+              <span>{page + 1} / {totalPages || '…'}</span>
+              <button onClick={() => setPage((p) => Math.min((totalPages || 1) - 1, p + 1))} disabled={totalPages > 0 && page >= totalPages - 1} className="hk-pill h-8 px-3 disabled:opacity-40">下一页</button>
+            </div>
+            {marks.length > 0 && (
+              <div className="max-w-[92%] hk-card px-3.5 py-2.5 w-full" data-testid="pdf-annotations">
+                <div className="text-[11px] text-[#8a8a90] mb-1.5">本页标注 · {marks.length} 处</div>
+                <ul className="space-y-1">
+                  {marks.map((mark, index) => (
+                    <li key={index} className="text-[12px] text-[#3d3d3f]">
+                      <mark className="bg-[#fde68a] px-1 rounded">{mark}</mark>
+                      {pageText[page]?.includes(mark) ? <span className="text-[11px] text-[#8a8a90] ml-2">已在页面文本中定位</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
+        ) : <div className="text-[13px] text-[#6b6b70]">{s ? '尚未上传 PDF —— 在即时帮助里附上 PDF 并选择「白板课堂」即可逐页讲解' : '加载中…'}</div>}
+      </div>
+      <aside className="w-[360px] border-l bg-white flex flex-col">
+        <div className="px-4 py-3 border-b flex items-center gap-2">
+          <span className="text-[13px] font-semibold flex-1 truncate">{s?.session_title ?? 'PDF 导读'}</span>
+          <button onClick={() => wsRef.current?.send(JSON.stringify({ type: 'start_teaching' }))} className="hk-pill h-8 px-3 text-[12px]">开始导读</button>
+        </div>
+        <div className="flex-1 overflow-y-auto hk-scroll p-4 space-y-2 text-[13px] leading-6">
+          {script.map((row, index) => (
+            <div key={index} className={`hk-fade-in-up ${row.kind === 'annotation' ? 'border-l-2 border-[#f59e0b] pl-2' : ''} ${row.kind === 'you' ? 'text-[#1d4ed8]' : ''}`}>
+              {row.kind === 'annotation' && <span className="text-[11px] text-[#8a8a90] block">{row.text}</span>}
+              {row.say}
+            </div>
+          ))}
+          {script.length === 0 && <div className="text-[12px] text-[#8a8a90]">等待老师开始…</div>}
+        </div>
+        <form className="p-3 border-t flex items-center gap-2" onSubmit={(e) => { e.preventDefault(); asked(draft); setDraft('') }}>
+          <input value={draft} onChange={(e) => setDraft(e.target.value)} aria-label="PDF 提问" placeholder="就这一页提问…" className="flex-1 text-[13px] outline-none bg-transparent px-1" />
+          <button className="h-8 px-3 rounded-full bg-[#0a0a0a] text-white text-[12px]">提问</button>
+        </form>
+      </aside>
+    </div>
+  )
 }
 
 export function DevCsmPreview() { return <div className="p-10 text-[13px] text-[#8a8a90]">/dev/csm — 内部客服预览面（契约来源，无用户可见功能）</div> }

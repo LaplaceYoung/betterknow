@@ -144,7 +144,21 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 4. `code_generation` — "Code generation completed for 4 scenes"
 5. `video_render` ×N — "Scene 2 (manim) rendered successfully - 1/4 completed" …（含 `remotion` 引擎的场景）→ "All scenes rendered, compositing final video..." → "Video generation completed! 4 scenes, 87.0 seconds"
 6. `complete` — `tool_status:"completed"`，`data:{message:"Video generated successfully! Access URL: https://api.hyperknow.io/api/v1/video/<9字符id>/final_video.mp4"}`
-上游按幕用 **manim / remotion** 渲染后合成（本仓用本地 ffmpeg 渲染，阶段帧同构、消息里标注 local）。
+上游按幕用 **manim / remotion** 渲染后合成。**本仓实现（同日）**：`src/videoRender.ts` 逐幕渲染——数学幕用 KaTeX（内联样式/脚本）+ 时间轴寻帧（`#t=<ms>` + 页面自定 `window.__seek(ms)`）生成帧序列，HTML 幕用无头 Chromium 逐帧截图（playwright 缓存的 headless shell），再交给 ffmpeg 逐幕编码与 `concat` 合成；旁白走 TTS seam（无 key 时静音）。阶段消息与线上逐字同构（`Scene N (manim|remotion) rendered successfully - k/N completed`）。
+
+## 2.9 PDF 导读通道 `/pdf-annotation/ws?access_token=&session_id=`（2026-09-16 实证 + 本仓实现）
+
+**线上帧形（`reference/evidence/pdf_teaching_trace.json`）**
+- `session_ready{session_id(32hex), resumed:true, pdf_state:{revision, file_id:"ref_…", annotations:[]}, board_state, course_state:{course_session_id, course_session:{…}}}`——PDF 状态是 `revision + annotations[]`，带课程上下文时为课程课节导读。
+- `tts_config{voice_id:"firm", speed:1.0}`（默认 `firm`）。
+- 讲解：`speak{page_index, step_id, say, tts_url:"/api/v1/pdf-annotation/audio-stream/<user>/<session>/tts_<prefix>_<seq>_<6hex>.wav"}` → `annotation{annotation_type:"highlight", page_index, step_id, ann_id, text, say, tts_url}`（`text` 就是**页面上要高亮的原文短语**）→ `ask` → `mark_response_complete` → `done`。
+- 插问沿用级联：`interject_ready{interject_id, mode:"cascade"}` → `interject_text{delta}` → `interject_audio{audio_url, sequence, speed, text}` →（本仓另有 `interject_pcm`）→ `interject_done{control:"none", text}`。
+- 音频路径前缀与白板分开：`/api/v1/pdf-annotation/audio-stream/...`（扩展名实测 `.wav`）。
+- 上传：`POST /api/v1/pdf-annotation/upload`（multipart：`session_id` + `file`）→ `{file_id, filename, size}`；**上传早于 WS 建会话时服务端要自己建会话记录**，否则 `file_id` 会丢、`start_teaching` 直接报「没有 PDF」。
+
+**本仓实现**
+- 音频统一走 TTS 服务层：真音频落内容寻址缓存（`/api/v1/tts/audio/<hash>.<ext>`），PDF 路由按 `/api/v1/pdf-annotation/audio-stream/...` 回源，找不到时回退白板音频目录（stub 占位片段就在那里）。
+- 前端 `PdfSession`：pdf.js 渲染页面（canvas）+ 逐页翻页 + 标注短语高亮面板 + 讲稿流 + 「开始导读」+ 就本页提问；`sync_pdf_state` 回写 `{revision, file_id, current_page, total_pages, annotations[]}`。
 
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
