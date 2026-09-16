@@ -631,3 +631,10 @@
   3. 考试：进 `/exam/unit1` → 「我准备好了」→ 倒计时 `29:59` 起走 → 15 题逐题作答（选项类名 `practice-option-card`，推进按钮 `exam-primary-btn`，最后一题变「提交」）→ 交卷 → 结果页出现「题正确」。
   4. 服务端进度：交卷后 `GET /course-generation/courses/<uuid>/progress-status` 的 `examScores` 从 `{}` 变为 `{"unit1":0}`，`examStarted.unit1` 全程为 `true` —— 考试分数确实落到进度表上（分数 0 是因为假网关的模型输出与盲选，契约本身正确）。
 - 结论：本轮没有发现新缺陷；两条链（媒体/BYOK、进度/评分）各自的关键帧与落库都在。
+
+**第七十九批（网络自检面板）**
+- 白板右上角那个「检查我的网络」此前只把 `/net-check` 的结果塞进一行文字；现在换成线上的 `.netcheck-*` 面板：状态（9 种 verdict，含 `ws_blocked`「你的网络挡住了实时连接」与 `server_draining`）+ 指标（延迟 / 服务器响应 / 实时通道 + 本节课·测试连接）+ 最可能的原因列表 + 进阶检查两张结果卡 + 重新检查 + 「刚刚更新 / N 秒前更新」+ 「上课期间每 30 秒自动重新检查一次」。
+- 探针口径照线上：`GET /net-check?n=` 8 秒超时；实时通道优先复用本节课通道（`viaSession`），没有就单开一条 WS 试连（`viaProbe`）；**模型状态**走白板 WS 的 `model_probe`（服务端真发一次 BYOK chat，`ttft_ms`/verdict 回填到卡片）；语音那一项先用 `/audio-probe` 的轻量版。
+- 修了一处布局：菜单原本没包在 `.netcheck-wrap`（`position:relative`）里，导致相对远祖定位、底部被视口裁掉；现在锚在按钮上，实测 `top 58 / bottom 587 / viewport 755`（不裁切，内容多了走 `overflow-y:auto`）。
+- 实测：状态「已连接到 Hyperknow」+ 延迟/响应 2ms + 实时通道「已连通 · 本节课」；「检查模型状态」→ 卡片 `data-tone=good`「模型有响应 · 简短提问 19 ms」；「检查语音连接」→「语音正常」。
+- 仍未做：DNS/TLS 分项耗时、语音细分的（限速/回放被阻/静音/冷却）verdict、独立的 `net_check_session` 通道。

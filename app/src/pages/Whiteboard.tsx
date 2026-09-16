@@ -8,6 +8,7 @@ import { apiGet, wsUrl } from '@/lib/api'
 import { playSfx } from '@/lib/sfx'
 import { CharVideo } from '@/components/CharVideo'
 import { IdlePrompt } from '@/components/IdlePrompt'
+import { NetCheckPanel } from '@/components/NetCheckPanel'
 import { useIdlePrompt } from '@/lib/useIdlePrompt'
 import { boardNodeToJpeg } from '@/lib/boardExport'
 
@@ -32,7 +33,7 @@ export default function Whiteboard() {
   // 线上白板默认就是 zen（沉浸）模式，工具条上有「Exit zen mode」；这里同样默认沉浸
   const [zen, setZen] = useState(true)
   const [exportOpen, setExportOpen] = useState(false)
-  const [netCheck, setNetCheck] = useState<string>('')
+  const [netPanel, setNetPanel] = useState(false)
   const [quiz, setQuiz] = useState<{ question: string; options: string[]; correct?: number; picked?: number; explanation?: string } | null>(null)
   const [pages, setPages] = useState<Page[]>([])
   const [pageIdx, setPageIdx] = useState(0)
@@ -220,6 +221,10 @@ export default function Whiteboard() {
       else if (f.type === 'image_gen_pending') pushImage({ url: '', caption: f.caption ?? '', width: 512, height: 512, pending: true })
       else if (f.type === 'generated_image') resolveImage({ url: f.image_url ?? '', caption: f.caption ?? '', width: f.width ?? 512, height: f.height ?? 512, pending: false })
       else if (f.type === 'image_gen_failed') failImage()
+      else if (f.type === 'model_probe_result') {
+        // 网络自检面板的「模型状态」用它渲染结果卡片
+        window.dispatchEvent(new CustomEvent('bk:model-probe', { detail: f }))
+      }
       else if (f.type === 'pong' || f.type === 'tts_config' || f.type === 'interject_ready') { /* 心跳 / 配置回显 */ }
       else if (f.type === 'interject_text') { setScript((s) => [...s, { who: 'teacher', text: f.text ?? '' }]); setPaused(false); setAsking(null) }
       // 语音输入：占位气泡（🎤 …）由服务端转写结果替换；interject_user_text/voice_stream_text 是流式增量
@@ -503,7 +508,18 @@ export default function Whiteboard() {
                 style={{ width: 38, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'transparent', color: '#8a8a8a', borderRadius: '0 20px 20px 0' }}><SkipForward size={14} /></button>
             </span>
             <button className="hk-icon-btn h-8 w-8" onClick={() => setZen((v) => !v)} aria-label={zen ? 'Exit zen mode' : '进入沉浸模式'} title={zen ? 'Exit zen mode' : '进入沉浸模式'} data-testid="zen-toggle">{zen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
-            <button className="hk-icon-btn h-8 w-8" aria-label="检查我的网络" title="检查我的网络" data-testid="net-check" onClick={() => { void apiGet<{ ok?: boolean; state?: string }>('/net-check').then((r) => setNetCheck(r?.ok ? '网络正常' : '网络异常')).catch(() => setNetCheck('检查失败')); setTimeout(() => setNetCheck(''), 3000) }}><Activity size={14} /></button>
+            <span className="netcheck-wrap">
+              <button className="hk-icon-btn h-8 w-8" aria-label="检查我的网络" title="检查我的网络" data-testid="net-check"
+                aria-expanded={netPanel} onClick={() => setNetPanel((v) => !v)}>
+                <Activity size={14} className={netPanel ? 'text-[#2563eb]' : undefined} />
+              </button>
+              <NetCheckPanel open={netPanel} onClose={() => setNetPanel(false)} variant="whiteboard"
+                sessionAlive={status !== 'connecting'} sendProbe={(id) => {
+                  if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return false
+                  wsRef.current.send(JSON.stringify({ type: 'model_probe', request_id: id }))
+                  return true
+                }} />
+            </span>
             <button className="hk-icon-btn h-8 w-8" onClick={toggleFullscreen} aria-label={isFullscreen ? '退出全屏' : '全屏沉浸模式'} title={isFullscreen ? '退出全屏 (F)' : '全屏沉浸模式 (F)'}>{isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
             <button className={`hk-icon-btn h-8 w-8${micRecording ? ' text-[#dc2626]' : ''}`} aria-label="录音" data-testid="mic-record"
               title={micTitle} onClick={toggleMic}><Mic size={14} /></button>
@@ -703,7 +719,6 @@ export default function Whiteboard() {
           </div>
         )}
         {exportNote && <div className="px-4 py-1.5 text-[12px] text-[#6b7280]" data-testid="export-note">{exportNote}</div>}
-        {netCheck && <div className="px-4 py-1.5 text-[12px] text-[#3b5bdb]" data-testid="net-check-result">{netCheck}</div>}
       </section>
 
       {/* 线上 .whiteboard-sidebar：tabs（课程大纲 / 学习记录）+ content；「讲稿」是本仓保留的第三个 tab */}

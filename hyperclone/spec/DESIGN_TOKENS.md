@@ -1076,3 +1076,17 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 高亮在 markdown 里就是 `==文字==`（tiptap-markdown 的 highlight tokenizer：`/^(==)([^=]+)(==)/`，HTML 渲染成 `<mark style="background-color: …">`）；文字颜色用 `<span style>` 的 textStyle mark（markdown 无原生语法）。
 
 本仓：三模式、工具栏（加粗/斜体/标题/列表/代码块/公式/换列符/撤销/重做/**文字颜色**/**高亮**/**插入图片**）、排版参数（沿用已有字号/栏数/边距控件）、保存态文案、3 秒静默自动保存、离开拦截弹窗全部接上；**编辑器不是 tiptap**，而是 markdown 文本域 + 工具栏插语法 + 右侧同一套 A4 预览（左编辑/右预览双栏，预览跟随草稿实时刷新），类名是本仓自绘（线上 tiptap 的类名未取证）。插图走 `/drive/upload_file_to_drive` 后插入 `![名](/api/v1/files/<id>)`；**拖动分隔**（`resizeSplit`）与**光标锚点**（`anchorMarkerLabel`「光标」+ `anchorMarkerHint`「内容将添加在此行之后」）已接：分隔条在编辑区与预览之间（悬停变蓝并加长），锚点芯片在工具栏下方显示「第 N 行 · 内容将添加在此行之后」，随光标移动更新。
+
+### 网络自检面板（第五十八批，VoiceModeModal 样式表 + r137 探针 + i18n）
+
+结构：`「检查我的网络」按钮` 包在 `.netcheck-wrap` 里（`position:relative`，菜单相对它定位），点开渲染 `.netcheck-backdrop` + `.netcheck-menu[data-variant]`（320px、`max-height:min(70vh,620px)`、`overflow-y:auto`）：
+
+- `.netcheck-status[data-tone=idle|good|warn|bad]`：`.netcheck-status-dot`（9px 圆点）+ `.netcheck-status-text` 的标题/详情
+- `.netcheck-metrics` 的 `.netcheck-metric`（延迟 / 服务器响应 / DNS 解析 / 安全握手 / 实时通道）+ `.netcheck-metric-note`（本节课 / 测试连接）
+- `.netcheck-causes`（`.netcheck-section-title` + 列表：防火墙 / 代理 / VPN / DNS / TLS 拦截 / Wi-Fi / 门户 / 带宽）
+- `.netcheck-advanced`：`.netcheck-card[data-tone=good|warn|bad]` 承载「语音连接」「模型状态」两张结果卡（标题/详情/`.netcheck-card-metrics` 的 dt-dd/`.netcheck-card-foot`）
+- `.netcheck-footer` 的 `.netcheck-recheck` + `.netcheck-note`（刚刚更新 / {{seconds}} 秒前更新），`.netcheck-auto-note`「上课期间每 30 秒自动重新检查一次。」
+
+文案全部取自线上 zh 词典 `netCheck.*`（状态 9 种、原因 9 条、语音 8 种、模型 8 种）；CSS 48 条原文进 `index.css`。
+
+本仓实现：主探针 `GET /net-check?n=`（8s 超时，503 + `state:draining` 判「更新中」）+ 实时通道探测（本节课通道活着 → `viaSession`，否则单开一条 WS 试连 → `viaProbe`）+ 模型状态走白板 WS 的 `model_probe`（服务端真发一次 BYOK chat，回 `ttft_ms` 与 verdict）+ 语音那一项用 `/audio-probe` 做轻量版。**未做**：DNS/TLS 分项耗时、音频限速/回放/静音/冷却这些细分 verdict（需要真下音频量速度与播放器状态）、`net_check_session` 专线通道（本仓的 WS `model_probe` 已够用）。
