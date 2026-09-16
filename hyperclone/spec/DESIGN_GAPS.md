@@ -394,3 +394,11 @@
 - 找到线上星星组件本体 `PracticeStars-DY5xk-t2.js`（731B）并逐字搬运为 `app/src/components/PracticeStars.tsx`：默认 12px、实心 `#E8B54B`/描边 `#C98A1E`、空心描边 `#D4D4D4`、`strokeWidth 1.4`、带动画时每颗延迟 `140 + 200*i`、`role="img"` 与 `${n} of 3 stars` 的默认标签。课程页原来那版自绘星星（14px / `#f5a524` / 无延迟）已替换——之前只是"看着像"，现在与线上逐字一致。实测 width 12 / fill `#E8B54B` / stroke `#C98A1E` / 三段延迟 140/340/540ms。
 - 掌握态机按线上 `Fe()` 落地为 `practiceState()`：`notStarted → inProgress → done → rated（≥1 星）/ retry（0 星）`；课程页行状态点从「正确率 ≥0.8 → mastered」改为该状态机，图例补 `rated/retry/done/inProgress/notStarted`。实测状态点 aria-label 变为「已掌握」。
 - **学习动态/课程卡不接星级**：这两处没有 per-session 的练习统计（学习动态是任务、课程卡是课程级），线上也没有对应渲染位置，不做。
+
+**第四十批（练习 HUD 分数口径纠错 + 槽位数字/彩带/音效对齐）**
+- **修掉一个真错**：练习 HUD 的「得分」此前显示的是**答对题数**（`setScore(s => s + (isRight ? 1 : 0))`），线上显示的是 `scoreQuiz` 的 `total`（600 起、连对步进、速答 +200）。现已改为走 `scoreQuiz` 派生，与交卷提交的 `points` 同源。实测五题全对：HUD 逐题 800 → 1,700 → 2,700 → 3,800 → 5,000，服务端落库 `score: 5000 / perfect: 5000 / stars: 3 / correct 5-5`，两边一致。
+- 槽位数字换成线上实现（30 字符 strip、em 位移、千分位 `.practice-slot-sep`、逐位 45ms 延迟、`aria-hidden` + `.practice-sr-only` 镜像、reduced-motion 不滚）；旧版是自绘的两位字符滚动，位数、逗号、无障碍都没有。
+- 连对 chip 按「`streak >= 2` 才显示」补上，streak 取自 `scoreQuiz`（答错/跳过清零），实测第 2 题起显示「连对 2」……「连对 5」。
+- 彩带改成线上公式（颗数 `26+8*level`、调色板 7 色、锚点分数 chip 中心），此前是自造的 28 片与 5 色调色板；奖励节奏照抄（冻旧分数 → 420ms 解冻+高亮 → 960ms 清彩带）。
+- **音效接通**：答对/答错/下一题/跳过四处播放线上同款 mp3（音量 0.6，`play().catch()` 静默失败）。资产早前已从线上抓到 `app/public/assets/img/sounds/`，但一直没接。
+- **考试 `fastWindowMs` 结案**：ExamPage 读的是考试数据上的 `j.fastWindowMs`，本仓由服务端下发 10000；线上那门课的考试仍锁着，拿不到真实 payload，只能确认共享模块常量是 `1e4`，取值口径一致。

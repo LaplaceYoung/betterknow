@@ -360,6 +360,8 @@
 .practice-hud { display: inline-flex; align-items: center; gap: 8px; margin-right: 2px; }
 .practice-hud-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 13px; border: 1.5px solid #D6E0F0; border-radius: 999px; background: #f7faff; color: #5b6f94; font-size: 12.5px; }
 .practice-hud-chip b { color: #2a4578; font-variant-numeric: tabular-nums; font-size: 13px; }
+.practice-hud-chip--streak { border-color: #e8d48a; background: #fffbea; color: #a68b2c; box-shadow: inset 0 1px #ffffffe6, 0 3px #f0e4b0; }
+.practice-hud-chip--streak b { color: #8f7620; }
 .practice-hud-chip--bonus { border-color: #e8d48a; background: #fffbea; color: #a68b2c; box-shadow: inset 0 1px rgba(255,255,255,.9), 0 3px #f0e4b0; }
 .practice-hud-chip--bonus b { min-width: 26px; color: #8f7620; text-align: right; }
 .practice-assistant-toggle { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 0 14px; border: 1.5px solid #E0E4EC; border-radius: 999px; background: #fff; color: #5b6472; cursor: pointer; font-size: 12.5px; transition: all .15s ease; }
@@ -429,12 +431,18 @@
 .practice-feedback--incorrect .practice-verdict-headline { background: rgba(195,71,71,.08); color: #a83838; border: 1px solid rgba(195,71,71,.14); }
 .practice-feedback--incorrect .practice-verdict-mark { background: #c34747; box-shadow: 0 1px 2px rgba(168,56,56,.22); }
 .practice-feedback-explanation { margin: 0; color: #555; font-weight: 400; line-height: 1.55; font-size: 13.5px; }
-/* 线上 .practice-slot-*：分数逐位滚动 */
+/* 线上 .practice-slot-*：分数逐位滚动（r116 取自线上样式表原文） */
 .practice-slot-score { display: inline-flex; align-items: center; font-variant-numeric: tabular-nums; line-height: 1; }
+.practice-slot-sep { display: inline-block; padding: 0 .02em; }
 .practice-slot-digit { position: relative; display: inline-block; overflow: hidden; vertical-align: top; height: 1.05em; }
 .practice-slot-digit-char { display: flex; align-items: center; justify-content: center; height: 1.05em; line-height: 1.05em; }
-.practice-slot-digit-strip { display: flex; flex-direction: column; animation: practice-slot-roll .72s cubic-bezier(.22,1,.36,1) var(--slot-delay) both; }
+.practice-slot-digit-strip { display: flex; flex-direction: column; transform: translateY(var(--slot-from)); animation: practice-slot-roll .72s cubic-bezier(.22,1,.36,1) var(--slot-delay) both; }
 @keyframes practice-slot-roll { 0% { transform: translateY(var(--slot-from)); } to { transform: translateY(var(--slot-to)); } }
+.practice-sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.practice-hud-chip--score-reward { border-color: #e8d48a; background: #fffbf0; color: #c9920a; box-shadow: inset 0 1px #fffffff2, 0 3px #f0e4b0; transition: border-color .28s ease, background .28s ease, color .28s ease, box-shadow .28s ease; animation: practice-score-chip-pop .38s cubic-bezier(.22,1,.36,1); }
+.practice-hud-chip--score-reward b { color: #c9920a; transition: none; }
+@keyframes practice-score-chip-pop { 0% { transform: scale(1); } 35% { transform: scale(1.07); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .practice-slot-digit-strip { animation: none; transform: translateY(var(--slot-to)); } }
 
 /* 线上 .preview-* 讲义阅读器（A4 1123×794 / 列布局 / 缩放外框 / 缩放控件） */
 .preview-page-shell { position: relative; display: flex; flex-direction: column; height: 100dvh; background: #fafafa; }

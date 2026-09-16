@@ -5,7 +5,15 @@ import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { apiGet, apiPost } from '@/lib/api'
-import { perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
+import { SCORING, perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
+import { SlotNumber } from '@/components/SlotNumber'
+import { playSfx } from '@/lib/sfx'
+
+// 线上练习彩带的调色板（T 数组）与 reduced-motion 判断
+const CONFETTI_COLORS = ['#FFD95A', '#5BC878', '#5B9CF5', '#FF8F6B', '#C88AFF', '#FF6B9D', '#F0C84A']
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export interface Question {
   id: string
@@ -304,6 +312,24 @@ function QuizRunner({
 
   const q = questions[i]
   const [confetti, setConfetti] = useState<Array<{ id: number; x: number; y: number; dx: number; dy: number; rotate: number; duration: number; delay: number; color: string; shape: 'rect' | 'circle'; size: number }>>([])
+  // 线上 HUD 的分数/连对与交卷提交的 points 同一个来源：quizScoring
+  const points = useMemo(() => {
+    const revealed: Record<string, boolean> = {}
+    const correctness: Record<string, boolean> = {}
+    for (const [idx, ans] of Object.entries(answersState)) {
+      const id = questions[Number(idx)]?.id
+      if (!id) continue
+      revealed[id] = true
+      correctness[id] = ans
+    }
+    return scoreQuiz({ questionIds: questions.map((qq) => qq.id), revealedQuestions: revealed, skippedQuestions, questionCorrectness: correctness, fastAnswers })
+  }, [answersState, questions, skippedQuestions, fastAnswers])
+  // 线上答对后的奖励节奏：先冻住旧分数 → 彩带 → 420ms 后解冻并给分数 chip 加 --score-reward 高亮
+  const [reward, setReward] = useState(false)
+  const [frozenTotal, setFrozenTotal] = useState<number | null>(null)
+  const rewardTimers = useRef<number[]>([])
+  const scoreChipRef = useRef<HTMLSpanElement | null>(null)
+  useEffect(() => () => { rewardTimers.current.forEach((t) => window.clearTimeout(t)) }, [])
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
@@ -326,28 +352,31 @@ function QuizRunner({
       : picked.length === correct.length && picked.every((p) => correct.includes(p))
 
 
-  const burst = () => {
-    const colors = ['#4573c2', '#2e8b57', '#c98a1e', '#c34747', '#4c6696']
-    const now = Date.now()
-    const pieces = Array.from({ length: 28 }, (_, k) => {
-      const angle = (Math.PI * 2 * k) / 28 + Math.random() * 0.4
-      const distance = 90 + Math.random() * 150
+  const burst = (isFast: boolean, streakLevel: number) => {
+    const anchor = scoreChipRef.current?.getBoundingClientRect()
+    if (!anchor) return
+    const centerX = anchor.left + anchor.width / 2
+    const centerY = anchor.top + anchor.height / 2
+    const level = (isFast ? 1 : 0) + (streakLevel > 0 ? 1 : 0)
+    const count = 26 + 8 * level
+    const pieces = Array.from({ length: count }, (_, k) => {
+      const angle = (2 * Math.PI * k) / count + 0.55 * (Math.random() - 0.5)
+      const distance = 48 + 62 * Math.random()
       return {
-        id: now + k,
-        x: window.innerWidth / 2 + (Math.random() - 0.5) * 180,
-        y: window.innerHeight * 0.42 + (Math.random() - 0.5) * 60,
+        id: Date.now() + k,
+        x: centerX,
+        y: centerY,
         dx: Math.cos(angle) * distance,
-        dy: Math.sin(angle) * distance - 40,
-        rotate: Math.round((Math.random() - 0.5) * 720),
-        duration: 0.78 + Math.random() * 0.4,
-        delay: Math.random() * 0.08,
-        color: colors[k % colors.length],
-        shape: (k % 2 === 0 ? 'rect' : 'circle') as 'rect' | 'circle',
-        size: 6 + Math.random() * 5,
+        dy: Math.sin(angle) * distance * 0.85 - (18 + 22 * Math.random()),
+        rotate: Math.round(520 * (Math.random() - 0.5)),
+        duration: (840 + 80 * Math.random()) / 1000,
+        delay: (50 * Math.random()) / 1000,
+        color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+        shape: (Math.random() > 0.45 ? 'rect' : 'circle') as 'rect' | 'circle',
+        size: 5 + 4 * Math.random(),
       }
     })
     setConfetti(pieces)
-    window.setTimeout(() => setConfetti([]), 1500)
   }
 
   const startExam = () => {
@@ -360,11 +389,34 @@ function QuizRunner({
     setChecked(true)
     setAnswersState((prev) => ({ ...prev, [i]: isRight }))
     setUserAnswers((prev) => ({ ...prev, [i]: { picked, fill, isRight } }))
-    if (isRight && left > 0) { setBonus((value) => value + SPEED_BONUS); setFastAnswers((f) => ({ ...f, [q.id]: true })) }
-    if (isRight) burst()
+    const isFast = isRight && left > 0
+    if (isFast) { setBonus((value) => value + SPEED_BONUS); setFastAnswers((f) => ({ ...f, [q.id]: true })) }
+    playSfx(isRight ? 'correct' : 'wrong')
+    if (isRight) {
+      const previousTotal = points.total
+      const upgraded = scoreQuiz({
+        questionIds: questions.map((qq) => qq.id),
+        revealedQuestions: { ...Object.fromEntries(Object.keys(answersState).map((idx) => [questions[Number(idx)]?.id ?? '', true])), [q.id]: true },
+        skippedQuestions,
+        questionCorrectness: { ...Object.fromEntries(Object.entries(answersState).map(([idx, ok]) => [questions[Number(idx)]?.id ?? '', ok])), [q.id]: true },
+        fastAnswers: isFast ? { ...fastAnswers, [q.id]: true } : fastAnswers,
+      })
+      if (prefersReducedMotion()) { setReward(true); burst(isFast, upgraded.streak) }
+      else {
+        setFrozenTotal(previousTotal)
+        setReward(false)
+        rewardTimers.current.forEach((t) => window.clearTimeout(t))
+        rewardTimers.current = [
+          window.setTimeout(() => { setFrozenTotal(null); setReward(true) }, 420),
+          window.setTimeout(() => setConfetti([]), 960),
+        ]
+        burst(isFast, upgraded.streak)
+      }
+    } else setReward(false)
   }
 
   const next = () => {
+    playSfx('click')
     const updatedAnswers = { ...userAnswers, [i]: { picked, fill, isRight } }
     if (i + 1 >= questions.length) {
       {
@@ -449,9 +501,18 @@ function QuizRunner({
             速答奖励 <b>+{fastBonus}</b><b>{fastLeft}s</b>
           </span>
         )}
-        <div className="practice-hud">
-          <span className="practice-hud-chip practice-hud-chip--bonus">速答奖励 <b>+{SPEED_BONUS}</b>{!checked && <span>{left}s</span>}</span>
-          <span className="practice-hud-chip practice-hud-chip--score">得分 <b><PracticeScore value={score} /></b>{bonus ? <span className="text-[11px] text-[#8f7620]">+{bonus}</span> : null}</span>
+        <div className="practice-hud" role="status" aria-live="off">
+          {points.streak >= 2 && <span className="practice-hud-chip practice-hud-chip--streak" data-testid="streak-chip">连对 <b>{points.streak}</b></span>}
+          <span className="practice-hud-chip practice-hud-chip--bonus" data-testid="bonus-chip">
+            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" aria-hidden="true">
+              <path d="M6.2 0.6L0.8 7.2h3.4l-.9 5.2 5.9-7h-3.5z" fill="currentColor" />
+            </svg>
+            速答奖励 <b>+{SCORING.fastBonus}</b>{!checked && left > 0 && <b>{left}s</b>}
+          </span>
+          <span ref={scoreChipRef} data-testid="score-chip"
+            className={`practice-hud-chip practice-hud-chip--score${reward ? ' practice-hud-chip--score-reward' : ''}`}>
+            得分 <b><SlotNumber value={frozenTotal ?? points.total} /><span className="practice-sr-only">{points.total.toLocaleString()}</span></b>
+          </span>
         </div>
         <button className="practice-assistant-toggle" onClick={() => setAssistantOpen(true)}><Lightbulb size={13} /> 助手</button>
       </div>
@@ -1152,23 +1213,6 @@ export function Project() {
         stageTitle={stage.stage_title}
       />
     </div>
-  )
-}
-
-// 线上 .practice-slot-score：分数逐位滚动（strip 从上一层数字滚到当前数字）
-function PracticeScore({ value }: { value: number }) {
-  const digits = String(value).split('')
-  return (
-    <span className="practice-slot-score">
-      {digits.map((d, i) => (
-        <span key={i} className="practice-slot-digit" style={{ width: '1ch' }}>
-          <span className="practice-slot-digit-strip" key={`${i}-${d}`} style={{ ['--slot-from' as string]: '-105%', ['--slot-to' as string]: '0%', ['--slot-delay' as string]: `${i * 60}ms` }}>
-            <span className="practice-slot-digit-char">{d}</span>
-            <span className="practice-slot-digit-char">{d}</span>
-          </span>
-        </span>
-      ))}
-    </span>
   )
 }
 

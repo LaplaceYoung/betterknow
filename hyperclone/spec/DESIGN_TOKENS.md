@@ -486,3 +486,35 @@ stars = (score, perfect) => ratio >= .8 ? 3 : ratio >= .55 ? 2 : ratio >= .25 ? 
 | 掌握态机 | CourseJourneyPage 里的 `Fe()`：`notStarted → inProgress → done → rated(≥1 星)/retry(0 星)`，finished 且无 stars 时为 `done`，返回时带 `{stars, score, perfect}` | 同，落成 `practiceState()`（与组件同文件）；课程页行状态点改用该状态机取值 |
 | 状态点图例 | — | 课程页 `LEGEND` 增加 `rated 已掌握`、`retry 待重练`、`done 已完成`、`inProgress 进行中`、`notStarted 未开始`（旧键保留兼容） |
 
+### 练习 HUD 三件套与奖励节奏（第二十七批，r112 + r116）
+
+线上 `practice-hud`（`role="status"` `aria-live="off"`，`display:inline-flex;gap:8px;margin-right:2px`）里是三个 chip：
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 连对 chip | `{streak >= 2 && <span className="practice-hud-chip practice-hud-chip--streak">{t('practice.score.streak')} <b>{streak}</b></span>}`；`.practice-hud-chip--streak{border-color:#e8d48a;background:#fffbea;color:#a68b2c;box-shadow:inset 0 1px #ffffffe6,0 3px #f0e4b0}` | 同：`points.streak >= 2` 时显示「连对 <b>n</b>」，streak 取自 `scoreQuiz` 的输出（答错或跳过清零） |
+| 速答 chip | 闪电 svg（`M6.2 0.6L0.8 7.2h3.4l-.9 5.2 5.9-7h-3.5z`）+ `t('practice.score.speedBonus', {points: C.fastBonus})` + `<b>{secondsLeft}s</b>`；`.practice-hud-chip--bonus{gap:6px;...同上配色}` | 同形：闪电 svg + 「速答奖励 <b>+{SCORING.fastBonus}</b>」+ `<b>{left}s</b>` |
+| 得分 chip | `{t('practice.score.label')} <b ref={Re}><SlotNumber value={Be ?? Dt.total} /><span className="practice-sr-only">{Dt.total.toLocaleString()}</span></b>`，`Ie` 为真时加 `practice-hud-chip--score-reward` | 同：`SlotNumber` 值取 `frozenTotal ?? points.total`（points 走 quizScoring），另配 `.practice-sr-only` 的本地化文本 |
+
+**槽位数字**（`F`/`q` 两个组件，逐字搬运）：
+```jsx
+const SHIFT = 1.05
+// 每位 = 30 个字符（0-9 三遍）的竖排 strip，style: --slot-from = -(fromDigit+10)*1.05em，--slot-to = -(digit+20)*1.05em，--slot-delay = 45*(位数-1-下标)ms
+// 位数变多时左侧补 0；toLocaleString 出来的逗号走 .practice-slot-sep
+// 整个数字 aria-hidden="true"；prefers-reduced-motion 时不滚（CSS: .practice-slot-digit-strip{animation:none;transform:translateY(var(--slot-to))}）
+@keyframes practice-slot-roll{0%{transform:translateY(var(--slot-from))}to{transform:translateY(var(--slot-to))}}
+```
+
+**答对后的奖励节奏**（原文）：答对时若允许动画 → 先把显示值冻在旧分数（`$e(prevTotal)`）、撒彩带 → 420ms 后解冻并给 chip 加 `--score-reward`，960ms 清彩带；`prefers-reduced-motion` 时直接高亮不撒彩带。奖励态在下一次作答前保持。
+
+```css
+.practice-hud-chip--score-reward{border-color:#e8d48a;background:#fffbf0;color:#c9920a;box-shadow:inset 0 1px #fffffff2,0 3px #f0e4b0;transition:border-color .28s ease,background .28s ease,color .28s ease,box-shadow .28s ease;animation:practice-score-chip-pop .38s cubic-bezier(.22,1,.36,1)}
+@keyframes practice-score-chip-pop{0%{transform:scale(1)}35%{transform:scale(1.07)}to{transform:scale(1)}}
+```
+
+**彩带公式**（原文）：`level = (fast?1:0) + (streak>0?1:0)`，颗数 `26 + 8*level`；每颗角度 `2πk/count + .55*(rand-.5)`、距离 `48+62*rand`、`dy = sin*r*0.85 - (18+22*rand)`、`rotate = 520*(rand-.5)`、`size = 5+4*rand`、`shape = rand>.45 ? rect : circle`、`delay = 50*rand`ms、`duration = 840+80*rand`ms；调色板 `["#FFD95A","#5BC878","#5B9CF5","#FF8F6B","#C88AFF","#FF6B9D","#F0C84A"]`；锚点是分数 chip 的中心，渲染进 `.practice-check-confetti-layer` portal。
+
+**音效**（练习页三处，均为 `const a = new Audio(path); a.volume = .6; a.play().catch(()=>{})`）：
+- 判定：答对 `/sounds/answer-correct.mp3`、答错 `/sounds/answer-wrong.mp3`
+- 「下一题」与「跳过」按钮：`/sounds/button-click.mp3`
+
