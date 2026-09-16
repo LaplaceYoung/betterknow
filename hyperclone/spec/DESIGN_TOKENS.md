@@ -807,3 +807,24 @@ POST /api/v1/course-generation/courses/{courseId}/project/assistant
 
 实测：stub 流 → `🛠️ 针对「Research Question and Methodology Design」的实施目标：…`（阶段名解析正确）；配流式假网关 → 拼接结果「先明确输入输出契约，再设计两组基准用例。」；浏览器里项目页助手面板发问后，助手气泡就是这段模型文本。
 
+### 学习动态的日历（第四十批，proactive bundle + r157~r159）
+
+线上学习动态页的日历是 `.calendar-*` 一套，另有 `.date-picker-header` 做月份导航：
+
+```
+.date-picker-header（.date-picker-nav-btn × 2 + .date-picker-month-label「九月 2026」）
+.calendar-grid（.week-view 时加类）
+  .calendar-weekdays > .calendar-weekday × 7（日一二三四五六，周日打头）
+  .calendar-days-grid（按月 6×7；周视图再加 .week-view-grid）
+    .calendar-day（.other-month / .today / .selected / .week-view-day）
+      .calendar-day-number
+      .calendar-day-events
+        .calendar-event（.scheduled-event；--event-color-light/dark/text 用内联变量）
+        .calendar-event-more（超出 3 条时的 +N）
+      .calendar-day-task-count（仅周视图）
+```
+
+事件配色：`{dark,light,text}` 三套色板（`#4C6694/#E8F0F8/#3D5477`、`#6681D6/#EBEFFA/#4A5FB8`、`#2196F3/#E3F2FD/#1565C0`）按标题字符码之和对 3 取模。月份名 zh：一月…十二月（`proactive.months`），weekdays zh：日一二三四五六。
+
+实测本仓：`calendar-grid` + 周标题「日一二三四五六」+ 42 格（月初补 `.other-month`）+ 今日/选中高亮 + 头部「九月 2026」与左右箭头（点右侧 → 「十月 2026」）；事件 chip 带 `scheduled-event` 与色板内联变量（浅蓝 `#E8F0F8` / `#EBEFFA` 两色都出现）；周视图 7 格 `.week-view-day` 且每格带 `.calendar-day-task-count`；左栏显示所选日期与任务数。
+

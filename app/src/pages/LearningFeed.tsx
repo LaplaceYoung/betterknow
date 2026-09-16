@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ChevronLeft, ChevronRight, Check, Clock, CalendarPlus, Circle } from 'lucide-react'
+import { Check, Clock, CalendarPlus } from 'lucide-react'
 import { apiGet, apiPost } from '@/lib/api'
 import { useNavigate } from 'react-router'
 
@@ -10,8 +10,16 @@ interface Task {
   progress?: number
   subtasks?: { subtask_id?: string; task_id?: string; title?: string; status?: string }[]
 }
-const WEEK = ['一', '二', '三', '四', '五', '六', '日']
-const COLORS = ['#dbeafe', '#dcfce7', '#fef3c7', '#fde2e2', '#ede9fe']
+// 线上 weekdays：周日打头（sun..sat）；事件配色按标题字符和取模（course 事件三色板）
+const WEEK = ['日', '一', '二', '三', '四', '五', '六']
+const WEEK_LONG = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+const MONTHS = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+const EVENT_PALETTE = [
+  { dark: '#4C6694', light: '#E8F0F8', text: '#3D5477' },
+  { dark: '#6681D6', light: '#EBEFFA', text: '#4A5FB8' },
+  { dark: '#2196F3', light: '#E3F2FD', text: '#1565C0' },
+]
+const eventColor = (title: string) => EVENT_PALETTE[title.split('').reduce((sum, ch) => sum + ch.charCodeAt(0), 0) % EVENT_PALETTE.length]
 const sameDay = (a: Date, b: Date) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate()
 
 // [S21][B12] 学习动态：日历任务来自服务端 /calendar/tasks；确认/完成写回
@@ -28,6 +36,7 @@ export default function LearningFeed() {
     setSelected({}); setSelectMode(false); await load()
   }
   const today = new Date()
+  const [selectedDate, setSelectedDate] = useState(() => new Date())
   const load = () => apiGet<{ tasks: Task[] }>('/calendar/list_main_tasks').then((r) => setTasks((r.tasks ?? []).map((t) => ({ ...t, id: t.id ?? t.task_id ?? '' })))).catch(() => apiGet<{ tasks: Task[] }>('/calendar/tasks').then((r) => setTasks(r.tasks)).catch(() => setTasks([])))
   useEffect(() => { void load() }, [])
 
@@ -37,7 +46,7 @@ export default function LearningFeed() {
     return Array.from({ length: 42 }, (_, i) => { const d = new Date(start); d.setDate(start.getDate() + i); return d })
   }, [cursor])
   const shown = useMemo(() => (tasks ?? []).filter((t) => filter === 'all' || t.status === filter), [tasks, filter])
-  const todays = useMemo(() => (tasks ?? []).filter((t) => sameDay(new Date(t.scheduled_for), today) && t.status !== 'done'), [tasks, today])
+  const dayTasks = useMemo(() => (tasks ?? []).filter((t) => sameDay(new Date(t.scheduled_for), selectedDate) && t.status !== 'done'), [tasks, selectedDate])
   const dones = useMemo(() => (tasks ?? []).filter((t) => t.status === 'done'), [tasks])
   const act = async (t: Task, action: 'confirm' | 'done') => { await apiPost('/calendar/approve_tasks', { task_id: t.id, action }); await load() }
   // 任务详情（线上：描述 + 子任务 + 进度 + 开始课堂/删除任务）
@@ -65,15 +74,16 @@ export default function LearningFeed() {
       <div className="proactive-layout">
       <aside className="proactive-left">
         <div className="hk-card p-4">
-          <div className="text-[12px] text-[#8a8a90]">今日</div>
-          <div className="text-[40px] font-semibold leading-none mt-1">{today.getDate()}</div>
-          <div className="text-[12px] text-[#6b6b70] mt-1">{today.getMonth() + 1} 月 · 星期{WEEK[(today.getDay() + 6) % 7]}</div>
+          <div className="text-[12px] text-[#8a8a90]">{sameDay(selectedDate, today) ? '今日' : '已选日期'}</div>
+          <div className="text-[40px] font-semibold leading-none mt-1">{selectedDate.getDate()}</div>
+          <div className="text-[12px] text-[#6b6b70] mt-1">{selectedDate.getMonth() + 1} 月 · {WEEK_LONG[selectedDate.getDay()]}</div>
+          <div className="text-[12px] text-[#6b6b70] mt-1">{(tasks ?? []).filter((t) => sameDay(new Date(t.scheduled_for), selectedDate)).length} 个任务</div>
         </div>
         <div>
-          <h3 className="hk-section-title mb-2">今日待办</h3>
+          <h3 className="hk-section-title mb-2">{sameDay(selectedDate, today) ? '今日待办' : '当日待办'}</h3>
           {tasks === null && <div className="hk-skeleton h-16 rounded-xl" />}
-          {tasks && todays.length === 0 && <div className="text-[12px] text-[#8a8a90] hk-card p-3">今天没有安排，去课程里加一个学习计划吧</div>}
-          <ul className="space-y-2">{todays.map((t) => (
+          {tasks && dayTasks.length === 0 && <div className="text-[12px] text-[#8a8a90] hk-card p-3">这一天没有安排，去课程里加一个学习计划吧</div>}
+          <ul className="space-y-2">{dayTasks.map((t) => (
             <li key={t.id} className="hk-card p-3"><div className="text-[13px] font-medium leading-5">{t.title}</div><div className="text-[11px] text-[#8a8a90] mt-0.5 inline-flex items-center gap-1"><Clock size={10} />{t.duration_min ?? 30} 分钟 · {t.course_title ?? '学习任务'}</div>
               <div className="flex gap-1.5 mt-2">{t.status === 'pending' && <button onClick={() => act(t, 'confirm')} className="hk-pill h-7 text-[11px] px-2">确认</button>}<button onClick={() => act(t, 'done')} className="hk-pill h-7 text-[11px] px-2"><Check size={11} />完成</button></div></li>
           ))}</ul>
@@ -104,18 +114,58 @@ export default function LearningFeed() {
               className="proactive-tasks-mode-btn">{v === 'week' ? '周' : '月'}</button>
           ))}</div>
         </div>
-        <div className="grid grid-cols-7 mt-4 text-[11px] text-[#8a8a90]">{WEEK.map((w) => <div key={w} className="px-2 py-1">周{w}</div>)}</div>
-        <div className="grid grid-cols-7 border-t border-l">
-          {(view === 'month' ? days : days.filter((d) => { const wk = Math.floor(days.findIndex((x) => sameDay(x, today)) / 7); return days.indexOf(d) >= wk * 7 && days.indexOf(d) < wk * 7 + 7 })).map((d) => {
-            const inMonth = d.getMonth() === cursor.getMonth(); const isToday = sameDay(d, today)
-            const dayTasks = shown.filter((t) => sameDay(new Date(t.scheduled_for), d))
-            return (
-              <div key={d.toISOString()} className={`border-r border-b p-1.5 ${view === 'month' ? 'min-h-[92px]' : 'min-h-[240px]'} ${inMonth ? '' : 'bg-[#fafafa] text-[#c4c4c8]'} ${isToday ? 'ring-1 ring-inset ring-[#0a0a0a] rounded-md' : ''}`}>
-                <div className={`text-[11px] ${isToday ? 'font-semibold' : ''}`}>{d.getDate()}</div>
-                <div className="space-y-0.5 mt-1">{dayTasks.slice(0, 3).map((t, i) => <button key={t.id} onClick={() => (selectMode ? setSelected((s) => ({ ...s, [t.id]: !s[t.id] })) : setOpenTask(t))} className={`text-[10px] px-1 py-0.5 rounded truncate inline-flex items-center gap-1 w-full text-left hover:brightness-95 ${selectMode && selected[t.id] ? 'ring-1 ring-[#dc2626]' : ''}`} style={{ background: COLORS[i % COLORS.length] }} title={t.title} data-testid="task-chip">{t.status === 'done' ? <Check size={9} /> : <Circle size={7} />}<span className="truncate">{t.title}</span></button>)}{dayTasks.length > 3 && <div className="text-[10px] text-[#8a8a90]">+{dayTasks.length - 3}</div>}</div>
-              </div>
-            )
-          })}
+        <div className="date-picker-header" data-testid="calendar-header">
+          <button type="button" className="date-picker-nav-btn" aria-label="上个月"
+            onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+          <span className="date-picker-month-label">{MONTHS[cursor.getMonth()]} {cursor.getFullYear()}</span>
+          <button type="button" className="date-picker-nav-btn" aria-label="下个月"
+            onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+        </div>
+        <div className={`calendar-grid${view === 'week' ? ' week-view' : ''}`} data-testid="calendar-grid">
+          <div className="calendar-weekdays">{WEEK.map((w) => <div key={w} className="calendar-weekday">{w}</div>)}</div>
+          <div className={`calendar-days-grid${view === 'week' ? ' week-view-grid' : ''}`}>
+            {(view === 'month'
+              ? days
+              : days.filter((d) => {
+                  const weekStart = days.findIndex((x) => sameDay(x, today)) - today.getDay()
+                  const idx = days.indexOf(d)
+                  return idx >= weekStart && idx < weekStart + 7
+                })
+            ).map((d) => {
+              const inMonth = d.getMonth() === cursor.getMonth()
+              const isToday = sameDay(d, today)
+              const isSelected = sameDay(d, selectedDate)
+              const dayTasks = shown.filter((t) => sameDay(new Date(t.scheduled_for), d))
+              return (
+                <div key={d.toISOString()}
+                  className={`calendar-day${inMonth ? '' : ' other-month'}${isToday ? ' today' : ''}${isSelected ? ' selected' : ''}${view === 'week' ? ' week-view-day' : ''}`}
+                  onClick={() => setSelectedDate(new Date(d))} data-testid="calendar-day">
+                  <div className="calendar-day-number">{d.getDate()}</div>
+                  <div className="calendar-day-events">
+                    {dayTasks.slice(0, 3).map((t) => {
+                      const palette = eventColor(t.title)
+                      return (
+                        <div key={t.id} className="calendar-event scheduled-event" data-testid="task-chip"
+                          style={{ ['--event-color-dark' as string]: palette.dark, ['--event-color-light' as string]: palette.light, ['--event-color-text' as string]: palette.text }}
+                          onClick={(e) => { e.stopPropagation(); if (selectMode) setSelected((s) => ({ ...s, [t.id]: !s[t.id] })); else setOpenTask(t) }}>
+                          <span className="scheduled-icon-container" aria-hidden="true">
+                            <Clock size={10} />
+                          </span>
+                          <span className="scheduled-event-title">{t.title}</span>
+                        </div>
+                      )
+                    })}
+                    {dayTasks.length > 3 && <div className="calendar-event-more">+{dayTasks.length - 3}</div>}
+                  </div>
+                  {view === 'week' && <div className="calendar-day-task-count">{dayTasks.length} 个任务</div>}
+                </div>
+              )
+            })}
+          </div>
         </div>
         {quota && (
           <div className="mt-4 hk-card p-3 text-[12px] text-[#6b6b70]" data-testid="quota-panel">

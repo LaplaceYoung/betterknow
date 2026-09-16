@@ -476,3 +476,10 @@
 - 上一批留的「项目助手仍是 JSON 路径，线上是否有对应 multipart 形态未验证」已查清并补齐：线上项目助手是 **multipart**（`stage_id` / `step_index` / `messages` / `images`）且响应是**流式纯文本**（客户端逐块 append），不是 JSON。本仓按同形重写，流式转发 `chatStream`；无模型时把兜底建议切片流式吐出，并去掉失败时的空 assistant 占位。
 - 顺手修掉一个真错：阶段信息原来从 `course.stages` 里找，种子课程的阶段其实在 `resolveProject` 的结果里，导致系统提示里印的是 UUID；改用 `resolveProject` 后实测显示「Research Question and Methodology Design」。
 - 实测：stub 流内容与响应头（`text/plain` + chunked）正确；流式假网关下拼接结果正确；浏览器项目页发问得到同样的模型文本。
+
+**第五十三批（学习动态日历对齐线上）**
+- 把学习动态页的日历从自绘 Tailwind 网格换成线上 `.calendar-*` 结构：周日打头的周标题、6×7 日格（`other-month` / `today` / `selected` / `week-view-day`）、`calendar-day-number`、`calendar-day-events`、`calendar-event.scheduled-event`（色板按标题字符和取模，`--event-color-*` 内联变量）、超 3 条的 `calendar-event-more`、周视图的 `calendar-day-task-count`；并补上此前缺失的**月份导航头**（`.date-picker-header` + 两个 `.date-picker-nav-btn` + `.date-picker-month-label`，格式同线上「九月 2026」）。
+- 顺带修掉一处从没接过的状态：`setCursor` 之前定义了却没渲染任何入口，月份翻页实际不存在。
+- 左栏改为跟随所选日期（线上是 sidebar 展示所选日），并保留原有的确认/完成/删除/开始课堂动作与配额面板。
+- 实测：42 格、周标题「日…六」、今日与选中高亮各 1、头部「九月 2026」→ 点右侧变「十月 2026」、事件 chip 两种色板色（`#E8F0F8`/`#EBEFFA`）、周视图 7 个 `week-view-day` 且各带任务数。
+- 仍未做：日历事件里 `kind:"course"` 的课程事件分支（带 hover 详情按钮与课程配色）、`calendar-sidebar` 那套（线上右侧还有一列日详情与统计，本仓复用了左栏）、Google Calendar 同步（自部署无 OAuth，记 N/A）、草稿态 `calendar-draft` 流程。
