@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkles, Send, BookOpen, Code, Trophy, RotateCcw, CalendarPlus, BookmarkCheck } from 'lucide-react'
+import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkles, Send, Plus, BookOpen, Code, Trophy, RotateCcw, CalendarPlus, BookmarkCheck } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -37,49 +37,59 @@ export interface Question {
   image?: { alt?: string; src?: string }
 }
 
-interface AssistantMsg {
-  role: 'user' | 'assistant'
-  text: string
-}
+
+// 线上 .practice-assistant*（r112 + r154）：空态提示 → 消息（typing 三点 / markdown / 截图）
+//   → 附件缩略图 → 输入行（附截图 + 发送）；拖拽文件到面板也能附图。
+//   文案取自线上 zh：unavailableError / toggleLabel / emptyStateHint / inputPlaceholder。
+interface AssistantAttachment { id: string; url: string; name: string }
 
 function AssistantDrawer({
   open,
-  onClose,
   courseId,
+  sessionId = '',
   currentQuestion,
   isProject = false,
   stageTitle = '',
 }: {
   open: boolean
-  onClose: () => void
   courseId: string
+  sessionId?: string
   currentQuestion?: Question
   isProject?: boolean
   stageTitle?: string
 }) {
-  const [messages, setMessages] = useState<AssistantMsg[]>([
-    {
-      role: 'assistant',
-      text: isProject
-        ? `👋 我是你的 AI 项目导师。针对「${stageTitle || '当前实战阶段'}」，遇到架构设计、算法推导或边界验证的疑惑，可以随时问我。`
-        : `👋 我是你的 AI 随堂助教。针对这道题，我可以为你提供第一性原理拆解、生活比喻或干扰项分析（但我不会直接泄露最终答案，而是引导你推导出来）。`,
-    },
-  ])
+  const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant'; text: string; images?: string[] }>>([])
   const [input, setInput] = useState('')
+  const [attachments, setAttachments] = useState<AssistantAttachment[]>([])
   const [loading, setLoading] = useState(false)
-  const listRef = useRef<HTMLDivElement>(null)
+  const [dragover, setDragover] = useState(false)
+  const [failed, setFailed] = useState(false)
+  const bodyRef = useRef<HTMLDivElement>(null)
+  const fileRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    listRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
+    bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight, behavior: 'smooth' })
+  }, [messages, loading])
+
+  const addFiles = (files: FileList | null) => {
+    if (!files?.length) return
+    Array.from(files).slice(0, 4).forEach((file) => {
+      if (!file.type.startsWith('image/')) return
+      const reader = new FileReader()
+      reader.onload = () => setAttachments((prev) => [...prev, { id: `${file.name}-${Date.now()}`, url: String(reader.result), name: file.name }])
+      reader.readAsDataURL(file)
+    })
+  }
 
   const send = async (queryText?: string) => {
     const text = (queryText ?? input).trim()
     if (!text || loading) return
-    setMessages((prev) => [...prev, { role: 'user', text }])
+    const images = attachments.map((item) => item.url)
+    setMessages((prev) => [...prev, { role: 'user', text, ...(images.length ? { images } : {}) }])
     if (!queryText) setInput('')
+    setAttachments([])
+    setFailed(false)
     setLoading(true)
-
     try {
       const endpoint = isProject
         ? `/course-generation/courses/${courseId}/project/assistant`
@@ -89,26 +99,17 @@ function AssistantDrawer({
       const payload = isProject
         ? { stage_id: stageTitle || 'stage_1', messages: [...history, { role: 'user', content: text }], message: text, stageTitle }
         : {
-            session_id: currentQuestion?.id ? String(currentQuestion.id).split('-').slice(0, -1).join('-') : '',
+            session_id: sessionId,
             messages: [...history, { role: 'user', content: text }],
             message: text,
             questionPrompt: currentQuestion?.prompt,
             questionOptions: currentQuestion?.options,
             questionExplanation: currentQuestion?.explanation,
           }
-      const res = await apiPost<{ message?: string }>(endpoint, payload)
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          text: res.message ?? '💡 尝试从最基础的守恒量或因果链条开始逆向分析。',
-        },
-      ])
+      const res = await apiPost<{ message?: string; stub?: boolean }>(endpoint, payload)
+      setMessages((prev) => [...prev, { role: 'assistant', text: res.message ?? '' }])
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        { role: 'assistant', text: '💡 提示服务正忙，请尝试先用极限边界法排除两个明显矛盾的选项。' },
-      ])
+      setFailed(true)
     } finally {
       setLoading(false)
     }
@@ -116,101 +117,68 @@ function AssistantDrawer({
 
   if (!open) return null
 
-  const promptChips = isProject
-    ? [
-        '📋 这一阶段的核心交付物规范是什么？',
-        '⚙️ 如何设计第一组极端边界测试用例？',
-        '💡 能否给我一个标准架构设计模板？',
-      ]
-    : [
-        '💡 用通俗的生活比喻解释核心原理',
-        '📐 这道题考察的核心公式与公理依据',
-        '🚫 帮我分析干扰选项的常见陷阱',
-        '🔍 引导我思考，不要直接透露答案',
-      ]
-
   return (
-    <div className="fixed inset-y-0 right-0 w-[380px] sm:w-[420px] bg-white shadow-2xl border-l z-50 flex flex-col hk-fade-in">
-      <div className="p-4 border-b flex items-center justify-between bg-[#fafafa]">
-        <div className="flex items-center gap-2">
-          <span className="h-7 w-7 rounded-lg bg-[#0a0a0a] text-white flex items-center justify-center">
-            <Sparkles size={14} />
-          </span>
-          <div>
-            <div className="text-[14px] font-semibold">{isProject ? 'AI 项目实战导师' : 'AI 随堂助教'}</div>
-            <div className="text-[11px] text-[#8a8a90]">苏格拉底式互动答疑</div>
-          </div>
-        </div>
-        <button onClick={onClose} className="hk-icon-btn h-8 w-8 text-[#8a8a90] hover:text-black">
-          <X size={16} />
-        </button>
-      </div>
-
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 hk-scroll text-[13px]">
+    <aside
+      className={`practice-assistant practice-assistant--open${dragover ? ' practice-assistant--dragover' : ''}`}
+      aria-label="Practice assistant" data-testid="practice-assistant"
+      onDragOver={(e) => { e.preventDefault(); if (!dragover) setDragover(true) }}
+      onDragLeave={(e) => { e.preventDefault(); if (e.currentTarget === e.target) setDragover(false) }}
+      onDrop={(e) => { e.preventDefault(); setDragover(false); addFiles(e.dataTransfer.files) }}
+    >
+      <div className="practice-assistant-body" ref={bodyRef}>
+        {messages.length === 0 && !loading && (
+          <p className="practice-assistant-empty">
+            这道题卡住了？向我要个提示或讲解吧——我了解这节课的内容，但不会直接告诉你答案。你也可以附上截图。
+          </p>
+        )}
         {messages.map((m, idx) => (
-          <div
-            key={idx}
-            className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
-          >
-            <div
-              className={`max-w-[88%] rounded-2xl px-4 py-3 leading-6 whitespace-pre-wrap ${
-                m.role === 'user'
-                  ? 'bg-[#0a0a0a] text-white'
-                  : 'bg-[#f4f4f5] text-[#1c1c1e] border border-black/5'
-              }`}
-            >
-              {m.text}
-            </div>
+          <div key={idx} className={`practice-assistant-msg practice-assistant-msg--${m.role}`}>
+            {m.images && m.images.length > 0 && (
+              <div className="practice-assistant-msg-images">
+                {m.images.map((url) => <img key={url.slice(-24)} src={url} alt="" className="practice-assistant-msg-image" />)}
+              </div>
+            )}
+            {m.role === 'assistant'
+              ? <div className="practice-assistant-markdown"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{m.text}</ReactMarkdown></div>
+              : <span className="practice-assistant-msg-text">{m.text}</span>}
           </div>
         ))}
         {loading && (
-          <div className="flex items-center gap-2 text-[12px] text-[#8a8a90]">
-            <span className="h-3 w-3 rounded-full border-2 border-[#d4d4d8] border-t-[#0a0a0a] animate-spin" />
-            助教正在思考引导思路…
+          <div className="practice-assistant-msg practice-assistant-msg--assistant practice-assistant-msg--typing">
+            <span className="practice-assistant-dots" aria-label="Thinking"><span /><span /><span /></span>
           </div>
         )}
-        <div ref={listRef} />
       </div>
-
-      {/* Prompt chips */}
-      <div className="p-3 bg-[#fafafa] border-t overflow-x-auto hk-scroll flex gap-1.5">
-        {promptChips.map((chip, i) => (
-          <button
-            key={i}
-            onClick={() => send(chip)}
-            disabled={loading}
-            className="px-2.5 py-1 rounded-full bg-white border text-[11px] text-[#3d3d3f] whitespace-nowrap hover:border-[#0a0a0a] transition-colors"
-          >
-            {chip}
-          </button>
-        ))}
-      </div>
-
-      {/* Input bar */}
-      <div className="p-3 border-t bg-white">
-        <div className="hk-composer p-2 flex items-center gap-2">
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && send()}
-            placeholder="问助教一个问题…"
-            className="flex-1 bg-transparent outline-none text-[13px] px-2"
-          />
-          <button
-            onClick={() => send()}
-            disabled={!input.trim() || loading}
-            className="h-7 w-7 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40"
-          >
-            <Send size={12} />
-          </button>
+      {attachments.length > 0 && (
+        <div className="practice-assistant-attachments">
+          {attachments.map((item) => (
+            <span key={item.id} className="practice-assistant-thumb">
+              <img src={item.url} alt={item.name} className="practice-assistant-thumb-img" />
+              <button type="button" className="practice-assistant-thumb-remove" aria-label={`移除 ${item.name}`}
+                onClick={() => setAttachments((prev) => prev.filter((row) => row.id !== item.id))}>×</button>
+            </span>
+          ))}
         </div>
+      )}
+      {failed && <p className="practice-assistant-error">助手暂时不可用，请重试。</p>}
+      <div className="practice-assistant-input-row">
+        <input ref={fileRef} type="file" accept="image/*" multiple className="practice-assistant-file-input"
+          onChange={(e) => { addFiles(e.target.files); e.target.value = '' }} />
+        <button type="button" className="practice-assistant-attach" aria-label="附上截图" onClick={() => fileRef.current?.click()}>
+          <Plus size={14} />
+        </button>
+        <input className="practice-assistant-input" value={input} placeholder="询问这道题…"
+          onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void send() }} />
+        <button type="button" disabled={loading || !input.trim()}
+          className={`practice-assistant-submit-btn${loading || !input.trim() ? ' practice-assistant-submit-btn--disabled' : ''}`}
+          aria-label="发送" onClick={() => void send()}>
+          {loading ? <span className="practice-assistant-submit-spinner" aria-hidden="true" /> : <Send size={14} />}
+        </button>
       </div>
-    </div>
+    </aside>
   )
 }
 
-// mm:ss（线上 exam timer 的 E(Q) 口径）
 function fmtClock(totalSeconds: number): string {
   const s = Math.max(0, Math.floor(totalSeconds))
   return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`
@@ -226,6 +194,7 @@ function QuizRunner({
   fastWindowMs = 10000,
   fastBonus = 200,
   attempt = null,
+  assistantSessionId = '',
 }: {
   title: string
   questions: Question[]
@@ -235,6 +204,7 @@ function QuizRunner({
   fastWindowMs?: number
   fastBonus?: number
   attempt?: PracticeAttempt | null
+  assistantSessionId?: string
   onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number; fastIds?: string[]; points?: number; perfect?: number; stars?: number; bestStreak?: number }) => void
 }) {
   const [i, setI] = useState(0)
@@ -612,7 +582,12 @@ function QuizRunner({
             得分 <b><SlotNumber value={frozenTotal ?? points.total} /><span className="practice-sr-only">{points.total.toLocaleString()}</span></b>
           </span>
         </div>}
-        <button className="practice-assistant-toggle" onClick={() => setAssistantOpen(true)}><Lightbulb size={13} /> 助手</button>
+        <button type="button"
+          className={`practice-assistant-toggle${assistantOpen ? ' practice-assistant-toggle--active' : ''}`}
+          onClick={() => setAssistantOpen((v) => !v)}
+          aria-label={assistantOpen ? 'Close assistant' : 'Open assistant'}>
+          <Lightbulb size={13} /> 助手
+        </button>
       </div>
       <div className={mode === 'exam' ? 'exam-progress-dots' : 'practice-progress-dots'}>
         {questions.map((_, idx) => {
@@ -915,8 +890,8 @@ function QuizRunner({
 
       <AssistantDrawer
         open={assistantOpen}
-        onClose={() => setAssistantOpen(false)}
         courseId={courseId}
+        sessionId={assistantSessionId}
         currentQuestion={q}
       />
       {confetti.length > 0 && (
@@ -1010,6 +985,7 @@ export function Practice() {
         courseId={courseId}
         questions={session.questions}
         attempt={session.attempt ?? null}
+        assistantSessionId={session.sessionId}
         onFinish={async (score, total, userAnswers, meta) => {
           // 线上练习口径：{ sessionId, finished, items, score: 点数, perfect, stars }
           const items: Record<string, { state: string; answer: string | string[] | null; fast?: boolean }> = {}
@@ -1246,9 +1222,10 @@ export function Project() {
         </div>
         <button
           onClick={() => setAssistantOpen(true)}
-          className="hk-pill bg-gradient-to-r from-[#eef2ff] to-[#f5f3ff] text-[#3b5bdb] border-[#c7d2fe]"
+          className={`practice-assistant-toggle${assistantOpen ? ' practice-assistant-toggle--active' : ''}`}
+          data-testid="assistant-toggle"
         >
-          <Sparkles size={13} className="text-[#6366f1]" /> AI 项目导师
+          <Sparkles size={13} /> 助手
         </button>
       </div>
 
@@ -1345,7 +1322,6 @@ export function Project() {
 
       <AssistantDrawer
         open={assistantOpen}
-        onClose={() => setAssistantOpen(false)}
         courseId={courseId}
         isProject={true}
         stageTitle={stage.stage_title}

@@ -459,3 +459,10 @@
 - 上一批记的「互动题 `animationHtml` 我们链路没有」是**误判**：种子里的考试数据本来就带 `animationHtml`（每份 exam.json 里恰好一题，约 10 KB 的自包含 HTML），只是客户端从没渲染过。现按线上契约接上：iframe + `sandbox="allow-scripts"` + `referrerPolicy="no-referrer"` + 子页 `hk-anim-height` 上报 + 父页监听设高 + 窄屏按 `clamp(width/720,.5,1)` 缩放。
 - 实测：shell 切成 `--animation`、kicker「互动」、子页回报高度 509px（说明内部脚本与画布真的跑起来了）、scaler 481px、`scale(0.944)`。
 - 仍未做：线上父页在动画题上还会按 stage 剩余空间算 `maxHeight`（`ce()` 那套行列测量），本仓目前只用内容高度 + 缩放，不额外压高。
+
+**第五十批（随堂助手面板重写 + 助手接模型）**
+- 面板按线上 `.practice-assistant*` 重写：`aside` + 空态提示 + 消息（typing 三点、assistant 走 markdown、截图缩略图）+ 附件区 + 错误行 + 输入行（附截图按钮 / 隐藏 file input / 输入框 / 发送按钮的禁用与转圈态），并支持把图片拖进面板；顶栏按钮改成线上的开/关 toggle（`--active`、`aria-label` 切换）。规则 43 条全部取自线上样式表。
+- **修掉一个从没生效过的入参**：助手请求里的 `session_id` 原来是从题目 id 反推（`q1`.split 后得到空串），所以服务端一直 422、前端只显示「助手暂时不可用」。现在由 `Practice` 把 `session.sessionId` 显式传进 `QuizRunner` → 助手。
+- **BYOK 化**：`POST /practice/assistant` 此前永远返回写死话术；现在走 `resolveByok` 调模型（系统提示只给提示不给答案 + 题干/选项/解析上下文），模型不可用时回落并在响应里标 `stub`。实测：无 key → 兜底话术；配假网关 → 返回模型文本且 `stub:false`，界面显示「OK-提示：先看题干里的限定词。」。
+- 顺手把项目侧的助手入口也换成线上 `.practice-assistant-toggle` 样式与「助手」文案。
+- 记一笔运维教训：本轮又踩到「改了 `src` 但 8787 上跑的还是旧 `dist`」——hub 的 `restart` 在守护进程已就绪时不一定真的重启，稳妥做法是 `stop` 再 `start`，并用 `ps -o lstart` 与 `ls -l dist/*.js` 比时间。

@@ -1027,3 +1027,48 @@
 .checkbox{width:19px;height:19px;margin:0;cursor:pointer;border-radius:4px;border:1.5px solid #D1D5DB;background:#fff;position:relative;flex-shrink:0;align-self:center;transition:all .2s ease;display:flex;align-items:center;justify-content:center;outline:none}
 .checkbox.checked{background-color:#4c6694;border-color:#4c6694}
 .checkbox-icon{color:#fff;width:11px;height:11px;flex-shrink:0}
+
+/* 线上 .practice-assistant*（随堂助手面板；r154 原文） */
+.practice-assistant-toggle{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:0 14px;border:1.5px solid #E0E4EC;border-radius:999px;background:#fff;color:#5b6472;cursor:pointer;font-family:var(--font-satoshi-medium);font-size:13px;line-height:1;box-sizing:border-box;box-shadow:inset 0 1px #ffffffe6,0 3px #edeff4;transition:background .14s ease,border-color .14s ease,box-shadow .12s ease,color .14s ease,transform .12s ease}
+.practice-assistant-toggle:hover{border-color:#c9d2e3;background:#fafcff;color:#385da0;box-shadow:inset 0 1px #fffffff2,0 4px #e2e7f0;transform:translateY(-1px)}
+.practice-assistant-toggle:active{box-shadow:inset 0 1px #ffffffb3,0 1px #e2e7f0;transform:translateY(2px)}
+.practice-assistant-toggle--active{border-color:#4573c2;background:#4573c2;color:#fff;box-shadow:inset 0 2px #ffffff38,0 3px #33569a}
+.practice-assistant-toggle--active:hover{border-color:#4573c2;background:#5080cf;color:#fff;box-shadow:inset 0 2px #ffffff47,0 4px #33569a;transform:translateY(-1px)}
+.practice-assistant-toggle--active:active{box-shadow:inset 0 2px #ffffff24,0 1px #33569a;transform:translateY(2px)}
+.practice-assistant{position:absolute;top:52px;bottom:30px;right:36px;width:0;display:flex;flex-direction:column;overflow:hidden;border-radius:14px;border:0 solid #E5E5E5;background:#fff;box-sizing:border-box;z-index:3;transition:width .3s ease,border-width .3s ease}
+.practice-assistant--open{width:min(30vw,340px);border-width:1.5px}
+.practice-assistant-body{flex:1;display:flex;flex-direction:column;gap:10px;padding:20px 16px 12px;overflow-y:auto;min-width:min(30vw,340px)}
+.practice-assistant-empty{margin:auto 0;color:#ababab;font-family:var(--font-satoshi-regular);font-size:13px;line-height:1.65;text-align:center;padding:0 8px}
+.practice-assistant-msg{max-width:90%;padding:9px 12px;border-radius:12px;font-family:var(--font-satoshi-regular);font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+.practice-assistant-msg--user{align-self:flex-end;background:#e8edf6;color:#1f1f1f;border-bottom-right-radius:3px}
+.practice-assistant-msg--assistant{align-self:flex-start;background:#f3f4f6;color:#2b2b2b;border-bottom-left-radius:3px}
+.practice-assistant-msg--typing{color:#ababab;background:transparent;border:none}
+.practice-assistant-error{margin:0;padding:0 16px 8px;color:#c34747;font-family:var(--font-satoshi-regular);font-size:13px;line-height:1.5;min-width:min(30vw,340px)}
+.practice-assistant-input-row{display:flex;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid #EBEBEB;min-width:min(30vw,340px)}
+.practice-assistant-input{flex:1;min-width:0;height:36px;padding:0 12px;border:1.5px solid #E2E2E2;border-radius:999px;background:#f5f5f5;color:#1f1f1f;font-family:var(--font-satoshi-regular);font-size:13.5px;outline:none;transition:border-color .14s ease}
+.practice-assistant-input:focus{background:#fff;border-color:#afafaf}
+.practice-assistant--dragover{outline:2px dashed #8FA6CC;outline-offset:-6px}
+.practice-assistant--dragover .practice-assistant-body{background:#f7f9fd}
+.practice-assistant-markdown{white-space:normal}
+.practice-assistant-markdown>*:last-child{margin-bottom:0!important}
+.practice-assistant-msg-text{white-space:pre-wrap}
+.practice-assistant-msg-images{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.practice-assistant-msg-image{max-width:140px;max-height:140px;border-radius:8px;-o-object-fit:cover;object-fit:cover}
+.practice-assistant-dots{display:inline-flex;align-items:center;gap:4px}
+.practice-assistant-dots span{width:5px;height:5px;border-radius:50%;background:#b4b4b4;animation:practice-assistant-dot 1.2s infinite ease-in-out both}
+.practice-assistant-dots span:nth-child(2){animation-delay:.16s}
+.practice-assistant-dots span:nth-child(3){animation-delay:.32s}
+.practice-assistant-attachments{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 8px;min-width:min(30vw,340px);box-sizing:border-box}
+.practice-assistant-thumb{position:relative;width:60px;height:60px}
+.practice-assistant-thumb-img{width:100%;height:100%;border-radius:10px;-o-object-fit:cover;object-fit:cover;border:1px solid #E5E5E5;display:block}
+.practice-assistant-thumb-remove{position:absolute;top:-4px;right:-4px;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;padding:0;border:1.5px solid #FFFFFF;border-radius:50%;background:#6b6b6b;color:#fff;cursor:pointer;transition:background .14s ease}
+.practice-assistant-thumb-remove:hover{background:#3a3a3a}
+.practice-assistant-attach{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#ababab;cursor:pointer;transition:color .14s ease,background .14s ease}
+.practice-assistant-attach:hover{color:#5b5b5b;background:#f0f0f0}
+.practice-assistant-file-input{display:none}
+.practice-assistant-submit-btn{flex-shrink:0;width:33px;height:33px;padding:0;border:1px solid #D1D1D1;border-radius:50%;background:#e7e7e7;color:#1f1f1f;box-shadow:0 2px 4px #00000026;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease}
+.practice-assistant-submit-btn--disabled{background:#f5f5f5;border-color:#e0e0e0;box-shadow:none;cursor:not-allowed;opacity:.6}
+.practice-assistant-submit-btn:hover:not(:disabled){background:#d5d5d5;box-shadow:0 3px 6px #0003}
+.practice-assistant-submit-spinner{width:14px;height:14px;border:1.5px solid #D1D1D1;border-top-color:#4c6694;border-radius:50%;animation:practice-assistant-spin .9s linear infinite}
+@keyframes practice-assistant-dot{0%,80%,to{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+@keyframes practice-assistant-spin{to{transform:rotate(360deg)}}

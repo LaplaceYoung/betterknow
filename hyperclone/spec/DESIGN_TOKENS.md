@@ -744,3 +744,24 @@ r(); addEventListener("load", r); new ResizeObserver(r).observe(document.documen
 
 实测本仓：shell `exam-question-shell--no-image exam-question-shell--animation`、kicker「互动」、`sandbox=allow-scripts`、`referrerpolicy=no-referrer`，子页回报高度 **509px** → scaler 481px、`scale(0.944)`（面板 680 / 设计 720）。
 
+### 随堂助手面板（第三十七批，r112 + r154 + r155）
+
+线上是一个可开关的侧栏（`aside.practice-assistant`，开时 `--open` 宽 `min(30vw,340px)`；拖文件时 `--dragover` 虚线）：
+
+```
+.practice-assistant(--open)(--dragover)[aria-label="Practice assistant"]
+  .practice-assistant-body          空态 .practice-assistant-empty（emptyStateHint）/ 消息 / typing 三点
+    .practice-assistant-msg--user|--assistant（assistant 走 .practice-assistant-markdown）
+      .practice-assistant-msg-images > img.practice-assistant-msg-image（截图）
+    .practice-assistant-msg--typing > .practice-assistant-dots（.practice-assistant-dot 关键帧）
+  .practice-assistant-attachments > .practice-assistant-thumb > img + .practice-assistant-thumb-remove
+  .practice-assistant-error         失败提示（unavailableError）
+  .practice-assistant-input-row > .practice-assistant-attach + .practice-assistant-file-input + .practice-assistant-input + .practice-assistant-submit-btn（禁用时 --disabled，忙时 spin）
+```
+
+zh 原文：`emptyStateHint:"这道题卡住了？向我要个提示或讲解吧——我了解这节课的内容，但不会直接告诉你答案。你也可以附上截图。"`、`inputPlaceholder:"询问这道题…"`、`unavailableError:"助手暂时不可用，请重试。"`、`toggleLabel:"助手"`。
+
+**BYOK 化**：`POST /practice/assistant` 之前无论怎样都返回一段写死的话术；现在按 `resolveByok` 走模型 —— 系统提示「你是一名随堂助教，只能给提示与思路，绝不直接说出答案」，并带上题干/选项/教师解析（解析标注「仅供你参考，不要原样复述」）；模型不可用时才回落本地话术并在响应里标 `stub: true`。
+
+实测：面板 `aside.practice-assistant--open`（340px）、空态文案与输入占位符正确、附截图按钮与隐藏 file input 就位、未输入时发送禁用、打开后顶栏按钮加 `--active`；无 key 时回复走兜底；配好假网关后同一次对话返回模型文本（`stub:false`，界面显示「OK-提示：先看题干里的限定词。」）。
+
