@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { ArrowUp, Check, ChevronRight, ExternalLink, Languages, LifeBuoy, Share2, Sparkles, ArrowRight, Download, FileText, Plus, X, Image as ImageIcon } from 'lucide-react'
+import { Copy, ThumbsUp, ThumbsDown } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
@@ -338,6 +339,7 @@ export default function ChatResponse() {
   const isGen = loc.pathname.includes('course-generation')
 
   const [items, setItems] = useState<ChatItem[]>([])
+  const [feedback, setFeedback] = useState<string | null>(null)
   const [convId, setConvId] = useState<string>(params.conversationId ?? '')
   const [title, setTitle] = useState('')
   const [input, setInput] = useState('')
@@ -576,6 +578,8 @@ export default function ChatResponse() {
 
   const grouped = useMemo(() => items, [items])
 
+  const lastAnswerIndex = items.reduce((acc: number, it: ChatItem, idx: number) => (it.kind === 'content' && !it.whisper ? idx : acc), -1)
+
   return (
     <div className="mx-auto max-w-[774px] px-6 pb-40 pt-2">
       {title && <div className="text-[12px] text-[#8a8a90] mb-4">{title}</div>}
@@ -627,6 +631,21 @@ export default function ChatResponse() {
           return (
             <div key={i} className={`hk-fade-in-up ${it.whisper ? 'text-[12px] text-[#a1a1aa]' : ''}`}>
               {it.whisper ? it.text : <div className="hk-prose"><ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeRaw, rehypeKatex]}>{it.text}</ReactMarkdown></div>}
+              {!it.whisper && lastAnswerIndex === i && (
+                <div className="flex items-center" style={{ gap: 4, marginTop: 6, marginBottom: 10 }} data-testid="response-actions">
+                  {[
+                    { key: 'copy', icon: <Copy size={16} />, label: '复制', onClick: () => navigator.clipboard?.writeText(it.text ?? '') },
+                    { key: 'up', icon: <ThumbsUp size={16} />, label: '点赞', onClick: () => setFeedback((f) => (f === 'up' ? null : 'up')) },
+                    { key: 'down', icon: <ThumbsDown size={16} />, label: '点踩', onClick: () => setFeedback((f) => (f === 'down' ? null : 'down')) },
+                  ].map((a) => (
+                    <button key={a.key} onClick={a.onClick} aria-label={a.label} title={a.label}
+                      data-on={feedback === a.key}
+                      className="flex items-center justify-center response-action-btn">
+                      {a.icon}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           )
         })}
@@ -915,6 +934,7 @@ export default function ChatResponse() {
 }
 
 export function ResponseTopExtra() {
+
   return (
     <>
       <button className="hk-pill"><Languages size={14} /> 切换语言</button>

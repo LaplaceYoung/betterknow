@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, BadgeCheck, Upload, Play, PenLine, ChevronRight, Hash, Share2, LogOut, MoreHorizontal, CalendarPlus, Copy, Sparkles, CheckCircle2, Check } from 'lucide-react'
+import { ArrowLeft, BadgeCheck, Upload, Play, PenLine, ChevronRight, Hash, Share2, LogOut, MoreHorizontal, CalendarPlus, Copy, Sparkles, CheckCircle2, Check, X } from 'lucide-react'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { apiGet, apiPost, type MarketplaceCourse } from '@/lib/api'
@@ -251,21 +251,34 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
   )
 }
 
-// [S16] 加入课程弹窗
-export function JoinDialog({ open, onOpenChange, title, onConfirm, languages }: { open: boolean; onOpenChange: (o: boolean) => void; title: string; onConfirm: (lang: string) => Promise<void>; languages?: string[] }) {
+// [S16] 加入课程弹窗：chrome 按线上 .join-auth-modal（380 / radius 18 / padding 28 24 24 / 阴影 0 24px 60px #0f172a2e）
+export function JoinDialog({ open, onOpenChange, title, onConfirm, languages }: { open: boolean; onOpenChange: (o: boolean) => void; title: string; onConfirm: (lang: string) => void; languages?: string[] }) {
   const [lang, setLang] = useState('zh')
   const [busy, setBusy] = useState(false)
   const opts = (languages?.length ? languages : ['en', 'zh']).map((l) => ({ v: l, label: l === 'zh' ? '中文' : l === 'en' ? 'English' : l }))
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[440px] rounded-2xl hk-pop">
-        <DialogTitle className="text-[18px] font-semibold">加入这门课程？</DialogTitle>
-        <div className="text-[13px] text-[#3d3d3f]">「{title}」</div>
-        <p className="text-[13px] text-[#6b6b70]">课程将添加到你的课程列表中，你可以随时开始学习。</p>
-        <div><div className="text-[13px] font-medium mb-1.5">课程语言</div>
-          <div className="inline-flex rounded-lg border p-0.5">{opts.map((o) => <button key={o.v} onClick={() => setLang(o.v)} className="px-3 h-8 rounded-md text-[13px] data-[on=true]:bg-[#f1f2f4] data-[on=true]:font-medium" data-on={lang === o.v}>{o.label}</button>)}</div>
-          <p className="text-[12px] text-[#8a8a90] mt-1.5">讲解、练习和考试都将使用这个语言，加入后无法更改。</p></div>
-        <div className="flex justify-end gap-2 pt-1"><button onClick={() => onOpenChange(false)} className="hk-pill h-9 px-4">再想想</button><button disabled={busy} onClick={async () => { setBusy(true); try { await onConfirm(lang) } finally { setBusy(false) } }} className="h-9 px-4 rounded-full bg-[#0a0a0a] text-white disabled:opacity-50">确认加入</button></div>
+      <DialogContent className="p-0 gap-0 border-0 shadow-none bg-transparent" style={{ maxWidth: 380 }} data-testid="join-dialog">
+        <div style={{ position: 'relative', width: '100%', background: '#fff', borderRadius: 18, boxShadow: '0 24px 60px rgba(15,23,42,.18)', padding: '28px 24px 24px' }}>
+          <button onClick={() => onOpenChange(false)} aria-label="关闭"
+            style={{ position: 'absolute', top: 12, right: 12, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 26, height: 26, border: '1px solid #ececef', borderRadius: 8, background: '#fff', color: '#6b7280', cursor: 'pointer' }}>
+            <X size={14} />
+          </button>
+          <DialogTitle style={{ margin: '0 0 8px', paddingRight: 20, color: '#0f1f33', fontSize: 17, fontWeight: 600, lineHeight: 1.3 }}>加入这门课程？</DialogTitle>
+          <p style={{ margin: '0 0 20px', color: '#7c8194', fontSize: 13, lineHeight: 1.5 }}>「{title}」将添加到你的课程列表中，你可以随时开始学习。</p>
+          <div style={{ marginBottom: 20 }}>
+            <div className="text-[13px] font-medium mb-1.5" style={{ color: '#0f1f33' }}>课程语言</div>
+            <div className="inline-flex rounded-lg border p-0.5" style={{ borderColor: '#e5e7eb' }}>{opts.map((o) => <button key={o.v} onClick={() => setLang(o.v)} className="px-3 h-8 rounded-md text-[13px]" style={{ background: lang === o.v ? '#f1f2f4' : 'transparent', fontWeight: lang === o.v ? 600 : 400 }}>{o.label}</button>)}</div>
+            <p style={{ margin: '6px 0 0', fontSize: 12, color: '#8a8a90' }}>讲解、练习和考试都将使用这个语言，加入后无法更改。</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <button disabled={busy} onClick={async () => { setBusy(true); try { await onConfirm(lang) } finally { setBusy(false) } }}
+              data-testid="join-confirm"
+              style={{ padding: '10px 16px', border: 'none', borderRadius: 10, background: '#000', color: '#fff', fontSize: 14, fontWeight: 600, cursor: 'pointer', opacity: busy ? .6 : 1 }}>{busy ? '正在加入…' : '确认加入'}</button>
+            <button onClick={() => onOpenChange(false)}
+              style={{ padding: '10px 16px', border: '1px solid #e5e7eb', borderRadius: 10, background: '#fff', color: '#111827', fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>再想想</button>
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   )

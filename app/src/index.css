@@ -207,3 +207,9 @@
 .hk-rail-item--compact .hk-rail-label { display: none; }
 .hk-rail-item--compact svg { opacity: .65; }
 .hk-rail-item--compact:hover svg, .hk-rail-item--compact[data-active="true"] svg { opacity: 1; }
+
+/* 线上 .response-action-buttons / .response-action-btn / -active（消息动作行） */
+.response-action-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; color: #71717a; transition: all .2s ease; }
+.response-action-btn:hover { color: #18181b; background-color: #f4f4f5; }
+.response-action-btn[data-on="true"] { color: #18181b; background-color: #e4e4e7; }
+.response-action-btn[data-on="true"]:hover { background-color: #d4d4d8; }

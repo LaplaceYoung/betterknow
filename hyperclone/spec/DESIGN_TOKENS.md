@@ -136,3 +136,21 @@
 | 练习进度点 | `.practice-progress-dot{width:17px;height:10px;border-radius:999px;background:#d4d4d4}`；`.practice-progress-dot--active{width:25px;height:18px;border:2px solid #D4D4D4;background:transparent}` | 同（答对/答错沿用绿/红，形状按线上） |
 | 消息卡 | `.orbie-message-card{background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 2px 8px #0000000d;gap:12px;min-height:160px}`；`.message-content{font-size:15px;color:#333;line-height:1.5;gap:12px}`；`.message-header{font-size:12px;gap:6px}` | 记为后续对照（对话页正文排版） |
 
+## 第六批对照：市场精选、消息动作、加入弹窗（r62-r65）
+
+先对 6127 个类名做了前缀普查（`r62_css_prefixes.json`），按子系统大小定位：`course` 304、`whiteboard` 200、`cpub` 192、`cj` 182、`practice` 171、`canvas` 142、`mktp` 59、`inbox` 49、`response` 43。
+
+| 部件 | 线上原文 | 本仓 |
+|---|---|---|
+| 市场精选 bento | `.mktp-featured{max-width:1160px;margin:0 auto 36px}`；`.mktp-featured-bento{grid-template-columns:repeat(12,1fr);grid-template-rows:234px 190px;gap:14px}`；卡片位次 `nth-child(1){1/7,1/3} (2){7/10,1/2} (3){10/13,1/2} (4){7/9,2/3} (5){9/11,2/3} (6){11/13,2/3}`；卡 `border-radius:18px;background:#edebe8` | 同（实测 rows `234px 190px`、gap 14、首卡 `1/7 × 1/3`） |
+| 精选覆盖层 | `.mktp-featured-overlay{justify-content:flex-end;gap:8px;padding:22px 24px;background:linear-gradient(180deg,#0a0c1400 35%,#0a0c14c7)}`；中/小卡 `padding:14px 16px;gap:6px` | 同 |
+| 精选标签 | `.mktp-featured-tag{padding:3px 9px;border-radius:999px;color:#fff;background:#ffffff29;border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(3px)}` | 同 |
+| 卡内标题 | 大卡 24px、中卡 15px、小卡 12.5px（均 700 + `text-shadow:0 1px 6px rgba(0,0,0,.25)`，中/小卡 2 行截断）；描述 13.5px/1.45 `#ffffffe0` max-width 560 | 同 |
+| 精选眉标 | `.mktp-featured-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#465366;background:linear-gradient(180deg,#f8fafc,#e4e8ef);border:1px solid #CBD2DC;border-bottom:4px solid #9AA6B8;border-radius:999px;padding:4px 12px 2px}`；标题 18px/700 `#1a1a1a` | 同（眉标改 FEATURED，标题 18px w700） |
+| 市场搜索条 | `.mktp-search-trigger{height:46px;padding:0 20px;border:1px solid #ECEAE6;border-radius:999px;background:#fff;width:460px;box-shadow:0 1px 2px #1414140a}`；标签 13px | 同（实测 460×46/radius 999/边框 `#ECEAE6`/13px） |
+| 市场网格 | `.mktp-grid{max-width:1160px;margin:0 auto 40px;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}` | 同 |
+| 消息动作行 | `.response-action-buttons{display:flex;gap:4px;margin-top:6px;margin-bottom:10px}`；按钮 `size-8 rounded-md`（32×32 radius 8）、`.response-action-btn{color:#71717a}`、hover `#18181b`+`#f4f4f5`、`.response-action-btn-active{color:#18181b;background:#e4e4e7}`；实测三键：复制 / Thumbs up / Thumbs down | 同（复制 / 点赞 / 点踩，`data-on` 表示已选） |
+| 加号与工具键 | `.response-add-button{width:33px;height:33px;border-radius:50%;border:1px solid #E5E5E5;background:transparent}`；`.response-tools-button{height:33px;padding:0 10px 0 9px;border-radius:999px;border:1px solid #E5E5E5;gap:6px}`，文字 14px `#444`，选中 `#2b67c6` | 记为后续对照 |
+| 加入课程弹窗 | `.join-auth-modal{max-width:380px;border-radius:18px;box-shadow:0 24px 60px #0f172a2e;padding:28px 24px 24px}`；标题 17px/600 `#0f1f33`；副title 13px `#7c8194`；按钮列 `gap:10px`；主键 `padding:10px 16px;border-radius:10px;background:#000;font-size:14px;font-weight:600`；次键白底 `1px solid #e5e7eb`；关闭钮 26px/radius 8/`1px solid #ececef` | 同（实测 380/18/`28px 24px 24px`/阴影一致/标题 17 w600 `#0f1f33`/主键 10×16 radius 10） |
+| 讲义阅读器 | `.preview-page{width:1123px;height:794px;padding:var(--page-pad);box-shadow:0 2px 16px #0000002e;border-radius:2px}`；`.preview-scroll{scrollbar-gutter:stable}`；`.preview-zoom-controls{top:10px;right:14px;border-radius:8px;box-shadow:0 1px 4px #00000024,0 0 0 1px #0000000f;padding:3px}`，按钮 28×28 radius 6 `#3c3c43`，缩放值 44px 可编辑 | 本仓无讲义阅读面，规则留档 `r64_mktp_join_preview.json` |
+

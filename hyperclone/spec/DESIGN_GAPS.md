@@ -263,3 +263,9 @@
 - 发送键统一为线上 `.send-button`（33px、`#e7e7e7`、边框 `#D1D1D1`、禁用 `#f5f5f5`/`#e0e0e0`/0.6）：首页、对话页追问、互动协助、Misc 四处。
 - 白板缩放改为线上 zoom pill，练习进度点改成 17×10 / 激活 25×18（2px 边框）。
 - 未做：对话页 `.orbie-message-card` 正文字号（15px/1.5/`#333`，card radius 16 + padding 14 18 + `0 2px 8px #0000000d`）、`.join-auth-modal`（加入课程弹窗 380/radius 18）、`.preview-zoom-controls`（预览页缩放小件）。
+
+**第十六批（市场精选 · 消息动作 · 加入弹窗）**
+- 市场页：精选 bento 改为线上精确网格（12 列 / 234+190 行 / gap 14 / 六卡位次 / radius 18 / 覆盖层渐变 `#0a0c1400 35% → #0a0c14c7`）、眉标与 18px 标题、标签 pill、大中小三档标题字号、搜索条 460×46、课程网格 1160/4 列/gap 24。
+- 对话页：补上线上的**消息动作行**（复制 / 点赞 / 点踩，32×32 radius 8，配色 `#71717a → #18181b`，选中 `#e4e4e7`），之前本仓完全没有这一排。
+- 加入课程弹窗按 `.join-auth-modal` 重写（380 / radius 18 / padding 28 24 24 / 主键黑 10×16 radius 10 / 次键描边 / 关闭钮 26 radius 8）。
+- 仍未做：`.response-add-button` 与 `.response-tools-button`（对话输入栏左侧的加号与工具 pill，33px 同系）、讲义阅读器 `.preview-*`（1123×794 A4 分栏 + 缩放控件；本仓没有讲义阅读面，需要先决定要不要做）、`.mktp-featured-card--skeleton` 骨架动画。
