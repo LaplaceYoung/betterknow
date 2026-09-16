@@ -48,3 +48,6 @@ hyperclone/server/var/data/files/
 hyperclone/server/var/data/tts/
 hyperclone/server/var/data/covers/
 hyperclone/server/var/data/generation_runs/
+
+# 运行时状态：含按用户保存的 BYOK 密钥，且服务端首次启动会自动重建种子数据
+hyperclone/server/var/data/state.json
