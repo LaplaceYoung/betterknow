@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Clock, CalendarPlus } from 'lucide-react'
+import { PendingTasksView } from '@/components/PendingTasksView'
 import { apiGet, apiPost } from '@/lib/api'
 import { useNavigate } from 'react-router'
 
@@ -47,10 +48,29 @@ export default function LearningFeed() {
   }, [cursor])
   const shown = useMemo(() => (tasks ?? []).filter((t) => filter === 'all' || t.status === filter), [tasks, filter])
   const dayTasks = useMemo(() => (tasks ?? []).filter((t) => sameDay(new Date(t.scheduled_for), selectedDate) && t.status !== 'done'), [tasks, selectedDate])
+  // 线上「待处理」按来源分列（source-column）：课程课源 / 文件来源 / 无来源
+  const pendingGroups = useMemo(() => {
+    const groups = new Map<string, { key: string; title: string; kind: 'course' | 'none'; tasks: Task[] }>()
+    for (const t of tasks ?? []) {
+      if (t.status !== 'pending') continue
+      const key = t.course_uuid ? `course:${t.course_uuid}` : t.course_title ? `course-title:${t.course_title}` : 'none'
+      const group = groups.get(key) ?? { key, title: t.course_title ?? '无来源', kind: (t.course_uuid || t.course_title ? 'course' : 'none') as 'course' | 'none', tasks: [] as Task[] }
+      group.tasks.push(t)
+      groups.set(key, group)
+    }
+    return [...groups.values()]
+  }, [tasks])
+
   const dones = useMemo(() => (tasks ?? []).filter((t) => t.status === 'done'), [tasks])
   const act = async (t: Task, action: 'confirm' | 'done') => { await apiPost('/calendar/approve_tasks', { task_id: t.id, action }); await load() }
   // 任务详情（线上：描述 + 子任务 + 进度 + 开始课堂/删除任务）
   const [openTask, setOpenTask] = useState<Task | null>(null)
+  // 线上 source-actions-footer：整列「确认所有任务」/「拒绝所有任务」→ approve_tasks {task_id:[…], action}
+  const bulkDecide = async (list: Task[], action: 'confirm' | 'reject') => {
+    if (list.length === 0) return
+    await apiPost('/calendar/approve_tasks', { task_id: list.map((t) => t.id), action })
+    await load()
+  }
   // 线上「相关截止日期」是服务端给的关联项；本仓没有这层关系数据，按时间邻近（±7 天）取，最多 5 条
   const dueTime = (t: Task) => new Date(t.due_at ?? t.scheduled_for).getTime()
   const relatedDues = useMemo(() => {
@@ -265,7 +285,11 @@ export default function LearningFeed() {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </button>
         </div>
-        <div className={`calendar-grid${view === 'week' ? ' week-view' : ''}`} data-testid="calendar-grid">
+        {filter === 'pending' && (
+          <PendingTasksView groups={pendingGroups} onOpen={(t, comment) => { setOpenTask(t as Task); setCommentOpen(Boolean(comment)) }}
+            onDecide={(t, action) => void bulkDecide([t as Task], action)} onBulk={(list, action) => void bulkDecide(list as Task[], action)} />
+        )}
+        {filter !== 'pending' && <div className={`calendar-grid${view === 'week' ? ' week-view' : ''}`} data-testid="calendar-grid">
           <div className="calendar-weekdays">{WEEK.map((w) => <div key={w} className="calendar-weekday">{w}</div>)}</div>
           <div className={`calendar-days-grid${view === 'week' ? ' week-view-grid' : ''}`}>
             {(view === 'month'
@@ -306,7 +330,8 @@ export default function LearningFeed() {
               )
             })}
           </div>
-        </div>
+        </div>}
+
         {quota && (
           <div className="mt-4 hk-card p-3 text-[12px] text-[#6b6b70]" data-testid="quota-panel">
             <div className="font-medium text-[#3d3d3f] mb-1">本周配额</div>

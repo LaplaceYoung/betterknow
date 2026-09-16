@@ -339,6 +339,8 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       const done = subtasks.filter((item) => item.status === 'done' || item.completed === true).length;
       return {
         ...task,
+        // 早期种子把确认态写成了 'confirm'，读出来统一成 'confirmed'
+        status: task.status === 'confirm' ? 'confirmed' : task.status,
         description: task.description ?? `今天的学习安排：${String(task.title ?? '')}`,
         // 线上任务详情：子任务列表 + 已完成百分比 + 「开始课堂」入口
         subtasks: subtasks.length ? subtasks : [{ subtask_id: task.task_id, title: String(task.title ?? ''), status: task.status === 'done' ? 'done' : 'pending', session_outline: null }],
@@ -383,7 +385,8 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
         const index = tasks.findIndex((item) => item.task_id === id);
         if (index < 0) { failed.push(id); continue }
         if (action === 'reject') tasks.splice(index, 1);
-        else tasks[index].status = action === 'approve' ? 'approved' : action;
+        // 线上客户端确认走默认 action 'approve'；本仓语义只有 pending/confirmed/done 三态，统一归一化
+        else tasks[index].status = action === 'approve' || action === 'confirm' ? 'confirmed' : action;
         succeeded += 1;
       }
       state.calendar[request.userId!] = tasks;

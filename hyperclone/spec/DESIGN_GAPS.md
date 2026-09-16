@@ -541,7 +541,7 @@
 **第六十四批（拒绝任务 + 底部动作换线上图标）**
 - 补上「拒绝任务」：服务端 `/calendar/approve_tasks` 从「只改状态」改成线上语义（数组入参、`reject` 从日历移除、响应带 `total_succeeded/queued_task_ids/failed_task_ids`）；客户端底部动作换成线上 SVG（确认 `M20 6L9 17L4 12`、拒绝双 path、删除/评论图标），拒绝带处理中 spinner 与禁用态。
 - 实测：pending 任务详情同时出现确认与拒绝两个圆形按钮（radius 50%，4 个 SVG 图标）；点拒绝后弹窗关闭、待处理计数 -1、服务端任务数随之减少。
-- 仍未做：源文件卡（`task-detail-file-card*`）、相关截止项（`task-detail-related-due-*`，本仓任务没有关联关系数据）、子任务多文件、生成失败的 broken 态；「待处理」列表页（`pending_main_task_detail` + `pendingTasks.rejectAllTasks` 批量拒绝）也没有对齐。
+- 部分已做（待处理视图 + 整列批量确认/拒绝）：源文件卡（`task-detail-file-card*`）、相关截止项（`task-detail-related-due-*`，本仓任务没有关联关系数据）、子任务多文件、生成失败的 broken 态；「待处理」列表页（`pending_main_task_detail` + `pendingTasks.rejectAllTasks` 批量拒绝）也没有对齐。
 
 **第六十五批（白板侧栏改为线上 tab 结构）**
 - 侧栏从自绘的「讲稿/对话」改成线上 `.whiteboard-sidebar` + `.whiteboard-tabs`：**课程大纲**（学习节大纲卡片 + 本节要点 + 参考资料）与**学习记录**（课程列表 + 可用学习节，点选切换）；样式 53 条取自线上原文。本仓保留第三个 tab「讲稿」（线上把讲稿放在对话面板，差异已记）。
@@ -587,3 +587,10 @@
 - 客户端第 3 步「下一步」改为调 draft（`data-testid="ccal-draft"`），失败显示「无法为这门课生成计划。」并留在第 3 步；成功直接进第 4 步预览。
 - 实测：缺字段 422（`loc:["body","duration_days"]`）；`{start_date:2026-09-16, duration_days:7, preferred_weekdays:[1,3,5]}` → 60 条铺到 9/16、9/18、9/21、9/23 各 15 条；浏览器里勾周一/三/五后第 4 步预览显示同样 4 天 × （3 条 + 「+12」）。
 - 分配算法线上仍未取证（只抓到了请求/响应字段），均摊口径与客户端一致。
+
+**第七十二批（学习动态「待处理」视图）**
+- 线上「待处理」是一整块按来源分列的视图（r174 DOM/CSS + proactive bundle 实证），本仓此前只做了状态筛选。现在接上 `.pending-tasks-view`：来源列（`.source-column` 290px）、列头 `.source-card`、`.source-tasks-list` 的 `.pending-task-card`（标题/副标题/日期区间/「查看 →」，行内 评论/确认/拒绝）、列底 `.source-actions-footer` 的「确认所有任务」「拒绝所有任务」。
+- 批量动作走 `POST /calendar/approve_tasks {task_id:[…], action}`（线上同款，`reject` 是从日历移除），`approve`/`confirm` 都归一化成 `confirmed`。
+- **修掉一个状态错**：线上确认按钮走默认 action `approve`，而早期种子把确认态写成 `confirm`（既不是 `confirmed` 也不是 `pending`）——列表读出来统一归一到 `confirmed`，种子里的错值也已改。
+- 分组口径差异：线上按 canvas/文件/公告分组，本仓按「课程 / 无来源」；日期区间按 `scheduled_for + duration_min` 推算。
+- 实测：待处理视图只在 `status==='pending'` 时出现（2 列 2 卡）；单卡「确认」后该卡离开视图、状态变 `confirmed`；整列「拒绝所有任务」后该来源的卡全部移除、列数 2 → 1（`list_main_tasks` 同步减少）。

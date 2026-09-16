@@ -1023,3 +1023,15 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 `.proactive-left` 线上是分档的（`0 0 27%` → `0 0 262px` → `0 0 238px` → `clamp(192px,22%,244px)` → 窄屏 `flex-direction: column` + `width:100%`），抓包没带 `@media` 条件；本仓按实测宽度取三档：≥1200px 用 262px、1200px 以下 `clamp(192px,22%,244px)`、900px 以下竖排（实测 1400→262 / 1150→192 / 860→竖排）。
 
 本仓差异：条目的「确认 / 完成」两个 pill 是我们额外留的（线上这两步在任务详情弹层里）；`⋯` 菜单按钮未做。
+
+### 「待处理」视图（第五十五批，r174 DOM + proactive bundle）
+
+筛选切到「待处理」时右侧整块换成 `.pending-tasks-view`：`.sources-row-container > .sources-row` 横向排 `.source-column`（290px、`position:relative`、`height:100%`，带 `source-column-enter` 入场动画与 `animation-delay` 递进）：
+
+- `.source-header`：`.source-label`「来源」+ `.source-card`（`.source-icon-container` 图标 + `.source-details > .source-title` + `.source-open-btn`「打开来源」）
+- `.source-tasks-list`（`flex:1; padding:0 10px 60px; overflow-y:auto`）：`.tasks-label`「提取的任务和截止日期」+ `.pending-task-card`（`.existing-task-update-tag`「更新」、`.pending-task-content` 的标题/副标题/`.pending-task-dates-row`〔`.pending-task-dates` + `.date-edit-btn`「编辑日期」〕、`.pending-task-footer` 的 `.task-card-action-btn` 评论/确认/拒绝 + `.pending-task-action-btn`「查看 →」）
+- `.source-actions-footer`（`position:absolute;bottom:0`，渐变遮罩）：`.source-action-btn` 评论 + 「确认所有任务」/「拒绝所有任务」
+
+文案全部取自线上 zh 字典（`pendingTasks.*`）；CSS 130 条原文进 `index.css`。
+
+本仓差异：线上按 canvas 课程 / 文件 / 公告分组，本仓任务只带课程信息，按「课程 / 无来源」两档分组；日期区间用 `scheduled_for + duration_min` 推算（本仓任务没有独立 `due_at`）；空态文案用线上的「没有待处理的任务」，结构是自绘的（线上空态没抓到）。
