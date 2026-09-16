@@ -348,7 +348,33 @@ function whiteboardHandler(socket: WebSocket, request: FastifyRequest): void { g
     const topic = String(session.session_title ?? 'Whiteboard learning session');
     const language = /[\u4e00-\u9fff]/.test(topic) ? 'Chinese' : 'English';
     const lessonEff = await effFor(userId);
-    const boardContent = lessonEff.provider === 'stub' ? await stubValue<string>('board_brief') : await chat([{ role: 'user', content: 'Create a compact markdown whiteboard lesson.' }], 'content', lessonEff);
+    // 板书必须围绕本节内容：把课程课节的标题 / 单元 / 大纲 / 要点喂给模型（此前只给了一句「生成板书」，模型自由发挥，导致文科课节讲起勾股定理）
+    const lessonContext = (() => {
+      const state2 = state;
+      const sessionRef = sessionKeyPoints(state2, String(sessionId).split('__').pop() ?? String(sessionId)).session;
+      const points = Array.isArray(session.key_points) ? (session.key_points as unknown[]).map(String) : [];
+      return {
+        unit: String(sessionRef?.unitTitle ?? ''),
+        lecture: String(sessionRef?.lectureTitle ?? ''),
+        outline: String(sessionRef?.source?.lectureOutline ?? sessionRef?.source?.sessionOutline ?? ''),
+        points,
+      };
+    })();
+    const boardContent = lessonEff.provider === 'stub' ? await stubValue<string>('board_brief') : await chat([
+      { role: 'system', content: '你是白板课堂的板书生成器。只输出紧凑的 markdown 板书：核心概念、关系或步骤、一个具体例子。不要寒暄，不要与本节无关的话题。' },
+      {
+        role: 'user',
+        content: [
+          `本节标题：${topic}`,
+          lessonContext.unit ? `所属单元：${lessonContext.unit}` : '',
+          lessonContext.lecture ? `所属讲次：${lessonContext.lecture}` : '',
+          lessonContext.outline ? `本节大纲：${lessonContext.outline.slice(0, 600)}` : '',
+          lessonContext.points.length ? `本节要点：${lessonContext.points.slice(0, 6).join('；')}` : '',
+          `语言：${language}`,
+          '请只围绕以上这一节的内容生成板书。',
+        ].filter(Boolean).join('\n'),
+      },
+    ], 'content', lessonEff);
     const pageId = 'page-1'; const annId = randomUUID();
     const imageAction = await lessonImageAction(userId, topic, boardContent, language, lessonEff);
     const spokenText = 'Let’s build the idea from a simple question, draw the relationship, and test it with one concrete example.';

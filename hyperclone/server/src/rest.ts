@@ -78,7 +78,7 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       const ownKey = own?.apiKey || '';
       const source: 'user' | 'env' | 'none' = ownKey || own?.baseUrl || own?.model ? 'user' : status.source;
       const configured = Boolean(ownKey || own?.baseUrl || status.configured) && own?.enabled !== false;
-      return { seam: status.seam, configured, enabled: own?.enabled !== false, mode: configured ? 'real' as const : 'stub' as const, source, base_url: baseUrl, model, api_key_masked: mask(ownKey), env: status.env };
+      return { seam: status.seam, configured, enabled: own?.enabled !== false, mode: configured ? 'real' as const : 'stub' as const, source, base_url: baseUrl, model, voice: own?.voice ?? '', api_key_masked: mask(ownKey), env: status.env };
     });
     return {
       configured: Boolean(b?.apiKey || b?.providers),
@@ -102,7 +102,8 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       api_key?: string;
       apiKey?: string;
       models?: Record<string, string>;
-      providers?: Partial<Record<Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }>>;
+      voice?: string;
+      providers?: Partial<Record<Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean; voice?: string }>>;
     };
     const baseUrl = String(body.base_url ?? body.baseUrl ?? '').trim();
     const apiKey = String(body.api_key ?? body.apiKey ?? '').trim();
@@ -113,18 +114,20 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       const slots: NonNullable<ByokRecord['providers']> = { ...(previous?.providers ?? {}) };
       // 单槽写法 {seam, base_url, api_key, model} 与批量写法 {providers:{...}} 都收；
       // 只有既没有 seam 也没有 providers 时才走顶层 legacy 字段（否则会静默改掉 llm 的 key/baseUrl）
-      const incomingSlots: Partial<Record<Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }>> = { ...(body.providers ?? {}) };
+      const incomingSlots: Partial<Record<Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean; voice?: string }>> = { ...(body.providers ?? {}) };
       if (body.seam && !body.providers) {
-        incomingSlots[body.seam] = { apiKey: apiKey || undefined, baseUrl: baseUrl || undefined, model: body.model, enabled: body.enabled };
+        incomingSlots[body.seam] = { apiKey: apiKey || undefined, baseUrl: baseUrl || undefined, model: body.model, enabled: body.enabled, voice: body.voice };
       }
-      for (const [seam, incoming] of Object.entries(incomingSlots) as Array<[Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }]>) {
+      for (const [seam, incoming] of Object.entries(incomingSlots) as Array<[Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean; voice?: string }]>) {
         const current = slots[seam] ?? { apiKey: '', baseUrl: '', model: '' };
         const apiKeyValue = incoming.apiKey === undefined ? current.apiKey : String(incoming.apiKey);
+        const voiceValue = incoming.voice === undefined ? (current as { voice?: string }).voice ?? '' : String(incoming.voice).trim();
         slots[seam] = {
           apiKey: apiKeyValue,
           baseUrl: incoming.baseUrl === undefined ? current.baseUrl : String(incoming.baseUrl).trim(),
           model: incoming.model === undefined ? current.model : String(incoming.model).trim(),
           enabled: incoming.enabled === undefined ? current.enabled !== false : incoming.enabled !== false,
+          ...(voiceValue ? { voice: voiceValue } : {}),
         };
       }
       const models = {
@@ -152,16 +155,17 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return { success: true };
   });
   app.post('/api/v1/auth/byok/test', protectedRoute, async (request) => {
-    const body = (request.body ?? {}) as { seam?: Seam; base_url?: string; api_key?: string; model?: string; deep?: boolean };
+    const body = (request.body ?? {}) as { seam?: Seam; base_url?: string; api_key?: string; model?: string; voice?: string; deep?: boolean };
     const seam: Seam = body.seam ?? 'llm';
-    // 面板未填值时回落到已保存的用户配置 / 环境变量
+    // 面板未填值时回落到已保存的用户配置 / 环境变量；llm 槽同样先看 providers.llm（面板保存的就是它）
     const state = await readState();
     const saved = (state.users[request.userId!] as unknown as { byok?: ByokRecord }).byok;
-    const own = seam === 'llm' ? undefined : saved?.providers?.[seam];
+    const own = saved?.providers?.[seam];
     const result = await probeSeam(seam, {
       baseUrl: body.base_url || own?.baseUrl || (seam === 'llm' ? saved?.baseUrl : undefined),
       apiKey: body.api_key || own?.apiKey || (seam === 'llm' ? saved?.apiKey : undefined),
       model: body.model || own?.model || (seam === 'llm' ? saved?.models?.director : undefined),
+      voice: body.voice || own?.voice || undefined,
     }, { deep: body.deep === true });
     return { ...result, seam };
   });

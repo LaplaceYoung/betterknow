@@ -654,3 +654,9 @@
 - **测量算法照搬线上**：`available = max(200, stage.clientHeight - known - scrollDelta)`、`maxHeight = round(available) + scrollDelta`、`scale = clamp(0.5, available / 动画高, 1)`，用 `useLayoutEffect` + `ResizeObserver`（观察 stage 与题目区）。此前本仓是按**宽度**缩放且用了硬编码设计宽 720，现在以子页 `postMessage` 回报的动画高度为基准，与线上一致。
 - **合成考试补一道互动题**：`synthesizeCourseExams` 现在会生成 `type:'animation'` 的题（自包含动画 HTML 走本仓 `localAnimationHtml`），因此**没有种子数据的课程也能考互动题**；带种子考试的那门课种子里本来就有互动题。
 - 实测（种子考试第 15/15 题）：kicker「互动」、stage 高 670px、`frame.maxHeight = 203px`、iframe CSS 高 509px、`transform: scale(0.5)`、`transform-origin: top center`（`339px 0px`）、iframe 顶边与 frame 内容顶边对齐（295 vs 295）、frame 内无滚动（`scrollH 203 / clientH 201`），底部按线上口径裁掉。
+
+**第八十三批（接真模型时暴露的三个问题）**
+- **板书跑题**：连接真实模型后，白板的板书 prompt 只有一句「Create a compact markdown whiteboard lesson.」——没有任何本节信息，模型自由发挥（实测一节社会学课讲起了勾股定理，随后随堂题与动画也跟着跑偏）。现在 prompt 带上本节标题 / 单元 / 讲次 / 大纲 / 要点并要求「只围绕本节」，实测同一节恢复为 Biography×History → Sociological Imagination 的维恩图与对应考题。
+- **TTS 音色字段口径**：Moss 只认 `voice_id`；槽里新增可选 `voice`（env `BYOK_TTS_VOICE` + 面板输入），请求体同时带 `voice`/`voice_id`。
+- **探针两处口径错**：llm 探针此前读顶层 `config.models.director`（面板存的是 `providers.llm`，于是探针用错模型报 401）；tts 探针自己拼 body 缺 `voice_id`（恒 400）。现在 llm 探针读 llm 槽、tts 探针按槽的真实请求体发。
+- 实测（本机）：llm 探针 `chat · 200 · 255ms · deepseek-v4.1-flash`；tts 探针 `speech · 200 · 4256ms · 32492 bytes · audio/mpeg`；白板课结真播放 `/api/v1/tts/audio/<hash>.mp3`（45932B 真 MP3，ID3 头）；提问得到真实模型回答；image 槽未配仍是 SVG 占位（用户要求暂不接）。

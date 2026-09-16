@@ -16,20 +16,20 @@ const TABS: { id: Tab; label: string }[] = [
 
 interface MemoryMgmt { success?: boolean; memories?: { id: string; content: string; created_at?: string }[]; long_term?: string[]; episodic?: string[] }
 type SeamId = 'llm' | 'tts' | 'stt' | 'search' | 'image'
-interface SeamDraft { baseUrl: string; apiKey: string; masked: string; model: string; enabled: boolean; source: 'user' | 'env' | 'none' }
+interface SeamDraft { baseUrl: string; apiKey: string; masked: string; model: string; voice: string; enabled: boolean; source: 'user' | 'env' | 'none' }
 interface ProbeResult { ok: boolean; status: number; latency_ms: number; probe: string; sample?: string; error?: string; model?: string }
 interface ByokState {
   configured: boolean
   enabled?: boolean
-  seams?: { seam: SeamId; configured: boolean; enabled: boolean; mode: 'real' | 'stub'; source: 'user' | 'env' | 'none'; base_url: string; model: string; api_key_masked: string }[]
+  seams?: { seam: SeamId; configured: boolean; enabled: boolean; mode: 'real' | 'stub'; source: 'user' | 'env' | 'none'; base_url: string; model: string; api_key_masked: string; voice?: string }[]
 }
 
 const emptySeams = (): Record<SeamId, SeamDraft> => ({
-  llm: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
-  tts: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
-  stt: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
-  search: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
-  image: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
+  llm: { baseUrl: '', apiKey: '', masked: '', model: '', voice: '', enabled: true, source: 'none' },
+  tts: { baseUrl: '', apiKey: '', masked: '', model: '', voice: '', enabled: true, source: 'none' },
+  stt: { baseUrl: '', apiKey: '', masked: '', model: '', voice: '', enabled: true, source: 'none' },
+  search: { baseUrl: '', apiKey: '', masked: '', model: '', voice: '', enabled: true, source: 'none' },
+  image: { baseUrl: '', apiKey: '', masked: '', model: '', voice: '', enabled: true, source: 'none' },
 })
 
 // 本地优先的预设：自部署场景默认指向本机推理服务
@@ -92,6 +92,7 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
         for (const seam of b.seams ?? []) {
           next[seam.seam] = {
             baseUrl: seam.base_url ?? '',
+            voice: seam.voice ?? '',
             apiKey: '',
             masked: seam.api_key_masked ?? '',
             model: seam.model ?? '',
@@ -118,6 +119,7 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
         const draft = seams[meta.id]
         providers[meta.id] = {
           ...(draft.apiKey ? { apiKey: draft.apiKey } : {}),
+          ...(draft.voice ? { voice: draft.voice } : {}),
           baseUrl: draft.baseUrl,
           model: draft.model,
           enabled: draft.enabled,
@@ -265,6 +267,15 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
                           className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none focus:border-[#a1a1aa]"
                         />
                       </div>
+                      {meta.id === 'tts' && (
+                        <input
+                          value={draft.voice}
+                          onChange={(e) => setSeams((current) => ({ ...current, [meta.id]: { ...current[meta.id], voice: e.target.value } }))}
+                          placeholder="音色 ID（可选）：供应商自己的音色标识，如 Moss 的 voice_id"
+                          aria-label={`${meta.short} voice id`}
+                          className="w-full h-8 px-2.5 rounded-md border bg-white text-[12px] outline-none focus:border-[#a1a1aa]"
+                        />
+                      )}
                       <input
                         type="password"
                         value={draft.apiKey}

@@ -1,4 +1,4 @@
-export interface ProviderSlot { apiKey: string; baseUrl: string; model: string; enabled?: boolean }
+export interface ProviderSlot { apiKey: string; baseUrl: string; model: string; enabled?: boolean; voice?: string }
 
 export interface ByokConfig {
   provider: 'kimi' | 'openai-compatible' | 'stub';
@@ -10,7 +10,9 @@ export interface ByokConfig {
 
 const providerSlot = (env: NodeJS.ProcessEnv, name: 'TTS' | 'STT' | 'SEARCH' | 'IMAGE'): ProviderSlot | undefined => {
   const apiKey = env[`BYOK_${name}_API_KEY`]; const baseUrl = env[`BYOK_${name}_BASE_URL`]; const model = env[`BYOK_${name}_MODEL`];
-  return apiKey || baseUrl || model ? { apiKey: apiKey ?? '', baseUrl: baseUrl ?? '', model: model ?? '' } : undefined;
+  // 音色：有些供应商（如 Moss）用自己的 voice_id，不接受 OpenAI 的 voice 名
+  const voice = env[`BYOK_${name}_VOICE`];
+  return apiKey || baseUrl || model || voice ? { apiKey: apiKey ?? '', baseUrl: baseUrl ?? '', model: model ?? '', ...(voice ? { voice } : {}) } : undefined;
 };
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): ByokConfig {

@@ -13,6 +13,7 @@ function slot(seam: Exclude<Seam, 'llm'>, byok?: ByokConfig): ProviderSlot | und
     apiKey: user?.apiKey || env?.apiKey || '',
     baseUrl: user?.baseUrl || env?.baseUrl || '',
     model: user?.model || env?.model || '',
+    voice: user?.voice || env?.voice || '',
     enabled: user?.enabled === false ? false : env?.enabled === false ? false : undefined,
   };
   return merged.enabled === false || (!merged.apiKey && !merged.baseUrl) ? undefined : merged;
@@ -41,11 +42,16 @@ async function probeModels(baseUrl: string, apiKey: string, started: number, mod
   }
 }
 
-export async function probeSeam(seam: Seam, override: { baseUrl?: string; apiKey?: string; model?: string } = {}, opts: { deep?: boolean } = {}): Promise<ProbeResult> {
+export async function probeSeam(seam: Seam, override: { baseUrl?: string; apiKey?: string; model?: string; voice?: string } = {}, opts: { deep?: boolean } = {}): Promise<ProbeResult> {
   const started = Date.now();
-  const base = (override.baseUrl ?? (seam === 'llm' ? config.baseUrl : slot(seam)?.baseUrl) ?? '').replace(/\/$/, '');
-  const key = override.apiKey ?? (seam === 'llm' ? config.apiKey : slot(seam)?.apiKey) ?? '';
-  const model = override.model ?? (seam === 'llm' ? config.models.director : slot(seam)?.model);
+  // llm 槽走 providers.llm（用户配置优先），表单里的临时值再覆盖
+  // llm 槽：providers.llm 优先，其次顶层 apiKey/baseUrl/models.director
+  const llmSlot: { baseUrl?: string; apiKey?: string; model?: string; voice?: string } = config.providers?.llm ?? { apiKey: config.apiKey, baseUrl: config.baseUrl, model: config.models.director };
+  const slotOf = (s: Seam): { baseUrl?: string; apiKey?: string; model?: string; voice?: string } => (s === 'llm' ? llmSlot : (slot(s) ?? {}));
+  const base = (override.baseUrl ?? slotOf(seam).baseUrl ?? '').replace(/\/$/, '');
+  const key = override.apiKey ?? slotOf(seam).apiKey ?? '';
+  const model = override.model ?? slotOf(seam).model;
+  const voice = override.voice ?? slotOf(seam).voice;
   if (!base) return { ok: false, status: 0, latency_ms: 0, probe: 'none', sample: '', error: 'seam 未配置 base_url' };
   try {
     if (seam === 'llm' || (seam === 'stt' && !opts.deep)) {
@@ -60,14 +66,15 @@ export async function probeSeam(seam: Seam, override: { baseUrl?: string; apiKey
       return { ok: res.ok, status: res.status, latency_ms: Date.now() - started, probe: 'chat', sample: text, model, ...(res.ok ? {} : { error: `HTTP ${res.status}` }) };
     }
     if (seam === 'tts') {
+      // 用槽的真实口径探：供应商若有自己的 voice_id（如 Moss）也要带上，否则 400
       const res = await fetch(`${base}/audio/speech`, {
         method: 'POST',
         headers: { 'content-type': 'application/json', ...(key ? { authorization: `Bearer ${key}` } : {}) },
-        body: JSON.stringify({ model: model || 'tts-1', input: 'ok', voice: 'alloy', speed: 1, response_format: 'mp3' }),
-        signal: AbortSignal.timeout(30_000),
+        body: JSON.stringify({ model: model || 'tts-1', input: 'ok', voice: voice ?? 'alloy', ...(voice ? { voice_id: voice } : {}), speed: 1, response_format: 'mp3' }),
+        signal: AbortSignal.timeout(60_000),
       });
-      const bytes = Buffer.from(await res.arrayBuffer());
-      return { ok: res.ok && bytes.length > 0, status: res.status, latency_ms: Date.now() - started, probe: 'speech', sample: `${bytes.length} bytes · ${res.headers.get('content-type') ?? ''}`, model, ...(res.ok ? {} : { error: `HTTP ${res.status}` }) };
+      const buf = Buffer.from(await res.arrayBuffer());
+      return { ok: res.ok && buf.length > 0, status: res.status, latency_ms: Date.now() - started, probe: 'speech', sample: `${buf.length} bytes · ${res.headers.get('content-type') ?? ''}`, model, ...(res.ok ? {} : { error: `HTTP ${res.status}` }) };
     }
     if (seam === 'stt') {
       const form = new FormData();
@@ -123,7 +130,8 @@ export const tts = {
       const res = await fetch(`${s.baseUrl.replace(/\/$/, '')}/audio/speech`, {
         method: 'POST',
         headers: { 'content-type': 'application/json', ...(s.apiKey ? { authorization: `Bearer ${s.apiKey}` } : {}) },
-        body: JSON.stringify({ model: s.model || 'tts-1', input: text, voice: opts.voice ?? 'alloy', speed: opts.speed ?? 1, response_format: want }),
+        // OpenAI 兼容网关读 voice；Moss 这类只认自己的 voice_id，所以在槽里配了音色时一并带上
+        body: JSON.stringify({ model: s.model || 'tts-1', input: text, voice: opts.voice ?? s.voice ?? 'alloy', ...(s.voice ? { voice_id: s.voice } : {}), speed: opts.speed ?? 1, response_format: want }),
       });
       if (!res.ok) return { ext: want, mime: want === 'pcm' ? 'audio/L16' : want === 'wav' ? 'audio/wav' : 'audio/mpeg', stub: true, error: `${res.status}` };
       const bytes = Buffer.from(await res.arrayBuffer());

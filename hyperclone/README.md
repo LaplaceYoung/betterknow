@@ -52,6 +52,15 @@ web (5173) ── REST /api/v1/* ──┐
    - 配置落在 `var/data/state.json` 的 `<user>.byok.providers`，按用户隔离；API Key 回显只给掩码。
 2. **环境变量**（容器/无人值守）：`BYOK_TTS_API_KEY`/`_BASE_URL`/`_MODEL`、`BYOK_STT_*`、`BYOK_SEARCH_*`、`BYOK_IMAGE_*`；LLM 槽用 `KIMI_API_KEY`、`OPENAI_API_KEY`（配 `OPENAI_BASE_URL`）或 `AIGW_API_KEY`+`AIGW_BASE_URL`；`BYOK_PROVIDER=stub` 可强制离线。
 
+**TTS 音色**：有些供应商（如 Moss）只认自己的 `voice_id`，不接受 OpenAI 的 `voice` 名。TTS 卡片多一个可选「音色 ID」输入（env 为 `BYOK_TTS_VOICE`），填了就会在请求里同时带上 `voice` 与 `voice_id`。
+
+**实测例子**（本机跑通的两组）：
+
+| 槽 | base_url | model | 备注 |
+|---|---|---|---|
+| llm | `https://aigw.sotatts.online/v1` | `deepseek-v4.1-flash` | OpenAI 兼容；探针 `chat 200` |
+| tts | `https://api.mosi.cn/v1` | `moss-tts-1.5-flash` | 需填音色 ID（`GET /v1/audio/voices` 取），探针 `speech 200 · audio/mpeg` |
+
 各槽吃到的地方：
 
 | 槽 | 端点形状 | 用在哪 |
@@ -132,6 +141,10 @@ npm run dev --prefix app        # Vite :5173
 | 网络自检（状态 / 指标 / 原因 / 进阶检查） | 速查表编辑器（三模式 + 工具栏 + 自动保存） |
 |---|---|
 | ![网络自检](docs/screenshots/06-net-check.png) | ![速查表](docs/screenshots/13-cheatsheet-editor.png) |
+
+| 接入真实模型与 TTS 之后（llm=自配网关 · tts=Moss） |
+|---|
+| ![真实模型下的白板](docs/screenshots/17-whiteboard-live-seams.png) |
 
 ### 练习、考试与学习动态
 

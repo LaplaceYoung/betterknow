@@ -1122,3 +1122,9 @@ scale     = min(1, max(0.5, available / animHeight))           // animHeight = �
 `.exam-animation-frame{width:100%;overflow-y:auto;overflow-x:hidden;…}`（`maxHeight` 由运行时给）+ `.exam-animation-iframe{display:block;width:100%;border:none;background:#faf9f7;transform-origin:top center}`——**缩放原点在顶部**，所以缩小后动画顶部仍对齐、底部被裁（这是线上口径，不是缺陷）。
 
 本仓：算法照搬（此前按「宽度」缩放且用固定设计宽 720），现在以子页回报的动画高度为基准；缩放原点、边框与滚动规则本来就已经是线上原文。
+
+### TTS 槽的供应商音色（第六十一批）
+
+线上 TTS 走自家服务；BYOK 之后同一槽要接不同供应商，而**音色字段的口径不统一**：OpenAI 兼容网关用 `voice`（如 `alloy`），Moss（platform.mosi.cn）只认自己的 `voice_id`（不接受 url / base64 / 内联音频，缺失或给了 OpenAI 音色名会 400 `voice_id is invalid`）。
+
+本仓：`ProviderSlot` 增加可选 `voice`（env `BYOK_TTS_VOICE`，面板 TTS 卡片多一个「音色 ID」输入），请求体同时带 `voice` 与 `voice_id`（Moss 实测接受多余字段）。TTS 探针也按这套口径发（此前探针自己拼 body，缺 `voice_id` 会恒 400）。
