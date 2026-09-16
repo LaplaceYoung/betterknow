@@ -8,6 +8,7 @@ import { apiGet, apiPost } from '@/lib/api'
 import { SCORING, makeRivals, perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
 import { SlotNumber } from '@/components/SlotNumber'
 import { PracticeStars } from '@/components/PracticeStars'
+import { ExamResultView } from '@/components/ExamResultView'
 import { CharVideo } from '@/components/CharVideo'
 import { playSfx } from '@/lib/sfx'
 
@@ -241,10 +242,13 @@ function QuizRunner({
   const [score, setScore] = useState(0)
   const [speaking, setSpeaking] = useState(false)
   const [assistantOpen, setAssistantOpen] = useState(false)
-  // 线上进入练习先弹「准备好练习」：插图 + 说明 + 知道了
-  const [readyOpen, setReadyOpen] = useState(true)
+  // 线上进入练习先弹「准备好练习」：插图 + 说明 + 知道了（考试有自己的 exam-intro，不弹这个）
+  const [readyOpen, setReadyOpen] = useState(mode !== 'exam')
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
   const [skippedQuestions, setSkippedQuestions] = useState<Record<string, boolean>>({})
+  // 线上考试：作答按题存（O[questionId] / z[questionId]），翻页不丢；练习仍用单题缓冲
+  const [examSelections, setExamSelections] = useState<Record<string, string[]>>({})
+  const [examFills, setExamFills] = useState<Record<string, string>>({})
   // 线上「上次尝试」开关：De=复盘态；进复盘前把当前进度存进 Ue（ref），退出时灌回
   const [reviewing, setReviewing] = useState(false)
   // 线上：有交卷记录时欢迎弹窗走「欢迎回来」文案，并带上上次答对数（r130 实测）
@@ -367,22 +371,41 @@ function QuizRunner({
       .catch(() => {})
   }, [])
 
-  if (!q) return null
-
-  const correct = q.correctAnswers ?? []
-  const isRight =
-    q.type === 'fill'
-      ? correct.some((c) => c.trim().toLowerCase() === fill.trim().toLowerCase())
-      : picked.length === correct.length && picked.every((p) => correct.includes(p))
-
-
-  // 复盘模式下，当前题的作答/正误直接从 attempt 派生（线上 Pt(attempt) 灌状态的效果）
   const reviewItem = reviewing ? attempt?.items?.[q?.id ?? ''] : undefined
   const reviewPicked = reviewing
     ? (Array.isArray(reviewItem?.answer) ? reviewItem.answer : q?.type === 'fill' ? [] : typeof reviewItem?.answer === 'string' ? [reviewItem.answer] : [])
     : picked
   const reviewFill = reviewing && q?.type === 'fill' && typeof reviewItem?.answer === 'string' ? reviewItem.answer : fill
   const reviewChecked = reviewing ? Boolean(reviewItem) : checked
+  const examPicked = mode === 'exam' ? (examSelections[q?.id ?? ''] ?? []) : picked
+  const examFill = mode === 'exam' ? (examFills[q?.id ?? ''] ?? '') : fill
+  const activePicked = reviewing ? reviewPicked : examPicked
+  const activeFill = reviewing ? reviewFill : examFill
+
+  if (!q) return null
+
+  const correct = q.correctAnswers ?? []
+  const isRight =
+    q.type === 'fill'
+      ? correct.some((c) => c.trim().toLowerCase() === activeFill.trim().toLowerCase())
+      : activePicked.length === correct.length && activePicked.every((p) => correct.includes(p))
+
+
+  // 线上考试没有「检查」步骤：翻页时静默记录作答，正误只在结果页揭晓
+  // 考试提交：把按题存的作答拼成 userAnswers（与线上 O/z 字典一致）
+  const examAnswerMap = (): Record<number, { picked: string[]; fill: string; isRight: boolean }> =>
+    Object.fromEntries(questions.map((qq, idx) => {
+      const selected = examSelections[qq.id] ?? []
+      const written = examFills[qq.id] ?? ''
+      const answers = qq.correctAnswers ?? []
+      const ok = qq.type === 'fill'
+        ? answers.some((c) => c.trim().toLowerCase() === written.trim().toLowerCase())
+        : selected.length === answers.length && selected.every((p) => answers.includes(p))
+      return [idx, { picked: selected, fill: written, isRight: ok }]
+    }))
+
+  // 复盘模式下，当前题的作答/正误直接从 attempt 派生（线上 Pt(attempt) 灌状态的效果）
+
   const reviewIsRight = reviewing ? reviewItem?.state === 'correct' : isRight
 
   const toggleReview = () => {
@@ -473,20 +496,23 @@ function QuizRunner({
 
   const next = () => {
     playSfx('click')
-    const updatedAnswers = { ...userAnswers, [i]: { picked, fill, isRight } }
+    // 考试：提交时用按题存的作答整体拼一遍；练习沿用逐题累积
+    const examAnswers = mode === 'exam' ? examAnswerMap() : null
+    const mergedAnswers = examAnswers ?? { ...userAnswers, [i]: { picked, fill, isRight } }
     if (i + 1 >= questions.length) {
       {
         const ids = questions.map((qq) => qq.id)
         const revealed: Record<string, boolean> = {}
         const correctness: Record<string, boolean> = {}
-        for (const [idx, ans] of Object.entries({ ...userAnswers, [i]: { picked, fill, isRight } })) {
+        for (const [idx, ans] of Object.entries(mergedAnswers)) {
           const id = ids[Number(idx)]
           if (!id) continue
           revealed[id] = true
           correctness[id] = ans.isRight
         }
+        const answeredCount = Object.values(mergedAnswers).filter((ans) => ans.isRight).length
         const points = scoreQuiz({ questionIds: ids, revealedQuestions: revealed, skippedQuestions, questionCorrectness: correctness, fastAnswers })
-        onFinish(score + (isRight ? 1 : 0), questions.length, updatedAnswers, {
+        onFinish(mode === 'exam' ? answeredCount : score + (isRight ? 1 : 0), questions.length, mergedAnswers, {
           fastCount: points.fastCount,
           fastIds: Object.keys(fastAnswers),
           points: points.total,
@@ -498,7 +524,7 @@ function QuizRunner({
       return
     }
     setScore((s) => s + (isRight ? 1 : 0))
-    setUserAnswers(updatedAnswers)
+    setUserAnswers(mergedAnswers)
     setI(i + 1)
     setPicked([])
     setFill('')
@@ -571,7 +597,7 @@ function QuizRunner({
             速答奖励 <b>+{fastBonus}</b><b>{fastLeft}s</b>
           </span>
         )}
-        {!reviewing && <div className="practice-hud" role="status" aria-live="off">
+        {!reviewing && mode !== 'exam' && <div className="practice-hud" role="status" aria-live="off">
           {points.streak >= 2 && <span className="practice-hud-chip practice-hud-chip--streak" data-testid="streak-chip">连对 <b>{points.streak}</b></span>}
           <span className="practice-hud-chip practice-hud-chip--bonus" data-testid="bonus-chip">
             <svg width="11" height="13" viewBox="0 0 11 13" fill="none" aria-hidden="true">
@@ -611,7 +637,7 @@ function QuizRunner({
               </span>
             </div>
             <div className="exam-intro-content">
-              <p className="exam-intro-eyebrow">单元测评</p>
+              <p className="exam-intro-eyebrow">考试</p>
               <h1 className="exam-intro-title">{title}</h1>
               <div className="exam-intro-stats">
                 <span className="exam-intro-stat">
@@ -627,11 +653,11 @@ function QuizRunner({
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M7 7.5H17M7 12H17M7 16.5H12.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                   </svg>
-                  {questions.length} 题
+                  {questions.length} 道题
                 </span>
               </div>
-              <p className="exam-intro-note">开始后计时 30 分钟，中途可以跳过题目；答完全部题目即出成绩。</p>
-              <button className="exam-intro-start-btn" onClick={startExam}>开始考试</button>
+              <p className="exam-intro-note">本场考试限时进行。一旦开始，计时就无法暂停，时间结束后系统会自动提交你的答案。</p>
+              <button className="exam-intro-start-btn" onClick={startExam}>我准备好了</button>
             </div>
           </div>
         </div>
@@ -708,7 +734,14 @@ function QuizRunner({
           />
         )}
         <div className="flex items-start justify-between gap-4">
-          <div className="text-[17px] font-medium" style={{ lineHeight: 1.45, color: "#1f1f1f" }}>{q.prompt}</div>
+          <div className="min-w-0 flex-1">
+            {mode === 'exam' && (
+              <p className={`exam-question-kicker${q.type === 'multiple' ? ' exam-question-kicker--multiple' : ''}`}>
+                {q.type === 'multiple' ? '多选题' : q.type === 'fill' ? '填空题' : '单选题'}
+              </p>
+            )}
+            <div className="exam-question-title text-[17px] font-medium" style={{ lineHeight: 1.45, color: "#1f1f1f" }}>{q.prompt}</div>
+          </div>
           <button
             onClick={toggleSpeech}
             className={`hk-icon-btn shrink-0 h-8 w-8 ${
@@ -722,8 +755,8 @@ function QuizRunner({
 
         {q.type === 'fill' ? (
           <input
-            value={reviewFill}
-            onChange={(e) => setFill(e.target.value)}
+            value={reviewing ? reviewFill : examFill}
+            onChange={(e) => (mode === 'exam' ? setExamFills((prev) => ({ ...prev, [q.id]: e.target.value })) : setFill(e.target.value))}
             disabled={reviewChecked || reviewing}
             placeholder="输入你的答案…"
             className="mt-5 w-full h-11 px-4 rounded-xl border bg-white outline-none focus:border-[#0a0a0a] text-[14px]"
@@ -732,7 +765,7 @@ function QuizRunner({
           <div className="practice-options-panel mt-5">
           <div className={`practice-options-grid ${(q.options ?? []).length <= 2 ? 'practice-options-grid--stacked' : ''}`}>
             {(q.options ?? []).map((o, oi) => {
-              const on = reviewPicked.includes(o)
+              const on = activePicked.includes(o)
               const right = reviewChecked && correct.includes(o)
               const wrong = reviewChecked && on && !correct.includes(o)
               return (
@@ -742,6 +775,16 @@ function QuizRunner({
                   data-testid={`option-${oi + 1}`}
                   onClick={() => {
                     if (reviewing) return
+                    if (mode === 'exam') {
+                      setExamSelections((prev) => {
+                        const current = prev[q.id] ?? []
+                        const next = q.type === 'multiple'
+                          ? (current.includes(o) ? current.filter((x) => x !== o) : [...current, o])
+                          : [o]
+                        return { ...prev, [q.id]: next }
+                      })
+                      return
+                    }
                     setPicked((p) =>
                       q.type === 'multiple'
                         ? on
@@ -783,7 +826,24 @@ function QuizRunner({
       </div>
       </div>
 
-      <div className="practice-actions">
+      {mode === 'exam' && (
+        <div className="exam-actions" data-testid="exam-actions">
+          {i > 0 && (
+            <button type="button" className="exam-nav-btn exam-nav-btn--back" aria-label="Previous question"
+              onClick={() => { setI((idx) => Math.max(idx - 1, 0)); setPicked(reviewing ? [] : picked); setChecked(false) }}>
+              <svg width="16" height="16" viewBox="0 0 14 15" fill="none" aria-hidden="true">
+                <path d="M1.66663 6.50795L6.99996 1.42859M6.99996 1.42859L12.3333 6.50795M6.99996 1.42859V13.6191"
+                  stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" transform="rotate(-90 7 7.5)" />
+              </svg>
+            </button>
+          )}
+          <button type="button" className="exam-primary-btn" data-testid="exam-primary-btn"
+            onClick={() => { playSfx('click'); if (i + 1 >= questions.length) next(); else setI(i + 1) }}>
+            {i + 1 >= questions.length ? '提交' : '下一题'}
+          </button>
+        </div>
+      )}
+      <div className="practice-actions" style={mode === 'exam' ? { display: 'none' } : undefined}>
 
         {/* 线上底栏：左「助手」pill，右侧「检查 / 跳过」两个 pill，间距 23px */}
         <div className="flex items-center mt-6 pt-4 border-t" style={{ gap: 23 }}>
@@ -996,21 +1056,14 @@ export function Exam() {
   if (!exam) return <Empty back={() => nav(`/course/${courseId}`)} text="这个单元还没有综合测试" />
   if (result)
     return (
-      <Result
-        back={() => nav(`/course/${courseId}`)}
-        onRetry={() => setResult(null)}
-        score={result.score}
-        total={result.total}
-        label="单元综合考试完成"
+      <ExamResultView
+        title={exam.title}
         questions={exam.questions}
         userAnswers={result.userAnswers}
+        points={result.points ?? 0}
+        perfect={result.perfect ?? 0}
         fastCount={result.fastCount ?? 0}
-        fastIds={result.fastIds ?? []}
-        points={result.points}
-        perfect={result.perfect}
-        stars={result.stars}
-        courseId={courseId}
-        courseTitle={exam.title}
+        onClose={() => nav(`/course/${courseId}`)}
       />
     )
 

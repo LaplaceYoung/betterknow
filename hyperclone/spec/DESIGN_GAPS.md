@@ -441,3 +441,10 @@
   - 回放 → 线上是独立回放视图，本轮没有等同实现，**直接删掉按钮**，不摆空壳。
 - 新增**退出确认弹窗**（此前「返回」直接跳走）：线上 `.whiteboard-modal-*` 结构 + 文案（确定要退出当前 Session 吗？/ 退出后你可以随时回到课程页面继续学习。/ 继续学习 / 退出 Session）+ 插画 `question.png` + 退出图标 `exit.svg`（已抓）；实测 360px/radius 16px/role=dialog/aria-modal，取消与点遮罩都能关。
 - 顺手补的两张线上资源：`exit.svg`（544 B）与四张角色动画 poster（上一批）。
+
+**第四十七批（考试页对齐：结果页 + 作答存储 + 底栏）**
+- 结果页从「复用练习的 Result（星级/排行）」换成线上 `exam-page--results`：逐题复盘（对错圆点图标、「第 N 题」、prompt、选项正确/错误着色 + 「你的答案」标注、填空题「你的答案 / 正确答案」两行、解析）+ 右下角 `exam-score-badge`（百分比 / `N / M 题正确` / `得分 X / Y` + 速答 pill），新组件 `app/src/components/ExamResultView.tsx`。
+- **修掉一个数据流缺陷**：考试原先复用练习的「单题缓冲」，翻页会把上一题的选择带过去，导致结果页大面积判错。改成线上那样**按题存两本字典**（`examSelections` / `examFills`），翻页不丢、返回可见；实测返回上一题选择仍在，提交后 `1 / 15 题正确`、`得分 600 / 17,000` 与作答一一对应。
+- 考试底栏改为线上结构：`.exam-actions` + `exam-nav-btn--back`（首题隐藏）+ `exam-primary-btn`（下一题/提交），点主按钮播 `button-click.mp3`；练习侧仍保留「检查/跳过」。
+- 同时修掉**练习欢迎弹窗泄漏到考试**的问题（线上考试有自己的 `exam-intro`），并让考试不再显示练习 HUD（线上考试只保留 `exam-bonus-chip` / `exam-bonus-bar`）。
+- 仍未对齐（记在案）：考试题目外壳与选项仍是练习那套（线上是 `exam-question-shell--multiple/--fill/--no-image/--animation` + `exam-option-card`（`role=radio/checkbox`、多选带 `exam-option-checkbox`、前四个选项有 `exam-option-key` 角标）与填空题的内联 `____` 输入框）。

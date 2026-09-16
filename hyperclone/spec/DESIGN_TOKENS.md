@@ -681,3 +681,18 @@ const RandomCharVideo = ({ className }) => <CharVideo className={className} src=
 | 导出对话记录 | `onExportTranscript`：`# 标题` + `_导出于 {时间}_` + 逐条 我/老师/板书/图示/小测… → markdown blob 下载 `${title}-transcript.md` | 同：`# 标题` + `_导出于 …_` + `**板书 · 第 N 页**` + `**老师**/**我**`，文件名 `${title}-transcript.md`；实测导出内容正确 |
 | 回放（BETA） | `onReplay` 进入回放视图（独立组件 + 页面/可见集合） | **未实现，已移除该按钮**（不摆空按钮） |
 
+### 考试页对齐（第三十四批，r106 + r148~r151）
+
+线上 ExamPage 与练习是两套：考试**没有** 检查/跳过 步骤，也没有练习 HUD；引导、题目、结果三段自成体系。
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 引导 | eyebrow「考试」/ note「本场考试限时进行。一旦开始，计时就无法暂停，时间结束后系统会自动提交你的答案。」/ 按钮「我准备好了」/ stats「30 分钟」「{{count}} 道题」 | 同（此前是我方自撰文案） |
+| 题目 kicker | `exam-question-kicker`（单选题/多选题/填空题/互动，`--multiple` 是蓝底 pill） | 同 |
+| 底栏 | `.exam-actions{position:absolute;left:50%;bottom:30px;gap:23px}`：`exam-nav-btn--back`（首题不显示，箭头 path 带 `rotate(-90 7 7.5)`）+ `exam-primary-btn`（`#385da0`、padding 15px 70px、末题文案 `exam.actions.submit`「提交」否则「下一题」），点主按钮播 `button-click.mp3` | 同；实测 `.exam-actions` + 主按钮「下一题」、第二题起出现返回箭头 |
+| 作答存储 | 按题存两本字典（`O[questionId]` 选项 / `z[questionId]` 填空），翻页不丢 | 同：`examSelections` / `examFills`；实测返回上一题选择仍在 |
+| 结果页 | `.exam-page--results` → `.exam-results-scroll`（header eyebrow「结果」+ title）+ `ol.exam-results-list`（每题 `li.exam-result-item--correct|--incorrect`：圆点图标 ✓/✗、`第 N 题`、prompt、`exam-result-option--correct|--incorrect` + 「你的答案」tag、填空题两行「你的答案 / 正确答案」、解析）+ 右下 `exam-score-badge`（`exam-score-value` 百分比 / `exam-score-detail`「N / M 题正确」/ `exam-score-points`「得分 X / Y」+ 速答 pill） | 同（新组件 `app/src/components/ExamResultView.tsx`）。实测 `aria-label="Score 7 percent"`、`1 / 15 题正确`、`得分 600 / 17,000`、正确答案带「你的答案」tag、解析齐全 |
+| 文案 | 结果/第 N 题/你的答案/正确答案/{{percent}}%/{{correct}} / {{total}} 题正确/得分 {{score}} / {{perfect}}/{{count}} 题速答；kicker 单选/多选/填空/互动 | 同（线上 zh 原文） |
+
+顺带修掉一个**泄漏**：练习的「准备好练习」欢迎弹窗此前在考试页也会弹（线上考试有自己的 `exam-intro`），已按模式区分。
+
