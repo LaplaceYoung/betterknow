@@ -938,3 +938,9 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 本仓实现：计划在客户端按天数 + 星期偏好铺开（课时 + 每单元测验），服务端 `accept` 真正写入 `state.calendar`（`type:"course"` + `payload.course_id`，同课程旧计划先清空 —— 对应线上「确认后会替换它」）。实测：入口「加入日历」→ 四步全通（chips 7/14/30/60/90、picker 42 格含 1 个 today、星期 chips Sun..Sat、预览 65 条）→ 确认后落库 65 条课程任务、入口变「已加入日历」、学习动态日历上可见。
 
+### 计划预览的周网格与拖拽改期（第四十八批）
+
+线上预览是「周标题 + 周网格」，每格 `ccal-preview-day`（`--other` / `--today` / `--drag-over`）内含 `ccal-preview-day-number` + `ccal-preview-day-events`（已有任务 `ccal-preview-existing` 与新计划条目，超出 3 条折叠）；条目 `draggable`，`dragstart` 写 `text/plain` 为条目下标，落点读下标后 `move(index, date)`。
+
+本仓：第 4 步预览改为同一形状（`ccal-preview-weekdays` + `ccal-preview-days-grid`，按计划区间铺周），条目带 `draggable`，`dragover` 高亮 `--drag-over`、`drop` 把该条目改到目标日期；计划本身从 useMemo 改成可变 state（前三步改参数仍会重排，进入第 4 步后可手工调）。实测：预览 21 格 / 15 格有内容 / 周标题 7 个；拖拽后目标格出现该条目、`text/plain` 传的是下标；确认后 65 条任务按调整后的日期落库。
+

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import { apiPost } from '@/lib/api'
 
 // 线上 CourseJourneyPage 的「加入日历」弹窗（.course-cal-*，四步：时长 → 开始日 → 星期 → 预览）。
@@ -36,8 +36,10 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
 
   const effectiveDays = Math.min(365, Math.max(1, Number(customDays) || days))
 
+  const [dragOverDate, setDragOverDate] = useState<string | null>(null)
+
   // 把课程条目按天数与星期偏好铺开：只落在选中的星期（未选则每天都可以）
-  const plan = useMemo(() => {
+  const layout = useMemo(() => {
     const start = startDate ?? new Date()
     const slots: Date[] = []
     const cursor = new Date(start.getFullYear(), start.getMonth(), start.getDate())
@@ -54,6 +56,34 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
       return { ...item, date: `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}` }
     })
   }, [items, startDate, effectiveDays, weekdays])
+  // 第 4 步允许拖拽改期，所以计划本身是可变的：前三步改参数时重排，进入第 4 步后可手工调整
+  const [plan, setPlan] = useState(layout)
+  const [lastLayout, setLastLayout] = useState(layout)
+  if (step < 4 && layout !== lastLayout) { setLastLayout(layout); setPlan(layout) }
+
+  const moveItemToDate = (index: number, date: string) => {
+    setPlan((prev) => prev.map((item, i) => (i === index ? { ...item, date } : item)))
+  }
+
+  // 预览按周铺成网格（周日打头），与线上 ccal-preview 同形
+  const previewWeeks = useMemo(() => {
+    const dates = plan.map((p) => p.date).sort()
+    const first = dates[0] ? new Date(`${dates[0]}T00:00:00`) : new Date()
+    const last = dates[dates.length - 1] ? new Date(`${dates[dates.length - 1]}T00:00:00`) : first
+    const start = new Date(first.getFullYear(), first.getMonth(), first.getDate() - first.getDay())
+    const weeks: Array<Array<{ date: string; day: number; isToday: boolean }>> = []
+    const cursor = new Date(start)
+    while (cursor <= last || weeks.length === 0) {
+      const week = Array.from({ length: 7 }, (_, i) => {
+        const d = new Date(cursor.getFullYear(), cursor.getMonth(), cursor.getDate() + i)
+        return { date: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`, day: d.getDate(), isToday: d.toDateString() === new Date().toDateString() }
+      })
+      weeks.push(week)
+      cursor.setDate(cursor.getDate() + 7)
+      if (weeks.length > 60) break
+    }
+    return weeks
+  }, [plan])
 
   const monthCells = useMemo(() => {
     const first = new Date(month)
@@ -178,12 +208,39 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
             </header>
             {alreadyScheduled && <p className="course-cal-replace-note">这门课已有计划 —— 确认后会替换它。</p>}
             <div className="ccal-preview" data-testid="cal-preview">
+              <div className="ccal-preview-weekdays">{WEEKDAY_LABELS.map((w) => <div key={w} className="ccal-preview-weekday">{w}</div>)}</div>
               <div className="ccal-preview-days-grid">
-                {plan.map((item) => (
-                  <div key={`${item.course_object_type}-${item.course_object_id}`} className="ccal-preview-day">
-                    <span className="ccal-preview-date">{item.date}</span>
-                    <span className="ccal-preview-title">{item.title}</span>
-                  </div>
+                {previewWeeks.map((week, wi) => (
+                  <Fragment key={wi}>
+                    {week.map((cell) => {
+                      const cellItems = plan.map((item, index) => ({ item, index })).filter((row) => row.item.date === cell.date)
+                      return (
+                        <div key={cell.date}
+                          className={`ccal-preview-day${cell.isToday ? ' ccal-preview-day--today' : ''}${dragOverDate === cell.date ? ' ccal-preview-day--drag-over' : ''}`}
+                          data-testid="cal-preview-day"
+                          onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; setDragOverDate(cell.date) }}
+                          onDragLeave={() => setDragOverDate((d) => (d === cell.date ? null : d))}
+                          onDrop={(e) => {
+                            e.preventDefault()
+                            setDragOverDate(null)
+                            const index = Number.parseInt(e.dataTransfer.getData('text/plain'), 10)
+                            if (!Number.isNaN(index)) moveItemToDate(index, cell.date)
+                          }}>
+                          <div className="ccal-preview-day-number">{cell.day}</div>
+                          <div className="ccal-preview-day-events">
+                            {cellItems.slice(0, 3).map(({ item, index }) => (
+                              <div key={`${item.course_object_id}-${index}`} className="ccal-preview-item" draggable data-testid="cal-preview-item"
+                                title={item.title}
+                                onDragStart={(e) => e.dataTransfer.setData('text/plain', String(index))}>
+                                {item.title}
+                              </div>
+                            ))}
+                            {cellItems.length > 3 && <div className="ccal-preview-more">+{cellItems.length - 3}</div>}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </Fragment>
                 ))}
               </div>
             </div>
