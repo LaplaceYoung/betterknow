@@ -160,6 +160,29 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - 音频统一走 TTS 服务层：真音频落内容寻址缓存（`/api/v1/tts/audio/<hash>.<ext>`），PDF 路由按 `/api/v1/pdf-annotation/audio-stream/...` 回源，找不到时回退白板音频目录（stub 占位片段就在那里）。
 - 前端 `PdfSession`：pdf.js 渲染页面（canvas）+ 逐页翻页 + 标注短语高亮面板 + 讲稿流 + 「开始导读」+ 就本页提问；`sync_pdf_state` 回写 `{revision, file_id, current_page, total_pages, annotations[]}`。
 
+## 2.10 练习 / 考试 / 项目的运行接口（2026-09-16 实测，含 FastAPI 校验回显）
+
+路径前缀 `/api/v1/course-generation/courses/{course_uuid}/`。
+
+| 端点 | 方法 | 请求体 | 响应 | 备注 |
+|---|---|---|---|---|
+| `practice` | GET | — | `{sessions:[{sessionId,title,questions[]}]}` | 练习题库 |
+| `practice/start` | POST | `{sessionId}` | `{started:true,charged:false}` | 练习运行起点；`charged` 表示是否扣额度 |
+| `practice/progress` | POST | `{sessionId, finished:bool, items:{<questionId>:{…}}}` | `{status:"ok", session_id, score, total, completed, updated_at}` | **items 是字典**（不是数组）；缺字段回 422 FastAPI 结构 |
+| `practice/check-fill` | POST | `{sessionId, questionId, answer}` | `{correct, judged, feedback}` | 填空判分；找不到题 → 404 `{"detail":"Fill question not found"}` |
+| `practice/assistant` | POST | `{session_id, messages:[{role,content}]}` | `{role:"assistant", message, hint, messages[]}` | 多轮；只给提示不给答案 |
+| `exam` | GET | — | `{exams:[{unitId,title,questions[]}]}` | 无考试时 404 `{"detail":"Exam not found"}` |
+| `exam/start` | POST | `{unitId}` | `{status:"in_progress", unit_id, started, charged}` | 缺 unitId → 400 `unitId is required` |
+| `exam/status` | GET | — | `{status:"none"\|"in_progress"\|"completed"}` | 考试状态机 |
+| `exam/score` | POST | `{unitId, score}` | `{status:"ok", final_score, unit_id}` | 交卷计分 |
+| `project` | GET | — | `{courseUuid, projects:[{project_id, project_name, project_description, final_deliverable}], stages[…]}` | 项目结构 |
+| `project/assistant` | POST | `{stage_id, messages:[{role,content}]}` | `{role, message, messages[]}` | 阶段级导师 |
+
+**练习界面的机制（DOM/类名实测）**：`practice-page / practice-topbar / practice-progress-dots / practice-hud(chip--bonus, chip--score) / practice-slot-score(+digit-strip) / practice-timer(+fill) / practice-question-shell / practice-assistant-toggle / practice-feedback-wrap / practice-split--no-image`。
+- 每题 **10s 倒计时**（`practice-timer-fill` 进度条），**速答奖励 +200**（HUD chip），**得分**用数字滚轮显示；未超时答对给奖励。
+- 选项按 **1..4 编号**（不是 A/B/C）；有「检查答案 / 跳过 / 下一题」与「AI 随堂助教」（提示式，不直接给答案，支持截图）。
+- 文案：「全部答对，这次练习就会被标记为『已掌握』，为这门课完成对应环节。」——全对才记 mastery。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：

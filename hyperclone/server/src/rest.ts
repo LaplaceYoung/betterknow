@@ -455,6 +455,7 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     const rawPractice = (course.practiceProgress ?? {}) as Record<string, Record<string, unknown>>;
     const practiceStats: Record<string, { started: boolean; finished: boolean; correct: number; total: number }> = {};
     for (const [sessionId, entry] of Object.entries(rawPractice)) {
+      if (!entry || typeof entry !== 'object') continue;
       const correct = Number(entry.score ?? entry.correct ?? 0);
       const total = Number(entry.total ?? 0);
       practiceStats[sessionId] = { started: true, finished: entry.completed === true || total > 0, correct: Number.isFinite(correct) ? correct : 0, total: Number.isFinite(total) ? total : 0 };
@@ -681,6 +682,86 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return (await resolvePractice(course, courseId(request))) ?? { courseUuid: courseId(request), sessions: [] };
   });
 
+  // 线上实测：POST /practice/start {sessionId} → {started, charged}（练习运行生命周期）
+  app.post('/api/v1/course-generation/courses/:course_uuid/practice/start', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { sessionId?: string; session_id?: string };
+    const sessionId = String(body.sessionId ?? body.session_id ?? '');
+    await updateState((state) => {
+      const target = state.courses[courseId(request)];
+      if (!target) return;
+      const runs = (target.practiceRuns ?? {}) as Record<string, Record<string, unknown>>;
+      runs[sessionId || 'default'] = { started_at: now(), finished: false, items: {} };
+      target.practiceRuns = runs;
+    });
+    return { started: true, charged: false };
+  });
+  // 线上实测：POST /practice/progress {sessionId, finished, items:{…}}（items 是字典，不是数组）
+  app.post('/api/v1/course-generation/courses/:course_uuid/practice/progress', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { sessionId?: string; session_id?: string; finished?: boolean; items?: Record<string, unknown>; score?: number; total?: number; completed?: boolean };
+    const sessionId = String(body.sessionId ?? body.session_id ?? '');
+    if (!sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'sessionId'], msg: 'Field required' }] });
+    if (typeof body.finished !== 'boolean') return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'finished'], msg: 'Field required' }] });
+    if (body.items !== undefined && (typeof body.items !== 'object' || Array.isArray(body.items))) return reply.code(422).send({ detail: [{ type: 'dict_type', loc: ['body', 'items'], msg: 'Input should be a valid dictionary' }] });
+    const items = (body.items ?? {}) as Record<string, unknown>;
+    const correct = Object.values(items).filter((value) => value === true || (typeof value === 'object' && value !== null && (value as Record<string, unknown>).correct === true)).length;
+    const total = Object.keys(items).length || Number(body.total ?? 0);
+    const score = Number(body.score ?? correct);
+    await updateState((state) => {
+      const target = state.courses[courseId(request)];
+      if (!target) return;
+      const progress = (target.practiceProgress ?? {}) as Record<string, Record<string, unknown>>;
+      progress[sessionId] = { score, total, completed: body.finished, finished: body.finished, items, updated_at: now() };
+      target.practiceProgress = progress;
+      const runs = (target.practiceRuns ?? {}) as Record<string, Record<string, unknown>>;
+      runs[sessionId] = { ...(runs[sessionId] ?? {}), finished: body.finished, items, updated_at: now() };
+      target.practiceRuns = runs;
+    });
+    return { status: 'ok', session_id: sessionId, score, total, completed: body.finished, updated_at: now() };
+  });
+  // 线上实测：POST /practice/assistant {session_id, messages[]}——多轮提示，不给答案
+  app.post('/api/v1/course-generation/courses/:course_uuid/practice/assistant', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { session_id?: string; sessionId?: string; messages?: Array<{ role?: string; content?: string }>; message?: string; questionPrompt?: string; questionOptions?: string[]; questionExplanation?: string };
+    const messages = Array.isArray(body.messages) ? body.messages : body.message ? [{ role: 'user', content: body.message }] : [];
+    if (!body.session_id && !body.sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'session_id'], msg: 'Field required' }] });
+    if (!messages.length) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'messages'], msg: 'Field required' }] });
+    const question = String(messages.filter((m) => m.role !== 'assistant').at(-1)?.content ?? '');
+    const hint = `先回到题干本身：把已知条件逐条写下来，再问自己「哪一个条件限定了范围」。\n\n关于「${String(body.questionPrompt ?? question).slice(0, 60)}」：可以从最简情形出发，用一个具体数字代入检验，看看结论是否成立。\n\n（我只给方向，不给答案——你能独立走完这一步。）`;
+    return { role: 'assistant', message: hint, hint, messages: [...messages, { role: 'assistant', content: hint }] };
+  });
+  // 线上实测：GET /exam/status → {status:"none"|"in_progress"|"completed"}；POST /exam/start {unitId}
+  app.get('/api/v1/course-generation/courses/:course_uuid/exam/status', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const attempts = (course.examAttempts ?? {}) as Record<string, Record<string, unknown>>;
+    const statuses = Object.values(attempts).map((attempt) => String(attempt.status ?? 'none'));
+    const status = statuses.includes('in_progress') ? 'in_progress' : statuses.includes('completed') ? 'completed' : 'none';
+    return { status };
+  });
+  app.post('/api/v1/course-generation/courses/:course_uuid/exam/start', protectedRoute, async (request, reply) => {
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { unitId?: string; unit_id?: string };
+    const unitId = String(body.unitId ?? body.unit_id ?? '');
+    if (!unitId) return reply.code(400).send({ detail: 'unitId is required' });
+    await updateState((state) => {
+      const target = state.courses[courseId(request)];
+      if (!target) return;
+      const attempts = (target.examAttempts ?? {}) as Record<string, Record<string, unknown>>;
+      attempts[unitId] = { status: 'in_progress', started_at: now() };
+      target.examAttempts = attempts;
+      const started = (target.examStarted ?? {}) as Record<string, boolean>;
+      started[unitId] = true;
+      target.examStarted = started;
+    });
+    return { status: 'in_progress', unit_id: unitId, started: true, charged: false };
+  });
+  // 线上实测：POST /project/assistant {stage_id, messages[]}
   app.post('/api/v1/course-generation/courses/:course_uuid/practice/check-fill', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
@@ -723,50 +804,6 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       ? { correct: true, judged: false, feedback: '' }
       : { correct: false, judged: true, feedback: 'Not quite. Review the explanation and try again.' };
   });
-
-  app.post('/api/v1/course-generation/courses/:course_uuid/practice/assistant', protectedRoute, async (request, reply) => {
-    if (!(await ownedCourse(request))) return reply.code(404).send({ detail: 'Course not found' });
-    const body = (request.body ?? {}) as { message?: string; questionPrompt?: string; questionOptions?: string[]; questionExplanation?: string };
-    const q = String(body.message ?? '').trim();
-    const prompt = String(body.questionPrompt ?? '');
-
-    let responseMsg = '💡 我们可以从最基础的第一性原理开始思考：\n\n1. **题干核心对象**：审视题目中给出的已知条件与约束前提。\n2. **状态转移关系**：如果条件发生变化，哪个物理量或逻辑关系必须保持守恒？\n3. **排除直觉陷阱**：留意题目中常见的极端边界条件。\n\n试着用你自己的话将已知量代入，看看能推导出什么结论？';
-
-    if (/公式|推导|计算/i.test(q)) {
-      responseMsg = '📐 **关于核心推导与公式分析**：\n\n这道题考察的本质是两个关键状态量之间的映射。先不要急于套用复杂的二级公式，回顾基本定义：\n• 将左侧输入项与右侧守恒项对齐\n• 检查量纲与极限情况（如当输入趋近于 0 或无穷大时结果是否合理）\n• 尝试通过控制变量法消去无关干扰项。';
-    } else if (/类比|比喻|通俗|大白话/i.test(q)) {
-      responseMsg = '🍎 **通俗生活类比**：\n\n想象你在整理一个传达信息的链条：输入的信息就像寄出的一封信，中途可能受到外界噪声的干扰。\n题目的核心其实就在于问：**“在收到信件的最终状态后，我们有多大把握推断出寄出时的真实原貌？”**\n抓住这个逆向推导的因果链，答案的线索就非常清晰了。';
-    } else if (/排除|干扰|选项/i.test(q)) {
-      responseMsg = '🚫 **干扰项排除技巧**：\n\n1. 警惕带有绝对化词汇（如“必然始终不变”、“完全无关”）的选项。\n2. 检查选项是否偷换了“因”和“果”的时序关系。\n3. 如果某个选项在极端边界（0 或无穷）下产生荒谬的结论，它大概率就是干扰项。';
-    }
-
-    return { success: true, message: responseMsg, citations: [] };
-  });
-
-  app.post('/api/v1/course-generation/courses/:course_uuid/practice/progress', protectedRoute, async (request, reply) => {
-    const course = await ownedCourse(request);
-    if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    const body = (request.body ?? {}) as { sessionId?: string; session_id?: string; score?: number; total?: number; completed?: boolean };
-    const sessionId = String(body.sessionId ?? body.session_id ?? '');
-    if (!sessionId) return reply.code(422).send({ detail: 'sessionId required' });
-    const entry = { score: Number(body.score ?? 0), total: Number(body.total ?? 0), completed: body.completed !== false, updated_at: now() };
-    await updateState((state) => {
-      const value = state.courses[courseId(request)];
-      if (value?.user_id !== request.userId) return;
-      const progress = (value.practiceProgress ?? {}) as Record<string, unknown>;
-      progress[sessionId] = entry;
-      value.practiceProgress = progress;
-    });
-    return { status: 'ok', session_id: sessionId, ...entry };
-  });
-
-  app.get('/api/v1/course-generation/courses/:course_uuid/practice/sessions/:session_id/questions/:question_id/tts', protectedRoute, async (request, reply) =>
-    (await ownedCourse(request)) ? reply.type('audio/webm').send(placeholderWebm) : reply.code(404).send({ detail: 'Course not found' })
-  );
-
-  app.get('/api/v1/course-generation/courses/:course_uuid/practice/tts/prewarm', protectedRoute, async (request, reply) =>
-    (await ownedCourse(request)) ? { ok: true, warmed: true } : reply.code(404).send({ detail: 'Course not found' })
-  );
 
   app.get('/api/v1/course-generation/courses/:course_uuid/exam', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);

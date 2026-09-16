@@ -121,3 +121,7 @@
 | PDF 导读通道 | `session_ready{pdf_state{revision,file_id,annotations[]},board_state,course_state}`；`speak/annotation` 带 `tts_url`（`/api/v1/pdf-annotation/audio-stream/…`，默认 voice `firm`）；`annotation.text` 是高亮原文 | ✅ | `pdf_teaching_trace.json` |
 | PDF 上传与配额 | `POST /pdf-annotation/upload`（multipart）；知识库页显示免费版：存储 1 GB、文件上传 5/周、添加到日历 2/周 | ✅ | r37/r38 |
 | 视频逐幕渲染 | 线上 manim/remotion 逐幕；本仓 KaTeX 数学幕 + 无头 Chromium HTML 幕 + ffmpeg 合成，阶段消息同构 | ✅ | 本仓实测（场景 3 幕、mp4 26.9KB） |
+| 练习运行接口 | `practice/start{sessionId}`→`{started,charged}`；`practice/progress{sessionId,finished,items{}}`；`practice/assistant{session_id,messages[]}` | ✅ | r43/r44 + 422 回显 |
+| 练习界面机制 | 每题 10s 倒计时 + 速答奖励 +200 + 得分滚轮 + 进度点 + 选项 1..4 编号 + 检查答案/跳过 + AI 随堂助教（提示不给答案）；全对记「已掌握」 | ✅ | r40（DOM/类名） |
+| 考试状态机 | `exam/start{unitId}`→`{status:"in_progress"}`；`GET exam/status`→`{status:"none"\|"in_progress"\|"completed"}` | ✅ | r42/r44 |
+| 项目导师 | `project/assistant{stage_id,messages[]}`；`GET project` 返回 projects+stages | ✅ | r42/r43 |

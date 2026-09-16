@@ -205,3 +205,8 @@
 - 前端：对话新增**动画卡片**（sandbox iframe 内运行 + 新窗口打开）、**视频卡片**（原生播放器 + 分幕清单 + 下载）、**文件卡片**（下载）、抽认卡卡片（翻面 + `n / N`）；`tool_execution` 兼容扁平/包装两种 `data`。
 - PDF：通道对齐线上（`pdf_state{revision,file_id,annotations[]}`、`course_state`、`speak/annotation` 真实 `tts_url`、音频前缀 `/pdf-annotation/audio-stream/`）；前端用 **pdf.js** 渲染页面 + 标注短语高亮 + 讲稿流 + 「开始导读」+ 本页提问；上传即建会话（否则 `file_id` 丢失、`start_teaching` 报错）。
 - 原站 PDF 阅读器的入口本轮没打通（知识库 `.file-card` 点击/双击/右键都没进入阅读视图），所以标注的**坐标级**渲染（矩形/区域高亮）没有证据，本仓按「短语文本高亮」实现。
+
+**第六批（练习/考试/项目）**
+- 服务端按线上实测补齐：`practice/start`、`practice/progress`（`sessionId + finished + items{}` 字典）、`practice/assistant`（`session_id + messages[]`）、`exam/start`、`exam/status`、`project/assistant`（`stage_id + messages[]`）；缺字段回 FastAPI 形状的 422，请求体校验与线上一致。
+- 前端练习器补齐线上 HUD：每题 10s 倒计时 + 速答奖励 +200（未超时答对才给）+ 得分显示 + 进度点 + **选项 1..4 编号**（原来是 A/B/C）+ 检查答案/跳过/下一题 + AI 随堂助教（提示式）+「全对记已掌握」提示。
+- 仍缺：练习的 `practice-split` 题干配图（线上题目可带图，左图右题）、得分数字滚轮动效、`exam` 完整作答界面（本仓复用练习器）。

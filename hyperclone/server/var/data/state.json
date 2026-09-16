@@ -747,6 +747,10 @@
     "TCEd5p7iXO_g8oeooe7kHWr08CtxlkgS5S3H2iBKc5Q": {
       "user_id": "local-open-user",
       "expires_at": 1792126121209
+    },
+    "em3RWQ40jpN3aIVFdK2CCttJcllBRwZHTNPOjQZUgYQ": {
+      "user_id": "local-open-user",
+      "expires_at": 1792126804814
     }
   },
   "conversations": {
@@ -9130,9 +9134,38 @@
       "updated_at": "2026-09-14T16:25:36.168Z",
       "progress": 0,
       "practiceProgress": {
-        "sessionId": "x",
-        "score": 1,
-        "total": 5
+        "ed43f6c4-fb26-4603-8645-8e2599424343": {
+          "score": 1,
+          "total": 1,
+          "completed": true,
+          "finished": true,
+          "items": {
+            "q1": {
+              "correct": true,
+              "picked": [
+                "To understand the intersection of personal biography and historical social structures"
+              ],
+              "fill": ""
+            }
+          },
+          "updated_at": "2026-09-16T05:00:04.937Z"
+        }
+      },
+      "practiceRuns": {
+        "ed43f6c4-fb26-4603-8645-8e2599424343": {
+          "started_at": "2026-09-16T05:01:42.685Z",
+          "finished": false,
+          "items": {}
+        }
+      },
+      "examAttempts": {
+        "unit1": {
+          "status": "in_progress",
+          "started_at": "2026-09-16T05:00:04.990Z"
+        }
+      },
+      "examStarted": {
+        "unit1": true
       }
     },
     "375db11c-e769-4fba-9b9f-8b7f7d92cb04": {

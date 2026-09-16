@@ -4,6 +4,7 @@ import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkle
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import rehypeRaw from 'rehype-raw'
 import { apiGet, apiPost } from '@/lib/api'
 
 export interface Question {
@@ -63,9 +64,13 @@ function AssistantDrawer({
       const endpoint = isProject
         ? `/course-generation/courses/${courseId}/project/assistant`
         : `/course-generation/courses/${courseId}/practice/assistant`
+      // 线上形状：{session_id|stage_id, messages[]}；旧字段一并带上，服务端两种都吃
+      const history = messages.filter((row) => row.role === 'user').map((row) => ({ role: 'user', content: row.text }))
       const payload = isProject
-        ? { message: text, stageTitle }
+        ? { stage_id: stageTitle || 'stage_1', messages: [...history, { role: 'user', content: text }], message: text, stageTitle }
         : {
+            session_id: currentQuestion?.id ? String(currentQuestion.id).split('-').slice(0, -1).join('-') : '',
+            messages: [...history, { role: 'user', content: text }],
             message: text,
             questionPrompt: currentQuestion?.prompt,
             questionOptions: currentQuestion?.options,
@@ -207,6 +212,17 @@ function QuizRunner({
   const [assistantOpen, setAssistantOpen] = useState(false)
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
   const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
+  // 线上练习 HUD：每题 10s 倒计时 + 速答奖励（practice-hud-chip--bonus / practice-timer-fill）
+  const QUESTION_SECONDS = 10
+  const SPEED_BONUS = 200
+  const [left, setLeft] = useState(QUESTION_SECONDS)
+  const [bonus, setBonus] = useState(0)
+  useEffect(() => { setLeft(QUESTION_SECONDS) }, [i])
+  useEffect(() => {
+    if (checked || !questions[i]) return
+    const timer = setInterval(() => setLeft((value) => (value <= 1 ? 0 : value - 1)), 1000)
+    return () => clearInterval(timer)
+  }, [i, checked, questions])
 
   const q = questions[i]
   if (!q) return null
@@ -221,6 +237,7 @@ function QuizRunner({
     setChecked(true)
     setAnswersState((prev) => ({ ...prev, [i]: isRight }))
     setUserAnswers((prev) => ({ ...prev, [i]: { picked, fill, isRight } }))
+    if (isRight && left > 0) setBonus((value) => value + SPEED_BONUS)
   }
 
   const next = () => {
@@ -316,7 +333,14 @@ function QuizRunner({
         </span>
       </div>
 
-      <div className="flex items-center justify-between mt-6">
+      <div className="flex items-center gap-2 mt-4 text-[12px]" data-testid="practice-hud">
+        <span className="inline-flex items-center gap-1 px-2 h-7 rounded-full bg-[#fff7ed] text-[#c2410c]">速答奖励 +{SPEED_BONUS}</span>
+        <span className="inline-flex items-center gap-1 px-2 h-7 rounded-full bg-[#f4f4f5]">得分 <b className="font-mono">{score}</b>{bonus ? <span className="text-[#15803d]">+{bonus}</span> : null}</span>
+        <span className="inline-flex items-center gap-1 px-2 h-7 rounded-full bg-[#f4f4f5] font-mono" data-testid="practice-timer">{checked ? '—' : `${left}s`}</span>
+        <span className="flex-1 max-w-[220px] h-1.5 rounded-full bg-[#f1f2f4] overflow-hidden"><span className="block h-full bg-[#0a0a0a] transition-all" style={{ width: `${checked ? 100 : (left / QUESTION_SECONDS) * 100}%` }} /></span>
+      </div>
+
+      <div className="flex items-center justify-between mt-5">
         <h1 className="text-[20px] font-semibold">{title}</h1>
         <button
           onClick={() => setAssistantOpen(true)}
@@ -366,6 +390,7 @@ function QuizRunner({
                 <button
                   key={oi}
                   disabled={checked}
+                  data-testid={`option-${oi + 1}`}
                   onClick={() =>
                     setPicked((p) =>
                       q.type === 'multiple'
@@ -390,7 +415,7 @@ function QuizRunner({
                       on ? 'border-[#0a0a0a] bg-[#0a0a0a] text-white' : 'text-[#8a8a90]'
                     }`}
                   >
-                    {String.fromCharCode(65 + oi)}
+                    {oi + 1}
                   </span>
                   <span className="flex-1 leading-5">{o}</span>
                   {right && <Check size={16} className="text-[#16a34a] shrink-0" />}
@@ -465,9 +490,13 @@ export function Practice() {
     apiGet<{ sessions: { title: string; sessionId: string; questions: Question[] }[] }>(
       `/course-generation/courses/${courseId}/practice`
     )
-      .then(setData)
+      .then((next) => {
+        setData(next)
+        const target = next.sessions.find((s) => s.sessionId === sessionId) ?? next.sessions[0]
+        if (target) void apiPost(`/course-generation/courses/${courseId}/practice/start`, { sessionId: target.sessionId }).catch(() => undefined)
+      })
       .catch(() => setData({ sessions: [] }))
-  }, [courseId])
+  }, [courseId, sessionId])
 
   const session = useMemo(
     () => data?.sessions.find((s) => s.sessionId === sessionId) ?? data?.sessions[0],
