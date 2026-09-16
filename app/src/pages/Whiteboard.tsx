@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { Activity, ArrowLeft, ArrowUp, Mic, Pause, Play, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
+import { Activity, ArrowLeft, ArrowUp, Mic, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { apiGet, wsUrl } from '@/lib/api'
+import { playSfx } from '@/lib/sfx'
 
 interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; options?: string[]; correct_index?: number; explanation?: string; task_preview?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
 interface BoardImage { url: string; caption: string; width: number; height: number; pending: boolean; failed?: boolean }
@@ -38,7 +39,9 @@ export default function Whiteboard() {
   const [zoom, setZoom] = useState(100)
   const [q, setQ] = useState('')
   const [revealed, setRevealed] = useState(0)
-  const [credits, setCredits] = useState<string>('')
+  // 线上白板的两个奖励层：reward_user 帧 → 概念奖励弹层；response_complete{session:true} → 单元完成弹层
+  const [rewardPrompt, setRewardPrompt] = useState<{ masterConceptTitle: string; masterConceptDescription: string; stepId?: string | number } | null>(null)
+  const [unitComplete, setUnitComplete] = useState<{ beatPercent: number } | null>(null)
   const [ttsVoice, setTtsVoice] = useState(true)
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -49,7 +52,7 @@ export default function Whiteboard() {
     if (!ttsVoice || typeof window === 'undefined' || !window.speechSynthesis) return
     try {
       window.speechSynthesis.cancel()
-      const clean = text.replace(/[*#`_~\[\]]/g, '').trim()
+      const clean = text.replace(/[*#`_~[\]]/g, '').trim()
       if (!clean) return
       const utter = new SpeechSynthesisUtterance(clean)
       utter.rate = playbackRate * 1.05
@@ -120,7 +123,7 @@ export default function Whiteboard() {
     // 协议：start_session(session_id?) → session_ready → start_teaching → new_page/board/speak/annotation/ask/done
     ws.onopen = () => ws.send(JSON.stringify({ type: 'start_session', ...(sessionId && sessionId !== 'new' ? { session_id: sessionId, course_session_id: sessionId } : {}) }))
     ws.onmessage = (ev) => {
-      const f = JSON.parse(ev.data) as Action & { session_title?: string; session_id?: string; resumed?: boolean; key_points?: string[]; html?: string; snippet?: string; task_preview?: string; whiteboard_state?: { board_content?: string; actions?: Action[] } | null; reward?: { credits: number; reason: string }; actions?: Action[] }
+      const f = JSON.parse(ev.data) as Action & { session_title?: string; session_id?: string; resumed?: boolean; key_points?: string[]; html?: string; master_concept_title?: string; master_concept_description?: string; step_id?: string | number; session?: boolean; snippet?: string; task_preview?: string; whiteboard_state?: { board_content?: string; actions?: Action[] } | null; reward?: { credits: number; reason: string }; actions?: Action[] }
       if (f.type === 'session_ready') {
         setStatus('ready'); if (f.session_title) setTitle(f.session_title)
         if (Array.isArray(f.key_points)) setKeyPoints(f.key_points.map(String).filter(Boolean))
@@ -132,7 +135,19 @@ export default function Whiteboard() {
       else if (f.type === 'generated_animation') { const html = String(f.html ?? ''); setAnimation((a) => ({ pending: false, html, task: a?.task ?? '' })) }
       else if (f.type === 'highlight') setScript((s) => [...s, { who: 'teacher', text: `✎ 高亮：${String(f.snippet ?? '')}` }])
       else if (f.type === 'group') { /* 已逐帧应用 */ }
-      else if (f.type === 'reward_user') setCredits(`✦ 达成里程碑 · ${f.reward?.reason ?? '白板课程学习完成'}`)
+      else if (f.type === 'reward_user') {
+        // 线上：{step_id, master_concept_title, master_concept_description}；标题与描述齐全才弹层，否则直接推进
+        const title = String(f.master_concept_title ?? '').trim()
+        const description = String(f.master_concept_description ?? '').trim()
+        if (title && description) {
+          setRewardPrompt({ masterConceptTitle: title, masterConceptDescription: description, stepId: f.step_id })
+          setScript((s) => [...s, { who: 'teacher', text: `🏅 ${title}：${description}` }])
+          playSfx('reward')
+        } else if (f.step_id) ws.send(JSON.stringify({ type: 'advance_step', step_id: f.step_id }))
+      }
+      else if (f.type === 'response_complete') {
+        if (f.session === true) { setUnitComplete({ beatPercent: 10 + Math.floor(21 * Math.random()) }); playSfx('complete') }
+      }
       else if (f.type === 'tts_segment') { const seg = f as Action & { audio_url?: string }; if (ttsVoice && seg.audio_url && seg.stub === false) { const audio = new Audio(seg.audio_url); audio.playbackRate = playbackRate; void audio.play().catch(() => {}) } }
       else if (f.type === 'image_gen_pending') pushImage({ url: '', caption: f.caption ?? '', width: 512, height: 512, pending: true })
       else if (f.type === 'generated_image') resolveImage({ url: f.image_url ?? '', caption: f.caption ?? '', width: f.width ?? 512, height: f.height ?? 512, pending: false })
@@ -195,7 +210,7 @@ export default function Whiteboard() {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `${title.replace(/[\/\\?%*:|"<>]/g, '_')}_板书笔记.md`
+    a.download = `${title.replace(/[/\\?%*:|"<>]/g, '_')}_板书笔记.md`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -386,7 +401,63 @@ export default function Whiteboard() {
             </div>
           )}
         </div>
-        {credits && <div className="px-4 py-1.5 text-[12px] text-[#15803d]">{credits}</div>}
+        {rewardPrompt && (
+          <div className="whiteboard-reward-overlay" role="dialog" aria-live="polite"
+            aria-labelledby="whiteboard-reward-title" aria-describedby="whiteboard-reward-description">
+            <div className="whiteboard-reward-overlay-row">
+              <div className="whiteboard-reward-overlay-media" aria-hidden="true">
+                <video className="whiteboard-reward-overlay-video" src="/assets/img/pages/mainPages/animations/char-reward-pop.mp4" autoPlay loop muted playsInline />
+              </div>
+              <div className="whiteboard-reward-overlay-body">
+                <span className="whiteboard-reward-overlay-eyebrow">你获得了奖励</span>
+                <span id="whiteboard-reward-title" className="whiteboard-reward-overlay-title">{rewardPrompt.masterConceptTitle}</span>
+                <span id="whiteboard-reward-description" className="whiteboard-reward-overlay-desc">{rewardPrompt.masterConceptDescription}</span>
+                <button type="button" className="whiteboard-reward-overlay-btn"
+                  onClick={() => { const step = rewardPrompt.stepId; setRewardPrompt(null); if (step !== undefined) wsRef.current?.send(JSON.stringify({ type: 'advance_step', step_id: step })) }}>知道了</button>
+              </div>
+            </div>
+          </div>
+        )}
+        {unitComplete && (
+          <div className="whiteboard-reward-overlay whiteboard-unit-complete-overlay" role="dialog" aria-modal="true" aria-live="polite"
+            aria-labelledby="whiteboard-unit-complete-title" aria-describedby="whiteboard-unit-complete-description">
+            <div className="whiteboard-reward-overlay-row">
+              <div className="whiteboard-reward-overlay-media" aria-hidden="true">
+                <video className="whiteboard-reward-overlay-video" src="/assets/img/pages/mainPages/animations/char-complete-standing.mp4" autoPlay loop muted playsInline />
+              </div>
+              <div className="whiteboard-reward-overlay-body">
+                <span className="whiteboard-reward-overlay-eyebrow">单元完成</span>
+                <span id="whiteboard-unit-complete-title" className="whiteboard-reward-overlay-title">恭喜，你刚刚完成了这个单元。</span>
+                <span id="whiteboard-unit-complete-description" className="whiteboard-reward-overlay-desc">Beat {unitComplete.beatPercent}% of users today.</span>
+                <span className="whiteboard-unit-complete-hint">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 8v5m0 3h.01M12 3l9 17H3z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+                  建议先完成这节课的练习，再进入下一节。
+                </span>
+                <div className="whiteboard-unit-complete-actions">
+                  <button type="button" className="whiteboard-reward-overlay-btn whiteboard-reward-overlay-btn--secondary" onClick={() => setUnitComplete(null)}>在对话中继续</button>
+                  <button type="button" className="whiteboard-reward-overlay-btn" onClick={() => nav(courseId ? `/course/${courseId}` : '/courses')}>返回主页</button>
+                </div>
+              </div>
+            </div>
+            <div className="whiteboard-unit-complete-recap" role="group" aria-label="回顾">
+              <span className="whiteboard-unit-complete-recap-label">回顾</span>
+              <div className="whiteboard-unit-complete-recap-chips">
+                <button type="button" className="whiteboard-unit-complete-chip" onClick={() => setUnitComplete(null)}>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v10H4z" stroke="currentColor" strokeWidth="1.6" /><path d="M8 19h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+                  保存白板图片
+                </button>
+                <button type="button" className="whiteboard-unit-complete-chip" onClick={() => setUnitComplete(null)}>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  导出对话记录
+                </button>
+                <button type="button" className="whiteboard-unit-complete-chip" onClick={() => setUnitComplete(null)}>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5a7 7 0 1 1-6.5 4.5M5 4v5h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  回放<span className="whiteboard-beta-badge">BETA</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         {netCheck && <div className="px-4 py-1.5 text-[12px] text-[#3b5bdb]" data-testid="net-check-result">{netCheck}</div>}
       </section>
 

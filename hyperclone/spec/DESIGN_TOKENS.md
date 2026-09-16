@@ -592,3 +592,37 @@ main.practice-stage.practice-result-stage[aria-label="Practice results"]
 
 `correct` = attempt 里 `state === 'correct'` 的条数。布局：`.practice-welcome-row` 是 `grid-template-columns:140px minmax(0,1fr)`（140px 媒体格），`.practice-welcome-video{width:112%;height:112%;margin:-6%;object-fit:contain}`（媒体比格大一圈）。Esc 也能关。
 
+### 白板的两个奖励层（第三十一批，r132 + r133 + r136~r139）
+
+线上白板/course session 有两个弹层，共用 `.whiteboard-reward-overlay*` 样式；触发源都在 WS 帧里。
+
+**① 概念奖励层**（`reward_user` 帧，r133 实证）：
+
+```js
+case "reward_user": {
+  const title = String(msg.master_concept_title ?? '').trim()
+  const desc  = String(msg.master_concept_description ?? '').trim()
+  if (title && desc) setRewardPrompt({ masterConceptTitle: title, masterConceptDescription: desc, stepId: msg.step_id })
+  else setTimeout(() => advance(msg.step_id), 20)   // 内容缺失就直接推进
+  pushConversation({ type: 'action', actionKind: 'reward', actionLabel: title, actionDetail: desc })
+}
+```
+
+结构（`bt`）：`div.whiteboard-reward-overlay[role=dialog][aria-live=polite][aria-labelledby=whiteboard-reward-title][aria-describedby=whiteboard-reward-description]` →
+`row > media(video: char-reward-pop.mp4) + body(eyebrow「你获得了奖励」/ title / desc / 「知道了」)`。
+音效 `/sounds/reward.mp3` 音量 **0.6**；「知道了」= `dismissRewardPrompt` → `advance(stepId)`。
+
+**② 单元完成层**（`response_complete{session:true}` 触发）：
+
+`whiteboard-unit-complete-overlay`（同 `.whiteboard-reward-overlay` 基类）→ media 是 `char-complete-standing.mp4`，eyebrow「单元完成」，
+标题「恭喜，你刚刚完成了这个单元。」（standalone 用「恭喜，你刚刚完成了这个 Session。」），
+描述「Beat {{percent}}% of users today.」（**线上 zh 未本地化**，percent = `10 + floor(21*random())`，客户端算），
+hint「建议先完成这节课的练习，再进入下一节。」，动作「在对话中继续」+（有练习时「去做练习」/否则「返回主页」），
+底部 recap「回顾」+ 三个 chip「保存白板图片 / 导出对话记录 / 回放(BETA)」。
+音效 `/sounds/session-complete.mp3` 音量 0.6。
+
+**帧序**：`… → group → done → reward_user → （关奖励层 advance_step）→ response_complete{session:true}`。
+
+**顺带查清 `reward.mp3`/`session-complete.mp3` 的其余触发点**（r132）：
+`WhiteboardPage` 奖励层（.6）、`courseSession` 单元完成（session-complete .6）、`session-idle-prompt` 闲置提示（reward .45）、`ProSuccessCelebration`（reward .5）。
+

@@ -828,3 +828,45 @@
 .practice-option-card--readonly { cursor: default; }
 .practice-option-card--readonly:not(.practice-option-card--correct):not(.practice-option-card--incorrect) .practice-option-shape { background: #f3f4f6; }
 .practice-option-card--readonly:not(.practice-option-card--correct):not(.practice-option-card--incorrect) .practice-option-shape svg { fill: #b6bcc7; }
+
+/* 线上 .whiteboard-reward-overlay*（白板奖励层与单元完成层共用；r139 取自线上样式表原文） */
+.whiteboard-reward-overlay { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 1200; width: 560px; max-width: calc(100vw - 48px); padding: 30px 30px 28px 12px; border: 1px solid rgba(0,0,0,.07); border-radius: 30px; background: #fbfbfb; box-shadow: 0 2px 6px #0000000a, 0 18px 56px #00000029; color: #171717; animation: whiteboard-reward-overlay-in .3s cubic-bezier(.34,1.2,.64,1); }
+@keyframes whiteboard-reward-overlay-in { 0% { opacity: 0; transform: translate(-50%,calc(-50% + 10px)) scale(.98); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+.whiteboard-reward-overlay-row { display: grid; grid-template-columns: 190px minmax(0,1fr); align-items: center; gap: 10px; background: #fbfbfb; }
+.whiteboard-reward-overlay-media { width: 100%; aspect-ratio: 1; overflow: hidden; background: transparent; }
+.whiteboard-reward-overlay-video { display: block; width: 112%; height: 112%; margin: -6%; object-fit: contain; }
+.whiteboard-reward-overlay-body { display: flex; min-width: 0; flex-direction: column; justify-content: center; gap: 10px; background: #fbfbfb; }
+.whiteboard-reward-overlay-eyebrow { color: #6b7280; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.whiteboard-reward-overlay-title { color: #171717; font-size: 24px; font-weight: 760; line-height: 1.12; letter-spacing: -.035em; }
+.whiteboard-reward-overlay-desc { color: #374151; font-size: 14.5px; line-height: 1.58; letter-spacing: -.01em; }
+.whiteboard-reward-overlay-btn { align-self: flex-end; margin-top: 8px; padding: 10px 24px; border: none; border-radius: 999px; background: #111827; color: #fff; font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: background .15s ease, transform .12s ease; }
+.whiteboard-reward-overlay-btn:hover { background: #1f2937; transform: translateY(-1px); }
+.whiteboard-reward-overlay-btn--secondary { border: 1px solid #e5e7eb; background: #fff; color: #374151; }
+.whiteboard-reward-overlay-btn--secondary:hover { background: #f9fafb; }
+.whiteboard-reward-overlay-btn:disabled { cursor: progress; opacity: .6; transform: none; }
+.whiteboard-unit-complete-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+.whiteboard-unit-complete-actions .whiteboard-reward-overlay-btn { align-self: auto; margin-top: 0; }
+.whiteboard-unit-complete-hint { display: flex; align-items: flex-start; gap: 6px; color: #6b7280; font-size: 12.5px; line-height: 1.45; letter-spacing: -.01em; }
+.whiteboard-unit-complete-hint svg { flex: none; width: 14px; height: 14px; margin-top: 2px; color: #9ca3af; }
+.whiteboard-unit-complete-recap { display: flex; align-items: center; gap: 12px; margin: 20px 0 0 18px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,.06); }
+.whiteboard-unit-complete-recap-label { flex: none; color: #9ca3af; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.whiteboard-unit-complete-recap-chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-left: auto; }
+.whiteboard-unit-complete-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid #e5e7eb; border-radius: 999px; background: #fff; color: #374151; font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; }
+.whiteboard-unit-complete-chip svg { flex: none; width: 14px; height: 14px; color: #6b7280; }
+.whiteboard-unit-complete-chip:hover:not(:disabled) { background: #f9fafb; border-color: #d1d5db; transform: translateY(-1px); }
+.whiteboard-unit-complete-chip:disabled { cursor: default; background: #fafafa; color: #9ca3af; }
+.whiteboard-unit-complete-chip:disabled svg { color: #c4c8d0; }
+.whiteboard-unit-complete-chip[aria-busy="true"] { cursor: progress; }
+.whiteboard-beta-badge { padding: 2px 6px; border-radius: 999px; background: #f3f4f6; color: #6b7280; font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+@media (max-width: 640px) {
+  .whiteboard-reward-overlay { padding: 24px 24px 22px; }
+  .whiteboard-reward-overlay-row { grid-template-columns: 1fr; gap: 2px; }
+  .whiteboard-reward-overlay-media { width: 210px; max-width: 72vw; margin: 0 auto; }
+  .whiteboard-reward-overlay-title, .whiteboard-reward-overlay-desc, .whiteboard-reward-overlay-eyebrow { text-align: center; }
+  .whiteboard-reward-overlay-btn { align-self: center; }
+  .whiteboard-unit-complete-actions { flex-direction: column; }
+  .whiteboard-unit-complete-hint { justify-content: center; text-align: left; }
+  .whiteboard-unit-complete-recap { flex-direction: column; align-items: stretch; gap: 10px; margin-left: 0; }
+  .whiteboard-unit-complete-recap-label { text-align: center; }
+  .whiteboard-unit-complete-recap-chips { justify-content: center; margin-left: 0; }
+}

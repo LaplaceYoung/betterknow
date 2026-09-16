@@ -419,3 +419,11 @@
 - 欢迎弹窗按线上重做：`section[role=dialog][aria-modal][aria-labelledby][aria-describedby]`、overlay 点击关闭、Esc 关闭、`<p>` 换回 `<span id=…>`；媒体从自绘图标换成线上的角色动画（`running-w-background.mp4`，poster `.webp` 已从线上抓下 19,460 B 落在 `app/public/.../whiteboard/`），补 `.practice-welcome-video{width:112%;height:112%;margin:-6%}`。实测媒体格 140px、poster/src 正确、`readyState=4`。
 - 文案分流按线上原文：首次「准备好练习 / 全部答对，这次练习就会被标记为「已掌握」…」，有交卷记录时「欢迎回来 / 你上次尝试答对了 {{correct}} / {{total}} 题。再试一次——全部答对就能让这次练习被标记为「已掌握」。」——实测跑 3/5 的那节练习显示「3 / 5」，未交卷的 session 显示首次文案。
 - 服务端 `practice/progress` 落库时把 items 归一成线上 attempt 的 item 形状 `{state:"correct"|"wrong", answer, fast?}`（同时兼容老客户端的 `{correct,picked,fill}`），`correct` 也改按 `state` 统计。此前老记录里存的是 `{correct,picked}`，导致 attempt 里没有 `state`、欢迎回来会显示 0 题。
+
+**第四十四批（白板奖励层与单元完成层）**
+- 修掉一处**帧形错误**：原来 `reward_user` 发的是自造的 `{reward:{credits,reason}}`，客户端只弹一行绿字「✦ 达成里程碑」；线上是 `{step_id, master_concept_title, master_concept_description}`，客户端弹奖励层（角色动画 + 「你获得了奖励」+ 概念标题/描述 + 知道了）。现按线上帧形与弹层结构落地，实测弹层 560px / radius 30px / grid `190px 316px` / video `char-reward-pop.mp4` readyState 4。
+- 补上**单元完成层**（此前完全没有）：`response_complete{session:true}` 触发，`char-complete-standing.mp4` + 「恭喜，你刚刚完成了这个单元。」+「Beat N% of users today.」+ hint + 「在对话中继续 / 返回主页」+ recap 三 chip（保存白板图片 / 导出对话记录 / 回放 BETA）。percent 按线上口径 `10 + floor(21*rand)` 客户端生成；实测 percent=22。
+- **时序对齐**：奖励层「知道了」→ 客户端发 `advance_step` → 服务端这时才发 `response_complete{session:true}`（线上 `dismissRewardPrompt` 也是关掉奖励再 `advance`）。修前两帧是背靠背发的，两个弹层会同时挂上。
+- 音效按线上音量接通：奖励层 `reward.mp3` .6、单元完成 `session-complete.mp3` .6（这两支 mp3 之前抓下来一直没接线）。另查清其余触发点：闲置提示 reward .45、Pro 庆祝 reward .5。
+- 清理：删掉被奖励层取代的 `credits` 状态与渲染行、Whiteboard 里未使用的 `Pause/Play` 导入，修掉两处 `no-useless-escape`（正则字符类里的多余转义）。
+- 观察（未改）：白板页的讲稿面板在默认视口下不渲染（`script` 状态有更新，DOM 里没有对应面板），这与本次改动无关，记下来便于以后排查。
