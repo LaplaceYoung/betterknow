@@ -385,3 +385,7 @@
   - **顺带解决一个旧缺口**：`fastWindowMs` 不用再"沿用练习实测"——共享模块里就写着 `1e4`，有出处了。
   - 服务端 `practice/progress` 落库改为存点数口径 `{score: points, points, perfect, stars}`（原来把 score 当正确题数）。
 - **阅读器编辑态：决定不做（本轮）**。线上速查表编辑器是 tiptap（含锚点、高亮、评论锚点、拖拽分栏与设置面板），`ChatResponsePage-*.js` 里能看到 tiptap 依赖与 `.tiptap-content` 样式体系。本仓若做成「textarea 直接编辑 markdown」，UX 与线上不是一回事，属于自创；做 tiptap 级 parity 又是大工程。**决定：维持只读，把编辑态列为独立议题**，等确认要对齐哪一档（轻量源码编辑 vs tiptap WYSIWYG）再动。
+
+**第三十八批（星级回显 + 速答标记）**
+- **星级回显打通**：服务端 `progress-status.practiceStats` 的已完成条目补 `score/perfect/stars`（并在练习进度里显式落 `correct` 计数，不再用点数比例倒推），课程页练习行据此渲染线上 `.practice-stars`（3 星、实心 `#f5a524`/空心描边 `#d1d5db`、`practice-stars-stamp` 盖章动画、`prefers-reduced-motion` 保护）。实测：`{correct: 2, total: 5, score: 1600, perfect: 5000, stars: 1}` → 页面 `aria-label="1 星"`、点亮 1 颗。
+- **items 的 `fast` 字段补上**：之前那个 spread 是个空操作（`...(cond ? {} : {})`），现在按 `fastAnswers` 逐题标 `fast: true`；结果页答题解析里对应题目标「速答」chip。实测提交体 `q1/q4` 带 `fast: true`，解析页正好这两个 chip。

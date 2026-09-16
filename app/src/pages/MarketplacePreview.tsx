@@ -30,7 +30,7 @@ export function StatusDot({ status }: { status?: string }) {
 // [S15]/[S18] 课程结构两栏视图：预览（未加入）与课程主页（已加入）共用
 export interface CourseProgressView {
   practiceBySession?: Record<string, string>
-  practiceStats?: Record<string, { started: boolean; finished: boolean; correct: number; total: number }>
+  practiceStats?: Record<string, { started: boolean; finished: boolean; correct: number; total: number; score?: number; perfect?: number; stars?: number }>
   examScores?: Record<string, number>
 }
 
@@ -191,6 +191,17 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
                       return (
                       <li key={s.sessionId} className="flex items-center gap-3 py-2 text-[13px] group">
                         <span className="flex-1 truncate">{s.title ?? `${lec.title} · 第 ${s.sessionIndex} 节`}</span>
+                        {stat?.finished && (stat.stars ?? 0) > 0 && (
+                          <span className="practice-stars practice-stars--animate" data-testid={`session-stars-${s.sessionId}`} aria-label={`${stat.stars} 星`}>
+                            {[1, 2, 3].map((n) => (
+                              <svg key={n} className="practice-stars-star" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3.6l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"
+                                  style={{ fill: n <= (stat.stars ?? 0) ? '#f5a524' : 'transparent', stroke: n <= (stat.stars ?? 0) ? '#f5a524' : '#d1d5db', strokeWidth: 1.6 }}
+                                />
+                              </svg>
+                            ))}
+                          </span>
+                        )}
                         {actionToast?.id === s.sessionId && (
                           <span className="text-[11px] text-[#16a34a] font-medium inline-flex items-center gap-1 bg-[#f0fdf4] px-2 py-0.5 rounded-full border border-[#bbf7d0] hk-fade-in">
                             <Check size={11} /> {actionToast.text}

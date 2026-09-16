@@ -765,3 +765,10 @@
 .cj-welcome-next-kind--project { background: #f6f1e7; color: #8a6d3b; border-color: rgba(138,109,59,.16); }
 .cj-welcome-next-kind--exam { background: #f5edf0; color: #954c68; border-color: rgba(149,76,104,.14); }
 .cj-welcome-next-kind--learn { border-color: rgba(76,102,150,.16); }
+
+/* 线上 .practice-stars（已完成练习的星级）+ practice-stars-stamp */
+.practice-stars { display: inline-flex; align-items: center; gap: 3px; flex: none; line-height: 0; }
+.practice-stars-star { display: block; }
+.practice-stars--animate .practice-stars-star { opacity: 0; transform: scale(1.9) rotate(-18deg); animation: practice-stars-stamp .48s cubic-bezier(.2,1.45,.4,1) forwards; }
+@keyframes practice-stars-stamp { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .practice-stars--animate .practice-stars-star { animation: none; opacity: 1; transform: none; } }

@@ -530,12 +530,25 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
     const examScores = (course.examScores ?? {}) as Record<string, number>;
     const rawPractice = (course.practiceProgress ?? {}) as Record<string, Record<string, unknown>>;
-    const practiceStats: Record<string, { started: boolean; finished: boolean; correct: number; total: number }> = {};
+    const practiceStats: Record<string, { started: boolean; finished: boolean; correct: number; total: number; score: number; perfect: number; stars: number }> = {};
     for (const [sessionId, entry] of Object.entries(rawPractice)) {
       if (!entry || typeof entry !== 'object') continue;
       const correct = Number(entry.score ?? entry.correct ?? 0);
       const total = Number(entry.total ?? 0);
-      practiceStats[sessionId] = { started: true, finished: entry.completed === true || total > 0, correct: Number.isFinite(correct) ? correct : 0, total: Number.isFinite(total) ? total : 0 };
+      // 线上 practiceStats 的已完成条目带 stars/score/perfect（CourseJourneyPage 按 stars 渲染 1–3 星）
+      const stars = Number(entry.stars ?? 0);
+      const points = Number(entry.points ?? entry.score ?? 0);
+      const perfect = Number(entry.perfect ?? 0);
+      const correctCount = Number(entry.correct ?? 0);
+      practiceStats[sessionId] = {
+        started: true,
+        finished: entry.completed === true || total > 0,
+        correct: Number.isFinite(correctCount) ? correctCount : Math.round((points / Math.max(1, perfect)) * total),
+        total,
+        score: Number.isFinite(points) ? points : 0,
+        perfect: Number.isFinite(perfect) ? perfect : 0,
+        stars: Math.min(3, Math.max(0, Number.isFinite(stars) ? stars : 0)),
+      };
     }
     const rawStages = (course.projectStageStates ?? {}) as Record<string, Record<string, unknown>>;
     const projectStages: Record<string, { touched: boolean; completed: boolean; started: boolean }> = {};
@@ -799,7 +812,8 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       const points = Number(body.score ?? score);
       const perfect = Number(body.perfect ?? 0);
       const stars = Number(body.stars ?? 0);
-      progress[sessionId] = { score: points, points, perfect, stars, total, completed: body.finished, finished: body.finished, items, updated_at: now() };
+      const correctCount = Object.values(items).filter((value) => typeof value === 'object' && value !== null && (value as Record<string, unknown>).state === 'correct').length;
+      progress[sessionId] = { score: points, points, perfect, stars, correct: correctCount, total, completed: body.finished, finished: body.finished, items, updated_at: now() };
       target.practiceProgress = progress;
       const runs = (target.practiceRuns ?? {}) as Record<string, Record<string, unknown>>;
       runs[sessionId] = { ...(runs[sessionId] ?? {}), finished: body.finished, items, updated_at: now() };

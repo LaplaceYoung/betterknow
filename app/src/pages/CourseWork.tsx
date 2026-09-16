@@ -213,7 +213,7 @@ function QuizRunner({
   mode?: 'practice' | 'exam'
   fastWindowMs?: number
   fastBonus?: number
-  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number; points?: number; perfect?: number; stars?: number }) => void
+  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number; fastIds?: string[]; points?: number; perfect?: number; stars?: number }) => void
 }) {
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string[]>([])
@@ -283,6 +283,7 @@ function QuizRunner({
       const points = scoreQuiz({ questionIds: ids, revealedQuestions: revealed, skippedQuestions: l.skippedQuestions, questionCorrectness: correctness, fastAnswers: l.fastAnswers })
       l.onFinish(l.score + (right ? 1 : 0), l.questions.length, l.userAnswers, {
         fastCount: points.fastCount,
+        fastIds: Object.keys(l.fastAnswers),
         points: points.total,
         perfect: perfectScore(ids.length),
         stars: starsFor(points.total, perfectScore(ids.length)),
@@ -379,6 +380,7 @@ function QuizRunner({
         const points = scoreQuiz({ questionIds: ids, revealedQuestions: revealed, skippedQuestions, questionCorrectness: correctness, fastAnswers })
         onFinish(score + (isRight ? 1 : 0), questions.length, updatedAnswers, {
           fastCount: points.fastCount,
+          fastIds: Object.keys(fastAnswers),
           points: points.total,
           perfect: perfectScore(ids.length),
           stars: starsFor(points.total, perfectScore(ids.length)),
@@ -745,6 +747,7 @@ export function Practice() {
     total: number
     userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
     fastCount?: number
+    fastIds?: string[]
     points?: number
     perfect?: number
     stars?: number
@@ -785,6 +788,7 @@ export function Practice() {
         questions={session.questions}
         userAnswers={result.userAnswers}
         fastCount={result.fastCount ?? 0}
+        fastIds={result.fastIds ?? []}
         points={result.points}
         perfect={result.perfect}
         stars={result.stars}
@@ -807,7 +811,7 @@ export function Practice() {
           session.questions.forEach((q, idx) => {
             const ans = userAnswers[idx]
             if (!ans) { items[q.id] = { state: 'skipped', answer: null }; return }
-            items[q.id] = { state: ans.isRight ? 'correct' : 'wrong', answer: q.type === 'fill' ? ans.fill : ans.picked, ...(ans.isRight && meta?.fastCount ? {} : {}) }
+            items[q.id] = { state: ans.isRight ? 'correct' : 'wrong', answer: q.type === 'fill' ? ans.fill : ans.picked, ...(meta?.fastIds?.includes(q.id) ? { fast: true } : {}) }
           })
           await apiPost(`/course-generation/courses/${courseId}/practice/progress`, {
             sessionId: session.sessionId,
@@ -817,7 +821,7 @@ export function Practice() {
             perfect: meta?.perfect ?? total,
             stars: meta?.stars ?? 0,
           }).catch(() => {})
-          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars })
+          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, fastIds: meta?.fastIds, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars })
         }}
       />
     </>
@@ -836,6 +840,7 @@ export function Exam() {
     total: number
     userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
     fastCount?: number
+    fastIds?: string[]
     points?: number
     perfect?: number
     stars?: number
@@ -872,6 +877,7 @@ export function Exam() {
         questions={exam.questions}
         userAnswers={result.userAnswers}
         fastCount={result.fastCount ?? 0}
+        fastIds={result.fastIds ?? []}
         points={result.points}
         perfect={result.perfect}
         stars={result.stars}
@@ -897,14 +903,14 @@ export function Exam() {
           exam.questions.forEach((q, idx) => {
             const ans = userAnswers[idx]
             if (!ans) { items[q.id] = { state: 'skipped', answer: null }; return }
-            items[q.id] = { state: ans.isRight ? 'correct' : 'wrong', answer: q.type === 'fill' ? ans.fill : ans.picked }
+            items[q.id] = { state: ans.isRight ? 'correct' : 'wrong', answer: q.type === 'fill' ? ans.fill : ans.picked, ...(meta?.fastIds?.includes(q.id) ? { fast: true } : {}) }
           })
           await apiPost(`/course-generation/courses/${courseId}/exam/score`, {
             unitId: exam.unitId,
             score: Math.round((score / total) * 100),
             items,
           }).catch(() => {})
-          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars })
+          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, fastIds: meta?.fastIds, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars })
         }}
       />
     </>
@@ -1200,6 +1206,7 @@ function Result({
   label,
   questions = [],
   userAnswers = {},
+  fastIds = [],
   fastCount = 0,
   points = 0,
   perfect = 0,
@@ -1214,6 +1221,7 @@ function Result({
   label: string
   questions?: Question[]
   userAnswers?: Record<number, { picked: string[]; fill: string; isRight: boolean }>
+  fastIds?: string[]
   fastCount?: number
   points?: number
   perfect?: number
@@ -1503,9 +1511,10 @@ function Result({
                     </div>
                   </div>
 
-                  {/* Question Prompt */}
+                  {/* Question Prompt（速答题标「速答」chip，对应线上 items 的 fast 字段） */}
                   <div className="text-[14px] font-medium leading-relaxed text-[#0a0a0a] mb-4">
                     {q.prompt}
+                    {fastIds.includes(q.id) && <span className="exam-bonus-chip ml-2 align-middle" data-testid={`fast-${q.id}`}>速答</span>}
                   </div>
 
                   {/* Options or Fill Display */}

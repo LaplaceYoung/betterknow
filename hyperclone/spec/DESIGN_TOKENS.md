@@ -460,3 +460,11 @@ stars = (score, perfect) => ratio >= .8 ? 3 : ratio >= .55 ? 2 : ratio >= .25 ? 
 | 结果页星级 | `starThresholds [.8,.55,.25]` → 3/2/1 星，0 星不显示 | 同（练习 ratio .32 → 1 星实测 ✓） |
 | 本仓实现 | — | 新增 `app/src/lib/quizScoring.ts`（常量与两个函数逐字搬运），`QuizRunner` 记录 `fastAnswers`（按题 id）与 `skippedQuestions`，交卷时算出 `points/perfect/stars` 并随结果传给结果页；服务端 `practice/progress` 存 `{score: points, points, perfect, stars}` |
 
+### 星级回显与速答标记（第二十五批，r113）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 练习星级 | `.practice-stars{display:inline-flex;align-items:center;gap:3px;flex:none;line-height:0}`；`.practice-stars-star{display:block}`；`.practice-stars--animate .practice-stars-star{opacity:0;transform:scale(1.9) rotate(-18deg);animation:practice-stars-stamp .48s cubic-bezier(.2,1.45,.4,1) forwards}`；`@keyframes practice-stars-stamp{to{opacity:1;transform:none}}`；`prefers-reduced-motion` 下不播放 | 同（课程页已完成练习行渲染 3 星，实心 `#f5a524` / 空心 `#d1d5db` 描边；实测 gap 3px、动画 `practice-stars-stamp`、`aria-label="1 星"`、按 stars 值点亮 1 颗） |
+| 星级数据来源 | 线上 `progress-status.practiceStats[sessionId]` 的已完成条目带 `stars`（CourseJourneyPage 里 `Math.max(0, Math.min(3, e.stars))`），未完成条目只有 `{started, finished, correct, total}` | 同（本仓 progress-status 现在返回 `{started, finished, correct, total, score, perfect, stars}`；实测 `{correct: 2, total: 5, score: 1600, perfect: 5000, stars: 1}`） |
+| items 的 fast 字段 | 线上练习 items 为 `{qid: {state, answer, fast?}}`，`correct` 且 `fastAnswers[id]` 时 `fast: true` | 同（实测 items 里 `q1`/`q4` 带 `"fast": true`） |
+
