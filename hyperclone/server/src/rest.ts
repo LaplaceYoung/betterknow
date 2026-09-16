@@ -357,7 +357,49 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/calendar/approve_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; action?: string }; await updateState((state) => { const task = (state.calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); if (task) task.status = body.action === 'approve' ? 'approved' : body.action; }); return { success: true }; });
   app.post('/api/v1/calendar/update_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; tasks?: Array<Record<string, unknown>> } & Record<string, unknown>; await updateState((state) => { const tasks = state.calendar[request.userId!] ??= []; if (body.tasks) state.calendar[request.userId!] = body.tasks; else { const task = tasks.find((item) => item.task_id === body.task_id); if (task) Object.assign(task, body, { updated_at: now() }); } }); return { success: true }; });
   app.post('/api/v1/calendar/remove_task', protectedRoute, async (request) => { const body = request.body as { task_id?: string }; await updateState((state) => { state.calendar[request.userId!] = (state.calendar[request.userId!] ?? []).filter((item) => item.task_id !== body.task_id); }); return { success: true }; });
-  app.post('/api/v1/calendar/main_task_detail', protectedRoute, async (request, reply) => { const body = request.body as { task_id?: string }; const task = ((await readState()).calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); return task ? { success: true, task } : reply.code(404).send({ detail: 'Task not found' }); });
+  // 线上任务详情：{success, main_task, subtasks, subtask_count}；带 comment 时由模型按评论改写任务（BYOK）
+  app.post('/api/v1/calendar/main_task_detail', protectedRoute, async (request, reply) => {
+    const body = (request.body ?? {}) as { task_id?: string; comment?: string };
+    const state = await readState();
+    const task = (state.calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id) as Record<string, unknown> | undefined;
+    if (!task) return reply.code(404).send({ detail: 'Task not found' });
+    const comment = String(body.comment ?? '').trim();
+    if (!comment) return { success: true, task, main_task: task, subtasks: task.subtasks ?? [], subtask_count: (task.subtasks as unknown[] | undefined)?.length ?? 0 };
+    const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+    interface TaskPatch { title?: string; description?: string; subtasks?: Array<{ title?: string; task_description?: string }> }
+    let updated: TaskPatch | null = null;
+    let stub = true;
+    if (eff.provider !== 'stub') {
+      try {
+        const system = '你是学习计划助手。根据学生的评论改写这条学习任务，保持可执行、可验证。只输出 JSON：{"title":string,"description":string,"subtasks":[{"title":string,"task_description":string}]}';
+        const current = `当前任务：${String(task.title ?? '')}\n描述：${String(task.description ?? '')}\n子任务：${((task.subtasks as Array<{ title?: string }> | undefined) ?? []).map((s) => s.title).join(' / ')}`;
+        const raw = await chat([{ role: 'system', content: system }, { role: 'user', content: `${current}\n\n学生评论：${comment.slice(0, 600)}` }], 'content', eff);
+        const parsed = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? '') as TaskPatch;
+        if (parsed && (parsed.title || parsed.description || parsed.subtasks)) { updated = parsed; stub = false; }
+      } catch { /* 模型不可用：只记录评论 */ }
+    }
+    await updateState((next) => {
+      const list = next.calendar[request.userId!] ?? [];
+      const target = list.find((item) => item.task_id === body.task_id) as Record<string, unknown> | undefined;
+      if (!target) return;
+      if (updated) {
+        if (updated.title) target.title = String(updated.title).slice(0, 160);
+        if (updated.description) target.description = String(updated.description).slice(0, 1000);
+        if (updated.subtasks?.length) {
+          const previous = (target.subtasks as Array<Record<string, unknown>> | undefined) ?? [];
+          target.subtasks = updated.subtasks.slice(0, 8).map((sub, index) => ({
+            ...(previous[index] ?? {}),
+            title: String(sub.title ?? `子任务 ${index + 1}`).slice(0, 120),
+            ...(sub.task_description ? { task_description: String(sub.task_description).slice(0, 600) } : {}),
+          }));
+        }
+      }
+      target.last_comment = comment.slice(0, 600);
+      target.updated_at = now();
+    });
+    const fresh = ((await readState()).calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id) as Record<string, unknown> | undefined;
+    return { success: true, task: fresh, main_task: fresh, subtasks: (fresh?.subtasks as unknown[]) ?? [], subtask_count: ((fresh?.subtasks as unknown[] | undefined)?.length ?? 0), revised: Boolean(updated), stub };
+  });
 
   // 线上形状是 {success, conversation_data:{title, history}}；本仓再补 title/outline/plan/session_task_plan，
   // 让前端既可以按线上字段渲染，也能直接画出单元-步骤大纲

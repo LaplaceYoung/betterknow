@@ -914,3 +914,11 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 保存走 `/calendar/update_tasks`（服务端 `Object.assign(task, body)`，可改 `scheduled_for` / `due_at`）。实测：打开某任务 → 改开始时间 → 服务端该任务从 `2026-09-18T11:00Z` 变为 `2026-09-25T02:05Z`（本地 09-25 10:05），输入框收起；期间一次「看起来没保存」是我的校验读错了记录（日历首个 chip 并不等于任务列表第一条），换成就地比对后确认写入正确。
 
+### 任务评论「评论以调整」（第四十六批，proactive bundle）
+
+线上：底部圆形动作里的评论按钮（`taskDetail.commentToAdjust`「评论以调整」）展开 `.task-detail-comment-panel(.open)`，内含 `textarea.comment-panel-textarea`（placeholder「告诉 Orbie 你希望调整什么...」）；提交时整块被 `.comment-loading-overlay` 覆盖（spinner + `.comment-loading-text`「正在根据你的评论更新任务...」），成功后弹 `taskDetail.taskUpdated`「任务已成功更新」并回读 main_task + subtasks。
+
+本仓：面板与遮罩照搬线上类名与文案；服务端 `POST /calendar/main_task_detail` 扩展为接受 `comment` —— 有模型时把「当前任务 + 学生评论」交给模型，要求只输出 `{title, description, subtasks[]}` 并落库（保留原 id/状态），响应带 `revised`/`stub`；无模型时只记录 `last_comment` 并返回 `revised:false`。
+
+实测：无模型 → `revised:false / stub:true`，仅记录评论；配假网关 → `revised:true`，标题变为「…（拆成 20 分钟/天）」、描述与两条子任务被改写并落库；界面侧面板占位符/禁用态、提交中的「正在根据你的评论更新任务...」（用 1.8s 慢网关观测到）、成功 toast「任务已成功更新」、改写后的子任务列表都符合预期。
+

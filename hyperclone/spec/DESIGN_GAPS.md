@@ -510,3 +510,8 @@
 - 学习动态的任务详情从自绘 Tailwind 弹窗改为线上 `.task-detail-*` 结构（149 条样式原文并入 CSS）：overlay/container/close、header 与两行 meta（开始：/ 截止：）、描述、子任务（含「提前为你准备好的学习材料」说明与进度条）、底部圆形动作按钮；标题文案取自线上 zh。
 - 日期现在**可编辑**：点 `modal-date-field` 里的编辑按钮弹出输入（本仓用原生 `datetime-local`，线上是自绘 `.date-picker-*` 弹层——简化已记档），改完 400ms 去抖即存，走 `/calendar/update_tasks`。实测某任务从 `2026-09-18T11:00Z` 改到 `2026-09-25T02:05Z` 并落库。
 - 仍未做（线上有、本仓无）：评论调整（`taskDetail.commentToAdjust` + 评论面板）、生成文件卡（`task-detail-generated-file-*`）、相关截止项（`task-detail-related-due-*`）、拒绝任务、子任务级的文件生成动作；底部按钮目前用字形而非线上 SVG 图标。
+
+**第五十九批（评论以调整：任务详情接模型改写）**
+- 补上任务详情里此前缺的「评论调整」：面板/占位符/提交中的遮罩文案/成功 toast 全部用线上类名与 zh 文案；服务端 `POST /calendar/main_task_detail` 支持 `comment`，有模型时按评论改写 title/description/subtasks 并落库（BYOK 化），无模型时只记录评论并明确返回 `revised:false`。
+- 实测三条路径：无模型（只记录评论）；快速假网关（`revised:true`，标题/描述/子任务被改写）；1.8s 慢网关（观测到「正在根据你的评论更新任务...」遮罩后弹出「任务已成功更新」）。
+- 仍未做：拒绝任务、生成文件卡（`task-detail-generated-file-*`）、相关截止项（`task-detail-related-due-*`）、子任务级文件生成；底部按钮仍是字形图标。

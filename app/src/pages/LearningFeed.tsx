@@ -52,12 +52,34 @@ export default function LearningFeed() {
   // 任务详情（线上：描述 + 子任务 + 进度 + 开始课堂/删除任务）
   const [openTask, setOpenTask] = useState<Task | null>(null)
   const [editingDate, setEditingDate] = useState<'start' | 'due' | null>(null)
+  const [commentOpen, setCommentOpen] = useState(false)
+  const [comment, setComment] = useState('')
+  const [revising, setRevising] = useState(false)
+  const [toast, setToast] = useState('')
   // datetime-local 需要本地时间的 YYYY-MM-DDTHH:mm
   const toLocalInput = (iso: string) => {
     const d = new Date(iso)
     const pad = (n: number) => String(n).padStart(2, '0')
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`
   }
+  // 线上：评论交给模型改写任务 —— 提交时显示「正在根据你的评论更新任务...」，成功后回读并提示「任务已成功更新」
+  const reviseTask = async () => {
+    if (!openTask || !comment.trim() || revising) return
+    setRevising(true)
+    try {
+      const res = await apiPost<{ main_task?: Task; subtasks?: Task['subtasks']; revised?: boolean }>(
+        '/calendar/main_task_detail', { task_id: openTask.id, comment: comment.trim() })
+      if (res.main_task) setOpenTask({ ...openTask, ...res.main_task, subtasks: (res.subtasks ?? res.main_task.subtasks ?? openTask.subtasks) })
+      setComment('')
+      setCommentOpen(false)
+      setToast(res.revised === false ? '已记录你的评论（未配置模型时不会改写任务）' : '任务已成功更新')
+      window.setTimeout(() => setToast(''), 2600)
+      await load()
+    } finally {
+      setRevising(false)
+    }
+  }
+
   const saveTaskDate = async (field: 'scheduled_for' | 'due_at', value: string) => {
     if (!openTask || !value) { setEditingDate(null); return }
     const iso = new Date(value).toISOString()
@@ -85,6 +107,7 @@ export default function LearningFeed() {
 
   return (
     <div className="proactive-page">
+      {toast && <div className="proactive-toast" data-testid="task-toast">{toast}</div>}
       <div className="proactive-content">
       <div className="proactive-layout">
       <aside className="proactive-left">
@@ -198,6 +221,12 @@ export default function LearningFeed() {
             <button type="button" className="task-detail-close" onClick={() => setOpenTask(null)} aria-label="关闭">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
+            {revising && (
+              <div className="comment-loading-overlay">
+                <div className="comment-loading-spinner" />
+                <div className="comment-loading-text">正在根据你的评论更新任务...</div>
+              </div>
+            )}
             <div className="task-detail-content single-column">
               <div className="task-detail-left-col">
                 <div className="task-detail-left-scrollable-content">
@@ -277,8 +306,21 @@ export default function LearningFeed() {
                     </div>
                   )}
                 </div>
+                {commentOpen && (
+                  <div className={`task-detail-comment-panel${commentOpen ? ' open' : ''}`}>
+                    <textarea className="comment-panel-textarea" value={comment} placeholder="告诉 Orbie 你希望调整什么..."
+                      data-testid="comment-textarea" onChange={(e) => setComment(e.target.value)} />
+                    <div className="task-detail-comment-actions">
+                      <button type="button" className="task-detail-action-btn" onClick={() => { setCommentOpen(false); setComment('') }}>取消</button>
+                      <button type="button" className="task-detail-action-btn" data-testid="comment-submit"
+                        disabled={!comment.trim() || revising} onClick={() => void reviseTask()}>提交评论</button>
+                    </div>
+                  </div>
+                )}
                 <div className="task-detail-bottom-actions">
                   <button type="button" className="task-detail-bottom-action-btn" data-testid="delete-task" title="删除任务" onClick={() => setConfirmDelete(openTask)}>🗑</button>
+                  <button type="button" className={`task-detail-bottom-action-btn comment${commentOpen ? ' active' : ''}`} data-testid="comment-toggle"
+                    title="评论以调整" onClick={() => setCommentOpen((v) => !v)}>💬</button>
                   {openTask.status === 'pending' && (
                     <button type="button" className="task-detail-bottom-action-btn confirm" data-testid="confirm-task" title="确认任务"
                       onClick={() => { void act(openTask, 'confirm'); setOpenTask(null) }}>✓</button>
