@@ -33,7 +33,7 @@ export default function KnowledgeBase() {
 
   return (
     <div className="mx-auto max-w-[1080px] px-8 pb-16">
-      <div className="flex items-center gap-3"><h1 className="text-[22px] font-semibold">个人知识库</h1><span className="text-[11px] px-1.5 py-0.5 rounded-full border">专业版 ◔</span></div>
+      <div className="flex items-center gap-3"><h1 className="hk-page-title">个人知识库</h1><span className="text-[11px] px-1.5 py-0.5 rounded-full border">专业版 ◔</span></div>
       <div className="flex items-center gap-3 mt-4">
         <label className="flex items-center gap-2 h-10 px-3.5 rounded-full border bg-white flex-1 max-w-[460px]"><Search size={15} className="text-[#8a8a90]" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="我的天文学课件在哪？" className="flex-1 bg-transparent outline-none text-[14px]" /></label>
         <span className="text-[12px] text-[#8a8a90]">{(used / 1024).toFixed(0)} KB 已用</span>

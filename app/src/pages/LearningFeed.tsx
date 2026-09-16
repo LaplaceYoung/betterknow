@@ -68,7 +68,7 @@ export default function LearningFeed() {
           <div className="text-[12px] text-[#6b6b70] mt-1">{today.getMonth() + 1} 月 · 星期{WEEK[(today.getDay() + 6) % 7]}</div>
         </div>
         <div>
-          <h3 className="text-[13px] font-semibold mb-2">今日待办</h3>
+          <h3 className="hk-section-title mb-2">今日待办</h3>
           {tasks === null && <div className="hk-skeleton h-16 rounded-xl" />}
           {tasks && todays.length === 0 && <div className="text-[12px] text-[#8a8a90] hk-card p-3">今天没有安排，去课程里加一个学习计划吧</div>}
           <ul className="space-y-2">{todays.map((t) => (
@@ -77,15 +77,15 @@ export default function LearningFeed() {
           ))}</ul>
         </div>
         <div>
-          <h3 className="text-[13px] font-semibold mb-2">已确认任务</h3>
+          <h3 className="hk-section-title mb-2">已确认任务</h3>
           {(() => { const list = (tasks ?? []).filter((t) => t.status === 'confirmed'); return list.length === 0 ? <div className="text-[12px] text-[#8a8a90]">还没有确认的任务</div> : <ul className="space-y-1.5">{list.slice(0, 5).map((t) => <li key={t.id} className="hk-card p-2.5 text-[12px]" data-testid="confirmed-task"><div className="truncate font-medium">{t.title}</div><div className="text-[11px] text-[#8a8a90] mt-0.5">{new Date(t.scheduled_for).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' })} · {t.duration_min ?? 30} 分钟</div></li>)}</ul> })()}
         </div>
         <div>
-          <h3 className="text-[13px] font-semibold mb-2">待处理任务</h3>
+          <h3 className="hk-section-title mb-2">待处理任务</h3>
           {(() => { const list = (tasks ?? []).filter((t) => t.status === 'pending'); return list.length === 0 ? <div className="text-[12px] text-[#8a8a90]">没有待处理的任务</div> : <ul className="space-y-1.5">{list.slice(0, 5).map((t) => <li key={t.id} className="hk-card p-2.5 text-[12px]" data-testid="pending-task"><div className="truncate font-medium">{t.title}</div><button onClick={() => void act(t, 'confirm')} className="hk-pill h-6 text-[11px] px-2 mt-1">确认</button></li>)}</ul> })()}
         </div>
         <div>
-          <h3 className="text-[13px] font-semibold mb-2">已完成</h3>
+          <h3 className="hk-section-title mb-2">已完成</h3>
           {dones.length === 0 ? <div className="text-[12px] text-[#8a8a90]">完成的任务会显示在这里</div> : <ul className="space-y-1 text-[12px] text-[#6b6b70]">{dones.slice(0, 6).map((t) => <li key={t.id} className="line-through truncate">{t.title}</li>)}</ul>}
         </div>
       </aside>

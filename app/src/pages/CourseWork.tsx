@@ -210,6 +210,8 @@ function QuizRunner({
   const [score, setScore] = useState(0)
   const [speaking, setSpeaking] = useState(false)
   const [assistantOpen, setAssistantOpen] = useState(false)
+  // 线上进入练习先弹「准备好练习」：插图 + 说明 + 知道了
+  const [readyOpen, setReadyOpen] = useState(true)
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
   const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
   // 线上练习 HUD：每题 10s 倒计时 + 速答奖励（practice-hud-chip--bonus / practice-timer-fill）
@@ -294,8 +296,26 @@ function QuizRunner({
   }
 
   return (
-    <div className="mx-auto max-w-[760px] px-8 pb-24">
-      {/* Top Bar with Question Navigation Dots */}
+    <div className="mx-auto max-w-[672px] px-8 pb-24">
+      {readyOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: 'rgba(20,20,20,.28)', backdropFilter: 'blur(2px)' }} data-testid="practice-ready">
+          <div className="hk-card flex items-center gap-4" style={{ width: 490, padding: '22px 24px', borderRadius: 20 }}>
+            <span className="shrink-0 flex items-center justify-center" style={{ width: 96, height: 96, borderRadius: 16, background: 'linear-gradient(135deg,#eef2ff,#fef3c7)' }}>
+              <BookOpen size={40} className="text-[#3b5bdb]" />
+            </span>
+            <div className="flex-1">
+              <div className="text-[17px] font-semibold" style={{ color: '#1a1a1a' }}>准备好练习</div>
+              <p className="text-[13px] mt-1.5" style={{ color: '#6b7280', lineHeight: 1.6 }}>
+                全部答对，这次练习就会被标记为「已掌握」，为这门课完成对应环节。
+              </p>
+              <div className="flex justify-end mt-4">
+                <button onClick={() => setReadyOpen(false)} className="rounded-full text-[13px] text-white" style={{ padding: '9px 20px', background: '#1f2430' }} data-testid="practice-ready-ok">知道了</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* 线上练习题目区 672px 宽（.practice-question-prompt 实测） */}
       <div className="flex items-center justify-between text-[12px] text-[#8a8a90] mt-2">
         <span className="font-medium text-[#3d3d3f]">{subtitle}</span>
         <div className="flex items-center gap-1.5">
@@ -333,18 +353,22 @@ function QuizRunner({
         </span>
       </div>
 
-      <div className="flex items-center gap-2 mt-4 text-[12px]" data-testid="practice-hud">
-        <span className="inline-flex items-center gap-1 px-2 h-7 rounded-full bg-[#fff7ed] text-[#c2410c]">速答奖励 +{SPEED_BONUS}</span>
-        <span className="inline-flex items-center gap-1 px-2 h-7 rounded-full bg-[#f4f4f5]">得分 <b className="font-mono">{score}</b>{bonus ? <span className="text-[#15803d]">+{bonus}</span> : null}</span>
-        <span className="inline-flex items-center gap-1 px-2 h-7 rounded-full bg-[#f4f4f5] font-mono" data-testid="practice-timer">{checked ? '—' : `${left}s`}</span>
-        <span className="flex-1 max-w-[220px] h-1.5 rounded-full bg-[#f1f2f4] overflow-hidden"><span className="block h-full bg-[#0a0a0a] transition-all" style={{ width: `${checked ? 100 : (left / QUESTION_SECONDS) * 100}%` }} /></span>
+      <div className="mt-4 rounded-[14px] border-[1.5px] border-[#e5e5e5] bg-white overflow-hidden">
+      <div className="h-[3px] bg-[#f3f4f6] rounded-t-[14px] overflow-hidden"><div className="h-full bg-[#0a0a0a] transition-all" style={{ width: `${checked ? 100 : (left / QUESTION_SECONDS) * 100}%` }} /></div>
+      <div className="px-6 py-4 flex items-center gap-2 text-[12.5px]" data-testid="practice-hud">
+        <span className="hk-chip-bonus inline-flex items-center gap-1 px-3 h-[34px]">速答奖励 +{SPEED_BONUS}</span>
+        <span className="inline-flex items-center gap-1 px-3 h-[34px] rounded-full bg-[#f4f4f5]">得分 <b className="font-mono">{score}</b>{bonus ? <span className="text-[#15803d]">+{bonus}</span> : null}</span>
+        <span className="inline-flex items-center gap-1 px-3 h-[34px] rounded-full bg-[#f4f4f5] font-mono" data-testid="practice-timer">{checked ? '—' : `${left}s`}</span>
+        <span className="ml-auto text-[13px] font-bold" style={{ color: '#2a4578' }}>{score}</span>
       </div>
 
-      <div className="flex items-center justify-between mt-5">
+      <div className="px-6 pt-4">
+      <div className="flex items-center justify-between">
         <h1 className="text-[20px] font-semibold">{title}</h1>
         <button
           onClick={() => setAssistantOpen(true)}
-          className="hk-pill text-[12px] bg-gradient-to-r from-[#eef2ff] to-[#f5f3ff] text-[#3b5bdb] border-[#c7d2fe] hover:border-[#818cf8]"
+          className="rounded-full text-[13px] bg-white inline-flex items-center gap-[7px]"
+          style={{ padding: '0 14px', height: 34, border: '1.5px solid #e0e4ec', color: '#5b6472' }}
         >
           <Sparkles size={13} className="text-[#6366f1]" /> AI 随堂助教
         </button>
@@ -360,7 +384,7 @@ function QuizRunner({
           />
         )}
         <div className="flex items-start justify-between gap-4">
-          <div className="text-[15px] leading-7 font-medium text-[#1c1c1e]">{q.prompt}</div>
+          <div className="text-[17px] font-medium" style={{ lineHeight: 1.45, color: "#1f1f1f" }}>{q.prompt}</div>
           <button
             onClick={toggleSpeech}
             className={`hk-icon-btn shrink-0 h-8 w-8 ${
@@ -381,7 +405,7 @@ function QuizRunner({
             className="mt-5 w-full h-11 px-4 rounded-xl border bg-white outline-none focus:border-[#0a0a0a] text-[14px]"
           />
         ) : (
-          <div className="mt-5 space-y-2.5">
+          <div className="mt-5 grid" style={{ gap: 12 }}>
             {(q.options ?? []).map((o, oi) => {
               const on = picked.includes(o)
               const right = checked && correct.includes(o)
@@ -410,10 +434,14 @@ function QuizRunner({
                       : 'hover:border-[#a1a1aa] bg-white'
                   }`}
                 >
+                  {/* 线上 practice-option-shape：34×34 / radius 9px / 每项一种柔和底色 */}
                   <span
-                    className={`mt-0.5 h-5 w-5 shrink-0 rounded-full border text-[11px] flex items-center justify-center ${
-                      on ? 'border-[#0a0a0a] bg-[#0a0a0a] text-white' : 'text-[#8a8a90]'
-                    }`}
+                    className="shrink-0 flex items-center justify-center text-[13px] font-medium"
+                    style={{
+                      width: 34, height: 34, borderRadius: 9,
+                      background: [ 'rgba(195,71,71,.12)', 'rgba(217,161,59,.14)', 'rgba(69,120,196,.12)', 'rgba(63,143,110,.12)' ][oi % 4],
+                      color: on ? '#0a0a0a' : '#333',
+                    }}
                   >
                     {oi + 1}
                   </span>
@@ -435,32 +463,51 @@ function QuizRunner({
           </div>
         )}
 
-        <div className="flex items-center gap-2 mt-6 pt-4 border-t">
+        {/* 线上底栏：左「助手」pill，右侧「检查 / 跳过」两个 pill，间距 23px */}
+        <div className="flex items-center mt-6 pt-4 border-t" style={{ gap: 23 }}>
           <button
             onClick={() => setAssistantOpen(true)}
-            className="hk-pill text-[12px] inline-flex items-center gap-1 text-[#6b6b70]"
+            className="rounded-full text-[13px] inline-flex items-center gap-[7px] bg-white"
+            style={{ padding: '0 14px', height: 34, border: '1.5px solid #e0e4ec', color: '#5b6472' }}
+            data-testid="assistant-toggle"
           >
-            <Lightbulb size={13} className="text-[#f59e0b]" /> 问问助教思路
+            <Lightbulb size={13} className="text-[#f59e0b]" /> 助手
           </button>
-          <div className="ml-auto flex gap-2">
+          <div className="ml-auto flex items-center" style={{ gap: 23 }}>
             {!checked ? (
-              <button
-                disabled={q.type === 'fill' ? !fill.trim() : picked.length === 0}
-                onClick={handleCheck}
-                className="h-9 px-5 rounded-full bg-[#0a0a0a] text-white text-[13px] font-medium disabled:opacity-40 hover:bg-black/85 transition-colors"
-              >
-                检查答案
-              </button>
+              <>
+                <button
+                  onClick={() => setChecked(true)}
+                  className="rounded-full text-[14px] bg-white"
+                  style={{ padding: '12px 24px', border: '1.5px solid #e0e4ec', color: '#6b7280' }}
+                  data-testid="skip-btn"
+                >
+                  跳过
+                </button>
+                <button
+                  disabled={q.type === 'fill' ? !fill.trim() : picked.length === 0}
+                  onClick={handleCheck}
+                  className="rounded-full text-[16px] font-medium disabled:bg-[#ececec] disabled:text-[#878787]"
+                  style={{ padding: '15px 80px', background: '#0a0a0a', color: '#fff' }}
+                  data-testid="check-btn"
+                >
+                  检查
+                </button>
+              </>
             ) : (
               <button
                 onClick={next}
-                className="h-9 px-5 rounded-full bg-[#0a0a0a] text-white text-[13px] font-medium inline-flex items-center gap-1 hover:bg-black/85 transition-colors"
+                className="rounded-full text-[14px] font-medium inline-flex items-center gap-1"
+                style={{ padding: '12px 28px', background: '#0a0a0a', color: '#fff' }}
               >
                 {i + 1 >= questions.length ? '完成测验' : '下一题'} <ChevronRight size={14} />
               </button>
             )}
           </div>
         </div>
+      </div>
+
+      </div>
       </div>
 
       <AssistantDrawer

@@ -147,7 +147,7 @@ export default function Onboarding() {
               onClick={() => setStep(2)}
               className="mt-8 w-full h-11 rounded-full bg-[#0a0a0a] text-white text-[14px] font-medium hover:bg-black/85 transition-colors shadow-sm"
             >
-              Continue
+              继续
             </button>
           </div>
         )}

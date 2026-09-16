@@ -312,7 +312,7 @@ export default function Home() {
           </section>
         ) : (
           <section key="assist" className="hk-fade-in-up">
-            <h1 className="text-center text-[24px] font-semibold tracking-tight flex items-center justify-center gap-3">
+            <h1 className="text-center hk-hero-title tracking-tight flex items-center justify-center gap-3">
               <span className="text-[26px] hk-orbie">🛸</span>
               <span key={heroIdx} className="hk-fade-in">{ASSIST_HEROES[heroIdx % ASSIST_HEROES.length]}</span>
             </h1>

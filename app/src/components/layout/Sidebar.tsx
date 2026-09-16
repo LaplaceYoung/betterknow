@@ -33,7 +33,7 @@ export function Sidebar() {
   return (
     <aside
       className="flex flex-col shrink-0 hk-scroll"
-      style={{ width: 'var(--sidebar-width)', margin: 'var(--sidebar-margin)', marginRight: 0, borderRadius: 'var(--sidebar-radius)', background: 'var(--right-rail)', height: 'calc(100vh - 24px)', overflowY: 'auto' }}
+      style={{ width: 'var(--sidebar-width)', margin: 'var(--sidebar-margin)', marginRight: 0, borderRadius: 'var(--sidebar-radius)', background: 'transparent', height: 'calc(100vh - 24px)', overflowY: 'auto' }}
     >
       <div className="flex items-center justify-between px-4" style={{ height: 56 }}>
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => nav('/')}>

@@ -918,7 +918,7 @@ export function ResponseTopExtra() {
   return (
     <>
       <button className="hk-pill"><Languages size={14} /> 切换语言</button>
-      <button className="hk-pill"><Share2 size={14} /> Share conversation</button>
+      <button className="hk-pill"><Share2 size={14} /> 分享对话</button>
       <button className="hk-pill"><LifeBuoy size={14} /> 遇到问题？</button>
       <span className="hk-icon-btn"><ExternalLink size={14} /></span>
     </>

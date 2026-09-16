@@ -47,11 +47,22 @@
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
 
-  --sidebar-width: 240px;
+  --sidebar-width: 264px; /* 线上实测：.sidebar 264px */
   --sidebar-margin: 12px;
   --sidebar-radius: 16px;
   --sidebar-header-pad: 16px;
   --sidebar-toggle-size: 24px;
+
+  /* 线上实测字号（r51_design_tokens.json） */
+  --fs-section-title: 12px; --lh-section-title: 18px;
+  --fs-hero: 24px; --lh-hero: 30.72px;
+  --fs-page-title: 20px; --lh-page-title: 30px;
+  --fs-course-title: 22px; --lh-course-title: 25.96px;
+  --fs-course-sub: 14.5px; --lh-course-sub: 18.85px;
+  --ink-strong: #333333;
+  --ink-course: #111827;
+  --ink-page: #1a1a1a;
+  --rail-active: #e8f0f8;
 
   --font-satoshi: "Satoshi-Variable", "Satoshi-Medium", "MiSans", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-satoshi-bold: "Satoshi-Bold", "Satoshi-Variable", "MiSans Demibold", "PingFang SC", sans-serif;
@@ -99,10 +110,11 @@
   html, body, #root { height: 100%; }
   body {
     background: var(--app-bg);
-    color: var(--text);
+    /* 线上实测：正文 16px / 行高 24px / 纯黑（body computed style） */
+    color: #000;
     font-family: var(--font-satoshi);
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 24px;
     -webkit-font-smoothing: antialiased;
   }
   ::selection { background: rgba(10,10,10,.12); }
@@ -127,7 +139,7 @@
 .hk-caret::after { content: "|"; margin-left: 1px; animation: hk-cursor-blink 1s step-end infinite; }
 
 /* ── 通用组件样式 ── */
-.hk-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+.hk-card { background: var(--bg); border: 1px solid rgba(20, 20, 20, .06); border-radius: 16px; box-shadow: 0 1px 2px rgba(20, 20, 20, .04); }
 .hk-pill { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); font-size: 13px; color: var(--text); }
 .hk-pill:hover { background: var(--panel); }
 .hk-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
@@ -137,12 +149,20 @@
 .hk-chip:hover { background: var(--panel); }
 .hk-badge-new { font-size: 10px; padding: 1px 6px; border-radius: 6px; background: #eef2ff; color: #3b5bdb; font-weight: 600; }
 .hk-badge-up { font-size: 10px; padding: 1px 6px; border-radius: 6px; background: #ecfdf5; color: #059669; font-weight: 600; }
-.hk-rail-item { display: flex; align-items: center; gap: 10px; height: 36px; padding: 0 12px; border-radius: 10px; color: #3d3d3f; font-size: 14px; }
+.hk-rail-item { display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 12px; border-radius: 8px; color: #3d3d3f; font-size: 14px; }
 .hk-rail-item:hover { background: rgba(0,0,0,.04); }
-.hk-rail-item[data-active="true"] { background: #e6e8ec; color: var(--text); font-weight: 500; }
+.hk-rail-item[data-active="true"] { background: #e8f0f8; color: var(--text); font-weight: 500; } /* 线上激活底色 */
 .hk-composer { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
 .hk-composer:focus-within { box-shadow: 0 2px 16px rgba(0,0,0,.08); border-color: #d4d4d8; }
 .hk-prose { font-size: 15px; line-height: 1.75; color: #1f1f21; }
+/* 线上排版层级（computed style 实测值） */
+.hk-section-title { font-size: var(--fs-section-title); line-height: var(--lh-section-title); font-weight: 600; color: var(--ink-strong); }
+.hk-hero-title { font-size: var(--fs-hero); line-height: var(--lh-hero); font-weight: 650; letter-spacing: -0.01em; color: var(--ink-strong); }
+.hk-page-title { font-size: var(--fs-page-title); line-height: var(--lh-page-title); font-weight: 650; color: var(--ink-page); }
+.hk-course-title { font-size: var(--fs-course-title); line-height: var(--lh-course-title); font-weight: 400; color: var(--ink-course); }
+.hk-course-sub { font-size: var(--fs-course-sub); line-height: var(--lh-course-sub); font-weight: 600; letter-spacing: -0.01em; color: var(--ink-course); }
+/* 练习 HUD：线上金色速答奖励 chip（bg #FFFBE A / border #E8D48A / 文字 #A68B2C，radius 999px） */
+.hk-chip-bonus { background: #fffbea; border: 1.5px solid #e8d48a; color: #a68b2c; border-radius: 999px; }
 .hk-prose h1, .hk-prose h2, .hk-prose h3 { font-weight: 600; margin: 1.2em 0 .5em; }
 .hk-prose h2 { font-size: 18px; } .hk-prose h3 { font-size: 16px; }
 .hk-prose p { margin: .5em 0; }
