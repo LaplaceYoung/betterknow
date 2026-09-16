@@ -1,56 +1,117 @@
-import { ArrowRight, BadgeCheck, Users, Star, Clock } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { ArrowRight, BadgeCheck, Users, Star, Clock, Check } from 'lucide-react'
 import { useNavigate } from 'react-router'
 import type { MarketplaceCourse } from '@/lib/api'
 
 export const SUBJECT_LABEL: Record<string, string> = {
   examPrep: '考试备考', math: '数学与统计', computerScience: '计算机科学', aiDataScience: 'AI 与数据科学',
-  science: '自然科学', business: '商业与经济', psychology: '心理学', philosophy: '哲学', socialScience: '社会科学', communication: '表达与写作',
+  science: '自然科学', business: '商业与经济', psychology: '心理学', philosophy: '哲学', socialScience: '社会科学', communication: '沟通与表达',
 }
 export const SUBJECT_ORDER = ['examPrep', 'math', 'computerScience', 'aiDataScience', 'science', 'business', 'psychology', 'philosophy', 'socialScience', 'communication']
 const LEVEL_LABEL: Record<string, string> = { entry: '入门', advanced: '进阶', expert: '高阶' }
 
-// 封面底色按 ticketVariant 轮换（原站封面卡为浅色插画底）
-const TINTS = ['#eef0e6', '#f5f1de', '#e9ecf5', '#e7efe9', '#f3e8e8', '#e8eef4']
-
-export function levelOf(c: MarketplaceCourse): string { return LEVEL_LABEL[c.level ?? ''] ?? (c.sessionCount <= 45 ? '入门' : c.sessionCount <= 70 ? '进阶' : '高阶') }
+export function levelOf(c: MarketplaceCourse): string { return LEVEL_LABEL[c.level ?? ''] ?? (c.sessionCount <= 45 ? '入门' : c.sessionCount <= 90 ? '进阶' : '高阶') }
 export function ratingOf(c: MarketplaceCourse): string { return (c.rating ?? 4.5).toFixed(1) }
 
-// [S24] 课程票根：数值对齐线上 .course-ticket（标题 17.3/22.144 w600 #0F1F33、描述 12.75 w500 #6F7485、
-// 信息标签 10.8 w500 bg#F3F3F2 radius999 padding 3.5px 11px、科目标签 12 w600 #4C6696 bg#EEF2F8 radius6）
-export function CourseCard({ c, compact = false }: { c: MarketplaceCourse; compact?: boolean }) {
+// 票根签缝位置：线上 .course-ticket 的 --course-ticket-seam-y 是按内容算出来的（样式表默认 74.9%，
+// 单行标题实测 80.98%）。这里同样按「副本文案自然高度」测一次再定，避免拍一个常数。
+const SEAM_MIN = 0.7
+const SEAM_MAX = 0.86
+const COPY_TOP = 0.365
+
+// [S24] 课程票根：几何按线上 .course-ticket 的 mask（viewBox 218×326、两段 rx14 圆角矩形、
+// 签缝 y 处 13 个 r5 打孔、纸色 #FFFFFC、drop-shadow 0 4px 4px rgba(0,0,0,.06)），
+// 文案区 top 36.5%/左右 8%，存根区 top=签缝/左右 7%（stub 标签 10px #9AA1B0、值 14px #1F2A3A、
+// 科目标签 #EEF2F8 + #E0E6EF、圆形加入键 32px #4C6696）。
+export function CourseCard({ c }: { c: MarketplaceCourse }) {
   const nav = useNavigate()
-  const tint = TINTS[c.ticketVariant % TINTS.length]
-  const go = () => nav(c.enrolled && c.enrolledCourseUuid ? `/course/${c.enrolledCourseUuid}` : `/marketplace/${c.marketplaceId}/preview`)
+  const ticketRef = useRef<HTMLDivElement>(null)
+  const copyRef = useRef<HTMLDivElement>(null)
+  const [seam, setSeam] = useState<number | null>(null)
+  const goesToCourse = Boolean(c.enrolled && c.enrolledCourseUuid)
+  const go = () => nav(goesToCourse ? `/course/${c.enrolledCourseUuid}` : `/marketplace/${c.marketplaceId}/preview`)
+
+  useEffect(() => {
+    const host = ticketRef.current
+    const copy = copyRef.current
+    if (!host || !copy) return
+    const measure = () => {
+      const h = host.getBoundingClientRect().height
+      if (!h) return
+      const natural = COPY_TOP * h + copy.getBoundingClientRect().height + h * 0.03
+      setSeam(Math.min(SEAM_MAX, Math.max(SEAM_MIN, natural / h)))
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(host)
+    ro.observe(copy)
+    return () => ro.disconnect()
+  }, [])
+
+  // 签缝 y 用 218×326 的坐标系表达，mask 与背景共用一个 id
+  const seamY = Math.round(326 * (seam ?? 0.749))
+  const holes = []
+  for (let cx = 31; cx <= 185; cx += 14) holes.push(cx)
+  const maskId = `course-ticket-mask-${c.marketplaceId}`
+
   return (
-    <button onClick={go} className="hk-card text-left overflow-hidden flex flex-col group hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,.06)] transition-all">
-      <div className="relative" style={{ background: tint, aspectRatio: compact ? '16 / 9' : '4 / 3' }}>
-        <img src={c.coverImageUrl} alt="" className="absolute inset-0 w-full h-full object-contain p-4 mix-blend-multiply" loading="lazy" />
-        {c.enrolled && <span className="absolute left-3 top-3" style={{ fontSize: 10.5, fontWeight: 700, color: '#fff', background: '#2f7a5c', borderRadius: 8, padding: '4px 9px' }}>已报名</span>}
-      </div>
-      <div className="flex flex-col flex-1" style={{ padding: 14, gap: 8 }}>
-        <div className="flex items-center" style={{ gap: 6 }}>
-          <span className="inline-block" style={{ width: 18, height: 18, borderRadius: 4, background: '#0f1f33' }} />
-          <span style={{ fontSize: 12.6, lineHeight: '15.12px', fontWeight: 600, color: '#0f1f33' }}>betterknow Learning Lab</span>
-          <BadgeCheck size={13} style={{ color: '#4c6696' }} />
-        </div>
-        <h3 className="line-clamp-2" style={{ fontSize: 17.3, lineHeight: '22.144px', fontWeight: 600, color: '#0f1f33' }}>{c.courseTitle}</h3>
-        {!compact && <p className="line-clamp-2" style={{ fontSize: 12.75, lineHeight: '17.2125px', fontWeight: 500, color: '#6f7485' }}>{c.courseDescription}</p>}
-        <div className="flex items-center flex-wrap" style={{ gap: 8, marginTop: 'auto', paddingTop: 4 }}>
-          <span style={{ fontSize: 10.8, lineHeight: '12.96px', fontWeight: 500, color: '#0f1f33', background: '#f3f3f2', borderRadius: 999, padding: '3.5px 11px' }}>{levelOf(c)}</span>
-          <span className="inline-flex items-center" style={{ gap: 4, fontSize: 12.75, fontWeight: 500, color: '#878787' }}><Clock size={12} />{c.sessionCount} 课时</span>
-          <span className="inline-flex items-center" style={{ gap: 4, fontSize: 12.75, fontWeight: 500, color: '#878787' }}>
-            <Users size={12} /><b style={{ fontWeight: 700, color: '#4c6696' }}>{c.joinCount.toLocaleString()}</b> 人已加入
-          </span>
-          <span className="inline-flex items-center ml-auto" style={{ gap: 4 }}><Star size={13} style={{ color: '#f59e0b', fill: '#f59e0b' }} /><b style={{ fontSize: 12.75, fontWeight: 700, color: '#1f2a3a' }}>{ratingOf(c)}</b></span>
-        </div>
-        <div className="flex items-center justify-between pt-2 border-t mt-1">
-          <span className="inline-flex flex-col" style={{ gap: 2 }}>
-            <span style={{ fontSize: 10, lineHeight: '10px', fontWeight: 600, color: '#9aa1b0' }}>科目</span>
-            <span style={{ fontSize: 12, lineHeight: '15px', fontWeight: 600, color: '#4c6696', background: '#eef2f8', border: '0.6px solid #e0e6ef', borderRadius: 6, padding: '3px 8px' }}>{SUBJECT_LABEL[c.subject] ?? '通识'}</span>
-          </span>
-          <span className="flex items-center justify-center" style={{ width: 32, height: 32, borderRadius: '50%', background: '#4c6696', color: '#fff' }}>
-            <ArrowRight size={13} />
-          </span>
+    <button onClick={go} className="mktp-ticket-wrap" aria-label={c.courseTitle} data-testid="course-ticket">
+      <div ref={ticketRef} className="course-ticket" style={{ ['--course-ticket-seam-y' as string]: `${((seam ?? 0.749) * 100).toFixed(3)}%` }}>
+        <svg className="course-ticket-mask-svg" viewBox="0 0 218 326" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <mask id={maskId} maskUnits="userSpaceOnUse">
+              <rect width="218" height="326" fill="black" />
+              <rect x="0" y="0" width="218" height={seamY} rx="14" fill="white" />
+              <rect x="0" y={seamY} width="218" height={326 - seamY} rx="14" fill="white" />
+              {holes.map((cx) => <circle key={cx} cx={cx} cy={seamY} r="5" fill="black" />)}
+              <circle cx="109" cy="326" r="10" fill="black" />
+            </mask>
+          </defs>
+          <rect width="218" height="326" fill="#FFFFFC" mask={`url(#${maskId})`} />
+        </svg>
+
+        <div className="course-ticket-content">
+          {c.enrolled && (
+            <span className="course-ticket-enrolled-check"><Check size={11} />已加入</span>
+          )}
+          <div ref={copyRef} className="course-ticket-copy" style={seam === null ? { bottom: 'auto' } : undefined}>
+            <div className="course-ticket-main-copy">
+              <div className="course-ticket-author">
+                <span className="course-ticket-author-logo" aria-hidden="true" />
+                <span className="course-ticket-author-name">betterknow Learning Lab</span>
+                <span className="course-ticket-author-verified" aria-label="官方精编" title="官方精编"><BadgeCheck size={15} style={{ color: '#4c6696' }} /></span>
+              </div>
+              <h3 className="course-ticket-title">{c.courseTitle}</h3>
+              <p className="course-ticket-description">{c.courseDescription}</p>
+              <div className="course-ticket-info-tags">
+                <span className="course-ticket-info-tag">{levelOf(c)}</span>
+                <span className="course-ticket-info-tag">{c.sessionCount} 课时</span>
+                <span className="course-ticket-explorers">
+                  <span className="course-ticket-explorers-icon" aria-hidden="true"><Users size={13} /></span>
+                  <span className="course-ticket-explorers-text"><b className="course-ticket-explorers-count">{c.joinCount.toLocaleString()}</b> 人已加入</span>
+                </span>
+              </div>
+              <div className="course-ticket-meta">
+                <span className="course-ticket-rating">
+                  <span className="course-ticket-rating-icon" aria-hidden="true"><Star size={12} style={{ color: '#f59e0b', fill: '#f59e0b' }} /></span>
+                  <span className="course-ticket-rating-value">{ratingOf(c)}</span>
+                </span>
+                <span className="inline-flex items-center" style={{ gap: 4, fontSize: 12.75, fontWeight: 500, color: '#878787' }}>
+                  <Clock size={12} />{c.sessionCount} 节
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="course-ticket-footer">
+            <div className="course-ticket-stub-info">
+              <div className="course-ticket-stub-item">
+                <span className="course-ticket-stub-label">科目</span>
+                <span className="course-ticket-stub-value">{SUBJECT_LABEL[c.subject ?? ''] ?? '综合'}</span>
+              </div>
+            </div>
+            <span className="course-ticket-enroll-button" aria-hidden="true"><ArrowRight size={13} /></span>
+          </div>
         </div>
       </div>
     </button>

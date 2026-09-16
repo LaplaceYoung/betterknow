@@ -213,3 +213,61 @@
 .response-action-btn:hover { color: #18181b; background-color: #f4f4f5; }
 .response-action-btn[data-on="true"] { color: #18181b; background-color: #e4e4e7; }
 .response-action-btn[data-on="true"]:hover { background-color: #d4d4d8; }
+
+/* 线上 .mktp-ticket-wrap / .course-ticket 全套（票根：两段圆角矩形 + 签缝打孔 + 存根区） */
+.mktp-ticket-wrap { display: block; width: 100%; text-align: left; cursor: pointer; border-radius: 14px; outline: none; }
+.mktp-ticket-wrap:hover .course-ticket { transform: translateY(-2px); }
+.mktp-ticket-wrap:focus-visible { box-shadow: 0 0 0 3px rgba(76,102,150,.28); }
+.course-ticket { position: relative; width: 100%; aspect-ratio: 218 / 326; transition: transform .18s cubic-bezier(.16,1,.3,1); }
+.course-ticket-mask-svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 4px 4px rgba(0,0,0,.06)); }
+.course-ticket-content { position: absolute; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none; }
+.course-ticket-copy { position: absolute; top: 36.5%; left: 8%; right: 8%; bottom: calc(100% - var(--course-ticket-seam-y)); display: flex; flex-direction: column; align-items: flex-start; overflow: hidden; }
+.course-ticket-main-copy { width: 100%; min-height: 0; flex: 0 1 auto; display: flex; flex-direction: column; align-items: flex-start; overflow: hidden; }
+.course-ticket-author { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6px; max-width: 100%; flex-shrink: 0; }
+.course-ticket-author-logo { width: 18px; height: 18px; flex-shrink: 0; border-radius: 4px; background: #0f1f33; }
+.course-ticket-author-name { min-width: 0; font-size: 14px; font-weight: 600; line-height: 1.2; color: #0f1f33; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.course-ticket-author-verified { display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; flex-shrink: 0; }
+.course-ticket-title { margin: 0 0 10px; color: #0f1f33; font-size: 16.5px; font-weight: 600; line-height: 1.28; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.course-ticket-description { margin: 0; color: #6f7485; font-size: 12.75px; font-weight: 500; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.course-ticket-info-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; max-width: 100%; flex-shrink: 0; }
+.course-ticket-info-tag { display: inline-flex; align-items: center; justify-content: center; padding: 3.5px 11px; border-radius: 999px; background: #f3f3f2; border: 1px solid #ECECEA; color: #0f1f33; font-size: 10.8px; font-weight: 500; }
+.course-ticket-explorers { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
+.course-ticket-explorers-icon { display: inline-flex; width: 15px; height: 15px; align-items: center; justify-content: center; color: #4c6696; }
+.course-ticket-explorers-text { font-size: 12.75px; font-weight: 500; line-height: 1.2; color: #878787; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.course-ticket-explorers-count { font-weight: 700; color: #4c6696; }
+.course-ticket-meta { margin-top: 8px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-shrink: 0; }
+.course-ticket-rating { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; }
+.course-ticket-rating-icon { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; }
+.course-ticket-rating-value { font-size: 12.75px; font-weight: 700; line-height: 1.2; color: #1f2a3a; }
+.course-ticket-enrolled-check { position: absolute; top: 5.5%; right: 8%; display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 8px; background: #2f7a5c; color: #fff; font-size: 11px; font-weight: 600; z-index: 2; }
+.course-ticket-footer { position: absolute; top: var(--course-ticket-seam-y); left: 7%; right: 7%; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: auto; }
+.course-ticket-stub-info { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.course-ticket-stub-item { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.course-ticket-stub-label { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9aa1b0; line-height: 1; }
+.course-ticket-stub-value { font-size: 14px; font-weight: 700; color: #1f2a3a; line-height: 1.1; }
+.course-ticket-enroll-button { width: 32px; height: 32px; flex-shrink: 0; border: none; border-radius: 50%; background: #4c6696; color: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(76,102,150,.28); }
+/* 线上 .library-tickets：三列 max 260 / gap 34 / 居中 */
+.hk-library-tickets { display: grid; grid-template-columns: repeat(3, minmax(0, 260px)); gap: 34px; align-items: start; justify-content: center; }
+
+/* 线上 .response-add-button / .response-tools-button / .response-tools-dropdown（输入条左侧控件） */
+.response-add-button { width: 33px; height: 33px; border-radius: 50%; border: 1px solid #E5E5E5; background: transparent; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s ease; color: #3c3c43; }
+.response-add-button:hover { background-color: #f5f5f5; }
+.response-tools-button { height: 33px; padding: 0 10px 0 9px; border-radius: 999px; border: 1px solid #E5E5E5; background: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: all .2s ease; }
+.response-tools-button:not(.tools-selected):hover { background: #f5f5f5; border-color: #d4d4d4; }
+.response-tools-button-icon { width: 16px; height: 16px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
+.response-tools-button-text { font-size: 14px; color: #444; }
+.response-tools-button.tools-selected .response-tools-button-text { color: #2b67c6; font-weight: 600; }
+.response-tools-dropdown { background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05); }
+/* 线上 .inbox-page 系列 */
+.inbox-page { padding: 48px 64px 24px; max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; }
+.inbox-page-title { font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0 0 16px; }
+.inbox-tabs { display: inline-flex; background-color: #f1f1f1; padding: 3px; border-radius: 8px; gap: 2px; }
+.inbox-tab { border: none; background: transparent; padding: 5px 12px; font-size: 12px; color: #6b7280; border-radius: 6px; cursor: pointer; transition: all .2s ease; }
+.inbox-tab:hover { color: #374151; }
+.inbox-tab[data-active="true"] { background: #fff; color: #111827; }
+.inbox-notification-item { display: flex; align-items: flex-start; gap: 48px; border-bottom: 1px solid #EBEBEB; border-left: 3px solid transparent; padding: 32px 0 32px 4px; margin-left: -4px; transition: background .15s ease; cursor: pointer; }
+.inbox-notification-item:hover { background: rgba(0,0,0,.02); }
+
+.inbox-scroll { flex: 1; min-height: 0; overflow-y: auto; }
+.inbox-updates-placeholder { font-size: 14px; color: #9ca3af; text-align: center; padding: 48px 24px; line-height: 1.6; }
+.inbox-notification-list { list-style: none; margin: 0; padding: 0 4px 8px 0; display: flex; flex-direction: column; }

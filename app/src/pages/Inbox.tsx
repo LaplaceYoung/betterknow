@@ -15,20 +15,40 @@ export function Inbox() {
   }, [])
   const open = async (m: Msg) => { await apiPost('/usr-msg-inbox/mark_read', { message_id: m.id }); nav(`/inbox/message/${m.id}`) }
   return (
-    <div className="mx-auto max-w-[880px] px-8 pb-16">
-      <h1 className="text-[22px] font-semibold">收件箱</h1>
-      <div role="tablist" className="flex gap-1 mt-4 border-b text-[13px]">
-        {([['messages', '消息'], ['feed', '动态']] as const).map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className="relative px-3 h-9 text-[#6b6b70] data-[on=true]:text-black data-[on=true]:font-medium" data-on={tab === k}>{l}{tab === k && <span className="absolute left-3 right-3 -bottom-px h-0.5 bg-black" />}</button>)}
-      </div>
-      {tab === 'messages' ? (
-        <div className="hk-card mt-4">
-          {msgs === null && <div className="p-4"><div className="hk-skeleton h-5 rounded w-1/2" /></div>}
-          {msgs && msgs.length === 0 && <div className="p-12 text-center text-[#8a8a90] text-[13px]">暂无消息</div>}
-          {msgs?.map((m) => <button key={m.id} onClick={() => open(m)} className="w-full text-left px-4 py-3 border-b last:border-b-0 hover:bg-[#fafafa] flex items-center gap-3">{!m.read && <span className="h-2 w-2 rounded-full bg-[#3b5bdb]" />}<span className="flex-1 min-w-0"><span className="block text-[14px] truncate">{m.title ?? m.snippet}</span></span><span className="text-[12px] text-[#8a8a90]">{m.created_at ? new Date(m.created_at).toLocaleDateString('zh-CN') : ''}</span></button>)}
+    <div className="inbox-page">
+      <div className="inbox-page-header">
+        <h1 className="inbox-page-title">收件箱</h1>
+        <div className="inbox-tabs" role="tablist">
+          {([['messages', '消息'], ['feed', '动态']] as const).map(([k, l]) => (
+            <button key={k} role="tab" aria-selected={tab === k} data-active={tab === k} onClick={() => setTab(k)} className="inbox-tab">{l}</button>
+          ))}
         </div>
-      ) : (
-        <div className="hk-card mt-4 p-10 text-center text-[13px] text-[#8a8a90]">{banner || '暂无动态'}</div>
-      )}
+      </div>
+      <div className="inbox-scroll">
+        {tab === 'messages' ? (
+          <>
+            {msgs === null && <div className="p-4"><div className="hk-skeleton h-5 rounded w-1/2" /></div>}
+            {msgs && msgs.length === 0 && <div className="inbox-updates-placeholder">暂无消息</div>}
+            {msgs && msgs.length > 0 && (
+              <ul className="inbox-notification-list">
+                {msgs.map((m) => (
+                  <li key={m.id}>
+                    <div role="button" tabIndex={0} onClick={() => open(m)} onKeyDown={(e) => e.key === 'Enter' && open(m)} className="inbox-notification-item">
+                      <div className="flex-1 min-w-0">
+                        <div style={{ fontSize: 15, fontWeight: 600, color: '#1a1a1a' }}>{m.title ?? '消息'}</div>
+                        <div style={{ marginTop: 6, fontSize: 13.5, lineHeight: 1.6, color: '#6b7280' }} className="line-clamp-2">{m.body ?? m.snippet ?? ''}</div>
+                      </div>
+                      <span style={{ fontSize: 12, color: '#9ca3af', flexShrink: 0 }}>{(m.created_at ?? '').slice(0, 10)}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
+        ) : (
+          <div className="inbox-updates-placeholder">{banner || '暂无动态'}</div>
+        )}
+      </div>
     </div>
   )
 }
