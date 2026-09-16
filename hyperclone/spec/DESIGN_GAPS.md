@@ -515,3 +515,9 @@
 - 补上任务详情里此前缺的「评论调整」：面板/占位符/提交中的遮罩文案/成功 toast 全部用线上类名与 zh 文案；服务端 `POST /calendar/main_task_detail` 支持 `comment`，有模型时按评论改写 title/description/subtasks 并落库（BYOK 化），无模型时只记录评论并明确返回 `revised:false`。
 - 实测三条路径：无模型（只记录评论）；快速假网关（`revised:true`，标题/描述/子任务被改写）；1.8s 慢网关（观测到「正在根据你的评论更新任务...」遮罩后弹出「任务已成功更新」）。
 - 仍未做：拒绝任务、生成文件卡（`task-detail-generated-file-*`）、相关截止项（`task-detail-related-due-*`）、子任务级文件生成；底部按钮仍是字形图标。
+
+**第六十批（「加入日历」四步弹窗 + accept 真落库）**
+- 补上此前只有桩端点的课程排期链路：课程页新增「加入日历」入口 + 线上 `.course-cal-*` 四步弹窗（时长 → 开始日 → 星期 → 预览），计划按课程结构（课时 + 每单元测验）在客户端铺开；服务端 `/course-calendar/accept` 从「只回 success」改为真正写入 `state.calendar`（`type:"course"` + `payload.course_id`，同课程旧计划先清空，对应线上「确认后会替换它」）。
+- **本地化决定**：线上这套弹窗文案是硬编码英文（不走 i18n），本仓按目标写成中文并记档。
+- 实测：四步全通（7/14/30/60/90 天 chips、42 格月历含 today/选中态、Sun..Sat 星期 chips、预览 65 条）；确认后落库 65 条课程任务，入口由「加入日历」变「已加入日历」，学习动态日历上可见这些任务。
+- 仍未做：预览页的**拖拽改期**（线上 "Drag any item to a different day"）；`course-cal-modal--fullscreen` 的全屏变体；拒绝/生成的 `draft` 预览端点仍是桩（本仓不需要，计划在客户端算）。

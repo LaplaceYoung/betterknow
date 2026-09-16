@@ -1272,8 +1272,40 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return { scheduled, count: scheduled ? tasks.filter((task) => String(task.course_uuid ?? '') === courseUuid).length : 0 };
   });
   app.get('/api/v1/course-calendar/config', protectedRoute, async () => ({ enabled: true }));
+  // 线上：draft 只做预览（不落库）；accept 才把 items 写进日历任务
   app.post('/api/v1/course-calendar/draft', protectedRoute, async (request) => ({ success: true, draft: { ...(request.body as object), tasks: [] } }));
-  app.post('/api/v1/course-calendar/accept', protectedRoute, async (request) => ({ success: true, accepted: true, ...(request.body as object) }));
+  app.post('/api/v1/course-calendar/accept', protectedRoute, async (request) => {
+    const body = (request.body ?? {}) as { course_uuid?: string; course_title?: string; items?: Array<Record<string, unknown>> };
+    const courseUuid = String(body.course_uuid ?? '');
+    const courseTitle = String(body.course_title ?? '');
+    const items = Array.isArray(body.items) ? body.items : [];
+    let created = 0;
+    await updateState((state) => {
+      const tasks = (state.calendar[request.userId!] ??= []);
+      // 替换语义：先把这门课原有计划清掉，再写入新计划（线上提示「确认后会替换它」）
+      const kept = tasks.filter((task) => !(String(task.type ?? '') === 'course' && String((task.payload as Record<string, unknown> | undefined)?.course_id ?? task.course_uuid ?? '') === courseUuid));
+      for (const item of items) {
+        const objectId = String(item.course_object_id ?? randomUUID());
+        kept.push({
+          task_id: `course-${courseUuid}-${objectId}`.slice(0, 80),
+          type: 'course',
+          status: 'confirmed',
+          title: String(item.title ?? (courseTitle || '课程安排')),
+          description: String(item.description ?? ''),
+          scheduled_for: String(item.scheduled_for ?? new Date().toISOString()),
+          duration_min: 30,
+          course_uuid: courseUuid,
+          course_title: courseTitle,
+          payload: { course_id: courseUuid, course_object_type: String(item.course_object_type ?? 'session'), course_object_id: objectId },
+          created_at: now(),
+          updated_at: now(),
+        });
+        created += 1;
+      }
+      state.calendar[request.userId!] = kept;
+    });
+    return { success: true, accepted: true, course_uuid: courseUuid, created };
+  });
 
   for (const path of ['/api/v1/pdf-annotation', '/api/v1/pdf-annotation/upload']) app.post(path, protectedRoute, async (request, reply) => { let sessionId = ''; let filename = ''; let mime = 'application/pdf'; let data: Buffer | undefined; for await (const part of request.parts()) { if (part.type === 'file') { filename = part.filename; mime = part.mimetype; data = await part.toBuffer(); } else if (part.fieldname === 'session_id') sessionId = String(part.value); } if (!sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'session_id'], msg: 'Field required' }] }); if (!data) return reply.code(400).send({ detail: 'file is required' }); const fileId = randomUUID().replaceAll('-', ''); publicFiles.set(fileId, { id: fileId, filename, mime, data }); await updateState((state) => {
       // 上传可能早于 WS 建会话：这里直接建/补会话记录，否则文件 id 会丢，start_teaching 会报「没有 PDF」

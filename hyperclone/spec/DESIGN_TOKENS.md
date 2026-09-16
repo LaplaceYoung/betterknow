@@ -922,3 +922,19 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 实测：无模型 → `revised:false / stub:true`，仅记录评论；配假网关 → `revised:true`，标题变为「…（拆成 20 分钟/天）」、描述与两条子任务被改写并落库；界面侧面板占位符/禁用态、提交中的「正在根据你的评论更新任务...」（用 1.8s 慢网关观测到）、成功 toast「任务已成功更新」、改写后的子任务列表都符合预期。
 
+### 「加入日历」四步弹窗（第四十七批，CourseJourneyPage + r164）
+
+线上 `.course-cal-*`（80 条样式原文已并入 CSS）：`course-cal-btn` 打开 `overlay > modal`，四步 + 成功态：
+
+1. 时长：`course-cal-head(title/subtitle)` + `course-cal-duration-chips > course-cal-chip` + `course-cal-custom-row`（label/input/suffix）
+2. 开始日：`course-cal-picker`（header/nav/month/weekdays/grid/cell（`--selected`/`--today`））
+3. 星期：`course-cal-weekday-row > course-cal-weekday-chip`
+4. 预览：`ccal-preview > ccal-preview-days-grid > ccal-preview-day` + `course-cal-replace-note` + `course-cal-footer--decide`（reject ✕ / accept）
+   + `course-cal-success` / `course-cal-error` / `course-cal-spinner`
+
+提交契约（原文）：`POST /course-calendar/accept {course_uuid, course_title, items[{course_object_type, course_object_id, title, description, scheduled_for}]}`。
+
+**文案差异**：线上这套文案是**硬编码英文**（"How long do you want to finish…"、"Added to your calendar."），不走 i18n；本仓按「完成本地化」的目标写成中文（你打算用多久学完这门课？/ 从哪天开始？/ 每周哪几天学习？/ 这是你的学习计划 / 已加入你的日历），差异已记入 DESIGN_GAPS。
+
+本仓实现：计划在客户端按天数 + 星期偏好铺开（课时 + 每单元测验），服务端 `accept` 真正写入 `state.calendar`（`type:"course"` + `payload.course_id`，同课程旧计划先清空 —— 对应线上「确认后会替换它」）。实测：入口「加入日历」→ 四步全通（chips 7/14/30/60/90、picker 42 格含 1 个 today、星期 chips Sun..Sat、预览 65 条）→ 确认后落库 65 条课程任务、入口变「已加入日历」、学习动态日历上可见。
+

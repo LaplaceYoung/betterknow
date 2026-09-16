@@ -4,6 +4,7 @@ import { apiGet, apiPost } from '@/lib/api'
 import { CourseStructureView, type CourseFull, type CourseProgressView } from './MarketplacePreview'
 import { Sparkles, Trophy } from 'lucide-react'
 import { RandomCharVideo } from '@/components/CharVideo'
+import { CourseCalendarModal } from '@/components/CourseCalendarModal'
 
 // [S18] 课程主页：数据来自 /course-generation/courses/:uuid（已加入课程的完整结构）
 export default function CourseJourney() {
@@ -20,6 +21,25 @@ export default function CourseJourney() {
   const [welcomeDismissed, setWelcomeDismissed] = useState(false)
   // 线上 sectionComplete：讲次/项目/测验完成后弹一次「{{title}} 完成！」；这里用 localStorage 记录已庆祝过的 section
   const [celebration, setCelebration] = useState<{ key: string; kind: 'lecture' | 'project' | 'exam'; title: string; unitLabel: string } | null>(null)
+  // 线上 .course-cal-btn：把这门课排进日历（课时 + 测验 + 项目阶段）
+  const [calOpen, setCalOpen] = useState(false)
+  const [scheduled, setScheduled] = useState(false)
+  useEffect(() => {
+    void apiGet<{ scheduled?: boolean }>(`/course-calendar/status?course_uuid=${courseId}`).then((r) => setScheduled(Boolean(r.scheduled))).catch(() => {})
+  }, [courseId])
+  const calItems = useMemo(() => {
+    if (!course) return []
+    const items: Array<{ course_object_type: string; course_object_id: string; title: string; description?: string }> = []
+    course.units.forEach((unit, unitIndex) => {
+      unit.lectures.forEach((lecture) => {
+        lecture.sessions.forEach((session) => {
+          items.push({ course_object_type: 'session', course_object_id: session.sessionId, title: session.title ?? '本节课', description: `单元 ${unitIndex + 1} · ${lecture.title ?? ''}` })
+        })
+      })
+      items.push({ course_object_type: 'exam', course_object_id: `exam-${unit.unitId}`, title: `${unit.title ?? `单元 ${unitIndex + 1}`} 测验`, description: '单元测验' })
+    })
+    return items
+  }, [course])
   const dismissCelebration = () => {
     if (celebration) {
       try {
@@ -142,6 +162,19 @@ export default function CourseJourney() {
 
   return (
     <>
+      <button type="button" className="course-cal-btn" data-testid="course-cal-btn" onClick={() => setCalOpen(true)}>
+        {scheduled ? '已加入日历' : '加入日历'}
+      </button>
+      {calOpen && course && (
+        <CourseCalendarModal
+          courseUuid={courseId}
+          courseTitle={course.courseTitle ?? ''}
+          items={calItems}
+          alreadyScheduled={scheduled}
+          onClose={() => setCalOpen(false)}
+          onAccepted={() => { void apiGet<{ scheduled?: boolean }>(`/course-calendar/status?course_uuid=${courseId}`).then((r) => setScheduled(Boolean(r.scheduled))).catch(() => {}) }}
+        />
+      )}
       {celebration && (
         <div className="cj-section-complete-overlay" data-testid="section-complete" onClick={dismissCelebration}>
           <section className="cj-section-complete-modal" onClick={(e) => e.stopPropagation()}
