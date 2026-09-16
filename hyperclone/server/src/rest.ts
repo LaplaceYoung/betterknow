@@ -13,7 +13,7 @@ import { resolveByok, type ByokConfig, type UserByok } from './config.js';
 import { chat } from './llm.js';
 import { activeRuns, generatingTargets, listRuns, readRun, sweepStaleRuns } from './runs.js';
 import { enumerateCourseSessions } from './courseModel.js';
-import { listVoices, readTtsFile, synthesize, ttsFileCount, ttsStats } from './tts.js';
+import { listVoices, providerVoice, readTtsFile, synthesize, ttsFileCount, ttsStats } from './tts.js';
 import { getSeedExam, getSeedPractice, getSeedProgress, getSeedProject, resolveSeedByMarketplaceId, resolveSeedCourse } from './seedCourses.js';
 
 const protectedRoute = { preHandler: authenticate };
@@ -175,11 +175,23 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/health', async () => ({ ok: true }));
   app.get('/api/v1/net-check', async () => ({ ok: true, state: 'ok', t: Date.now() }));
   // 线上：客户端播放讲解前用它探音频通道（200 可播 / 429 冷却 {retryInS} / 503 {state:"draining"}）。
-  // 本仓音频走 BYOK TTS 或浏览器语音合成，没有配额冷却，所以只有 ok 与 drain 两态
+  // `?sample=1` 时真的合成一小段音频再回字节（线上就是回音频，客户端量下载速度与播放）
   app.get('/api/v1/audio-probe', protectedRoute, async (request, reply) => {
     const state = await readState();
     const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
-    return { ok: true, mode: eff.provider === 'stub' ? 'browser' : 'byok', t: Date.now() };
+    const wantsSample = (request.query as { sample?: string }).sample === '1';
+    if (!wantsSample) return { ok: true, mode: eff.provider === 'stub' ? 'browser' : 'byok', t: Date.now() };
+    const started = performance.now();
+    const segment = await synthesize('这是一段语音自检。', { voice: providerVoice('calm'), speed: 1, eff });
+    const synthMs = Math.round(performance.now() - started);
+    const bytes = await readTtsFile(segment.url.split('/').pop() ?? '');
+    if (!bytes) return reply.code(503).send({ state: 'tts_unavailable' });
+    return reply
+      .header('x-synth-ms', String(synthMs))
+      .header('x-stub', segment.stub ? '1' : '0')
+      .header('cache-control', 'no-store')
+      .type(bytes.mime)
+      .send(bytes.bytes);
   });
 
   app.get('/api/v1/auth/get_user_info', protectedRoute, async (request) => {

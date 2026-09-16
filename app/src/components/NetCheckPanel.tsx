@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { apiGet } from '@/lib/api'
 
 // 线上网络自检（netCheck.*，VoiceModeModal 样式表 + r137 探针实现）：
 //   主探针 = GET <prefix>/net-check?n=<rand>，8s 超时；503 且 body.state==='draining' → 更新中
@@ -13,6 +12,8 @@ export interface NetCheckPanelProps {
   open: boolean
   onClose: () => void
   variant?: 'whiteboard' | 'pdf'
+  muted?: boolean
+  narrationPlaying?: boolean
   // 白板 WS 的发送口：模型自检需要一个已建立的课堂通道
   sendProbe?: (requestId: string) => boolean
   sessionAlive?: boolean
@@ -42,7 +43,7 @@ const CAUSES: Partial<Record<StatusKey, string[]>> = {
   slow: ['当前带宽不够——可能有人在共用这条网，或者信号太弱。'],
 }
 
-export function NetCheckPanel({ open, onClose, variant = 'whiteboard', sendProbe, sessionAlive }: NetCheckPanelProps) {
+export function NetCheckPanel({ open, onClose, variant = 'whiteboard', sendProbe, sessionAlive, muted = false, narrationPlaying = false }: NetCheckPanelProps) {
   const [checking, setChecking] = useState(false)
   const [status, setStatus] = useState<StatusKey>('unknown')
   const [latency, setLatency] = useState<number | null>(null)
@@ -54,6 +55,10 @@ export function NetCheckPanel({ open, onClose, variant = 'whiteboard', sendProbe
   const [model, setModel] = useState<{ verdict: string; ttft: number | null; replayed: number | null } | null>(null)
   const [modelBusy, setModelBusy] = useState(false)
   const [audio, setAudio] = useState<string | null>(null)
+  const [audioRetry, setAudioRetry] = useState(0)
+  const [audioStats, setAudioStats] = useState<{ synthMs: number; kbps: number; bytes: number } | null>(null)
+  const [audioSkipped, setAudioSkipped] = useState(false)
+  const audioAt = useRef(0)
   const probeId = useRef<string | null>(null)
 
   const runMainCheck = useCallback(async () => {
@@ -125,12 +130,35 @@ export function NetCheckPanel({ open, onClose, variant = 'whiteboard', sendProbe
     if (!sendProbe(id)) { setModelBusy(false); setModel({ verdict: 'probe_failed', ttft: null, replayed: null }) }
   }, [sendProbe])
 
+  // 线上 audio 检查：真取一段音频 → 量「我们的处理」与「你的下载速度」→ 尝试播放 → 给 verdict
   const runAudioCheck = useCallback(async () => {
+    const now = Date.now()
+    if (audioAt.current && now - audioAt.current < 20_000) {
+      setAudio('cooldown'); setAudioRetry(Math.ceil((20_000 - (now - audioAt.current)) / 1000)); return
+    }
+    audioAt.current = now
+    setAudio('busy')
     try {
-      const res = await apiGet<{ ok?: boolean; mode?: string }>('/audio-probe')
-      setAudio(res.ok ? 'ok' : 'tts_failed')
+      const started = performance.now()
+      const res = await fetch(`/api/v1/audio-probe?sample=1&n=${Math.random().toString(36).slice(2)}`, { cache: 'no-store' })
+      if (!res.ok) { setAudio(res.status === 401 ? 'unauthorized' : 'tts_failed'); return }
+      const synthMs = Number(res.headers.get('x-synth-ms') ?? 0)
+      const buffer = await res.arrayBuffer()
+      const downloadMs = performance.now() - started
+      const kbps = downloadMs > 0 ? (buffer.byteLength / 1024) / (downloadMs / 1000) : 0
+      setAudioStats({ synthMs, kbps: Math.round(kbps), bytes: buffer.byteLength })
+      // 尝试播放：静音状态/讲解中不播（线上 playbackSkipped）
+      if (muted) { setAudio('muted'); return }
+      if (narrationPlaying) { setAudio('ok'); setAudioSkipped(true); return }
+      try {
+        const url = URL.createObjectURL(new Blob([buffer], { type: res.headers.get('content-type') ?? 'audio/mpeg' }))
+        const element = new Audio(url)
+        await element.play()
+        URL.revokeObjectURL(url)
+      } catch { setAudio('playback_blocked'); return }
+      setAudio(kbps < 40 ? 'slow_link' : 'ok')
     } catch { setAudio('download_failed') }
-  }, [])
+  }, [muted, narrationPlaying])
 
   // 白板把 model_probe_result 转发进来
   useEffect(() => {
@@ -177,10 +205,33 @@ export function NetCheckPanel({ open, onClose, variant = 'whiteboard', sendProbe
           <button type="button" className="netcheck-action" onClick={runModelCheck} disabled={modelBusy} data-testid="netcheck-model">
             {modelBusy ? '检查中…' : '检查模型状态'}
           </button>
-          {audio && (
-            <div className="netcheck-card" data-tone={audio === 'ok' ? 'good' : 'bad'} data-testid="netcheck-audio-card">
-              <p className="netcheck-card-title">{audio === 'ok' ? '语音正常' : audio === 'download_failed' ? '语音没能传到你这边' : '语音没能生成出来'}</p>
-              <p className="netcheck-card-detail">{audio === 'ok' ? '语音通道的探测请求拿到了正常响应。' : '请求没有完成或上游没有给出音频。'}</p>
+          {audio && audio !== 'busy' && (
+            <div className="netcheck-card"
+              data-tone={audio === 'ok' ? 'good' : audio === 'slow_link' || audio === 'muted' || audio === 'cooldown' ? 'warn' : 'bad'}
+              data-testid="netcheck-audio-card">
+              <p className="netcheck-card-title">{{
+                ok: '语音正常', slow_link: '网速跟不上实时语音', tts_failed: '语音没能生成出来',
+                download_failed: '语音没能传到你这边', playback_blocked: '语音收到了，但播不出来',
+                muted: '当前课堂已静音', unauthorized: '登录状态已过期', cooldown: '稍等一下',
+              }[audio] ?? '语音没能生成出来'}</p>
+              <p className="netcheck-card-detail">{{
+                ok: '我们生成了一段测试音频，全速传到了你这边，也成功播放了。',
+                slow_link: '音频收到了，但比上课需要的速度慢。这就是语音断断续续的原因。',
+                tts_failed: '这是我们的问题，你的网络没事。请过一分钟再试。',
+                download_failed: '请求没有完成，音频在传输途中被网络中断了。',
+                playback_blocked: '音频已经下载完成，问题出在浏览器或扬声器——检查一下输出设备，以及这个标签页是不是被静音了。',
+                muted: '点喇叭按钮开启声音后再试一次。听不到声音，最常见的原因就是静音了。',
+                unauthorized: '请求已经送到我们这边，只是被拒绝了，你的网络没问题。刷新页面重新登录一下就好。',
+                cooldown: `${audioRetry} 秒后可以再检查一次。`,
+              }[audio] ?? ''}</p>
+              {audioStats && (
+                <dl className="netcheck-card-metrics">
+                  <div><dt>我们的处理</dt><dd>{audioStats.synthMs} ms</dd></div>
+                  <div><dt>你的下载速度</dt><dd>{audioStats.kbps} KB/s</dd></div>
+                  <div><dt>实时语音所需</dt><dd>≥ 40 KB/s</dd></div>
+                </dl>
+              )}
+              {audioSkipped && <p className="netcheck-card-detail">没有外放——课堂讲解还在进行。</p>}
             </div>
           )}
           {model && (

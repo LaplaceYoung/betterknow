@@ -1089,4 +1089,4 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 
 文案全部取自线上 zh 词典 `netCheck.*`（状态 9 种、原因 9 条、语音 8 种、模型 8 种）；CSS 48 条原文进 `index.css`。
 
-本仓实现：主探针 `GET /net-check?n=`（8s 超时，503 + `state:draining` 判「更新中」）+ 实时通道探测（本节课通道活着 → `viaSession`，否则单开一条 WS 试连 → `viaProbe`）+ 模型状态走白板 WS 的 `model_probe`（服务端真发一次 BYOK chat，回 `ttft_ms` 与 verdict）+ 语音那一项用 `/audio-probe` 做轻量版。**未做**：DNS/TLS 分项耗时、音频限速/回放/静音/冷却这些细分 verdict（需要真下音频量速度与播放器状态）、`net_check_session` 专线通道（本仓的 WS `model_probe` 已够用）。
+本仓实现：主探针 `GET /net-check?n=`（8s 超时，503 + `state:draining` 判「更新中」）+ 实时通道探测（本节课通道活着 → `viaSession`，否则单开一条 WS 试连 → `viaProbe`）+ 模型状态走白板 WS 的 `model_probe`（服务端真发一次 BYOK chat，回 `ttft_ms` 与 verdict）+ 语音那一项用 `/audio-probe` 做轻量版。**语音那一项**已按线上做全：`GET /audio-probe?sample=1` 真合成一小段并回音频（响应头带 `x-synth-ms`/`x-stub`），客户端量「我们的处理 / 你的下载速度」并与「实时语音所需 ≥ 40 KB/s」比、尝试播放，落到 8 个 verdict（ok / slow_link / tts_failed / download_failed / playback_blocked / muted / unauthorized / cooldown，冷却 20 秒）。**未做**：DNS/TLS 分项耗时、`net_check_session` 专线通道（本仓 WS `model_probe` 已够用）。

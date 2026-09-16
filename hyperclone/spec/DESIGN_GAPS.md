@@ -637,4 +637,9 @@
 - 探针口径照线上：`GET /net-check?n=` 8 秒超时；实时通道优先复用本节课通道（`viaSession`），没有就单开一条 WS 试连（`viaProbe`）；**模型状态**走白板 WS 的 `model_probe`（服务端真发一次 BYOK chat，`ttft_ms`/verdict 回填到卡片）；语音那一项先用 `/audio-probe` 的轻量版。
 - 修了一处布局：菜单原本没包在 `.netcheck-wrap`（`position:relative`）里，导致相对远祖定位、底部被视口裁掉；现在锚在按钮上，实测 `top 58 / bottom 587 / viewport 755`（不裁切，内容多了走 `overflow-y:auto`）。
 - 实测：状态「已连接到 Hyperknow」+ 延迟/响应 2ms + 实时通道「已连通 · 本节课」；「检查模型状态」→ 卡片 `data-tone=good`「模型有响应 · 简短提问 19 ms」；「检查语音连接」→「语音正常」。
-- 仍未做：DNS/TLS 分项耗时、语音细分的（限速/回放被阻/静音/冷却）verdict、独立的 `net_check_session` 通道。
+- 已做：语音那一项的细分 verdict（真取样本音频、量速度、试播放、静音/冷却判定）。仍未做：DNS/TLS 分项耗时、独立的 `net_check_session` 通道。
+
+**第八十批（网络自检：语音连接做到线上细分）**
+- 服务端 `/api/v1/audio-probe?sample=1` 从「回 JSON」变成「真合成一小段再回音频字节」，响应头带 `x-synth-ms`（我们这边的合成耗时）与 `x-stub`；实测 `200 audio/mpeg 48000B`、`x-synth-ms: 42`。
+- 客户端量「我们的处理 / 你的下载速度 / 实时语音所需（≥ 40 KB/s）」并尝试播放，落到线上的 8 个 verdict：ok / slow_link / tts_failed / download_failed / playback_blocked / muted / unauthorized / cooldown（20 秒冷却，带剩余秒数）。静音或讲解中不播，走线上 `playbackSkipped` 文案。
+- 实测：无音频输出设备的环境里得到 `playback_blocked`（「语音收到了，但播不出来」）+ 三项指标（1 ms / 1474 KB/s / ≥40 KB/s），二次点击进冷却（「稍等一下 · 18 秒后可以再检查一次」）。**未能实测 ok/slow_link**：这台无头浏览器没有可用的音频输出，`play()` 必然失败——真实浏览器里有扬声器时会落到 ok 或 slow_link。

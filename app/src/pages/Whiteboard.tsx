@@ -514,7 +514,7 @@ export default function Whiteboard() {
                 <Activity size={14} className={netPanel ? 'text-[#2563eb]' : undefined} />
               </button>
               <NetCheckPanel open={netPanel} onClose={() => setNetPanel(false)} variant="whiteboard"
-                sessionAlive={status !== 'connecting'} sendProbe={(id) => {
+                sessionAlive={status !== 'connecting'} muted={!ttsVoice} narrationPlaying={isSpeaking} sendProbe={(id) => {
                   if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return false
                   wsRef.current.send(JSON.stringify({ type: 'model_probe', request_id: id }))
                   return true
