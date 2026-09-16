@@ -753,3 +753,6 @@
 /* 线上 .outline-item.locked / .item-lock-icon（待解锁条目） */
 .item-lock-icon { flex-shrink: 0; margin-left: auto; display: inline-flex; align-items: center; justify-content: center; color: #c8cdd6; opacity: .55; transition: opacity .18s ease, color .18s ease; }
 .outline-item.locked:hover .item-lock-icon { opacity: 1; color: #9aa6b8; }
+
+/* 线上 .exam-score-points-bonus（结果页速答徽标） */
+.exam-score-points-bonus { color: #c98a1e; font-weight: 500; }

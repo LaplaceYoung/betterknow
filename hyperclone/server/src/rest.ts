@@ -908,6 +908,11 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       if (value?.user_id !== request.userId) return;
       value.examScores = { ...((value.examScores ?? {}) as Record<string, number>), [unitId]: score };
       value.examStarted = { ...((value.examStarted ?? {}) as Record<string, boolean>), [unitId]: true };
+      // 线上会带 items（每题 state/answer），存下来供结果页回看
+      const items = body.items;
+      if (items && typeof items === 'object') {
+        value.examItems = { ...((value.examItems ?? {}) as Record<string, unknown>), [unitId]: items };
+      }
     });
     return { status: 'ok', final_score: score, unit_id: unitId };
   });

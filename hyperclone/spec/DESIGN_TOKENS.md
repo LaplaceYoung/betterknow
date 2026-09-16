@@ -394,3 +394,25 @@ useEffect(() => { if (!U || D) return; const tick = () => {
 | 窗口来源 | 线上从考试数据取 `fastWindowMs` 与 `fastBonus`（`.exam-bonus-fill` 的时长、芯片文案都用它） | 服务端考试负载统一补 `fastWindowMs: 10000` / `fastBonus: 200`（**取值沿用练习实测的 10s / +200；考试那份没抓到**，已在代码注释与缺口文档里标明） |
 | 大纲锁定态 | `.outline-item.locked .item-title{color:#c2c9d4}`；`.outline-item.locked .item-radio{border-color:#d8dde5}`；`.outline-item.locked:hover .item-lock-icon img{filter:none}` | 同（本仓待解锁条目渲染 `.item-lock-icon`，13px 线框锁，静止 `#c8cdd6`/0.55、hover 提到 1/`#9aa6b8`；图标用内联 SVG，不复制原站图片资源） |
 
+### 考试交卷契约与速答徽标（第二十二批，r106 续）
+
+从 `ExamPage-*.js` 补到的交卷口径：
+
+```js
+const correct = R.reduce((a, q) => a + (he(q) ? 1 : 0), 0);
+const percent = Math.round(correct / R.length * 100);
+const items = xe();   // { [qid]: { state: 'correct' | 'wrong' | 'skipped', answer: string | string[] | null } }
+fetch(`/api/v1/course-generation/courses/${uuid}/exam/score`, {
+  method: 'POST',
+  body: JSON.stringify(items ? { unitId, score: percent, items } : { unitId, score: percent }),
+});
+```
+
+即：**score 是百分比（0–100），items 是逐题状态映射，填空题 answer 是字符串、选择题是数组、跳过为 null**。
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 交卷负载 | `{ unitId, score: 百分比, items: { qid: {state, answer} } }` | 同（实测提交体 `{"unitId":"unit1","score":0,"items":{"q1":{"state":"wrong","answer":["…"]},"q3":{"state":"wrong","answer":"社会事实"}}}`） |
+| 服务端落库 | 线上未展示（服务端行为不可见） | `state.courses[uuid].examScores[unitId] = percent`、`examItems[unitId] = items`（实测 curl 提交后 state.json 里两层都在） |
+| 结果页点数行 | `exam-score-points` 显示 `r.total` / 满分 `n`，`r.fastCount > 0` 时追加 `exam-score-points-bonus` 徽标（文案 `exam.results.fastCount`） | 结果页在「共答对 x / y 题」后追加「· 其中速答 N 题」（`exam-score-points-bonus` 配色 `#c98a1e`）；**点数体系没做**——线上 `r.total` 的基准分未知，不编数值（实测答对 1 题且在窗口内 → 徽标显示「其中速答 1 题」） |
+

@@ -212,7 +212,7 @@ function QuizRunner({
   mode?: 'practice' | 'exam'
   fastWindowMs?: number
   fastBonus?: number
-  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>) => void
+  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number }) => void
 }) {
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string[]>([])
@@ -230,6 +230,7 @@ function QuizRunner({
   const SPEED_BONUS = 200
   const [left, setLeft] = useState(QUESTION_SECONDS)
   const [bonus, setBonus] = useState(0)
+  const [fastCount, setFastCount] = useState(0)
   // 每题 10s 窗口：用开始时间戳算剩余秒，避免在 effect 里同步 setState（会触发级联渲染）
   const questionStartedAt = useRef(0)
   useEffect(() => {
@@ -247,21 +248,20 @@ function QuizRunner({
   const [examLeft, setExamLeft] = useState(EXAM_SECONDS)
   const examDeadline = useRef(0)
   // 线上 .exam-bonus-chip：每题的速答窗口（窗口长度与奖励来自考试数据）
-  const [fastLeft, setFastLeft] = useState(0)
+  const [fastLeft, setFastLeft] = useState(Math.ceil(fastWindowMs / 1000))
   const fastDeadline = useRef(0)
   useEffect(() => {
     if (mode !== 'exam' || !examStarted) return
     fastDeadline.current = Date.now() + fastWindowMs
-    setFastLeft(Math.ceil(fastWindowMs / 1000))
     const id = window.setInterval(() => {
       setFastLeft(Math.max(0, Math.ceil((fastDeadline.current - Date.now()) / 1000)))
     }, 200)
     return () => window.clearInterval(id)
   }, [mode, examStarted, i, fastWindowMs])
   const submitRef = useRef<() => void>(() => {})
-  const latest = useRef({ score: 0, i: 0, picked: [] as string[], fill: '', questions: [] as Question[], userAnswers: {} as Record<number, { picked: string[]; fill: string; isRight: boolean }>, onFinish })
+  const latest = useRef({ score: 0, i: 0, picked: [] as string[], fill: '', questions: [] as Question[], userAnswers: {} as Record<number, { picked: string[]; fill: string; isRight: boolean }>, fastCount: 0, onFinish })
   useEffect(() => {
-    latest.current = { score, i, picked, fill, questions, userAnswers, onFinish }
+    latest.current = { score, i, picked, fill, questions, userAnswers, fastCount, onFinish }
     submitRef.current = () => {
       const l = latest.current
       const cur = l.questions[l.i]
@@ -269,7 +269,7 @@ function QuizRunner({
       const right = cur?.type === 'fill'
         ? correct.some((c) => c.trim().toLowerCase() === l.fill.trim().toLowerCase())
         : l.picked.length === correct.length && l.picked.every((p) => correct.includes(p))
-      l.onFinish(l.score + (right ? 1 : 0), l.questions.length, l.userAnswers)
+      l.onFinish(l.score + (right ? 1 : 0), l.questions.length, l.userAnswers, { fastCount: l.fastCount })
     }
   })
   useEffect(() => {
@@ -342,14 +342,14 @@ function QuizRunner({
     setChecked(true)
     setAnswersState((prev) => ({ ...prev, [i]: isRight }))
     setUserAnswers((prev) => ({ ...prev, [i]: { picked, fill, isRight } }))
-    if (isRight && left > 0) setBonus((value) => value + SPEED_BONUS)
+    if (isRight && left > 0) { setBonus((value) => value + SPEED_BONUS); setFastCount((c) => c + 1) }
     if (isRight) burst()
   }
 
   const next = () => {
     const updatedAnswers = { ...userAnswers, [i]: { picked, fill, isRight } }
     if (i + 1 >= questions.length) {
-      onFinish(score + (isRight ? 1 : 0), questions.length, updatedAnswers)
+      onFinish(score + (isRight ? 1 : 0), questions.length, updatedAnswers, { fastCount })
       return
     }
     setScore((s) => s + (isRight ? 1 : 0))
@@ -710,6 +710,7 @@ export function Practice() {
     score: number
     total: number
     userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
+    fastCount?: number
   } | null>(null)
 
   useEffect(() => {
@@ -784,6 +785,7 @@ export function Exam() {
     score: number
     total: number
     userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
+    fastCount?: number
   } | null>(null)
 
   useEffect(() => {
@@ -816,6 +818,7 @@ export function Exam() {
         label="单元综合考试完成"
         questions={exam.questions}
         userAnswers={result.userAnswers}
+        fastCount={result.fastCount ?? 0}
         courseId={courseId}
         courseTitle={exam.title}
       />
@@ -832,12 +835,20 @@ export function Exam() {
         fastWindowMs={exam.fastWindowMs ?? 10000}
         fastBonus={exam.fastBonus ?? 200}
         questions={exam.questions}
-        onFinish={async (score, total, userAnswers) => {
+        onFinish={async (score, total, userAnswers, meta) => {
+          // 线上提交口径：{ unitId, score: 百分比, items: { [qid]: { state, answer } } }（items 里 skipped/correct/wrong）
+          const items: Record<string, { state: string; answer: string | string[] | null }> = {}
+          exam.questions.forEach((q, idx) => {
+            const ans = userAnswers[idx]
+            if (!ans) { items[q.id] = { state: 'skipped', answer: null }; return }
+            items[q.id] = { state: ans.isRight ? 'correct' : 'wrong', answer: q.type === 'fill' ? ans.fill : ans.picked }
+          })
           await apiPost(`/course-generation/courses/${courseId}/exam/score`, {
             unitId: exam.unitId,
             score: Math.round((score / total) * 100),
+            items,
           }).catch(() => {})
-          setResult({ score, total, userAnswers })
+          setResult({ score, total, userAnswers, fastCount: meta?.fastCount })
         }}
       />
     </>
@@ -1133,6 +1144,7 @@ function Result({
   label,
   questions = [],
   userAnswers = {},
+  fastCount = 0,
   courseId = '',
   courseTitle = '',
 }: {
@@ -1143,6 +1155,7 @@ function Result({
   label: string
   questions?: Question[]
   userAnswers?: Record<number, { picked: string[]; fill: string; isRight: boolean }>
+  fastCount?: number
   courseId?: string
   courseTitle?: string
 }) {
@@ -1258,6 +1271,7 @@ function Result({
 
           <p className="text-[14px] text-[#6b6b70] mt-2">
             共答对 {score} / {total} 题 · 学习掌握度已即时写回知识图谱
+            {fastCount > 0 && <span className="exam-score-points-bonus" data-testid="fast-count"> · 其中速答 {fastCount} 题</span>}
           </p>
 
           <div className="grid grid-cols-3 gap-3 my-8 text-left">
