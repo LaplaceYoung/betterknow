@@ -314,3 +314,8 @@
 **第二十四批（我的课程页）**
 - 换成线上 `.courses-*` 骨架：1120 内容列 + `44px 56px 0` 内边距 + gap 68 的两栏（主列 flex 1 / 右栏 320 且 `margin-top:56px`）；标题 20/650、工具条 gap16 mb24、过滤胶囊（选中 `#fffffc` + `0 2px 7px #0f172a0b`）、300×36 圆角搜索（图标 13 / 占位 `#b8b1a7`）、列表 `gap:24` 独立滚动、右栏白卡 radius 18 + `0 2px 6px #0f172a06`。
 - 仍未做：`.courses-empty` 空态插画（200×200 图 + 16/650 标题 + 13px 说明）。
+
+**第二十五批（自部署口径复核，BYOK 端到端）**
+- 复核「不做鉴权服务 / 不做云空间与计费 / 不接第三方埋点」三条决策在代码里的落地：`app/src` 与 `hyperclone/server/src` 内**没有** `aplo-evnt`、`clarity.ms`、`add_error_log` 的调用；计费只剩 `GET /api/v1/stripe/plans` 的兼容返回（`plan_id: 'byok'`、`can_change_plan: false`），没有真实支付通道。
+- BYOK 端到端复核：设备免登取 token → `PUT /api/v1/auth/byok`（形状是 `{enabled, providers:{llm:{baseUrl,apiKey,model,enabled}}}`）→ `GET` 回报 `llm real user` → 在 UI 里提问，回复正文出现假网关的 `GATEWAY_OK`，证明运行时确实走用户配置的模型；随后 `DELETE` 清空，seam 回到 `stub/none`。
+- 踩坑记录：`PUT /auth/byok` 只认 `providers.{seam}` 这种嵌套形状，顶层传 `{seam:'llm', …}` 会静默写进旧字段（`baseUrl/apiKey`）而 seam 仍是 `stub`——UI 用的形状是对的，命令行验证时要照 UI 的形状来。
