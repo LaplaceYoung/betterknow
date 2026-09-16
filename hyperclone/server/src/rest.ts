@@ -782,7 +782,7 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/course-generation/courses/:course_uuid/practice/progress', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    const body = (request.body ?? {}) as { sessionId?: string; session_id?: string; finished?: boolean; items?: Record<string, unknown>; score?: number; total?: number; completed?: boolean };
+    const body = (request.body ?? {}) as { sessionId?: string; session_id?: string; finished?: boolean; items?: Record<string, unknown>; score?: number; total?: number; completed?: boolean; perfect?: number; stars?: number };
     const sessionId = String(body.sessionId ?? body.session_id ?? '');
     if (!sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'sessionId'], msg: 'Field required' }] });
     if (typeof body.finished !== 'boolean') return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'finished'], msg: 'Field required' }] });
@@ -795,13 +795,17 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       const target = state.courses[courseId(request)];
       if (!target) return;
       const progress = (target.practiceProgress ?? {}) as Record<string, Record<string, unknown>>;
-      progress[sessionId] = { score, total, completed: body.finished, finished: body.finished, items, updated_at: now() };
+      // 线上口径：score 是点数（非百分比），另有 perfect 与 stars
+      const points = Number(body.score ?? score);
+      const perfect = Number(body.perfect ?? 0);
+      const stars = Number(body.stars ?? 0);
+      progress[sessionId] = { score: points, points, perfect, stars, total, completed: body.finished, finished: body.finished, items, updated_at: now() };
       target.practiceProgress = progress;
       const runs = (target.practiceRuns ?? {}) as Record<string, Record<string, unknown>>;
       runs[sessionId] = { ...(runs[sessionId] ?? {}), finished: body.finished, items, updated_at: now() };
       target.practiceRuns = runs;
     });
-    return { status: 'ok', session_id: sessionId, score, total, completed: body.finished, updated_at: now() };
+    return { status: 'ok', session_id: sessionId, score: Number(body.score ?? correct), perfect: Number(body.perfect ?? 0), stars: Number(body.stars ?? 0), total, completed: body.finished, updated_at: now() };
   });
   // 线上实测：POST /practice/assistant {session_id, messages[]}——多轮提示，不给答案
   app.post('/api/v1/course-generation/courses/:course_uuid/practice/assistant', protectedRoute, async (request, reply) => {

@@ -377,3 +377,11 @@
   - **实测通过（本轮补上）**：`absolute` 定位、`bottom: -6.7px`（6vh≈45.3 − 52）、radius 20、5 颗星、提示文案「这门课程为你生成得怎么样？」；点第 4 星 → `expanded`（宽 560 / padding-bottom 12 / 输入 38 高 / 提交键 `rgb(76,102,148)` / 4 颗 filled）→ 提交 → thanks 态，服务端读出 `{rating: 4, comment: "生成速度不错，单元划分清楚", at: …}`。
   - **上一轮为什么测不到**：错误地去找 `.hk-send` 并等它可用；「打造课程」这条链路的发送键是**黑色圆形按钮**（无该 class），而且提交走的是 `submitCraft → CoursePlanModal`。**自动化驱动配方**（记下来省下次的时间）：① 用原生 setter 写 `craftText` 文本域并派发 `input`；② 在文本域上派发 `keydown Enter`（等价点发送）；③ 等计划弹窗出现后点「确认并开始构建课程」；④ 之后按「继续 / 确认结构」推进到完成态。
 - **欢迎卡下一步标识按类型上色**：`.cj-welcome-next-kind` 四变体落地（默认/`--practice`/`--project`/`--exam`），按首个节点 `session_type` 选择；实测讲座类型 → `--learn`（`rgb(238,242,248)` / `rgb(76,102,150)` / 边框 `rgba(76,102,150,.16)`）。
+
+**第三十七批（计分体系落地 + 阅读器编辑态评估）**
+- **计分体系补齐**：全量资源搜到 `quizScoring-*.js`（1.9 KB 的共享模块），拿到此前缺失的基准分口径：`base 600 / fastBonus 200 / streakStep 100 / streakCap 400 / starThresholds [.8,.55,.25]`，以及 `scoreQuiz / perfect / stars` 三个函数的完整实现。本仓新增 `app/src/lib/quizScoring.ts` 逐字搬运，练习与考试共用。
+  - 练习按线上口径发 `{ sessionId, finished, items, score: 点数, perfect, stars }`；考试仍是 `{ unitId, score: 百分比, items }`——**两页口径不同**，代码里分开处理。
+  - 结果页新增「得分 x / 满分 y · 速答加成 z」点数行与 1–3 星（0 星不显示）。实测：练习 `score 1600 / perfect 5000 / stars 1`、页面显示「得分 1,600 / 满分 5,000 · 速答加成 400」「其中速答 2 题」；考试 `800 / 17,000`。数值与公式手算一致（5 题满分 = 5×800 + (0+100+200+300+400) = 5000）。
+  - **顺带解决一个旧缺口**：`fastWindowMs` 不用再"沿用练习实测"——共享模块里就写着 `1e4`，有出处了。
+  - 服务端 `practice/progress` 落库改为存点数口径 `{score: points, points, perfect, stars}`（原来把 score 当正确题数）。
+- **阅读器编辑态：决定不做（本轮）**。线上速查表编辑器是 tiptap（含锚点、高亮、评论锚点、拖拽分栏与设置面板），`ChatResponsePage-*.js` 里能看到 tiptap 依赖与 `.tiptap-content` 样式体系。本仓若做成「textarea 直接编辑 markdown」，UX 与线上不是一回事，属于自创；做 tiptap 级 parity 又是大工程。**决定：维持只读，把编辑态列为独立议题**，等确认要对齐哪一档（轻量源码编辑 vs tiptap WYSIWYG）再动。

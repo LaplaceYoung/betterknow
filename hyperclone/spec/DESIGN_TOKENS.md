@@ -423,3 +423,40 @@ fetch(`/api/v1/course-generation/courses/${uuid}/exam/score`, {
 | 生成页评分条 | `.course-rating-bar--generation{position:absolute;bottom:calc(clamp(44px,6vh,76px) - 52px);left:50%;transform:translate(-50%)}`（同一套 `.course-rating-bar` 内件，只换定位） | 同（实测生成完成后挂载：`absolute` / `bottom: -6.7px` / radius 20；点星展开宽 560、提交后 thanks，服务端读出评分） |
 | 欢迎卡下一步标识 | `.cj-welcome-next-kind` 默认 `#eef2f8`/`#4c6696`；`--practice{background:#eef5f0;color:#3d7a56;border-color:#3d7a5624}`；`--project{#f6f1e7/#8a6d3b/#8a6d3b29}`；`--exam{#f5edf0/#954c68/#954c6824}`；`--learn{border-color:#4c669629}` | 同（按首个节点的 `session_type` 选配色；实测讲座类型 → `--learn`，`rgb(238,242,248)`/`rgb(76,102,150)`/`rgba(76,102,150,.16)`） |
 
+### 练习与考试的计分体系（第二十四批，r109-r112）
+
+线上把计分抽成独立模块 `quizScoring-DluRF6xL.js`，练习页与考试页都 import 它——**这是之前一直缺的「基准分口径」**：
+
+```js
+const SCORING = { fastWindowMs: 1e4, base: 600, fastBonus: 200, streakStep: 100, streakCap: 400, starThresholds: [.8, .55, .25] };
+
+// 逐题累计（练习与考试共用）
+scoreQuiz({ questionIds, revealedQuestions, skippedQuestions, questionCorrectness, fastAnswers }) {
+  let total = 0, streak = 0, bestStreak = 0, correctCount = 0, fastCount = 0;
+  for (const id of questionIds) {
+    const answered = Boolean(revealedQuestions[id]);
+    if (answered && questionCorrectness[id]) {
+      total += SCORING.base + Math.min(streak * SCORING.streakStep, SCORING.streakCap);
+      if (fastAnswers[id]) { total += SCORING.fastBonus; fastCount += 1 }
+      streak += 1; bestStreak = Math.max(bestStreak, streak); correctCount += 1;
+    } else if (answered || skippedQuestions[id]) {
+      streak = 0;                       // 答错或跳过清零连对
+    }
+  }
+  return { total, streak, bestStreak, correctCount, fastCount };
+}
+// 满分：每题都答对且都在窗口内
+perfect = (n) => Σ_{i<n} (base + fastBonus + min(i * streakStep, streakCap));
+// 星级：total / perfect 的比例过阈值
+stars = (score, perfect) => ratio >= .8 ? 3 : ratio >= .55 ? 2 : ratio >= .25 ? 1 : 0;
+```
+
+| 部件 | 线上口径 | 本仓 |
+|---|---|---|
+| 速答窗口 | `fastWindowMs: 1e4`（**共享模块里写死的 1e4**——之前只能从练习实测推 10s，现在有出处了） | 同（服务端考试/练习负载统一 10000ms；本仓 `SCORING.fastWindowMs = 10000`） |
+| 练习提交 | `POST /practice/progress` body `{ sessionId, finished, items, score, perfect, stars }`，**score 是点数**，items 为 `{qid: {state, answer, fast?}}` | 同（实测提交：`score 1600 / perfect 5000 / stars 1`，items 含 `{state:'correct', answer:[…]}`） |
+| 考试提交 | `POST /exam/score` body `{ unitId, score, items }`，**score 是百分比**（两页口径不同，别混） | 同（实测 `score 7`、items 同形） |
+| 结果页点数 | `exam-score-points`：`得分 {total} / 满分 {perfect}`，另有 `exam-score-points-bonus` 的速答徽标 | 同（练习实测「得分 1,600 / 满分 5,000 · 速答加成 400」「其中速答 2 题」；考试实测「得分 800 / 满分 17,000 · 速答加成 200」） |
+| 结果页星级 | `starThresholds [.8,.55,.25]` → 3/2/1 星，0 星不显示 | 同（练习 ratio .32 → 1 星实测 ✓） |
+| 本仓实现 | — | 新增 `app/src/lib/quizScoring.ts`（常量与两个函数逐字搬运），`QuizRunner` 记录 `fastAnswers`（按题 id）与 `skippedQuestions`，交卷时算出 `points/perfect/stars` 并随结果传给结果页；服务端 `practice/progress` 存 `{score: points, points, perfect, stars}` |
+

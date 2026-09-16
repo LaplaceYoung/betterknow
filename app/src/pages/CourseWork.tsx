@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { apiGet, apiPost } from '@/lib/api'
+import { perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
 
 export interface Question {
   id: string
@@ -212,7 +213,7 @@ function QuizRunner({
   mode?: 'practice' | 'exam'
   fastWindowMs?: number
   fastBonus?: number
-  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number }) => void
+  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number; points?: number; perfect?: number; stars?: number }) => void
 }) {
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string[]>([])
@@ -224,13 +225,14 @@ function QuizRunner({
   // 线上进入练习先弹「准备好练习」：插图 + 说明 + 知道了
   const [readyOpen, setReadyOpen] = useState(true)
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
+  const [skippedQuestions, setSkippedQuestions] = useState<Record<string, boolean>>({})
   const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
   // 线上练习 HUD：每题 10s 倒计时 + 速答奖励（practice-hud-chip--bonus / practice-timer-fill）
   const QUESTION_SECONDS = 10
   const SPEED_BONUS = 200
   const [left, setLeft] = useState(QUESTION_SECONDS)
   const [bonus, setBonus] = useState(0)
-  const [fastCount, setFastCount] = useState(0)
+  const [fastAnswers, setFastAnswers] = useState<Record<string, boolean>>({})
   // 每题 10s 窗口：用开始时间戳算剩余秒，避免在 effect 里同步 setState（会触发级联渲染）
   const questionStartedAt = useRef(0)
   useEffect(() => {
@@ -259,9 +261,9 @@ function QuizRunner({
     return () => window.clearInterval(id)
   }, [mode, examStarted, i, fastWindowMs])
   const submitRef = useRef<() => void>(() => {})
-  const latest = useRef({ score: 0, i: 0, picked: [] as string[], fill: '', questions: [] as Question[], userAnswers: {} as Record<number, { picked: string[]; fill: string; isRight: boolean }>, fastCount: 0, onFinish })
+  const latest = useRef({ score: 0, i: 0, picked: [] as string[], fill: '', questions: [] as Question[], userAnswers: {} as Record<number, { picked: string[]; fill: string; isRight: boolean }>, fastAnswers: {} as Record<string, boolean>, skippedQuestions: {} as Record<string, boolean>, onFinish })
   useEffect(() => {
-    latest.current = { score, i, picked, fill, questions, userAnswers, fastCount, onFinish }
+    latest.current = { score, i, picked, fill, questions, userAnswers, fastAnswers, skippedQuestions, onFinish }
     submitRef.current = () => {
       const l = latest.current
       const cur = l.questions[l.i]
@@ -269,7 +271,22 @@ function QuizRunner({
       const right = cur?.type === 'fill'
         ? correct.some((c) => c.trim().toLowerCase() === l.fill.trim().toLowerCase())
         : l.picked.length === correct.length && l.picked.every((p) => correct.includes(p))
-      l.onFinish(l.score + (right ? 1 : 0), l.questions.length, l.userAnswers, { fastCount: l.fastCount })
+      const ids = l.questions.map((qq) => qq.id)
+      const revealed: Record<string, boolean> = {}
+      const correctness: Record<string, boolean> = {}
+      for (const [idx, ans] of Object.entries(l.userAnswers)) {
+        const id = ids[Number(idx)]
+        if (!id) continue
+        revealed[id] = true
+        correctness[id] = ans.isRight
+      }
+      const points = scoreQuiz({ questionIds: ids, revealedQuestions: revealed, skippedQuestions: l.skippedQuestions, questionCorrectness: correctness, fastAnswers: l.fastAnswers })
+      l.onFinish(l.score + (right ? 1 : 0), l.questions.length, l.userAnswers, {
+        fastCount: points.fastCount,
+        points: points.total,
+        perfect: perfectScore(ids.length),
+        stars: starsFor(points.total, perfectScore(ids.length)),
+      })
     }
   })
   useEffect(() => {
@@ -342,14 +359,31 @@ function QuizRunner({
     setChecked(true)
     setAnswersState((prev) => ({ ...prev, [i]: isRight }))
     setUserAnswers((prev) => ({ ...prev, [i]: { picked, fill, isRight } }))
-    if (isRight && left > 0) { setBonus((value) => value + SPEED_BONUS); setFastCount((c) => c + 1) }
+    if (isRight && left > 0) { setBonus((value) => value + SPEED_BONUS); setFastAnswers((f) => ({ ...f, [q.id]: true })) }
     if (isRight) burst()
   }
 
   const next = () => {
     const updatedAnswers = { ...userAnswers, [i]: { picked, fill, isRight } }
     if (i + 1 >= questions.length) {
-      onFinish(score + (isRight ? 1 : 0), questions.length, updatedAnswers, { fastCount })
+      {
+        const ids = questions.map((qq) => qq.id)
+        const revealed: Record<string, boolean> = {}
+        const correctness: Record<string, boolean> = {}
+        for (const [idx, ans] of Object.entries({ ...userAnswers, [i]: { picked, fill, isRight } })) {
+          const id = ids[Number(idx)]
+          if (!id) continue
+          revealed[id] = true
+          correctness[id] = ans.isRight
+        }
+        const points = scoreQuiz({ questionIds: ids, revealedQuestions: revealed, skippedQuestions, questionCorrectness: correctness, fastAnswers })
+        onFinish(score + (isRight ? 1 : 0), questions.length, updatedAnswers, {
+          fastCount: points.fastCount,
+          points: points.total,
+          perfect: perfectScore(ids.length),
+          stars: starsFor(points.total, perfectScore(ids.length)),
+        })
+      }
       return
     }
     setScore((s) => s + (isRight ? 1 : 0))
@@ -647,7 +681,7 @@ function QuizRunner({
             {!checked ? (
               <>
                 <button
-                  onClick={() => setChecked(true)}
+                  onClick={() => { setChecked(true); setSkippedQuestions((s) => ({ ...s, [q.id]: true })) }}
                   className="practice-skip-btn"
                   data-testid="skip-btn"
                 >
@@ -711,6 +745,9 @@ export function Practice() {
     total: number
     userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
     fastCount?: number
+    points?: number
+    perfect?: number
+    stars?: number
   } | null>(null)
 
   useEffect(() => {
@@ -747,6 +784,10 @@ export function Practice() {
         label="随堂练习完成"
         questions={session.questions}
         userAnswers={result.userAnswers}
+        fastCount={result.fastCount ?? 0}
+        points={result.points}
+        perfect={result.perfect}
+        stars={result.stars}
         courseId={courseId}
         courseTitle={session.title}
       />
@@ -760,14 +801,23 @@ export function Practice() {
         subtitle="随堂练习 · 巩固内化"
         courseId={courseId}
         questions={session.questions}
-        onFinish={async (score, total, userAnswers) => {
+        onFinish={async (score, total, userAnswers, meta) => {
+          // 线上练习口径：{ sessionId, finished, items, score: 点数, perfect, stars }
+          const items: Record<string, { state: string; answer: string | string[] | null; fast?: boolean }> = {}
+          session.questions.forEach((q, idx) => {
+            const ans = userAnswers[idx]
+            if (!ans) { items[q.id] = { state: 'skipped', answer: null }; return }
+            items[q.id] = { state: ans.isRight ? 'correct' : 'wrong', answer: q.type === 'fill' ? ans.fill : ans.picked, ...(ans.isRight && meta?.fastCount ? {} : {}) }
+          })
           await apiPost(`/course-generation/courses/${courseId}/practice/progress`, {
             sessionId: session.sessionId,
-            score,
-            total,
-            completed: true,
+            finished: true,
+            items,
+            score: meta?.points ?? score,
+            perfect: meta?.perfect ?? total,
+            stars: meta?.stars ?? 0,
           }).catch(() => {})
-          setResult({ score, total, userAnswers })
+          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars })
         }}
       />
     </>
@@ -786,6 +836,9 @@ export function Exam() {
     total: number
     userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>
     fastCount?: number
+    points?: number
+    perfect?: number
+    stars?: number
   } | null>(null)
 
   useEffect(() => {
@@ -819,6 +872,9 @@ export function Exam() {
         questions={exam.questions}
         userAnswers={result.userAnswers}
         fastCount={result.fastCount ?? 0}
+        points={result.points}
+        perfect={result.perfect}
+        stars={result.stars}
         courseId={courseId}
         courseTitle={exam.title}
       />
@@ -848,7 +904,7 @@ export function Exam() {
             score: Math.round((score / total) * 100),
             items,
           }).catch(() => {})
-          setResult({ score, total, userAnswers, fastCount: meta?.fastCount })
+          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars })
         }}
       />
     </>
@@ -1145,6 +1201,9 @@ function Result({
   questions = [],
   userAnswers = {},
   fastCount = 0,
+  points = 0,
+  perfect = 0,
+  stars = 0,
   courseId = '',
   courseTitle = '',
 }: {
@@ -1156,6 +1215,9 @@ function Result({
   questions?: Question[]
   userAnswers?: Record<number, { picked: string[]; fill: string; isRight: boolean }>
   fastCount?: number
+  points?: number
+  perfect?: number
+  stars?: number
   courseId?: string
   courseTitle?: string
 }) {
@@ -1273,6 +1335,21 @@ function Result({
             共答对 {score} / {total} 题 · 学习掌握度已即时写回知识图谱
             {fastCount > 0 && <span className="exam-score-points-bonus" data-testid="fast-count"> · 其中速答 {fastCount} 题</span>}
           </p>
+          {perfect > 0 && (
+            <div className="exam-score-points mt-2" data-testid="score-points">
+              得分 <b>{points.toLocaleString()}</b> / 满分 {perfect.toLocaleString()}
+              {fastCount > 0 && <span className="exam-score-points-bonus"> · 速答加成 {fastCount * 200}</span>}
+            </div>
+          )}
+          {stars > 0 && (
+            <div className="star-rating mt-2 justify-center" data-testid="result-stars" aria-label={`${stars} 星`}>
+              {[1, 2, 3].map((n) => (
+                <span key={n} className={`star-rating-star ${n <= stars ? 'filled' : ''}`} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3.6l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z" /></svg>
+                </span>
+              ))}
+            </div>
+          )}
 
           <div className="grid grid-cols-3 gap-3 my-8 text-left">
             <div className="hk-card p-4 text-center">
