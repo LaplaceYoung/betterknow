@@ -92,6 +92,8 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   });
   app.put('/api/v1/auth/byok', protectedRoute, async (request) => {
     const body = (request.body ?? {}) as {
+      seam?: Seam;
+      model?: string;
       enabled?: boolean;
       provider?: string;
       base_url?: string;
@@ -108,7 +110,13 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       const user = state.users[request.userId!] as unknown as { byok?: ByokRecord };
       const previous = user.byok;
       const slots: NonNullable<ByokRecord['providers']> = { ...(previous?.providers ?? {}) };
-      for (const [seam, incoming] of Object.entries(body.providers ?? {}) as Array<[Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }]>) {
+      // 单槽写法 {seam, base_url, api_key, model} 与批量写法 {providers:{...}} 都收；
+      // 只有既没有 seam 也没有 providers 时才走顶层 legacy 字段（否则会静默改掉 llm 的 key/baseUrl）
+      const incomingSlots: Partial<Record<Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }>> = { ...(body.providers ?? {}) };
+      if (body.seam && !body.providers) {
+        incomingSlots[body.seam] = { apiKey: apiKey || undefined, baseUrl: baseUrl || undefined, model: body.model, enabled: body.enabled };
+      }
+      for (const [seam, incoming] of Object.entries(incomingSlots) as Array<[Seam, { apiKey?: string; baseUrl?: string; model?: string; enabled?: boolean }]>) {
         const current = slots[seam] ?? { apiKey: '', baseUrl: '', model: '' };
         const apiKeyValue = incoming.apiKey === undefined ? current.apiKey : String(incoming.apiKey);
         slots[seam] = {
@@ -166,6 +174,13 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
 
   app.get('/health', async () => ({ ok: true }));
   app.get('/api/v1/net-check', async () => ({ ok: true, state: 'ok', t: Date.now() }));
+  // 线上：客户端播放讲解前用它探音频通道（200 可播 / 429 冷却 {retryInS} / 503 {state:"draining"}）。
+  // 本仓音频走 BYOK TTS 或浏览器语音合成，没有配额冷却，所以只有 ok 与 drain 两态
+  app.get('/api/v1/audio-probe', protectedRoute, async (request, reply) => {
+    const state = await readState();
+    const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+    return { ok: true, mode: eff.provider === 'stub' ? 'browser' : 'byok', t: Date.now() };
+  });
 
   app.get('/api/v1/auth/get_user_info', protectedRoute, async (request) => {
     const user = await currentUser(request); const resetAt = new Date(Date.parse(user.last_reset_at) + 12 * 3_600_000).toISOString();

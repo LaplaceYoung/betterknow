@@ -549,3 +549,12 @@
 - **修掉一个字段错**：服务端会话列表只给 `session_id`，而前端（照线上写法）读 `sessionId`，点「可用学习节」会跳到 `.../whiteboard/undefined`；现在两者都返回。
 - 实测：三个 tab 切换正常；大纲卡片显示学习节标题 + 大纲正文、无大纲时显示「此学习节暂无大纲。」；学习记录 70 门课程 / 60 个学习节可选。
 - 仍未做：参考资料一节目前永远走空态（本仓学习节没有 references 数据）；展开/收起按钮（`whiteboard-sidebar-open-btn`）与 `collapseSidebar/expandSidebar` 文案未接；拖拽/键盘无障碍细节未逐条复刻。
+
+**第六十六批（语音链 + BYOK STT 落地）**
+- **把 STT 槽变成真链路**：之前五槽里的「语音识别」只在设置面板里可配、没有任何调用方。现在三条链都接上了：麦克风输入 `voice_stream_*{pcm_b64}`（24kHz PCM16 → 套 WAV → `/audio/transcriptions`）、冷提问 `user_message{audio_b64,audio_mime,audio_duration_ms}`、打断 `interject_question{audio_b64,mime,duration_ms}` 与 `interject_audio_chunk{pcm_b64}→interject_audio_end`。转写结果按线上帧回：`voice_transcript{text}`、`voice_stream_text{delta}`、`interject_user_text{delta}`；白板与 PDF 批注两条 WS 都接了。
+- **修掉字段错**：`interject_audio_chunk` 此前读的是 `audio_b64`，线上发的是 `pcm_b64`（PCM16 裸流），所以打断的语音一直是空转；现在按 `pcm_b64 + sample_rate` 收，并在 `media.ts` 加了 `pcm16Wav` 包装。
+- **修掉配置静默串槽**：`PUT /auth/byok` 只认 `{providers:{seam:{...}}}` 批量写法，`{seam, base_url, api_key}` 这种单槽写法会掉进 legacy 分支、把 key/baseUrl 写到 llm 顶层槽上（实测复现：给 stt 写 key，结果 llm 的 apiKey 被改成 stt 的 key，且返回 `{success:true}`）。现在两种写法都收，单槽写法只动对应槽。
+- **修掉语音气泡竞态**：占位气泡「🎤 …」与转写帧谁先到不固定（React 提交晚于 WS 回帧时，按下标改写会落空），改成 `Map<voiceId, text>` + 统一合并函数，两条链都验证通过。
+- 客户端：语音模式卡片（线上 23 条 CSS + 全部中文文案 + `localStorage["hk.session.voiceMode"]`）、麦克风按钮（两个入口）真实可用、`<400ms`/`<512B` 丢弃碎音、状态文案同线上。
+- **仍与线上不同**：不做客户端 VAD（自托管 `/vad/silero_vad_v5.onnx` + worklet 预滚）与真·实时打断，流式转写只有一条全量 delta，TTS 未做 PCM 实时流（按句 `interject_pcm`）；没有「N 秒后发送 / 延迟发送」倒计时；`/audio-probe` 只有 ok 态（无 429 冷却、无 503 draining）。
+- 实测：假网关（`/audio/transcriptions` 回「请用一个具体例子解释刚才的公式」）下，浏览器两条链都跑通——讲解中说话走 `interject_start`+`interject_question`，安静时走 `user_message`，气泡都由「🎤 …」替换成转写文本；原始 WS 用例覆盖 `interject_audio_chunk`×3→`interject_audio_end`、`voice_stream_start/chunk/end`、`user_message` 三条路径，服务端分别回 `interject_user_text`、`voice_stream_text`+`voice_transcript`、`voice_transcript`。

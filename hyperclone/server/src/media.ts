@@ -187,3 +187,14 @@ export function audioFileName(userId: string, sessionId: string, sequence: numbe
   const prefix = sessionId.split('-')[0] ?? 'session';
   return `tts_${prefix}_${sequence}_${hash32(Buffer.from(`${sessionId}:${sequence}:${text}`)).slice(0, 6)}.${ext}`;
 }
+
+// 线上 interject_audio_chunk / voice_audio_chunk 是 24kHz 单声道 PCM16（`pcm_b64`）；
+// OpenAI 兼容的 /audio/transcriptions 只吃容器格式，所以落盘/转写前套一层 WAV
+export function pcm16Wav(pcm: Buffer, sampleRate = 24_000, channels = 1): Buffer {
+  const header = Buffer.alloc(44);
+  header.write('RIFF', 0); header.writeUInt32LE(36 + pcm.length, 4); header.write('WAVE', 8);
+  header.write('fmt ', 12); header.writeUInt32LE(16, 16); header.writeUInt16LE(1, 20); header.writeUInt16LE(channels, 22);
+  header.writeUInt32LE(sampleRate, 24); header.writeUInt32LE(sampleRate * channels * 2, 28); header.writeUInt16LE(channels * 2, 32); header.writeUInt16LE(16, 34);
+  header.write('data', 36); header.writeUInt32LE(pcm.length, 40);
+  return Buffer.concat([header, pcm]);
+}

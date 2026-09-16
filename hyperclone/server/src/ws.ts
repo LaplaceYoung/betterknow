@@ -11,8 +11,8 @@ import { diagrams, placeholderPng, placeholderWebm, publicFiles } from './artifa
 import { runDshTask } from './agent/dsh-adapter.js';
 import { runDirectorRound } from './agent/director.js';
 import { config, resolveByok } from './config.js';
-import { image } from './providers/index.js';
-import { audioFileName, placeholderImageSvg, referencePageImage, saveWhiteboardImage, ttsCounts, writeTtsAudio } from './media.js';
+import { image, stt } from './providers/index.js';
+import { audioFileName, pcm16Wav, placeholderImageSvg, referencePageImage, saveWhiteboardImage, ttsCounts, writeTtsAudio } from './media.js';
 import { IMAGE_ACTION_CONTRACT, WHITEBOARD_IMAGE_SIZE, imagePromptPreview, normalizeImageAction, type WhiteboardImageAction } from './whiteboardImage.js';
 import { chat, chatStream, stubValue, type ChatMessage } from './llm.js';
 import { now, readState, updateState } from './store.js';
@@ -295,10 +295,16 @@ async function lessonImageAction(userId: string, topic: string, boardContent: st
 
 function silentPcm(): string { return Buffer.alloc(9_600).toString('base64'); }
 function splitSentences(text: string): string[] { return text.match(/[^.!?。！？]+[.!?。！？]?/g)?.map((part) => part.trim()).filter(Boolean) ?? [text]; }
-async function cascade(socket: WebSocket, userId: string, sessionId: string, text: string, voiceId: string, speed: number, voiceInput = false, audioPrefix = '/api/v1/whiteboard/audio-stream'): Promise<void> {
+async function transcribePcm(userId: string, pcmB64: string, sampleRate: number): Promise<{ text: string; stub: boolean }> {
+  if (!pcmB64) return { text: '', stub: true };
+  const wav = pcm16Wav(Buffer.from(pcmB64, 'base64'), sampleRate);
+  try { return await stt.transcribe(wav.toString('base64'), 'audio/wav', await effFor(userId)); } catch { return { text: '', stub: true }; }
+}
+async function cascade(socket: WebSocket, userId: string, sessionId: string, text: string, voiceId: string, speed: number, voiceTranscript?: string, audioPrefix = '/api/v1/whiteboard/audio-stream'): Promise<void> {
   const seam = await effFor(userId);
   const interjectId = randomUUID().replaceAll('-', '').slice(0, 12); wsSend(socket, { type: 'interject_ready', interject_id: interjectId, mode: 'cascade' });
-  if (voiceInput) wsSend(socket, { type: 'interject_user_text', interject_id: interjectId, delta: '(voice input received)' });
+  // 线上 interject_user_text 是「用户说出的话」的流式文本；本仓 STT 是一次性调用，所以一条 delta 给全量
+  if (voiceTranscript) wsSend(socket, { type: 'interject_user_text', interject_id: interjectId, delta: voiceTranscript });
   let answer = '确认收到你的问题。我们可以先抓住核心概念，再用一个具体例子验证它。';
   try { answer = await chat([{ role: 'system', content: 'Answer a learner interjection clearly and briefly.' }, { role: 'user', content: text }], 'content', await effFor(userId)); } catch { /* Local fallback keeps the cascade usable. */ }
   let sequence = 0;
@@ -322,7 +328,7 @@ async function cascade(socket: WebSocket, userId: string, sessionId: string, tex
 }
 function whiteboardHandler(socket: WebSocket, request: FastifyRequest): void { guardSocket(socket);
   let stateCache = { courses: {}, whiteboards: {} } as unknown as Awaited<ReturnType<typeof readState>>;
-  const userId = acceptUser(request, socket); if (!userId) return; wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let voiceId = 'calm'; let speed = 1; let paused = false; let audioBuffer = '';
+  const userId = acceptUser(request, socket); if (!userId) return; wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let voiceId = 'calm'; let speed = 1; let paused = false; let audioBuffer = ''; let voicePcm: Buffer[] = []; let voiceSampleRate = 24_000;
   // 线上形态：白板会话 id = <course_uuid>__<course_session_id>，lecture_outline_id = <course_uuid>:<course_session_id>
   const composeSessionId = (requested: string): string => {
     if (requested.includes('__')) return requested;
@@ -396,8 +402,50 @@ socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { w
     if (input.type === 'pause_session' || input.type === 'narration_pause') { paused = true; wsSend(socket, { type: 'pause', paused: true, status: 'paused' }); return; } if (input.type === 'interject_start') { if (!sessionId) await sessionReady(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; }
     if (input.type === 'interject_resume' || input.type === 'start_teaching') { await teach(); return; }
     // 线上：奖励层「知道了」→ advance(stepId) → 课才收尾（response_complete{session:true} → 单元完成层）
-    if (input.type === 'advance_step' || input.type === 'step_acknowledged') { wsSend(socket, { type: 'response_complete', is_complete: true, status: 'completed', session: true }); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (!sessionId) await sessionReady(); await cascade(socket, userId, sessionId!, 'Please acknowledge this voice question.', voiceId, speed, hadAudio); return; }
-    if (input.type === 'interject_question' || input.type === 'question_answers') { if (!sessionId) await sessionReady(); const voice = typeof input.audio_b64 === 'string' || typeof input.mime === 'string'; await cascade(socket, userId, sessionId!, typeof input.text === 'string' ? input.text : voice ? 'Please acknowledge this voice question.' : 'Please clarify the current idea.', voiceId, speed, voice); return; }
+    if (input.type === 'advance_step' || input.type === 'step_acknowledged') { wsSend(socket, { type: 'response_complete', is_complete: true, status: 'completed', session: true }); return; }
+    // ── 打断的语音链：interject_audio_chunk{ pcm_b64 } 攒 PCM → end 时转写 → cascade 带真实文字
+    if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.pcm_b64 === 'string' ? input.pcm_b64 : typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; voiceSampleRate = typeof input.sample_rate === 'number' ? input.sample_rate : voiceSampleRate; return; }
+    if (input.type === 'interject_audio_flush') { audioBuffer = ''; return; }
+    if (input.type === 'interject_audio_end') {
+      const pcm = audioBuffer; audioBuffer = '';
+      if (!sessionId) await sessionReady();
+      const transcript = pcm ? await transcribePcm(userId, pcm, voiceSampleRate) : { text: '' };
+      await cascade(socket, userId, sessionId!, transcript.text || 'Please acknowledge this voice question.', voiceId, speed, transcript.text || undefined);
+      return;
+    }
+    if (input.type === 'interject_question' || input.type === 'question_answers') {
+      if (!sessionId) await sessionReady();
+      const audioB64 = typeof input.audio_b64 === 'string' ? input.audio_b64 : '';
+      const mime = typeof input.mime === 'string' ? input.mime : 'audio/webm';
+      const asked = typeof input.text === 'string' && input.text.trim() ? input.text : '';
+      // 线上：文本与音频可同时给（音频是补充）；只有音频时由服务端 STT 出文本
+      const heard = asked || !audioB64 ? '' : (await stt.transcribe(audioB64, mime, await effFor(userId))).text;
+      await cascade(socket, userId, sessionId!, asked || heard || 'Please clarify the current idea.', voiceId, speed, heard || undefined);
+      return;
+    }
+    // 线上白板客户端「冷提问」也走 user_message（可只带 audio_b64/audio_mime/audio_duration_ms）：
+    // 本仓白板的回答统一走 cascade，所以这里等价于带文本的 interject_question，只是先回一帧 voice_transcript
+    if (input.type === 'user_message') {
+      if (!sessionId) await sessionReady();
+      const spoken = typeof input.message === 'string' ? input.message : typeof input.text === 'string' ? input.text : '';
+      const asked = spoken && spoken.trim() ? spoken : '';
+      const audioB64 = typeof input.audio_b64 === 'string' ? input.audio_b64 : '';
+      const heard = asked || !audioB64 ? '' : (await stt.transcribe(audioB64, typeof input.audio_mime === 'string' ? input.audio_mime : 'audio/webm', await effFor(userId))).text;
+      if (heard) wsSend(socket, { type: 'voice_transcript', text: heard });
+      await cascade(socket, userId, sessionId!, asked || heard || 'Please clarify the current idea.', voiceId, speed, heard || undefined);
+      return;
+    }
+    // ── 麦克风输入链（voice_stream_*）：PCM 攒完一次性转写，回 voice_stream_text + voice_transcript
+    if (input.type === 'voice_stream_start') { voicePcm = []; voiceSampleRate = typeof input.sample_rate === 'number' ? input.sample_rate : 24_000; return; }
+    if (input.type === 'voice_audio_chunk') { if (typeof input.pcm_b64 === 'string') voicePcm.push(Buffer.from(input.pcm_b64, 'base64')); return; }
+    if (input.type === 'voice_stream_cancel') { voicePcm = []; return; }
+    if (input.type === 'voice_audio_end') {
+      const pcm = Buffer.concat(voicePcm); voicePcm = [];
+      const transcript = await transcribePcm(userId, pcm.toString('base64'), voiceSampleRate);
+      if (transcript.text) wsSend(socket, { type: 'voice_stream_text', delta: transcript.text });
+      wsSend(socket, { type: 'voice_transcript', text: transcript.text, stub: transcript.stub });
+      return;
+    }
     if (input.type === 'model_probe') { wsSend(socket, { type: 'model_probe_started' }); const started = performance.now(); try { const text = await chat([{ role: 'user', content: 'Reply briefly to confirm model connectivity.' }], 'tts', await effFor(userId)); const ttft_ms = Math.round(performance.now() - started); wsSend(socket, { type: 'model_probe_result', ok: true, verdict: 'ok_no_context', ttft_ms, text, minimal: { ok: true, ttft_ms, text, error: null }, replay: false, context_turns: 0, context_chars: 0 }); } catch (error) { wsSend(socket, { type: 'model_probe_result', ok: false, verdict: 'error', ttft_ms: Math.round(performance.now() - started), text: '', minimal: { ok: false, error: error instanceof Error ? error.message : 'Probe failed' } }); } return; }
     if (input.type === 'sync_whiteboard_state' && sessionId) { await updateState((next) => { next.whiteboards[sessionId!]!.whiteboard_state = input.whiteboard_state ?? null; }); wsSend(socket, { type: 'board', ...(typeof input.whiteboard_state === 'object' && input.whiteboard_state ? input.whiteboard_state as object : {}), step_id: input.step_id ?? 0, board_uid: input.board_uid ?? 0, page_id: input.page_id ?? 'page-1' }); return; } if (paused) wsSend(socket, { type: 'pause', paused: true, status: 'paused' });
   })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); });
@@ -462,7 +510,12 @@ async function deepLearnHandler(socket: WebSocket, request: FastifyRequest): Pro
       return;
     }
     if (input.type !== 'user_message') return;
-    const message = typeof input.message === 'string' ? input.message : typeof input.text === 'string' ? input.text : '';
+    // 线上 user_message 可以只带音频（audio_b64/audio_mime/audio_duration_ms）：服务端转写后回 voice_transcript，正文用转写结果
+    const spoken = typeof input.message === 'string' ? input.message : typeof input.text === 'string' ? input.text : '';
+    const audioB64 = typeof input.audio_b64 === 'string' ? input.audio_b64 : '';
+    const heard = spoken || !audioB64 ? '' : (await stt.transcribe(audioB64, typeof input.audio_mime === 'string' ? input.audio_mime : 'audio/webm', await effFor(userId))).text;
+    if (heard) wsSend(socket, { type: 'voice_transcript', text: heard });
+    const message = spoken || heard;
     const stepId = typeof input.step_id === 'string' ? input.step_id : String((await readState()).deep_learn[sessionId ?? '']?.current_step_id ?? '1.1');
     const eff = await effFor(userId);
     wsSend(socket, { type: 'thinking', session_id: sessionId, is_complete: false });
@@ -552,7 +605,7 @@ function courseHandler(socket: WebSocket, request: FastifyRequest): void { guard
 }
 
 function pdfHandler(socket: WebSocket, request: FastifyRequest): void { guardSocket(socket);
-  const userId = acceptUser(request, socket); if (!userId) return; const effP = effFor(userId); wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let speed = 1; let voiceId = 'firm'; let audioBuffer = '';
+  const userId = acceptUser(request, socket); if (!userId) return; const effP = effFor(userId); wsSend(socket, { type: 'connection_established' }); let sessionId: string | undefined; let speed = 1; let voiceId = 'firm'; let audioBuffer = ''; let voiceSampleRate = 24_000;
   socket.on('message', (raw) => { const input = parseMessage(raw); if (!input) { wsSend(socket, { type: 'error', message: 'Invalid JSON', is_complete: true }); return; } void (async () => {
     if (input.type === 'ping') { wsSend(socket, { type: 'pong', t: input.t }); return; }
     if (input.type === 'resume_session' || input.type === 'start_session' || input.type === 'resume_or_start_course_session') {
@@ -604,7 +657,7 @@ function pdfHandler(socket: WebSocket, request: FastifyRequest): void { guardSoc
       wsSend(socket, { type: 'done', step_id: step + 2 });
       return;
     }
-    if (input.type === 'interject_start') { if (!sessionId) sessionId = randomUUID(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; return; } if (input.type === 'interject_audio_end') { const hadAudio = Boolean(audioBuffer); audioBuffer = ''; if (sessionId) await cascade(socket, userId, sessionId, 'Please acknowledge this voice question.', voiceId, speed, hadAudio, '/api/v1/pdf-annotation/audio-stream'); return; } if (input.type === 'interject_question') { if (sessionId) await cascade(socket, userId, sessionId, typeof input.text === 'string' ? input.text : 'Please clarify this PDF.', voiceId, speed, typeof input.audio_b64 === 'string' || typeof input.mime === 'string', '/api/v1/pdf-annotation/audio-stream'); return; }
+    if (input.type === 'interject_start') { if (!sessionId) sessionId = randomUUID(); wsSend(socket, { type: 'interject_ready', interject_id: randomUUID().replaceAll('-', '').slice(0, 12), mode: 'cascade' }); return; } if (input.type === 'interject_audio_chunk') { audioBuffer += typeof input.pcm_b64 === 'string' ? input.pcm_b64 : typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; voiceSampleRate = typeof input.sample_rate === 'number' ? input.sample_rate : voiceSampleRate; return; } if (input.type === 'interject_audio_flush') { audioBuffer = ''; return; } if (input.type === 'interject_audio_end') { const pcm = audioBuffer; audioBuffer = ''; if (sessionId) { const heard = pcm ? (await transcribePcm(userId, pcm, voiceSampleRate)).text : ''; await cascade(socket, userId, sessionId, heard || 'Please acknowledge this voice question.', voiceId, speed, heard || undefined, '/api/v1/pdf-annotation/audio-stream'); } return; } if (input.type === 'interject_question') { if (sessionId) { const audioB64 = typeof input.audio_b64 === 'string' ? input.audio_b64 : ''; const mime = typeof input.mime === 'string' ? input.mime : 'audio/webm'; const asked = typeof input.text === 'string' && input.text.trim() ? input.text : ''; const heard = asked || !audioB64 ? '' : (await stt.transcribe(audioB64, mime, await effFor(userId))).text; await cascade(socket, userId, sessionId, asked || heard || 'Please clarify this PDF.', voiceId, speed, heard || undefined, '/api/v1/pdf-annotation/audio-stream'); } return; }
     if (input.type === 'action_step_received' || input.type === 'action_step_complete' || input.type === 'user_continue') return; if (input.type === 'navigate_page') { wsSend(socket, { type: 'go_to_page', page: input.page ?? 0, step_id: 0 }); return; }
     if (input.type === 'model_probe') { const started = performance.now(); wsSend(socket, { type: 'model_probe_started' }); try { const text = await chat([{ role: 'user', content: 'Confirm connectivity briefly.' }], 'tts', await effP); const ttft_ms = Math.round(performance.now() - started); wsSend(socket, { type: 'model_probe_result', ok: true, verdict: 'ok_no_context', ttft_ms, text, minimal: { ok: true, ttft_ms, text, error: null } }); } catch { wsSend(socket, { type: 'model_probe_result', ok: false, verdict: 'error', ttft_ms: Math.round(performance.now() - started) }); } }
   })().catch((error: unknown) => wsSend(socket, { type: 'error', message: error instanceof Error ? error.message : 'Internal error', is_complete: true })); });

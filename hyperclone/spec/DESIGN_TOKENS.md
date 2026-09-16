@@ -986,3 +986,12 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 实测：侧栏 260px、三个 tab 的 `data-active` 切换正常；课程大纲里出现「学习节大纲 / 本节要点 / 参考资料」三个小节，卡片显示该学习节标题与大纲正文（`Begin the lecture by confronting the lea…`），无大纲时显示线上文案；学习记录里 70 门课程 + 60 个学习节，点选可跳转。
 
+### 语音模式卡片与麦克风（第五十三批，r137 + r147 + r169）
+
+首次进学习节会弹「你想怎样和老师交流？」：`.voice-mode-overlay`（`z-index:10060`、半透明底）> `.voice-mode-card`（`min(440px,100%)`、圆角 20px）> `.voice-mode-title` / `.voice-mode-subtitle` / `.voice-mode-options`（两枚 `.voice-mode-option`，选中态 `[data-picked=true]` 蓝框 + 蓝底）→ `.voice-mode-confirm` → `.voice-mode-footnote` ×2。选项数据：仅用文字 / 语音 + 文字（带 `.voice-mode-beta-pill`「Beta」）。选择写 `localStorage["hk.session.voiceMode"] = "text"|"voice"`，之后由输入框里的麦克风按钮随时切换。
+
+文案（线上 zh 原文）：标题「你想怎样和老师交流？」；副标题「这节课不仅能读你打的字，还能听你说话。」；仅用文字「在输入框里打字提问，老师照常讲解和板书。」；语音 + 文字「直接开口说就行。老师一听到你说话就会停下来，先回答你的问题，再从暂停的地方继续讲。」；确认「开始学习」；脚注「之后可以随时点击右下角输入框里的麦克风按钮切换。」「语音功能仍处于 Beta 阶段，欢迎把使用体验告诉我们。」
+
+麦克风状态文案（`voiceInterrupt*`）：语音输入已开启 / 开口提问或打断 / 正在开启麦克风… / 麦克风权限被拒绝 / 语音打断启动失败；聆听中「正在聆听…」；常驻提示「语音输入模式已开启，模型正在聆听」「正在准备语音输入，请稍候…」；发送倒计时「{{seconds}} 秒钟后发送，点击右侧按钮可延迟发送」+ 按钮「延迟发送」。
+
+本仓：卡片、CSS（23 条线上原文）、localStorage 键、文案照抄；麦克风是「点一次开始、再点一次停」的整段录音（线上是按住/常开 + 客户端 VAD），`MediaRecorder` 编解码优先级与 `<512B / 时长门槛` 同线上；倒计时/延迟发送与 VAD 未做（已记 DESIGN_GAPS）。

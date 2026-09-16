@@ -1532,3 +1532,28 @@
 .whiteboard-outline-practice-spinner{width:13px;height:13px;border-radius:50%;border:2px solid currentColor;border-top-color:transparent;animation:whiteboard-outline-practice-spin .7s linear infinite}
 @keyframes whiteboard-outline-live-hop{0%,60%,to{transform:translateY(1.5px)}30%{transform:translateY(-2px)}}
 @keyframes whiteboard-outline-practice-spin{to{transform:rotate(360deg)}}
+
+/* 线上语音模式卡片 .voice-mode-*（r169 原文） */
+.voice-mode-overlay{position:fixed;top:0;right:0;bottom:0;left:0;z-index:10060;display:flex;align-items:center;justify-content:center;padding:24px;background:#0f172a2e;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:voice-mode-fade-in .18s ease-out}
+.voice-mode-card{position:relative;width:min(440px,100%);box-sizing:border-box;padding:24px 24px 20px;border-radius:20px;background:#fff;color:#111827;box-shadow:0 24px 60px #0f172a2e;animation:voice-mode-scale-in .22s cubic-bezier(.16,1,.3,1)}
+.voice-mode-title{margin:0;font-family:var(--font-satoshi-semibold);font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-.02em;color:#111827}
+.voice-mode-subtitle{margin:8px 0 0;font-size:13.5px;line-height:1.55;color:#6b7280}
+.voice-mode-options{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.voice-mode-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:13px 14px;border:1px solid #ececef;border-radius:14px;background:#fff;font-family:inherit;text-align:left;cursor:pointer;transition:border-color .15s ease,background .15s ease,box-shadow .15s ease}
+.voice-mode-option:hover{border-color:#dcdce1;background:#fafafa}
+.voice-mode-option[data-picked=true]{border-color:#4a7cf6;background:#f5f8ff;box-shadow:0 0 0 3px #4a7cf61f}
+.voice-mode-option-icon{display:inline-flex;align-items:center;justify-content:center;flex:none;width:32px;height:32px;border-radius:10px;background:#f3f4f6;color:#4b5563}
+.voice-mode-option[data-picked=true] .voice-mode-option-icon{background:#e6edff;color:#2f5fd0}
+.voice-mode-option-body{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.voice-mode-option-head{display:flex;align-items:center;gap:8px}
+.voice-mode-option-title{font-family:var(--font-satoshi-semibold);font-size:14px;font-weight:600;color:#111827}
+.voice-mode-beta-pill{padding:1px 7px;border-radius:999px;background:#eef2ff;color:#4a5bd0;font-size:10.5px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.voice-mode-option-desc{font-size:12.5px;line-height:1.5;color:#6b7280;overflow-wrap:anywhere}
+.voice-mode-option-check{display:inline-flex;align-items:center;justify-content:center;flex:none;width:18px;height:18px;margin-top:6px;border:1px solid #d8d8de;border-radius:50%;background:#fff;color:#fff}
+.voice-mode-option[data-picked=true] .voice-mode-option-check{border-color:#4a7cf6;background:#4a7cf6}
+.voice-mode-confirm{display:block;width:100%;margin-top:18px;padding:11px 16px;border:none;border-radius:12px;background:#171717;color:#fff;font-family:var(--font-satoshi-semibold);font-size:14px;font-weight:600;cursor:pointer;transition:background .15s ease,opacity .15s ease}
+.voice-mode-confirm:not(:disabled):hover{background:#2d2d2d}
+.voice-mode-confirm:disabled{background:#e5e5e5;color:#a3a3a3;cursor:not-allowed}
+.voice-mode-footnote{margin:10px 0 0;font-size:11.5px;line-height:1.5;color:#9ca3af;text-align:center}
+.voice-mode-footnote+.voice-mode-footnote{margin-top:4px}
+.voice-mode-overlay,.voice-mode-card{animation:none}

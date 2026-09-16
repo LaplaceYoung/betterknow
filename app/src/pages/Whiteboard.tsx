@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { Activity, ArrowLeft, ArrowUp, Mic, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
+import { Activity, ArrowLeft, ArrowUp, Keyboard, Mic, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -36,7 +36,7 @@ export default function Whiteboard() {
   const [quiz, setQuiz] = useState<{ question: string; options: string[]; correct?: number; picked?: number; explanation?: string } | null>(null)
   const [pages, setPages] = useState<Page[]>([])
   const [pageIdx, setPageIdx] = useState(0)
-  const [script, setScript] = useState<{ who: 'teacher' | 'you'; text: string }[]>([])
+  const [script, setScript] = useState<{ who: 'teacher' | 'you'; text: string; voiceId?: number }[]>([])
   const [paused, setPaused] = useState(false)
   const [asking, setAsking] = useState<string | null>(null)
   const [status, setStatus] = useState<'connecting' | 'ready' | 'teaching' | 'done'>('connecting')
@@ -48,6 +48,18 @@ export default function Whiteboard() {
   const [unitComplete, setUnitComplete] = useState<{ beatPercent: number } | null>(null)
   // 线上单元完成层：本单元有练习且还没交卷时，主按钮换成「去做练习」
   const [practiceCta, setPracticeCta] = useState<{ sessionId: string } | null>(null)
+  // 线上语音：voice_mode 先选「仅用文字 / 语音 + 文字」（localStorage hk.session.voiceMode），麦克风按钮随时可切
+  const [voiceMode, setVoiceMode] = useState<'text' | 'voice' | null>(() => { const saved = localStorage.getItem('hk.session.voiceMode'); return saved === 'voice' || saved === 'text' ? saved : null })
+  const [voiceDialogOpen, setVoiceDialogOpen] = useState(false)
+  const [micStatus, setMicStatus] = useState<'idle' | 'loading' | 'on' | 'denied' | 'unavailable'>('idle')
+  const [micRecording, setMicRecording] = useState(false)
+  const recorderRef = useRef<MediaRecorder | null>(null)
+  const micChunksRef = useRef<Blob[]>([])
+  const micStartedAtRef = useRef(0)
+  const voiceBubbleRef = useRef<number | null>(null)
+  const voiceSeqRef = useRef(0)
+  const voiceTextRef = useRef(new Map<number, string>())
+  useEffect(() => { if (voiceMode === null) setVoiceDialogOpen(true) }, [voiceMode])
   // 线上「退出 Session」确认弹窗（.whiteboard-modal-*）
   const [exitOpen, setExitOpen] = useState(false)
   // 侧栏（线上 whiteboard-tabs：课程大纲 / 学习记录）
@@ -84,6 +96,8 @@ export default function Whiteboard() {
   const boardRef = useRef<HTMLDivElement | null>(null)
   const [ttsVoice, setTtsVoice] = useState(true)
   const [isSpeaking, setIsSpeaking] = useState(false)
+  const isSpeakingRef = useRef(false)
+  useEffect(() => { isSpeakingRef.current = isSpeaking }, [isSpeaking])
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [playbackRate, setPlaybackRate] = useState(1.0)
   const scriptBottomRef = useRef<HTMLDivElement>(null)
@@ -207,6 +221,9 @@ export default function Whiteboard() {
       else if (f.type === 'image_gen_failed') failImage()
       else if (f.type === 'pong' || f.type === 'tts_config' || f.type === 'interject_ready') { /* 心跳 / 配置回显 */ }
       else if (f.type === 'interject_text') { setScript((s) => [...s, { who: 'teacher', text: f.text ?? '' }]); setPaused(false); setAsking(null) }
+      // 语音输入：占位气泡（🎤 …）由服务端转写结果替换；interject_user_text/voice_stream_text 是流式增量
+      else if (f.type === 'voice_transcript') { const text = String(f.text ?? '').trim(); if (text) replaceVoiceBubble(text) }
+      else if (f.type === 'voice_stream_text' || f.type === 'interject_user_text') { appendVoiceBubble(String((f as { delta?: string }).delta ?? '')) }
       else apply(f)
     }
     return () => ws.close()
@@ -319,6 +336,80 @@ export default function Whiteboard() {
   useEffect(() => { setRevealed(0) }, [pageIdx])
   useEffect(() => { if (!page || paused) return; if (revealed >= page.boards.length) return; const t = setTimeout(() => setRevealed((r) => r + 1), 900); return () => clearTimeout(t) }, [page, revealed, paused])
 
+  // 占位气泡：录音结束先插一条「🎤 …」，等 voice_transcript/interject_user_text 到了再改写内容
+  // 转写文本先落 ref（Map<voiceId, text>），再由同一个合并函数贴到气泡上：
+  // 服务端回帧可能早于占位气泡这一帧提交，两边的顺序不能互相假设
+  const mergeVoice = (lines: { who: 'teacher' | 'you'; text: string; voiceId?: number }[]) => lines.map((line) => {
+    if (line.voiceId === undefined) return line
+    const heard = voiceTextRef.current.get(line.voiceId)
+    return heard !== undefined && line.text.startsWith('🎤') ? { ...line, text: heard } : line
+  })
+  const replaceVoiceBubble = (text: string) => { const id = voiceBubbleRef.current; if (id !== null) voiceTextRef.current.set(id, text); setScript((s) => mergeVoice(s)) }
+  // 线上 append 语义：第一条增量把 🎤 占位清掉，之后的增量接在同一个气泡上
+  const appendVoiceBubble = (delta: string) => { const id = voiceBubbleRef.current; if (id === null) return; voiceTextRef.current.set(id, (voiceTextRef.current.get(id) ?? '') + delta); setScript((s) => mergeVoice(s)) }
+
+  const sendUtterance = (audioB64: string, mime: string, durationMs: number) => {
+    const ws = wsRef.current
+    if (!ws) return
+    voiceSeqRef.current += 1
+    const voiceId = voiceSeqRef.current
+    voiceBubbleRef.current = voiceId
+    setScript((s) => mergeVoice([...s, { who: 'you', text: '🎤 …', voiceId }]))
+    // 讲解中说话 = 打断（线上 interject_start + interject_question，带 audio_b64/mime/duration_ms）；安静时就是普通提问（user_message 带音频字段）
+    if (isSpeakingRef.current || paused) {
+      ws.send(JSON.stringify({ type: 'interject_start', source: 'mic', mode: 'live', offset_ms: 0, boards: true }))
+      ws.send(JSON.stringify({ type: 'interject_question', audio_b64: audioB64, mime, duration_ms: durationMs }))
+      setAsking('正在识别…')
+      return
+    }
+    ws.send(JSON.stringify({ type: 'user_message', message: '', audio_b64: audioB64, audio_mime: mime, audio_duration_ms: durationMs }))
+  }
+
+  const startMic = async () => {
+    try {
+      setMicStatus('loading')
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } })
+      const mimeType = ['audio/webm;codecs=opus', 'audio/ogg;codecs=opus', 'audio/webm', 'audio/mp4'].find((m) => typeof MediaRecorder !== 'undefined' && MediaRecorder.isTypeSupported(m)) ?? ''
+      const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined)
+      micChunksRef.current = []
+      recorder.ondataavailable = (event) => { if (event.data.size) micChunksRef.current.push(event.data) }
+      recorder.start(1000)
+      recorderRef.current = recorder
+      micStartedAtRef.current = Date.now()
+      setMicStatus('on')
+      setMicRecording(true)
+    } catch (error) {
+      const name = (error as DOMException | undefined)?.name
+      setMicStatus(name === 'NotAllowedError' || name === 'SecurityError' ? 'denied' : 'unavailable')
+      setMicRecording(false)
+    }
+  }
+
+  const stopMic = () => {
+    const recorder = recorderRef.current
+    if (!recorder) return
+    const durationMs = Date.now() - micStartedAtRef.current
+    const mime = recorder.mimeType || 'audio/webm'
+    recorder.onstop = () => {
+      const blob = new Blob(micChunksRef.current, { type: mime })
+      micChunksRef.current = []
+      recorderRef.current = null
+      setMicRecording(false)
+      recorder.stream.getTracks().forEach((track) => track.stop())
+      // 线上同样丢弃过短（<400ms）或过小（<512B）的录音，避免把误触发给模型
+      if (durationMs < 400 || blob.size < 512) return
+      const reader = new FileReader()
+      reader.onload = () => { const b64 = String(reader.result).split(',')[1] ?? ''; if (b64) sendUtterance(b64, mime, durationMs) }
+      reader.readAsDataURL(blob)
+    }
+    try { recorder.stop() } catch { recorderRef.current = null; setMicRecording(false) }
+  }
+
+  const toggleMic = () => { if (micRecording) stopMic(); else void startMic() }
+
+  const pickVoiceMode = (mode: 'text' | 'voice') => { localStorage.setItem('hk.session.voiceMode', mode); setVoiceMode(mode); setVoiceDialogOpen(false) }
+  const micTitle = micStatus === 'loading' ? '正在开启麦克风…' : micStatus === 'denied' ? '麦克风权限被拒绝' : micStatus === 'unavailable' ? '语音打断启动失败' : micRecording ? '正在聆听…' : isSpeaking ? '开口提问或打断' : '语音输入已开启'
+
   const ask = () => { const text = q.trim(); if (!text || !wsRef.current) return; wsRef.current.send(JSON.stringify({ type: 'interject_question', text })); setScript((s) => [...s, { who: 'you', text }]); setQ(''); setAsking(null) }
   const resume = () => { setPaused(false); setAsking(null); wsRef.current?.send(JSON.stringify({ type: 'interject_resume' })) }
 
@@ -409,7 +500,8 @@ export default function Whiteboard() {
             <button className="hk-icon-btn h-8 w-8" onClick={() => setZen((v) => !v)} aria-label={zen ? 'Exit zen mode' : '进入沉浸模式'} title={zen ? 'Exit zen mode' : '进入沉浸模式'} data-testid="zen-toggle">{zen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
             <button className="hk-icon-btn h-8 w-8" aria-label="检查我的网络" title="检查我的网络" data-testid="net-check" onClick={() => { void apiGet<{ ok?: boolean; state?: string }>('/net-check').then((r) => setNetCheck(r?.ok ? '网络正常' : '网络异常')).catch(() => setNetCheck('检查失败')); setTimeout(() => setNetCheck(''), 3000) }}><Activity size={14} /></button>
             <button className="hk-icon-btn h-8 w-8" onClick={toggleFullscreen} aria-label={isFullscreen ? '退出全屏' : '全屏沉浸模式'} title={isFullscreen ? '退出全屏 (F)' : '全屏沉浸模式 (F)'}>{isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
-            <button className="hk-icon-btn h-8 w-8" aria-label="录音"><Mic size={14} /></button>
+            <button className={`hk-icon-btn h-8 w-8${micRecording ? ' text-[#dc2626]' : ''}`} aria-label="录音" data-testid="mic-record"
+              title={micTitle} onClick={toggleMic}><Mic size={14} /></button>
             <button className="hk-icon-btn h-8 w-8" aria-label="分享"><Share2 size={14} /></button>
           </div>
         </header>
@@ -519,6 +611,35 @@ export default function Whiteboard() {
                 </button>
               </div>
             </div>
+          </div>
+        )}
+        {voiceDialogOpen && (
+          <div className="voice-mode-overlay" data-testid="voice-mode-dialog">
+            <section className="voice-mode-card" role="dialog" aria-modal="true" aria-labelledby="voice-mode-title">
+              <h2 id="voice-mode-title" className="voice-mode-title">你想怎样和老师交流？</h2>
+              <p className="voice-mode-subtitle">这节课不仅能读你打的字，还能听你说话。</p>
+              <div className="voice-mode-options" role="radiogroup">
+                {([['text', '仅用文字', '在输入框里打字提问，老师照常讲解和板书。'], ['voice', '语音 + 文字', '直接开口说就行。老师一听到你说话就会停下来，先回答你的问题，再从暂停的地方继续讲。']] as const).map(([mode, title, desc]) => (
+                  <button key={mode} type="button" role="radio" aria-checked={voiceMode === mode} className="voice-mode-option"
+                    data-picked={voiceMode === mode || (voiceMode === null && mode === 'text')} data-testid={`voice-mode-${mode}`}
+                    onClick={() => pickVoiceMode(mode)}>
+                    <span className="voice-mode-option-icon" aria-hidden="true">{mode === 'text' ? <Keyboard size={15} /> : <Mic size={15} />}</span>
+                    <span className="voice-mode-option-body">
+                      <span className="voice-mode-option-head">
+                        <span className="voice-mode-option-title">{title}</span>
+                        {mode === 'voice' && <span className="voice-mode-beta-pill">Beta</span>}
+                      </span>
+                      <span className="voice-mode-option-desc">{desc}</span>
+                    </span>
+                    <span className="voice-mode-option-check" aria-hidden="true" />
+                  </button>
+                ))}
+              </div>
+              <button type="button" className="voice-mode-confirm" data-testid="voice-mode-confirm"
+                onClick={() => pickVoiceMode(voiceMode ?? 'text')}>开始学习</button>
+              <p className="voice-mode-footnote">之后可以随时点击右下角输入框里的麦克风按钮切换。</p>
+              <p className="voice-mode-footnote">语音功能仍处于 Beta 阶段，欢迎把使用体验告诉我们。</p>
+            </section>
           </div>
         )}
         {isIdlePromptOpen && (
@@ -676,9 +797,20 @@ export default function Whiteboard() {
         <div className="p-3 border-t">
           <div className="hk-composer p-2 flex items-center gap-2">
             <input ref={inputRef} value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && ask()} placeholder="向老师提问…" className="flex-1 bg-transparent outline-none text-[13px] px-1" aria-label="向老师提问" />
-            <button className="hk-icon-btn h-8 w-8" aria-label="语音提问"><Mic size={14} /></button>
+            <button className={`hk-icon-btn h-8 w-8${micRecording ? ' text-[#dc2626]' : ''}`} aria-label="语音提问" data-testid="mic-ask"
+              title={micTitle} onClick={toggleMic}><Mic size={14} /></button>
             <button onClick={ask} disabled={!q.trim()} className="hk-send" aria-label="发送"><ArrowUp size={14} /></button>
           </div>
+          {voiceMode === 'voice' && (
+            <div className={`mt-1.5 px-1 text-[11px] ${micStatus === 'denied' || micStatus === 'unavailable' ? 'text-[#dc2626]' : 'text-[#8a8a90]'}`} data-testid="voice-hint">
+              {micStatus === 'loading' ? '正在开启麦克风…'
+                : micStatus === 'denied' ? '麦克风权限被拒绝'
+                  : micStatus === 'unavailable' ? '语音打断启动失败'
+                    : micRecording ? '正在聆听…'
+                      : isSpeaking ? '开口提问或打断'
+                        : '语音输入已开启，模型正在聆听'}
+            </div>
+          )}
         </div>
       </aside>}
     </div>

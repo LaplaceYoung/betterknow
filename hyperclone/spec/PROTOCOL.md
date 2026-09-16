@@ -258,3 +258,27 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 think → (可选 get_skills / memory_recall / search) → 内容或动作工具 → mark_response_complete 硬校验（无产出则循环，上限≈15 轮降级兜底）→ recommend_next_step（learning_progress 递增）
 speed_mode=fast：禁 memory_recall/add_memory/ask_questions/search_images/search_files/content_planner/artifact_update/get_skills，走 generate_content(response_style fast)
 6 skills：conceptExplanation / systematicLearning / whiteboardSession / cheatsheetGeneration / planTasks / documentReading（行为指纹见 assets/prompts/skills_fingerprints.md）
+
+## 2.15 语音链（2026-09-16 live 实证：`r133/r137/r169` + 本仓实现）
+
+**客户端采集（`r137`）**：`navigator.mediaDevices.getUserMedia({audio:{echoCancellation,noiseSuppression,autoGainControl}})` → `MediaRecorder`，编解码按优先级 `["audio/webm;codecs=opus","audio/ogg;codecs=opus","audio/webm","audio/mp4"]` 取第一个 `isTypeSupported`，`start(1000)` 每秒切片，`ondataavailable` 攒 chunk；`stop` 后过两个门槛丢弃碎音：时长 < 阈值、`Blob.size < 512`。服务端路径 `FileReader.readAsDataURL` → base64。打断用自托管 VAD：`/vad/silero_vad_v5.onnx` + `vad.worklet.bundle.min.js`（onnxruntime-web，`requestIdleCallback` 预热），检测到说话才把预滚缓冲一起送。
+
+**麦克风输入（说给输入框，不直接提问）**
+- 客户端 → `voice_stream_start` → `voice_audio_chunk{pcm_b64}`（24kHz 单声道 PCM16）→ `voice_audio_end`；取消用 `voice_stream_cancel`。
+- 服务端 → `voice_stream_text{delta}`（流式转写增量）→ `voice_transcript{text}`（终稿；客户端把它贴到「🎤 …」占位气泡上）。
+
+**冷提问（安静时说话）**——同一帧可只带音频：
+```
+{type:"user_message", message?, audio_b64?, audio_mime?, audio_duration_ms?}
+```
+服务端转写后回 `voice_transcript{text}`，正文用转写结果。注意 `user_message` 用 `audio_mime/audio_duration_ms` 前缀字段。
+
+**打断（讲解进行中说话）**
+- `interject_start{source, mode, step_id, offset_ms, boards:true}` → 服务端 `interject_ready{interject_id, mode}`（`mode:"live"` 为实时打断；非 live 时客户端会撤掉刚发的气泡）。
+- 整段音频：`interject_question{text?, audio_b64?, mime?, duration_ms?, offset_ms?}`（**注意这里是不带 `audio_` 前缀的 `mime/duration_ms`**，与 `user_message` 不一致，属线上原样）。
+- 流式音频：`interject_audio_chunk{pcm_b64}` → `interject_audio_end`；丢缓冲用 `interject_audio_flush`。
+- 服务端帧：`interject_user_text{interject_id, delta, retract?}`（用户说的话，`retract:true` 表示撤回气泡）→ `interject_text{interject_id, delta}`（回答文本）→ `interject_audio{interject_id, audio_url, text, boards?, explain?}` / `interject_pcm{interject_id, pcm_b64, sample_rate:24000}`（流式 TTS PCM）→ `interject_board{interject_id, boards}` → `interject_speech_end{interject_id, continues}` → `interject_done{interject_id, control:"stop"|"replan"|"none", skip_segment}`；`interject_resume` 让暂停的讲解接着讲。
+
+**音频探针**：`GET /api/v1/audio-probe?n=<cb>`（带 Bearer，`cache:"no-store"`）——200 可播；429 冷却回 `{retryInS}`；503 `{state:"draining"}`。
+
+**本仓实现差异**：只做「按一次说、再按一次停」的整段上传，不做客户端 VAD/预滚与 `interject_audio_chunk` 流式分片（转写是一次性 `/audio/transcriptions` 调用），因此 `interject_user_text`/`voice_stream_text` 各只发一条全量 delta；`interject_pcm` 的流式 TTS 依旧按句发，字形与线上一致。BYOK 五槽里的 STT 槽就挂在这条链上（没配 key 时回固定占位文本并标 `stub`）。
