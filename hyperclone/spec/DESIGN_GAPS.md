@@ -324,3 +324,7 @@
 - 补上确定缺的能力：**拖拽上传**（整页 `#fafafa59` + `blur(3px)` 遮罩、虚线圆角卡 `#f1f6fec7` + `rgba(76,102,148,.28)`、44px 图标、17/600 标题、13px 说明），拖入即显示、松手逐个上传。
 - **文件夹卡片悬停菜单**：20×20 的 `⋯`（hover 才出现，`opacity .2s`）、下拉 `radius 10` + `0 4px 12px rgba(0,0,0,.15)` + `4px 0`、菜单项 `4px 12px` gap 8 与红字 `#e71414` 删除。
 - 构建注意：`backdrop-filter` 只写标准属性让构建补前缀；早前同时写 `-webkit-` 与标准属性时，产物只留了 `-webkit-`，Chrome 里 `getComputedStyle().backdropFilter` 会是 `none`（本次已改正并实测 `blur(3px)`）。
+
+**第二十七批（练习彩带 + 欢迎弹窗）**
+- **答对彩带**：按线上 `.practice-check-confetti-layer/piece` 实现——固定层 z 10020、28 片、变量驱动位移/旋转/时长（`--cf-dx/--cf-dy/--cf-rotate/--cf-duration`）、缓动 `cubic-bezier(.15,.9,.25,1)`，只在答对时触发，1.5s 后清理；`prefers-reduced-motion` 下不播放。
+- **欢迎弹窗**换成线上 `.practice-welcome-*`（10010 遮罩 + `blur(3px)`、480/22 圆角、`#fbfbfb`、`140px 1fr` 网格、18/600 标题、13.5 说明、`9px 20px` 黑胶囊按钮、`practice-welcome-modal-pop` 动画），替换掉原先自制的 490 宽卡片。

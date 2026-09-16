@@ -252,11 +252,37 @@ function QuizRunner({
       ? correct.some((c) => c.trim().toLowerCase() === fill.trim().toLowerCase())
       : picked.length === correct.length && picked.every((p) => correct.includes(p))
 
+  const [confetti, setConfetti] = useState<Array<{ id: number; x: number; y: number; dx: number; dy: number; rotate: number; duration: number; delay: number; color: string; shape: 'rect' | 'circle'; size: number }>>([])
+  const burst = () => {
+    const colors = ['#4573c2', '#2e8b57', '#c98a1e', '#c34747', '#4c6696']
+    const now = Date.now()
+    const pieces = Array.from({ length: 28 }, (_, k) => {
+      const angle = (Math.PI * 2 * k) / 28 + Math.random() * 0.4
+      const distance = 90 + Math.random() * 150
+      return {
+        id: now + k,
+        x: window.innerWidth / 2 + (Math.random() - 0.5) * 180,
+        y: window.innerHeight * 0.42 + (Math.random() - 0.5) * 60,
+        dx: Math.cos(angle) * distance,
+        dy: Math.sin(angle) * distance - 40,
+        rotate: Math.round((Math.random() - 0.5) * 720),
+        duration: 0.78 + Math.random() * 0.4,
+        delay: Math.random() * 0.08,
+        color: colors[k % colors.length],
+        shape: (k % 2 === 0 ? 'rect' : 'circle') as 'rect' | 'circle',
+        size: 6 + Math.random() * 5,
+      }
+    })
+    setConfetti(pieces)
+    window.setTimeout(() => setConfetti([]), 1500)
+  }
+
   const handleCheck = () => {
     setChecked(true)
     setAnswersState((prev) => ({ ...prev, [i]: isRight }))
     setUserAnswers((prev) => ({ ...prev, [i]: { picked, fill, isRight } }))
     if (isRight && left > 0) setBonus((value) => value + SPEED_BONUS)
+    if (isRight) burst()
   }
 
   const next = () => {
@@ -343,18 +369,18 @@ function QuizRunner({
         {(mode !== 'exam') && <div className="practice-timer"><span key={timerKey} className="practice-timer-fill" style={{ animationDuration: '10000ms', animationPlayState: checked ? 'paused' : 'running' }} /></div>}
       </div>
       {readyOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: 'rgba(20,20,20,.28)', backdropFilter: 'blur(2px)' }} data-testid="practice-ready">
-          <div className="hk-card flex items-center gap-4" style={{ width: 490, padding: '22px 24px', borderRadius: 20 }}>
-            <span className="shrink-0 flex items-center justify-center" style={{ width: 96, height: 96, borderRadius: 16, background: 'linear-gradient(135deg,#eef2ff,#fef3c7)' }}>
-              <BookOpen size={40} className="text-[#3b5bdb]" />
-            </span>
-            <div className="flex-1">
-              <div className="text-[17px] font-semibold" style={{ color: '#1a1a1a' }}>准备好练习</div>
-              <p className="text-[13px] mt-1.5" style={{ color: '#6b7280', lineHeight: 1.6 }}>
-                全部答对，这次练习就会被标记为「已掌握」，为这门课完成对应环节。
-              </p>
-              <div className="flex justify-end mt-4">
-                <button onClick={() => setReadyOpen(false)} className="rounded-full text-[13px] text-white" style={{ padding: '9px 20px', background: '#1f2430' }} data-testid="practice-ready-ok">知道了</button>
+        <div className="practice-welcome-overlay" data-testid="practice-welcome">
+          <div className="practice-welcome-modal">
+            <div className="practice-welcome-row">
+              <div className="practice-welcome-media">
+                <span className="flex items-center justify-center rounded-2xl" style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg,#eef2ff,#f0fdf4)' }}>
+                  <BookOpen size={44} className="text-[#3b5bdb]" />
+                </span>
+              </div>
+              <div className="practice-welcome-body">
+                <p className="practice-welcome-title">准备好练习</p>
+                <p className="practice-welcome-desc">全部答对，这次练习就会被标记为「已掌握」，为这门课完成对应环节。</p>
+                <button className="practice-welcome-btn" onClick={() => setReadyOpen(false)}>知道了</button>
               </div>
             </div>
           </div>
@@ -546,6 +572,19 @@ function QuizRunner({
         courseId={courseId}
         currentQuestion={q}
       />
+      {confetti.length > 0 && (
+        <div className="practice-check-confetti-layer" aria-hidden="true" data-testid="practice-confetti">
+          {confetti.map((cf) => (
+            <span key={cf.id}
+              className={`practice-check-confetti-piece practice-check-confetti-piece--${cf.shape}`}
+              style={{
+                left: cf.x, top: cf.y, width: cf.size, height: cf.shape === 'circle' ? cf.size : cf.size * 0.6, background: cf.color,
+                ['--cf-dx' as string]: `${cf.dx}px`, ['--cf-dy' as string]: `${cf.dy}px`, ['--cf-rotate' as string]: `${cf.rotate}deg`,
+                ['--cf-duration' as string]: `${cf.duration}s`, animationDelay: `${cf.delay}s`,
+              }} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

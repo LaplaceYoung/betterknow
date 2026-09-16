@@ -279,3 +279,13 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 菜单下拉 | `.folder-menu-dropdown{top:calc(100% + 8px);right:0;background:#fff;border-radius:10px;box-shadow:0 4px 12px #00000026;padding:4px 0;z-index:100}` | 同（实测 radius 10 / `0 4px 12px rgba(0,0,0,.15)` / `4px 0` / top 28） |
 | 菜单项 | `.folder-menu-item{padding:4px 12px;gap:8px;font-size:14px}`，hover `#f5f5f5`；`.folder-menu-text{color:#e71414;font-weight:500}` | 同（实测 `4px 12px` / gap 8 / 14px / `rgb(231,20,20)`） |
 
+### 练习彩带与欢迎弹窗（第十四批）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 彩带层 | `.practice-check-confetti-layer{position:fixed;inset:0;z-index:10020;pointer-events:none;overflow:visible}` | 同（实测 z 10020） |
+| 碎片 | `.practice-check-confetti-piece{position:fixed;margin:0;opacity:0;transform:translate(-50%,-50%) scale(.6) rotate(0);animation:practice-check-confetti-burst var(--cf-duration,.88s) cubic-bezier(.15,.9,.25,1) both}`；`--rect{border-radius:1.5px}`、`--circle{border-radius:50%}`；`prefers-reduced-motion` 下不播放 | 同（实测 28 片、`1.065s`、缓动一致） |
+| 关键帧 | `0%{opacity:0;scale(.5)} 8%{opacity:1;scale(1);rotate(calc(var(--cf-rotate)*.08))} to{opacity:0;translate(calc(-50% + var(--cf-dx)), calc(-50% + var(--cf-dy) + 28px)) scale(.75) rotate(var(--cf-rotate))}` | 同（变量 `--cf-dx/--cf-dy/--cf-rotate/--cf-duration`） |
+| 欢迎弹窗 | `.practice-welcome-overlay{z-index:10010;background:#0f172a2e;backdrop-filter:blur(3px);padding:24px}`；`.practice-welcome-modal{width:min(480px,100%);padding:20px 22px 20px 12px;border-radius:22px;background:#fbfbfb;box-shadow:0 24px 60px #0f172a2e}`；`.practice-welcome-row{grid-template-columns:140px minmax(0,1fr);gap:14px}`；标题 18/600 `#111827`；说明 13.5 `#4b5563`；按钮 `9px 20px` radius 999 `#111827` | 同（实测 480/22/`20px 22px 20px 12px`/`#fbfbfb`、grid `140px 292px`、按钮 `9px 20px`） |
+| 弹窗动画 | `@keyframes practice-welcome-modal-pop{0%{opacity:0;translateY(8px) scale(.98)} to{opacity:1;translateY(0) scale(1)}}`，`.22s cubic-bezier(.16,1,.3,1)` | 同 |
+
