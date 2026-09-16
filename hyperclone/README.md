@@ -91,6 +91,8 @@ npm run dev --prefix app        # Vite :5173
 
 后端没有 watch 脚本：改完 `hyperclone/server/src` 要 `npm run build --prefix hyperclone/server` 再重启（见下面的坑 2）。
 
+面向使用者的差异说明（哪些与线上一致、哪些不同、为什么）见 **[docs/DIFFERENCES.md](docs/DIFFERENCES.md)**。
+
 ## 能力面貌（2026-09 现状）
 
 | 面 | 状态 |

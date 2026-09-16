@@ -40,6 +40,8 @@
 
 ---
 
+想要一份「本仓与线上有什么不同」的对照，看 **[hyperclone/docs/DIFFERENCES.md](hyperclone/docs/DIFFERENCES.md)**（面向使用者，含 BYOK 五通道与已知取舍）。
+
 ## 🖼️ 界面预览
 
 下面都是本仓跑起来之后直接截的实机图（stub 模式，未接外部模型；截图存放于 `hyperclone/docs/screenshots/`）。
