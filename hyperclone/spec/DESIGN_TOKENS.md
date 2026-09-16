@@ -971,3 +971,18 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 实测：对一条 pending 任务点拒绝 → 弹窗关闭、待处理计数 -1、服务端任务列表里该条消失（4 → 3 → 2）。
 
+### 白板侧栏的两个 tab（第五十二批，r133 + r167 + r168）
+
+线上侧栏：`.whiteboard-sidebar`（宽 0 时收起，展开 260px）> `.whiteboard-sidebar-inner` > `.whiteboard-tabs`（`button.whiteboard-tab[data-active]`，胶囊底 `#f0f0f0`、选中白底带阴影）+ `.whiteboard-sidebar-content`。两个 tab：
+
+| tab | 文案 | 内容 |
+|---|---|---|
+| syllabus | 课程大纲 | `.whiteboard-outline-panel`：`whiteboard-outline-section-title`「学习节大纲」+ `.whiteboard-outline-readonly-card`（标题 / 单元 / `lectureOutline`，无则 `outlineUnavailable`「此学习节暂无大纲。」）+ 「参考资料」（`referencesTitle` / `noReferences`「此学习节暂无参考资料。」） |
+| artifacts | 学习记录 | 课程列表（`whiteboard-outline-option`，`courseUuidTitle`「课程 UUID」）+ 「可用学习节」（`availableSessionsTitle`，点选切换学习节） |
+
+数据来自 `/whiteboard/course-outlines`（课程）与 `/whiteboard/course-outlines/:uuid/sessions`（学习节，含 `lectureOutline`）。
+
+本仓：侧栏改成线上结构，tab 为「课程大纲 / 学习记录」**另加本仓原有的「讲稿」**（第三个 tab 是我们保留的功能，线上把讲稿放在对话面板里，已在文档标差异）；主栏里那块重复的「学习节要点」内联块删掉，要点移进「课程大纲」；服务端会话列表补 camelCase `sessionId`（线上客户端读的就是这个字段名，此前只有 snake_case 导致切换学习节跳到 `undefined`）。
+
+实测：侧栏 260px、三个 tab 的 `data-active` 切换正常；课程大纲里出现「学习节大纲 / 本节要点 / 参考资料」三个小节，卡片显示该学习节标题与大纲正文（`Begin the lecture by confronting the lea…`），无大纲时显示线上文案；学习记录里 70 门课程 + 60 个学习节，点选可跳转。
+

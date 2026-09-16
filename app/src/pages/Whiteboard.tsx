@@ -50,6 +50,32 @@ export default function Whiteboard() {
   const [practiceCta, setPracticeCta] = useState<{ sessionId: string } | null>(null)
   // 线上「退出 Session」确认弹窗（.whiteboard-modal-*）
   const [exitOpen, setExitOpen] = useState(false)
+  // 侧栏（线上 whiteboard-tabs：课程大纲 / 学习记录）
+  const [sidebarTab, setSidebarTab] = useState<'syllabus' | 'artifacts' | 'script'>('syllabus')
+  const [outlineCourses, setOutlineCourses] = useState<Array<{ uuid: string; title?: string }>>([])
+  const [outlineCourseUuid, setOutlineCourseUuid] = useState('')
+  const [outlineSessions, setOutlineSessions] = useState<Array<{ sessionId?: string; session_id?: string; title: string; unitTitle?: string; unit_title?: string; lectureOutline?: string; description?: string; references?: string[] }>>([])
+  const [outlineLoading, setOutlineLoading] = useState(false)
+  const loadOutlineSessions = async (uuid: string) => {
+    setOutlineCourseUuid(uuid)
+    setOutlineLoading(true)
+    try {
+      const res = await apiGet<{ sessions?: typeof outlineSessions }>(`/whiteboard/course-outlines/${uuid}/sessions`)
+      setOutlineSessions(res.sessions ?? [])
+    } catch { setOutlineSessions([]) } finally { setOutlineLoading(false) }
+  }
+  useEffect(() => {
+    void apiGet<{ courses?: Array<{ uuid: string; title?: string }> }>('/whiteboard/course-outlines')
+      .then((r) => {
+        setOutlineCourses(r.courses ?? [])
+        const preferred = r.courses?.find((c) => c.uuid === courseId) ?? r.courses?.[0]
+        if (preferred) void loadOutlineSessions(preferred.uuid)
+      })
+      .catch(() => setOutlineCourses([]))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [courseId])
+  const sessionKey = (s: { sessionId?: string; session_id?: string }) => s.sessionId ?? s.session_id ?? ''
+  const outlineForSession = outlineSessions.find((s) => sessionKey(s) === sessionId) ?? null
   const [savingBoards, setSavingBoards] = useState(false)
   const [exportNote, setExportNote] = useState('')
   // 线上：闲置 120s 弹「您还在吗？」（活动事件会重新计时；勾选 7 天内不再提醒）
@@ -387,22 +413,6 @@ export default function Whiteboard() {
             <button className="hk-icon-btn h-8 w-8" aria-label="分享"><Share2 size={14} /></button>
           </div>
         </header>
-        {keyPoints.length > 0 && (
-          <div className="mx-4 mb-3" style={{ background: 'rgba(255,255,255,.78)', border: '1px solid #e5e5e5', borderRadius: 10, padding: '9px 10px' }} data-testid="session-key-points">
-            <p style={{ fontSize: 10, lineHeight: '15px', fontWeight: 700, color: '#a3a3a3', marginBottom: 6 }}>学习节大纲 · 本节要点 {keyPoints.length} 条</p>
-            {/* 线上 .whiteboard-outline-keypoints：左边框 + 圆点，讲到的条目（current）圆点变蓝 */}
-            <ul style={{ listStyle: 'none', margin: 0, padding: '0 0 0 10px', borderLeft: '1.5px solid #ececec', display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {keyPoints.map((point, index) => (
-                <li key={point} data-status={index === activeKeyPoint ? 'current' : 'todo'}
-                  style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 10px', borderRadius: 10, fontSize: 13, lineHeight: 1.4, color: index === activeKeyPoint ? '#262626' : '#8a8a8a' }}>
-                  <span style={{ width: 5, height: 5, borderRadius: '50%', background: index === activeKeyPoint ? '#4c6696' : '#d4d4d4', flexShrink: 0 }} />
-                  <span style={{ minWidth: 0, flex: 1 }}>{point}</span>
-                  {index === activeKeyPoint && <span style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center', gap: 3, marginLeft: 4, fontSize: 11, color: '#4c6696' }}>讲到这里</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
         {animation && (
           <div className="mx-4 mb-3 hk-card overflow-hidden" data-testid="board-animation">
             <div className="flex items-center gap-2 px-3.5 py-2 border-b border-[#f1f2f4]">
@@ -570,20 +580,98 @@ export default function Whiteboard() {
         {netCheck && <div className="px-4 py-1.5 text-[12px] text-[#3b5bdb]" data-testid="net-check-result">{netCheck}</div>}
       </section>
 
-      {/* 线上 .whiteboard-sidebar-inner 260px（padding 12px 0 0）+ .whiteboard-sidebar-content padding 0 16px */}
-      {!zen && <aside className="shrink-0 flex flex-col" style={{ width: 260, background: '#fbfbfb', padding: '12px 16px 0' }}>
-        <div role="tablist" className="flex text-[13px] border-b">
-          <button role="tab" aria-selected className="flex-1 h-10 font-medium relative flex items-center justify-center gap-1.5">
-            讲稿
-            {isSpeaking && <span className="inline-flex items-center gap-0.5 text-[11px] text-[#2563eb] font-normal"><Volume2 size={11} className="animate-pulse" /> 朗读中</span>}
-            <span className="absolute left-4 right-4 -bottom-px h-0.5 bg-black" />
-          </button>
-          <button role="tab" className="flex-1 h-10 text-[#8a8a90]">对话</button>
+      {/* 线上 .whiteboard-sidebar：tabs（课程大纲 / 学习记录）+ content；「讲稿」是本仓保留的第三个 tab */}
+      {!zen && <aside className="whiteboard-sidebar" style={{ width: 260 }}>
+        <div className="whiteboard-sidebar-inner">
+        <div className="whiteboard-tabs" role="tablist">
+          {([['syllabus', '课程大纲'], ['artifacts', '学习记录'], ['script', '讲稿']] as const).map(([key, label]) => (
+            <button key={key} type="button" role="tab" className="whiteboard-tab" data-active={sidebarTab === key} data-testid={`sidebar-tab-${key}`}
+              aria-selected={sidebarTab === key} onClick={() => setSidebarTab(key)}>{label}</button>
+          ))}
         </div>
-        <div className="flex-1 overflow-y-auto hk-scroll p-4 space-y-3 text-[13px] leading-6">
-          {script.length === 0 && <div className="text-[#8a8a90]">讲解开始后，老师的讲稿会同步显示在这里。</div>}
-          {script.map((s, i) => <div key={i} className={`hk-fade-in-up ${s.who === 'you' ? 'ml-6 rounded-xl bg-[#f1f2f4] px-3 py-2' : ''}`}>{s.who === 'teacher' && <span className="text-[11px] text-[#8a8a90] block">老师</span>}{s.text}</div>)}
-          <div ref={scriptBottomRef} />
+        <div className="whiteboard-sidebar-content">
+          {sidebarTab === 'syllabus' && (
+            <div className="whiteboard-outline-panel" data-testid="syllabus-panel">
+              <p className="whiteboard-outline-section-title">学习节大纲</p>
+              <div className="whiteboard-outline-readonly-card">
+                {outlineForSession ? (
+                  <>
+                    <span className="whiteboard-outline-option-title">{outlineForSession.title}</span>
+                    {(outlineForSession.unitTitle ?? outlineForSession.unit_title) && <span className="whiteboard-outline-option-meta">{outlineForSession.unitTitle ?? outlineForSession.unit_title}</span>}
+                    <p className="whiteboard-outline-body">{outlineForSession.lectureOutline || outlineForSession.description || '此学习节暂无大纲。'}</p>
+                  </>
+                ) : (
+                  <p className="whiteboard-outline-hint">此学习节暂无大纲。</p>
+                )}
+              </div>
+              <p className="whiteboard-outline-section-title">本节要点</p>
+              {keyPoints.length === 0
+                ? <p className="whiteboard-outline-hint">讲解开始后，本节要点会显示在这里。</p>
+                : (
+                  <ul className="whiteboard-outline-keypoints" style={{ listStyle: 'none', margin: 0, padding: '0 0 0 10px', borderLeft: '1.5px solid #ececec', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    {keyPoints.map((point, index) => (
+                      <li key={point} data-status={index === activeKeyPoint ? 'current' : 'todo'}
+                        style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12.5, lineHeight: 1.4, color: index === activeKeyPoint ? '#1f1f1f' : '#6b6b70' }}>
+                        <span style={{ width: 5, height: 5, borderRadius: '50%', background: index === activeKeyPoint ? '#4c6696' : '#d4d4d4', flexShrink: 0 }} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              <p className="whiteboard-outline-section-title">参考资料</p>
+              {(outlineForSession?.references ?? []).length === 0
+                ? <p className="whiteboard-outline-hint">此学习节暂无参考资料。</p>
+                : (
+                  <div className="whiteboard-outline-list">
+                    {(outlineForSession?.references ?? []).map((ref) => (
+                      <a key={ref} className="whiteboard-reference-item" href={ref} target="_blank" rel="noreferrer">{ref}</a>
+                    ))}
+                  </div>
+                )}
+            </div>
+          )}
+
+          {sidebarTab === 'artifacts' && (
+            <div className="whiteboard-outline-panel" data-testid="artifacts-panel">
+              <p className="whiteboard-outline-section-title">课程 UUID</p>
+              <div className="whiteboard-outline-list">
+                {outlineCourses.length === 0 && <p className="whiteboard-outline-hint">还没有课程。</p>}
+                {outlineCourses.map((c) => (
+                  <button key={c.uuid} type="button" className="whiteboard-outline-option" data-active={outlineCourseUuid === c.uuid}
+                    onClick={() => void loadOutlineSessions(c.uuid)}>
+                    <span className="whiteboard-outline-option-title">{c.title || c.uuid}</span>
+                    {c.title && c.title !== c.uuid && <span className="whiteboard-outline-option-meta">{c.uuid}</span>}
+                  </button>
+                ))}
+              </div>
+              {outlineCourseUuid && (
+                <>
+                  <p className="whiteboard-outline-section-title">可用学习节</p>
+                  {outlineLoading && <p className="whiteboard-outline-hint">正在加载学习节…</p>}
+                  {!outlineLoading && outlineSessions.length === 0 && <p className="whiteboard-outline-hint">这门课还没有可用的学习节。</p>}
+                  <div className="whiteboard-outline-list">
+                    {outlineSessions.map((s) => (
+                      <button key={sessionKey(s)} type="button" className="whiteboard-outline-option" data-active={sessionKey(s) === sessionId}
+                        data-testid="outline-session-option"
+                        onClick={() => nav(courseId ? `/course/${courseId}/sessions/whiteboard/${sessionKey(s)}` : `/whiteboard/${sessionKey(s)}`)}>
+                        <span className="whiteboard-outline-option-title">{s.title}</span>
+                        <span className="whiteboard-outline-option-meta">{[s.unitTitle ?? s.unit_title, sessionKey(s)].filter(Boolean).join(' · ')}</span>
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {sidebarTab === 'script' && (
+            <div className="space-y-3 text-[13px] leading-6">
+              {script.length === 0 && <div className="text-[#8a8a90]">讲解开始后，老师的讲稿会同步显示在这里。</div>}
+              {script.map((s, i) => <div key={i} className={`hk-fade-in-up ${s.who === 'you' ? 'ml-6 rounded-xl bg-[#f1f2f4] px-3 py-2' : ''}`}>{s.who === 'you' ? `🙋 ${s.text}` : s.text}</div>)}
+              <div ref={scriptBottomRef} />
+            </div>
+          )}
+        </div>
         </div>
         <div className="p-3 border-t">
           <div className="hk-composer p-2 flex items-center gap-2">

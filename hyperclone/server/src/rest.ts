@@ -549,6 +549,8 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     const sessions = enumerateCourseSessions(course).map((session) => ({
       id: `${id}:${session.sessionId}`,
       course_uuid: id,
+      // 线上客户端读 sessionId/unitId（camel），本仓此前只给 snake_case，这里两者都给
+      sessionId: session.sessionId,
       session_id: session.sessionId,
       title: session.title,
       description: session.description,

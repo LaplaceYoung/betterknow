@@ -542,3 +542,10 @@
 - 补上「拒绝任务」：服务端 `/calendar/approve_tasks` 从「只改状态」改成线上语义（数组入参、`reject` 从日历移除、响应带 `total_succeeded/queued_task_ids/failed_task_ids`）；客户端底部动作换成线上 SVG（确认 `M20 6L9 17L4 12`、拒绝双 path、删除/评论图标），拒绝带处理中 spinner 与禁用态。
 - 实测：pending 任务详情同时出现确认与拒绝两个圆形按钮（radius 50%，4 个 SVG 图标）；点拒绝后弹窗关闭、待处理计数 -1、服务端任务数随之减少。
 - 仍未做：源文件卡（`task-detail-file-card*`）、相关截止项（`task-detail-related-due-*`，本仓任务没有关联关系数据）、子任务多文件、生成失败的 broken 态；「待处理」列表页（`pending_main_task_detail` + `pendingTasks.rejectAllTasks` 批量拒绝）也没有对齐。
+
+**第六十五批（白板侧栏改为线上 tab 结构）**
+- 侧栏从自绘的「讲稿/对话」改成线上 `.whiteboard-sidebar` + `.whiteboard-tabs`：**课程大纲**（学习节大纲卡片 + 本节要点 + 参考资料）与**学习记录**（课程列表 + 可用学习节，点选切换）；样式 53 条取自线上原文。本仓保留第三个 tab「讲稿」（线上把讲稿放在对话面板，差异已记）。
+- 主栏里重复的「学习节要点」内联块删除，要点并入课程大纲 tab。
+- **修掉一个字段错**：服务端会话列表只给 `session_id`，而前端（照线上写法）读 `sessionId`，点「可用学习节」会跳到 `.../whiteboard/undefined`；现在两者都返回。
+- 实测：三个 tab 切换正常；大纲卡片显示学习节标题 + 大纲正文、无大纲时显示「此学习节暂无大纲。」；学习记录 70 门课程 / 60 个学习节可选。
+- 仍未做：参考资料一节目前永远走空态（本仓学习节没有 references 数据）；展开/收起按钮（`whiteboard-sidebar-open-btn`）与 `collapseSidebar/expandSidebar` 文案未接；拖拽/键盘无障碍细节未逐条复刻。
