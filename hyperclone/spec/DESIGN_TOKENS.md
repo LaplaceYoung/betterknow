@@ -950,3 +950,11 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 本仓：预览同时画「已有任务」（bar 形态，取三色板循环）与「新计划条目」（`ccal-preview-pill`），已有任务里排除本课程自己的旧计划（因为确认时会替换）。实测：4 条已有任务条 + 17 个计划 pill + 21 个日格，色条 `rgb(76,102,148)`（#4C6694）、pill 底色 `#3d5477`。
 
+### 为任务生成学习材料（第五十批，proactive bundle + r160）
+
+线上（原文）：`POST /api/v1/file_generation/rerun {task_id}` → `{success, file_id, file_name, file_url}`；调用前先查 `file_generation` 余量，用尽时提示 `taskDetail.fgaQuotaExceeded`（「已达到每周文件生成上限（{{limit}}/{{limit}}）。」）。成功后前端把该子任务标为完成，并把 `related_file_ids.output_files[0]` 换成新文件，渲染成 `task-detail-generated-file-card`（图标 + 名称 + 描述，另有 spinner / broken 两态）。
+
+本仓：服务端新增 `POST /file_generation/rerun`（BYOK 模型写作；无模型用结构化兜底并标 `stub`）+ `GET /file_generation/files/:file_id`（鉴权取件），文件挂回 `subtasks[].related_file_ids.output_files` 并计数 `usageCounters.file_generation`；客户端子任务行显示文件卡（点开即下载/预览）与「立即生成 / 重新生成」按钮，生成中转圈、配额为 0 时提示上限。
+
+实测：无模型 → `stub:true`、卡片出现、按钮变「重新生成」、取件 200 `text/markdown` 138 B；配假网关 → `stub:false`，文件内容确为模型输出（`# 模型生成的学习材料`）。
+

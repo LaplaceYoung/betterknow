@@ -8,7 +8,7 @@ interface Task {
   scheduled_for: string; due_at?: string; status: 'pending' | 'confirmed' | 'done' | string; type?: string; duration_min?: number
   description?: string
   progress?: number
-  subtasks?: { subtask_id?: string; task_id?: string; title?: string; status?: string }[]
+  subtasks?: Array<{ subtask_id?: string; task_id?: string; title?: string; status?: string; related_file_ids?: { output_files?: Array<{ file_id?: string; file_name?: string; file_url?: string }> } }>
 }
 // 线上 weekdays：周日打头（sun..sat）；事件配色按标题字符和取模（course 事件三色板）
 const WEEK = ['日', '一', '二', '三', '四', '五', '六']
@@ -56,6 +56,35 @@ export default function LearningFeed() {
   const [comment, setComment] = useState('')
   const [revising, setRevising] = useState(false)
   const [toast, setToast] = useState('')
+  const [generating, setGenerating] = useState('')
+  const [quotaLeft, setQuotaLeft] = useState<number | null>(null)
+  useEffect(() => {
+    void apiGet<{ file_generation?: { remaining: number } }>('/auth/other_function_usage_limits')
+      .then((r) => setQuotaLeft(r.file_generation?.remaining ?? null)).catch(() => setQuotaLeft(null))
+  }, [])
+  // 线上 be()：先查余量 → POST /file_generation/rerun {task_id} → 回读 subtask 的文件卡
+  const generateFile = async (subtaskId: string, subtaskTitle: string) => {
+    if (quotaLeft === 0) { setToast('已达到每周文件生成上限。'); window.setTimeout(() => setToast(''), 2600); return }
+    setGenerating(subtaskId)
+    try {
+      const res = await apiPost<{ success?: boolean; file_id?: string; file_name?: string; file_url?: string; stub?: boolean }>(
+        '/file_generation/rerun', { task_id: openTask?.id, subtask_id: subtaskId })
+      if (res.success && res.file_url) {
+        setOpenTask((t) => (t ? {
+          ...t,
+          subtasks: (t.subtasks ?? []).map((s) => (s.subtask_id === subtaskId
+            ? { ...s, status: 'completed', related_file_ids: { ...(s.related_file_ids ?? {}), output_files: [{ file_id: res.file_id ?? '', file_name: res.file_name ?? subtaskTitle, file_url: res.file_url ?? '' }] } }
+            : s)),
+        } : t))
+        setToast(res.stub ? '已生成材料（未配置模型时用内置模板）' : '学习材料已生成')
+        setQuotaLeft((n) => (n === null ? null : Math.max(0, n - 1)))
+      } else setToast('生成失败，请重试。')
+      window.setTimeout(() => setToast(''), 2600)
+      await load()
+    } finally {
+      setGenerating('')
+    }
+  }
   // datetime-local 需要本地时间的 YYYY-MM-DDTHH:mm
   const toLocalInput = (iso: string) => {
     const d = new Date(iso)
@@ -287,12 +316,31 @@ export default function LearningFeed() {
                         子任务 <span className="task-detail-section-title-desc">- 提前为你准备好的学习材料，帮助你完成任务</span>
                       </h3>
                       <div className="task-detail-subtasks">
-                        {(openTask.subtasks ?? []).map((sub, index) => (
-                          <div key={sub.subtask_id ?? index} className="task-detail-subtask">
-                            <span className={`task-detail-subtask-status ${sub.status === 'done' ? 'done' : ''}`}>{sub.status === 'done' ? '✓' : index + 1}</span>
-                            <span className="task-detail-subtask-title">{sub.title ?? '学习材料'}</span>
-                          </div>
-                        ))}
+                        {(openTask.subtasks ?? []).map((sub, index) => {
+                          const outputs = sub.related_file_ids?.output_files ?? []
+                          return (
+                            <div key={sub.subtask_id ?? index} className="task-detail-subtask">
+                              <span className={`task-detail-subtask-status ${sub.status === 'done' ? 'done' : ''}`}>{sub.status === 'done' ? '✓' : index + 1}</span>
+                              <span className="task-detail-subtask-title">{sub.title ?? '学习材料'}</span>
+                              {generating === (sub.subtask_id ?? '') && <span className="task-detail-generated-file-icon-spinner" aria-label="生成中" />}
+                              {outputs.length > 0 && generating !== (sub.subtask_id ?? '') && (
+                                <a className="task-detail-generated-file-card" data-testid="generated-file-card"
+                                  href={outputs[0].file_url} target="_blank" rel="noreferrer" title={outputs[0].file_name}>
+                                  <span className="task-detail-generated-file-icon" aria-hidden="true">📄</span>
+                                  <span className="task-detail-generated-file-info">
+                                    <span className="task-detail-generated-file-name">{outputs[0].file_name}</span>
+                                    <span className="task-detail-generated-file-description">为你准备的学习材料</span>
+                                  </span>
+                                </a>
+                              )}
+                              <button type="button" className="task-detail-action-btn" data-testid="generate-file"
+                                disabled={generating !== '' || quotaLeft === 0}
+                                onClick={() => void generateFile(sub.subtask_id ?? '', sub.title ?? '')}>
+                                {outputs.length > 0 ? '重新生成' : '立即生成'}
+                              </button>
+                            </div>
+                          )
+                        })}
                       </div>
                       <div className="task-detail-subtask-footer">
                         <div className="task-detail-progress-container">

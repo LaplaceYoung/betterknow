@@ -532,3 +532,8 @@
 - 顺势把上一批我自写的 `ccal-preview-*` 样式换成线上原文 29 条（日格 58px、`--today` 数字色 `#3d5477`、`--drag-over` 蓝底内描边、pill 白字 grab 光标等）。
 - 实测：4 条已有任务条 + 17 个计划 pill + 21 个日格，色值取自线上色板。
 - 仍未做：`course-cal-modal--fullscreen` 全屏变体（含 `.course-cal-modal--fullscreen .ccal-preview-*` 的几条特化）；`draft` 端点仍是桩。
+
+**第六十三批（任务的学习材料生成，BYOK）**
+- 补上任务详情里「生成文件卡」这条线：线上是 `POST /file_generation/rerun {task_id}`（先查 `file_generation` 配额，成功把文件挂到子任务的 `related_file_ids.output_files` 并渲染成卡片）。本仓服务端实现该端点（BYOK 模型写作，无模型时结构化兜底并标 `stub`）+ 鉴权取件路由，并把用量计入 `usageCounters.file_generation`；客户端子任务行显示文件卡与「立即生成 / 重新生成」，生成中转圈、配额为 0 时提示「已达到每周文件生成上限。」（线上 zh 原文）。
+- 实测：无模型路径 —— `stub:true`、卡片与文件名正确、取件 200/`text/markdown`/138 B、按钮变「重新生成」；模型路径 —— 配假网关后 `stub:false`，文件内容就是模型输出。
+- 仍未做：源文件卡（`task-detail-file-card*`，对应任务的输入文件）、相关截止项（`task-detail-related-due-*`）、拒绝任务、子任务级的多文件（本仓只挂一个输出文件）、文件生成失败的 broken 态与 tooltip。

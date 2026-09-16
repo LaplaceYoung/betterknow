@@ -356,6 +356,62 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   });
   app.post('/api/v1/calendar/approve_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; action?: string }; await updateState((state) => { const task = (state.calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); if (task) task.status = body.action === 'approve' ? 'approved' : body.action; }); return { success: true }; });
   app.post('/api/v1/calendar/update_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; tasks?: Array<Record<string, unknown>> } & Record<string, unknown>; await updateState((state) => { const tasks = state.calendar[request.userId!] ??= []; if (body.tasks) state.calendar[request.userId!] = body.tasks; else { const task = tasks.find((item) => item.task_id === body.task_id); if (task) Object.assign(task, body, { updated_at: now() }); } }); return { success: true }; });
+  // 线上：POST /file_generation/rerun {task_id} → {success, file_id, file_name, file_url}
+  // 给某个任务/子任务生成学习材料（BYOK 模型写作；无模型时给结构化兜底），并把文件挂回 subtask.related_file_ids.output_files
+  app.post('/api/v1/file_generation/rerun', protectedRoute, async (request, reply) => {
+    const body = (request.body ?? {}) as { task_id?: string; subtask_id?: string };
+    const taskId = String(body.task_id ?? '');
+    const subtaskId = String(body.subtask_id ?? '');
+    const state = await readState();
+    const task = (state.calendar[request.userId!] ?? []).find((item) => item.task_id === taskId) as Record<string, unknown> | undefined;
+    if (!task) return reply.code(404).send({ detail: 'Task not found' });
+    const counters = (state.usageCounters ?? {})[request.userId!] ?? {};
+    const used = Number((counters as Record<string, number>).file_generation ?? 0);
+    const subtasks = (task.subtasks as Array<Record<string, unknown>> | undefined) ?? [];
+    const subtask = subtasks.find((s) => String(s.subtask_id ?? '') === subtaskId) ?? subtasks[0];
+    const title = String(subtask?.title ?? task.title ?? '学习材料');
+    const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+    let markdown = `# ${title}\n\n## 学习目标\n- 完成「${String(task.title ?? '')}」中的这一小节\n- 能用一句话复述核心结论\n\n## 要点\n1. 先写清已知条件与目标\n2. 按因果链推进一步\n3. 用一个具体例子检验\n\n## 自测\n- 换一个数字，结论还成立吗？\n`;
+    let stub = true;
+    if (eff.provider !== 'stub') {
+      try {
+        const raw = await chat([
+          { role: 'system', content: '你是学习材料生成器。输出紧凑的 Markdown 学习材料：学习目标、要点、示例、3 道自测题。不要输出对话寒暄。' },
+          { role: 'user', content: `任务：${String(task.title ?? '')}\n当前小节：${title}\n任务描述：${String(task.description ?? '').slice(0, 400)}` },
+        ], 'content', eff);
+        if (raw.trim()) { markdown = raw.trim(); stub = false; }
+      } catch { /* 模型不可用：用兜底材料，并在响应里标 stub */ }
+    }
+    const fileId = randomUUID().replaceAll('-', '');
+    const fileName = `${title.replace(/[/\\?%*:|"<>]/g, '_').slice(0, 40)}.md`;
+    publicFiles.set(fileId, { id: fileId, filename: fileName, mime: 'text/markdown', data: Buffer.from(markdown, 'utf-8'), owner: request.userId!, created_at: now() });
+    const fileUrl = `/api/v1/file_generation/files/${fileId}`;
+    await updateState((next) => {
+      const list = next.calendar[request.userId!] ?? [];
+      const target = list.find((item) => item.task_id === taskId) as Record<string, unknown> | undefined;
+      if (!target) return;
+      const rows = (target.subtasks as Array<Record<string, unknown>> | undefined) ?? [];
+      const row = rows.find((s) => String(s.subtask_id ?? '') === String(subtask?.subtask_id ?? '')) ?? rows[0];
+      if (row) {
+        const related = (row.related_file_ids as Record<string, unknown> | undefined) ?? {};
+        const outputs = Array.isArray(related.output_files) ? (related.output_files as Array<Record<string, unknown>>) : [];
+        related.output_files = [{ file_id: fileId, file_name: fileName, file_url: fileUrl }, ...outputs.filter((f) => String(f.file_id ?? '') !== fileId)];
+        row.related_file_ids = related;
+        row.status = 'completed';
+        row.progress = 'completed';
+        row.progress_percentage = 100;
+      }
+      target.updated_at = now();
+      next.usageCounters = { ...(next.usageCounters ?? {}), [request.userId!]: { ...((next.usageCounters ?? {})[request.userId!] ?? {}), file_generation: used + 1 } };
+    });
+    return { success: true, file_id: fileId, file_name: fileName, file_url: fileUrl, subtask_id: String(subtask?.subtask_id ?? ''), stub };
+  });
+  app.get('/api/v1/file_generation/files/:file_id', protectedRoute, async (request, reply) => {
+    const file = publicFiles.get((request.params as { file_id: string }).file_id);
+    if (!file || file.owner !== request.userId) return reply.code(404).send({ detail: 'File not found' });
+    return reply.type(file.mime).send(file.data);
+  });
+
   app.post('/api/v1/calendar/remove_task', protectedRoute, async (request) => { const body = request.body as { task_id?: string }; await updateState((state) => { state.calendar[request.userId!] = (state.calendar[request.userId!] ?? []).filter((item) => item.task_id !== body.task_id); }); return { success: true }; });
   // 线上任务详情：{success, main_task, subtasks, subtask_count}；带 comment 时由模型按评论改写任务（BYOK）
   app.post('/api/v1/calendar/main_task_detail', protectedRoute, async (request, reply) => {

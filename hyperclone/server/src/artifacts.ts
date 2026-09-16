@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-export interface PublicFile { id: string; filename: string; mime: string; data: Buffer }
+export interface PublicFile { id: string; filename: string; mime: string; data: Buffer; owner?: string; created_at?: string }
 
 export const publicFiles = new Map<string, PublicFile>();
 export const diagrams = new Map<string, { md?: string; html?: string; png?: Buffer }>();
