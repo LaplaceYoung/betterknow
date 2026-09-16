@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Search, Share2, MoreHorizontal, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from 'lucide-react'
+import { Search, Share2, MoreHorizontal, ExternalLink, Sparkles } from 'lucide-react'
 import { apiGet, type MarketplaceCourse } from '@/lib/api'
 
 interface MyCourse { courseUuid: string; courseTitle: string; courseDescription: string; tags?: string[]; unitCount: number; sessionCount: number; coverImageUrl: string; createdAt: string; source?: string; progress?: number; nextItem?: { title?: string; unitTitle?: string; type?: string } | null }
@@ -30,8 +30,9 @@ export default function Courses() {
     apiGet<LearningStats>('/user/learning-stats').then(setStats).catch(() => {})
   }, [])
   const shown = useMemo(() => (courses ?? []).filter((c) => (tab === 'all' || (tab === 'done' ? (c.progress ?? 0) >= 100 : (c.progress ?? 0) < 100)) && (!q || c.courseTitle.toLowerCase().includes(q.toLowerCase()))), [courses, tab, q])
-  const today = new Date().getDay() // 0=Sun
-  const todayIdx = (today + 6) % 7
+  // 「新建」标记与"今天"都要在渲染期读一次时间：放进 state 初始化，避免渲染期调用 Date.now()
+  const [mountedAt] = useState(() => Date.now())
+  const today = new Date(mountedAt).getDay()
   const first = courses?.[0]
 
   return (
@@ -59,20 +60,16 @@ export default function Courses() {
           )}
           {courses && shown.length === 0 && (
             <div className="courses-empty" data-testid="courses-empty">
-              <svg className="courses-empty-illustration" viewBox="0 0 120 120" aria-hidden="true">
-                <rect x="14" y="24" width="92" height="66" rx="12" fill="#eef2f8" />
-                <rect x="26" y="38" width="40" height="7" rx="3.5" fill="#c9d6e6" />
-                <rect x="26" y="52" width="60" height="6" rx="3" fill="#dde5ef" />
-                <rect x="26" y="64" width="52" height="6" rx="3" fill="#dde5ef" />
-                <circle cx="88" cy="80" r="14" fill="#4c6696" />
-                <path d="M82 80h12" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-              <p className="courses-empty-title">{q ? '没有找到匹配的课程' : '还没有课程'}</p>
-              <p className="courses-empty-text">{q ? '换个关键词试试，或者去课程集市挑一门。' : '去课程集市挑一门，或回到首页让 betterknow 为你生成一门课。'}</p>
+              {/* 线上两支空态图：搜索无结果 / 课程架为空（r175 抓到的资产，1254×1254 PNG） */}
+              <img className="courses-empty-illustration" aria-hidden="true"
+                src={q ? '/assets/img/pages/coursePage/CourseJourney/no-search-result.png' : '/assets/img/pages/coursePage/CourseJourney/no-courses-yet.png'}
+                alt="" />
+              <p className="courses-empty-title">{q ? '没有找到匹配的课程。' : '你的课程架暂时是空的'}</p>
+              <p className="courses-empty-text">{q ? '试试其他关键词，或清空搜索。' : '生成你的第一门课程，或去课程市场逛逛，开始学习吧。'}</p>
             </div>
           )}
           {shown.map((c) => {
-            const isNew = Date.now() - new Date(c.createdAt).getTime() < 12 * 3600e3
+            const isNew = mountedAt - new Date(c.createdAt).getTime() < 12 * 3600e3
             return (
               <button key={c.courseUuid} onClick={() => nav(`/course/${c.courseUuid}`)} className="hk-card w-full text-left p-4 grid gap-4 items-center hover:shadow-md transition-shadow" style={{ gridTemplateColumns: '1fr 160px 180px' }}>
                 <div className="min-w-0">

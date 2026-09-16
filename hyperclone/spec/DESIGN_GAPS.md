@@ -332,7 +332,7 @@
 **第二十八批（历史页）**
 - 历史页整页换成线上 `sh-*` 体系（之前是自研卡片列表、没有分组）：页根变量（`--sh-ink/--sh-ink-muted/--sh-ink-faint/--sh-hairline/--sh-divider/--sh-surface/--sh-lift`）、1120 内容列、20/650 标题、260→300 聚焦变宽的搜索、`sh-new-conversation-btn`、胶囊标签与 30×30 圆形筛选（选中变胶囊）、带渐隐遮罩的滚动区、**按时间分组**（今天/本周/更早，11px 大写 `.07em` 标签）、`sh-list` 白卡（radius 14 + `--sh-lift`）、44px 行（hover `#241f180d`、`left:36px` 内缩分隔线、36px 图标列、15 与省略号）。
 - 行内补了星标与 `⋯` 删除菜单（沿用 `sh-filter-dropdown` 的下拉样式）。
-- 已做：`sh-scroll--scrolled` 的顶部渐隐联动、`sh-filter-dropdown` 菜单。仍未做：多选筛选（类型/时间范围）的组合语义，空态插画。
+- 已做：`sh-scroll--scrolled` 的顶部渐隐联动、`sh-filter-dropdown` 菜单（含 active 态与 6px 琥珀色 badge）。**修正之前写错的预期**：线上那个下拉只有一个「仅收藏」开关（r175 抓包：`<button class="sh-filter-option"><img src=star.svg><span>仅收藏</span></button>`），并没有「类型/时间范围」多选，本仓已是同形，无需再补。
 
 **第二十九批（历史筛选 · 空态 · 收件箱行）**
 - **历史页筛选**：按线上实现漏斗图标按钮（路径逐字一致）+ 下拉（min-width 160 / radius 12 / `0 8px 24px rgba(15,23,42,.1)` / `4px 0`）+ 「仅收藏」选项 + 选中态（按钮变胶囊、图标 stroke `#374151`、6px 橙色标记点），点外部自动收起；行数从 39 掉到 1 验证筛选真的生效。
@@ -617,3 +617,9 @@
 - 补上线上 `resizeSplit` 与 `anchorMarker*` 两件事：编辑区与预览之间加了可拖分隔条（`role="separator"`，aria-label「拖动调整编辑区与预览区宽度」，悬停高亮，宽度限制 22%–72%），工具栏下方加锚点芯片显示「光标 · 第 N 行 · 内容将添加在此行之后」，随光标（键盘/点击）移动更新。
 - 实测：拖动后编辑区宽 524 → 739px；光标从第 1 行移到第 5 行，锚点芯片同步为「第 5 行」（用真实按键事件驱动；React 的 onSelect 对合成事件不敏感，所以监听 onKeyUp/onClick/onSelect 三处）。
 - 仍未做：线上 tiptap 那套「内容插入到锚点行」的生成回写语义（本仓编辑器只做插入语法，锚点仅作指示）。
+
+**第七十七批（课程空态换线上资产 + 回归巡检）**
+- 课程页空态从自绘 SVG 换成线上两张插画（`/pages/coursePage/CourseJourney/no-search-result.png`、`no-courses-yet.png`，各 1254×1254，落到 `app/public/assets/img/pages/coursePage/CourseJourney/`），文案换成线上 zh 词典原文（「没有找到匹配的课程。」/「试试其他关键词，或清空搜索。」与「你的课程架暂时是空的」/「生成你的第一门课程，或去课程市场逛逛，开始学习吧。」）。
+- **回归巡检**（本轮改了编辑器/动态/日历/白板多处，专门跑一遍）：首页→课程→学习动态→历史→课程集市的 SPA 导航（补丁在页面内打点）0 个 4xx、0 console 报错；课程页（开日历弹窗）/练习/考试/白板（退沉浸）/深度课堂四个深层路由各做一次交互，同样全绿。
+- 顺手清掉 `Courses.tsx` 里**既有的** lint 问题（未用的 `ChevronLeft/Right` 导入、未用的 `todayIdx`、渲染期 `Date.now()`），改后 `tsc` + `eslint` 干净。
+- 实测：课程页搜索一个不存在的关键词 → 空态渲染 `IMG naturalWidth 1254`、标题「没有找到匹配的课程。」、说明「试试其他关键词，或清空搜索。」。
