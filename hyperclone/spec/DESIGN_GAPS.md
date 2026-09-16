@@ -289,7 +289,7 @@
 
 **第二十批（练习页交互件）**
 - 线上实操一节练习后补齐：`practice-stage` 边框舞台、**每题 10 秒速答计时条**（`practice-timer-drain`，实测 `animation-duration:10000ms`，答题后暂停）、HUD 胶囊（速答奖励 / 得分，含金色 bonus 态）、助手开关、**双列选项卡**（76 高 / radius 15 / hover 投影 / 选中 `#4c6696` / 正确 `#2e8b57` / 错误 `#c34747`）、四色轮转的 34×34 选项形状、右上键位角标、右侧圆环指示器、3D 立体检查键（`0 6px #33569a`）与描边「下一题」、跳过键。
-- 仍未做：**右侧 verdict 面板**（`.practice-split--revealed` 展开 360px 宽的判题区、`.practice-verdict-headline` 的绿/红底色）、答案揭晓时的**彩带**（`.practice-check-confetti-piece`）、得分数字的**老虎机滚动**（`.practice-slot-digit-strip` + `practice-slot-roll`）、`practice-welcome-modal` 欢迎弹窗。
+- 已做：右侧 verdict 面板（`.practice-split--revealed` 展开 360px 宽的判题区、`.practice-verdict-headline` 的绿/红底色）、答案揭晓时的**彩带**（`.practice-check-confetti-piece`）、得分数字的**老虎机滚动**（`.practice-slot-digit-strip` + `practice-slot-roll`）、`practice-welcome-modal` 欢迎弹窗。
 
 **第二十一批（判题反馈 · 分数滚动 · 骨架动画）**
 - 判题结果换成线上 `practice-feedback` / `verdict-headline` 令牌（圆角胶囊 + 22px 圆形判定标 + 绿/红两套底色），解释文字 13.5px `#555` / 1.55。
@@ -458,7 +458,7 @@
 **第四十九批（互动题的动画面板）**
 - 上一批记的「互动题 `animationHtml` 我们链路没有」是**误判**：种子里的考试数据本来就带 `animationHtml`（每份 exam.json 里恰好一题，约 10 KB 的自包含 HTML），只是客户端从没渲染过。现按线上契约接上：iframe + `sandbox="allow-scripts"` + `referrerPolicy="no-referrer"` + 子页 `hk-anim-height` 上报 + 父页监听设高 + 窄屏按 `clamp(width/720,.5,1)` 缩放。
 - 实测：shell 切成 `--animation`、kicker「互动」、子页回报高度 509px（说明内部脚本与画布真的跑起来了）、scaler 481px、`scale(0.944)`。
-- 仍未做：动画题 `maxHeight` 的父页行列测量（`ce()` 那套），本仓只用内容高度 + 缩放（结论与实测一致，保持本仓口径）。
+- 已做：动画题 `maxHeight` 的舞台测量（第八十二批按线上 `Nt` 那段照搬：`available = max(200, stage.clientHeight - known - scrollDelta)`、`scale = clamp(0.5, available/动画高, 1)`）。
 
 **第五十批（随堂助手面板重写 + 助手接模型）**
 - 面板按线上 `.practice-assistant*` 重写：`aside` + 空态提示 + 消息（typing 三点、assistant 走 markdown、截图缩略图）+ 附件区 + 错误行 + 输入行（附截图按钮 / 隐藏 file input / 输入框 / 发送按钮的禁用与转圈态），并支持把图片拖进面板；顶栏按钮改成线上的开/关 toggle（`--active`、`aria-label` 切换）。规则 43 条全部取自线上样式表。
@@ -611,7 +611,7 @@
 - **修掉图片 404**：`/drive/upload_file_to_drive` 只写了 `<id>` 的字节、没写 `<id>.json` 元数据，导致 `/api/v1/files/<id>` 读不出（`readPersistedPublicFile` 需要 sidecar）→ 插进编辑器的图片必然 404。现在上传时一并落元数据，实测 `200 image/png 88B`。
 - **修掉预览不跟草稿**：编辑模式右侧预览此前渲染的是载入时的 markdown，改动要等保存后刷新才可见；现在预览与正文都跟随草稿实时刷新（实测插图后立刻以 24×24 出现在预览里）。
 - 实测：`==重点：勾三股四弦五==` → 预览 `<mark>` 背景 `rgb(254,240,138)`；`<span style="color:#dc2626">斜边一定最长</span>` → 预览 `rgb(220,38,38)`；插图插入 `![图示例.png](/api/v1/files/…)` 并在预览里加载成功；「离开而不保存？」在未保存时确实拦住模式切换（等静默自动保存落地后再切换即通过）。
-- 仍未做：光标锚点「内容将添加在此行之后」、拖动分隔调整编辑区宽度、保存失败详情报错面板。
+- 已做：光标锚点「内容将添加在此行之后」与拖动分隔调整编辑区宽度。仍未做：保存失败时的详情报错面板（线上那张带「复制左侧原始文本」建议的弹窗）。
 
 **第七十六批（编辑器：拖动分隔 + 光标锚点）**
 - 补上线上 `resizeSplit` 与 `anchorMarker*` 两件事：编辑区与预览之间加了可拖分隔条（`role="separator"`，aria-label「拖动调整编辑区与预览区宽度」，悬停高亮，宽度限制 22%–72%），工具栏下方加锚点芯片显示「光标 · 第 N 行 · 内容将添加在此行之后」，随光标（键盘/点击）移动更新。
