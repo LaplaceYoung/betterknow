@@ -210,6 +210,14 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - `GET /auth/other_function_usage_limits` 是本仓的用量口径来源：BYOK 版不设商业限额，但**已用计数如实上报**（`{remaining, limit, used, last_reset_at}` + `storage_limit_bytes`）。
 - 学习日程页分组（实测按钮/标题）：**已确认任务 / 待处理任务 / 批量删除日程 / 您的专业版配额 / 周视图 / 月视图**；批量删除在选中态下列出「删除所选 N」。
 
+## 2.14 白板工具条与面板（2026-09-16 实测）
+
+白板默认就在 **zen（沉浸）模式**，工具条上有 `disable-zen-mode`（文案「Exit zen mode」）。实测可见控件：
+`dropdown-menu-button main-menu-trigger` / Zoom out（`Cmd+-`）/ Reset zoom / Zoom in（`Cmd++`）/ `help-icon`（Help — ?）/ 缩放（缩小 · 100% · 放大）/ 上一页 / 下一页 / **导出**（`whiteboard-export-menu-wrap`）/ 设置 / 退出 Session / 检查我的网络 / 本节大纲 / 关闭声音 / 对话历史（BETA 标记）。
+左侧白板面板类名：`whiteboard-outline-panel`、`whiteboard-outline-keypoints`、`whiteboard-outline-keypoint(-marker/-text/-dot/-live)`——**要点逐条列出，并用 `-live` 标出当前正在讲的那一条**。
+
+本仓实现：zen 切换（默认沉浸，按钮文案与线上一致）、导出菜单（Markdown / PDF 打印）、检查我的网络（`GET /net-check` → 结果就地提示）、本节要点面板沿用 `session_ready.key_points`。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：

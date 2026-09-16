@@ -132,3 +132,6 @@
 | 知识库文件动作 | 文件卡唯一动作：`.file-card-calendar-button` → `POST /drive/add_file_to_calendar`（计入「添加到日历」配额） | ✅ | r49 |
 | 知识库用量面板 | 存储空间 x/1GB、文件上传 x/50 本周、添加到日历 x/20 本周 + 重置时间 | ✅ | r37/r49 |
 | 日程分组与批量删除 | 已确认任务 / 待处理任务 / 批量删除日程（选中态显示「删除所选 N」） | ✅ | r48 |
+| 白板工具条 | 默认 zen（Exit zen mode）/ 缩放三键（Cmd±）/ Help — ? / 导出菜单 / 设置 / 退出 Session / 检查我的网络 / 本节大纲 / 关闭声音 / 对话历史（BETA） | ✅ | r50 |
+| 白板要点面板 | `whiteboard-outline-keypoint(-marker/-text/-dot/-live)`：逐条要点 + 当前条目 live 标记 | ✅ | r50 |
+| 项目步骤级草稿 | `GET/POST project/stages/{id}/state` 的 `drafts{step_id: text}`；阶段带 `steps[]` | ✅ | 本仓实测（5 步 5 输入框，保存后落库） |

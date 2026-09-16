@@ -631,6 +631,10 @@ export function Project() {
   } | null>(null)
   const [activeStageId, setActiveStageId] = useState(stageId)
   const [draft, setDraft] = useState('')
+  // 步骤级草稿（线上 drafts 以步骤为键；服务端按 {drafts:{[step_id]: text}} 存）
+  const [stepDrafts, setStepDrafts] = useState<Record<string, string>>({})
+  const [stepDone, setStepDone] = useState<Record<string, boolean>>({})
+  const [savingStep, setSavingStep] = useState<string>('')
   const [feedback, setFeedback] = useState('')
   const [score, setScore] = useState<number | null>(null)
   const [submitting, setSubmitting] = useState(false)
@@ -640,7 +644,9 @@ export function Project() {
     if (!activeStageId) return
     void apiGet<{ drafts?: Record<string, string>; submissions?: Record<string, unknown>; status?: string | null; score?: number | null; feedback?: string | null }>(`/course-generation/courses/${courseId}/project/stages/${activeStageId}/state`)
       .then((state) => {
-        const saved = Object.values(state.drafts ?? {}).at(-1)
+        const drafts = state.drafts ?? {}
+        setStepDrafts(Object.fromEntries(Object.entries(drafts).map(([key, value]) => [key, String(value ?? '')])))
+        const saved = Object.values(drafts).at(-1)
         if (typeof saved === 'string' && saved.trim()) setDraft(saved)
         if (typeof state.score === 'number') setScore(state.score)
         if (state.feedback) setFeedback(state.feedback)
@@ -673,6 +679,12 @@ export function Project() {
     setDraft(template)
   }
 
+  const saveStep = async (stepId: string) => {
+    setSavingStep(stepId)
+    await apiPost(`/course-generation/courses/${courseId}/project/stages/${stage.stage_id}/state`, { drafts: { [stepId]: stepDrafts[stepId] ?? '' } }).catch(() => undefined)
+    setSavingStep('')
+  }
+
   const submit = async () => {
     setSubmitting(true)
     try {
@@ -701,6 +713,35 @@ export function Project() {
             {data.projects?.[0]?.project_name ?? '综合实战项目'}
           </div>
           <h1 className="text-[24px] font-semibold tracking-tight mt-1">{stage.stage_title}</h1>
+        {/* 线上阶段由多个步骤组成：逐步写、逐步存（drafts 以 step_id 为键） */}
+        {Array.isArray(stage.steps) && stage.steps.length > 0 && (
+          <div className="mt-5 hk-card p-4" data-testid="stage-steps">
+            <div className="text-[12px] text-[#8a8a90] mb-2">阶段步骤 · {stage.steps.length} 步（草稿按步骤保存）</div>
+            <ol className="space-y-2">
+              {stage.steps.map((step, index) => (
+                <li key={step.step_id} className="rounded-xl border border-[#e4e4e7] p-3">
+                  <div className="flex items-center gap-2">
+                    <span className={`h-5 w-5 rounded-full text-[11px] flex items-center justify-center ${stepDone[step.step_id] ? 'bg-[#16a34a] text-white' : 'bg-[#f1f2f4]'}`}>{stepDone[step.step_id] ? '✓' : index + 1}</span>
+                    <span className="text-[13px] font-medium flex-1">{step.title}</span>
+                    <button onClick={() => setStepDone((s) => ({ ...s, [step.step_id]: !s[step.step_id] }))} className="hk-pill h-7 px-2 text-[11px]">{stepDone[step.step_id] ? '取消完成' : '标记完成'}</button>
+                  </div>
+                  {step.instruction && <div className="text-[12px] text-[#6b6b70] mt-1.5 leading-5">{step.instruction}</div>}
+                  <textarea
+                    value={stepDrafts[step.step_id] ?? ''}
+                    onChange={(e) => setStepDrafts((d) => ({ ...d, [step.step_id]: e.target.value }))}
+                    placeholder="写下这一步的产出…"
+                    aria-label={`步骤 ${index + 1} 草稿`}
+                    className="w-full mt-2 min-h-[64px] rounded-lg border border-[#e4e4e7] p-2 text-[13px] outline-none focus:border-[#a1a1aa]"
+                  />
+                  <div className="flex justify-end mt-1.5">
+                    <button onClick={() => void saveStep(step.step_id)} disabled={savingStep === step.step_id} className="hk-pill h-7 px-3 text-[11px]">{savingStep === step.step_id ? '保存中…' : '保存本步草稿'}</button>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
         </div>
         <button
           onClick={() => setAssistantOpen(true)}

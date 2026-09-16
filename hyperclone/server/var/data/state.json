@@ -7341,23 +7341,158 @@
       "status": "active",
       "messages": [],
       "whiteboard_state": {
-        "image_action": {
-          "type": "image_generation",
-          "prompt": "A clean, academic-style diagram for “The Sociological Imagination”. Show the key elements of The Sociological Imagination with clearly labeled parts. Plain white background, no shadows, no decorative elements, textbook illustration style.",
-          "language": "English",
-          "caption": "The Sociological Imagination"
-        }
+        "version": 1,
+        "revision": 103,
+        "activePageId": "page-1",
+        "pages": [
+          {
+            "id": "page-1",
+            "title": "The Big Idea",
+            "boards": [
+              "# The Big Idea\n\n- Start with the question\n- Draw the relationship\n- Test it with an example",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            "annotations": [
+              {
+                "text": "The core relationship",
+                "say": "Focus on the relationship between the two ideas."
+              }
+            ],
+            "images": [
+              {
+                "url": "/api/v1/whiteboard/images/1673018cb9488d11fb969c6151152c23.svg",
+                "caption": "The Sociological Imagination",
+                "width": 512,
+                "height": 512,
+                "pending": false
+              }
+            ],
+            "columnLayout": {
+              "colCount": 3,
+              "tileW": 382,
+              "tileGapX": 12,
+              "tileGapY": 12,
+              "gridLeft": 30,
+              "gridTop": 130,
+              "usableW": 1170,
+              "usableH": 615,
+              "exportPixelW": 2460,
+              "exportPixelH": 1230
+            }
+          }
+        ]
       },
       "lecture_outline_id": "aaaa4212-10d9-4585-9eba-31f3a04a5a01:ed43f6c4-fb26-4603-8645-8e2599424343",
-      "conversation_id": "64211b9a-0633-489f-8452-70c4f7dcc54f",
+      "conversation_id": "6a71c0c0-c7ed-4edb-8f19-b23f06f6ae01",
       "session_title": "The Sociological Imagination",
       "tts_config": {
         "voice_id": "calm",
         "speed": 1
       },
-      "created_at": "2026-09-15T16:40:13.209Z",
+      "created_at": "2026-09-16T05:18:34.154Z",
       "board_image": {
-        "imageUrl": "/api/v1/whiteboard/images/93497ee4808a75d08c0cef2583b1a785.png",
+        "imageUrl": "/api/v1/whiteboard/images/1673018cb9488d11fb969c6151152c23.svg",
         "width": 512,
         "height": 512,
         "caption": "The Sociological Imagination",
@@ -9240,20 +9375,20 @@
             }
           },
           "drafts": {
-            "step1": "草稿：先写出模幂函数"
+            "step1": "第 1 步：界定作用域与假设"
           },
-          "status": "submitted",
-          "score": 88,
-          "feedback": "交付结构清楚：作用域与假设写得具体。建议补上边界条件的反例与复现步骤。",
-          "evaluated": true,
-          "updated_at": "2026-09-16T05:09:13.368Z"
+          "status": "in_progress",
+          "score": null,
+          "feedback": "",
+          "evaluated": false,
+          "updated_at": "2026-09-16T05:19:21.936Z"
         }
       },
       "projectProgress": {
         "dee055da-d859-4eee-a9e8-a942f07519f3": {
-          "submitted": true,
-          "evaluated": true,
-          "updated_at": "2026-09-16T05:09:13.374Z"
+          "submitted": false,
+          "evaluated": false,
+          "updated_at": "2026-09-16T05:19:21.943Z"
         }
       }
     },

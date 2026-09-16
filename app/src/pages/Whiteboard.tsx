@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, ArrowUp, Mic, Pause, Play, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
+import { Activity, ArrowLeft, ArrowUp, Mic, Pause, Play, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import { wsUrl } from '@/lib/api'
+import { apiGet, wsUrl } from '@/lib/api'
 
 interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; options?: string[]; correct_index?: number; explanation?: string; task_preview?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
 interface BoardImage { url: string; caption: string; width: number; height: number; pending: boolean; failed?: boolean }
@@ -22,6 +22,10 @@ export default function Whiteboard() {
   const [title, setTitle] = useState('白板课堂')
   const [keyPoints, setKeyPoints] = useState<string[]>([])
   const [animation, setAnimation] = useState<{ pending: boolean; html: string; task: string } | null>(null)
+  // 线上白板默认就是 zen（沉浸）模式，工具条上有「Exit zen mode」；这里同样默认沉浸
+  const [zen, setZen] = useState(true)
+  const [exportOpen, setExportOpen] = useState(false)
+  const [netCheck, setNetCheck] = useState<string>('')
   const [quiz, setQuiz] = useState<{ question: string; options: string[]; correct?: number; picked?: number; explanation?: string } | null>(null)
   const [pages, setPages] = useState<Page[]>([])
   const [pageIdx, setPageIdx] = useState(0)
@@ -266,7 +270,17 @@ export default function Whiteboard() {
             <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.max(0, i - 1))} aria-label="上一页" title="上一页 (←)"><SkipBack size={14} /></button>
             <button className="hk-icon-btn h-8 w-8" onClick={() => (paused ? resume() : setPaused(true))} aria-label={paused ? '继续' : '暂停'} title={paused ? '继续 (Space)' : '暂停 (Space)'}>{paused ? <Play size={14} /> : <Pause size={14} />}</button>
             <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.min(pages.length - 1, i + 1))} aria-label="下一页" title="下一页 (→)"><SkipForward size={14} /></button>
-            <button className="hk-icon-btn h-8 w-8" onClick={exportNotes} aria-label="导出 Markdown 笔记" title="导出 Markdown 笔记"><Download size={14} /></button>
+            <div className="relative">
+              <button className="hk-icon-btn h-8 w-8" onClick={() => setExportOpen((v) => !v)} aria-label="导出" title="导出" data-testid="export-menu"><Download size={14} /></button>
+              {exportOpen && (
+                <div className="absolute right-0 top-9 z-40 hk-card w-[200px] p-1.5" data-testid="export-popover">
+                  <button onClick={() => { exportNotes(); setExportOpen(false) }} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px]">导出 Markdown 笔记</button>
+                  <button onClick={() => { exportNotes(); setExportOpen(false); window.print() }} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px]">导出 PDF（打印）</button>
+                </div>
+              )}
+            </div>
+            <button className="hk-icon-btn h-8 w-8" onClick={() => setZen((v) => !v)} aria-label={zen ? 'Exit zen mode' : '进入沉浸模式'} title={zen ? 'Exit zen mode' : '进入沉浸模式'} data-testid="zen-toggle">{zen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
+            <button className="hk-icon-btn h-8 w-8" aria-label="检查我的网络" title="检查我的网络" data-testid="net-check" onClick={() => { void apiGet<{ ok?: boolean; state?: string }>('/net-check').then((r) => setNetCheck(r?.ok ? '网络正常' : '网络异常')).catch(() => setNetCheck('检查失败')); setTimeout(() => setNetCheck(''), 3000) }}><Activity size={14} /></button>
             <button className="hk-icon-btn h-8 w-8" onClick={toggleFullscreen} aria-label={isFullscreen ? '退出全屏' : '全屏沉浸模式'} title={isFullscreen ? '退出全屏 (F)' : '全屏沉浸模式 (F)'}>{isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
             <button className="hk-icon-btn h-8 w-8" aria-label="录音"><Mic size={14} /></button>
             <button className="hk-icon-btn h-8 w-8" aria-label="分享"><Share2 size={14} /></button>
@@ -346,9 +360,10 @@ export default function Whiteboard() {
           )}
         </div>
         {credits && <div className="px-4 py-1.5 text-[12px] text-[#15803d]">{credits}</div>}
+        {netCheck && <div className="px-4 py-1.5 text-[12px] text-[#3b5bdb]" data-testid="net-check-result">{netCheck}</div>}
       </section>
 
-      <aside className="w-[340px] shrink-0 border-l bg-white flex flex-col">
+      {!zen && <aside className="w-[340px] shrink-0 border-l bg-white flex flex-col">
         <div role="tablist" className="flex text-[13px] border-b">
           <button role="tab" aria-selected className="flex-1 h-10 font-medium relative flex items-center justify-center gap-1.5">
             讲稿
@@ -369,7 +384,7 @@ export default function Whiteboard() {
             <button onClick={ask} disabled={!q.trim()} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40" aria-label="发送"><ArrowUp size={14} /></button>
           </div>
         </div>
-      </aside>
+      </aside>}
     </div>
   )
 }
