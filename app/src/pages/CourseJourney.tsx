@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router'
-import { apiGet } from '@/lib/api'
+import { apiGet, apiPost } from '@/lib/api'
 import { CourseStructureView, type CourseFull, type CourseProgressView } from './MarketplacePreview'
 import { Sparkles, BookOpen, Trophy } from 'lucide-react'
 
@@ -33,25 +33,35 @@ export default function CourseJourney() {
   const masteredSessions = course.units.reduce((a, u) => a + u.lectures.reduce((b, l) => b + l.sessions.filter((s) => finished(s.sessionId) || s.mastery === 'mastered' || s.mastery === 'proficient').length, 0), 0)
   const progressPct = totalSessions > 0 ? Math.round((masteredSessions / totalSessions) * 100) : 0
 
+  const firstSession = course?.units?.[0]?.lectures?.[0]?.sessions?.[0]
+
   return (
     <>
-      {(isWelcome || !dismissed) && progressPct === 0 && (
-        <div className="mx-auto max-w-[1180px] px-8 mb-6">
-          <div className="hk-card p-6 bg-gradient-to-r from-[#eef2ff] to-[#f0fdf4] border-[#c7d2fe] hk-fade-in-up">
-            <div className="flex items-start gap-4">
-              <span className="h-12 w-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
-                <Sparkles size={22} className="text-[#3b5bdb]" />
-              </span>
-              <div className="flex-1">
-                <h2 className="text-[18px] font-semibold">🎉 欢迎来到「{course.courseTitle}」</h2>
-                <p className="text-[13px] text-[#6b6b70] mt-1 leading-relaxed max-w-[600px]">
-                  课程已准备就绪，共 {course.units.length} 个单元、{totalSessions} 个学习节点。点击任意一讲的「学习」按钮即可开始白板教学，「练习」按钮测验你的掌握程度。
+      {(isWelcome || (!dismissed && progressPct === 0)) && (
+        <div className="cj-welcome-overlay" data-testid="course-welcome">
+          <div className="cj-welcome-modal">
+            <div className="cj-welcome-row">
+              <div className="cj-welcome-media">
+                <span className="flex items-center justify-center" style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg,#eef2ff,#f0fdf4)', borderRadius: 16 }}>
+                  <Sparkles size={44} className="text-[#3b5bdb]" />
+                </span>
+              </div>
+              <div className="cj-welcome-body">
+                <p className="cj-welcome-title">欢迎来到「{course.courseTitle}」</p>
+                <p className="cj-welcome-desc">
+                  课程已准备就绪，共 {course.units.length} 个单元、{totalSessions} 个学习节点。建议从第一讲开始，按单元顺序推进。
                 </p>
-                <div className="flex items-center gap-3 mt-3">
-                  <button onClick={() => { const u = course.units[0]; const l = u?.lectures?.[0]; const s = l?.sessions?.[0]; if (s && courseId) nav(`/course/${courseId}/sessions/whiteboard/${s.sessionId}`); else setDismissed(true) }} className="h-9 px-5 rounded-full bg-[#0a0a0a] text-white text-[13px] font-medium inline-flex items-center gap-1.5 hover:bg-black/80">
-                    <BookOpen size={14} /> 从第一讲开始
+                {firstSession && (
+                  <div className="cj-welcome-next">
+                    <span className="cj-welcome-next-kind">讲座</span>
+                    <span className="cj-welcome-next-title">{firstSession.title ?? '第一讲'}</span>
+                  </div>
+                )}
+                <div className="cj-welcome-actions cj-welcome-actions--row">
+                  <button className="cj-welcome-btn" onClick={() => { const u = course.units[0]; const l = u?.lectures?.[0]; const s = l?.sessions?.[0]; if (s && courseId) nav(`/course/${courseId}/sessions/whiteboard/${s.sessionId}`); else if (courseId) nav(`/course/${courseId}`) }}>
+                    从第一讲开始
                   </button>
-                  <button onClick={() => setDismissed(true)} className="hk-pill h-9 text-[13px] px-4">稍后再说</button>
+                  <button className="cj-welcome-btn cj-welcome-btn--ghost" onClick={() => setDismissed(true)}>稍后再说</button>
                 </div>
               </div>
             </div>
@@ -69,7 +79,46 @@ export default function CourseJourney() {
         </div>
       )}
 
+      <CourseRatingBar courseUuid={courseId} courseTitle={course.courseTitle} />
+
       <CourseStructureView course={course} enrolled courseUuid={courseId} progress={progress} onExit={() => nav('/courses')} />
     </>
+  )
+}
+
+// 线上 .course-rating-bar（固定底部居中的生成质量评分条）：1–5 星 + 展开评论 + 提交
+function CourseRatingBar({ courseUuid, courseTitle }: { courseUuid: string; courseTitle: string }) {
+  const [stars, setStars] = useState(0)
+  const [hover, setHover] = useState(0)
+  const [expanded, setExpanded] = useState(false)
+  const [comment, setComment] = useState('')
+  const [sent, setSent] = useState(false)
+  const captions = ['很差', '一般', '还行', '不错', '很好']
+  if (sent) return <div className="course-rating-bar course-rating-bar--journey course-rating-bar--thanks">已收到你的反馈，谢谢！</div>
+  return (
+    <div className={`course-rating-bar course-rating-bar--journey ${expanded ? 'expanded' : ''}`} data-testid="course-rating-bar">
+      <div className="course-rating-bar-head">
+        <span className="course-rating-bar-prompt">这门课程为你生成得怎么样？</span>
+        <div className="star-rating" role="radiogroup" aria-label="课程评分">
+          {[1, 2, 3, 4, 5].map((n) => (
+            <button key={n} className={`star-rating-star ${n <= (hover || stars) ? 'filled' : ''}`} aria-label={`${n} 分`}
+              onMouseEnter={() => setHover(n)} onMouseLeave={() => setHover(0)}
+              onClick={() => { setStars(n); setExpanded(true) }}>
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3.6l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z" /></svg>
+            </button>
+          ))}
+          <span className="star-rating-caption">{stars ? captions[stars - 1] : ''}</span>
+        </div>
+        <button className="course-rating-bar-later" onClick={() => setSent(true)}>稍后</button>
+        <button className="course-rating-bar-close" aria-label="关闭" onClick={() => setSent(true)}>×</button>
+      </div>
+      {expanded && (
+        <div className="course-rating-bar-detail">
+          <input className="course-rating-bar-comment" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="补充你的评价（可选）" aria-label="补充评价" />
+          <button className="course-rating-bar-submit"
+            onClick={async () => { await apiPost('/conversations/manage_conversation_property', { conversation_id: courseUuid, rating: stars, comment } as never).catch(() => {}); setSent(true) }}>提交</button>
+        </div>
+      )}
+    </div>
   )
 }

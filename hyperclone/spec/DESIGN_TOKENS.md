@@ -351,3 +351,16 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 输入域 | `.session-input-field{width:100%;font-size:15px;color:#333;resize:none;min-height:32px;max-height:200px;padding:4px 44px;line-height:24px;overflow:auto}` | 同（textarea 自动增高，实测 15px / minH 32 / padding `4px 44px` / lh 24） |
 | 发送键 | `.input-send-button{position:absolute;right:12px;bottom:10px;32×32;border-radius:50%;background:#e7e7e7;border:1px solid #D1D1D1;box-shadow:0 2px 4px #00000026}`；hover `#d5d5d5`；`.disabled{background:#f5f5f5;border-color:#e0e0e0;opacity:.6}`；`.stop-state` 用于流式中；加载圈 16px `#4C6694` 顶边 | 同（实测 32×32 圆、禁用 `#f5f5f5`/`#e0e0e0`、可用 `#e7e7e7`、流式时换转圈） |
 
+### 课程评分条与欢迎弹窗（第十九批，r103）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 评分条容器 | `.course-rating-bar{width:max-content;max-width:min(560px,calc(100% - 48px));padding:8px 10px 8px 18px;border-radius:20px;border:1px solid #E5E7EB;background:#fbfbfb;box-shadow:0 12px 32px #0f172a1f}`；`.course-rating-bar--journey{position:fixed;bottom:28px;left:50%;transform:translate(-50%);z-index:10005}`；`.expanded{width:min(560px,calc(100% - 48px));padding-bottom:12px}`；`--thanks{padding:11px 20px;color:#4c6694;font-size:13px}` | 同（实测 fixed/28px、radius 20、边框 `#E5E7EB`、bg `#fbfbfb`、阴影一致、展开后 560 宽 + padding-bottom 12） |
+| 评分条头部 | `.course-rating-bar-head{gap:10px}`；提示 13px `#374151`；`.course-rating-bar-later{padding:6px 12px;border-radius:999px;color:#6b7280;font-size:12px}` hover `#f3f4f6`/`#4b5563`；`.course-rating-bar-close{22×22;border-radius:50%;color:#9ca3af}` | 同 |
+| 星级 | `.star-rating{gap:2px}`；`.star-rating-star{padding:2px;color:#d1d5db}`，svg `fill:none;stroke:currentColor;stroke-width:1.6`；`.filled{color:#f5a524}`（svg 填充同色）；hover `scale(1.12)`；`.star-rating-caption{min-width:62px;margin-left:6px;font-size:12px;color:#6b7280}` | 同（实测未选 `rgb(209,213,219)`，选 4 星后 4 颗 filled） |
+| 展开区 | `.course-rating-bar-detail{--course-rating-control-height:38px;gap:8px;margin-top:10px;padding-right:8px}`；输入 38 高 / `0 11px` / radius 12 / 边框 `#E5E7EB` / 占位 `#9ca3af` / 聚焦 `#4c6694`；提交 38 高 / `0 18px` / radius 999 / bg `#4c6694`（hover `#3c5378`） | 同（实测 38/12/999 与 `rgb(76,102,148)`） |
+| 欢迎弹窗 | `.cj-welcome-overlay{position:fixed;inset:0;z-index:10010;background:#0f172a2e;backdrop-filter:blur(3px);padding:24px}`；`.cj-welcome-modal{width:min(520px,100%);padding:20px 22px 20px 12px;border-radius:22px;background:#fbfbfb;box-shadow:0 24px 60px #0f172a2e}`；`.cj-welcome-row{grid-template-columns:140px minmax(0,1fr);gap:14px}`；标题 18/600 `#111827`；说明 13.5 `#4b5563` | 同（实测 520/22/`20px 22px 20px 12px`、grid `140px 332px`） |
+| 欢迎弹窗下一步卡 | `.cj-welcome-next{padding:11px 12px;border:1px solid #E8ECF3;border-radius:12px;background:#fff;box-shadow:0 1px 2px #0f172a0a}`；`.cj-welcome-next-kind{padding:2px 8px;border-radius:999px;background:#eef2f8;color:#4c6696;font-size:11px}`，变体 `--practice #eef5f0/#3d7a56`、`--project #f6f1e7/#8a6d3b`、`--exam #f5edf0/#954c68`；标题 13.5 `#111827`；按钮 `9px 16px` radius 999 `#111827`，ghost 白底描边 `#E5E7EB` | 同（实测卡 radius 12 / padding `11px 12px`、kind `rgb(238,242,248)`；本仓先只用默认 kind） |
+
+本仓行为：走 `/course/:id/welcome` 必现弹窗；首次进入（无进度）也会自动出现，「稍后再说」后不再打扰。
+
