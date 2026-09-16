@@ -354,3 +354,9 @@
 - **生成质量评分条**落地：底部固定居中（bottom 28、z 10005）、`max-content` 宽度上限 `min(560px, 100% - 48px)`、radius 20 + `0 12px 32px rgba(15,23,42,.12)`、提示 13px、1–5 星（默认 `#d1d5db` / 选中 `#f5a524` / hover 放大 1.12）、「稍后」与关闭键；点星后展开评论输入（38 高 / radius 12 / 聚焦 `#4c6694`）与 `#4c6694` 提交胶囊，提交后换成「已收到你的反馈」thanks 态。
 - **欢迎条换成线上弹窗** `.cj-welcome-*`：10010 遮罩 + blur、520/22 圆角、`140px 1fr` 网格、18/600 标题、13.5 说明、下一步卡（kind 胶囊 `#eef2f8`/`#4c6696` + 标题）与「从第一讲开始 / 稍后再说」按钮。条件也顺手改了：走 `/welcome` 必现，首次进入（0 进度）自动出现——原来绑死 `progressPct === 0`，导致带进度的课程即便走 `/welcome` 也看不到弹窗。
 - 仍未做：评分条变体 `--generation`（生成结束时的位置口径 `bottom: calc(clamp(44px,6vh,76px) - 52px)`）、`.cj-welcome-next-kind` 的 practice/project/exam 三种变体色（本仓课程首页只展示默认「讲座」）、评分真正落库（当前只发一次属性请求并切 thanks 态）。
+
+**第三十三批（考试倒计时取证 + 开场页 + 评分落库）**
+- **考试倒计时不再是「缺证据」项**：线上考试入口那门课是待解锁状态，改从 `ExamPage-*.js` 反查到 `G.current = Date.now() + 18e5`（30 分钟，前端设死线）、每秒 tick、≤60s 切 `--low`、归零 `P(true)` 后调 `POST /exam/score`。本仓据此实现：开场页（时长 30 分钟 + 题数统计 + 说明 + 开始键）→ 开始后顶部计时芯片 `mm:ss` → 归零自动交卷。实测倒计时从 `29:58` 走。
+- **课程评分真正落库**：新增 `POST/GET /api/v1/course-generation/courses/:uuid/rating`（写 `state.courses[uuid].rating = {rating, comment, at}`，1–5 校验），前端提交改调这个端点，进页面时若已有评分直接显示「已收到你的反馈」。实测提交 5 星 + 评论后服务端读到 `{rating: 5, comment: …, at: …}`，刷新后不再重复询问。
+- **顺手修掉 lint 暴露的真问题**：`QuizRunner` 里 `useEffect/useState` 出现在 `if (!q) return null` 之后（hook 顺序可变），已把所有 hook 上移到早退之前；练习秒数改成「开始时间戳 + interval 计算」，去掉了 effect 内同步 setState 与重复的 `remaining`/`timerKey` 状态；清掉两个未使用导入。现在 `npx eslint src/pages/CourseWork.tsx` 干净。
+- 仍未做：考试速答奖励芯片（需要数据里的 `fastWindowMs`；practice 那份实测是 10s，考试这份没有证据，不编）、`.exam-bonus-bar` 的实际启用、评分历史（目前只存最近一次）。

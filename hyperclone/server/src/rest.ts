@@ -902,6 +902,26 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return { status: 'ok', final_score: score, unit_id: unitId };
   });
 
+  // 课程生成质量评分（线上 .course-rating-bar 提交后落库；自部署形态存 state.json 的 courseRating）
+  app.post('/api/v1/course-generation/courses/:course_uuid/rating', protectedRoute, async (request, reply) => {
+    if (!(await ownedCourse(request))) return reply.code(404).send({ detail: 'Course not found' });
+    const body = (request.body ?? {}) as { rating?: number; comment?: string };
+    const rating = Math.min(5, Math.max(1, Math.round(Number(body.rating ?? 0)) || 0));
+    if (!rating) return reply.code(400).send({ detail: 'rating must be 1-5' });
+    await updateState((state) => {
+      const value = state.courses[courseId(request)];
+      if (value?.user_id !== request.userId) return;
+      value.rating = { rating, comment: String(body.comment ?? '').slice(0, 500), at: new Date().toISOString() };
+    });
+    return { status: 'ok', rating };
+  });
+
+  app.get('/api/v1/course-generation/courses/:course_uuid/rating', protectedRoute, async (request, reply) => {
+    if (!(await ownedCourse(request))) return reply.code(404).send({ detail: 'Course not found' });
+    const value = (await readState()).courses[courseId(request)] as unknown as { rating?: { rating: number; comment?: string; at?: string } } | undefined;
+    return { rating: value?.rating ?? null };
+  });
+
   app.get('/api/v1/course-generation/courses/:course_uuid/project', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });

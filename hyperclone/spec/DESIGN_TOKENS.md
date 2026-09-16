@@ -364,3 +364,24 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 
 本仓行为：走 `/course/:id/welcome` 必现弹窗；首次进入（无进度）也会自动出现，「稍后再说」后不再打扰。
 
+### 考试倒计时与开场页（第二十批，r104-r107）
+
+线上考试入口那门课是「待解锁」，于是改从 `ExamPage-*.js`（20.8 KB 的考场组件）反查：
+
+```js
+const w = 1800;            // 计时初始显示值（秒）= 30 分钟
+const de = () => { ...; G.current = Date.now() + 18e5; Y(w); V(true); };   // 开始考试时设死线
+useEffect(() => { if (!U || D) return; const tick = () => {
+  const t = Math.max(0, Math.ceil((G.current - Date.now()) / 1000)); Y(t); if (t <= 0) P(true); };
+  tick(); const id = setInterval(tick, 1000); return () => clearInterval(id); }, [U, D]);
+// 归零后 P(true) → 触发 POST /api/v1/course-generation/courses/{uuid}/exam/score
+```
+
+**结论：考试时长 30 分钟，由前端在「开始考试」时设死线（不是服务端发时长）**；计时每秒 tick，剩余 ≤60s 切低量态，归零即交卷。
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 计时芯片 | `.exam-timer{display:inline-flex;gap:7px;padding:7px 14px;border-radius:999px;background:#f1f4f9;color:#385da0;font-size:14px;font-variant-numeric:tabular-nums}`；`.exam-timer--low{background:#fbeded;color:#c34747}`；图标为 14px 时钟（circle r8 + 指针 + 顶部横线） | 同（实测 `29:58` 倒计时、`rgb(241,244,249)`/`rgb(56,93,160)`、padding `7px 14px`） |
+| 速答奖励 | `.exam-bonus-bar{absolute;top:0;height:3px;border-radius:14px 14px 0 0;background:#f3f4f6}`；`.exam-bonus-fill{background:linear-gradient(90deg,#e8b54b,#c98a1e);animation:exam-bonus-drain linear}`；`.exam-bonus-chip{padding:5px 12px;border:1px solid rgba(201,138,30,.4);border-radius:999px;background:#fdf6e9;color:#8c6210}`，窗口由数据里的 `fastWindowMs` 决定 | 规则已落 CSS；**未接**：本仓考试数据还没有 `fastWindowMs`，所以暂不显示奖励芯片（不编时长） |
+| 开场页 | `.exam-intro-shell{absolute;top:52px;right:36px;bottom:30px;left:36px;display:flex;align-items:center;justify-content:center;padding:28px}`；`.exam-intro-card{grid-template-columns:minmax(200px,240px) minmax(0,1fr);gap:26px;width:min(90vw,680px);padding:24px 30px 26px 22px;border:1px solid #E7ECF5;border-radius:24px}`；eyebrow 12px `letter-spacing:.12em` 大写 `#8c9bbc`；标题 `clamp(24px,2.6vw,32px)` w600 `#1f1f1f` `letter-spacing:-.03em`；统计胶囊 `#f8fafd`/`#385da0` + 分隔线 `#dce3f0`；说明 14.5 `#5b5b5b` max-width 360；开始键 `14px 42px` radius 999 `#385da0`（hover `#31558f`） | 同（实测 card `240px 360px` / gap 26 / padding `24px 30px 26px 22px` / radius 24 / 边框 `rgb(231,236,245)`；统计胶囊 `rgb(248,250,253)`；开始键 `14px 42px`） |
+

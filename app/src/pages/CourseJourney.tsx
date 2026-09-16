@@ -93,6 +93,12 @@ function CourseRatingBar({ courseUuid, courseTitle }: { courseUuid: string; cour
   const [expanded, setExpanded] = useState(false)
   const [comment, setComment] = useState('')
   const [sent, setSent] = useState(false)
+  // 已经评过就不再问（服务端 courseRating 落库）
+  useEffect(() => {
+    apiGet<{ rating?: { rating: number } | null }>(`/course-generation/courses/${courseUuid}/rating`)
+      .then((r) => { if (r.rating) setSent(true) })
+      .catch(() => {})
+  }, [courseUuid])
   const captions = ['很差', '一般', '还行', '不错', '很好']
   if (sent) return <div className="course-rating-bar course-rating-bar--journey course-rating-bar--thanks">已收到你的反馈，谢谢！</div>
   return (
@@ -116,7 +122,10 @@ function CourseRatingBar({ courseUuid, courseTitle }: { courseUuid: string; cour
         <div className="course-rating-bar-detail">
           <input className="course-rating-bar-comment" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="补充你的评价（可选）" aria-label="补充评价" />
           <button className="course-rating-bar-submit"
-            onClick={async () => { await apiPost('/conversations/manage_conversation_property', { conversation_id: courseUuid, rating: stars, comment } as never).catch(() => {}); setSent(true) }}>提交</button>
+            onClick={async () => {
+              await apiPost(`/course-generation/courses/${courseUuid}/rating`, { rating: stars, comment }).catch(() => {})
+              setSent(true)
+            }}>提交</button>
         </div>
       )}
     </div>

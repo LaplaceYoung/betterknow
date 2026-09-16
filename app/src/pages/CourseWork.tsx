@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkles, Send, BookOpen, Code, Trophy, RotateCcw, CalendarPlus, BookmarkCheck, FileQuestion } from 'lucide-react'
+import { ArrowLeft, Check, X, ChevronRight, Lightbulb, Volume2, VolumeX, Sparkles, Send, BookOpen, Code, Trophy, RotateCcw, CalendarPlus, BookmarkCheck } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import rehypeRaw from 'rehype-raw'
 import { apiGet, apiPost } from '@/lib/api'
 
 export interface Question {
@@ -190,6 +189,12 @@ function AssistantDrawer({
   )
 }
 
+// mm:ss（线上 exam timer 的 E(Q) 口径）
+function fmtClock(totalSeconds: number): string {
+  const s = Math.max(0, Math.floor(totalSeconds))
+  return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`
+}
+
 function QuizRunner({
   title,
   questions,
@@ -215,35 +220,69 @@ function QuizRunner({
   // 线上进入练习先弹「准备好练习」：插图 + 说明 + 知道了
   const [readyOpen, setReadyOpen] = useState(true)
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
-  // 线上练习每题 10 秒速答窗口：.practice-timer-fill 的 animation-duration 实测 10000ms
-  const [remaining, setRemaining] = useState(10000)
-  const [timerKey, setTimerKey] = useState(0)
-  useEffect(() => {
-    if (checked || mode === 'exam') return
-    setRemaining(10000)
-    setTimerKey((k) => k + 1)
-    const started = Date.now()
-    const t = window.setInterval(() => {
-      const left = 10000 - (Date.now() - started)
-      setRemaining(left > 0 ? left : 0)
-      if (left <= 0) window.clearInterval(t)
-    }, 200)
-    return () => window.clearInterval(t)
-  }, [i, checked, mode])
   const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
   // 线上练习 HUD：每题 10s 倒计时 + 速答奖励（practice-hud-chip--bonus / practice-timer-fill）
   const QUESTION_SECONDS = 10
   const SPEED_BONUS = 200
   const [left, setLeft] = useState(QUESTION_SECONDS)
   const [bonus, setBonus] = useState(0)
-  useEffect(() => { setLeft(QUESTION_SECONDS) }, [i])
+  // 每题 10s 窗口：用开始时间戳算剩余秒，避免在 effect 里同步 setState（会触发级联渲染）
+  const questionStartedAt = useRef(0)
   useEffect(() => {
+    questionStartedAt.current = Date.now()
     if (checked || !questions[i]) return
-    const timer = setInterval(() => setLeft((value) => (value <= 1 ? 0 : value - 1)), 1000)
+    const timer = setInterval(() => {
+      setLeft(Math.max(0, QUESTION_SECONDS - Math.floor((Date.now() - questionStartedAt.current) / 1000)))
+    }, 500)
     return () => clearInterval(timer)
   }, [i, checked, questions])
 
+  // 线上 ExamPage：开始考试时 deadline = Date.now() + 18e5（30 分钟），显示初值 1800，每秒 tick，归零即交卷
+  const EXAM_SECONDS = 1800
+  const [examStarted, setExamStarted] = useState(mode !== 'exam')
+  const [examLeft, setExamLeft] = useState(EXAM_SECONDS)
+  const examDeadline = useRef(0)
+  const submitRef = useRef<() => void>(() => {})
+  const latest = useRef({ score: 0, i: 0, picked: [] as string[], fill: '', questions: [] as Question[], userAnswers: {} as Record<number, { picked: string[]; fill: string; isRight: boolean }>, onFinish })
+  useEffect(() => {
+    latest.current = { score, i, picked, fill, questions, userAnswers, onFinish }
+    submitRef.current = () => {
+      const l = latest.current
+      const cur = l.questions[l.i]
+      const correct = cur?.correctAnswers ?? []
+      const right = cur?.type === 'fill'
+        ? correct.some((c) => c.trim().toLowerCase() === l.fill.trim().toLowerCase())
+        : l.picked.length === correct.length && l.picked.every((p) => correct.includes(p))
+      l.onFinish(l.score + (right ? 1 : 0), l.questions.length, l.userAnswers)
+    }
+  })
+  useEffect(() => {
+    if (mode !== 'exam' || !examStarted) return
+    const tick = () => {
+      if (examDeadline.current === 0) return
+      const secs = Math.max(0, Math.ceil((examDeadline.current - Date.now()) / 1000))
+      setExamLeft(secs)
+      if (secs <= 0) submitRef.current()
+    }
+    const id = window.setInterval(tick, 1000)
+    return () => window.clearInterval(id)
+  }, [mode, examStarted])
+
   const q = questions[i]
+  const [confetti, setConfetti] = useState<Array<{ id: number; x: number; y: number; dx: number; dy: number; rotate: number; duration: number; delay: number; color: string; shape: 'rect' | 'circle'; size: number }>>([])
+
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+
+  const [ttsVoice, setTtsVoice] = useState('calm')
+
+  const [ttsSpeed, setTtsSpeed] = useState(1)
+
+  useEffect(() => {
+    apiGet<{ tts_config?: { voice_id?: string; speed?: number } }>('/tts/voices')
+      .then((r) => { setTtsVoice(r.tts_config?.voice_id ?? 'calm'); setTtsSpeed(r.tts_config?.speed ?? 1) })
+      .catch(() => {})
+  }, [])
+
   if (!q) return null
 
   const correct = q.correctAnswers ?? []
@@ -252,7 +291,7 @@ function QuizRunner({
       ? correct.some((c) => c.trim().toLowerCase() === fill.trim().toLowerCase())
       : picked.length === correct.length && picked.every((p) => correct.includes(p))
 
-  const [confetti, setConfetti] = useState<Array<{ id: number; x: number; y: number; dx: number; dy: number; rotate: number; duration: number; delay: number; color: string; shape: 'rect' | 'circle'; size: number }>>([])
+
   const burst = () => {
     const colors = ['#4573c2', '#2e8b57', '#c98a1e', '#c34747', '#4c6696']
     const now = Date.now()
@@ -275,6 +314,12 @@ function QuizRunner({
     })
     setConfetti(pieces)
     window.setTimeout(() => setConfetti([]), 1500)
+  }
+
+  const startExam = () => {
+    examDeadline.current = Date.now() + EXAM_SECONDS * 1000
+    setExamLeft(EXAM_SECONDS)
+    setExamStarted(true)
   }
 
   const handleCheck = () => {
@@ -302,14 +347,6 @@ function QuizRunner({
   }
 
   // 朗读：优先走 BYOK TTS seam（voice_id/speed 透传服务端），未配置 key 时回落浏览器合成
-  const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [ttsVoice, setTtsVoice] = useState('calm')
-  const [ttsSpeed, setTtsSpeed] = useState(1)
-  useEffect(() => {
-    apiGet<{ tts_config?: { voice_id?: string; speed?: number } }>('/tts/voices')
-      .then((r) => { setTtsVoice(r.tts_config?.voice_id ?? 'calm'); setTtsSpeed(r.tts_config?.speed ?? 1) })
-      .catch(() => {})
-  }, [])
 
   const toggleSpeech = async () => {
     if (speaking) {
@@ -342,8 +379,18 @@ function QuizRunner({
     <div className={mode === 'exam' ? 'exam-page' : 'practice-page'}>
       <button className={mode === 'exam' ? 'exam-close-btn' : 'practice-close-btn'} onClick={() => onFinish(score, questions.length, {})} aria-label="退出"><X size={16} /></button>
       <div className="practice-topbar-actions">
+        {mode === 'exam' && (
+          <div className={`exam-timer ${examLeft <= 60 ? 'exam-timer--low' : ''}`} role="timer" aria-label={`剩余 ${fmtClock(examLeft)}`} data-testid="exam-timer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="1.8" />
+              <path d="M12 9V13L14.5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M9 2H15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+            {fmtClock(examLeft)}
+          </div>
+        )}
         <div className="practice-hud">
-          <span className="practice-hud-chip practice-hud-chip--bonus">速答奖励 <b>+{SPEED_BONUS}</b>{!checked && <span>{Math.max(0, Math.ceil(remaining / 1000))}s</span>}</span>
+          <span className="practice-hud-chip practice-hud-chip--bonus">速答奖励 <b>+{SPEED_BONUS}</b>{!checked && <span>{left}s</span>}</span>
           <span className="practice-hud-chip practice-hud-chip--score">得分 <b><PracticeScore value={score} /></b>{bonus ? <span className="text-[11px] text-[#8f7620]">+{bonus}</span> : null}</span>
         </div>
         <button className="practice-assistant-toggle" onClick={() => setAssistantOpen(true)}><Lightbulb size={13} /> 助手</button>
@@ -361,12 +408,46 @@ function QuizRunner({
           )
         })}
       </div>
+      {mode === 'exam' && !examStarted && (
+        <div className="exam-intro-shell" data-testid="exam-intro">
+          <div className="exam-intro-card">
+            <div className="exam-intro-media">
+              <span className="exam-intro-video flex items-center justify-center" style={{ background: 'linear-gradient(135deg,#eef2f8,#f8fafd)', borderRadius: 22 }}>
+                <Trophy size={48} className="text-[#385da0]" />
+              </span>
+            </div>
+            <div className="exam-intro-content">
+              <p className="exam-intro-eyebrow">单元测评</p>
+              <h1 className="exam-intro-title">{title}</h1>
+              <div className="exam-intro-stats">
+                <span className="exam-intro-stat">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="1.8" />
+                    <path d="M12 9V13L14.5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M9 2H15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                  30 分钟
+                </span>
+                <span className="exam-intro-stat-divider" aria-hidden="true" />
+                <span className="exam-intro-stat">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 7.5H17M7 12H17M7 16.5H12.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                  {questions.length} 题
+                </span>
+              </div>
+              <p className="exam-intro-note">开始后计时 30 分钟，中途可以跳过题目；答完全部题目即出成绩。</p>
+              <button className="exam-intro-start-btn" onClick={startExam}>开始考试</button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className={mode === 'exam' ? 'exam-stage' : 'practice-stage'}>
       <div className={`practice-split ${checked ? 'practice-split--revealed' : ''}`}>
       <section className="practice-question-shell">
       <div className="mx-auto max-w-[672px] px-8 pb-24">
       <div className="fixed inset-x-0 top-[51px] mx-auto max-w-[672px] px-8 pointer-events-none">
-        {(mode !== 'exam') && <div className="practice-timer"><span key={timerKey} className="practice-timer-fill" style={{ animationDuration: '10000ms', animationPlayState: checked ? 'paused' : 'running' }} /></div>}
+        {(mode !== 'exam') && <div className="practice-timer"><span key={`${i}-${checked}`} className="practice-timer-fill" style={{ animationDuration: '10000ms', animationPlayState: checked ? 'paused' : 'running' }} /></div>}
       </div>
       {readyOpen && (
         <div className="practice-welcome-overlay" data-testid="practice-welcome">
