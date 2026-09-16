@@ -6775,6 +6775,58 @@
         "progress": {}
       },
       "created_at": "2026-09-15T18:29:01.383Z"
+    },
+    "cc9d984c-71ab-4765-be05-89ecde2d7138": {
+      "deep_learn_session_id": "cc9d984c-71ab-4765-be05-89ecde2d7138",
+      "user_id": "local-open-user",
+      "title": "勾股定理第一天：基础与历史背景",
+      "session_task_plan": {
+        "title": "勾股定理第一天：基础与历史背景",
+        "description": "来自学习日程的深度学习课堂：勾股定理第一天：基础与历史背景",
+        "tags": [
+          "日程课堂",
+          "勾股定理第一天"
+        ],
+        "session_task_plan": [
+          {
+            "unit_name": "单位 1：先建立直觉",
+            "tasks": [
+              {
+                "task_id": "1.1",
+                "task_title": "背景与动机",
+                "task_description": "弄清这一主题解决什么问题。"
+              },
+              {
+                "task_id": "1.2",
+                "task_title": "核心概念",
+                "task_description": "把关键定义与符号讲清楚。"
+              }
+            ]
+          },
+          {
+            "unit_name": "单位 2：推导与检验",
+            "tasks": [
+              {
+                "task_id": "2.1",
+                "task_title": "主线推导",
+                "task_description": "一步步推出结论。"
+              },
+              {
+                "task_id": "2.2",
+                "task_title": "自测与复盘",
+                "task_description": "用两道小题检验理解。"
+              }
+            ]
+          }
+        ]
+      },
+      "current_step_id": "1.1",
+      "source_subtask_id": "demo-local-open-user-1",
+      "conversation_data": {
+        "history": [],
+        "progress": {}
+      },
+      "created_at": "2026-09-16T05:12:01.135Z"
     }
   },
   "whiteboards": {
@@ -16057,7 +16109,8 @@
         "scheduled_for": "2026-09-15T01:00:00.000Z",
         "status": "confirmed",
         "type": "study",
-        "duration_min": 30
+        "duration_min": 30,
+        "deep_learn_session_id": "cc9d984c-71ab-4765-be05-89ecde2d7138"
       },
       {
         "task_id": "demo-local-open-user-2",

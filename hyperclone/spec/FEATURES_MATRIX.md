@@ -127,3 +127,5 @@
 | 项目导师 | `project/assistant{stage_id,messages[]}`；`GET project` 返回 projects+stages | ✅ | r42/r43 |
 | 项目阶段结构 | `GET /project` 的 `stages[]` 带 `parent_project_id/unit_id/deliverable_increment/steps[]` | ✅ | r46 |
 | 项目阶段状态 | `GET /project/stages/{id}/state` → `{submissions:{}, drafts:{}}`；写入端点线上不存在（阶段交付走对话），POST/PUT 均 405 | ✅ | r46/r47 |
+| 学习日程任务详情 | 描述 + 子任务 + 已完成% + 删除任务（二次确认）+ 开始课堂 + 周配额面板（文件生成/深度学习课堂） | ✅ | r48 |
+| 日历「开始课堂」 | 用子任务开深度学习课 → `/deep-learn-session/outline/<subtask_id>` 显示单元/任务两级大纲 | ✅ | r48 |

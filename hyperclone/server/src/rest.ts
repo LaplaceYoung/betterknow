@@ -275,11 +275,45 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     await updateState((state) => { state.courses[courseUuid] = course; });
     return { courseUuid, message: 'Enrolled successfully' };
   });
-  for (const path of ['/api/v1/calendar/list_main_tasks', '/api/v1/calendar/list_pending_main_tasks']) app.get(path, protectedRoute, async (request) => { const tasks = (await readState()).calendar[request.userId!] ?? []; return { ...taskList, tasks, count: tasks.length }; });
+  for (const path of ['/api/v1/calendar/list_main_tasks', '/api/v1/calendar/list_pending_main_tasks']) app.get(path, protectedRoute, async (request) => {
+    const tasks = ((await readState()).calendar[request.userId!] ?? []).map((task) => {
+      const subtasks = Array.isArray(task.subtasks) ? (task.subtasks as Array<Record<string, unknown>>) : [];
+      const done = subtasks.filter((item) => item.status === 'done' || item.completed === true).length;
+      return {
+        ...task,
+        description: task.description ?? `今天的学习安排：${String(task.title ?? '')}`,
+        // 线上任务详情：子任务列表 + 已完成百分比 + 「开始课堂」入口
+        subtasks: subtasks.length ? subtasks : [{ subtask_id: task.task_id, title: String(task.title ?? ''), status: task.status === 'done' ? 'done' : 'pending', session_outline: null }],
+        progress: subtasks.length ? Math.round((done / subtasks.length) * 100) : task.status === 'done' ? 100 : 0,
+      };
+    });
+    return { ...taskList, tasks, count: tasks.length };
+  });
+  // 线上：日历任务里的「开始课堂」→ 用子任务开一节深度学习课（返回大纲 URL）
+  app.post('/api/v1/calendar/deep_learn_subtask_session', protectedRoute, async (request) => {
+    const body = (request.body ?? {}) as { subtask_id?: string; task_id?: string; title?: string };
+    const id = randomUUID();
+    const title = String(body.title ?? 'Calendared study session');
+    const plan = {
+      title,
+      description: `来自学习日程的深度学习课堂：${title}`,
+      tags: ['日程课堂', title.split(/[：:]/)[0] ?? title],
+      session_task_plan: [
+        { unit_name: '单位 1：先建立直觉', tasks: [{ task_id: '1.1', task_title: '背景与动机', task_description: '弄清这一主题解决什么问题。' }, { task_id: '1.2', task_title: '核心概念', task_description: '把关键定义与符号讲清楚。' }] },
+        { unit_name: '单位 2：推导与检验', tasks: [{ task_id: '2.1', task_title: '主线推导', task_description: '一步步推出结论。' }, { task_id: '2.2', task_title: '自测与复盘', task_description: '用两道小题检验理解。' }] },
+      ],
+    };
+    await updateState((next) => {
+      next.deep_learn[id] = { deep_learn_session_id: id, user_id: request.userId!, title, session_task_plan: plan, current_step_id: '1.1', source_subtask_id: body.subtask_id ?? null, conversation_data: { history: [], progress: {} }, created_at: now() };
+      const tasks = next.calendar[request.userId!] ?? [];
+      const match = tasks.find((task) => task.task_id === (body.task_id ?? body.subtask_id));
+      if (match) match.deep_learn_session_id = id;
+    });
+    return { success: true, deep_learn_session_id: id, task_plan: plan, deep_learn_session_url: `/deep-learn-session/outline/${id}` };
+  });
   app.post('/api/v1/calendar/approve_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; action?: string }; await updateState((state) => { const task = (state.calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); if (task) task.status = body.action === 'approve' ? 'approved' : body.action; }); return { success: true }; });
   app.post('/api/v1/calendar/update_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; tasks?: Array<Record<string, unknown>> } & Record<string, unknown>; await updateState((state) => { const tasks = state.calendar[request.userId!] ??= []; if (body.tasks) state.calendar[request.userId!] = body.tasks; else { const task = tasks.find((item) => item.task_id === body.task_id); if (task) Object.assign(task, body, { updated_at: now() }); } }); return { success: true }; });
   app.post('/api/v1/calendar/remove_task', protectedRoute, async (request) => { const body = request.body as { task_id?: string }; await updateState((state) => { state.calendar[request.userId!] = (state.calendar[request.userId!] ?? []).filter((item) => item.task_id !== body.task_id); }); return { success: true }; });
-  app.post('/api/v1/calendar/deep_learn_subtask_session', protectedRoute, async (request) => ({ success: true, deep_learn_session_id: randomUUID(), ...(request.body as object) }));
   app.post('/api/v1/calendar/main_task_detail', protectedRoute, async (request, reply) => { const body = request.body as { task_id?: string }; const task = ((await readState()).calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); return task ? { success: true, task } : reply.code(404).send({ detail: 'Task not found' }); });
 
   // 线上形状是 {success, conversation_data:{title, history}}；本仓再补 title/outline/plan/session_task_plan，

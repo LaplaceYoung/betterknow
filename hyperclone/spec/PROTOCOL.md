@@ -194,6 +194,14 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - 本仓扩展（明确标注，不是线上行为）：`POST /project/stages/{stage_id}/state {submission?, drafts?}` 落盘提交与草稿。
   **评审不做本地编造**：配置了语言模型（BYOK）就调模型按 `{"score":0-100,"feedback":string}` 评分；没有 key 时返回 `evaluated:false`、`score:null`，并写明「未配置模型时不评分」。
 
+## 2.12 学习日程（日历任务）（2026-09-16 实测）
+
+- 列表：`GET /calendar/list_main_tasks`、`GET /calendar/list_pending_main_tasks`（本仓返回 `{tasks[], count}`）；任务详情所需字段：`description`、`subtasks[]`、`progress`（已完成百分比）。
+- 任务详情界面（实测按钮）：**删除任务**（弹二次确认「你确定要删除 … 吗？此操作无法撤销。」→ 取消/删除）、**开始课堂**、以及配额面板（文件生成 x/50 本周、深度学习课堂 x/50 本周、重置时间）。
+- **「开始课堂」= 用子任务开一节深度学习课**：实测点击后跳到 `/deep-learn-session/outline/<subtask_id>`，页面显示「课堂大纲」——单元/任务两级（`1.1/1.2/2.1/2.2`），随后可「开始课堂」进入会话。
+- 本仓：`POST /calendar/deep_learn_subtask_session {subtask_id|task_id, title}` → 建一节带计划的深度学习会话，返回 `{deep_learn_session_id, task_plan, deep_learn_session_url:"/deep-learn-session/outline/<id>"}`；`POST /calendar/remove_task {task_id}` 删除；`POST /calendar/approve_tasks {task_id, action}` 确认/完成。
+- 知识库文件卡（`knowledge-base`）结构：`.file-card > .file-card-image-preview > button.file-card-calendar-button[aria-label="Add to calendar"]`——文件可直接加入学习日程（免费版配额 2/周）。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：

@@ -216,3 +216,9 @@
 - 状态对齐线上：`GET /project/stages/{id}/state` 返回 `{submissions:{}, drafts:{}, status, score, feedback}`；本仓额外提供 `POST` 落盘提交与按步骤草稿（线上只读、交付走对话，这一点已在协议里标注为本仓扩展）。
 - **去掉了一处不诚实实现**：原 `POST .../state` 会在本地编一个 78–100 的分数和「阶段评审通过」文案。现在配置了 BYOK 语言模型才评分（模型给 `{score, feedback}`），没有 key 时明确返回 `evaluated:false / score:null`，前端也不再在失败时谎报「已成功提交」。
 - 前端项目页：进入阶段会回读已存草稿/提交，提交后展示真实评审或「已记录（未评分）」。
+
+**第八批（学习日程 / 开始课堂）**
+- 任务的详情字段补齐线上形状：`description`、`subtasks[]`、`progress`（服务端补默认值；子任务为空时给一条代表性任务）。
+- `POST /calendar/deep_learn_subtask_session` 从 stub 换成真实现：建一节带单元/任务计划的深度学习会话并返回大纲 URL（路由到 `/deep-learn-session/outline/<id>`），与本仓大纲页对接。
+- 前端学习动态页：日历条目可点开任务详情（日期/标题/描述/子任务/已完成%）、删除任务走二次确认（对齐线上文案）、「开始课堂」跳深学大纲、侧栏加周配额面板（来自 `/auth/other_function_usage_limits`）。
+- 仍缺：批量删除日程、周/月视图与线上「已确认/待处理」分组完全一致的布局、知识库文件卡的「加入日程」按钮。
