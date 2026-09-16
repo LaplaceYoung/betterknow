@@ -32,9 +32,10 @@ export default function KnowledgeBase() {
   }
 
   return (
-    <div className="mx-auto max-w-[1080px] px-8 pb-16">
-      <div className="flex items-center gap-3"><h1 className="hk-page-title">个人知识库</h1><span className="text-[11px] px-1.5 py-0.5 rounded-full border">专业版 ◔</span></div>
-      <div className="flex items-center gap-3 mt-4">
+    <div className="knowledge-base-page">
+      <div className="knowledge-base-container">
+      <div className="knowledge-base-header flex items-center gap-3"><h1 className="knowledge-base-title">个人知识库</h1><span className="text-[11px] px-1.5 py-0.5 rounded-full border">专业版 ◔</span></div>
+      <div className="knowledge-base-controls flex items-center gap-3">
         <label className="flex items-center gap-2 h-10 px-3.5 rounded-full border bg-white flex-1 max-w-[460px]"><Search size={15} className="text-[#8a8a90]" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="我的天文学课件在哪？" className="flex-1 bg-transparent outline-none text-[14px]" /></label>
         <span className="text-[12px] text-[#8a8a90]">{(used / 1024).toFixed(0)} KB 已用</span>
         <div className="ml-auto flex items-center gap-2">
@@ -45,7 +46,7 @@ export default function KnowledgeBase() {
       </div>
 
       {crumbs.length > 0 && (
-        <div className="flex items-center gap-1 mt-5 text-[13px] text-[#6b6b70]">
+        <div className="folder-navigation flex items-center gap-1 text-[13px] text-[#6b6b70]">
           <button onClick={() => setFolder(null)} className="hk-icon-btn h-7 w-7" aria-label="返回上级"><ChevronLeft size={14} /></button>
           <button onClick={() => setFolder(null)} className="hover:text-black">知识库</button>
           {crumbs.map((c) => <span key={c.id} className="inline-flex items-center gap-1"><ChevronLeft size={12} className="rotate-180" /><button onClick={() => setFolder(c.id)} className="hover:text-black">{c.name}</button></span>)}
@@ -62,10 +63,11 @@ export default function KnowledgeBase() {
       )}
       {toast && <div className="mt-3 text-[12px] text-[#15803d] hk-fade-in" data-testid="kb-toast">{toast}</div>}
 
-      <div className="mt-5 grid grid-cols-4 gap-4">
+      <div className="files-area">
+      <div className="folders-grid">
         {items === null && Array.from({ length: 4 }).map((_, i) => <div key={i} className="hk-skeleton rounded-xl h-[180px]" />)}
         {shown.filter((x) => x.type === 'folder').map((f) => (
-          <button key={f.id} onClick={() => setFolder(f.id)} className="hk-card p-4 text-left hover:shadow-md"><Folder size={22} className="text-[#3b5bdb]" /><div className="mt-3 text-[13px] font-medium truncate">{f.name}</div><div className="text-[11px] text-[#8a8a90]">文件夹</div></button>
+          <button key={f.id} onClick={() => setFolder(f.id)} className="folder-card"><span style={{ width: 26, height: 26, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: '#4c6696' }}><Folder size={22} /></span><div className="mt-3 text-[13px] font-medium truncate">{f.name}</div><div className="text-[11px] text-[#8a8a90]">文件夹</div></button>
         ))}
         {shown.filter((x) => x.type !== 'folder').map((f) => (
           <div key={f.id} className="hk-card overflow-hidden group">
@@ -85,6 +87,8 @@ export default function KnowledgeBase() {
             {q ? '未找到文件' : '知识库是空的 —— 上传 PDF 或课件，即时协助就能引用它们'}
           </div>
         )}
+      </div>
+      </div>
       </div>
     </div>
   )

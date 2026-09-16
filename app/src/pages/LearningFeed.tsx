@@ -60,8 +60,10 @@ export default function LearningFeed() {
   const nav = useNavigate()
 
   return (
-    <div className="mx-auto max-w-[1180px] px-8 pb-16 grid gap-6" style={{ gridTemplateColumns: '260px 1fr' }}>
-      <aside className="space-y-4">
+    <div className="proactive-page">
+      <div className="proactive-content">
+      <div className="proactive-layout">
+      <aside className="proactive-left">
         <div className="hk-card p-4">
           <div className="text-[12px] text-[#8a8a90]">今日</div>
           <div className="text-[40px] font-semibold leading-none mt-1">{today.getDate()}</div>
@@ -90,8 +92,9 @@ export default function LearningFeed() {
         </div>
       </aside>
 
-      <section className="hk-card p-4">
-        <div className="flex items-center gap-2 flex-wrap">
+      <section className="proactive-right">
+      <div className="proactive-tasks-container">
+        <div className="proactive-tasks-header flex items-center gap-2 flex-wrap">
           {([['all', '全部'], ['confirmed', '已确认'], ['pending', '待处理']] as const).map(([k, l]) => <button key={k} onClick={() => setFilter(k)} className="hk-pill h-8 text-[12px] data-[on=true]:bg-[#0a0a0a] data-[on=true]:text-white data-[on=true]:border-[#0a0a0a]" data-on={filter === k}>{l}</button>)}
           <button className="hk-pill h-8 text-[12px]"><CalendarPlus size={12} /> Google Calendar</button>
           <button onClick={() => setSelectMode((v) => !v)} className={`hk-pill h-8 text-[12px] ${selectMode ? 'bg-[#0a0a0a] text-white' : ''}`} data-testid="bulk-toggle">{selectMode ? '取消选择' : '批量删除日程'}</button>
@@ -119,6 +122,7 @@ export default function LearningFeed() {
             <div>深度学习课堂 {quota.deep_learn_session ? `${quota.deep_learn_session.limit - quota.deep_learn_session.remaining} 已用 / ${quota.deep_learn_session.limit}` : '—'} 本周</div>
           </div>
         )}
+      </div>
       </section>
 
       {openTask && (
@@ -160,6 +164,8 @@ export default function LearningFeed() {
           </div>
         </div>
       )}
+      </div>
+      </div>
     </div>
   )
 }

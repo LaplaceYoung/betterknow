@@ -182,3 +182,13 @@
 | 练习/考试页 | `.practice-page,.exam-page{width:100%;height:100dvh;overflow:hidden;background:#fff;position:relative}`；关闭键 `top:26px;left:31px;16×16;color:#4c4c4c`；进度点 `top:26px;left:50%;gap:10px;translate(-50%,-50%)`，点 `17×10` radius999 `#d4d4d4`，激活 `25×18` 描边 2px `#D4D4D4`（考试激活点内含 `17×10 #aeaeae` 条）；`.exam-stage{top:52px;right:36px;bottom:30px;left:36px;border:1.5px solid #E5E5E5;border-radius:14px}` | 同（练习与考试都换成全屏页 + 顶部点，点可点击跳题，答对答错改变颜色） |
 | 考试倒计时 | `.exam-timer{padding:7px 14px;radius999;background:#f1f4f9;color:#385da0;font-size:14px;tabular-nums}`，低时间 `#fbeded`/`#c34747` | **未做**：缺考试时长来源（接口未给），先留缺口 |
 
+## 第九批对照：学习动态与知识库（r75-r77）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 学习动态页 | `.proactive-page{height:100dvh;background:#fafafa;display:flex;flex-direction:column;align-items:center;padding:16px 10px 0;overflow:hidden}`；`.proactive-content{width:97%;justify-content:center}`；`.proactive-layout{gap:20px;height:92dvh}`；`.proactive-left{flex:0 0 27%;gap:25px;overflow-y:auto}`；`.proactive-right{flex:1;gap:12px}`；`.proactive-tasks-container{background:#fff;border-radius:12px;padding:12px;box-shadow:0 3px 10px #0000000d}`；页头 `min-height:40px;gap:16px` | 同（实测 bg `rgb(250,250,250)` / pad `16px 10px 0` / gap 20 / left 27% gap 25 / 容器白底 radius 12 padding 12） |
+| 知识库页 | `.knowledge-base-page{height:100dvh;background:#fafafa;display:flex;flex-direction:column}`；`.knowledge-base-container{padding:20px 0 0}`；页头/控件/导航/文件区统一 `max-width:1200px;padding:0 20px`；`.knowledge-base-header{margin-top:30px;margin-bottom:20px;gap:10px}`；标题 20px w650 `#1a1a1a` | 同（实测 1200/30/20/0 20、标题 20 w650） |
+| 知识库文件夹 | `.folders-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:28px}`；`.folder-card{padding:12px 14px;background:#fff;border:1px solid #E5E5E5;border-radius:12px;gap:12px}`，hover `0 4px 8px #0000000d`；图标 26、名字 14 w500 `#1a1a1a` | 同（实测 4 列 gap 16、卡片 radius 12 padding `12px 14px` 边框 `#E5E5E5`） |
+| 知识库文件区 | `.files-area{flex:1;overflow-y:auto;padding-top:12px;padding-bottom:50px;margin-top:12px;min-height:400px}`，滚动条 6px `#0000004d` | 同（max-width 1200，padding `12px 20px 50px`） |
+| 拖拽上传态 | `.knowledge-base-drag-overlay{background:#fafafa59;backdrop-filter:blur(3px)}`；卡片 `background:#f1f6fec7;border:1.5px dashed rgba(76,102,148,.28);border-radius:25px;padding:42px 66px`；图标 44；标题 17 w600 `#2d3748`；说明 13 `#5a6578` | 记为下一批 |
+
