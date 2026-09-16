@@ -1001,3 +1001,9 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 `.whiteboard-sidebar{transition:width .2s ease}`：收起是宽度归零、组件不卸载（动画由宽度过渡完成）。收起态左上角浮出 `.whiteboard-sidebar-open-btn`（`position:absolute;top:16px;left:16px;z-index:30;padding:8px;border-radius:8px;background:#fffc;backdrop-filter:blur(8px)`，悬停变 `#fff`）。文案：`collapseSidebar:"收起侧边栏"` / `expandSidebar:"展开侧边栏"`。
 
 本仓：两个按钮都接上（收起入口放在侧栏 tabs 行右上角——线上只抓到浮出按钮的样式与文案，收起态的按钮位置没有实证，这一处排布是本仓的取舍）。
+
+### 课程日历弹窗的全屏变体（r164/r166 原文）
+
+`.course-cal-overlay--fullscreen{padding:0}` + `.course-cal-modal--fullscreen{display:flex;flex-direction:column;width:100%;height:100%;max-height:none;border-radius:0;padding:26px 36px 20px;background:#fafafa}`，配套 `.course-cal-head{margin-bottom:14px}`、`.ccal-preview{flex:1;min-height:0}`、`.ccal-preview-days-grid{flex:1;grid-auto-rows:1fr;min-height:0;overflow-y:auto}`、`.ccal-preview-day{min-height:96px}`、`.course-cal-footer{margin-top:14px}`。
+
+本仓：CSS 早已照抄，本轮补上开关（关闭按钮左侧，`aria-label` 全屏/退出全屏）与「全屏下 ESC 先退回窗口态」；触发按钮的位置线上没抓到，属本仓排布。

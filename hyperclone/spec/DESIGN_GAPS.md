@@ -520,18 +520,18 @@
 - 补上此前只有桩端点的课程排期链路：课程页新增「加入日历」入口 + 线上 `.course-cal-*` 四步弹窗（时长 → 开始日 → 星期 → 预览），计划按课程结构（课时 + 每单元测验）在客户端铺开；服务端 `/course-calendar/accept` 从「只回 success」改为真正写入 `state.calendar`（`type:"course"` + `payload.course_id`，同课程旧计划先清空，对应线上「确认后会替换它」）。
 - **本地化决定**：线上这套弹窗文案是硬编码英文（不走 i18n），本仓按目标写成中文并记档。
 - 实测：四步全通（7/14/30/60/90 天 chips、42 格月历含 today/选中态、Sun..Sat 星期 chips、预览 65 条）；确认后落库 65 条课程任务，入口由「加入日历」变「已加入日历」，学习动态日历上可见这些任务。
-- 仍未做：预览页的**拖拽改期**（线上 "Drag any item to a different day"）；`course-cal-modal--fullscreen` 的全屏变体；拒绝/生成的 `draft` 预览端点仍是桩（本仓不需要，计划在客户端算）。
+- 已做（全屏变体 + 开关；触发按钮位置无实证）：预览页的**拖拽改期**（线上 "Drag any item to a different day"）；`course-cal-modal--fullscreen` 的全屏变体；拒绝/生成的 `draft` 预览端点仍是桩（本仓不需要，计划在客户端算）。
 
 **第六十一批（日历预览可拖拽改期）**
 - 补上上一批记的「预览页拖拽改期」：预览换成线上同形的周网格（`ccal-preview-*`），条目可拖，`dragover` 高亮、`drop` 改期；计划由 useMemo 改为可变 state（前三步改参数重排、第 4 步可手调）。
 - 实测：21 格预览、15 格有内容；拖拽转移下标正确、目标格出现该条目；确认后 65 条课程任务按调整后的日期落库。
-- 仍未做：预览里展示「已存在的任务」（线上 `ccal-preview-existing`，用来看是否与新计划冲突）与拖拽时的详细提示动画；`course-cal-modal--fullscreen` 全屏变体。
+- 已做（全屏变体 + 开关；触发按钮位置无实证）：预览里展示「已存在的任务」（线上 `ccal-preview-existing`，用来看是否与新计划冲突）与拖拽时的详细提示动画；`course-cal-modal--fullscreen` 全屏变体。
 
 **第六十二批（预览显示已有任务 + 样式换线上原文）**
 - 补上上一批记的「预览里展示已存在的任务」：预览同时画已有任务（`ccal-preview-existing--bar`，三色板循环条色）与新计划条目（`ccal-preview-pill`），已有任务里排除本课程自己的旧计划（确认时会替换，避免自己和自己冲突）。
 - 顺势把上一批我自写的 `ccal-preview-*` 样式换成线上原文 29 条（日格 58px、`--today` 数字色 `#3d5477`、`--drag-over` 蓝底内描边、pill 白字 grab 光标等）。
 - 实测：4 条已有任务条 + 17 个计划 pill + 21 个日格，色值取自线上色板。
-- 仍未做：`course-cal-modal--fullscreen` 全屏变体（含 `.course-cal-modal--fullscreen .ccal-preview-*` 的几条特化）；`draft` 端点仍是桩。
+- 已做（全屏变体 + 开关；触发按钮位置无实证）：`course-cal-modal--fullscreen` 全屏变体（含 `.course-cal-modal--fullscreen .ccal-preview-*` 的几条特化）；`draft` 端点仍是桩。
 
 **第六十三批（任务的学习材料生成，BYOK）**
 - 补上任务详情里「生成文件卡」这条线：线上是 `POST /file_generation/rerun {task_id}`（先查 `file_generation` 配额，成功把文件挂到子任务的 `related_file_ids.output_files` 并渲染成卡片）。本仓服务端实现该端点（BYOK 模型写作，无模型时结构化兜底并标 `stub`）+ 鉴权取件路由，并把用量计入 `usageCounters.file_generation`；客户端子任务行显示文件卡与「立即生成 / 重新生成」，生成中转圈、配额为 0 时提示「已达到每周文件生成上限。」（线上 zh 原文）。
@@ -565,3 +565,7 @@
 - **run 落盘与回放**：`var/data/generation_runs/<run_id>.json` 记满 38 条事件（`start_course_generation`/`credits_charged{amount:0,byok:true}`/19×`course_generation_step`/9×`course_generation_progress`/`course_generation_questions`/`course_generation_answers`/`course_generation_structure`/`course_generation_complete`），`GET /course-generation/generation-log/<run_id>` 原样回放同一批事件。
 - **路由巡检**：首页 / 课程 / 课程页 / 练习 / 考试 / 学习动态 / 历史 / 知识库 / 收件箱 / 课程集市 十个入口逐个打开，无 console 报错、无错误态文案。
 - 复检中发现的唯一缺陷是 `PUT /auth/byok` 的单槽写法会静默串槽（已修，见第六十六批）。
+
+**第六十八批（课程日历：全屏变体 + 计划分配修正）**
+- 全屏变体接上：`.course-cal-overlay--fullscreen` / `.course-cal-modal--fullscreen`（实测 440×294 → 1482×755、圆角 18px → 0、预览区 `.ccal-preview` 撑到 1410×580、日格 `min-height:96px`），开关放在关闭按钮左侧，ESC 先退全屏再关弹窗。触发按钮的位置线上未取证。
+- **修掉计划分配的堆积缺陷**：`slots[Math.min(index, slots.length - 1)]` 会把超出的条目全塞进最后一天（60 个学习节 + 默认时长 → 末日显示「+48」）。现在按 `ceil(n / 天数)` 顺序均摊，实测 65 条铺到 13 天、每天 5 条（3 条 + 「+2」），且保持课程顺序。线上这套分配算法没有抓到（只抓到预览的 CSS），均摊是本仓口径。

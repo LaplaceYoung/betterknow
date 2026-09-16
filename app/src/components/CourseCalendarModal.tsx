@@ -31,6 +31,13 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
   const [month, setMonth] = useState(() => { const d = new Date(); d.setDate(1); return d })
   const [weekdays, setWeekdays] = useState<Set<number>>(new Set())
   const [busy, setBusy] = useState(false)
+  const [fullscreen, setFullscreen] = useState(false)
+  // 全屏下 ESC 先退回窗口态（线上 ESC 语义未取证，这里按「先退全屏」的惯例处理）
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape' && fullscreen) setFullscreen(false) }
+    window.addEventListener('keydown', onKey, true)
+    return () => window.removeEventListener('keydown', onKey, true)
+  }, [fullscreen])
   const [done, setDone] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -70,9 +77,10 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
       if (elapsed > effectiveDays) break
       if (weekdays.size === 0 || weekdays.has(day.getDay())) slots.push(day)
     }
-    // 条目多于可用日期时压缩到同一天，避免丢条目
+    // 条目多于可用日期时按顺序均摊（每天 ceil(n/天数) 条），顺序不乱、也不把溢出的全堆到末日
+    const perDay = Math.max(1, Math.ceil(items.length / Math.max(1, slots.length)))
     return items.map((item, index) => {
-      const day = slots[Math.min(index, slots.length - 1)] ?? cursor
+      const day = slots[Math.min(Math.floor(index / perDay), slots.length - 1)] ?? cursor
       return { ...item, date: `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}` }
     })
   }, [items, startDate, effectiveDays, weekdays])
@@ -131,8 +139,18 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
   }
 
   return (
-    <div className="course-cal-overlay" data-testid="course-cal" onClick={onClose}>
-      <div className="course-cal-modal" role="dialog" aria-modal="true" aria-label="把课程加入日历" onClick={(e) => e.stopPropagation()}>
+    <div className={`course-cal-overlay${fullscreen ? ' course-cal-overlay--fullscreen' : ''}`} data-testid="course-cal" onClick={onClose}>
+      <div className={`course-cal-modal${fullscreen ? ' course-cal-modal--fullscreen' : ''}`} role="dialog" aria-modal="true" aria-label="把课程加入日历" onClick={(e) => e.stopPropagation()}>
+        {/* 线上有 .course-cal-modal--fullscreen / .course-cal-overlay--fullscreen 两个变体（铺满视口、圆角归零、预览区 flex:1），
+            但没有抓到触发按钮的位置；这里把开关放在关闭按钮左侧 */}
+        <button type="button" className="course-cal-close" style={{ right: 46 }} data-testid="course-cal-fullscreen"
+          onClick={() => setFullscreen((v) => !v)} aria-label={fullscreen ? '退出全屏' : '全屏'} title={fullscreen ? '退出全屏' : '全屏'}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            {fullscreen
+              ? <path d="M9 3H3v6M15 3h6v6M9 21H3v-6M15 21h6v-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              : <path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+          </svg>
+        </button>
         <button type="button" className="course-cal-close" onClick={onClose} aria-label="关闭">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
