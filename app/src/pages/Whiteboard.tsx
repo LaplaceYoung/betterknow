@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { Activity, ArrowLeft, ArrowUp, Keyboard, Mic, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
+import { Activity, ArrowLeft, ArrowUp, Keyboard, Mic, PanelLeft, PanelLeftClose, Share2, SkipBack, SkipForward, ZoomIn, ZoomOut, Volume2, VolumeX, Download, Maximize2, Minimize2 } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -64,6 +64,7 @@ export default function Whiteboard() {
   const [exitOpen, setExitOpen] = useState(false)
   // 侧栏（线上 whiteboard-tabs：课程大纲 / 学习记录）
   const [sidebarTab, setSidebarTab] = useState<'syllabus' | 'artifacts' | 'script'>('syllabus')
+  const [sidebarOpen, setSidebarOpen] = useState(true)
   const [outlineCourses, setOutlineCourses] = useState<Array<{ uuid: string; title?: string }>>([])
   const [outlineCourseUuid, setOutlineCourseUuid] = useState('')
   const [outlineSessions, setOutlineSessions] = useState<Array<{ sessionId?: string; session_id?: string; title: string; unitTitle?: string; unit_title?: string; lectureOutline?: string; description?: string; references?: string[] }>>([])
@@ -447,7 +448,11 @@ export default function Whiteboard() {
 
   return (
     <div ref={containerRef} className="flex h-full" style={{ background: 'var(--app-bg)' }}>
-      <section className="flex-1 min-w-0 flex flex-col">
+      <section className="flex-1 min-w-0 flex flex-col relative">
+        {!zen && !sidebarOpen && (
+          <button type="button" className="whiteboard-sidebar-open-btn" aria-label="展开侧边栏" title="展开侧边栏"
+            data-testid="sidebar-open" onClick={() => setSidebarOpen(true)}><PanelLeft size={16} /></button>
+        )}
         <header className="flex items-center gap-3 px-4" style={{ height: 52 }}>
           <button onClick={() => setExitOpen(true)} data-testid="exit-session-btn" className="hk-icon-btn h-8 w-8" aria-label="返回"><ArrowLeft size={15} /></button>
           <h1 className="text-[14px] font-semibold truncate">{title}：知识讲解</h1>
@@ -702,8 +707,10 @@ export default function Whiteboard() {
       </section>
 
       {/* 线上 .whiteboard-sidebar：tabs（课程大纲 / 学习记录）+ content；「讲稿」是本仓保留的第三个 tab */}
-      {!zen && <aside className="whiteboard-sidebar" style={{ width: 260 }}>
-        <div className="whiteboard-sidebar-inner">
+      {!zen && <aside className="whiteboard-sidebar" style={{ width: sidebarOpen ? 260 : 0 }}>
+        <div className="whiteboard-sidebar-inner relative">
+        <button type="button" className="absolute right-2 top-2 z-10 h-6 w-6 text-[#8a8a90] hover:text-[#262626]" aria-label="收起侧边栏"
+          title="收起侧边栏" data-testid="sidebar-collapse" onClick={() => setSidebarOpen(false)}><PanelLeftClose size={13} /></button>
         <div className="whiteboard-tabs" role="tablist">
           {([['syllabus', '课程大纲'], ['artifacts', '学习记录'], ['script', '讲稿']] as const).map(([key, label]) => (
             <button key={key} type="button" role="tab" className="whiteboard-tab" data-active={sidebarTab === key} data-testid={`sidebar-tab-${key}`}

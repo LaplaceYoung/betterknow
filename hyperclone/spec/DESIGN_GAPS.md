@@ -548,7 +548,7 @@
 - 主栏里重复的「学习节要点」内联块删除，要点并入课程大纲 tab。
 - **修掉一个字段错**：服务端会话列表只给 `session_id`，而前端（照线上写法）读 `sessionId`，点「可用学习节」会跳到 `.../whiteboard/undefined`；现在两者都返回。
 - 实测：三个 tab 切换正常；大纲卡片显示学习节标题 + 大纲正文、无大纲时显示「此学习节暂无大纲。」；学习记录 70 门课程 / 60 个学习节可选。
-- 仍未做：参考资料一节目前永远走空态（本仓学习节没有 references 数据）；展开/收起按钮（`whiteboard-sidebar-open-btn`）与 `collapseSidebar/expandSidebar` 文案未接；拖拽/键盘无障碍细节未逐条复刻。
+- 未做：参考资料一节目前永远走空态（本仓学习节没有 references 数据）；展开/收起按钮已接（`whiteboard-sidebar-open-btn` + 收起/展开文案；收起入口的位置无实证，属本仓排布）；拖拽/键盘无障碍细节未逐条复刻。
 
 **第六十六批（语音链 + BYOK STT 落地）**
 - **把 STT 槽变成真链路**：之前五槽里的「语音识别」只在设置面板里可配、没有任何调用方。现在三条链都接上了：麦克风输入 `voice_stream_*{pcm_b64}`（24kHz PCM16 → 套 WAV → `/audio/transcriptions`）、冷提问 `user_message{audio_b64,audio_mime,audio_duration_ms}`、打断 `interject_question{audio_b64,mime,duration_ms}` 与 `interject_audio_chunk{pcm_b64}→interject_audio_end`。转写结果按线上帧回：`voice_transcript{text}`、`voice_stream_text{delta}`、`interject_user_text{delta}`；白板与 PDF 批注两条 WS 都接了。

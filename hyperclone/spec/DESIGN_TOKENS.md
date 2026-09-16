@@ -995,3 +995,9 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 麦克风状态文案（`voiceInterrupt*`）：语音输入已开启 / 开口提问或打断 / 正在开启麦克风… / 麦克风权限被拒绝 / 语音打断启动失败；聆听中「正在聆听…」；常驻提示「语音输入模式已开启，模型正在聆听」「正在准备语音输入，请稍候…」；发送倒计时「{{seconds}} 秒钟后发送，点击右侧按钮可延迟发送」+ 按钮「延迟发送」。
 
 本仓：卡片、CSS（23 条线上原文）、localStorage 键、文案照抄；麦克风是「点一次开始、再点一次停」的整段录音（线上是按住/常开 + 客户端 VAD），`MediaRecorder` 编解码优先级与 `<512B / 时长门槛` 同线上；倒计时/延迟发送与 VAD 未做（已记 DESIGN_GAPS）。
+
+### 白板侧栏收起 / 展开（r168 CSS + i18n）
+
+`.whiteboard-sidebar{transition:width .2s ease}`：收起是宽度归零、组件不卸载（动画由宽度过渡完成）。收起态左上角浮出 `.whiteboard-sidebar-open-btn`（`position:absolute;top:16px;left:16px;z-index:30;padding:8px;border-radius:8px;background:#fffc;backdrop-filter:blur(8px)`，悬停变 `#fff`）。文案：`collapseSidebar:"收起侧边栏"` / `expandSidebar:"展开侧边栏"`。
+
+本仓：两个按钮都接上（收起入口放在侧栏 tabs 行右上角——线上只抓到浮出按钮的样式与文案，收起态的按钮位置没有实证，这一处排布是本仓的取舍）。
