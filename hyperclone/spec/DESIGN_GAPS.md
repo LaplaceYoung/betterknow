@@ -328,3 +328,8 @@
 **第二十七批（练习彩带 + 欢迎弹窗）**
 - **答对彩带**：按线上 `.practice-check-confetti-layer/piece` 实现——固定层 z 10020、28 片、变量驱动位移/旋转/时长（`--cf-dx/--cf-dy/--cf-rotate/--cf-duration`）、缓动 `cubic-bezier(.15,.9,.25,1)`，只在答对时触发，1.5s 后清理；`prefers-reduced-motion` 下不播放。
 - **欢迎弹窗**换成线上 `.practice-welcome-*`（10010 遮罩 + `blur(3px)`、480/22 圆角、`#fbfbfb`、`140px 1fr` 网格、18/600 标题、13.5 说明、`9px 20px` 黑胶囊按钮、`practice-welcome-modal-pop` 动画），替换掉原先自制的 490 宽卡片。
+
+**第二十八批（历史页）**
+- 历史页整页换成线上 `sh-*` 体系（之前是自研卡片列表、没有分组）：页根变量（`--sh-ink/--sh-ink-muted/--sh-ink-faint/--sh-hairline/--sh-divider/--sh-surface/--sh-lift`）、1120 内容列、20/650 标题、260→300 聚焦变宽的搜索、`sh-new-conversation-btn`、胶囊标签与 30×30 圆形筛选（选中变胶囊）、带渐隐遮罩的滚动区、**按时间分组**（今天/本周/更早，11px 大写 `.07em` 标签）、`sh-list` 白卡（radius 14 + `--sh-lift`）、44px 行（hover `#241f180d`、`left:36px` 内缩分隔线、36px 图标列、15 与省略号）。
+- 行内补了星标与 `⋯` 删除菜单（沿用 `sh-filter-dropdown` 的下拉样式）。
+- 仍未做：`sh-scroll--scrolled` 的顶部渐隐联动、`sh-filter-dropdown` 的多选筛选（类型/时间范围）、空态插画。

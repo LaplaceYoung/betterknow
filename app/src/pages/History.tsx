@@ -1,51 +1,134 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Search, Plus, Star, PenLine, MessageSquare } from 'lucide-react'
+import { MessageSquare, PenLine, Plus, Search, Star, Trash2 } from 'lucide-react'
 import { apiGet, apiPost, type Conversation } from '@/lib/api'
 
 interface DeepSession { deep_learn_session_id?: string; session_id?: string; title?: string; topic?: string; created_at?: string; status?: string }
-const rel = (s?: string) => { if (!s) return ''; const ms = Date.now() - new Date(s).getTime(); const m = Math.floor(ms / 60000); if (m < 1) return '刚刚'; if (m < 60) return `${m} 分钟前`; const h = Math.floor(m / 60); if (h < 24) return `${h} 小时前`; const d = Math.floor(h / 24); return d < 30 ? `${d} 天前` : new Date(s).toLocaleDateString('zh-CN') }
+const rel = (s?: string) => { if (!s) return ''; const ms = Date.now() - new Date(s).getTime(); const m = Math.floor(ms / 60000); if (m < 1) return '刚刚'; if (m < 60) return `${m} 分钟前`; const h = Math.floor(m / 60); if (h < 24) return `${h} 小时前`; const d = Math.floor(h / 24); if (d < 30) return `${d} 天前`; return new Date(s).toLocaleDateString('zh-CN') }
 
-// [S22][B2] 历史：对话列表 + 深度学习课堂，星标写回服务端
+// 线上历史页的分组：今天 / 本周 / 更早（.sh-group-label 大写小字）
+function groupOf(iso?: string): string {
+  if (!iso) return '更早'
+  const now = new Date()
+  const d = new Date(iso)
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime()
+  if (d.getTime() >= startOfToday) return '今天'
+  if (d.getTime() >= startOfToday - 6 * 86400000) return '本周'
+  return '更早'
+}
+const GROUP_ORDER = ['今天', '本周', '更早']
+
+// [S22][B2] 历史：按时间分组的行表（线上 .sh-* 骨架）+ 深度学习课堂，星标写回服务端
 export default function History() {
   const nav = useNavigate()
   const [tab, setTab] = useState<'chat' | 'deep'>('chat')
   const [convs, setConvs] = useState<Conversation[] | null>(null)
   const [deep, setDeep] = useState<DeepSession[]>([])
   const [q, setQ] = useState('')
-  const load = () => { apiGet<{ conversations: Conversation[] }>('/conversations/list_past_conversations').then((r) => setConvs(r.conversations)).catch(() => setConvs([])); apiGet<{ sessions: DeepSession[] }>('/deep_learn/list_deep_learn_session').then((r) => setDeep(r.sessions)).catch(() => {}) }
+  const [onlyStarred, setOnlyStarred] = useState(false)
+  const [menuFor, setMenuFor] = useState<string | null>(null)
+  const load = () => { apiGet<{ conversations: Conversation[] }>('/conversations/list_past_conversations').then((r) => setConvs(r.conversations)).catch(() => setConvs([])) }
   useEffect(() => { load() }, [])
-  const shown = useMemo(() => (convs ?? []).filter((c) => !q || c.title.toLowerCase().includes(q.toLowerCase())), [convs, q])
-  const star = async (c: Conversation) => { await apiPost('/conversations/manage_conversation_property', { conversation_id: c.conversation_id, starred: !c.starred }); load() }
+  const shown = useMemo(
+    () => (convs ?? []).filter((c) => (!q || c.title.toLowerCase().includes(q.toLowerCase())) && (!onlyStarred || c.starred)),
+    [convs, q, onlyStarred]
+  )
+  const grouped = useMemo(() => {
+    const buckets = new Map<string, Conversation[]>()
+    for (const c of shown) {
+      const key = groupOf(c.last_updated_at)
+      buckets.set(key, [...(buckets.get(key) ?? []), c])
+    }
+    return GROUP_ORDER.filter((k) => buckets.has(k)).map((k) => ({ label: k, items: buckets.get(k)! }))
+  }, [shown])
+  const star = async (c: Conversation) => { await apiPost('/conversations/manage_conversation_property', { conversation_id: c.conversation_id, starred: !c.starred }).catch(() => {}); load() }
+  const remove = async (c: Conversation) => { await apiPost('/conversations/delete_conversation', { conversation_id: c.conversation_id }).catch(() => {}); setMenuFor(null); load() }
 
   return (
-    <div className="mx-auto max-w-[880px] px-8 pb-16">
-      <div className="flex items-center gap-3">
-        <h1 className="text-[22px] font-semibold">历史</h1>
-        <label className="ml-auto flex items-center gap-2 h-9 px-3 rounded-full border bg-white w-[240px]"><Search size={14} className="text-[#8a8a90]" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="搜索历史会话" className="flex-1 bg-transparent outline-none text-[13px]" /></label>
-        <button onClick={() => nav('/')} className="hk-pill h-9"><Plus size={14} /> 新建对话</button>
-      </div>
-      <div role="tablist" className="flex gap-1 mt-5 border-b text-[13px]">
-        {([['chat', '对话'], ['deep', '深度学习课堂']] as const).map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className="relative px-3 h-9 text-[#6b6b70] data-[on=true]:text-black data-[on=true]:font-medium" data-on={tab === k}>{l}{tab === k && <span className="absolute left-3 right-3 -bottom-px h-0.5 bg-black" />}</button>)}
-      </div>
-      {tab === 'chat' ? (
-        <div className="hk-card mt-4 divide-y">
-          {convs === null && <div className="p-4"><div className="hk-skeleton h-5 rounded w-1/2" /></div>}
-          {convs && shown.length === 0 && <div className="p-10 text-center text-[#8a8a90] text-[13px]">还没有对话记录</div>}
-          {shown.map((c) => (
-            <div key={c.conversation_id} className="flex items-center gap-3 px-4 py-3 hover:bg-[#fafafa]">
-              <button onClick={() => nav(`/response/${c.conversation_id}`)} className="flex-1 min-w-0 text-left flex items-center gap-2">{c.board_session_types?.length ? <PenLine size={14} className="text-[#8a8a90]" /> : <MessageSquare size={14} className="text-[#8a8a90]" />}<span className="text-[14px] truncate">{c.title}</span></button>
-              <span className="text-[12px] text-[#8a8a90] shrink-0">{rel(c.last_updated_at)}</span>
-              <button onClick={() => star(c)} aria-label="星标" className="text-[#c4c4c8] hover:text-[#f59e0b]"><Star size={14} className={c.starred ? 'fill-[#f59e0b] text-[#f59e0b]' : ''} /></button>
+    <div className="sh-page" data-testid="history-page">
+      <div className="sh-inner">
+        <div className="sh-header">
+          <h1 className="sh-title">历史</h1>
+          <div className="sh-header-right">
+            <label className="sh-search-wrap">
+              <Search size={14} className="sh-search-icon" />
+              <input className="sh-search" aria-label="搜索历史" placeholder="搜索对话" value={q} onChange={(e) => setQ(e.target.value)} />
+            </label>
+            <button className="sh-new-conversation-btn" onClick={() => nav('/')}><Plus size={14} /> 新建对话</button>
+          </div>
+        </div>
+
+        <div className="sh-toolbar">
+          <div role="tablist" className="sh-tabs">
+            {([['chat', '对话'], ['deep', '深度学习课堂']] as const).map(([k, l]) => (
+              <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className={`sh-tab ${tab === k ? 'active' : ''}`}>{l}</button>
+            ))}
+          </div>
+          {tab === 'chat' && (
+            <div className="sh-filter-wrap">
+              <button className={`sh-filter-btn ${onlyStarred ? 'active' : ''}`} aria-label="只看星标" onClick={() => setOnlyStarred((v) => !v)}>
+                <Star size={15} className={onlyStarred ? 'text-[#f59e0b]' : ''} />
+                {onlyStarred && <span className="text-[13px]">只看星标</span>}
+              </button>
             </div>
-          ))}
+          )}
         </div>
-      ) : (
-        <div className="hk-card mt-4 divide-y">
-          {deep.length === 0 && <div className="p-10 text-center text-[#8a8a90] text-[13px]">还没有深度学习课堂<div className="mt-2"><button onClick={() => nav('/')} className="hk-pill">在首页开一个深度学习会话</button></div></div>}
-          {deep.map((s) => <button key={s.deep_learn_session_id ?? s.session_id} onClick={() => nav(`/deep-learn-session/${s.deep_learn_session_id ?? s.session_id}`)} className="w-full text-left flex items-center gap-3 px-4 py-3 hover:bg-[#fafafa]"><span className="flex-1 text-[14px] truncate">{s.title ?? s.topic}</span><span className="text-[12px] text-[#8a8a90]">{rel(s.created_at)}</span></button>)}
+
+        <div className="sh-scroll hk-scroll">
+          {tab === 'chat' ? (
+            <>
+              {convs === null && <div className="sh-list"><div className="p-4"><div className="hk-skeleton h-5 rounded w-1/2" /></div></div>}
+              {convs && shown.length === 0 && <div className="sh-list"><div className="p-10 text-center text-[#8a8a90] text-[13px]">还没有对话记录</div></div>}
+              {grouped.map((g) => (
+                <div className="sh-group" key={g.label}>
+                  <p className="sh-group-label">{g.label}</p>
+                  <ul className="sh-list">
+                    {g.items.map((c) => (
+                      <li key={c.conversation_id}>
+                        <div className="sh-row" role="button" tabIndex={0} onClick={() => nav(`/response/${c.conversation_id}`)} onKeyDown={(e) => e.key === 'Enter' && nav(`/response/${c.conversation_id}`)}>
+                          <span className="sh-row-icon"><MessageSquare size={16} className="sh-row-kind-icon" /></span>
+                          <span className="sh-row-title">{c.title}</span>
+                          {c.board_session_types?.length ? <span className="sh-row-date" title="含白板课堂">白板</span> : null}
+                          <span className="sh-row-date">{rel(c.last_updated_at)}</span>
+                          <span className="sh-row-actions">
+                            <button className={`sh-row-menu-btn ${c.starred ? 'is-starred' : ''}`} aria-label={c.starred ? '取消星标' : '星标'}
+                              onClick={(e) => { e.stopPropagation(); void star(c) }}>
+                              <Star size={15} style={c.starred ? { color: '#f59e0b', fill: '#f59e0b' } : undefined} />
+                            </button>
+                            <button className="sh-row-menu-btn" aria-label="更多操作" onClick={(e) => { e.stopPropagation(); setMenuFor(menuFor === c.conversation_id ? null : c.conversation_id) }}>
+                              ⋯
+                            </button>
+                            {menuFor === c.conversation_id && (
+                              <span className="sh-filter-dropdown" role="menu">
+                                <button className="sh-filter-option" role="menuitem" onClick={(e) => { e.stopPropagation(); void remove(c) }}>
+                                  <Trash2 size={15} style={{ color: '#e71414' }} /><span style={{ color: '#e71414' }}>删除对话</span>
+                                </button>
+                              </span>
+                            )}
+                          </span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </>
+          ) : (
+            <ul className="sh-list">
+              {deep.length === 0 && <li className="p-10 text-center text-[#8a8a90] text-[13px]">还没有深度学习课堂</li>}
+              {deep.map((s) => (
+                <li key={s.deep_learn_session_id ?? s.session_id}>
+                  <div className="sh-row" role="button" tabIndex={0} onClick={() => nav(`/deep-learn-session/outline/${s.deep_learn_session_id ?? s.session_id}`)}>
+                    <span className="sh-row-icon"><PenLine size={16} className="sh-row-kind-icon" /></span>
+                    <span className="sh-row-title">{s.title ?? s.topic ?? '深度学习课堂'}</span>
+                    <span className="sh-row-date">{rel(s.created_at)}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-      )}
+      </div>
     </div>
   )
 }

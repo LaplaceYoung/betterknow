@@ -289,3 +289,25 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 欢迎弹窗 | `.practice-welcome-overlay{z-index:10010;background:#0f172a2e;backdrop-filter:blur(3px);padding:24px}`；`.practice-welcome-modal{width:min(480px,100%);padding:20px 22px 20px 12px;border-radius:22px;background:#fbfbfb;box-shadow:0 24px 60px #0f172a2e}`；`.practice-welcome-row{grid-template-columns:140px minmax(0,1fr);gap:14px}`；标题 18/600 `#111827`；说明 13.5 `#4b5563`；按钮 `9px 20px` radius 999 `#111827` | 同（实测 480/22/`20px 22px 20px 12px`/`#fbfbfb`、grid `140px 292px`、按钮 `9px 20px`） |
 | 弹窗动画 | `@keyframes practice-welcome-modal-pop{0%{opacity:0;translateY(8px) scale(.98)} to{opacity:1;translateY(0) scale(1)}}`，`.22s cubic-bezier(.16,1,.3,1)` | 同 |
 
+### 历史页（第十五批，r93-r95）
+
+线上历史页是 `sh-*` 命名（不是 `history-*`），变量集中在页根：
+
+```css
+.sh-page{--sh-ink:#1F1D1A; --sh-ink-muted:#6F6B64; --sh-ink-faint:#A8A29A;
+         --sh-hairline:rgba(36,31,24,.07); --sh-divider:rgba(36,31,24,.05);
+         --sh-surface:#FFFFFC; --sh-lift:0 1px 2px rgba(28,25,20,.04),0 4px 12px -4px rgba(28,25,20,.07);
+         --sh-accent:#4C6694}
+```
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 页与内容列 | `.sh-page{width:100%;height:100dvh;display:flex;flex-direction:column}`；`.sh-inner{max-width:1120px;padding:44px 56px 0;flex:1;min-height:0;overflow:hidden}` | 同（实测 1120 / `44px 56px 0`） |
+| 页头 | `.sh-header{gap:16px;margin-bottom:16px}`；`.sh-title{font-size:20px;font-weight:650;color:var(--sh-ink)}` | 同 |
+| 搜索 | `.sh-search{width:260px;height:36px;padding:0 32px 0 38px;border-radius:999px;border:1px solid var(--sh-hairline)}`；聚焦**宽度变 300px**；占位 `#b8b1a7`；图标 `left:13px` | 同（实测 260×36、聚焦 300 的过渡） |
+| 新建对话 | `.sh-new-conversation-btn{height:36px;padding:0 16px;border-radius:999px;background:var(--sh-surface);box-shadow:var(--sh-lift),inset 0 1px #ffffffe6}`，hover 抬起 | 同 |
+| 工具条与标签 | `.sh-toolbar{margin-bottom:18px}`；`.sh-tab{padding:6px 15px;font-size:13px;color:var(--sh-ink-muted);border-radius:999px}`，`.active{background:var(--sh-surface);border-color:var(--sh-hairline);box-shadow:0 2px 7px #0f172a0b}`；`.sh-filter-btn` 30×30 圆形，选中变胶囊 | 同 |
+| 滚动区 | `.sh-scroll{flex:1;margin:0 -12px;padding:4px 12px 32px;mask-image:linear-gradient(to bottom,#000 calc(100% - 44px),transparent 100%)}`，`--scrolled` 时顶部也加渐隐 | 同（实测 padding 与 mask） |
+| 分组 | `.sh-group+.sh-group{margin-top:22px}`；`.sh-group-label{margin:0 0 8px 4px;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--sh-ink-faint)}` | 同（今天/本周/更早） |
+| 列表与行 | `.sh-list{padding:4px;background:var(--sh-surface);border:1px solid var(--sh-hairline);border-radius:14px;box-shadow:var(--sh-lift)}`；`.sh-row{height:44px;border-radius:10px}` hover `#241f180d`；分隔线 `:after{left:36px;right:8px;background:var(--sh-divider)}`；`.sh-row-icon{width:36px}`（图标 16、`opacity:.45`）；`.sh-row-title` 14px 省略号 | 同（实测 44/10/14） |
+
