@@ -649,3 +649,8 @@
 - **试听口径改为 BYOK**：线上放自带样本 `/tts-samples/<voice>.mp3`；本仓新开 `GET /api/v1/tts/preview?voice=&speed=`，用用户自己配的 TTS 槽真合成一段再回音频——自部署版本听的是「你自己的音色」。
 - 选择走 `set_tts_config {voice_id, speed}`：连接建立时先发一次，改动再发；服务端存 `whiteboards[session].tts_config` 并回 `tts_config` 帧同步本地（含 0.5–2 的夹取）。音色中文名同步对齐线上词典（沉稳/柔和/专业/轻快，此前是平静/轻柔/沉稳/活泼）。
 - 实测：chip「沉稳 · 1×」→ 弹层打开、当前音色高亮、6 个音色与 6 档刻度齐全；点「轻快」→ chip 变「轻快 · 1×」+ 已保存文案 + 发出 `set_tts_config{voice_id:'lively'}`；拖滑杆到 1.5× → 再发一帧 `{voice_id:'lively', speed:1.5}`，`state.json` 里该会话 `tts_config` = `{voice_id:'lively', speed:1.5}`；假网关侧收到 2 次 `/audio/speech`（两次试听都真合成）。
+
+**第八十二批（互动题：舞台适配做到线上口径 + 合成考试补互动题）**
+- **测量算法照搬线上**：`available = max(200, stage.clientHeight - known - scrollDelta)`、`maxHeight = round(available) + scrollDelta`、`scale = clamp(0.5, available / 动画高, 1)`，用 `useLayoutEffect` + `ResizeObserver`（观察 stage 与题目区）。此前本仓是按**宽度**缩放且用了硬编码设计宽 720，现在以子页 `postMessage` 回报的动画高度为基准，与线上一致。
+- **合成考试补一道互动题**：`synthesizeCourseExams` 现在会生成 `type:'animation'` 的题（自包含动画 HTML 走本仓 `localAnimationHtml`），因此**没有种子数据的课程也能考互动题**；带种子考试的那门课种子里本来就有互动题。
+- 实测（种子考试第 15/15 题）：kicker「互动」、stage 高 670px、`frame.maxHeight = 203px`、iframe CSS 高 509px、`transform: scale(0.5)`、`transform-origin: top center`（`339px 0px`）、iframe 顶边与 frame 内容顶边对齐（295 vs 295）、frame 内无滚动（`scrollH 203 / clientH 201`），底部按线上口径裁掉。

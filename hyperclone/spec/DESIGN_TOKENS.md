@@ -1104,3 +1104,21 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 音色与色板（r84 原文）：warm 温暖 `#F0997B→#EDB1B1`、calm 沉稳 `#85B7EB→#9AA0A6`、bright 明亮 `#EF9F27→#F0997B`、gentle 柔和 `#AFA9EC→#EDB1B1`、firm 专业 `#5DCAA5→#85B7EB`、lively 轻快 `#97C459→#5DCAA5`。
 
 本仓：结构/文案/色板照抄；**试听用的不是线上自带的 `/tts-samples/<voice>.mp3`，而是 `GET /api/v1/tts/preview?voice=&speed=` 用你自己的 BYOK 音色真合成一段**（BYOK 版里试听就该听自己配的音色）；选择走 `set_tts_config {voice_id, speed}`，服务端落 `whiteboards[session].tts_config` 并在 `tts_config` 帧回显。
+
+### 互动题的舞台适配（第六十批，PracticePage / ExamPage 原文）
+
+线上练习与考试用同一段测量（`Nt` / 对应的 exam 版本），在 `useLayoutEffect` + `ResizeObserver` 里跑：
+
+```
+scrollDelta = stage.offsetHeight - stage.clientHeight          // 滚动差
+known = Σ(题目区子元素高度，不含动画面板)
+      + rowGap × max(0, 子元素数-1) + paddingTop + paddingBottom
+      + (stage.parentElement ? parent.offsetHeight - stage.offsetHeight : 0)
+available = max(200, stage.clientHeight - known - scrollDelta)
+maxHeight = round(available) + scrollDelta                     // 落在 .exam-animation-frame 上
+scale     = min(1, max(0.5, available / animHeight))           // animHeight = 子页 postMessage 回报的高度
+```
+
+`.exam-animation-frame{width:100%;overflow-y:auto;overflow-x:hidden;…}`（`maxHeight` 由运行时给）+ `.exam-animation-iframe{display:block;width:100%;border:none;background:#faf9f7;transform-origin:top center}`——**缩放原点在顶部**，所以缩小后动画顶部仍对齐、底部被裁（这是线上口径，不是缺陷）。
+
+本仓：算法照搬（此前按「宽度」缩放且用固定设计宽 720），现在以子页回报的动画高度为基准；缩放原点、边框与滚动规则本来就已经是线上原文。

@@ -8,7 +8,6 @@ import type { Question } from '@/pages/CourseWork'
 const ANIM_CHILD_SCRIPT = `<script>(function(){function unlock(){var vh=innerHeight,k=document.body?document.body.children:[];for(var i=0;i<k.length;i++){var s=getComputedStyle(k[i]);if(Math.abs(parseFloat(s.minHeight)-vh)<1)k[i].style.minHeight='0px';if(Math.abs(parseFloat(s.height)-vh)<1)k[i].style.height='auto'}}function r(){try{unlock();var h=Math.ceil(document.documentElement.getBoundingClientRect().height);if(h>0)parent.postMessage({type:'hk-anim-height',height:h},'*')}catch(e){}}r();addEventListener("load",r);try{new ResizeObserver(r).observe(document.documentElement)}catch(e){}})()</script>`
 
 // 设计宽度：动画生成器按 720px 画布出的图，窄于此就等比缩小
-const ANIMATION_DESIGN_WIDTH = 720
 
 const OPTION_SHAPES = [
   <svg key="triangle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 17H3z" /></svg>,
@@ -36,9 +35,10 @@ export function ExamQuestion({ q, picked, fill, animationHtml, onToggle, onFill 
   const kicker = q.type === 'multiple' ? '多选题' : q.type === 'fill' ? '填空题' : isAnimation ? '互动' : '单选题'
   const [before, after = ''] = q.prompt.split('____')
   const [frameHeight, setFrameHeight] = useState(320)
-  const [scale, setScale] = useState(1)
+  const [fit, setFit] = useState({ maxHeight: 200, scale: 1 })
   const frameRef = useRef<HTMLIFrameElement | null>(null)
   const panelRef = useRef<HTMLDivElement | null>(null)
+  const shellRef = useRef<HTMLElement | null>(null)
   useEffect(() => {
     const onMessage = (event: MessageEvent) => {
       const frame = frameRef.current
@@ -51,18 +51,37 @@ export function ExamQuestion({ q, picked, fill, animationHtml, onToggle, onFill 
     window.addEventListener('message', onMessage)
     return () => window.removeEventListener('message', onMessage)
   }, [])
+  // 线上算法（PracticePage / ExamPage 同一段）：量 stage 的剩余高度决定 maxHeight 与缩放
+  //   scrollDelta = stage.offsetHeight - stage.clientHeight
+  //   known = 题目区各子元素高度和（不含动画面板）+ rowGap*(n-1) + padding*2 +（父元素与 stage 的高度差）
+  //   available = max(200, stage.clientHeight - known - scrollDelta)
+  //   maxHeight = round(available) + scrollDelta；scale = clamp(0.5, available / 设计宽, 1)
   useEffect(() => {
     const panel = panelRef.current
-    if (!isAnimation || !panel) return
-    const fit = () => setScale(Math.min(1, Math.max(0.5, panel.clientWidth / ANIMATION_DESIGN_WIDTH)))
+    const shell = shellRef.current
+    if (!isAnimation || !panel || !shell) return
+    const stage = (shell.closest('.exam-stage, .practice-stage') as HTMLElement | null) ?? shell.parentElement
+    if (!stage) return
+    const fit = () => {
+      const scrollDelta = stage.offsetHeight - stage.clientHeight
+      const style = getComputedStyle(shell)
+      const children = Array.from(shell.children).filter((el) => el !== panel)
+      const known = children.reduce((sum, el) => sum + (el as HTMLElement).offsetHeight, 0)
+        + (parseFloat(style.rowGap) || 0) * Math.max(0, children.length - 1)
+        + (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0)
+      const available = Math.max(200, stage.clientHeight - known - scrollDelta)
+      // 线上 e 参数就是子页面回报的动画高度（不是固定设计宽）：scale = clamp(0.5, 剩余高/动画高, 1)
+      setFit({ maxHeight: Math.round(available) + scrollDelta, scale: Math.min(1, Math.max(0.5, available / Math.max(1, frameHeight))) })
+    }
     fit()
     if (typeof ResizeObserver === 'undefined') return
     const observer = new ResizeObserver(fit)
-    observer.observe(panel)
+    observer.observe(stage)
+    observer.observe(shell)
     return () => observer.disconnect()
-  }, [isAnimation])
+  }, [isAnimation, frameHeight])
   return (
-    <section className={shell} data-testid="exam-question-shell">
+    <section className={shell} ref={shellRef} data-testid="exam-question-shell">
       <div className="exam-question-prompt">
         <p className={`exam-question-kicker${q.type === 'multiple' ? ' exam-question-kicker--multiple' : ''}`}>{kicker}</p>
         {q.type === 'fill' ? (
@@ -84,12 +103,12 @@ export function ExamQuestion({ q, picked, fill, animationHtml, onToggle, onFill 
       </div>
       {isAnimation && animationHtml && (
         <div className="exam-animation-panel" ref={panelRef}>
-          <div className="exam-animation-frame">
-            <div className="exam-animation-scaler" style={{ height: Math.round(frameHeight * scale) }}>
+          <div className="exam-animation-frame" style={{ maxHeight: fit.maxHeight }}>
+            <div className="exam-animation-scaler" style={{ height: Math.min(frameHeight, fit.maxHeight) }}>
               <iframe className="exam-animation-iframe" ref={frameRef} title={q.prompt}
                 srcDoc={`${animationHtml}<style>html,body{height:auto!important;min-height:0!important;max-height:none!important;}</style>${ANIM_CHILD_SCRIPT}`}
                 sandbox="allow-scripts" referrerPolicy="no-referrer" allow=""
-                style={{ height: frameHeight, transform: scale < 1 ? `scale(${scale})` : undefined }} />
+                style={{ height: frameHeight, transform: fit.scale < 1 ? `scale(${fit.scale})` : undefined }} />
             </div>
           </div>
         </div>

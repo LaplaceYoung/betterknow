@@ -13,6 +13,7 @@ import { resolveByok, type ByokConfig, type UserByok } from './config.js';
 import { chat } from './llm.js';
 import { activeRuns, generatingTargets, listRuns, readRun, sweepStaleRuns } from './runs.js';
 import { enumerateCourseSessions } from './courseModel.js';
+import { localAnimationHtml } from './animation.js';
 import { listVoices, providerVoice, readTtsFile, synthesize, ttsFileCount, ttsStats } from './tts.js';
 import { getSeedExam, getSeedPractice, getSeedProgress, getSeedProject, resolveSeedByMarketplaceId, resolveSeedCourse } from './seedCourses.js';
 
@@ -894,6 +895,20 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
             ],
             explanation: `betterknow 倡导的第一性原理认知方法：面对复杂未知，必须回到核心定义与基本守恒律。`,
             correctAnswers: ['返回第一性原理，从形式化数学定义出发进行逐步演绎'],
+          },
+          {
+            id: `${uId}-eq4`,
+            type: 'animation',
+            prompt: '拖动下方两个滑块，观察耦合振子的相位与耦合强度如何改变两条状态的振幅：',
+            animationHtml: localAnimationHtml({ title: `${uTitle} · 互动演示`, task: '调整相位与耦合强度，观察振幅变化', language: 'zh' }),
+            options: [
+              '振幅随耦合强度单调增大，与相位无关',
+              '相位差改变两条状态的相对幅度，耦合强度改变整体的拍频与交换速率',
+              '两个滑块互不影响',
+              '耦合强度为 0 时振幅最大',
+            ],
+            explanation: '相位差决定两条状态在同一时刻的符号关系，耦合强度决定能量在两者之间交换的快慢。',
+            correctAnswers: ['相位差改变两条状态的相对幅度，耦合强度改变整体的拍频与交换速率'],
           },
         ],
       });
