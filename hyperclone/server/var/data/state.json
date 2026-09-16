@@ -759,6 +759,10 @@
     "wmDUnst_TRISVXerJz5a5MK8Qfb0TUetARsnQR1R9gE": {
       "user_id": "local-open-user",
       "expires_at": 1792127353281
+    },
+    "ZH4jmGGF2Vbo7ftGpdp_l1IW-t_DDhiF7C6YaVEFWpY": {
+      "user_id": "local-open-user",
+      "expires_at": 1792127808238
     }
   },
   "conversations": {
@@ -16140,5 +16144,11 @@
         "duration_min": 45
       }
     ]
+  },
+  "usageCounters": {
+    "local-open-user": {
+      "calendar_add": 1,
+      "file_upload": 0
+    }
   }
 }

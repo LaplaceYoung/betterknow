@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ChevronLeft, FileText, Folder, Plus, Search, Trash2, Upload } from 'lucide-react'
+import { CalendarPlus, ChevronLeft, FileText, Folder, Plus, Search, Trash2, Upload } from 'lucide-react'
 import { apiGet, apiPost } from '@/lib/api'
 
 interface DriveItem { id: string; name: string; type: 'folder' | 'file'; parent_id: string | null; size?: number; mime?: string; created_at?: string; file_url?: string }
@@ -11,6 +11,9 @@ export default function KnowledgeBase() {
   const [q, setQ] = useState('')
   const [used, setUsed] = useState(0)
   const [busy, setBusy] = useState(false)
+  const [toast, setToast] = useState('')
+  const [quota, setQuota] = useState<{ file_upload?: { remaining: number; limit: number }; calendar_add?: { remaining: number; limit: number }; storage_limit_bytes?: number } | null>(null)
+  useEffect(() => { void apiGet<typeof quota>('/auth/other_function_usage_limits').then(setQuota).catch(() => setQuota(null)) }, [])
   const fileRef = useRef<HTMLInputElement>(null)
   const load = () => apiGet<{ file_data: Record<string, DriveItem>; metadata: { drive_used_source_bytes: number } }>('/drive/get_drive_data').then((r) => { setItems(Object.values(r.file_data ?? {})); setUsed(r.metadata.drive_used_source_bytes) }).catch(() => setItems([]))
   useEffect(() => { load() }, [])
@@ -20,6 +23,13 @@ export default function KnowledgeBase() {
   const newFolder = async () => { setBusy(true); try { await apiPost('/drive/create_folder', { name: '知识库', parent_id: folder }); await load() } finally { setBusy(false) } }
   const upload = async (f: File) => { setBusy(true); try { const fd = new FormData(); fd.append('file', f); fd.append('parent_id', folder ?? ''); const token = localStorage.getItem('access_token') ?? ''; await fetch('/api/v1/drive/upload_file_to_drive', { method: 'POST', headers: { authorization: `Bearer ${token}` }, body: fd }); await load() } finally { setBusy(false) } }
   const del = async (id: string) => { await apiPost('/drive/delete', { id }); await load() }
+  const addToCalendar = async (fileId: string) => {
+    const item = items?.find((x) => x.id === fileId)
+    await apiPost('/drive/add_file_to_calendar', { file_id: fileId, name: item?.name ?? '知识库文件' }).catch(() => undefined)
+    setQuota(await apiGet<typeof quota>('/auth/other_function_usage_limits').catch(() => quota))
+    setToast('已加入学习日程')
+    setTimeout(() => setToast(''), 2500)
+  }
 
   return (
     <div className="mx-auto max-w-[1080px] px-8 pb-16">
@@ -42,6 +52,16 @@ export default function KnowledgeBase() {
         </div>
       )}
 
+      {quota && (
+        <div className="mt-4 hk-card px-4 py-3 flex flex-wrap items-center gap-x-6 gap-y-1 text-[12px] text-[#6b6b70]" data-testid="kb-quota">
+          <span className="font-medium text-[#3d3d3f]">用量</span>
+          <span>存储空间 {(used / (1024 * 1024)).toFixed(2)} MB / {quota.storage_limit_bytes ? `${Math.round(quota.storage_limit_bytes / (1024 * 1024 * 1024))} GB` : '—'}</span>
+          <span>文件上传 {quota.file_upload ? `${quota.file_upload.limit - quota.file_upload.remaining} 已使用 / ${quota.file_upload.limit} 本周` : '—'}</span>
+          <span>添加到日历 {quota.calendar_add ? `${quota.calendar_add.limit - quota.calendar_add.remaining} 已使用 / ${quota.calendar_add.limit} 本周` : '—'}</span>
+        </div>
+      )}
+      {toast && <div className="mt-3 text-[12px] text-[#15803d] hk-fade-in" data-testid="kb-toast">{toast}</div>}
+
       <div className="mt-5 grid grid-cols-4 gap-4">
         {items === null && Array.from({ length: 4 }).map((_, i) => <div key={i} className="hk-skeleton rounded-xl h-[180px]" />)}
         {shown.filter((x) => x.type === 'folder').map((f) => (
@@ -49,7 +69,13 @@ export default function KnowledgeBase() {
         ))}
         {shown.filter((x) => x.type !== 'folder').map((f) => (
           <div key={f.id} className="hk-card overflow-hidden group">
-            <div className="h-[120px] bg-[#f7f7f8] flex items-center justify-center"><FileText size={28} className="text-[#8a8a90]" /></div>
+            <div className="h-[120px] bg-[#f7f7f8] flex items-center justify-center relative">
+              <FileText size={28} className="text-[#8a8a90]" />
+              {/* 线上：文件卡右上角的「加入日程」，会计入「添加到日历」配额 */}
+              <button onClick={() => void addToCalendar(f.id)} aria-label="Add to calendar" title="加入学习日程" className="absolute top-2 right-2 h-7 w-7 rounded-full bg-white/90 border flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" data-testid={`add-calendar-${f.id}`}>
+                <CalendarPlus size={13} className="text-[#3b5bdb]" />
+              </button>
+            </div>
             <div className="p-3 flex items-center gap-2"><FileText size={13} className="text-[#dc2626] shrink-0" /><span className="text-[12px] truncate flex-1">{f.name}</span><button onClick={() => del(f.id)} aria-label="删除" className="opacity-0 group-hover:opacity-100 text-[#8a8a90] hover:text-[#dc2626]"><Trash2 size={13} /></button></div>
           </div>
         ))}

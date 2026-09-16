@@ -20,6 +20,13 @@ export default function LearningFeed() {
   const [cursor, setCursor] = useState(() => { const d = new Date(); d.setDate(1); return d })
   const [view, setView] = useState<'week' | 'month'>('month')
   const [filter, setFilter] = useState<'all' | 'confirmed' | 'pending'>('all')
+  const [selectMode, setSelectMode] = useState(false)
+  const [selected, setSelected] = useState<Record<string, boolean>>({})
+  const bulkDelete = async () => {
+    const ids = Object.keys(selected).filter((id) => selected[id])
+    for (const id of ids) await apiPost('/calendar/remove_task', { task_id: id }).catch(() => undefined)
+    setSelected({}); setSelectMode(false); await load()
+  }
   const today = new Date()
   const load = () => apiGet<{ tasks: Task[] }>('/calendar/list_main_tasks').then((r) => setTasks((r.tasks ?? []).map((t) => ({ ...t, id: t.id ?? t.task_id ?? '' })))).catch(() => apiGet<{ tasks: Task[] }>('/calendar/tasks').then((r) => setTasks(r.tasks)).catch(() => setTasks([])))
   useEffect(() => { void load() }, [])
@@ -70,6 +77,14 @@ export default function LearningFeed() {
           ))}</ul>
         </div>
         <div>
+          <h3 className="text-[13px] font-semibold mb-2">已确认任务</h3>
+          {(() => { const list = (tasks ?? []).filter((t) => t.status === 'confirmed'); return list.length === 0 ? <div className="text-[12px] text-[#8a8a90]">还没有确认的任务</div> : <ul className="space-y-1.5">{list.slice(0, 5).map((t) => <li key={t.id} className="hk-card p-2.5 text-[12px]" data-testid="confirmed-task"><div className="truncate font-medium">{t.title}</div><div className="text-[11px] text-[#8a8a90] mt-0.5">{new Date(t.scheduled_for).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' })} · {t.duration_min ?? 30} 分钟</div></li>)}</ul> })()}
+        </div>
+        <div>
+          <h3 className="text-[13px] font-semibold mb-2">待处理任务</h3>
+          {(() => { const list = (tasks ?? []).filter((t) => t.status === 'pending'); return list.length === 0 ? <div className="text-[12px] text-[#8a8a90]">没有待处理的任务</div> : <ul className="space-y-1.5">{list.slice(0, 5).map((t) => <li key={t.id} className="hk-card p-2.5 text-[12px]" data-testid="pending-task"><div className="truncate font-medium">{t.title}</div><button onClick={() => void act(t, 'confirm')} className="hk-pill h-6 text-[11px] px-2 mt-1">确认</button></li>)}</ul> })()}
+        </div>
+        <div>
           <h3 className="text-[13px] font-semibold mb-2">已完成</h3>
           {dones.length === 0 ? <div className="text-[12px] text-[#8a8a90]">完成的任务会显示在这里</div> : <ul className="space-y-1 text-[12px] text-[#6b6b70]">{dones.slice(0, 6).map((t) => <li key={t.id} className="line-through truncate">{t.title}</li>)}</ul>}
         </div>
@@ -79,6 +94,8 @@ export default function LearningFeed() {
         <div className="flex items-center gap-2 flex-wrap">
           {([['all', '全部'], ['confirmed', '已确认'], ['pending', '待处理']] as const).map(([k, l]) => <button key={k} onClick={() => setFilter(k)} className="hk-pill h-8 text-[12px] data-[on=true]:bg-[#0a0a0a] data-[on=true]:text-white data-[on=true]:border-[#0a0a0a]" data-on={filter === k}>{l}</button>)}
           <button className="hk-pill h-8 text-[12px]"><CalendarPlus size={12} /> Google Calendar</button>
+          <button onClick={() => setSelectMode((v) => !v)} className={`hk-pill h-8 text-[12px] ${selectMode ? 'bg-[#0a0a0a] text-white' : ''}`} data-testid="bulk-toggle">{selectMode ? '取消选择' : '批量删除日程'}</button>
+          {selectMode && <button onClick={() => void bulkDelete()} disabled={!Object.values(selected).some(Boolean)} className="h-8 px-3 rounded-full bg-[#dc2626] text-white text-[12px] disabled:opacity-40" data-testid="bulk-delete">删除所选 {Object.values(selected).filter(Boolean).length}</button>}
           <div className="ml-auto inline-flex rounded-full border p-0.5 text-[12px]">{(['week', 'month'] as const).map((v) => <button key={v} onClick={() => setView(v)} className="px-3 h-7 rounded-full data-[on=true]:bg-[#f1f2f4]" data-on={view === v}>{v === 'week' ? '周' : '月'}</button>)}</div>
           <div className="inline-flex items-center gap-1 text-[14px] font-semibold ml-2"><button className="hk-icon-btn h-7 w-7" onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))} aria-label="上个月"><ChevronLeft size={14} /></button>{cursor.getMonth() + 1}月 {cursor.getFullYear()}<button className="hk-icon-btn h-7 w-7" onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))} aria-label="下个月"><ChevronRight size={14} /></button></div>
         </div>
@@ -90,7 +107,7 @@ export default function LearningFeed() {
             return (
               <div key={d.toISOString()} className={`border-r border-b p-1.5 ${view === 'month' ? 'min-h-[92px]' : 'min-h-[240px]'} ${inMonth ? '' : 'bg-[#fafafa] text-[#c4c4c8]'} ${isToday ? 'ring-1 ring-inset ring-[#0a0a0a] rounded-md' : ''}`}>
                 <div className={`text-[11px] ${isToday ? 'font-semibold' : ''}`}>{d.getDate()}</div>
-                <div className="space-y-0.5 mt-1">{dayTasks.slice(0, 3).map((t, i) => <button key={t.id} onClick={() => setOpenTask(t)} className="text-[10px] px-1 py-0.5 rounded truncate inline-flex items-center gap-1 w-full text-left hover:brightness-95" style={{ background: COLORS[i % COLORS.length] }} title={t.title} data-testid="task-chip">{t.status === 'done' ? <Check size={9} /> : <Circle size={7} />}<span className="truncate">{t.title}</span></button>)}{dayTasks.length > 3 && <div className="text-[10px] text-[#8a8a90]">+{dayTasks.length - 3}</div>}</div>
+                <div className="space-y-0.5 mt-1">{dayTasks.slice(0, 3).map((t, i) => <button key={t.id} onClick={() => (selectMode ? setSelected((s) => ({ ...s, [t.id]: !s[t.id] })) : setOpenTask(t))} className={`text-[10px] px-1 py-0.5 rounded truncate inline-flex items-center gap-1 w-full text-left hover:brightness-95 ${selectMode && selected[t.id] ? 'ring-1 ring-[#dc2626]' : ''}`} style={{ background: COLORS[i % COLORS.length] }} title={t.title} data-testid="task-chip">{t.status === 'done' ? <Check size={9} /> : <Circle size={7} />}<span className="truncate">{t.title}</span></button>)}{dayTasks.length > 3 && <div className="text-[10px] text-[#8a8a90]">+{dayTasks.length - 3}</div>}</div>
               </div>
             )
           })}

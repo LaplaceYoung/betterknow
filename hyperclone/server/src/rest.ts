@@ -171,8 +171,19 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return { success: true, data: { user_id: user.id, email: user.email, username: user.username, canvas_lms: { has_credentials: false, credentials: { school: null, canvas_url: null, access_token: null, last_sync: null } }, subscription: { id: `byok-${user.id}`, tier: 'byok', plan_id: 'byok', status: 'active', remaining_credits: 999999, max_credits: 999999, expires_at: null, will_reset_at: resetAt, reset_interval_hours: 0, last_reset_at: user.last_reset_at, billing_reason: 'byok_unlimited' } } };
   });
   app.get('/api/v1/auth/other_function_usage_limits', protectedRoute, async (request) => {
-    const user = await currentUser(request); const limit = (remaining: number, max: number) => ({ remaining, limit: max, last_reset_at: user.last_reset_at });
-    return { tier: 'byok', version: 1, file_upload: limit(999999, 999999), calendar_add: limit(999999, 999999), file_generation: limit(999999, 999999), deep_learn_session: limit(999999, 999999) };
+    const user = await currentUser(request);
+    const counters = ((await readState()).usageCounters ?? {})[request.userId!] ?? {};
+    // BYOK 版本不设商业限额，但用量计数如实上报（本周已用多少就报多少）
+    const limit = (used: number, max: number) => ({ remaining: Math.max(0, max - used), limit: max, used, last_reset_at: user.last_reset_at });
+    const used = (key: string): number => Number(counters[key] ?? 0);
+    return {
+      tier: 'byok', version: 1,
+      file_upload: limit(used('file_upload'), 999999),
+      calendar_add: limit(used('calendar_add'), 999999),
+      file_generation: limit(used('file_generation'), 999999),
+      deep_learn_session: limit(used('deep_learn_session'), 999999),
+      storage_limit_bytes: 1024 * 1024 * 1024,
+    };
   });
 
   app.post('/api/v1/conversations/get_conversation_data', protectedRoute, async (request, reply) => {
@@ -232,13 +243,43 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     const part = await request.file(); if (!part) return reply.code(400).send({ detail: 'file is required' });
     const id = `file_${randomUUID().replaceAll('-', '').slice(0, 10)}`; const bytes = await part.toBuffer(); const path = resolve('var/data/files', id);
     await mkdir(resolve('var/data/files'), { recursive: true }); await writeFile(path, bytes);
-    await updateState((state) => { const files = state.drive[request.userId!] ??= {}; files[id] = { id, ext: extname(part.filename), name: basename(part.filename), size: bytes.length, type: 'file', status: 'ready', parent_id: null, created_at: now(), modified_at: now(), local_path: path, thumbnail_url: null, s3_bucket_name: null }; });
+    await updateState((state) => { const files = state.drive[request.userId!] ??= {}; files[id] = { id, ext: extname(part.filename), name: basename(part.filename), size: bytes.length, type: 'file', status: 'ready', parent_id: null, created_at: now(), modified_at: now(), local_path: path, thumbnail_url: null, s3_bucket_name: null };
+    const counters = (state.usageCounters ?? {}) as Record<string, Record<string, number>>;
+    const mine = counters[request.userId!] ??= {};
+    mine.file_upload = (mine.file_upload ?? 0) + 1;
+    state.usageCounters = counters; });
     return { file_id: id, s3_path: path, conversion_scheduled: false, summary_scheduled: false, thumbnail_scheduled: false };
   });
   app.get('/api/v1/drive/get_drive_data', protectedRoute, async (request) => { const state = await readState(); const file_data = { ...(state.folders[request.userId!] ?? {}), ...(state.drive[request.userId!] ?? {}) }; const drive_used_source_bytes = Object.values(state.drive[request.userId!] ?? {}).reduce((sum, file) => sum + (typeof file.size === 'number' ? file.size : 0), 0); return { success: true, file_data, metadata: { drive_used_source_bytes } }; });
   app.post('/api/v1/drive/create_folder', protectedRoute, async (request) => { const body = request.body as { name?: string; parent_id?: string | null }; const id = `folder_${randomUUID().slice(0, 8)}`; const folder = { id, name: body.name ?? 'New folder', type: 'folder', parent_id: body.parent_id ?? null, created_at: now(), modified_at: now() }; await updateState((state) => { (state.folders[request.userId!] ??= {})[id] = folder; }); return { success: true, folder }; });
   app.post('/api/v1/drive/delete', protectedRoute, async (request) => { const body = request.body as { file_id?: string; id?: string }; const id = body.file_id ?? body.id ?? ''; await updateState((state) => { delete (state.drive[request.userId!] ?? {})[id]; delete (state.folders[request.userId!] ?? {})[id]; }); return { success: true }; });
-  app.post('/api/v1/drive/add_file_to_calendar', protectedRoute, async (request) => ({ success: true, task_id: randomUUID(), ...(request.body as object) }));
+  // 线上实测：文件卡「加入日程」→ POST /drive/add_file_to_calendar，并计入「添加到日历」配额
+  app.post('/api/v1/drive/add_file_to_calendar', protectedRoute, async (request) => {
+    const body = (request.body ?? {}) as { file_id?: string; name?: string; scheduled_for?: string; duration_min?: number };
+    const taskId = randomUUID();
+    const scheduled = typeof body.scheduled_for === 'string' && body.scheduled_for ? body.scheduled_for : new Date(Date.now() + 86_400_000).toISOString();
+    await updateState((state) => {
+      const tasks = state.calendar[request.userId!] ??= [];
+      const file = (state.drive[request.userId!] ?? {})[body.file_id ?? ''] as Record<string, unknown> | undefined;
+      tasks.push({
+        task_id: taskId,
+        title: String(body.name ?? file?.name ?? '知识库文件'),
+        description: '来自知识库的阅读任务：先通读，再让老师带你过一遍要点。',
+        scheduled_for: scheduled,
+        status: 'pending',
+        type: 'reading',
+        duration_min: Number(body.duration_min ?? 30),
+        file_id: body.file_id ?? null,
+        subtasks: [{ subtask_id: taskId, title: String(body.name ?? file?.name ?? '知识库文件'), status: 'pending' }],
+      });
+      const counters = (state.usageCounters ?? {}) as Record<string, Record<string, number>>;
+      const mine = counters[request.userId!] ??= {};
+      mine.calendar_add = (mine.calendar_add ?? 0) + 1;
+      mine.file_upload = mine.file_upload ?? 0;
+      state.usageCounters = counters;
+    });
+    return { success: true, task_id: taskId, scheduled_for: scheduled };
+  });
 
   app.get('/api/v1/memory/get_profile_memory', protectedRoute, async (request) => { const memory = (await readState()).memories[request.userId!]; const data = memory?.profile_data ?? profileSeed; return { success: true, message: `Successfully retrieved ${data.length} profile answers`, profile_data: data }; });
   app.post('/api/v1/memory/update_profile_memory', protectedRoute, async (request) => { const body = request.body as { answers?: Array<Record<string, unknown>> }; await updateState((state) => { const value = state.memories[request.userId!] ??= { profile_data: profileSeed, external_memory: { content: '', updated_at: null }, items: [] }; value.profile_data = (body.answers ?? []).map((answer) => ({ ...answer, last_updated_at: now() })); }); return { success: true, message: 'Profile memory updated' }; });

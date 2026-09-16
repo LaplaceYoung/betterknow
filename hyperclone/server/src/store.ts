@@ -23,6 +23,7 @@ export interface AppState {
   whiteboards: Record<string, Record<string, unknown>>;
   courses: Record<string, Record<string, unknown>>;
   calendar: Record<string, Array<Record<string, unknown>>>;
+  usageCounters?: Record<string, Record<string, number>>;
 }
 
 const emptyState = (): AppState => ({ users: {}, refresh_tokens: {}, conversations: {}, shares: {}, drive: {}, folders: {}, memories: {}, deep_learn: {}, whiteboards: {}, courses: {}, calendar: {} });

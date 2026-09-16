@@ -202,6 +202,14 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - 本仓：`POST /calendar/deep_learn_subtask_session {subtask_id|task_id, title}` → 建一节带计划的深度学习会话，返回 `{deep_learn_session_id, task_plan, deep_learn_session_url:"/deep-learn-session/outline/<id>"}`；`POST /calendar/remove_task {task_id}` 删除；`POST /calendar/approve_tasks {task_id, action}` 确认/完成。
 - 知识库文件卡（`knowledge-base`）结构：`.file-card > .file-card-image-preview > button.file-card-calendar-button[aria-label="Add to calendar"]`——文件可直接加入学习日程（免费版配额 2/周）。
 
+## 2.13 知识库与用量（2026-09-16 实测）
+
+- 知识库页数据来自 `GET /drive/get_drive_data`（`{file_data{id:{id,ext,name,size,type,status,parent_id,created_at,modified_at,thumbnail_url}}}`, `metadata.drive_used_source_bytes`）；`drive/ws` 是同页的信道（4 条连接实测）。
+- **文件卡只有一个动作按钮**：`.file-card-calendar-button[aria-label="Add to calendar"]` → `POST /drive/add_file_to_calendar`（实测 200），点击后「添加到日历」计数 +1。
+- 用量面板（知识库右上）：**存储空间 x / 1 GB**、**文件上传 x / 50 本周**、**添加到日历 x / 20 本周**（专业版），并给出重置时间（周一 08:00 GMT+8）。
+- `GET /auth/other_function_usage_limits` 是本仓的用量口径来源：BYOK 版不设商业限额，但**已用计数如实上报**（`{remaining, limit, used, last_reset_at}` + `storage_limit_bytes`）。
+- 学习日程页分组（实测按钮/标题）：**已确认任务 / 待处理任务 / 批量删除日程 / 您的专业版配额 / 周视图 / 月视图**；批量删除在选中态下列出「删除所选 N」。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：
