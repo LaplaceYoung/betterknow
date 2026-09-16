@@ -318,7 +318,7 @@ function QuizRunner({
       <div className="practice-topbar-actions">
         <div className="practice-hud">
           <span className="practice-hud-chip practice-hud-chip--bonus">速答奖励 <b>+{SPEED_BONUS}</b>{!checked && <span>{Math.max(0, Math.ceil(remaining / 1000))}s</span>}</span>
-          <span className="practice-hud-chip practice-hud-chip--score">得分 <b>{score}</b>{bonus ? <span className="text-[11px] text-[#8f7620]">+{bonus}</span> : null}</span>
+          <span className="practice-hud-chip practice-hud-chip--score">得分 <b><PracticeScore value={score} /></b>{bonus ? <span className="text-[11px] text-[#8f7620]">+{bonus}</span> : null}</span>
         </div>
         <button className="practice-assistant-toggle" onClick={() => setAssistantOpen(true)}><Lightbulb size={13} /> 助手</button>
       </div>
@@ -474,12 +474,13 @@ function QuizRunner({
           </div>
         )}
 
-        {checked && q.explanation && (
-          <div className="mt-5 rounded-xl bg-[#fafafa] border p-4 text-[13px] leading-6 text-[#3d3d3f] hk-fade-in">
-            <span className={`font-semibold ${isRight ? 'text-[#16a34a]' : 'text-[#dc2626]'}`}>
-              {isRight ? '✓ 回答正确' : '✗ 需要重新思考'}
-            </span>{' '}
-            · {q.explanation}
+        {checked && (
+          <div className={`practice-feedback ${isRight ? 'practice-feedback--correct' : 'practice-feedback--incorrect'} mt-5 hk-fade-in`} data-testid="practice-feedback">
+            <div className="practice-verdict-headline">
+              <span className="practice-verdict-mark">{isRight ? '✓' : '✗'}</span>
+              {isRight ? '回答正确' : '再想想'}
+            </div>
+            {q.explanation && <p className="practice-feedback-explanation mt-2">{q.explanation}</p>}
           </div>
         )}
 
@@ -916,6 +917,23 @@ export function Project() {
         stageTitle={stage.stage_title}
       />
     </div>
+  )
+}
+
+// 线上 .practice-slot-score：分数逐位滚动（strip 从上一层数字滚到当前数字）
+function PracticeScore({ value }: { value: number }) {
+  const digits = String(value).split('')
+  return (
+    <span className="practice-slot-score">
+      {digits.map((d, i) => (
+        <span key={i} className="practice-slot-digit" style={{ width: '1ch' }}>
+          <span className="practice-slot-digit-strip" key={`${i}-${d}`} style={{ ['--slot-from' as string]: '-105%', ['--slot-to' as string]: '0%', ['--slot-delay' as string]: `${i * 60}ms` }}>
+            <span className="practice-slot-digit-char">{d}</span>
+            <span className="practice-slot-digit-char">{d}</span>
+          </span>
+        </span>
+      ))}
+    </span>
   )
 }
 

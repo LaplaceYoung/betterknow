@@ -290,3 +290,9 @@
 **第二十批（练习页交互件）**
 - 线上实操一节练习后补齐：`practice-stage` 边框舞台、**每题 10 秒速答计时条**（`practice-timer-drain`，实测 `animation-duration:10000ms`，答题后暂停）、HUD 胶囊（速答奖励 / 得分，含金色 bonus 态）、助手开关、**双列选项卡**（76 高 / radius 15 / hover 投影 / 选中 `#4c6696` / 正确 `#2e8b57` / 错误 `#c34747`）、四色轮转的 34×34 选项形状、右上键位角标、右侧圆环指示器、3D 立体检查键（`0 6px #33569a`）与描边「下一题」、跳过键。
 - 仍未做：**右侧 verdict 面板**（`.practice-split--revealed` 展开 360px 宽的判题区、`.practice-verdict-headline` 的绿/红底色）、答案揭晓时的**彩带**（`.practice-check-confetti-piece`）、得分数字的**老虎机滚动**（`.practice-slot-digit-strip` + `practice-slot-roll`）、`practice-welcome-modal` 欢迎弹窗。
+
+**第二十一批（判题反馈 · 分数滚动 · 骨架动画）**
+- 判题结果换成线上 `practice-feedback` / `verdict-headline` 令牌（圆角胶囊 + 22px 圆形判定标 + 绿/红两套底色），解释文字 13.5px `#555` / 1.55。
+- HUD 得分改成**逐位滚动**（`practice-slot-roll` .72s，按位 60ms 延迟）。
+- 骨架统一成线上 `skeleton-loader` 渐变（`#f0f0f0 → #e0e0e0 → #f0f0f0`，200% 位移 1.5s），票根骨架用 218/326 + 签缝虚线，精选骨架按 bento 六块位次铺开。
+- 明确未做：**右侧滑出的 verdict 面板**（需要先把练习区从 672 单列改成 `min(76vw,1040px)` 的 `.practice-split` 两列）、答案揭晓彩带（`.practice-check-confetti-*`）、题目星标动画（`.practice-stars-stamp`）、`.practice-welcome-modal` 欢迎弹窗、考试倒计时（缺时长来源）。

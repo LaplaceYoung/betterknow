@@ -96,7 +96,7 @@ export default function Marketplace() {
           <h2 className="m-0" style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a' }}>编辑精选</h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridTemplateRows: '234px 190px', gap: 14 }}>
-          {featured.length === 0 && <div className="col-span-12 hk-skeleton rounded-2xl" />}
+          {featured.length === 0 && Array.from({ length: 6 }).map((_, i) => <div key={i} className="hk-featured-skeleton" style={{ gridColumn: i === 0 ? "1 / 7" : i === 1 ? "7 / 10" : i === 2 ? "10 / 13" : i === 3 ? "7 / 9" : i === 4 ? "9 / 11" : "11 / 13", gridRow: i === 0 ? "1 / 3" : i <= 2 ? "1 / 2" : "2 / 3" }} />)}
           {featured.map((c, i) => {
             const big = i === 0
             // 线上 .mktp-featured-card:nth-child(n)：1 大卡 1/7×1/3，2-3 中卡 7/10、10/13，4-6 小卡 7/9、9/11、11/13
@@ -197,7 +197,7 @@ export default function Marketplace() {
       </div>
 
       <div className="mx-auto" style={{ maxWidth: 1160, display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 24 }}>
-        {list === null && Array.from({ length: 8 }).map((_, i) => <div key={i} className="hk-skeleton rounded-2xl h-[360px]" />)}
+        {list === null && Array.from({ length: 8 }).map((_, i) => <div key={i} className="hk-ticket-skeleton" />)}
         {shown.map((c) => <CourseCard key={c.marketplaceId} c={c} />)}
         {list && shown.length === 0 && <div className="col-span-4 text-center text-[#8a8a90] py-16">没有匹配的课程</div>}
       </div>

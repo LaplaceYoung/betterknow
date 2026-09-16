@@ -207,3 +207,14 @@
 | 检查/跳转按钮 | `.practice-check-btn{padding:15px 80px;border-radius:999px;background:#4573c2;color:#fff;font-size:16px;box-shadow:inset 0 2px #ffffff4d,0 6px #33569a,0 12px 26px #4573c25c}`，hover `translateY(-2px)`、active `translateY(3px)`、disabled `#ececec/#878787`；`--next{min-width:168px;padding:14px 46px;border:1.5px solid #BFCDE3;color:#385da0;box-shadow:0 4px #dce4f2}`；`.practice-skip-btn{padding:12px 24px;border:1.5px solid #E0E4EC}` | 同（实测检查键 `15px 80px` / 999 / 禁用 `rgb(236,236,236)`） |
 | 判题反馈位 | `.practice-split{--practice-verdict-panel:min(28vw,360px);--practice-verdict-gap:28px}`，`.practice-split--revealed{--practice-verdict-width:calc(panel+gap)}`；`.practice-verdict-inner` 渐显；`--correct .practice-verdict-headline{background:#2e8b571a;color:#1d6b45}` | 部分：判题后仍用行内解释卡，未做右侧滑入的 verdict 面板 |
 
+## 第十一批：判题反馈、分数滚动与骨架动画（r82）
+
+| 部件 | 线上原文 | 本仓 |
+|---|---|---|
+| 判题结果 | `.practice-feedback{font-size:15px;line-height:1.45}`；`.practice-verdict-headline{padding:7px 14px 7px 8px;border-radius:999px}` + `.practice-verdict-mark{22×22;radius:999px;color:#fff}`；正确 `background:#2e8b571a;color:#1d6b45;border:1px solid rgba(46,139,87,.16)`，错误 `background:#c3474714;color:#a83838;border:1px solid rgba(195,71,71,.14)`；解释 `color:#555;line-height:1.55` | 同（实测错误态 `rgba(195,71,71,.08)` / `#a83838` / padding `7px 14px 7px 8px` / mark 22px `#c34747`） |
+| 分数滚动 | `.practice-slot-score{display:inline-flex;tabular-nums}`；`.practice-slot-digit{overflow:hidden}`；`.practice-slot-digit-strip{animation:practice-slot-roll .72s cubic-bezier(.22,1,.36,1) var(--slot-delay) both}`；`@keyframes practice-slot-roll{0%{translateY(var(--slot-from))} to{translateY(var(--slot-to))}}` | 同（逐位 delay 60ms） |
+| 通用骨架 | `.skeleton-loader{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0,#f0f0f0 75%);background-size:200% 100%;animation:skeleton-loading 1.5s infinite}` | 同（替换原先的 800px 宽 shimmer） |
+| 票根骨架 | `.library-ticket-skeleton{width:100%;aspect-ratio:218/326}`，签缝线在 `--library-ticket-skeleton-seam-y:76.7%` | 同（`hk-ticket-skeleton`：218/326 + 74.9% 处虚线签缝） |
+| 精选骨架 | `.mktp-featured-card--skeleton{background:linear-gradient(90deg,#ecebe8,#f6f5f2,#ecebe8);background-size:200% 100%;animation:mktpFeaturedSkeletonPulse 1.4s ease-in-out infinite}` | 同（bento 六块按同样的位次铺开） |
+| verdict 面板布局 | `.practice-split{--practice-verdict-panel:min(28vw,360px);--practice-verdict-gap:28px;--practice-verdict-width:0px}`；`.practice-split--revealed{--practice-verdict-width:calc(panel+gap)}`；`.practice-verdict{flex:0 0 auto;width:var(--practice-verdict-width);overflow:hidden;transition:width .42s cubic-bezier(.22,.61,.36,1)}`；`.practice-verdict-inner{padding:24px 4px 30px 20px;opacity:0}` | **部分**：判题内容与配色一致，但没有做「右侧 360px 滑出面板」——本仓练习区是 672px 单列，滑出面板要先把内容区改成 `min(76vw,1040px)` 的 `.practice-split` 两列布局 |
+

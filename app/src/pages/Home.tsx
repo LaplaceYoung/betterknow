@@ -306,7 +306,7 @@ export default function Home() {
                 <button onClick={() => nav('/marketplace')} className="text-[13px] text-[#6b6b70] hover:text-black inline-flex items-center">查看全部 <ChevronRight size={14} /></button>
               </div>
               <div className="hk-library-tickets">
-                {courses.length === 0 ? Array.from({ length: 3 }).map((_, i) => <div key={i} className="hk-skeleton rounded-2xl h-[326px]" />) : courses.map((c) => <CourseCard key={c.marketplaceId} c={c} />)}
+                {courses.length === 0 ? Array.from({ length: 3 }).map((_, i) => <div key={i} className="hk-ticket-skeleton" />) : courses.map((c) => <CourseCard key={c.marketplaceId} c={c} />)}
               </div>
             </section>
           </section>
