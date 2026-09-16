@@ -1050,3 +1050,20 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 源文件区：`.task-detail-file-section` > `.task-detail-files-list.horizontal` > `.task-detail-file-card`（按扩展名取 `/pages/mainPages/drive/file_icons/*.svg` 图标 + `.task-detail-file-card-name`），无 `file_name` 的条目走 `.task-detail-file-card-missing` + 气泡 `taskDetail.fileMissingTooltip`「此文件不存在，或已从知识库中删除。」。
 
 本仓：三态与文案照抄（CSS 19 条已在 `index.css`），**源文件区未做** —— 本仓任务模型里没有输入文件（线上来自 `files_info`），留空不编。
+
+### 速查表编辑模式（第五十七批，i18n 实证 + 本仓排布）
+
+线上速查表是 tiptap 编辑器（`r84` 里 41 处 tiptap / 35 处 contenteditable），三个模式与工具栏文案在 `cheatsheetEditor.*` 里齐备：
+
+| 组 | 文案 |
+|---|---|
+| 模式 | 预览（`modePreview`，打印版式）/ 正文（`modeArticle`，与对话区同款渲染）/ 编辑模式（`modeEdit`） |
+| 工具栏 | 加粗（Ctrl+B）/ 斜体（Ctrl+I）/ 一级~三级标题 / 无序列表 / 有序列表 / 代码块 / 插入行内公式（$…$）/ 插入图片 / 换列符（强制新列）/ 撤销 / 重做 / 文字颜色 / 高亮（色板 default·blue·red·green·orange·purple·gray·yellow·pink·none） |
+| 排版 | 栏数 / 字号 / 边距 / 行距（`paramsColumns/FontSize/Margins/LineHeight`） |
+| 保存 | 保存 / 保存中… / 已保存 / 您有未保存的修改 / 保存失败；自动保存徽标「停止编辑约 3 秒后，编辑器会自动保存」、「上次保存 {{time}}」、本会话内尚未成功保存 |
+| 离开 | 离开而不保存？/ 继续编辑 / 立即保存 / 放弃更改 |
+| 其他 | 换列符标记 `── 换列 ──`、编辑区占位「在这里输入内容…」（含 `$公式$` 提示）、光标锚点「内容将添加在此行之后」、拖动调整编辑区与预览区宽度 |
+
+**保存接口**：`POST /api/v1/conversations/save_artifact {conversation_id, artifact_id, content, layout_patch?}`（r84 实证；401 会刷新 token 重试）。
+
+本仓：三模式、工具栏（加粗/斜体/标题/列表/代码块/公式/换列符/撤销/重做）、排版参数（沿用已有字号/栏数/边距控件）、保存态文案、3 秒静默自动保存、离开拦截弹窗全部接上；**编辑器不是 tiptap**，而是 markdown 文本域 + 工具栏插语法 + 右侧同一套 A4 预览（左编辑/右预览双栏），类名是本仓自绘（线上 tiptap 的类名未取证）；图片插入与颜色/高亮未做。

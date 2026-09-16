@@ -4,7 +4,7 @@ import { basename, extname, resolve } from 'node:path';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { chatStream, type ChatMessage } from './llm.js';
 import { authenticate } from './auth.js';
-import { diagrams, placeholderPng, placeholderWebm, publicFiles, readPersistedPublicFile } from './artifacts.js';
+import { diagrams, persistPublicFile, placeholderPng, placeholderWebm, publicFiles, readPersistedPublicFile } from './artifacts.js';
 import { mimeFor, readTtsAudio, readWhiteboardImage, ttsCounts } from './media.js';
 import { now, readState, updateState, type UserRecord } from './store.js';
 import { decorateMarketplace } from './extras.js';
@@ -219,8 +219,28 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     const result = await updateState((state) => { const value = state.conversations[body.conversation_id ?? '']; if (!value || value.user_id !== request.userId) return false; if (body.action === 'delete') delete state.conversations[value.conversation_id]; else { if (typeof body.title === 'string') value.title = body.title; if (typeof body.starred === 'boolean') value.starred = body.starred; value.updated_at = now(); } return true; });
     return result ? { success: true } : reply.code(404).send({ detail: 'Conversation not found' });
   });
+  // 速查表阅读器的保存：线上走 POST /conversations/save_artifact {conversation_id, artifact_id, content, layout_patch?}；
+  // 本仓阅读器路由没有会话上下文，所以同时给一个按文件 id 的直接保存口
+  app.put('/api/v1/files/:id', protectedRoute, async (request, reply) => {
+    const id = (request.params as { id: string }).id;
+    const body = (request.body ?? {}) as { content?: string };
+    if (typeof body.content !== 'string') return reply.code(422).send({ detail: 'content is required' });
+    const existing = publicFiles.get(id) ?? (await readPersistedPublicFile(id));
+    if (!existing) return reply.code(404).send({ detail: 'Not found' });
+    const next = { ...existing, data: Buffer.from(body.content, 'utf8') };
+    publicFiles.set(id, next);
+    await persistPublicFile(next);
+    return { success: true, file_id: id, size: next.data.length };
+  });
+
   app.post('/api/v1/conversations/save_artifact', protectedRoute, async (request, reply) => {
     const body = request.body as Record<string, unknown>; const id = typeof body.conversation_id === 'string' ? body.conversation_id : '';
+    // 编辑器保存的正文同时落到 artifact 与对应文件上，阅读器刷新即可看到新内容
+    const artifactId = typeof body.artifact_id === 'string' ? body.artifact_id : '';
+    if (artifactId && typeof body.content === 'string') {
+      const existing = publicFiles.get(artifactId) ?? (await readPersistedPublicFile(artifactId));
+      if (existing) { const next = { ...existing, data: Buffer.from(body.content, 'utf8') }; publicFiles.set(artifactId, next); await persistPublicFile(next); }
+    }
     const result = await updateState((state) => { const value = state.conversations[id]; if (!value || value.user_id !== request.userId) return false; value.artifacts.push({ ...body, saved_at: now() }); return true; });
     return result ? { success: true, message: 'Artifact saved' } : reply.code(404).send({ detail: 'Conversation not found' });
   });
