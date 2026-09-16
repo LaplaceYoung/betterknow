@@ -279,7 +279,9 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/v1/drive/upload_file_to_drive', protectedRoute, async (request, reply) => {
     const part = await request.file(); if (!part) return reply.code(400).send({ detail: 'file is required' });
     const id = `file_${randomUUID().replaceAll('-', '').slice(0, 10)}`; const bytes = await part.toBuffer(); const path = resolve('var/data/files', id);
+    // 落盘要连元数据一起写（<id>.json），否则 /api/v1/files/<id> 读不出文件名与 mime，插到编辑器里的图片会 404
     await mkdir(resolve('var/data/files'), { recursive: true }); await writeFile(path, bytes);
+    await persistPublicFile({ id, filename: basename(part.filename), mime: part.mimetype || 'application/octet-stream', data: bytes });
     await updateState((state) => { const files = state.drive[request.userId!] ??= {}; files[id] = { id, ext: extname(part.filename), name: basename(part.filename), size: bytes.length, type: 'file', status: 'ready', parent_id: null, created_at: now(), modified_at: now(), local_path: path, thumbnail_url: null, s3_bucket_name: null };
     const counters = (state.usageCounters ?? {}) as Record<string, Record<string, number>>;
     const mine = counters[request.userId!] ??= {};

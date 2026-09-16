@@ -1066,4 +1066,13 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 
 **保存接口**：`POST /api/v1/conversations/save_artifact {conversation_id, artifact_id, content, layout_patch?}`（r84 实证；401 会刷新 token 重试）。
 
-本仓：三模式、工具栏（加粗/斜体/标题/列表/代码块/公式/换列符/撤销/重做）、排版参数（沿用已有字号/栏数/边距控件）、保存态文案、3 秒静默自动保存、离开拦截弹窗全部接上；**编辑器不是 tiptap**，而是 markdown 文本域 + 工具栏插语法 + 右侧同一套 A4 预览（左编辑/右预览双栏），类名是本仓自绘（线上 tiptap 的类名未取证）；图片插入与颜色/高亮未做。
+两套色板（r84 原文）：
+
+| 用途 | 取值 |
+|---|---|
+| 文字颜色 `py` | 默认 null、蓝 `#2563eb`、红 `#dc2626`、绿 `#16a34a`、橙 `#ea580c`、紫 `#7c3aed`、灰 `#6b7280` |
+| 高亮 `fy` | 黄 `#fef08a`、绿 `#bbf7d0`、蓝 `#bfdbfe`、粉 `#fbcfe8`、橙 `#fed7aa`、无 null |
+
+高亮在 markdown 里就是 `==文字==`（tiptap-markdown 的 highlight tokenizer：`/^(==)([^=]+)(==)/`，HTML 渲染成 `<mark style="background-color: …">`）；文字颜色用 `<span style>` 的 textStyle mark（markdown 无原生语法）。
+
+本仓：三模式、工具栏（加粗/斜体/标题/列表/代码块/公式/换列符/撤销/重做/**文字颜色**/**高亮**/**插入图片**）、排版参数（沿用已有字号/栏数/边距控件）、保存态文案、3 秒静默自动保存、离开拦截弹窗全部接上；**编辑器不是 tiptap**，而是 markdown 文本域 + 工具栏插语法 + 右侧同一套 A4 预览（左编辑/右预览双栏，预览跟随草稿实时刷新），类名是本仓自绘（线上 tiptap 的类名未取证）。插图走 `/drive/upload_file_to_drive` 后插入 `![名](/api/v1/files/<id>)`；光标锚点与拖动分隔未做。

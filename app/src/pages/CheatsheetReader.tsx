@@ -18,6 +18,21 @@ const PAGE_H = 794
 const PAGE_GAP = 20
 const COLUMN_GAP = 20
 const DEFAULT_DOC = { columns: 4, fontSize: 8, pageMargin: 8, documentLineHeight: 1.55 }
+// 线上编辑器的两个色板（r84 原文）：文字颜色 py、高亮 fy
+const TEXT_COLORS: Array<{ label: string; value: string | null }> = [
+  { label: '默认', value: null }, { label: '蓝色', value: '#2563eb' }, { label: '红色', value: '#dc2626' },
+  { label: '绿色', value: '#16a34a' }, { label: '橙色', value: '#ea580c' }, { label: '紫色', value: '#7c3aed' }, { label: '灰色', value: '#6b7280' },
+]
+const HIGHLIGHT_COLORS: Array<{ label: string; value: string | null }> = [
+  { label: '黄色', value: '#fef08a' }, { label: '绿色', value: '#bbf7d0' }, { label: '蓝色', value: '#bfdbfe' },
+  { label: '粉色', value: '#fbcfe8' }, { label: '橙色', value: '#fed7aa' }, { label: '无', value: null },
+]
+
+// 线上高亮在 markdown 里就是 ==文字==（tiptap-markdown 的 highlight tokenizer），预览按 <mark> 渲染
+const renderHighlights = (text: string): string => text.split(/(```[\s\S]*?```)/g).map((part, index) => (
+  index % 2 === 1 ? part : part.replace(/==([^=\n]+)==/g, '<mark>$1</mark>')
+)).join('')
+
 const ZOOM_MIN = 0.5
 const ZOOM_MAX = 2
 const ZOOM_STEP = 0.25
@@ -51,6 +66,34 @@ export default function CheatsheetReader() {
       return true
     } catch { setSaveState('error'); return false }
   }, [fileId])
+
+  const wrapSelection = useCallback((open: string, close: string) => {
+    const el = editorRef.current
+    if (!el) return
+    const { selectionStart: start, selectionEnd: end, value } = el
+    const picked = value.slice(start, end)
+    const next = `${value.slice(0, start)}${open}${picked}${close}${value.slice(end)}`
+    setDraft(next)
+    setSaveState('dirty')
+    requestAnimationFrame(() => { el.focus(); el.setSelectionRange(start + open.length, start + open.length + picked.length) })
+  }, [])
+
+  const insertImage = useCallback(async (file: File) => {
+    const form = new FormData()
+    form.append('file', file)
+    form.append('parent_id', '')
+    try {
+      const res = await fetch('/api/v1/drive/upload_file_to_drive', {
+        method: 'POST', headers: { authorization: `Bearer ${await ensureToken()}` }, body: form,
+      })
+      if (!res.ok) return false
+      const data = await res.json().catch(() => null) as { file_id?: string } | null
+      const url = data?.file_id ? `/api/v1/files/${data.file_id}` : null
+      if (!url) return false
+      wrapSelection(`![${file.name}](`, `${url})`)
+      return true
+    } catch { return false }
+  }, [wrapSelection])
 
   // 排版参数与正文一起提交（线上 layout_patch）
   const applyEditorText = useCallback((insert: string, wrap = false) => {
@@ -176,7 +219,7 @@ export default function CheatsheetReader() {
                         }}
                       >
                         <div className="preview-md hk-prose">
-                          <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeRaw, rehypeKatex]}>{markdown ?? ''}</ReactMarkdown>
+                          <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeRaw, rehypeKatex]}>{renderHighlights(draft || markdown || '')}</ReactMarkdown>
                         </div>
                       </div>
                     </div>
@@ -216,7 +259,7 @@ export default function CheatsheetReader() {
 
       {mode === 'article' && (
         <div className="preview-article hk-scroll" data-testid="cheatsheet-article">
-          {(draft || markdown) ? <div className="preview-md hk-prose"><ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeRaw, rehypeKatex]}>{draft || markdown || ''}</ReactMarkdown></div> : <p className="text-[13px] text-[#8a8a90]">暂无正文内容</p>}
+          {(draft || markdown) ? <div className="preview-md hk-prose"><ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeRaw, rehypeKatex]}>{renderHighlights(draft || markdown || '')}</ReactMarkdown></div> : <p className="text-[13px] text-[#8a8a90]">暂无正文内容</p>}
         </div>
       )}
 
@@ -230,6 +273,25 @@ export default function CheatsheetReader() {
               ))}
               <button type="button" className="preview-editor-btn" title="插入行内公式（$…$）" onClick={() => applyEditorText('$', true)}>公式</button>
               <button type="button" className="preview-editor-btn" title="换列符（强制新列）" onClick={() => applyEditorText('\n── 换列 ──\n')}>换列符</button>
+              <label className="preview-editor-color" title="文字颜色" aria-label="文字颜色">
+                文字颜色
+                <select data-testid="text-color" value="" onChange={(e) => { const v = TEXT_COLORS[Number(e.target.value)]?.value; if (v) wrapSelection(`<span style="color:${v}">`, '</span>'); e.target.value = '' }}>
+                  <option value="">选颜色</option>
+                  {TEXT_COLORS.map((color, index) => <option key={color.label} value={index}>{color.label}</option>)}
+                </select>
+              </label>
+              <label className="preview-editor-color" title="高亮" aria-label="高亮">
+                高亮
+                <select data-testid="highlight-color" value="" onChange={(e) => { const color = HIGHLIGHT_COLORS[Number(e.target.value)]; e.target.value = ''; if (!color) return; if (color.value) wrapSelection('<mark style="background-color:' + color.value + '">', '</mark>'); else wrapSelection('==', '==') }}>
+                  <option value="">选颜色</option>
+                  {HIGHLIGHT_COLORS.map((color, index) => <option key={color.label} value={index}>{color.label}</option>)}
+                </select>
+              </label>
+              <label className="preview-editor-btn" title="插入图片" aria-label="插入图片">
+                插入图片
+                <input type="file" accept="image/*" hidden data-testid="insert-image"
+                  onChange={(e) => { const f = e.target.files?.[0]; if (f) void insertImage(f); e.target.value = '' }} />
+              </label>
               <button type="button" className="preview-editor-btn" title="撤销" onClick={() => document.execCommand('undo')}>撤销</button>
               <button type="button" className="preview-editor-btn" title="重做" onClick={() => document.execCommand('redo')}>重做</button>
             </div>
