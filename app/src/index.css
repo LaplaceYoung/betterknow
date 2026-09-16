@@ -368,7 +368,16 @@
 .practice-timer { position: absolute; top: 0; right: 0; left: 0; z-index: 3; height: 3px; overflow: hidden; border-radius: 14px 14px 0 0; background: #f3f4f6; }
 .practice-timer-fill { display: block; width: 100%; height: 100%; background: linear-gradient(90deg,#f0d66a,#e0bc3a); transform-origin: left center; animation-name: practice-timer-drain; animation-timing-function: linear; animation-fill-mode: forwards; }
 @keyframes practice-timer-drain { 0% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
-.practice-split { position: absolute; top: 0; bottom: 96px; left: 0; right: 0; display: flex; gap: 28px; padding: 0 36px; align-items: center; }
+.practice-split { --practice-shell-width: min(76vw, 1040px); --practice-verdict-panel: min(28vw, 360px); --practice-verdict-gap: 28px; --practice-verdict-width: 0px; position: absolute; top: 0; bottom: 96px; left: 0; right: 0; display: flex; align-items: stretch; justify-content: center; overflow: hidden; }
+.practice-split--revealed { --practice-verdict-width: calc(var(--practice-verdict-panel) + var(--practice-verdict-gap)); }
+.practice-question-shell { flex: 1 1 var(--practice-shell-width); min-width: 0; overflow-y: auto; scrollbar-width: thin; }
+.practice-question-shell::-webkit-scrollbar { width: 4px; }
+.practice-question-shell::-webkit-scrollbar-thumb { background: #e5e5e5; border-radius: 999px; }
+.practice-verdict { flex: 0 0 auto; width: var(--practice-verdict-width); overflow: hidden; transition: width .42s cubic-bezier(.22,.61,.36,1); }
+.practice-verdict-inner { display: flex; flex-direction: column; justify-content: safe center; gap: 10px; width: var(--practice-verdict-panel); height: 100%; margin-left: var(--practice-verdict-gap); padding: 24px 4px 30px 20px; opacity: 0; overflow-y: auto; transition: opacity .3s ease .1s; }
+.practice-split--revealed .practice-verdict-inner { opacity: 1; }
+.practice-actions { position: absolute; left: 36px; right: 36px; bottom: 0; height: 96px; display: flex; align-items: center; padding: 0 4px; background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 42%); }
+.practice-actions > div { width: 100%; }
 .practice-options-panel { container: practice-options / inline-size; width: 100%; }
 .practice-options-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .practice-options-grid--stacked { grid-template-columns: minmax(0, 1fr); }

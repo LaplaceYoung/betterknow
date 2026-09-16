@@ -247,3 +247,12 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 
 本仓实现额外补了线上 UI 没抓到的部分：正文排版（`preview-md`，h1/h2/h3、表格、代码、引用、KaTeX 的列内规则）、打印样式（打印时隐藏控制条并取消缩放）、底部排版控件（列数 2/3/4、字号 8–11、页边距 8/16/24/32 可调），以及隐藏测量容器 `.preview-measure`（与页面同宽同高，用来数出列流的总宽度）。
 
+### 练习两栏与判题滑出（第十二批补，r79-r82）
+
+| 部件 | 线上原文 | 本仓 |
+|---|---|---|
+| 两栏 | `.practice-split{--practice-shell-width:min(76vw,1040px);--practice-verdict-panel:min(28vw,360px);--practice-verdict-gap:28px;--practice-verdict-width:0px;top:0;bottom:96px}`；`.practice-split--revealed{--practice-verdict-width:calc(panel+gap)}` | 同（实测 shell `1 1 1040px`、判题后 verdict 388 = 360+28） |
+| 题目壳 | `.practice-question-shell{flex:1 1 var(--practice-shell-width);overflow-y:auto}`，滚动条 4px `#e5e5e5` | 同 |
+| 判题面板 | `.practice-verdict{flex:0 0 auto;width:var(--practice-verdict-width);overflow:hidden;transition:width .42s cubic-bezier(.22,.61,.36,1)}`；`.practice-verdict-inner{width:360px;margin-left:28px;padding:24px 4px 30px 20px;opacity:0}`；`--revealed` 时 `opacity:1` | 同（实测 inner 360/opacity 1） |
+| 底部操作条 | `.practice-actions{position:absolute;left:36px;right:36px;bottom:0;height:96px;display:flex;align-items:center}`，上方 28px 渐变遮罩 `.practice-stage:after{background:linear-gradient(to bottom,#fff0,#fff)}` | 同（96px、左右 36、渐变到 42%） |
+

@@ -336,6 +336,8 @@ function QuizRunner({
         })}
       </div>
       <div className={mode === 'exam' ? 'exam-stage' : 'practice-stage'}>
+      <div className={`practice-split ${checked ? 'practice-split--revealed' : ''}`}>
+      <section className="practice-question-shell">
       <div className="mx-auto max-w-[672px] px-8 pb-24">
       <div className="fixed inset-x-0 top-[51px] mx-auto max-w-[672px] px-8 pointer-events-none">
         {(mode !== 'exam') && <div className="practice-timer"><span key={timerKey} className="practice-timer-fill" style={{ animationDuration: '10000ms', animationPlayState: checked ? 'paused' : 'running' }} /></div>}
@@ -473,8 +475,15 @@ function QuizRunner({
           </div>
           </div>
         )}
+      </div>
+      </div>
+      </div>
+      </div>
+      </section>
 
-        {checked && (
+      <div className="practice-verdict" data-testid="practice-verdict">
+        <div className="practice-verdict-inner">
+          {checked && (
           <div className={`practice-feedback ${isRight ? 'practice-feedback--correct' : 'practice-feedback--incorrect'} mt-5 hk-fade-in`} data-testid="practice-feedback">
             <div className="practice-verdict-headline">
               <span className="practice-verdict-mark">{isRight ? '✓' : '✗'}</span>
@@ -482,7 +491,12 @@ function QuizRunner({
             </div>
             {q.explanation && <p className="practice-feedback-explanation mt-2">{q.explanation}</p>}
           </div>
-        )}
+          )}
+        </div>
+      </div>
+      </div>
+
+      <div className="practice-actions">
 
         {/* 线上底栏：左「助手」pill，右侧「检查 / 跳过」两个 pill，间距 23px */}
         <div className="flex items-center mt-6 pt-4 border-t" style={{ gap: 23 }}>
@@ -525,7 +539,6 @@ function QuizRunner({
       </div>
 
       </div>
-      </div>
 
       <AssistantDrawer
         open={assistantOpen}
@@ -533,8 +546,6 @@ function QuizRunner({
         courseId={courseId}
         currentQuestion={q}
       />
-    </div>
-      </div>
     </div>
   )
 }
