@@ -46,6 +46,8 @@ export default function Whiteboard() {
   // 线上白板的两个奖励层：reward_user 帧 → 概念奖励弹层；response_complete{session:true} → 单元完成弹层
   const [rewardPrompt, setRewardPrompt] = useState<{ masterConceptTitle: string; masterConceptDescription: string; stepId?: string | number } | null>(null)
   const [unitComplete, setUnitComplete] = useState<{ beatPercent: number } | null>(null)
+  // 线上单元完成层：本单元有练习且还没交卷时，主按钮换成「去做练习」
+  const [practiceCta, setPracticeCta] = useState<{ sessionId: string } | null>(null)
   // 线上「退出 Session」确认弹窗（.whiteboard-modal-*）
   const [exitOpen, setExitOpen] = useState(false)
   const [savingBoards, setSavingBoards] = useState(false)
@@ -158,7 +160,20 @@ export default function Whiteboard() {
         } else if (f.step_id) ws.send(JSON.stringify({ type: 'advance_step', step_id: f.step_id }))
       }
       else if (f.type === 'response_complete') {
-        if (f.session === true) { setUnitComplete({ beatPercent: 10 + Math.floor(21 * Math.random()) }); playSfx('complete') }
+        if (f.session === true) {
+          setUnitComplete({ beatPercent: 10 + Math.floor(21 * Math.random()) })
+          playSfx('complete')
+          if (courseId) {
+            void Promise.all([
+              apiGet<{ sessions?: Array<{ sessionId?: string }> }>(`/course-generation/courses/${courseId}/practice`).catch(() => ({ sessions: [] })),
+              apiGet<{ practiceStats?: Record<string, { finished?: boolean }> }>(`/course-generation/courses/${courseId}/progress-status`).catch(() => ({ practiceStats: {} as Record<string, { finished?: boolean }> })),
+            ]).then(([practice, progress]) => {
+              const session = practice.sessions?.[0]
+              const id = session?.sessionId
+              if (id && !progress.practiceStats?.[id]?.finished) setPracticeCta({ sessionId: id })
+            })
+          }
+        }
       }
       else if (f.type === 'tts_segment') { const seg = f as Action & { audio_url?: string }; if (ttsVoice && seg.audio_url && seg.stub === false) { const audio = new Audio(seg.audio_url); audio.playbackRate = playbackRate; void audio.play().catch(() => {}) } }
       else if (f.type === 'image_gen_pending') pushImage({ url: '', caption: f.caption ?? '', width: 512, height: 512, pending: true })
@@ -518,13 +533,20 @@ export default function Whiteboard() {
                 <span className="whiteboard-reward-overlay-eyebrow">单元完成</span>
                 <span id="whiteboard-unit-complete-title" className="whiteboard-reward-overlay-title">恭喜，你刚刚完成了这个单元。</span>
                 <span id="whiteboard-unit-complete-description" className="whiteboard-reward-overlay-desc">Beat {unitComplete.beatPercent}% of users today.</span>
-                <span className="whiteboard-unit-complete-hint">
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 8v5m0 3h.01M12 3l9 17H3z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
-                  建议先完成这节课的练习，再进入下一节。
-                </span>
+                {practiceCta && (
+                  <span className="whiteboard-unit-complete-hint">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 8v5m0 3h.01M12 3l9 17H3z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+                    建议先完成这节课的练习，再进入下一节。
+                  </span>
+                )}
                 <div className="whiteboard-unit-complete-actions">
                   <button type="button" className="whiteboard-reward-overlay-btn whiteboard-reward-overlay-btn--secondary" onClick={() => setUnitComplete(null)}>在对话中继续</button>
-                  <button type="button" className="whiteboard-reward-overlay-btn" onClick={() => nav(courseId ? `/course/${courseId}` : '/courses')}>返回主页</button>
+                  {practiceCta ? (
+                    <button type="button" className="whiteboard-reward-overlay-btn" data-testid="unit-complete-practice"
+                      onClick={() => { setUnitComplete(null); nav(`/course/${courseId}/practice/${practiceCta.sessionId}`) }}>去做练习</button>
+                  ) : (
+                    <button type="button" className="whiteboard-reward-overlay-btn" onClick={() => nav(courseId ? `/course/${courseId}` : '/courses')}>返回主页</button>
+                  )}
                 </div>
               </div>
             </div>

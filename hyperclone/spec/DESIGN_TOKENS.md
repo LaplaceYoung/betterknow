@@ -828,3 +828,20 @@ POST /api/v1/course-generation/courses/{courseId}/project/assistant
 
 实测本仓：`calendar-grid` + 周标题「日一二三四五六」+ 42 格（月初补 `.other-month`）+ 今日/选中高亮 + 头部「九月 2026」与左右箭头（点右侧 → 「十月 2026」）；事件 chip 带 `scheduled-event` 与色板内联变量（浅蓝 `#E8F0F8` / `#EBEFFA` 两色都出现）；周视图 7 格 `.week-view-day` 且每格带 `.calendar-day-task-count`；左栏显示所选日期与任务数。
 
+### 单元完成层的「去做练习」分支（第四十一批，r133 + r160）
+
+线上完成层的主按钮是二选一（`practice ? 去做练习 : 返回主页`）：
+
+```jsx
+practice: !standalone && practiceSessionId ? {
+  label: t('courseSession.goToPractice'),            // 去做练习
+  hint: t('courseSession.practiceBeforeNextHint'),   // 建议先完成这节课的练习，再进入下一节。
+  busy: practiceBusy,
+  onClick: ...    // 线上先查积分再跳；自部署无计费，直接跳练习页
+} : null
+```
+
+同时 `proactive.practiceReminder` 那套文案（`本节课已完成` / `去做练习吗？` / `你已经上完这节课啦。趁热打铁，去完成 …`）说明「上完课 → 去做练习」是跨页面的固定动作。
+
+本仓实现：`response_complete{session:true}` 之后并发拉 `/practice` 与 `/progress-status`，若该单元的练习存在且 `practiceStats[id].finished` 不为真，就把主按钮换成「去做练习」并显示 hint；完成过则仍是「返回主页」。实测两条分支：练习未完成 → 按钮「去做练习」+ hint，点击跳到 `/course/:uuid/practice/:sessionId`；练习已完成 → 「返回主页」、无 hint。
+
