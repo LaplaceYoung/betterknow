@@ -50,6 +50,11 @@ export default function CheatsheetReader() {
   const [draft, setDraft] = useState('')
   const [saveState, setSaveState] = useState<'saved' | 'dirty' | 'saving' | 'error'>('saved')
   const [lastSavedAt, setLastSavedAt] = useState<string | null>(null)
+  // 线上：拖动分隔调整编辑区与预览区宽度（resizeSplit）；锚点标记（anchorMarkerLabel「光标」+ hint「内容将添加在此行之后」）
+  const [editorWidth, setEditorWidth] = useState(44)
+  const [caretLine, setCaretLine] = useState(1)
+  const splitRef = useRef<HTMLDivElement>(null)
+  const draggingRef = useRef(false)
   const [exitPrompt, setExitPrompt] = useState(false)
   const editorRef = useRef<HTMLTextAreaElement>(null)
 
@@ -66,6 +71,29 @@ export default function CheatsheetReader() {
       return true
     } catch { setSaveState('error'); return false }
   }, [fileId])
+
+  const updateCaretLine = useCallback(() => {
+    const el = editorRef.current
+    if (!el) return
+    const upto = el.value.slice(0, el.selectionStart)
+    setCaretLine(upto.split('\n').length)
+  }, [])
+
+  const startResize = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    const split = splitRef.current
+    if (!split) return
+    draggingRef.current = true
+    const rect = split.getBoundingClientRect()
+    const move = (e: PointerEvent) => {
+      if (!draggingRef.current) return
+      const ratio = ((e.clientX - rect.left) / rect.width) * 100
+      setEditorWidth(Math.min(72, Math.max(22, Math.round(ratio))))
+    }
+    const stop = () => { draggingRef.current = false; window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', stop) }
+    window.addEventListener('pointermove', move)
+    window.addEventListener('pointerup', stop)
+    event.preventDefault()
+  }, [])
 
   const wrapSelection = useCallback((open: string, close: string) => {
     const el = editorRef.current
@@ -264,8 +292,8 @@ export default function CheatsheetReader() {
       )}
 
       {mode === 'edit' && (
-        <div className="preview-edit-row" data-testid="cheatsheet-editor">
-          <div className="preview-editor-pane">
+        <div className="preview-edit-row" data-testid="cheatsheet-editor" ref={splitRef}>
+          <div className="preview-editor-pane" style={{ width: `${editorWidth}%` }}>
             <div className="preview-editor-bar" role="toolbar" aria-label="文字与排版">
               {([['**', '加粗（Ctrl+B）', true], ['*', '斜体（Ctrl+I）', true], ['# ', '一级标题', false], ['## ', '二级标题', false], ['### ', '三级标题', false], ['- ', '无序列表', false], ['1. ', '有序列表', false], ['```\n', '代码块', false]] as const).map(([insert, title, wrap]) => (
                 <button key={title} type="button" className="preview-editor-btn" title={title} aria-label={title}
@@ -295,10 +323,17 @@ export default function CheatsheetReader() {
               <button type="button" className="preview-editor-btn" title="撤销" onClick={() => document.execCommand('undo')}>撤销</button>
               <button type="button" className="preview-editor-btn" title="重做" onClick={() => document.execCommand('redo')}>重做</button>
             </div>
+            <div className="preview-editor-anchor" data-testid="editor-anchor">
+              <span className="preview-editor-anchor-label">光标</span>
+              <span className="preview-editor-anchor-hint">第 {caretLine} 行 · 内容将添加在此行之后</span>
+            </div>
             <textarea ref={editorRef} className="preview-editor-textarea hk-scroll" data-testid="editor-textarea" value={draft} spellCheck={false}
+              onSelect={updateCaretLine} onKeyUp={updateCaretLine} onClick={updateCaretLine}
               placeholder={'在这里输入内容…\n行内公式用 $公式$ 语法，如 $E = mc^2$'}
               onChange={(e) => { setDraft(e.target.value); setSaveState('dirty') }} />
           </div>
+          <div className="preview-edit-divider" role="separator" aria-label="拖动调整编辑区与预览区宽度" title="拖动调整编辑区与预览区宽度"
+            data-testid="editor-divider" onPointerDown={startResize} />
           {previewBlock}
         </div>
       )}
