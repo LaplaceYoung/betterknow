@@ -13,7 +13,7 @@ import { HkBoardSessionIcon } from '@/components/HkIcons'
 
 interface Frame { type: string; [k: string]: unknown }
 interface ChatItem {
-  kind: 'user' | 'thinking' | 'tool' | 'content' | 'question' | 'diagram' | 'complete' | 'board' | 'quiz' | 'flashcards' | 'animation' | 'video' | 'file' | 'deep_learn' | 'cheatsheet' | 'recommend'
+  kind: 'user' | 'thinking' | 'thinking_text' | 'tool' | 'content' | 'question' | 'diagram' | 'complete' | 'board' | 'quiz' | 'flashcards' | 'animation' | 'video' | 'file' | 'deep_learn' | 'cheatsheet' | 'recommend'
   text?: string
   attachments?: Array<{ name?: string; type?: string; data?: string; url?: string }>
   tool?: string
@@ -21,6 +21,7 @@ interface ChatItem {
   question?: QuestionData
   diag?: string
   whisper?: boolean
+  thinking?: string
   data?: unknown
 }
 interface QuestionData { questions: { question: string; options: ({ title: string; description: string } | string)[]; is_multiple: boolean; allow_custom?: boolean }[] }
@@ -66,18 +67,28 @@ const DEPTH_TAG_META: Record<string, { label: string; bg: string; text: string; 
 
 const STEP_TITLES = ['正在搜索网络资料', '构思初步思路', '设计课程结构', '生成课程内容']
 
+// 工具卡文案：逐条对齐线上 chatResponse.stepTitles.*（r?? i18n 证据）
 const TOOL_LABELS: Record<string, { zh: string; en: string }> = {
   directorAgent: { zh: '模型正在思考', en: 'Agent is thinking' },
   get_skills: { zh: '加载技能', en: 'Loading skills' },
   content_planner: { zh: '制定计划', en: 'Making Plan' },
+  action_planner: { zh: '模型正在思考', en: 'Agent is thinking' },
   generate_content: { zh: '生成内容', en: 'Generating Content' },
   search_files: { zh: '查找文件', en: 'Finding Files' },
+  read_files: { zh: '读取文件', en: 'Reading files' },
   read_content: { zh: '读取附件', en: 'Reading attachments' },
   search_and_summarize_web: { zh: '搜索网络', en: 'Searching Web' },
+  analyze_url_content: { zh: '分析链接内容', en: 'Analysing link' },
   memory_recall: { zh: '调取记忆', en: 'Recalling Memory' },
+  ask_questions: { zh: '提问', en: 'Asking questions' },
+  select_prompts: { zh: '方法', en: 'Approach' },
   create_board_session: { zh: '创建白板课堂', en: 'Creating whiteboard session' },
   create_deep_learn_session: { zh: '创建深度学习课程', en: 'Creating Deep Learn Session' },
   generate_quiz: { zh: '生成测验', en: 'Generating Quizzes' },
+  generate_flashcards: { zh: '生成闪卡', en: 'Generating flashcards' },
+  generate_html_animation: { zh: '交互式可视化', en: 'Interactive visualisation' },
+  generate_instructional_video: { zh: '生成教学视频', en: 'Generating instructional video' },
+  publish_file: { zh: '发布文件', en: 'Publishing file' },
   generate_cheatsheet: { zh: '生成速查表', en: 'Generating Cheatsheet' },
   generate_main_tasks: { zh: '规划学习任务', en: 'Planning Study Tasks' },
   recommend_next_step: { zh: '推荐后续步骤', en: 'Recommended Next Steps' },
@@ -469,8 +480,23 @@ export default function ChatResponse() {
       if (f.type === 'conversation_created') { const d = f.data as { conversation_id: string }; setConvId(String(d.conversation_id)); window.history.replaceState({}, '', `/response/${String(d.conversation_id)}`) }
       else if (f.type === 'conversation_resumed') { const d = f.data as { title?: string }; setTitle(String(d.title ?? '')) }
       else if (f.type === 'user_message') { push({ kind: 'user', text: String(f.message ?? ''), attachments: Array.isArray(f.attachments) ? (f.attachments as Array<{ name?: string; url?: string }>) : undefined }); setStreaming(true) }
-      else if (f.type === 'thinking') { push({ kind: 'thinking', tool: String(f.tool_name ?? 'directorAgent'), status: String(f.tool_status ?? '') }) }
-      else if (f.type === 'thinking_chunk') { setItems((xs) => [...xs, { kind: 'content', text: String(f.chunk ?? ''), whisper: true } as ChatItem]) }
+      else if (f.type === 'thinking') {
+        // 状态帧只用来起/收思考块；文本全在 thinking_chunk 里
+        const status = String(f.tool_status ?? '')
+        if (status === 'started') setItems((xs) => (xs.some((x) => x.kind === 'thinking_text') ? xs : [...xs, { kind: 'thinking_text', thinking: '', text: '' } as ChatItem]))
+      }
+      else if (f.type === 'thinking_chunk') {
+        // 线上把推理增量累积在同一个「模型正在思考」块里；此前每个 delta 都是一条独立灰字（实测 103 条）
+        const chunk = String(f.chunk ?? '')
+        if (!chunk) return
+        setItems((xs) => {
+          const next = [...xs]
+          const index = next.findIndex((x) => x.kind === 'thinking_text')
+          if (index >= 0) next[index] = { ...next[index], thinking: (next[index].thinking ?? '') + chunk }
+          else next.push({ kind: 'thinking_text', thinking: chunk } as ChatItem)
+          return next
+        })
+      }
       else if (f.type === 'tool_execution') {
         const toolName = String(f.tool_name ?? '')
         const status = String(f.tool_status ?? '')
@@ -505,7 +531,7 @@ export default function ChatResponse() {
       else if (f.type === 'user_question') { setQuestions(((f.question_data ?? null) as QuestionData)); setStreaming(false) }
       else if (f.type === 'inline_diagram') { push({ kind: 'diagram', diag: String((f.data as { source?: string })?.source ?? '') }) }
       else if (f.type === 'mark_response_complete') { /* 完成标记 */ }
-      else if (f.type === 'complete') { setStreaming(false); setDone(true); setItems((xs) => xs.filter((x) => x.kind !== 'thinking')); void refresh() }
+      else if (f.type === 'complete') { setStreaming(false); setDone(true); setItems((xs) => xs.filter((x) => x.kind !== 'thinking_text')); void refresh() }
       else if (f.type === 'error') { push({ kind: 'content', text: `⚠️ ${String(f.message ?? '出错了')}` }); setStreaming(false) }
     }
     ws.onopen = () => {
@@ -621,7 +647,12 @@ export default function ChatResponse() {
               </div>
             </div>
           )
-          if (it.kind === 'thinking') return it.status === 'started' ? <div key={i} className="flex items-center gap-2 text-[12px] text-[#8a8a90]"><span className="h-3.5 w-3.5 rounded-full border-2 border-[#d4d4d8] border-t-[#0a0a0a] animate-spin" />思考中…</div> : null
+          if (it.kind === 'thinking_text') return (
+            <div key={i} className="flex items-start gap-2 text-[12px] text-[#8a8a90] max-h-40 overflow-hidden" data-testid="thinking-block">
+              <span className="mt-0.5 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-[#d4d4d8] border-t-[#0a0a0a] animate-spin" />
+              <span className="whitespace-pre-wrap leading-5">{it.thinking || '思考中…'}</span>
+            </div>
+          )
           if (it.kind === 'tool') {
             const label = (it.tool ? (TOOL_LABELS[it.tool]?.[language === 'en' ? 'en' : 'zh'] ?? it.tool) : '执行工具')
             return it.status === 'started' ? <div key={i} className="inline-flex items-center gap-1.5 text-[12px] text-[#6b6b70] hk-card px-2.5 py-1"><Sparkles size={11} /> {label}</div> : null

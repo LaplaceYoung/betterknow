@@ -668,3 +668,9 @@
 - **保住既有帧序**：多步工作流技能（白板 / 深学 / 速查表 / 任务规划 / 文档精读）仍走原分支，只有产物类与普通讲解交给模型挑工具；stub 或模型失败回退关键词路径。
 - 实测（llm=aigw deepseek-v4.1-flash）：①「用三句话解释社会学的想象力，再看看网上怎么说」→ 模型自选 `memory_recall → search_and_summarize_web → generate_content`；②「给我做 3 张关于社会学的想象力的抽认卡」→ `memory_recall → generate_flashcards`，回答里还引用了工具产出的 2 张卡；③「帮我开一节讲社会学的想象力的白板课」→ 仍走技能分支（`memory_recall → get_skills → search_and_summarize_web → create_board_session → generate_content`）。
 - 仍未做：`search_files`（本仓未接 Drive/Canvas 检索，如实回「没有可检索文件」）、`content_planner` / `read_content` / `artifact_update` / `search_images` 等提示词提到的其余工具（未在工具表里，模型不会误调）。
+
+**第八十五批（思考流与提问工具：两处显示/流程缺陷）**
+- **思考流碎成上百条**：客户端把每个 `thinking_chunk` 增量都当成一条独立灰字（实测一轮 103 条），而且回合结束后这些碎条**留在页面上**。原因是我们自己没实现线上那套「同一个思考块累积」的语义。改法：思考文本单独用一条 `thinking_text` 项累积（`thinking{tool_status:'started'}` 起块、`thinking_chunk` 追加、`complete` 时移除），渲染成带「模型正在思考」的单一区块。实测：流中 1 个块、字数 425 → 793 递增，结束后块消失。
+- **工具卡显示原始名**：`ask_questions` 等新工具没有中文标签，卡片直接显示英文名。现在按线上 `chatResponse.stepTitles.*` 逐条对齐（`ask_questions`「提问」、`generate_flashcards`「生成闪卡」、`generate_html_animation`「交互式可视化」、`generate_instructional_video`「生成教学视频」、`publish_file`「发布文件」、`read_files`「读取文件」等）。
+- **问答闭环不闭合**：①回答后模型看不到答案（`runModelDrivenRound` 只发了原始 message）→ 现在把「问题 → 回答」列表作为一条 user 消息喂进去，并明确「不要再调用 ask_questions」；②服务端加硬护栏：本轮已有答案时 `ask_questions` 直接回错误给模型，不执行；③一轮内同一工具只执行一次（模型曾连调 `generate_quiz` 四次出四张卡）；④答案送达后清空 `pending_question`（此前留着旧问题，后续回答会错配）。
+- 实测（llm=aigw deepseek-v4.1-flash）：「我想学点东西，但不知道从哪开始」→ 模型自选 `ask_questions`（4 题）→ 回答「应付考试」类选项 + 继续 → 工具序列 `memory_recall → ask_questions →（回答）→ memory_recall → get_skills → generate_content`，**不再重复提问**，产出的是考试导向的学习计划，`pending_question` 已清空。

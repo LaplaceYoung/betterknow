@@ -573,9 +573,18 @@ async function sendContent(ctx: DirectorCtx, topic: string, lang: 'zh' | 'en'): 
 // ── 模型驱动的一轮：把线上 directorAgent 的工具表真的交给模型，由它决定调哪个工具 ──
 // 返回 true 表示这一轮已由模型走完（调用方不要再跑关键词兜底）
 async function executeDirectorTool(
-  ctx: DirectorCtx, input: DirectorInput, lang: 'zh' | 'en', topic: string, call: ToolCall
+  ctx: DirectorCtx, input: DirectorInput, lang: 'zh' | 'en', topic: string, call: ToolCall, executed: Set<string>
 ): Promise<{ result: unknown; stop?: boolean }> {
   const args = parseToolArgs(call.arguments);
+  // 同一个工具一轮里只跑一次：模型偶尔会连发同样的调用（实测 generate_quiz 连调四次出四张卡）
+  if (executed.has(call.name) && !['generate_content', 'memory_recall'].includes(call.name)) {
+    return { result: { error: `${call.name} 本轮已执行过，请直接使用已有结果，不要重复调用` } };
+  }
+  // 用户刚回答过 ask_questions：本轮再问一次会让问卷永远关不掉
+  if (call.name === 'ask_questions' && input.answers?.length) {
+    return { result: { error: '用户已经回答过问题，本轮请据此继续，不要再调用 ask_questions' } };
+  }
+  executed.add(call.name);
   const send = ctx.send;
   const str = (key: string, fallback = ''): string => (typeof args[key] === 'string' ? String(args[key]) : fallback);
   switch (call.name) {
@@ -683,6 +692,20 @@ async function runModelDrivenRound(ctx: DirectorCtx, input: DirectorInput, lang:
     { role: 'system', content: system + turn },
     { role: 'user', content: input.message },
   ];
+  // 用户回答了上一轮的 ask_questions：把问答一起交给模型，否则它不知道答案，只会把问题再问一遍
+  if (input.answers?.length) {
+    const qa = ((await readState()).conversations[ctx.conversationId] as unknown as { pending_question?: Array<{ question?: string }> } | undefined)?.pending_question ?? [];
+    await updateState((next) => { const c = next.conversations[ctx.conversationId] as unknown as Record<string, unknown> | undefined; if (c) c.pending_question = null; });
+    messages.push({
+      role: 'user',
+      content: [
+        '用户的回答：',
+        ...input.answers.map((a, i) => `${qa[i]?.question ?? a.question ?? `问题 ${i + 1}`} → ${a.answer ?? ''}`),
+        '请据此继续完成这一轮：不要再调用 ask_questions，直接给出这一轮要交付的内容。',
+      ].join('\n'),
+    });
+  }
+  const executed = new Set<string>();
   try {
     for (let round = 1; round <= 4; round += 1) {
       let content = '';
@@ -714,7 +737,7 @@ async function runModelDrivenRound(ctx: DirectorCtx, input: DirectorInput, lang:
           return true;
         }
         send({ type: 'tool_execution', tool_name: call.name, tool_status: 'started', round_index: round, display: 'display' });
-        const { result, stop } = await executeDirectorTool(ctx, input, lang, topic, call);
+        const { result, stop } = await executeDirectorTool(ctx, input, lang, topic, call, executed);
         await pushHistory(ctx.conversationId, 'tool', null, { tool_name: call.name, args: parseToolArgs(call.arguments), result });
         messages.push({ role: 'tool', tool_call_id: call.id, name: call.name, content: JSON.stringify(result).slice(0, 4000) });
         if (stop) {
