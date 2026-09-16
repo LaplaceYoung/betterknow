@@ -594,3 +594,8 @@
 - **修掉一个状态错**：线上确认按钮走默认 action `approve`，而早期种子把确认态写成 `confirm`（既不是 `confirmed` 也不是 `pending`）——列表读出来统一归一到 `confirmed`，种子里的错值也已改。
 - 分组口径差异：线上按 canvas/文件/公告分组，本仓按「课程 / 无来源」；日期区间按 `scheduled_for + duration_min` 推算。
 - 实测：待处理视图只在 `status==='pending'` 时出现（2 列 2 卡）；单卡「确认」后该卡离开视图、状态变 `confirmed`；整列「拒绝所有任务」后该来源的卡全部移除、列数 2 → 1（`list_main_tasks` 同步减少）。
+
+**第七十三批（文件卡三态 + 差距文本校正）**
+- 任务详情的生成文件卡补上线上三态：生成中（`-processing` + spinner +「正在生成 …（最多 600 秒）」）、失败（`-failed` +「当前生成失败」，按钮切「重新生成」）、待生成（「文件待生成——准备好后将通知你」）；失败态由生成请求的 `success:false` 驱动。
+- **校正过期的差距陈述**：`practice-slot-roll`/`practice-slot-digit-strip`（`SlotNumber` 组件已实现并在练习 HUD 使用）、`calendar-sidebar`（线上就在 `.proactive-left` 里，本仓已按 r172 复刻）、`task-detail-related-dues`（本轮已补）三处「仍未做」都已落地，改为如实记录。
+- 实测：待生成态显示提示与「立即生成」；生成成功出就绪卡（📄 文件名 + 为你准备的学习材料）；把 `/file_generation/rerun` 打桩成 `success:false` 后出失败卡（`task-detail-generated-file-card-failed` +「当前生成失败」），按钮文案切「重新生成」，并弹「生成失败，请重试。」。

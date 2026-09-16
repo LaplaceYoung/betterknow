@@ -1035,3 +1035,18 @@ CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄
 文案全部取自线上 zh 字典（`pendingTasks.*`）；CSS 130 条原文进 `index.css`。
 
 本仓差异：线上按 canvas 课程 / 文件 / 公告分组，本仓任务只带课程信息，按「课程 / 无来源」两档分组；日期区间用 `scheduled_for + duration_min` 推算（本仓任务没有独立 `due_at`）；空态文案用线上的「没有待处理的任务」，结构是自绘的（线上空态没抓到）。
+
+### 任务详情的文件卡三态（第五十六批，proactive bundle 实证）
+
+线上生成文件区：`.task-detail-source-header`「为你准备」+ `.task-detail-generated-file-section`，卡有三种态：
+
+| 态 | 类名 | 文案 |
+|---|---|---|
+| 生成中 | `.task-detail-generated-file-card-processing` + `.task-detail-generated-file-icon-spinner` | `taskDetail.generatingFile`「正在生成 {{name}}（最多 600 秒）」 |
+| 失败 | `.task-detail-generated-file-card-failed` + `.task-detail-generated-file-icon-failed` | `taskDetail.generationFailed`「当前生成失败」，按钮换 `taskDetail.regenerate`「重新生成」 |
+| 就绪 | `.task-detail-generated-file-card` | 文件名 + `taskDetail.viewFile`「查看 {{name}}」 |
+| 待生成 | — | `taskDetail.filePending`「文件待生成——准备好后将通知你」 |
+
+源文件区：`.task-detail-file-section` > `.task-detail-files-list.horizontal` > `.task-detail-file-card`（按扩展名取 `/pages/mainPages/drive/file_icons/*.svg` 图标 + `.task-detail-file-card-name`），无 `file_name` 的条目走 `.task-detail-file-card-missing` + 气泡 `taskDetail.fileMissingTooltip`「此文件不存在，或已从知识库中删除。」。
+
+本仓：三态与文案照抄（CSS 19 条已在 `index.css`），**源文件区未做** —— 本仓任务模型里没有输入文件（线上来自 `files_info`），留空不编。

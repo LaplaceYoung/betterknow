@@ -90,6 +90,8 @@ export default function LearningFeed() {
   const [revising, setRevising] = useState(false)
   const [toast, setToast] = useState('')
   const [generating, setGenerating] = useState('')
+  // 线上文件卡三态：processing（正在生成）/ failed（当前生成失败）/ ready；失败态在本仓由生成请求的结果驱动
+  const [failedFiles, setFailedFiles] = useState<Record<string, true>>({})
   const [deciding, setDeciding] = useState(false)
   // 线上底部动作：确认 / 拒绝都走 /calendar/approve_tasks，响应带 total_succeeded
   const decideTask = async (action: 'confirm' | 'reject') => {
@@ -116,6 +118,7 @@ export default function LearningFeed() {
       const res = await apiPost<{ success?: boolean; file_id?: string; file_name?: string; file_url?: string; stub?: boolean }>(
         '/file_generation/rerun', { task_id: openTask?.id, subtask_id: subtaskId })
       if (res.success && res.file_url) {
+        setFailedFiles((m) => { const next = { ...m }; delete next[subtaskId]; return next })
         setOpenTask((t) => (t ? {
           ...t,
           subtasks: (t.subtasks ?? []).map((s) => (s.subtask_id === subtaskId
@@ -124,7 +127,7 @@ export default function LearningFeed() {
         } : t))
         setToast(res.stub ? '已生成材料（未配置模型时用内置模板）' : '学习材料已生成')
         setQuotaLeft((n) => (n === null ? null : Math.max(0, n - 1)))
-      } else setToast('生成失败，请重试。')
+      } else { setFailedFiles((m) => ({ ...m, [subtaskId]: true })); setToast('生成失败，请重试。') }
       window.setTimeout(() => setToast(''), 2600)
       await load()
     } finally {
@@ -445,8 +448,25 @@ export default function LearningFeed() {
                             <div key={sub.subtask_id ?? index} className="task-detail-subtask">
                               <span className={`task-detail-subtask-status ${sub.status === 'done' ? 'done' : ''}`}>{sub.status === 'done' ? '✓' : index + 1}</span>
                               <span className="task-detail-subtask-title">{sub.title ?? '学习材料'}</span>
-                              {generating === (sub.subtask_id ?? '') && <span className="task-detail-generated-file-icon-spinner" aria-label="生成中" />}
-                              {outputs.length > 0 && generating !== (sub.subtask_id ?? '') && (
+                              {generating === (sub.subtask_id ?? '') && (
+                                <div className="task-detail-generated-file-card task-detail-generated-file-card-processing" data-testid="generated-file-processing">
+                                  <span className="task-detail-generated-file-icon"><span className="task-detail-generated-file-icon-spinner" aria-label="生成中" /></span>
+                                  <span className="task-detail-generated-file-info">
+                                    <span className="task-detail-generated-file-name">正在生成 {sub.title ?? '学习材料'}（最多 600 秒）</span>
+                                  </span>
+                                </div>
+                              )}
+                              {generating !== (sub.subtask_id ?? '') && failedFiles[sub.subtask_id ?? ''] && (
+                                <div className="task-detail-generated-file-card task-detail-generated-file-card-failed" data-testid="generated-file-failed">
+                                  <span className="task-detail-generated-file-icon task-detail-generated-file-icon-failed" aria-hidden="true">
+                                    <svg width="20" height="18" viewBox="0 0 24 22" fill="none"><path d="M12 3l9 16H3z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="M12 9.5v4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><circle cx="12" cy="16.4" r="1" fill="currentColor" /></svg>
+                                  </span>
+                                  <span className="task-detail-generated-file-info">
+                                    <span className="task-detail-generated-file-name">当前生成失败</span>
+                                  </span>
+                                </div>
+                              )}
+                              {generating !== (sub.subtask_id ?? '') && !failedFiles[sub.subtask_id ?? ''] && outputs.length > 0 && (
                                 <a className="task-detail-generated-file-card" data-testid="generated-file-card"
                                   href={outputs[0].file_url} target="_blank" rel="noreferrer" title={outputs[0].file_name}>
                                   <span className="task-detail-generated-file-icon" aria-hidden="true">📄</span>
@@ -456,10 +476,13 @@ export default function LearningFeed() {
                                   </span>
                                 </a>
                               )}
+                              {generating !== (sub.subtask_id ?? '') && !failedFiles[sub.subtask_id ?? ''] && outputs.length === 0 && (
+                                <span className="task-detail-generated-file-description" data-testid="generated-file-pending">文件待生成——准备好后将通知你</span>
+                              )}
                               <button type="button" className="task-detail-action-btn" data-testid="generate-file"
                                 disabled={generating !== '' || quotaLeft === 0}
                                 onClick={() => void generateFile(sub.subtask_id ?? '', sub.title ?? '')}>
-                                {outputs.length > 0 ? '重新生成' : '立即生成'}
+                                {outputs.length > 0 || failedFiles[sub.subtask_id ?? ''] ? '重新生成' : '立即生成'}
                               </button>
                             </div>
                           )
