@@ -780,3 +780,34 @@
 .practice-stars--animate .practice-stars-star { opacity: 0; transform: scale(1.9) rotate(-18deg); animation: practice-stars-stamp .48s cubic-bezier(.2,1.45,.4,1) forwards; }
 @keyframes practice-stars-stamp { to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .practice-stars--animate .practice-stars-star { animation: none; opacity: 1; transform: none; } }
+
+/* 线上 .practice-result-*（练习结果页；r119 取自线上样式表原文） */
+.practice-result-stage { display: flex; flex-direction: column; overflow: hidden; }
+.practice-result-scroll { display: flex; flex: 1 1 auto; min-height: 0; justify-content: center; overflow-y: auto; }
+.practice-result { display: flex; width: min(68vw, 560px); margin: auto; flex-direction: column; align-items: center; padding: 8px 0 12px; text-align: center; }
+.practice-result-media { position: relative; display: flex; width: 208px; height: 208px; align-items: center; justify-content: center; }
+.practice-result-aura { position: absolute; top: 4%; right: 4%; bottom: 4%; left: 4%; border-radius: 50%; background: radial-gradient(circle at 50% 54%, #385da029, #385da012 46%, #385da000 72%); }
+.practice-result--failed .practice-result-aura { background: radial-gradient(circle at 50% 54%, #c347471f, #c347470d 46%, #c3474700 72%); }
+.practice-result-video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.practice-result-kicker { margin: 2px 0 0; color: #9ca3af; font-size: 12px; line-height: 1; letter-spacing: .14em; text-transform: uppercase; }
+.practice-result-title { margin: 12px 0 0; color: #111827; font-size: 26px; font-weight: 600; line-height: 1.25; letter-spacing: -.02em; }
+.practice-result-stars { margin: 12px 0 2px; }
+.practice-result-points { margin: 10px 0 0; color: #385da0; font-size: 38px; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.practice-result-points-sub { margin: 5px 0 0; color: #9ca3af; font-size: 12.5px; }
+.practice-result-stats { display: flex; width: 100%; margin: 18px 0 0; padding: 14px 8px; border: 1px solid #EFEFEF; border-radius: 12px; background: #fcfdfe; }
+.practice-result-stat { display: flex; flex: 1 1 0; flex-direction: column; align-items: center; gap: 3px; margin: 0; border-left: 1px solid #E5E5E5; }
+.practice-result-stat:first-child { border-left: none; }
+.practice-result-stat dt { color: #a7a7a7; font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; }
+.practice-result-stat dd { margin: 0; color: #1f1f1f; font-weight: 600; font-size: 18px; font-variant-numeric: tabular-nums; }
+.practice-result-board-title { margin: 22px 0 0; color: #a7a7a7; font-size: 11px; letter-spacing: .11em; text-transform: uppercase; }
+.practice-result-board { display: flex; width: 100%; flex-direction: column; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.practice-result-row { display: flex; align-items: center; gap: 12px; padding: 11px 16px; border: 1px solid #EFEFEF; border-radius: 10px; background: #fff; animation: practice-result-rise .45s cubic-bezier(.16,1,.3,1) both; }
+.practice-result-row--you { border-color: #bfcde3; background: #fafcff; }
+.practice-result-rank { width: 18px; color: #a7a7a7; font-weight: 600; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.practice-result-row--you .practice-result-rank, .practice-result-row--you .practice-result-name { color: #385da0; }
+.practice-result-name { flex: 1 1 auto; color: #1f1f1f; font-weight: 500; font-size: 14px; text-align: left; }
+.practice-result-acc { color: #a7a7a7; font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.practice-result-row-points { min-width: 52px; color: #1f1f1f; font-weight: 600; font-size: 14px; font-variant-numeric: tabular-nums; text-align: right; }
+.practice-result-actions { position: relative; height: auto; justify-content: center; padding: 22px 0 40px; }
+@keyframes practice-result-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .practice-result-row, .practice-result-kicker, .practice-result-title { animation: none; opacity: 1; transform: none; } }

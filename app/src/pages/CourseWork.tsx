@@ -5,12 +5,16 @@ import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { apiGet, apiPost } from '@/lib/api'
-import { SCORING, perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
+import { SCORING, makeRivals, perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
 import { SlotNumber } from '@/components/SlotNumber'
+import { PracticeStars } from '@/components/PracticeStars'
 import { playSfx } from '@/lib/sfx'
 
 // 线上练习彩带的调色板（T 数组）与 reduced-motion 判断
 const CONFETTI_COLORS = ['#FFD95A', '#5BC878', '#5B9CF5', '#FF8F6B', '#C88AFF', '#FF6B9D', '#F0C84A']
+
+// 线上 practice.result.stars0..3（中文原文）
+const STAR_TITLES = ['再来一轮', '还需巩固', '不错', '优秀']
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -221,7 +225,7 @@ function QuizRunner({
   mode?: 'practice' | 'exam'
   fastWindowMs?: number
   fastBonus?: number
-  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number; fastIds?: string[]; points?: number; perfect?: number; stars?: number }) => void
+  onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number; fastIds?: string[]; points?: number; perfect?: number; stars?: number; bestStreak?: number }) => void
 }) {
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string[]>([])
@@ -436,6 +440,7 @@ function QuizRunner({
           points: points.total,
           perfect: perfectScore(ids.length),
           stars: starsFor(points.total, perfectScore(ids.length)),
+          bestStreak: points.bestStreak,
         })
       }
       return
@@ -811,6 +816,7 @@ export function Practice() {
     fastIds?: string[]
     points?: number
     perfect?: number
+    bestStreak?: number
     stars?: number
   } | null>(null)
 
@@ -853,6 +859,8 @@ export function Practice() {
         points={result.points}
         perfect={result.perfect}
         stars={result.stars}
+        bestStreak={result.bestStreak ?? 0}
+        rankSeed={session.sessionId}
         courseId={courseId}
         courseTitle={session.title}
       />
@@ -882,7 +890,7 @@ export function Practice() {
             perfect: meta?.perfect ?? total,
             stars: meta?.stars ?? 0,
           }).catch(() => {})
-          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, fastIds: meta?.fastIds, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars })
+          setResult({ score, total, userAnswers, fastCount: meta?.fastCount, fastIds: meta?.fastIds, points: meta?.points, perfect: meta?.perfect, stars: meta?.stars, bestStreak: meta?.bestStreak })
         }}
       />
     </>
@@ -904,6 +912,7 @@ export function Exam() {
     fastIds?: string[]
     points?: number
     perfect?: number
+    bestStreak?: number
     stars?: number
   } | null>(null)
 
@@ -1255,6 +1264,8 @@ function Result({
   points = 0,
   perfect = 0,
   stars = 0,
+  bestStreak = 0,
+  rankSeed = 'practice',
   courseId = '',
   courseTitle = '',
 }: {
@@ -1270,16 +1281,24 @@ function Result({
   points?: number
   perfect?: number
   stars?: number
+  bestStreak?: number
+  rankSeed?: string
   courseId?: string
   courseTitle?: string
 }) {
+  // 线上结果页的本轮排行：自己 + makeRivals 生成的三个对手（同一 seed 结果稳定），按分数排序取自己的名次
+  const board = useMemo(() => {
+    const me = { name: '你', score: points, correctCount: score, isYou: true }
+    const rows = [me, ...makeRivals(rankSeed, total).map((r) => ({ ...r, isYou: false }))].sort((a, b) => b.score - a.score)
+    return rows
+  }, [points, score, rankSeed, total])
+  const rank = board.findIndex((r) => r.isYou) + 1
   const [activeTab, setActiveTab] = useState<'summary' | 'review'>('summary')
   const [filter, setFilter] = useState<'all' | 'wrong'>('all')
   const [scheduledIndices, setScheduledIndices] = useState<Record<number, boolean>>({})
   const [batchScheduled, setBatchScheduled] = useState(false)
   const [scheduling, setScheduling] = useState(false)
 
-  const pct = Math.round((score / Math.max(total, 1)) * 100)
   const wrongCount = Math.max(total - score, 0)
 
   const wrongIndices = useMemo(() => {
@@ -1373,88 +1392,54 @@ function Result({
       </div>
 
       {activeTab === 'summary' ? (
-        <div className="text-center pt-6 max-w-[540px] mx-auto">
-          <div className="text-[52px] animate-bounce mb-2">
-            {pct >= 80 ? '🎉' : pct >= 60 ? '👏' : '💪'}
+        <section className={`practice-result${stars === 3 ? ' practice-result--passed' : ' practice-result--failed'}`} data-testid="practice-result">
+          <div className="practice-result-media" aria-hidden="true">
+            <span className="practice-result-aura" />
+            <video className="practice-result-video" autoPlay loop muted playsInline
+              src={stars === 3 ? '/assets/img/pages/mainPages/animations/char-reward-pop.mp4' : '/assets/img/pages/mainPages/animations/char-petting.mp4'} />
           </div>
-          <h1 className="text-[24px] font-semibold">{label}</h1>
-          <div className="text-[48px] font-bold mt-2 text-[#0a0a0a]">
-            {pct}
-            <span className="text-[18px] text-[#8a8a90] font-normal"> 分</span>
-          </div>
-
-          <p className="text-[14px] text-[#6b6b70] mt-2">
-            共答对 {score} / {total} 题 · 学习掌握度已即时写回知识图谱
-            {fastCount > 0 && <span className="exam-score-points-bonus" data-testid="fast-count"> · 其中速答 {fastCount} 题</span>}
-          </p>
-          {perfect > 0 && (
-            <div className="exam-score-points mt-2" data-testid="score-points">
-              得分 <b>{points.toLocaleString()}</b> / 满分 {perfect.toLocaleString()}
-              {fastCount > 0 && <span className="exam-score-points-bonus"> · 速答加成 {fastCount * 200}</span>}
-            </div>
-          )}
-          {stars > 0 && (
-            <div className="star-rating mt-2 justify-center" data-testid="result-stars" aria-label={`${stars} 星`}>
-              {[1, 2, 3].map((n) => (
-                <span key={n} className={`star-rating-star ${n <= stars ? 'filled' : ''}`} aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3.6l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z" /></svg>
-                </span>
-              ))}
-            </div>
-          )}
-
-          <div className="grid grid-cols-3 gap-3 my-8 text-left">
-            <div className="hk-card p-4 text-center">
-              <div className="text-[11px] text-[#8a8a90]">正确率</div>
-              <div className="text-[20px] font-bold mt-1 text-[#16a34a]">{pct}%</div>
-            </div>
-            <div className="hk-card p-4 text-center">
-              <div className="text-[11px] text-[#8a8a90]">做对题数</div>
-              <div className="text-[20px] font-bold mt-1 text-[#0a0a0a]">{score} <span className="text-[12px] font-normal text-[#8a8a90]">/ {total}</span></div>
-            </div>
-            <div className="hk-card p-4 text-center">
-              <div className="text-[11px] text-[#8a8a90]">待巩固错题</div>
-              <div className="text-[20px] font-bold mt-1 text-[#dc2626]">{wrongCount}</div>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3">
+          <p className="practice-result-kicker">练习完成</p>
+          <PracticeStars className="practice-result-stars" stars={stars} size={34} animate label={`3 星中获得 ${stars} 星`} />
+          <h1 className="practice-result-title">{STAR_TITLES[Math.max(0, Math.min(3, stars))]}</h1>
+          <p className="practice-result-points" role="status" data-testid="result-points">{points.toLocaleString()}</p>
+          <p className="practice-result-points-sub">满分 {perfect.toLocaleString()} · 得分率 {perfect > 0 ? Math.floor((points / perfect) * 100) : 0}%</p>
+          <dl className="practice-result-stats">
+            <div className="practice-result-stat"><dt>答对</dt><dd>{score}/{total}</dd></div>
+            <div className="practice-result-stat"><dt>速答</dt><dd>{fastCount}</dd></div>
+            <div className="practice-result-stat"><dt>最长连对</dt><dd>{bestStreak}</dd></div>
+            <div className="practice-result-stat"><dt>排名</dt><dd>#{rank}</dd></div>
+          </dl>
+          <p className="practice-result-board-title">本轮排行</p>
+          <ol className="practice-result-board" data-testid="result-board">
+            {board.map((row, idx) => (
+              <li key={row.name} className={`practice-result-row${row.isYou ? ' practice-result-row--you' : ''}`} style={{ animationDelay: `${900 + 90 * idx}ms` }}>
+                <span className="practice-result-rank">{idx + 1}</span>
+                <span className="practice-result-name">{row.name}</span>
+                <span className="practice-result-acc">{row.correctCount}/{total}</span>
+                <span className="practice-result-row-points">{row.score.toLocaleString()}</span>
+              </li>
+            ))}
+          </ol>
+          <div className="practice-actions practice-result-actions flex-col gap-3 items-center">
             <div className="flex items-center justify-center gap-3">
-              <button
-                onClick={() => {
-                  setActiveTab('review')
-                  setFilter(wrongCount > 0 ? 'wrong' : 'all')
-                }}
-                className="h-10 px-5 rounded-full bg-[#0a0a0a] text-white text-[13px] font-medium inline-flex items-center gap-1.5 shadow-sm hover:bg-black/90"
-              >
-                <BookOpen size={14} /> 查看答题解析与错题本
-              </button>
+              <button type="button" className="practice-check-btn" onClick={back}>返回课程</button>
               {onRetry && (
-                <button onClick={onRetry} className="hk-pill h-10 px-5 inline-flex items-center gap-1.5">
+                <button type="button" onClick={onRetry} className="hk-pill h-10 px-5 inline-flex items-center gap-1.5">
                   <RotateCcw size={13} /> 再练一次
                 </button>
               )}
             </div>
-
             {wrongCount > 0 && (
-              <button
-                onClick={handleBatchSchedule}
-                disabled={batchScheduled || scheduling}
-                className="mt-2 text-[12px] text-[#6366f1] hover:text-[#4f46e5] inline-flex items-center justify-center gap-1.5 py-1.5"
-              >
-                {batchScheduled ? (
-                  <>
-                    <BookmarkCheck size={14} className="text-[#16a34a]" /> 已一键加入明日间隔复习计划
-                  </>
-                ) : (
-                  <>
-                    <CalendarPlus size={14} /> 一键将 {wrongCount} 道错题加入明日智能间隔复习日程
-                  </>
-                )}
+              <button type="button" onClick={handleBatchSchedule} disabled={batchScheduled || scheduling}
+                className="text-[12px] text-[#6366f1] hover:text-[#4f46e5] inline-flex items-center justify-center gap-1.5 py-1.5">
+                {batchScheduled
+                  ? <><BookmarkCheck size={14} className="text-[#16a34a]" /> 已一键加入明日间隔复习计划</>
+                  : <><CalendarPlus size={14} /> 一键将 {wrongCount} 道错题加入明日智能间隔复习日程</>}
               </button>
             )}
           </div>
-        </div>
+          <p className="text-[13px] text-[#6b6b70] mt-3">{label} · 学习掌握度已即时写回知识图谱</p>
+        </section>
       ) : (
         /* Review / Wrong Notebook View */
         <div className="space-y-6">

@@ -56,3 +56,55 @@ export function starsFor(score: number, perfect: number): number {
   if (ratio >= one) return 1
   return 0
 }
+
+// 线上 quizScoring-DluRF6xL.js 里的「本轮排行」对手生成器（导出名 b）：
+//   名字池 24 个、三档水平 profile、FNV-1a 哈希 + mulberry32 伪随机，同一个 seed 永远同一批对手。
+const RIVAL_NAMES = ['pixelmoth', 'tofu_bandit', 'Nine_Volt', 'mossy.exe', 'sudo_nap', 'Kettle44', 'blue_period', 'orbit_gremlin', 'driftwoodie', 'snoozebutton', 'HALCYON', 'mika_0417', 'velvetcrash', 'deltawave', 'oatmilk_ultra', 'Jinx0', 'paper_tiger', 'slowloris', 'Cassini_9', 'nocturneee', 'brb_kettle', 'fig_and_thyme', 'GNARWHAL', 'lowercase_liam']
+
+const RIVAL_PROFILES = [
+  { skill: [0.78, 0.92], fastRate: [0.45, 0.7] },
+  { skill: [0.55, 0.72], fastRate: [0.4, 0.75] },
+  { skill: [0.38, 0.56], fastRate: [0.2, 0.5] },
+]
+
+function hashSeed(text: string): number {
+  let h = 2166136261
+  for (let i = 0; i < text.length; i += 1) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619) }
+  return h >>> 0
+}
+
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0
+  return () => {
+    a = (a + 1831565813) | 0
+    let t = Math.imul(a ^ (a >>> 15), 1 | a)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+export interface RivalScore { name: string; score: number; correctCount: number }
+
+export function makeRivals(seedKey: string, questionCount: number): RivalScore[] {
+  const rand = mulberry32(hashSeed(seedKey))
+  const pool = [...RIVAL_NAMES]
+  return RIVAL_PROFILES.map((profile) => {
+    const [name] = pool.splice(Math.floor(rand() * pool.length), 1)
+    const roll = mulberry32(hashSeed(`${seedKey}|${name}`))
+    const skill = profile.skill[0] + roll() * (profile.skill[1] - profile.skill[0])
+    const fastRate = profile.fastRate[0] + roll() * (profile.fastRate[1] - profile.fastRate[0])
+    let score = 0
+    let streak = 0
+    let correct = 0
+    for (let k = 0; k < questionCount; k += 1) {
+      const ok = roll() < skill
+      const fast = roll() < fastRate
+      if (ok) {
+        score += SCORING.base + Math.min(streak * SCORING.streakStep, SCORING.streakCap) + (fast ? SCORING.fastBonus : 0)
+        streak += 1
+        correct += 1
+      } else streak = 0
+    }
+    return { name, score, correctCount: correct }
+  })
+}

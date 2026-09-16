@@ -518,3 +518,28 @@ const SHIFT = 1.05
 - 判定：答对 `/sounds/answer-correct.mp3`、答错 `/sounds/answer-wrong.mp3`
 - 「下一题」与「跳过」按钮：`/sounds/button-click.mp3`
 
+### 练习结果页与「本轮排行」（第二十八批，r112 + r119 + r120）
+
+线上练习交卷后渲染 `_e`（finished）分支，结构（r112 chunk 原文）：
+
+```
+main.practice-stage.practice-result-stage[aria-label="Practice results"]
+  .practice-result-scroll > section.practice-result + (--passed 当 3 星 / --failed 否则)
+    .practice-result-media[aria-hidden] > span.practice-result-aura + video.practice-result-video
+        通过：/pages/mainPages/animations/char-reward-pop.mp4；未通过：char-petting.mp4
+    p.practice-result-kicker                  「练习完成」
+    <PracticeStars className="practice-result-stars" stars size={34} animate
+                   label={t('practice.result.starsAria', {stars, total:3})} />
+    h1.practice-result-title                  t(G[stars])，G = stars0..3
+    p.practice-result-points[role=status]     total.toLocaleString()
+    p.practice-result-points-sub              满分 {{perfect}} · 得分率 {{percent}}%（percent = floor(total/perfect*100)）
+    dl.practice-result-stats                  4 项：答对 / 速答 / 最长连对 / 排名
+    p.practice-result-board-title             本轮排行
+    ol.practice-result-board                  自己 + 3 个对手，按分数降序；行长 animationDelay = 900 + 90*i ms
+    .practice-actions.practice-result-actions 单个「返回课程」按钮
+```
+
+中文文案（r120 取自线上 index bundle，逐字）：`练习完成` / `再来一轮`(0 星) / `还需巩固`(1) / `不错`(2) / `优秀`(3) / `满分 {{perfect}} · 得分率 {{percent}}%` / `答对` / `速答` / `最长连对` / `排名` / `本轮排行` / `你` / `返回课程` / aria `{{total}} 星中获得 {{stars}} 星`。
+
+**本轮排行是客户端模拟**：`makeRivals(seedKey, questionCount)`（quizScoring 导出的 `b`）用 FNV-1a 哈希 + mulberry32 伪随机，从 24 个昵称池（`pixelmoth`、`tofu_bandit`、`Nine_Volt` … `lowercase_liam`）按三档水平 profile（skill 0.78–0.92 / 0.55–0.72 / 0.38–0.56）逐题掷骰算分；`seedKey` 是练习 id，所以同一节练习的对手每次都一样。实测本仓：`driftwoodie 4,400`、`你 3,400`、`Kettle44 3,400`、`brb_kettle 1,500`，名次 `#2`。
+
