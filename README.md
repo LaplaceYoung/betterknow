@@ -40,6 +40,30 @@
 
 ---
 
+## 🖼️ 界面预览
+
+下面都是本仓跑起来之后直接截的实机图（stub 模式，未接外部模型；截图存放于 `hyperclone/docs/screenshots/`）。
+
+| 首页 | 课程页（单元 / 讲次 / 练习 / 考试 / 项目） |
+|---|---|
+| ![首页](hyperclone/docs/screenshots/01-home.png) | ![课程页](hyperclone/docs/screenshots/03-course-journey.png) |
+
+| 白板课堂（板书推演 + 大纲 / 学习记录 / 讲稿） | 语音设置（音色 + 语速 + BYOK 试听） |
+|---|---|
+| ![白板](hyperclone/docs/screenshots/04-whiteboard.png) | ![语音设置](hyperclone/docs/screenshots/05-voice-settings.png) |
+
+| 速查表编辑器（预览 / 正文 / 编辑模式 + 自动保存） | 练习与考试（HUD 分数 + 30 分钟倒计时） |
+|---|---|
+| ![速查表](hyperclone/docs/screenshots/13-cheatsheet-editor.png) | ![练习](hyperclone/docs/screenshots/07-practice.png) |
+
+| 学习动态（日历 + 今日待办 + 待处理分列） | 模型与 BYOK（五槽配置与探针） |
+|---|---|
+| ![学习动态](hyperclone/docs/screenshots/09-learning-feed-pending.png) | ![BYOK](hyperclone/docs/screenshots/14-settings-byok.png) |
+
+更多截图（课程生成问卷、加入日历、网络自检、深度课堂、历史、知识库、考试）见 [hyperclone/README.md](hyperclone/README.md#界面截图本仓实机)。
+
+---
+
 ## 🏗️ 架构设计
 
 ```
@@ -76,54 +100,36 @@ betterknow/
 - **Node.js**: >= 20.0.0
 - **npm** 或 **pnpm**
 
----
-
-### 1. 启动后端服务
-
-```bash
-cd hyperclone/server
-
-# 安装依赖
-npm install
-
-# 编译 TypeScript
-npm run build
-
-# 启动服务端 (默认运行于 http://127.0.0.1:8787)
-npm start
-```
-
-> 服务端首次启动会自动在 `var/data/state.json` 中初始化默认开放用户与学习状态，开箱即用。
+仓库里是两个包：`app/`（前端）与 `hyperclone/server/`（后端，同时托管 `app/dist`）。
 
 ---
 
-### 2. 启动前端客户端
-
-打开新的终端窗口：
+### 推荐：单端口跑全栈（生产模式）
 
 ```bash
-cd app
+# 1) 安装依赖
+npm install --prefix app
+npm install --prefix hyperclone/server
 
-# 安装依赖
-npm install
+# 2) 构建前端与后端
+npm run build --prefix app
+npm run build --prefix hyperclone/server
 
-# 启动开发服务器
-npm run dev
+# 3) 启动（默认 http://127.0.0.1:8787，页面、REST、WebSocket 都在这个端口）
+PORT=8787 npm run start --prefix hyperclone/server
 ```
 
-启动后在浏览器中访问控制台打印的地址（通常为 `http://localhost:5173`）即可进入平台。
+> 服务端首次启动会在 `var/data/state.json` 初始化默认开放用户与演示数据，开箱即用；`var/data/` 可以整个删掉重新开始。
 
 ---
 
-### 3. 构建生产版本
+### 备选：只改前端时用 Vite 开发服务器
 
 ```bash
-# 构建前端静态产物
-cd app && npm run build
-
-# 构建后端引擎
-cd ../hyperclone/server && npm run build
+npm run dev --prefix app        # Vite :5173，已把 /api、/ws 代理到 127.0.0.1:8787
 ```
+
+后端没有 watch 脚本：改完 `hyperclone/server/src` 需要 `npm run build --prefix hyperclone/server` 再重启。
 
 ---
 
