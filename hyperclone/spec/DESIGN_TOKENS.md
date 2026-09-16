@@ -218,3 +218,32 @@
 | 精选骨架 | `.mktp-featured-card--skeleton{background:linear-gradient(90deg,#ecebe8,#f6f5f2,#ecebe8);background-size:200% 100%;animation:mktpFeaturedSkeletonPulse 1.4s ease-in-out infinite}` | 同（bento 六块按同样的位次铺开） |
 | verdict 面板布局 | `.practice-split{--practice-verdict-panel:min(28vw,360px);--practice-verdict-gap:28px;--practice-verdict-width:0px}`；`.practice-split--revealed{--practice-verdict-width:calc(panel+gap)}`；`.practice-verdict{flex:0 0 auto;width:var(--practice-verdict-width);overflow:hidden;transition:width .42s cubic-bezier(.22,.61,.36,1)}`；`.practice-verdict-inner{padding:24px 4px 30px 20px;opacity:0}` | **部分**：判题内容与配色一致，但没有做「右侧 360px 滑出面板」——本仓练习区是 672px 单列，滑出面板要先把内容区改成 `min(76vw,1040px)` 的 `.practice-split` 两列布局 |
 
+## 第十二批：讲义/速查表阅读器（线上 bundle 反查，r83-r89）
+
+点不开线上阅读器时，直接从 `ChatResponsePage-DaFH8Bg0.js` 反查常量与分页口径：
+
+```js
+const ky = 1123, xy = 794;                       // A4 @96dpi
+contentW = ky - 2*pageMargin; contentH = xy - 2*pageMargin; stride = contentW + 20;
+// 默认排版（historyConversationDataParser 里的 DEFAULT）
+{ columns: 4, fontSize: 8, pageMargin: 8, documentLineHeight: 1.55 }
+// 每页元素的样式助手（4× 测量 + scale(.25) 折算回 1×）
+function My(columns, fontSize, lineHeight, contentW, contentH) {
+  return { columnCount: columns, columnGap: "80px", fontSize: 4*fontSize+"px",
+           lineHeight, width: 4*contentW+"px", height: 4*contentH+"px", "--cs-k": 4 };
+}
+// 页数：内容流宽度 / stride 向上取整（测量在 4× 下做，再折回 1×）
+pageCount = max(1, ceil((measureScrollWidth/4 + 20 - 12) / stride));
+transform: `translateX(-${page * stride}px) scale(0.25)`;
+// 缩放：默认 0.75；外框 = 1123*z × (794*页数 + 20*(页数-1))*z
+```
+
+| 部件 | 线上原文 | 本仓 |
+|---|---|---|
+| 页 | `.preview-page{width:1123px;height:794px;background:#fff;box-shadow:0 2px 16px #0000002e;border-radius:2px;padding:var(--page-pad)}`；`.preview-pages{gap:20px;width:1123px}` | 同（实测 1123×794 / padding 8 / radius 2 / `0 2px 16px`） |
+| 内容流 | `.preview-page-inner{column-fill:auto;column-gap:20px;transform-origin:0 0}`；`.preview-page-clip{height:var(--content-h);overflow:hidden}` | 同：列宽 `(contentW - (columns-1)*20)/columns`、页间位移 `k*stride`（实测 0 / −1127 / −2254 / −3381 / −4508） |
+| 缩放件 | `.preview-zoom-controls{top:10px;right:14px;border-radius:8px;box-shadow:0 1px 4px #00000024,0 0 0 1px #0000000f;padding:3px}`；`.preview-zoom-btn{28×28;radius 6;color:#3c3c43}`；`.preview-zoom-val{width:44px;font-size:.72rem;tabular-nums;color:#52525b}` hover/focus 描边 | 同（实测 28/6、44px/11.52px、阴影一致） |
+| 滚动容器 | `.preview-scroll{flex:1;min-height:0;overflow:auto;scrollbar-gutter:stable}`；`.preview-scroll-inner{min-width:100%;display:inline-flex;flex-direction:column;align-items:center;padding:1.5rem}`；`.preview-scale-wrap{width:1123px;transform-origin:top left}` | 同（外框 842.25×595.5 = 1123×0.75、scale(0.75)） |
+
+本仓实现额外补了线上 UI 没抓到的部分：正文排版（`preview-md`，h1/h2/h3、表格、代码、引用、KaTeX 的列内规则）、打印样式（打印时隐藏控制条并取消缩放）、底部排版控件（列数 2/3/4、字号 8–11、页边距 8/16/24/32 可调），以及隐藏测量容器 `.preview-measure`（与页面同宽同高，用来数出列流的总宽度）。
+

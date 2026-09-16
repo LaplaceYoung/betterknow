@@ -15,6 +15,7 @@ import { Inbox, InboxMessage } from '@/pages/Inbox'
 import { Practice, Exam, Project } from '@/pages/CourseWork'
 import { SignIn, SignUp, ForgotPassword, ResetPassword, AccountDeleted, WelcomeBack, AuthCallback } from '@/pages/Auth'
 import Onboarding from '@/pages/Onboarding'
+import CheatsheetReader from '@/pages/CheatsheetReader'
 import { Subscription, CouponCode, PaymentResult, EmailSubscription, SharedConversation, SharedCourse, CourseGenerationLog, DeepLearnOutline, DeepLearnSession, PdfSession, DevCsmPreview, SampleMindmap } from '@/pages/Misc'
 
 // legacy /shared/c/:id → /share/c/:id（保留 query/hash）
@@ -64,6 +65,7 @@ export default function App() {
           <Route path="/response/course-generation/:courseUuid" element={<ChatResponse />} />
           <Route path="/response/:conversationId" element={<ChatResponse />} />
           <Route path="/course-generation/log/:runId" element={<CourseGenerationLog />} />
+          <Route path="/cheatsheet/:fileId" element={<CheatsheetReader />} />
           <Route path="/learning-feed" element={<LearningFeed />} />
           <Route path="/history" element={<History />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />

@@ -7,7 +7,7 @@ import { chat, chatStream, stubValue, type ChatMessage } from '../llm.js';
 import { readState, updateState, now } from '../store.js';
 import { resolveByok, type ByokConfig } from '../config.js';
 import { search, type SearchResult } from '../providers/index.js';
-import { publicFiles } from '../artifacts.js';
+import { persistPublicFile, publicFiles } from '../artifacts.js';
 import { AGENT_FALLBACK, flashcardsTool, htmlAnimationTool, instructionalVideoTool, publishFileTool } from '../artifactTools.js';
 
 export interface DirectorInput {
@@ -618,7 +618,11 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
     );
   }
 
-  const { skill, directQuiz } = pickSkill(input, input.message.trim().length < 12);
+  const routed = pickSkill(input, input.message.trim().length < 12);
+  // 待答技能优先：答完上一题的回复要继续原来的技能，不能把「详细」这种答案当成新话题重新分类
+  const pendingSkill = ((await convo(ctx.conversationId)) as unknown as { pending_skill?: string })?.pending_skill;
+  const skill = (pendingSkill && input.answers?.length ? pendingSkill : routed.skill) as typeof routed.skill;
+  const directQuiz = routed.directQuiz;
 
   // get_skills: 载入当前技能规范
   if (skill) {
@@ -943,7 +947,17 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
       // 线上实测：速查表技能先弹一题「内容详细程度」，答完再产出（allow_custom 允许自己写）
       const pending = (await readState()).conversations[ctx.conversationId] as unknown as { pending_skill?: string } | undefined;
       if (!input.answers?.length && !pending?.pending_skill) {
-        const questions = [{ question: '你希望速查表的内容详细程度如何？', is_multiple: false, options: ['一般 (提取核心要点)', '详细 (适当展开细节)', '非常详细 (最大化保留所有细节)'], allow_custom: true }];
+        // 选项用 {title, description} 形状：客户端（与线上 course_generation_questions 一致）按 title/description 渲染
+        const questions = [{
+          question: '你希望速查表的内容详细程度如何？',
+          is_multiple: false,
+          allow_custom: true,
+          options: [
+            { title: '一般', description: '提取核心要点，简洁精炼' },
+            { title: '详细', description: '充分覆盖内容，适当展开细节' },
+            { title: '非常详细', description: '最大化保留所有细节，力求不遗漏' },
+          ],
+        }]
         await updateState((next) => {
           const c = next.conversations[ctx.conversationId] as unknown as Record<string, unknown> | undefined;
           if (c) { c.pending_skill = 'cheatsheetGeneration'; c.pending_question = questions; }
@@ -1018,12 +1032,9 @@ $$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$$
 `;
 
       await tool('generate_cheatsheet', { title, custom_prompt: input.message }, 'display', async () => {
-        publicFiles.set(id, {
-          id,
-          filename: `${title}.md`,
-          mime: 'text/markdown; charset=utf-8',
-          data: Buffer.from(md),
-        });
+        const file = { id, filename: `${title}.md`, mime: 'text/markdown; charset=utf-8', data: Buffer.from(md) };
+        publicFiles.set(id, file);
+        await persistPublicFile(file);
         return {
           file_id: id,
           filename: `${title}.md`,

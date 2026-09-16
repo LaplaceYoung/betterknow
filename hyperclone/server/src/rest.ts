@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { basename, extname, resolve } from 'node:path';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { authenticate } from './auth.js';
-import { diagrams, placeholderPng, placeholderWebm, publicFiles } from './artifacts.js';
+import { diagrams, placeholderPng, placeholderWebm, publicFiles, readPersistedPublicFile } from './artifacts.js';
 import { mimeFor, readTtsAudio, readWhiteboardImage, ttsCounts } from './media.js';
 import { now, readState, updateState, type UserRecord } from './store.js';
 import { decorateMarketplace } from './extras.js';
@@ -229,7 +229,8 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/diagram/:id/diagram.html', async (request, reply) => { const id = (request.params as { id: string }).id; const data = diagrams.get(id)?.html; return data === undefined ? reply.code(404).send({ detail: 'Not found' }) : reply.type('text/html; charset=utf-8').send(data); });
   app.get('/api/v1/diagram/:id/diagram.png', async (request, reply) => { const id = (request.params as { id: string }).id; const record = diagrams.get(id); return !record ? reply.code(404).send({ detail: 'Not found' }) : reply.type('image/png').send(record.png ?? placeholderPng); });
   app.route({ method: ['GET', 'POST'], url: '/api/v1/files/:id', handler: async (request, reply) => {
-    const file = publicFiles.get((request.params as { id: string }).id);
+    const id = (request.params as { id: string }).id;
+    const file = publicFiles.get(id) ?? (await readPersistedPublicFile(id));
     if (!file) return reply.code(404).send({ detail: 'Not found' });
     // 文件名可能是中文：content-disposition 只放 ASCII 回退名，真名走 RFC 5987 的 filename*
     const ascii = file.filename.replace(/[^\x20-\x7e]/g, '_').replace(/["\\]/g, '_');

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { ArrowUp, Check, ChevronRight, ExternalLink, Languages, LifeBuoy, Share2, Sparkles, ArrowRight, Download, FileText, Plus, X, Image as ImageIcon } from 'lucide-react'
-import { Copy, ThumbsUp, ThumbsDown } from 'lucide-react'
+import { Copy, ThumbsUp, ThumbsDown, BookOpen } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
@@ -23,7 +23,7 @@ interface ChatItem {
   whisper?: boolean
   data?: unknown
 }
-interface QuestionData { questions: { question: string; options: { title: string; description: string }[]; is_multiple: boolean }[] }
+interface QuestionData { questions: { question: string; options: ({ title: string; description: string } | string)[]; is_multiple: boolean; allow_custom?: boolean }[] }
 
 interface StructureSession {
   sessionIndex: number
@@ -286,6 +286,7 @@ function DeepLearnSessionCard({ data }: { data: { task_plan?: { title?: string; 
 }
 
 function CheatsheetCard({ data }: { data: { filename?: string; pages?: number; url?: string } }) {
+  const nav = useNavigate()
   return (
     <div className="hk-card p-5 border border-[#e4e4e7] rounded-2xl bg-white shadow-xs my-3 flex items-center gap-4 hk-fade-in">
       <span className="h-10 w-10 rounded-xl bg-[#f4f4f5] text-[#3d3d3f] flex items-center justify-center shrink-0">
@@ -298,6 +299,12 @@ function CheatsheetCard({ data }: { data: { filename?: string; pages?: number; u
         </div>
         <div className="text-[12px] text-[#8a8a90] mt-0.5">已生成速查表文档（{data.pages ?? 2} 页）</div>
       </div>
+      {data.url && (
+        <button onClick={() => nav(`/cheatsheet/${String(data.url).split('/').pop()}`)} data-testid="open-cheatsheet"
+          className="h-9 px-4 rounded-full bg-[#0a0a0a] text-white text-[12px] font-medium inline-flex items-center gap-1.5">
+          <BookOpen size={13} /> 打开阅读器
+        </button>
+      )}
       {data.url && (
         <a href={data.url} download={data.filename} className="h-9 px-4 rounded-full border border-[#e4e4e7] bg-white text-[#0a0a0a] text-[12px] font-medium hover:bg-[#fafafa] inline-flex items-center gap-1.5 shrink-0">
           <Download size={13} /> 下载速查表
@@ -570,7 +577,8 @@ export default function ChatResponse() {
 
   const submitAnswers = (skip = false) => {
     if (!questions || !wsRef.current) return
-    const payload = questions.questions.map((q, i) => ({ question: q.question, answer: skip ? '跳过' : ((answers[i] ?? []).map((oi) => q.options[oi]?.title ?? '').filter(Boolean).join('；') || (q.options[0]?.title ?? '')) }))
+    const label = (o: { title?: string } | string | undefined) => (typeof o === 'string' ? o : o?.title ?? '')
+    const payload = questions.questions.map((q, i) => ({ question: q.question, answer: skip ? '跳过' : ((answers[i] ?? []).map((oi) => label(q.options[oi])).filter(Boolean).join('；') || label(q.options[0])) }))
     wsRef.current.send(JSON.stringify(isGen ? { type: 'course_generation_answers', answers: payload } : { type: 'question_answers', answers: payload }))
     push({ kind: 'user', text: payload.map((p) => p.answer).join(' / ') || '跳过' })
     setQuestions(null)
@@ -676,30 +684,6 @@ export default function ChatResponse() {
               {p.results.length > 6 && <div className="text-[12px] text-[#8a8a90] mt-1.5">⋯ 还有 {p.results.length - 6} 个</div>}
             </div>
           ))}
-          {questions && (
-            <div className="space-y-3">
-              {questions.questions.map((q, qi) => (
-                <div key={qi} className="hk-card p-4 hk-fade-in-up">
-                  <div className="flex items-center gap-2 mb-2"><span className="text-[11px] font-semibold px-1.5 py-0.5 rounded bg-[#f1f2f4]">Q{qi + 1}</span><span className="text-[14px] font-medium flex-1">{q.question}</span><span className="text-[11px] text-[#8a8a90]">{q.is_multiple ? '多选题' : '单选题'}</span></div>
-                  <div className="space-y-1.5">
-                    {q.options.map((o, oi) => {
-                      const on = (answers[qi] ?? []).includes(oi)
-                      return (
-                        <button key={oi} onClick={() => setAnswers((a) => { const cur = a[qi] ?? []; const next = q.is_multiple ? (on ? cur.filter((x) => x !== oi) : [...cur, oi]) : [oi]; return { ...a, [qi]: next } })}
-                          className="w-full text-left px-3 py-2.5 rounded-xl border hover:border-[#a1a1aa] data-[on=true]:border-[#3b5bdb] data-[on=true]:bg-[#f5f8ff]" data-on={on}>
-                          <span className="text-[13px] font-medium">{o.title}</span><span className="block text-[12px] text-[#6b6b70] mt-0.5">{o.description}</span>
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-              ))}
-              <div className="flex justify-end gap-2">
-                <button onClick={() => submitAnswers(true)} className="hk-pill h-9 px-4">跳过</button>
-                <button onClick={() => submitAnswers(false)} className="h-9 px-4 rounded-full bg-[#0a0a0a] text-white">继续</button>
-              </div>
-            </div>
-          )}
           {structureData && !structureConfirmed && (
             <div className="hk-card p-5 border border-[#e4e4e7] rounded-2xl bg-white shadow-xs space-y-4 hk-fade-in-up">
               <div className="flex items-center justify-between pb-3 border-b border-[#f4f4f5]">
@@ -863,6 +847,32 @@ export default function ChatResponse() {
           {done && genCourse && (
             <div className="hk-card p-4 flex items-center gap-3 hk-fade-in-up"><span className="hk-check inline-flex h-8 w-8 rounded-full bg-[#16a34a] text-white items-center justify-center"><Check size={16} /></span><div className="flex-1"><div className="text-[14px] font-medium">课程已生成{genCourse.courseTitle ? `：${genCourse.courseTitle}` : ''}</div><div className="text-[12px] text-[#8a8a90]">结构和内容已保存，可随时继续学习</div></div><button onClick={() => nav(`/course/${genCourse.courseUuid}`)} className="cg-open-course-btn h-9 px-4 rounded-full bg-[#0a0a0a] text-white inline-flex items-center gap-1">查看课程 <ChevronRight size={14} /></button></div>
           )}
+        </div>
+      )}
+
+      {questions && (
+        <div className="space-y-3">
+          {questions.questions.map((q, qi) => (
+          <div key={qi} className="hk-card p-4 hk-fade-in-up">
+            <div className="flex items-center gap-2 mb-2"><span className="text-[11px] font-semibold px-1.5 py-0.5 rounded bg-[#f1f2f4]">Q{qi + 1}</span><span className="text-[14px] font-medium flex-1">{q.question}</span><span className="text-[11px] text-[#8a8a90]">{q.is_multiple ? '多选题' : '单选题'}</span></div>
+            <div className="space-y-1.5">
+              {q.options.map((raw, oi) => {
+                const o = typeof raw === 'string' ? { title: raw, description: '' } : raw
+                const on = (answers[qi] ?? []).includes(oi)
+                return (
+                <button key={oi} onClick={() => setAnswers((a) => { const cur = a[qi] ?? []; const next = q.is_multiple ? (on ? cur.filter((x) => x !== oi) : [...cur, oi]) : [oi]; return { ...a, [qi]: next } })}
+                  className="w-full text-left px-3 py-2.5 rounded-xl border hover:border-[#a1a1aa] data-[on=true]:border-[#3b5bdb] data-[on=true]:bg-[#f5f8ff]" data-on={on}>
+                  <span className="text-[13px] font-medium">{o.title}</span><span className="block text-[12px] text-[#6b6b70] mt-0.5">{o.description}</span>
+                </button>
+                )
+              })}
+            </div>
+          </div>
+          ))}
+          <div className="flex justify-end gap-2">
+            <button onClick={() => submitAnswers(true)} className="hk-pill h-9 px-4">跳过</button>
+            <button onClick={() => submitAnswers(false)} className="h-9 px-4 rounded-full bg-[#0a0a0a] text-white">继续</button>
+          </div>
         </div>
       )}
 

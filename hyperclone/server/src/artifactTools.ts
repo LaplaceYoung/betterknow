@@ -6,7 +6,7 @@
 // - generate_instructional_video → data{video_id, url, rendered, scenes}
 import { randomUUID } from 'node:crypto';
 import type { ByokConfig } from './config.js';
-import { publicFiles } from './artifacts.js';
+import { persistPublicFile, publicFiles } from './artifacts.js';
 import { diagrams } from './artifacts.js';
 import { chat, stubValue } from './llm.js';
 import { buildAnimation } from './animation.js';
@@ -75,5 +75,6 @@ export async function publishFileTool(input: { message: string; conversationId: 
   const id = randomUUID();
   const filename = `${title}.md`;
   publicFiles.set(id, { id, filename, mime: 'text/markdown; charset=utf-8', data: Buffer.from(body) });
+  await persistPublicFile({ id, filename, mime: 'text/markdown; charset=utf-8', data: Buffer.from(body) });
   return { produced: true, data: { file_id: id, filename, url: `/api/v1/files/${id}`, size: body.length, entries: entries.map((entry) => Number(entry.index)) }, content: body };
 }

@@ -296,3 +296,12 @@
 - HUD 得分改成**逐位滚动**（`practice-slot-roll` .72s，按位 60ms 延迟）。
 - 骨架统一成线上 `skeleton-loader` 渐变（`#f0f0f0 → #e0e0e0 → #f0f0f0`，200% 位移 1.5s），票根骨架用 218/326 + 签缝虚线，精选骨架按 bento 六块位次铺开。
 - 明确未做：**右侧滑出的 verdict 面板**（需要先把练习区从 672 单列改成 `min(76vw,1040px)` 的 `.practice-split` 两列）、答案揭晓彩带（`.practice-check-confetti-*`）、题目星标动画（`.practice-stars-stamp`）、`.practice-welcome-modal` 欢迎弹窗、考试倒计时（缺时长来源）。
+
+**第二十二批（讲义阅读器 + 产物持久化 + 提问链路修复）**
+- **新增讲义/速查表阅读器**（`/cheatsheet/:fileId`）：A4 1123×794 分页、每页 4 列、列距 20、列宽按 `(contentW-(columns-1)*20)/columns`，页间位移 = `k*stride`（stride = contentW+20）；默认 8px/1.55 排版与 0.75 缩放，缩放件 28×28 + 44px 数值框；底部可调列数/字号/页边距；支持打印。
+- **产物落盘**：原来 `publicFiles` 只在内存，重启后速查表/导出文件全部 404。现在写入 `var/data/files/<id>`（+ `.json` 元信息），`GET /api/v1/files/:id` 先查内存再回源磁盘；实测重启后仍可下载。
+- **提问链路修复（两个真 bug）**：
+  1. `{questions && …}` 原来嵌在 `{isGen && …}` 里，**只有课程生成流程会渲染选项**；速查表这类聊天技能的提问卡片永远空白 → 已提到 `isGen` 之外。
+  2. 答完题的回复会被重新分类（把「详细」当成新话题），因为路由没用会话里的 `pending_skill` → 现在 `pending_skill` + `answers` 优先。
+  3. 速查表问题选项原来是纯字符串，客户端按 `{title, description}` 渲染 → 服务端改成对象形状，客户端同时兼容字符串。
+- 仍未做：阅读器的富文本编辑（线上是 tiptap 编辑器 + 锚点/高亮/评论，本仓只读渲染）、按内容自动选列数/字号的排版建议。
