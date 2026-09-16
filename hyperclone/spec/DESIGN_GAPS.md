@@ -332,7 +332,7 @@
 **第二十八批（历史页）**
 - 历史页整页换成线上 `sh-*` 体系（之前是自研卡片列表、没有分组）：页根变量（`--sh-ink/--sh-ink-muted/--sh-ink-faint/--sh-hairline/--sh-divider/--sh-surface/--sh-lift`）、1120 内容列、20/650 标题、260→300 聚焦变宽的搜索、`sh-new-conversation-btn`、胶囊标签与 30×30 圆形筛选（选中变胶囊）、带渐隐遮罩的滚动区、**按时间分组**（今天/本周/更早，11px 大写 `.07em` 标签）、`sh-list` 白卡（radius 14 + `--sh-lift`）、44px 行（hover `#241f180d`、`left:36px` 内缩分隔线、36px 图标列、15 与省略号）。
 - 行内补了星标与 `⋯` 删除菜单（沿用 `sh-filter-dropdown` 的下拉样式）。
-- 仍未做：`sh-scroll--scrolled` 的顶部渐隐联动、`sh-filter-dropdown` 的多选筛选（类型/时间范围）、空态插画。
+- 已做：`sh-scroll--scrolled` 的顶部渐隐联动、`sh-filter-dropdown` 菜单。仍未做：多选筛选（类型/时间范围）的组合语义，空态插画。
 
 **第二十九批（历史筛选 · 空态 · 收件箱行）**
 - **历史页筛选**：按线上实现漏斗图标按钮（路径逐字一致）+ 下拉（min-width 160 / radius 12 / `0 8px 24px rgba(15,23,42,.1)` / `4px 0`）+ 「仅收藏」选项 + 选中态（按钮变胶囊、图标 stroke `#374151`、6px 橙色标记点），点外部自动收起；行数从 39 掉到 1 验证筛选真的生效。
@@ -359,12 +359,12 @@
 - **考试倒计时不再是「缺证据」项**：线上考试入口那门课是待解锁状态，改从 `ExamPage-*.js` 反查到 `G.current = Date.now() + 18e5`（30 分钟，前端设死线）、每秒 tick、≤60s 切 `--low`、归零 `P(true)` 后调 `POST /exam/score`。本仓据此实现：开场页（时长 30 分钟 + 题数统计 + 说明 + 开始键）→ 开始后顶部计时芯片 `mm:ss` → 归零自动交卷。实测倒计时从 `29:58` 走。
 - **课程评分真正落库**：新增 `POST/GET /api/v1/course-generation/courses/:uuid/rating`（写 `state.courses[uuid].rating = {rating, comment, at}`，1–5 校验），前端提交改调这个端点，进页面时若已有评分直接显示「已收到你的反馈」。实测提交 5 星 + 评论后服务端读到 `{rating: 5, comment: …, at: …}`，刷新后不再重复询问。
 - **顺手修掉 lint 暴露的真问题**：`QuizRunner` 里 `useEffect/useState` 出现在 `if (!q) return null` 之后（hook 顺序可变），已把所有 hook 上移到早退之前；练习秒数改成「开始时间戳 + interval 计算」，去掉了 effect 内同步 setState 与重复的 `remaining`/`timerKey` 状态；清掉两个未使用导入。现在 `npx eslint src/pages/CourseWork.tsx` 干净。
-- 仍未做：考试速答奖励芯片（需要数据里的 `fastWindowMs`；practice 那份实测是 10s，考试这份没有证据，不编）、`.exam-bonus-bar` 的实际启用、评分历史（目前只存最近一次）。
+- 已做：速答奖励芯片、`.exam-bonus-bar`（考试页已渲染）。仍未做：考试那份 `fastWindowMs` 单独取值（线上考试数据没抓到，本仓与练习共用 10s）、评分历史只存最近一次。
 
 **第三十四批（考试速答奖励 + 大纲锁定图标）**
 - **考试速答奖励补齐**：服务端考试负载统一补 `fastWindowMs` / `fastBonus`（种子与合成两条路径都覆盖），前端按线上结构渲染 `.exam-bonus-chip`（11×13 闪电 + 「速答奖励 +200」+ 剩余秒）与 `.exam-bonus-bar/fill`（3px、`#e8b54b → #c98a1e`、`exam-bonus-drain` 按窗口时长排空），窗口过期后芯片与条一起消失。**取值说明**：线上考试数据里的具体窗口没抓到，这里沿用练习实测的 10s / +200，注释和文档都写清楚了，不是把推断当事实。
 - **深度课堂大纲补锁定图标**：待解锁条目按线上 `.outline-item.locked` 语义渲染 13px 线框锁（静止 0.55 透明度、hover 提亮），图标用本仓内联 SVG。
-- 仍未做：`fastWindowMs` 的线上真实取值（要等能打开在线考试或抓到考试数据）、奖励分值真正计分（当前只显示，未并入成绩）。
+- 已做：奖励分值真正计分（`scoreQuiz` 里 `total += fastBonus`，与线上 `quizScoring` 同名常量逐字搬运）、`fastWindowMs` 取值（线上常量就是 `1e4`）。仍未做：考试单独的快答窗口（线上未取证，沿用 1e4）。
 
 **第三十五批（交卷契约 + 速答徽标 + 线上考试仍取不到）**
 - **交卷负载对齐线上**：客户端现在发 `{ unitId, score: 百分比, items: { qid: { state: 'correct'|'wrong'|'skipped', answer } } }`（线上两种形态都兼容：只有 score，或 score + items）。服务端把 `items` 一并落库（`examItems[unitId]`），实测提交后 state.json 里 `examScores` 与 `examItems` 都在。
@@ -453,12 +453,12 @@
 - 上一批留的「考试题目外壳仍是练习那套」已补齐：新增 `app/src/components/ExamQuestion.tsx`，按线上 `exam-question-shell`（`--no-image/--multiple/--fill/--animation`）+ `exam-question-kicker` + `exam-question-title`/`exam-fill-title` + `exam-options-panel/grid/card` 结构渲染；选项卡片改成 live 的形状块（四种形状按序号循环、配色按 nth-child）、多选复选框、前四项角标、`role=radio/checkbox` + `aria-checked` + Enter/空格切换；填空题按 `____` 拆题干并把输入框内联进去。
 - 尺寸按线上原文（`--no-image` 680px/gap 28px、`--fill` 620px、卡片 min-height 76px、形状块 34px、内联输入 184×38），CSS 全部取自线上样式表。
 - 回归实测：单选/多选/填空三种外壳与 ARIA 全对；只答对前两题的整场考试落到结果页 `2 / 15 题正确`、`得分 1,300 / 17,000`、`Score 13 percent`，前两题标「你的答案」且判对 —— 证明换了题目外壳后作答与计分链路没坏。
-- 仍未做：互动题的 `animationHtml` 我们这条链路没有（线上由服务端下发），所以 `--animation` 外壳与 iframe 面板只会在这类题带 html 时出现；另外线上题目区的 3 列响应式断点（`@container exam-options`）未逐条复刻。
+- 已做：`animationHtml` 的 iframe 面板与 `--animation` 外壳（`ExamQuestion` 已接）。仍未做：题目携带 html 的数据源（线上由服务端下发，本仓生成链路不产）、题目区 3 列响应式断点（`@container exam-options`）未逐条复刻。
 
 **第四十九批（互动题的动画面板）**
 - 上一批记的「互动题 `animationHtml` 我们链路没有」是**误判**：种子里的考试数据本来就带 `animationHtml`（每份 exam.json 里恰好一题，约 10 KB 的自包含 HTML），只是客户端从没渲染过。现按线上契约接上：iframe + `sandbox="allow-scripts"` + `referrerPolicy="no-referrer"` + 子页 `hk-anim-height` 上报 + 父页监听设高 + 窄屏按 `clamp(width/720,.5,1)` 缩放。
 - 实测：shell 切成 `--animation`、kicker「互动」、子页回报高度 509px（说明内部脚本与画布真的跑起来了）、scaler 481px、`scale(0.944)`。
-- 仍未做：线上父页在动画题上还会按 stage 剩余空间算 `maxHeight`（`ce()` 那套行列测量），本仓目前只用内容高度 + 缩放，不额外压高。
+- 仍未做：动画题 `maxHeight` 的父页行列测量（`ce()` 那套），本仓只用内容高度 + 缩放（结论与实测一致，保持本仓口径）。
 
 **第五十批（随堂助手面板重写 + 助手接模型）**
 - 面板按线上 `.practice-assistant*` 重写：`aside` + 空态提示 + 消息（typing 三点、assistant 走 markdown、截图缩略图）+ 附件区 + 错误行 + 输入行（附截图按钮 / 隐藏 file input / 输入框 / 发送按钮的禁用与转圈态），并支持把图片拖进面板；顶栏按钮改成线上的开/关 toggle（`--active`、`aria-label` 切换）。规则 43 条全部取自线上样式表。
@@ -493,7 +493,7 @@
 - 补上 `proactive.practiceReminder` 那条跨页面闭环：白板退出到课程页时带 `fromSessionId`，课程页按线上条件（该节有练习且未交卷）弹 `.cj-practice-reminder-*` 提醒层，文案与结构逐条对齐，并沿用线上一弹完就清 route state 的「只弹一次」语义。
 - 实测：结构/ARIA/文案/尺寸全对，点「现在去练习」跳到该节练习页，刷新不再弹。
 - 踩坑记录：第一次验证用的是 `/sessions/whiteboard/new`，白板会话跟课程结构里的 session 没有任何关联字段，提醒条件永远不成立；改用结构里的真实 `sessionId` 打开才复现 —— 线上靠 `conversationId/sessionId` 匹配，本仓同形。
-- 仍未做：`sectionComplete` 那套（讲次/项目/测验完成卡片：`{{title}} 完成！` + 三种描述 + 「继续学习」）；任务详情弹窗仍是自绘。
+- 已做：`sectionComplete` 完成卡片（讲次/项目/测验三种描述 + 「继续学习」，`CourseJourney` 里按 localStorage 记已庆祝）。仍未做：卡片插图与线上逐像素对齐。
 
 **第五十六批（讲次/项目/测验完成卡）**
 - 补上 `sectionComplete` 那套（此前记为未做）：课程页在讲次全部学完、或单元测验出分、或项目全步提交后弹一次完成卡，结构与文案对齐线上 `.cj-section-complete-*`，「继续学习」关闭。
