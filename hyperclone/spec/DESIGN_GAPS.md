@@ -537,3 +537,8 @@
 - 补上任务详情里「生成文件卡」这条线：线上是 `POST /file_generation/rerun {task_id}`（先查 `file_generation` 配额，成功把文件挂到子任务的 `related_file_ids.output_files` 并渲染成卡片）。本仓服务端实现该端点（BYOK 模型写作，无模型时结构化兜底并标 `stub`）+ 鉴权取件路由，并把用量计入 `usageCounters.file_generation`；客户端子任务行显示文件卡与「立即生成 / 重新生成」，生成中转圈、配额为 0 时提示「已达到每周文件生成上限。」（线上 zh 原文）。
 - 实测：无模型路径 —— `stub:true`、卡片与文件名正确、取件 200/`text/markdown`/138 B、按钮变「重新生成」；模型路径 —— 配假网关后 `stub:false`，文件内容就是模型输出。
 - 仍未做：源文件卡（`task-detail-file-card*`，对应任务的输入文件）、相关截止项（`task-detail-related-due-*`）、拒绝任务、子任务级的多文件（本仓只挂一个输出文件）、文件生成失败的 broken 态与 tooltip。
+
+**第六十四批（拒绝任务 + 底部动作换线上图标）**
+- 补上「拒绝任务」：服务端 `/calendar/approve_tasks` 从「只改状态」改成线上语义（数组入参、`reject` 从日历移除、响应带 `total_succeeded/queued_task_ids/failed_task_ids`）；客户端底部动作换成线上 SVG（确认 `M20 6L9 17L4 12`、拒绝双 path、删除/评论图标），拒绝带处理中 spinner 与禁用态。
+- 实测：pending 任务详情同时出现确认与拒绝两个圆形按钮（radius 50%，4 个 SVG 图标）；点拒绝后弹窗关闭、待处理计数 -1、服务端任务数随之减少。
+- 仍未做：源文件卡（`task-detail-file-card*`）、相关截止项（`task-detail-related-due-*`，本仓任务没有关联关系数据）、子任务多文件、生成失败的 broken 态；「待处理」列表页（`pending_main_task_detail` + `pendingTasks.rejectAllTasks` 批量拒绝）也没有对齐。

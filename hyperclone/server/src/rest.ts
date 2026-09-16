@@ -354,7 +354,27 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     });
     return { success: true, deep_learn_session_id: id, task_plan: plan, deep_learn_session_url: `/deep-learn-session/outline/${id}` };
   });
-  app.post('/api/v1/calendar/approve_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; action?: string }; await updateState((state) => { const task = (state.calendar[request.userId!] ?? []).find((item) => item.task_id === body.task_id); if (task) task.status = body.action === 'approve' ? 'approved' : body.action; }); return { success: true }; });
+  // 线上：{task_id | task_id[], action:'approve'|'reject'|...} → {success, total_succeeded, queued_task_ids, failed_task_ids}
+  // reject 语义是「这条建议不要」——从日历里移除；approve/done 等只改状态
+  app.post('/api/v1/calendar/approve_tasks', protectedRoute, async (request) => {
+    const body = (request.body ?? {}) as { task_id?: string | string[]; action?: string };
+    const ids = Array.isArray(body.task_id) ? body.task_id.map(String) : body.task_id ? [String(body.task_id)] : [];
+    const action = String(body.action ?? 'approve');
+    let succeeded = 0;
+    const failed: string[] = [];
+    await updateState((state) => {
+      const tasks = state.calendar[request.userId!] ?? [];
+      for (const id of ids) {
+        const index = tasks.findIndex((item) => item.task_id === id);
+        if (index < 0) { failed.push(id); continue }
+        if (action === 'reject') tasks.splice(index, 1);
+        else tasks[index].status = action === 'approve' ? 'approved' : action;
+        succeeded += 1;
+      }
+      state.calendar[request.userId!] = tasks;
+    });
+    return { success: true, message: 'ok', total_succeeded: succeeded, queued_task_ids: [], failed_task_ids: failed };
+  });
   app.post('/api/v1/calendar/update_tasks', protectedRoute, async (request) => { const body = request.body as { task_id?: string; tasks?: Array<Record<string, unknown>> } & Record<string, unknown>; await updateState((state) => { const tasks = state.calendar[request.userId!] ??= []; if (body.tasks) state.calendar[request.userId!] = body.tasks; else { const task = tasks.find((item) => item.task_id === body.task_id); if (task) Object.assign(task, body, { updated_at: now() }); } }); return { success: true }; });
   // 线上：POST /file_generation/rerun {task_id} → {success, file_id, file_name, file_url}
   // 给某个任务/子任务生成学习材料（BYOK 模型写作；无模型时给结构化兜底），并把文件挂回 subtask.related_file_ids.output_files

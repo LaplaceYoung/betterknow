@@ -958,3 +958,16 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 实测：无模型 → `stub:true`、卡片出现、按钮变「重新生成」、取件 200 `text/markdown` 138 B；配假网关 → `stub:false`，文件内容确为模型输出（`# 模型生成的学习材料`）。
 
+### 任务的确认 / 拒绝（第五十一批，proactive bundle）
+
+线上底部动作（`.task-detail-bottom-action-btn` + `.task-detail-bottom-action-tooltip`）在**待处理**任务上同时给出确认与拒绝：
+
+- 确认：`✓`（path `M20 6L9 17L4 12`）+ tooltip `taskDetail.confirmTask`「确认任务」
+- 拒绝：`×`（两条 path `M18 6L6 18` / `M6 6L18 18`）+ tooltip `taskDetail.rejectTask`「拒绝任务」，处理中显示 `.reject-loading-spinner.modal-spinner`
+
+两者都走 `POST /api/v1/calendar/approve_tasks {task_id | task_id[], action}`，响应 `{success, total_succeeded, queued_task_ids, failed_task_ids}`；**reject 的语义是「这条建议不要」——从日历移出**。
+
+本仓：服务端 `approve_tasks` 支持数组入参、`reject`（splice 移除）与 approve 系（改状态），返回线上同形响应；客户端底部动作换成线上 SVG 图标并补齐拒绝按钮（含 spinner 与禁用态），成功后关弹窗并刷新。
+
+实测：对一条 pending 任务点拒绝 → 弹窗关闭、待处理计数 -1、服务端任务列表里该条消失（4 → 3 → 2）。
+

@@ -57,6 +57,19 @@ export default function LearningFeed() {
   const [revising, setRevising] = useState(false)
   const [toast, setToast] = useState('')
   const [generating, setGenerating] = useState('')
+  const [deciding, setDeciding] = useState(false)
+  // 线上底部动作：确认 / 拒绝都走 /calendar/approve_tasks，响应带 total_succeeded
+  const decideTask = async (action: 'confirm' | 'reject') => {
+    if (!openTask || deciding) return
+    setDeciding(true)
+    try {
+      const res = await apiPost<{ success?: boolean; total_succeeded?: number }>('/calendar/approve_tasks',
+        action === 'reject' ? { task_id: openTask.id, action: 'reject' } : { task_id: openTask.id, action: 'confirm' })
+      if (res.success && (res.total_succeeded ?? 1) > 0) { setOpenTask(null); await load() }
+    } finally {
+      setDeciding(false)
+    }
+  }
   const [quotaLeft, setQuotaLeft] = useState<number | null>(null)
   useEffect(() => {
     void apiGet<{ file_generation?: { remaining: number } }>('/auth/other_function_usage_limits')
@@ -366,12 +379,37 @@ export default function LearningFeed() {
                   </div>
                 )}
                 <div className="task-detail-bottom-actions">
-                  <button type="button" className="task-detail-bottom-action-btn" data-testid="delete-task" title="删除任务" onClick={() => setConfirmDelete(openTask)}>🗑</button>
+                  <button type="button" className="task-detail-bottom-action-btn" data-testid="delete-task" title="删除任务" onClick={() => setConfirmDelete(openTask)}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="task-detail-bottom-action-icon" aria-hidden="true">
+                      <path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
                   <button type="button" className={`task-detail-bottom-action-btn comment${commentOpen ? ' active' : ''}`} data-testid="comment-toggle"
-                    title="评论以调整" onClick={() => setCommentOpen((v) => !v)}>💬</button>
+                    title="评论以调整" onClick={() => setCommentOpen((v) => !v)}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="task-detail-bottom-action-icon" aria-hidden="true">
+                      <path d="M21 12a8 8 0 01-11.6 7.2L4 21l1.8-5.4A8 8 0 1121 12z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
                   {openTask.status === 'pending' && (
-                    <button type="button" className="task-detail-bottom-action-btn confirm" data-testid="confirm-task" title="确认任务"
-                      onClick={() => { void act(openTask, 'confirm'); setOpenTask(null) }}>✓</button>
+                    <>
+                      <button type="button" className="task-detail-bottom-action-btn confirm" data-testid="confirm-task" title="确认任务" disabled={deciding}
+                        onClick={() => void decideTask('confirm')}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="task-detail-bottom-action-icon" aria-hidden="true">
+                          <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <button type="button" className="task-detail-bottom-action-btn reject" data-testid="reject-task" title="拒绝任务" disabled={deciding}
+                        onClick={() => void decideTask('reject')}>
+                        {deciding
+                          ? <span className="reject-loading-spinner modal-spinner" aria-label="处理中" />
+                          : (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="task-detail-bottom-action-icon" aria-hidden="true">
+                              <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          )}
+                      </button>
+                    </>
                   )}
                 </div>
               </div>
