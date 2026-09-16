@@ -454,3 +454,8 @@
 - 尺寸按线上原文（`--no-image` 680px/gap 28px、`--fill` 620px、卡片 min-height 76px、形状块 34px、内联输入 184×38），CSS 全部取自线上样式表。
 - 回归实测：单选/多选/填空三种外壳与 ARIA 全对；只答对前两题的整场考试落到结果页 `2 / 15 题正确`、`得分 1,300 / 17,000`、`Score 13 percent`，前两题标「你的答案」且判对 —— 证明换了题目外壳后作答与计分链路没坏。
 - 仍未做：互动题的 `animationHtml` 我们这条链路没有（线上由服务端下发），所以 `--animation` 外壳与 iframe 面板只会在这类题带 html 时出现；另外线上题目区的 3 列响应式断点（`@container exam-options`）未逐条复刻。
+
+**第四十九批（互动题的动画面板）**
+- 上一批记的「互动题 `animationHtml` 我们链路没有」是**误判**：种子里的考试数据本来就带 `animationHtml`（每份 exam.json 里恰好一题，约 10 KB 的自包含 HTML），只是客户端从没渲染过。现按线上契约接上：iframe + `sandbox="allow-scripts"` + `referrerPolicy="no-referrer"` + 子页 `hk-anim-height` 上报 + 父页监听设高 + 窄屏按 `clamp(width/720,.5,1)` 缩放。
+- 实测：shell 切成 `--animation`、kicker「互动」、子页回报高度 509px（说明内部脚本与画布真的跑起来了）、scaler 481px、`scale(0.944)`。
+- 仍未做：线上父页在动画题上还会按 stage 剩余空间算 `maxHeight`（`ce()` 那套行列测量），本仓目前只用内容高度 + 缩放，不额外压高。

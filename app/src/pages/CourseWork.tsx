@@ -28,7 +28,8 @@ const prefersReducedMotion = () =>
 
 export interface Question {
   id: string
-  type: 'single' | 'multiple' | 'fill' | string
+  type: 'single' | 'multiple' | 'fill' | 'animation' | string
+  animationHtml?: string
   prompt: string
   options?: string[]
   explanation?: string
@@ -730,6 +731,7 @@ function QuizRunner({
           q={q}
           picked={activePicked}
           fill={activeFill}
+          animationHtml={q.animationHtml}
           onToggle={(option) => setExamSelections((prev) => {
             const current = prev[q.id] ?? []
             const next = q.type === 'multiple'

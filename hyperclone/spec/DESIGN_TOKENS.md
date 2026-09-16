@@ -720,3 +720,27 @@ section.exam-question-shell（.exam-question-shell--no-image / --multiple / --fi
 
 实测本仓：单选 → shell `--no-image`、kicker「单选题」、`role=radiogroup`、四张卡 `role=radio` + 形状三角/菱形/圆/方 + 角标 1-4；多选 → shell `--multiple`、kicker pill、`role=group`、卡片 `role=checkbox` 且点击后 `aria-checked=true` 与 `.checked` 复选框；填空 → shell `--fill`、`.exam-fill-title` + 内联输入 + `.exam-fill-spacer`。
 
+### 互动题的动画面板（第三十六批，r106）
+
+线上 `exam.animationHtml`（种子里就有，实测单题约 10.1 KB）通过 iframe 渲染，契约逐字搬运：
+
+```jsx
+<iframe
+  title={q.prompt}
+  srcDoc={q.animationHtml + "<style>html,body{height:auto!important;min-height:0!important;max-height:none!important;}</style>" + script}
+  sandbox="allow-scripts" referrerPolicy="no-referrer" allow=""
+  style={{ height: contentHeight, transform: scale < 1 ? `scale(${scale})` : undefined }}
+  className="exam-animation-iframe" />
+```
+
+子页脚本（原文）：先解掉 `min-height:100vh` / `height:100vh` 这类视口高度，再用 `documentElement.getBoundingClientRect().height` 上报：
+
+```js
+function r(){try{unlock();var h=Math.ceil(document.documentElement.getBoundingClientRect().height);if(h>0)parent.postMessage({type:'hk-anim-height',height:h},'*')}catch(e){}}
+r(); addEventListener("load", r); new ResizeObserver(r).observe(document.documentElement)
+```
+
+父页监听 `{type:'hk-anim-height', height}`（校验 `event.source === iframe.contentWindow`）→ 设置 iframe 高度；`.exam-animation-scaler` 高度取 `round(height × scale)`，窄于 720px 设计宽度时按 `clamp(width/720, .5, 1)` 缩放。
+
+实测本仓：shell `exam-question-shell--no-image exam-question-shell--animation`、kicker「互动」、`sandbox=allow-scripts`、`referrerpolicy=no-referrer`，子页回报高度 **509px** → scaler 481px、`scale(0.944)`（面板 680 / 设计 720）。
+
