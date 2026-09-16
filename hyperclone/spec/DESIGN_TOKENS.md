@@ -944,3 +944,9 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 本仓：第 4 步预览改为同一形状（`ccal-preview-weekdays` + `ccal-preview-days-grid`，按计划区间铺周），条目带 `draggable`，`dragover` 高亮 `--drag-over`、`drop` 把该条目改到目标日期；计划本身从 useMemo 改成可变 state（前三步改参数仍会重排，进入第 4 步后可手工调）。实测：预览 21 格 / 15 格有内容 / 周标题 7 个；拖拽后目标格出现该条目、`text/plain` 传的是下标；确认后 65 条任务按调整后的日期落库。
 
+### 预览里的「已有任务」与颜色（第四十九批，r166）
+
+线上 `.ccal-preview-*` 原文（29 条已并入 CSS）：`--day`（`min-height:58px`、`--other` 透明、`--today` 数字变 `#3d5477`、`--drag-over` 蓝底 + 内描边）、`--day-number`、`--pill`（白字、`cursor:grab`，拖拽中的计划条目）、`--existing`（`--bar` / `--filled` 两种形态，带 3px 色条 `--existing-bar` 与 `--existing-title`）、`--existing-more`。
+
+本仓：预览同时画「已有任务」（bar 形态，取三色板循环）与「新计划条目」（`ccal-preview-pill`），已有任务里排除本课程自己的旧计划（因为确认时会替换）。实测：4 条已有任务条 + 17 个计划 pill + 21 个日格，色条 `rgb(76,102,148)`（#4C6694）、pill 底色 `#3d5477`。
+

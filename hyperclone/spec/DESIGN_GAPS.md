@@ -526,3 +526,9 @@
 - 补上上一批记的「预览页拖拽改期」：预览换成线上同形的周网格（`ccal-preview-*`），条目可拖，`dragover` 高亮、`drop` 改期；计划由 useMemo 改为可变 state（前三步改参数重排、第 4 步可手调）。
 - 实测：21 格预览、15 格有内容；拖拽转移下标正确、目标格出现该条目；确认后 65 条课程任务按调整后的日期落库。
 - 仍未做：预览里展示「已存在的任务」（线上 `ccal-preview-existing`，用来看是否与新计划冲突）与拖拽时的详细提示动画；`course-cal-modal--fullscreen` 全屏变体。
+
+**第六十二批（预览显示已有任务 + 样式换线上原文）**
+- 补上上一批记的「预览里展示已存在的任务」：预览同时画已有任务（`ccal-preview-existing--bar`，三色板循环条色）与新计划条目（`ccal-preview-pill`），已有任务里排除本课程自己的旧计划（确认时会替换，避免自己和自己冲突）。
+- 顺势把上一批我自写的 `ccal-preview-*` 样式换成线上原文 29 条（日格 58px、`--today` 数字色 `#3d5477`、`--drag-over` 蓝底内描边、pill 白字 grab 光标等）。
+- 实测：4 条已有任务条 + 17 个计划 pill + 21 个日格，色值取自线上色板。
+- 仍未做：`course-cal-modal--fullscreen` 全屏变体（含 `.course-cal-modal--fullscreen .ccal-preview-*` 的几条特化）；`draft` 端点仍是桩。

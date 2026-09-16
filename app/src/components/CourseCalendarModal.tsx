@@ -1,5 +1,5 @@
-import { Fragment, useMemo, useState } from 'react'
-import { apiPost } from '@/lib/api'
+import { Fragment, useEffect, useMemo, useState } from 'react'
+import { apiGet, apiPost } from '@/lib/api'
 
 // 线上 CourseJourneyPage 的「加入日历」弹窗（.course-cal-*，四步：时长 → 开始日 → 星期 → 预览）。
 // 线上这套文案是**硬编码英文**；本仓按目标做本地化，用中文文案（差异记在 DESIGN_GAPS）。
@@ -37,6 +37,26 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
   const effectiveDays = Math.min(365, Math.max(1, Number(customDays) || days))
 
   const [dragOverDate, setDragOverDate] = useState<string | null>(null)
+  // 线上预览会把「已有任务」一起画出来（ccal-preview-existing），方便看出冲突
+  const [existing, setExisting] = useState<Array<{ date: string; title: string; color: string }>>([])
+  useEffect(() => {
+    void apiGet<{ tasks?: Array<{ title?: string; scheduled_for?: string; type?: string; payload?: { course_id?: string } }> }>('/calendar/list_main_tasks')
+      .then((r) => {
+        const palette = ['#4C6694', '#6681D6', '#2196F3']
+        setExisting((r.tasks ?? [])
+          .filter((t) => !(t.type === 'course' && t.payload?.course_id === courseUuid))
+          .map((t, index) => {
+            const d = new Date(String(t.scheduled_for ?? ''))
+            return {
+              date: Number.isNaN(d.getTime()) ? '' : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`,
+              title: String(t.title ?? '任务'),
+              color: palette[index % palette.length],
+            }
+          })
+          .filter((row) => row.date))
+      })
+      .catch(() => setExisting([]))
+  }, [courseUuid])
 
   // 把课程条目按天数与星期偏好铺开：只落在选中的星期（未选则每天都可以）
   const layout = useMemo(() => {
@@ -228,14 +248,31 @@ export function CourseCalendarModal({ courseUuid, courseTitle, items, alreadySch
                           }}>
                           <div className="ccal-preview-day-number">{cell.day}</div>
                           <div className="ccal-preview-day-events">
-                            {cellItems.slice(0, 3).map(({ item, index }) => (
-                              <div key={`${item.course_object_id}-${index}`} className="ccal-preview-item" draggable data-testid="cal-preview-item"
-                                title={item.title}
-                                onDragStart={(e) => e.dataTransfer.setData('text/plain', String(index))}>
-                                {item.title}
-                              </div>
-                            ))}
-                            {cellItems.length > 3 && <div className="ccal-preview-more">+{cellItems.length - 3}</div>}
+                            {(() => {
+                              const dayExisting = existing.filter((row) => row.date === cell.date)
+                              return (
+                                <>
+                                  <div className="ccal-preview-existing-row">
+                                    {dayExisting.slice(0, 3).map((row) => (
+                                      <div key={`${row.date}-${row.title}`} className="ccal-preview-existing ccal-preview-existing--bar" title={row.title} data-testid="cal-preview-existing">
+                                        <span className="ccal-preview-existing-bar" style={{ background: row.color }} aria-hidden="true" />
+                                        <span className="ccal-preview-existing-title">{row.title}</span>
+                                      </div>
+                                    ))}
+                                    {dayExisting.length > 3 && <span className="ccal-preview-existing-more">+{dayExisting.length - 3}</span>}
+                                  </div>
+                                  {cellItems.slice(0, 3).map(({ item, index }) => (
+                                    <div key={`${item.course_object_id}-${index}`} className="ccal-preview-pill" draggable data-testid="cal-preview-item"
+                                      style={{ background: '#3d5477' }}
+                                      title={item.title}
+                                      onDragStart={(e) => e.dataTransfer.setData('text/plain', String(index))}>
+                                      <span className="ccal-preview-pill-title">{item.title}</span>
+                                    </div>
+                                  ))}
+                                  {cellItems.length > 3 && <div className="ccal-preview-existing-more">+{cellItems.length - 3}</div>}
+                                </>
+                              )
+                            })()}
                           </div>
                         </div>
                       )
