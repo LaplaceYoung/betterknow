@@ -958,3 +958,72 @@
 .exam-primary-btn:hover { background: #31558f; }
 .exam-nav-btn--back { position: absolute; right: calc(100% + 36px); top: 50%; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 0; border: none; background: transparent; color: #878787; cursor: pointer; transform: translateY(-50%); transition: color .14s ease; }
 .exam-nav-btn--back:hover { color: #385da0; }
+
+/* 线上考试题目区（第三十五批，r152/r153 原文） */
+.exam-question-shell{position:absolute;top:0;bottom:88px;left:50%;display:grid;grid-template-columns:minmax(360px,.95fr) minmax(340px,.7fr);align-items:center;align-content:center;align-content:safe center;gap:64px;width:min(76vw,1040px);padding:24px 0 30px;scroll-padding-bottom:30px;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable both-edges;transform:translate(-50%);box-sizing:border-box}
+.exam-question-shell::-webkit-scrollbar{width:4px}
+.exam-question-shell::-webkit-scrollbar-track{background:transparent}
+.exam-question-shell::-webkit-scrollbar-thumb{background:#e5e5e5;border-radius:999px}
+.exam-question-shell--no-image{grid-template-columns:minmax(0,680px);align-items:stretch;gap:28px;width:min(68vw,680px)}
+.exam-question-shell--no-image .exam-options-panel{margin-top:0}
+.exam-question-shell--multiple .exam-option-card:hover{transform:none}
+.exam-question-shell--fill{width:min(62vw,620px);gap:0}
+.exam-question-shell--multiple .exam-option-checkbox.checkbox:not(.checked){border-width:2px;border-color:#b9c4d8}
+.exam-question-shell--animation{grid-template-columns:minmax(0,680px);align-items:stretch;gap:20px;width:min(72vw,720px)}
+.exam-question-prompt{min-width:0}
+.exam-question-image-panel{display:flex;align-items:center;justify-content:center;min-height:282px;margin-top:28px;padding:22px;border:1px solid #EFEFEF;border-radius:18px;background:#fff;box-shadow:0 10px 28px #14141409;box-sizing:border-box}
+.exam-question-image{display:block;width:100%;max-height:300px;-o-object-fit:contain;object-fit:contain}
+.exam-question-title{max-width:620px;margin:0;color:#1f1f1f;font-family:var(--font-satoshi-medium);font-size:17px;font-weight:500;line-height:1.45}
+.exam-question-title p,.exam-option-text p,.exam-result-prompt p,.exam-result-option-text p,.exam-result-explanation p{margin:0}
+.exam-question-title p+p,.exam-result-prompt p+p,.exam-result-explanation p+p{margin-top:.65em}
+.exam-question-title ul,.exam-question-title ol,.exam-result-prompt ul,.exam-result-prompt ol,.exam-result-explanation ul,.exam-result-explanation ol{margin:.5em 0 0;padding-left:1.35em}
+.exam-question-title code,.exam-option-text code,.exam-result-prompt code,.exam-result-option-text code,.exam-result-explanation code{padding:.08em .28em;border-radius:4px;background:#f3f4f6;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,monospace;font-size:.9em}
+.exam-question-title .katex-display,.exam-result-prompt .katex-display,.exam-result-explanation .katex-display{margin:.55em 0;overflow-x:auto;overflow-y:hidden}
+.exam-option-text .katex-display,.exam-result-option-text .katex-display{margin:.25em 0;overflow-x:auto;overflow-y:hidden}
+.exam-options-grid>.exam-option-card:last-child:nth-child(odd){grid-column:1 / -1}
+.exam-options-grid--stacked>.exam-option-card:last-child:nth-child(odd){grid-column:auto}
+.exam-options-grid>.exam-option-card:last-child:nth-child(odd){grid-column:auto}
+.exam-option-card{position:relative;min-height:76px;padding:15px 22px 15px 18px;border:1px solid #E2E2E2;border-radius:15px;background:#fff;color:#333;font-family:var(--font-satoshi-medium);font-size:15px;line-height:1.35;text-align:left;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;display:flex;align-items:center;gap:13px;box-shadow:none;transition:border-color .14s ease,background .14s ease,box-shadow .14s ease,transform .14s ease}
+.exam-option-shape{display:inline-flex;flex-shrink:0;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;transition:background .14s ease}
+.exam-option-shape svg{width:16px;height:16px;transition:fill .14s ease}
+.exam-options-grid>.exam-option-card:nth-child(4n+1) .exam-option-shape{background:#c347471f}
+.exam-options-grid>.exam-option-card:nth-child(4n+1) .exam-option-shape svg{fill:#c34747}
+.exam-options-grid>.exam-option-card:nth-child(4n+2) .exam-option-shape{background:#385da01f}
+.exam-options-grid>.exam-option-card:nth-child(4n+2) .exam-option-shape svg{fill:#385da0}
+.exam-options-grid>.exam-option-card:nth-child(4n+3) .exam-option-shape{background:#c98a1e24}
+.exam-options-grid>.exam-option-card:nth-child(4n+3) .exam-option-shape svg{fill:#c98a1e}
+.exam-options-grid>.exam-option-card:nth-child(4n+4) .exam-option-shape{background:#2e8b571f}
+.exam-options-grid>.exam-option-card:nth-child(4n+4) .exam-option-shape svg{fill:#2e8b57}
+.exam-option-key{position:absolute;top:9px;right:12px;color:#c4c4c4;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:11px;line-height:1;pointer-events:none}
+.exam-option-card--selected .exam-option-key{color:#4c6696}
+.exam-option-card:focus-visible{outline:2px solid rgba(76,102,150,.35);outline-offset:2px}
+.exam-option-card:hover{border-color:#bfcde3;background:#fafcff;box-shadow:none;transform:translateY(-1px)}
+.exam-option-card--selected{border-color:#4c6696;background:#f5f8fc;color:#1f2937;box-shadow:none}
+.exam-option-card--selected:hover{border-color:#4c6696;background:#f5f8fc;box-shadow:none;transform:none}
+.exam-option-text{flex:1 1 auto;min-width:0}
+.exam-option-checkbox.checkbox{margin-left:auto}
+.exam-option-indicator{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;flex-shrink:0;border-radius:999px;border:1.5px solid #C4C4C4;background:#fff;box-sizing:border-box;transition:border-color .14s ease,background .14s ease,box-shadow .14s ease}
+.exam-option-card--selected .exam-option-indicator{border-color:#4c6696;background:radial-gradient(circle at center,#4C6696 0 45%,transparent 48%);box-shadow:0 0 0 3px #4c669614}
+.exam-option-checkbox.checkbox{width:19px;height:19px;border-radius:4px}
+.exam-option-checkbox.checkbox .checkbox-icon{width:12px;height:12px}
+.exam-option-card:hover .exam-option-checkbox.checkbox:not(.checked){border-color:#d1d5db;background:#fff}
+.exam-option-checkbox.checkbox.checked,.exam-option-card--selected:hover .exam-option-checkbox.checkbox.checked{background-color:#4c6696;border-color:#4c6696}
+.exam-option-checkbox.checkbox.checked:hover{background-color:#3d5477;border-color:#3d5477}
+.exam-options-panel{container:exam-options / inline-size;width:100%}
+.exam-options-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.exam-options-grid--stacked{grid-template-columns:minmax(0,1fr)}
+.exam-options-grid{grid-template-columns:minmax(0,1fr)}
+.exam-fill-title{max-width:620px;margin-top:-3px;line-height:1.75}
+.exam-fill-inline-input{display:inline-flex;width:184px;height:38px;margin:6px;padding:0 12px;border:1px solid #DCDCDC;border-radius:6px;background:#fff;box-sizing:border-box;font-family:var(--font-satoshi-medium);font-size:15px;line-height:1;color:#1f2937;text-align:center;vertical-align:baseline;outline:none;box-shadow:none;transition:border-color .14s ease,background .14s ease}
+.exam-fill-inline-input::-moz-placeholder{color:#b8b8b8;font-family:var(--font-satoshi-regular);font-weight:400}
+.exam-fill-inline-input::placeholder{color:#b8b8b8;font-family:var(--font-satoshi-regular);font-weight:400}
+.exam-fill-inline-input:hover{border-color:#bfcde3;background:#fafcff}
+.exam-fill-inline-input:focus,.exam-fill-inline-input:hover:focus{border-color:#4c6696;background:#f5f8fc}
+.exam-fill-spacer{display:none}
+.exam-animation-panel{display:flex;flex-direction:column;gap:10px;width:100%;min-width:0}
+.exam-animation-frame{width:100%;overflow-y:auto;overflow-x:hidden;border:1px solid #E5E5E5;border-radius:12px;background:#faf9f7;box-sizing:border-box}
+.exam-animation-scaler{overflow:hidden}
+.exam-animation-iframe{display:block;width:100%;border:none;background:#faf9f7;transform-origin:top center}
+.checkbox{width:19px;height:19px;margin:0;cursor:pointer;border-radius:4px;border:1.5px solid #D1D5DB;background:#fff;position:relative;flex-shrink:0;align-self:center;transition:all .2s ease;display:flex;align-items:center;justify-content:center;outline:none}
+.checkbox.checked{background-color:#4c6694;border-color:#4c6694}
+.checkbox-icon{color:#fff;width:11px;height:11px;flex-shrink:0}

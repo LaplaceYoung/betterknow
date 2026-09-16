@@ -9,6 +9,7 @@ import { SCORING, makeRivals, perfectScore, scoreQuiz, starsFor } from '@/lib/qu
 import { SlotNumber } from '@/components/SlotNumber'
 import { PracticeStars } from '@/components/PracticeStars'
 import { ExamResultView } from '@/components/ExamResultView'
+import { ExamQuestion } from '@/components/ExamQuestion'
 import { CharVideo } from '@/components/CharVideo'
 import { playSfx } from '@/lib/sfx'
 
@@ -669,7 +670,7 @@ function QuizRunner({
         </div>
       )}
       <div className={`practice-split ${checked ? 'practice-split--revealed' : ''}`}>
-      <section className="practice-question-shell">
+      <section className={mode === 'exam' ? 'exam-question-shell-wrap' : 'practice-question-shell'}>
       <div className="mx-auto max-w-[672px] px-8 pb-24">
       <div className="fixed inset-x-0 top-[51px] mx-auto max-w-[672px] px-8 pointer-events-none">
         {(mode !== 'exam') && <div className="practice-timer"><span key={`${i}-${checked}`} className="practice-timer-fill" style={{ animationDuration: '10000ms', animationPlayState: checked ? 'paused' : 'running' }} /></div>}
@@ -724,8 +725,23 @@ function QuizRunner({
         </button>
       </div>
 
+      {mode === 'exam' && (
+        <ExamQuestion
+          q={q}
+          picked={activePicked}
+          fill={activeFill}
+          onToggle={(option) => setExamSelections((prev) => {
+            const current = prev[q.id] ?? []
+            const next = q.type === 'multiple'
+              ? (current.includes(option) ? current.filter((x) => x !== option) : [...current, option])
+              : [option]
+            return { ...prev, [q.id]: next }
+          })}
+          onFill={(value) => setExamFills((prev) => ({ ...prev, [q.id]: value }))}
+        />
+      )}
       {/* Question Card */}
-      <div className="hk-card p-6 mt-4 hk-fade-in-up shadow-sm" key={q.id}>
+      <div className={`hk-card p-6 mt-4 hk-fade-in-up shadow-sm${mode === 'exam' ? ' hidden' : ''}`} key={q.id}>
         {q.image?.src && (
           <img
             src={q.image.src}

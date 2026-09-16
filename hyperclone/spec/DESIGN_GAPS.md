@@ -448,3 +448,9 @@
 - 考试底栏改为线上结构：`.exam-actions` + `exam-nav-btn--back`（首题隐藏）+ `exam-primary-btn`（下一题/提交），点主按钮播 `button-click.mp3`；练习侧仍保留「检查/跳过」。
 - 同时修掉**练习欢迎弹窗泄漏到考试**的问题（线上考试有自己的 `exam-intro`），并让考试不再显示练习 HUD（线上考试只保留 `exam-bonus-chip` / `exam-bonus-bar`）。
 - 仍未对齐（记在案）：考试题目外壳与选项仍是练习那套（线上是 `exam-question-shell--multiple/--fill/--no-image/--animation` + `exam-option-card`（`role=radio/checkbox`、多选带 `exam-option-checkbox`、前四个选项有 `exam-option-key` 角标）与填空题的内联 `____` 输入框）。
+
+**第四十八批（考试题目区对齐：外壳 / 选项 / 内联填空）**
+- 上一批留的「考试题目外壳仍是练习那套」已补齐：新增 `app/src/components/ExamQuestion.tsx`，按线上 `exam-question-shell`（`--no-image/--multiple/--fill/--animation`）+ `exam-question-kicker` + `exam-question-title`/`exam-fill-title` + `exam-options-panel/grid/card` 结构渲染；选项卡片改成 live 的形状块（四种形状按序号循环、配色按 nth-child）、多选复选框、前四项角标、`role=radio/checkbox` + `aria-checked` + Enter/空格切换；填空题按 `____` 拆题干并把输入框内联进去。
+- 尺寸按线上原文（`--no-image` 680px/gap 28px、`--fill` 620px、卡片 min-height 76px、形状块 34px、内联输入 184×38），CSS 全部取自线上样式表。
+- 回归实测：单选/多选/填空三种外壳与 ARIA 全对；只答对前两题的整场考试落到结果页 `2 / 15 题正确`、`得分 1,300 / 17,000`、`Score 13 percent`，前两题标「你的答案」且判对 —— 证明换了题目外壳后作答与计分链路没坏。
+- 仍未做：互动题的 `animationHtml` 我们这条链路没有（线上由服务端下发），所以 `--animation` 外壳与 iframe 面板只会在这类题带 html 时出现；另外线上题目区的 3 列响应式断点（`@container exam-options`）未逐条复刻。

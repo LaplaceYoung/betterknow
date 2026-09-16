@@ -696,3 +696,27 @@ const RandomCharVideo = ({ className }) => <CharVideo className={className} src=
 
 顺带修掉一个**泄漏**：练习的「准备好练习」欢迎弹窗此前在考试页也会弹（线上考试有自己的 `exam-intro`），已按模式区分。
 
+### 考试题目区（第三十五批，r106 + r152 + r153）
+
+线上 ExamPage 的题目区与练习完全不同，逐字搬运成 `app/src/components/ExamQuestion.tsx`：
+
+```
+section.exam-question-shell（.exam-question-shell--no-image / --multiple / --fill / --animation 按题型与有无图切换）
+  .exam-question-prompt
+    p.exam-question-kicker（单选题/多选题/填空题/互动；--multiple 是蓝底 pill）
+    .exam-question-title（普通题）/ h1.exam-question-title.exam-fill-title（填空题：题干按 ____ 拆成两段，中间夹 input.exam-fill-inline-input）
+    .exam-question-image-panel > img.exam-question-image（有图且非填空）
+  .exam-animation-panel > .exam-animation-frame > .exam-animation-scaler > iframe.exam-animation-iframe（互动题）
+  .exam-options-panel[role=radiogroup|group][aria-label="Answer options"]
+    .exam-options-grid（2 列；≤2 选项时 --stacked；最后一个奇数项跨列）
+      .exam-option-card（--selected）[role=radio|checkbox][aria-checked][tabIndex=0]，Enter/空格切换
+        .exam-option-shape（四种形状按序号循环：三角/菱形/圆/方，配色签 nth-child(4n+1..4)）
+        .exam-option-text
+        .exam-option-checkbox[.checkbox.checked]（仅多选）
+        .exam-option-key（前四个选项的序号角标）
+```
+
+关键尺寸（线上原文）：`--no-image` 列宽 `minmax(0,680px)`（实测 680px / gap 28px）、`--fill` 宽 `min(62vw,620px)`（实测 620px）、`--multiple` 悬停不动、卡片 `min-height:76px`、形状块 34px、填空内联输入 184×38。
+
+实测本仓：单选 → shell `--no-image`、kicker「单选题」、`role=radiogroup`、四张卡 `role=radio` + 形状三角/菱形/圆/方 + 角标 1-4；多选 → shell `--multiple`、kicker pill、`role=group`、卡片 `role=checkbox` 且点击后 `aria-checked=true` 与 `.checked` 复选框；填空 → shell `--fill`、`.exam-fill-title` + 内联输入 + `.exam-fill-spacer`。
+
