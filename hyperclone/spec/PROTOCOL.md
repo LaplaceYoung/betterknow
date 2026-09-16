@@ -263,6 +263,14 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - 视频制品：`GET /api/v1/video/{id}/final_video.mp4`（公开）
 
 ## 4. Agent 循环语义（directorAgent）
+
+**本仓实现（2026-09-16 第八十四批）**：提示词本身就是按「模型自己挑工具」写的，所以主路径现在是**真 function calling**——`chatToolEvents` 带 `tools` 调模型，解析流式 `tool_calls`（含 `delta.reasoning` 作为 thinking 流），逐个执行后以 `role:"tool"` 回灌，直到模型不再调工具或调用 `mark_response_complete`（上限 4 轮）。工具表见 `src/agent/tools.ts`（memory_recall / get_skills / search_files / search_and_summarize_web / generate_content / generate_quiz / generate_flashcards / generate_html_animation / generate_instructional_video / publish_file / ask_questions / mark_response_complete）。
+
+- 每一轮用户消息会附上线上提示词要求的回合参数：`reply_language` / `speed_mode` / `mode` / `integrations`（此前没带，提示词里这几条规则等于失效）。
+- **多步工作流技能仍走关键词分支**（whiteboardSession / systematicLearning / cheatsheetGeneration / planTasks / documentReading），因为它们的帧序是定制的；产物类（抽认卡/动画/教学视频/发布文件）与普通讲解走模型挑工具。
+- stub 模式或模型侧失败一律回退关键词路径，不让整轮挂掉。
+
+
 think → (可选 get_skills / memory_recall / search) → 内容或动作工具 → mark_response_complete 硬校验（无产出则循环，上限≈15 轮降级兜底）→ recommend_next_step（learning_progress 递增）
 speed_mode=fast：禁 memory_recall/add_memory/ask_questions/search_images/search_files/content_planner/artifact_update/get_skills，走 generate_content(response_style fast)
 6 skills：conceptExplanation / systematicLearning / whiteboardSession / cheatsheetGeneration / planTasks / documentReading（行为指纹见 assets/prompts/skills_fingerprints.md）

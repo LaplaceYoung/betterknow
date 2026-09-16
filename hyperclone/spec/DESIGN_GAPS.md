@@ -660,3 +660,11 @@
 - **TTS 音色字段口径**：Moss 只认 `voice_id`；槽里新增可选 `voice`（env `BYOK_TTS_VOICE` + 面板输入），请求体同时带 `voice`/`voice_id`。
 - **探针两处口径错**：llm 探针此前读顶层 `config.models.director`（面板存的是 `providers.llm`，于是探针用错模型报 401）；tts 探针自己拼 body 缺 `voice_id`（恒 400）。现在 llm 探针读 llm 槽、tts 探针按槽的真实请求体发。
 - 实测（本机）：llm 探针 `chat · 200 · 255ms · deepseek-v4.1-flash`；tts 探针 `speech · 200 · 4256ms · 32492 bytes · audio/mpeg`；白板课结真播放 `/api/v1/tts/audio/<hash>.mp3`（45932B 真 MP3，ID3 头）；提问得到真实模型回答；image 槽未配仍是 SVG 占位（用户要求暂不接）。
+
+**第八十四批（Agent 层：把工具调用做成真的）**
+- **问题（本轮实测确认）**：线上 `directorAgent` 的提示词是 function-calling 契约（"Use tools as described in their definitions. Call mark_response_complete…"），但本仓从来没有把 `tools` 传给模型，也没有解析 `tool_calls`：`llm.ts` 只发 `{model, messages, stream, temperature}`，所谓工具只是**围绕普通 chat 调用硬编码发帧**，由 `pickSkill()` 关键词路由决定跑哪条分支。接真模型后这个落差就显出来了。
+- **改法**：新增 `chatToolEvents` / `chatTools`（流式解析 `delta.content` / `delta.reasoning` / `delta.tool_calls`）+ `src/agent/tools.ts` 工具表（12 个工具的 JSON Schema）+ `runModelDrivenRound`：模型挑工具 → 本仓执行器执行 → `role:"tool"` 回灌 → 直到不再调用或 `mark_response_complete`（4 轮上限）。回合参数（`reply_language` / `speed_mode` / `mode` / `integrations`）按提示词契约附在用户消息里。
+- **真 thinking**：此前 `thinking_chunk` 发的是写死的中文句子；现在把模型的 reasoning 增量实时转成 `thinking_chunk`（实测网关用 `delta.reasoning` 字段，`reasoning_content` 也一并兼容）。
+- **保住既有帧序**：多步工作流技能（白板 / 深学 / 速查表 / 任务规划 / 文档精读）仍走原分支，只有产物类与普通讲解交给模型挑工具；stub 或模型失败回退关键词路径。
+- 实测（llm=aigw deepseek-v4.1-flash）：①「用三句话解释社会学的想象力，再看看网上怎么说」→ 模型自选 `memory_recall → search_and_summarize_web → generate_content`；②「给我做 3 张关于社会学的想象力的抽认卡」→ `memory_recall → generate_flashcards`，回答里还引用了工具产出的 2 张卡；③「帮我开一节讲社会学的想象力的白板课」→ 仍走技能分支（`memory_recall → get_skills → search_and_summarize_web → create_board_session → generate_content`）。
+- 仍未做：`search_files`（本仓未接 Drive/Canvas 检索，如实回「没有可检索文件」）、`content_planner` / `read_content` / `artifact_update` / `search_images` 等提示词提到的其余工具（未在工具表里，模型不会误调）。

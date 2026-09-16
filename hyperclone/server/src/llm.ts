@@ -82,3 +82,87 @@ export async function* chatStream(messages: ChatMessage[], purpose: ModelPurpose
     }
   }
 }
+
+// ── 原生工具调用（function calling）：线上 directorAgent 的提示词就是按「模型自己挑工具」写的，
+//    所以这一层必须真把 tools 传下去、并把 tool_calls 解析回来。
+export interface ChatToolDef {
+  type: 'function';
+  function: { name: string; description: string; parameters: Record<string, unknown> };
+}
+
+export interface ToolCall { id: string; name: string; arguments: string }
+
+export type ChatRole = 'system' | 'user' | 'assistant' | 'tool';
+export interface ToolChatMessage { role: ChatRole; content: string | null; tool_calls?: Array<{ id: string; type: 'function'; function: { name: string; arguments: string } }>; tool_call_id?: string; name?: string }
+
+export interface ToolTurnResult { content: string; toolCalls: ToolCall[]; reasoning: string; finishReason: string }
+
+function toolsEnabled(c: ByokConfig): boolean { return c.provider !== 'stub' && Boolean(c.apiKey) }
+
+// 流式：把 content / reasoning / tool_calls 都按事件吐出来（reasoning 字段各网关命名不一，两个都认）
+export async function* chatToolEvents(
+  messages: ToolChatMessage[], tools: ChatToolDef[], eff?: ByokConfig, purpose: ModelPurpose = 'director'
+): AsyncGenerator<{ type: 'content' | 'reasoning'; text: string } | { type: 'tool_calls'; calls: ToolCall[] } | { type: 'done'; finishReason: string }> {
+  const c = eff ?? config;
+  if (!toolsEnabled(c)) return;
+  const response = await fetch(`${c.baseUrl.replace(/\/$/, '')}/chat/completions`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', authorization: `Bearer ${c.apiKey}` },
+    body: JSON.stringify({ model: modelFor(purpose, eff), messages, tools, tool_choice: 'auto', stream: true, temperature: 0.4 }),
+    signal: AbortSignal.timeout(120_000),
+  });
+  if (!response.ok || !response.body) throw new Error(`LLM HTTP ${response.status}: ${(await response.text()).slice(0, 200)}`);
+  const decoder = new TextDecoder();
+  let buffered = '';
+  const partial = new Map<number, { id: string; name: string; arguments: string }>();
+  for await (const bytes of response.body) {
+    buffered += decoder.decode(bytes, { stream: true });
+    const lines = buffered.split('\n');
+    buffered = lines.pop() ?? '';
+    for (const line of lines) {
+      const payload = line.trim().replace(/^data:\s*/, '');
+      if (!payload || payload === '[DONE]') continue;
+      let json: { choices?: Array<{ delta?: { content?: string | null; reasoning?: string | null; reasoning_content?: string | null; tool_calls?: Array<{ index?: number; id?: string; function?: { name?: string; arguments?: string } }> }; finish_reason?: string | null }> };
+      try { json = JSON.parse(payload) } catch { continue }
+      const choice = json.choices?.[0];
+      const delta = choice?.delta ?? {};
+      if (typeof delta.content === 'string' && delta.content) yield { type: 'content', text: delta.content };
+      const reasoning = delta.reasoning ?? delta.reasoning_content;
+      if (typeof reasoning === 'string' && reasoning) yield { type: 'reasoning', text: reasoning };
+      for (const call of delta.tool_calls ?? []) {
+        const index = call.index ?? 0;
+        const current = partial.get(index) ?? { id: '', name: '', arguments: '' };
+        partial.set(index, {
+          id: call.id || current.id,
+          name: call.function?.name || current.name,
+          arguments: current.arguments + (call.function?.arguments ?? ''),
+        });
+      }
+      if (choice?.finish_reason) yield { type: 'done', finishReason: choice.finish_reason };
+    }
+  }
+  const calls = [...partial.entries()].sort((a, b) => a[0] - b[0]).map(([, v]) => ({ id: v.id || `call_${Math.random().toString(36).slice(2, 8)}`, name: v.name, arguments: v.arguments }));
+  if (calls.length) yield { type: 'tool_calls', calls };
+}
+
+// 非流式：一次拿全（用于需要「先决策、再执行」的回合）
+export async function chatTools(messages: ToolChatMessage[], tools: ChatToolDef[], eff?: ByokConfig, purpose: ModelPurpose = 'director'): Promise<ToolTurnResult> {
+  const c = eff ?? config;
+  if (!toolsEnabled(c)) return { content: '', toolCalls: [], reasoning: '', finishReason: 'stub' };
+  const response = await fetch(`${c.baseUrl.replace(/\/$/, '')}/chat/completions`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', authorization: `Bearer ${c.apiKey}` },
+    body: JSON.stringify({ model: modelFor(purpose, eff), messages, tools, tool_choice: 'auto', temperature: 0.4 }),
+    signal: AbortSignal.timeout(120_000),
+  });
+  if (!response.ok) throw new Error(`LLM HTTP ${response.status}: ${(await response.text()).slice(0, 200)}`);
+  const json = await response.json() as { choices?: Array<{ message?: { content?: string | null; reasoning?: string | null; reasoning_content?: string | null; tool_calls?: Array<{ id: string; function: { name: string; arguments: string } }> }; finish_reason?: string }> };
+  const choice = json.choices?.[0];
+  const message = choice?.message;
+  return {
+    content: message?.content ?? '',
+    reasoning: message?.reasoning ?? message?.reasoning_content ?? '',
+    toolCalls: (message?.tool_calls ?? []).map((call) => ({ id: call.id, name: call.function?.name ?? '', arguments: call.function?.arguments ?? '{}' })),
+    finishReason: choice?.finish_reason ?? 'stop',
+  };
+}

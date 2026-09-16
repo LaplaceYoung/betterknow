@@ -3,12 +3,13 @@
 import { randomUUID } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { chat, chatStream, stubValue, type ChatMessage } from '../llm.js';
+import { chat, chatStream, chatToolEvents, stubValue, type ChatMessage, type ToolCall, type ToolChatMessage } from '../llm.js';
 import { readState, updateState, now } from '../store.js';
 import { resolveByok, type ByokConfig } from '../config.js';
 import { search, type SearchResult } from '../providers/index.js';
 import { persistPublicFile, publicFiles } from '../artifacts.js';
 import { AGENT_FALLBACK, flashcardsTool, htmlAnimationTool, instructionalVideoTool, publishFileTool } from '../artifactTools.js';
+import { DIRECTOR_TOOLS, parseToolArgs } from './tools.js';
 
 export interface DirectorInput {
   message: string;
@@ -569,6 +570,169 @@ async function sendContent(ctx: DirectorCtx, topic: string, lang: 'zh' | 'en'): 
 }
 
 // ── 导演主循环（Director Round） ──
+// ── 模型驱动的一轮：把线上 directorAgent 的工具表真的交给模型，由它决定调哪个工具 ──
+// 返回 true 表示这一轮已由模型走完（调用方不要再跑关键词兜底）
+async function executeDirectorTool(
+  ctx: DirectorCtx, input: DirectorInput, lang: 'zh' | 'en', topic: string, call: ToolCall
+): Promise<{ result: unknown; stop?: boolean }> {
+  const args = parseToolArgs(call.arguments);
+  const send = ctx.send;
+  const str = (key: string, fallback = ''): string => (typeof args[key] === 'string' ? String(args[key]) : fallback);
+  switch (call.name) {
+    case 'memory_recall': {
+      const mem = (await readState()).memories[ctx.userId] as Record<string, unknown> | undefined;
+      return { result: { summary: mem?.long_term ?? '(no prior memory)' } };
+    }
+    case 'get_skills': {
+      const name = str('skill_name') || str('skills') || 'conceptExplanation';
+      const list = name.split(/[,\s]+/).filter(Boolean);
+      const texts: Record<string, string> = {};
+      for (const item of list) texts[item] = await skillText(item);
+      send({ type: 'tool_execution', tool_name: 'get_skills', tool_status: 'completed', display: 'collapse', round_index: 2, data: { success: true, skill_name: name } });
+      return { result: { skills: texts } };
+    }
+    case 'search_and_summarize_web': {
+      const s = await search.query(str('query', topic), 4, ctx.eff);
+      return { result: { results_count: s.results.length, provider: s.stub ? 'stub' : 'byok', summary: s.results.map((r) => r.title).join('; '), sources: s.results.slice(0, 4) } };
+    }
+    case 'search_files':
+      // 本仓未接 Drive/Canvas 检索：如实告诉模型没有可检索的文件
+      return { result: { files: [], note: '本机没有接入 Drive/Canvas 文件检索' } };
+    case 'generate_content':
+      // 正文已经在流式里发出去了，这里只回执，让模型继续
+      return { result: { ok: true, streamed: true } };
+    case 'generate_quiz': {
+      send({ type: 'tool_execution', tool_name: 'generate_quiz', tool_status: 'started', round_index: 2 });
+      const quiz = stubQuiz(str('topic', topic), lang);
+      const data = { success: true, result: { questions: quiz.questions, total_count: quiz.total_count, model_used: ctx.eff?.models.quiz ?? 'stub' }, display: 'display' };
+      send({ type: 'tool_execution', tool_name: 'generate_quiz', tool_status: 'completed', round_index: 2, display: 'display', data });
+      await pushHistory(ctx.conversationId, 'tool', null, { tool_name: 'generate_quiz', args, result: data });
+      return { result: data.result };
+    }
+    case 'generate_flashcards': {
+      const out = (await flashcardsTool(str('topic', topic), ctx.eff)).data;
+      send({ type: 'tool_execution', tool_name: 'generate_flashcards', tool_status: 'completed', display: 'display', round_index: 2, data: out });
+      return { result: out };
+    }
+    case 'generate_html_animation': {
+      const out = (await htmlAnimationTool(str('topic', topic), ctx.eff)).data as { diagram_id?: string; file_url?: string };
+      send({ type: 'tool_execution', tool_name: 'generate_html_animation', tool_status: 'completed', display: 'display', round_index: 2, data: out });
+      if (out.diagram_id) {
+        const placeholderId = `dg_${out.diagram_id}`;
+        send({
+          type: 'inline_diagram', tool_name: 'generate_html_animation', tool_status: 'ready', round_index: 2, placeholder_id: placeholderId,
+          data: {
+            placeholder_id: placeholderId, type: 'html_animation', layout: 'right', status: 'ready', diagram_id: out.diagram_id,
+            tag: `<diagram data-placeholder-id="${placeholderId}" data-subtype="html_animation" data-layout="right" data-status="ready" data-diagram-id="${out.diagram_id}" data-file-url="${out.file_url ?? ''}"></diagram>`,
+            source_tag: `<content-type: diagram; diagram-subtype: html-animation; content-prompt: {${str('topic', topic).slice(0, 200)}}>`,
+          },
+        });
+      }
+      return { result: out };
+    }
+    case 'generate_instructional_video': {
+      const out = await instructionalVideoTool(str('topic', topic), ctx.eff, (progress) => {
+        send({ type: 'tool_execution', tool_name: 'generate_instructional_video', tool_status: progress.status, display: 'display', round_index: 2, data: { stage: progress.stage, message: progress.message } });
+      });
+      send({ type: 'tool_execution', tool_name: 'generate_instructional_video', tool_status: 'completed', display: 'display', round_index: 2, data: out.data });
+      return { result: out.data };
+    }
+    case 'publish_file': {
+      const out = await publishFileTool({ message: str('markdown', input.message).slice(0, 4000), conversationId: ctx.conversationId });
+      send({ type: 'tool_execution', tool_name: 'publish_file', tool_status: out.produced ? 'completed' : 'error', display: 'display', round_index: 2, data: out.data });
+      return { result: out.data };
+    }
+    case 'ask_questions': {
+      const questions = Array.isArray(args.questions) ? args.questions as Array<Record<string, unknown>> : [];
+      if (questions.length === 0) return { result: { error: 'no questions provided' } };
+      await updateState((next) => {
+        const c = next.conversations[ctx.conversationId] as unknown as Record<string, unknown> | undefined;
+        if (c) c.pending_question = questions;
+      });
+      send({
+        type: 'user_question',
+        message: str('message', 'I need to ask you some questions to better understand your needs'),
+        tool_name: 'ask_questions',
+        tool_status: 'completed',
+        round_index: 2,
+        display: 'display',
+        question_data: { questions: questions.map((q) => ({ ...q, allow_custom: q.allow_custom !== false })) },
+      });
+      return { result: { status: 'waiting_for_answers' }, stop: true };
+    }
+    default:
+      return { result: { error: `unknown tool: ${call.name}` } };
+  }
+}
+
+async function runModelDrivenRound(ctx: DirectorCtx, input: DirectorInput, lang: 'zh' | 'en', topic: string): Promise<boolean> {
+  const eff = ctx.eff;
+  if (!eff || eff.provider === 'stub' || !eff.apiKey) return false;
+  const send = ctx.send;
+  const system = await systemPromptText();
+  // 线上提示词按「每一轮用户消息里带 mode / integrations / speed_mode / reply_language」写，这里补齐这段契约
+  const turn = [
+    '\n\n#TURN PARAMETERS',
+    `reply_language: ${lang === 'zh' ? 'Chinese (Simplified)' : 'English'}`,
+    `speed_mode: ${input.speed_mode ?? 'normal'}`,
+    `mode: ${input.mode ?? 'chat'}`,
+    `integrations: ${JSON.stringify(input.integrations ?? [])}`,
+    input.attachments?.length ? `attachments: ${input.attachments.length}` : '',
+  ].filter(Boolean).join('\n');
+  const messages: ToolChatMessage[] = [
+    { role: 'system', content: system + turn },
+    { role: 'user', content: input.message },
+  ];
+  try {
+    for (let round = 1; round <= 4; round += 1) {
+      let content = '';
+      let calls: ToolCall[] = [];
+      for await (const event of chatToolEvents(messages, DIRECTOR_TOOLS, eff, 'director')) {
+        if (event.type === 'reasoning') {
+          send({ type: 'thinking_chunk', tool_name: 'directorAgent', tool_status: 'streaming', round_index: round, chunk: event.text });
+        } else if (event.type === 'content') {
+          content += event.text;
+          send({ type: 'content_chunk', tool_name: 'generate_content', tool_status: 'streaming', round_index: round, chunk: event.text });
+        } else if (event.type === 'tool_calls') {
+          calls = event.calls;
+        }
+      }
+      if (content) await pushHistory(ctx.conversationId, 'assistant', content);
+      if (calls.length === 0) {
+        send({ type: 'mark_response_complete', step_id: 0 });
+        send({ type: 'complete', message: 'Response complete', is_complete: true, conversation_id: ctx.conversationId, tts_pending: false });
+        return true;
+      }
+      messages.push({
+        role: 'assistant', content: content || null,
+        tool_calls: calls.map((call) => ({ id: call.id, type: 'function' as const, function: { name: call.name, arguments: call.arguments } })),
+      });
+      for (const call of calls) {
+        if (call.name === 'mark_response_complete') {
+          send({ type: 'mark_response_complete', step_id: 0 });
+          send({ type: 'complete', message: 'Response complete', is_complete: true, conversation_id: ctx.conversationId, tts_pending: false });
+          return true;
+        }
+        send({ type: 'tool_execution', tool_name: call.name, tool_status: 'started', round_index: round, display: 'display' });
+        const { result, stop } = await executeDirectorTool(ctx, input, lang, topic, call);
+        await pushHistory(ctx.conversationId, 'tool', null, { tool_name: call.name, args: parseToolArgs(call.arguments), result });
+        messages.push({ role: 'tool', tool_call_id: call.id, name: call.name, content: JSON.stringify(result).slice(0, 4000) });
+        if (stop) {
+          send({ type: 'mark_response_complete', step_id: 0 });
+          send({ type: 'complete', message: 'Waiting for your answers', is_complete: true, conversation_id: ctx.conversationId, tts_pending: false });
+          return true;
+        }
+      }
+    }
+    send({ type: 'mark_response_complete', step_id: 0 });
+    send({ type: 'complete', message: 'Response complete', is_complete: true, conversation_id: ctx.conversationId, tts_pending: false });
+    return true;
+  } catch {
+    // 模型侧失败（超时/网关错）时退回关键词路径，不让整轮挂掉
+    return false;
+  }
+}
+
 export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): Promise<void> {
   const lang = language(input);
   const topic = summaryOfTopic(input.message);
@@ -591,6 +755,11 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
 
   const fast = input.speed_mode === 'fast';
   send({ type: 'thinking', tool_name: 'directorAgent', tool_status: 'started', round_index: 1, display: 'display' });
+  // 有真模型时交给模型挑工具；但这些「多步工作流」技能有各自定制的帧序（白板会话、深学计划、速查表、
+  // 任务规划、文档精读），仍走下面的技能分支；stub 或模型失败也一律退回关键词路径
+  const workflowSkills = new Set<Skill>(['whiteboardSession', 'systematicLearning', 'cheatsheetGeneration', 'planTasks', 'documentReading']);
+  const routedForModel = pickSkill(input, input.message.trim().length < 12);
+  if (!workflowSkills.has(routedForModel.skill) && await runModelDrivenRound(ctx, input, lang, topic)) return;
   if (!fast) {
     send({
       type: 'thinking_chunk',
