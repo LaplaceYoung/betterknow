@@ -821,8 +821,15 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     if (!sessionId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'sessionId'], msg: 'Field required' }] });
     if (typeof body.finished !== 'boolean') return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'finished'], msg: 'Field required' }] });
     if (body.items !== undefined && (typeof body.items !== 'object' || Array.isArray(body.items))) return reply.code(422).send({ detail: [{ type: 'dict_type', loc: ['body', 'items'], msg: 'Input should be a valid dictionary' }] });
-    const items = (body.items ?? {}) as Record<string, unknown>;
-    const correct = Object.values(items).filter((value) => value === true || (typeof value === 'object' && value !== null && (value as Record<string, unknown>).correct === true)).length;
+    const rawItems = (body.items ?? {}) as Record<string, unknown>;
+    // 落库统一成线上 attempt 的 item 形状：{state:"correct"|"wrong", answer, fast?}（老客户端的 {correct,picked}/{fill} 也归一化）
+    const items = Object.fromEntries(Object.entries(rawItems).map(([qid, value]) => {
+      const item = (typeof value === 'object' && value !== null ? value : {}) as Record<string, unknown>;
+      const right = item.correct === true || value === true || item.state === 'correct';
+      const answer = item.answer ?? item.picked ?? (typeof item.fill === 'string' && item.fill ? item.fill : null);
+      return [qid, { state: String(item.state ?? (right ? 'correct' : 'wrong')), answer, ...(item.fast ? { fast: true } : {}) }];
+    }));
+    const correct = Object.values(items).filter((item) => (item as { state?: string }).state === 'correct').length;
     const total = Object.keys(items).length || Number(body.total ?? 0);
     const score = Number(body.score ?? correct);
     await updateState((state) => {

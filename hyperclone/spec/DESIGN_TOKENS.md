@@ -559,3 +559,36 @@ main.practice-stage.practice-result-stage[aria-label="Practice results"]
 
 本仓顺带清理：题目头里原来还有一排自绘进度点（线上只有顶栏一排），已删。
 
+### 练习欢迎弹窗：首次 vs 欢迎回来（第三十批，r128 + r130 + r131）
+
+线上进入练习先弹欢迎弹窗（`Y` 组件，r130 实测 DOM）：
+
+```jsx
+<div className="practice-welcome-overlay" onClick={onClose}>
+  <section className="practice-welcome-modal" onClick={stopPropagation} role="dialog" aria-modal="true"
+           aria-labelledby="practice-welcome-title" aria-describedby="practice-welcome-desc">
+    <div className="practice-welcome-row">
+      <div className="practice-welcome-media" aria-hidden="true">
+        <video className="practice-welcome-video" poster="/pages/mainPages/whiteboard/running-w-background.webp"
+               autoplay loop playsinline
+               style="mix-blend-mode: multiply; filter: brightness(1.08); background: transparent;">
+          <source src="/pages/mainPages/whiteboard/running-w-background.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div className="practice-welcome-body">
+        <span id="practice-welcome-title" className="practice-welcome-title">…</span>
+        <span id="practice-welcome-desc" className="practice-welcome-desc">…</span>
+        <button type="button" className="practice-welcome-btn">{t('practice.welcomeModal.gotIt')}</button>
+      </div>
+    </div>
+  </section>
+</div>
+```
+
+| 状态 | 标题 | 正文 |
+|---|---|---|
+| 首次（无交卷记录） | 准备好练习 | 全部答对，这次练习就会被标记为「已掌握」，为这门课完成对应环节。 |
+| 欢迎回来（attempt.finished） | 欢迎回来 | 你上次尝试答对了 {{correct}} / {{total}} 题。再试一次——全部答对就能让这次练习被标记为「已掌握」。 |
+
+`correct` = attempt 里 `state === 'correct'` 的条数。布局：`.practice-welcome-row` 是 `grid-template-columns:140px minmax(0,1fr)`（140px 媒体格），`.practice-welcome-video{width:112%;height:112%;margin:-6%;object-fit:contain}`（媒体比格大一圈）。Esc 也能关。
+

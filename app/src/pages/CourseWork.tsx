@@ -246,6 +246,9 @@ function QuizRunner({
   const [skippedQuestions, setSkippedQuestions] = useState<Record<string, boolean>>({})
   // 线上「上次尝试」开关：De=复盘态；进复盘前把当前进度存进 Ue（ref），退出时灌回
   const [reviewing, setReviewing] = useState(false)
+  // 线上：有交卷记录时欢迎弹窗走「欢迎回来」文案，并带上上次答对数（r130 实测）
+  const returning = Boolean(attempt?.finished)
+  const attemptCorrect = Object.values(attempt?.items ?? {}).filter((item) => item?.state === 'correct').length
   const liveAttemptRef = useRef<{ answersState: Record<number, boolean>; userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>; skippedQuestions: Record<string, boolean>; fastAnswers: Record<string, boolean>; i: number } | null>(null)
   const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
   // 线上练习 HUD：每题 10s 倒计时 + 速答奖励（practice-hud-chip--bonus / practice-timer-fill）
@@ -255,6 +258,13 @@ function QuizRunner({
   const [bonus, setBonus] = useState(0)
   const [fastAnswers, setFastAnswers] = useState<Record<string, boolean>>({})
   // 每题 10s 窗口：用开始时间戳算剩余秒，避免在 effect 里同步 setState（会触发级联渲染）
+  useEffect(() => {
+    if (!readyOpen) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setReadyOpen(false) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [readyOpen])
+
   const questionStartedAt = useRef(0)
   useEffect(() => {
     questionStartedAt.current = Date.now()
@@ -638,21 +648,28 @@ function QuizRunner({
         {(mode !== 'exam') && <div className="practice-timer"><span key={`${i}-${checked}`} className="practice-timer-fill" style={{ animationDuration: '10000ms', animationPlayState: checked ? 'paused' : 'running' }} /></div>}
       </div>
       {readyOpen && (
-        <div className="practice-welcome-overlay" data-testid="practice-welcome">
-          <div className="practice-welcome-modal">
+        <div className="practice-welcome-overlay" data-testid="practice-welcome" onClick={() => setReadyOpen(false)}>
+          <section className="practice-welcome-modal" onClick={(e) => e.stopPropagation()}
+            role="dialog" aria-modal="true" aria-labelledby="practice-welcome-title" aria-describedby="practice-welcome-desc">
             <div className="practice-welcome-row">
-              <div className="practice-welcome-media">
-                <span className="flex items-center justify-center rounded-2xl" style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg,#eef2ff,#f0fdf4)' }}>
-                  <BookOpen size={44} className="text-[#3b5bdb]" />
-                </span>
+              <div className="practice-welcome-media" aria-hidden="true">
+                <video className="practice-welcome-video" poster="/assets/img/pages/mainPages/whiteboard/running-w-background.webp"
+                  autoPlay loop playsInline
+                  style={{ mixBlendMode: 'multiply', filter: 'brightness(1.08)', background: 'transparent' }}>
+                  <source src="/assets/img/pages/mainPages/whiteboard/running-w-background.mp4" type="video/mp4" />
+                </video>
               </div>
               <div className="practice-welcome-body">
-                <p className="practice-welcome-title">准备好练习</p>
-                <p className="practice-welcome-desc">全部答对，这次练习就会被标记为「已掌握」，为这门课完成对应环节。</p>
-                <button className="practice-welcome-btn" onClick={() => setReadyOpen(false)}>知道了</button>
+                <span id="practice-welcome-title" className="practice-welcome-title">{returning ? '欢迎回来' : '准备好练习'}</span>
+                <span id="practice-welcome-desc" className="practice-welcome-desc">
+                  {returning
+                    ? `你上次尝试答对了 ${attemptCorrect} / ${questions.length} 题。再试一次——全部答对就能让这次练习被标记为「已掌握」。`
+                    : '全部答对，这次练习就会被标记为「已掌握」，为这门课完成对应环节。'}
+                </span>
+                <button type="button" className="practice-welcome-btn" onClick={() => setReadyOpen(false)}>知道了</button>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       )}
       {/* 线上练习题目区 672px 宽（.practice-question-prompt 实测） */}

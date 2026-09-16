@@ -559,6 +559,7 @@
 .practice-welcome-modal { position: relative; width: min(480px, 100%); box-sizing: border-box; padding: 20px 22px 20px 12px; border-radius: 22px; background: #fbfbfb; box-shadow: 0 24px 60px rgba(15,23,42,.18); animation: practice-welcome-modal-pop .22s cubic-bezier(.16,1,.3,1); }
 .practice-welcome-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); align-items: center; gap: 14px; }
 .practice-welcome-media { width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 16px; background: transparent; display: flex; align-items: center; justify-content: center; }
+.practice-welcome-video { display: block; width: 112%; height: 112%; margin: -6%; object-fit: contain; }
 .practice-welcome-body { display: flex; min-width: 0; flex-direction: column; gap: 8px; }
 .practice-welcome-title { color: #111827; font-size: 18px; font-weight: 600; line-height: 1.2; letter-spacing: -.02em; }
 .practice-welcome-desc { color: #4b5563; font-size: 13.5px; line-height: 1.55; }

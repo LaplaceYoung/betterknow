@@ -414,3 +414,8 @@
 - 进度点从自绘 `data-tone`（绿/红）改成线上类名与配色：`--correct #385da0` / `--incorrect #c34747` / 当前题 `--active:after` 同色胶囊；实测复盘时点色 `rgb(56,93,160)`、`rgb(195,71,71)`。
 - 删掉题目头里重复的一排进度点（线上只有顶栏一排），实测现在全页 5 个点。
 - 保留差异：线上重开已交卷练习默认是重做态 + 可切复盘，本仓一致；线上复盘时的 `Ue` 快照只存内存，本仓同样只存内存（刷新即回重做态）。
+
+**第四十三批（欢迎弹窗分流 + attempt 落库形状归一）**
+- 欢迎弹窗按线上重做：`section[role=dialog][aria-modal][aria-labelledby][aria-describedby]`、overlay 点击关闭、Esc 关闭、`<p>` 换回 `<span id=…>`；媒体从自绘图标换成线上的角色动画（`running-w-background.mp4`，poster `.webp` 已从线上抓下 19,460 B 落在 `app/public/.../whiteboard/`），补 `.practice-welcome-video{width:112%;height:112%;margin:-6%}`。实测媒体格 140px、poster/src 正确、`readyState=4`。
+- 文案分流按线上原文：首次「准备好练习 / 全部答对，这次练习就会被标记为「已掌握」…」，有交卷记录时「欢迎回来 / 你上次尝试答对了 {{correct}} / {{total}} 题。再试一次——全部答对就能让这次练习被标记为「已掌握」。」——实测跑 3/5 的那节练习显示「3 / 5」，未交卷的 session 显示首次文案。
+- 服务端 `practice/progress` 落库时把 items 归一成线上 attempt 的 item 形状 `{state:"correct"|"wrong", answer, fast?}`（同时兼容老客户端的 `{correct,picked,fill}`），`correct` 也改按 `state` 统计。此前老记录里存的是 `{correct,picked}`，导致 attempt 里没有 `state`、欢迎回来会显示 0 题。
