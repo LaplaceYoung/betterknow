@@ -114,3 +114,7 @@
 | 深度学习的图解占位 | `inline_diagram{placeholder_id:"dg_<12hex>",data:{type:"gemini_image",layout:"right",status:"ready",tag:'<diagram data-placeholder-id data-subtype data-layout data-status data-diagram-id data-file-url data-caption>',source_tag:'<content-type: diagram; … content-prompt: {…}; content-caption: {…}>'}}` | ✅ | r34 |
 | 技能问卷作答（对话通道） | 速查表技能先问「内容详细程度」（一般/详细/非常详细 + `allow_custom`），答完再产出；作答帧由客户端发出 | ✅ | r30 |
 | 生成忙锁 | 同一用户在其他窗口仍有生成时，问卷「继续」禁用并提示「生成可能仍在其他窗口进行中，HH:MM 后可继续」 | ✅ | r33 |
+| 对话产物：抽认卡 | `generate_flashcards` → `data{flashcards[{question,answer,index从1}],total_count,title}` | ✅ | r35 |
+| 对话产物：HTML 动画 | `generate_html_animation` → `data{diagram_id(8位),type:"html_animation",file_url,content}`；`file_url` 公开 200（diagram.png 对动画 404） | ✅ | r35 + `r35_animation_chat.html` |
+| 对话产物：发布文件 | `publish_file`：无有效条目时 `tool_status:"error"` + `{error:"No valid conversation entries found for selected indices."}` + `agent_response` 兜底 | ✅ | r35 |
+| 对话产物：教学视频 | `generate_instructional_video` 阶段帧：initializing → script_writing → generate_narration → code_generation → video_render×N（manim/remotion 逐幕）→ complete（`…/api/v1/video/<id>/final_video.mp4`） | ✅ | r36 |

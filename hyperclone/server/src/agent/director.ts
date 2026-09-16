@@ -8,6 +8,7 @@ import { readState, updateState, now } from '../store.js';
 import { resolveByok, type ByokConfig } from '../config.js';
 import { search, type SearchResult } from '../providers/index.js';
 import { publicFiles } from '../artifacts.js';
+import { AGENT_FALLBACK, flashcardsTool, htmlAnimationTool, instructionalVideoTool, publishFileTool } from '../artifactTools.js';
 
 export interface DirectorInput {
   message: string;
@@ -32,6 +33,10 @@ type Skill =
   | 'systematicLearning'
   | 'planTasks'
   | 'cheatsheetGeneration'
+  | 'flashcardDrill'
+  | 'htmlAnimation'
+  | 'instructionalVideo'
+  | 'publishFile'
   | 'documentReading'
   | 'conceptExplanation'
   | null;
@@ -92,6 +97,11 @@ function pickSkill(input: DirectorInput, veryShort: boolean): { skill: Skill; di
   if (input.mode === 'board_session' || rxBoard.test(m)) return { skill: 'whiteboardSession', directQuiz: false };
   if (input.mode === 'deep_learn_session' || rxDeep.test(m)) return { skill: 'systematicLearning', directQuiz: false };
   if (rxCheat.test(m)) return { skill: 'cheatsheetGeneration', directQuiz: false };
+  // 产物家族（线上 directorAgent 直接挑工具，不套技能问卷）
+  if (/抽认卡|闪卡|拍认卡|flashcard/i.test(m)) return { skill: 'flashcardDrill', directQuiz: false };
+  if (/交互动画|html ?动画|生成.*动画|animation/i.test(m)) return { skill: 'htmlAnimation', directQuiz: false };
+  if (/教学视频|讲解视频|instructional video/i.test(m)) return { skill: 'instructionalVideo', directQuiz: false };
+  if (/发布|导出|publish|export/i.test(m) && /文件|file|pdf|文档/i.test(m)) return { skill: 'publishFile', directQuiz: false };
   if (rxDoc.test(m) || (input.attachments && Array.isArray(input.attachments) && input.attachments.length > 0)) {
     return { skill: 'documentReading', directQuiz: false };
   }
@@ -882,6 +892,53 @@ export async function runDirectorRound(ctx: DirectorCtx, input: DirectorInput): 
       break;
     }
 
+    case 'flashcardDrill': {
+      send({ type: 'tool_selection', tool_name: 'generate_flashcards', tool_status: 'started', display: 'display', round_index: 2, index: 0, is_complete: false });
+      const result = await flashcardsTool(input.message, ctx.eff);
+      send({ type: 'tool_execution', tool_name: 'generate_flashcards', tool_status: 'completed', display: 'display', round_index: 2, data: result.data, is_complete: false });
+      pushHistory(ctx.conversationId, 'tool', null, { tool_name: 'generate_flashcards', args: { topic }, result: result.data });
+      break;
+    }
+    case 'htmlAnimation': {
+      send({ type: 'tool_selection', tool_name: 'generate_html_animation', tool_status: 'started', display: 'display', round_index: 2, index: 0, is_complete: false });
+      const data = (await htmlAnimationTool(input.message, ctx.eff)).data;
+      send({ type: 'tool_execution', tool_name: 'generate_html_animation', tool_status: 'completed', display: 'display', round_index: 2, data, is_complete: false });
+      pushHistory(ctx.conversationId, 'tool', null, { tool_name: 'generate_html_animation', args: { prompt: input.message }, result: data });
+      const id = String((data as { diagram_id?: string }).diagram_id ?? '');
+      const fileUrl = String((data as { file_url?: string }).file_url ?? '');
+      if (id) {
+        const placeholderId = `dg_${id}`;
+        send({
+          type: 'inline_diagram', tool_name: 'generate_html_animation', tool_status: 'ready', round_index: 2, placeholder_id: placeholderId,
+          data: {
+            placeholder_id: placeholderId, type: 'html_animation', layout: 'right', status: 'ready', diagram_id: id,
+            tag: `<diagram data-placeholder-id="${placeholderId}" data-subtype="html_animation" data-layout="right" data-status="ready" data-diagram-id="${id}" data-file-url="${fileUrl}" data-caption="${input.message.slice(0, 40)}"></diagram>`,
+            source_tag: `<content-type: diagram; diagram-subtype: html-animation; content-prompt: {${input.message.slice(0, 200)}}>`,
+          },
+        });
+      }
+      break;
+    }
+    case 'instructionalVideo': {
+      send({ type: 'tool_selection', tool_name: 'generate_instructional_video', tool_status: 'started', display: 'display', round_index: 2, index: 0, is_complete: false });
+      const result = await instructionalVideoTool(input.message, ctx.eff, (progress) => {
+        send({ type: 'tool_execution', tool_name: 'generate_instructional_video', tool_status: progress.status, display: 'display', round_index: 2, data: { stage: progress.stage, message: progress.message }, is_complete: false });
+      });
+      send({ type: 'tool_execution', tool_name: 'generate_instructional_video', tool_status: 'completed', display: 'display', round_index: 2, data: result.data, is_complete: false });
+      pushHistory(ctx.conversationId, 'tool', null, { tool_name: 'generate_instructional_video', args: { topic }, result: result.data });
+      break;
+    }
+    case 'publishFile': {
+      const result = await publishFileTool({ message: input.message, conversationId: ctx.conversationId });
+      if (!result.produced) {
+        send({ type: 'tool_execution', tool_name: 'publish_file', tool_status: 'error', display: 'display', round_index: 2, data: result.data, is_complete: false });
+        send({ type: 'agent_response', content: AGENT_FALLBACK, conversation_id: ctx.conversationId, is_complete: false });
+        break;
+      }
+      send({ type: 'tool_execution', tool_name: 'publish_file', tool_status: 'completed', display: 'display', round_index: 2, data: result.data, is_complete: false });
+      pushHistory(ctx.conversationId, 'tool', null, { tool_name: 'publish_file', args: { topic }, result: result.data });
+      break;
+    }
     case 'cheatsheetGeneration': {
       // 线上实测：速查表技能先弹一题「内容详细程度」，答完再产出（allow_custom 允许自己写）
       const pending = (await readState()).conversations[ctx.conversationId] as unknown as { pending_skill?: string } | undefined;

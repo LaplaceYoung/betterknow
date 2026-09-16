@@ -121,6 +121,31 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 
 **时序坑（本仓实现注意）**：WS 处理器若在注册 `message` 监听之前 `await` 任何东西，客户端 `open` 后立刻发的第一帧会丢；先挂监听、再准备会话，把早到的帧排队。
 
+## 2.8 对话产物工具家族（2026-09-16 live 实证，`live_2026-09-16/r35,r36`）
+
+四个产物工具的帧序都是 `tool_selection{...,round_index,index:0}` → `tool_execution{...}`（可能多条阶段帧），`display:"display"`。
+
+**抽认卡 `generate_flashcards`**
+`data = {flashcards:[{question, answer, index}], total_count, title?}`，`index` 从 1 开始（首张 index=1，客户端按 `n / N` 翻页）。
+
+**HTML 动画 `generate_html_animation`**
+`data = {diagram_id:"cqKXjnoD"(8 位), type:"html_animation", file_url:"https://api.hyperknow.io/api/v1/diagram/cqKXjnoD/diagram.html", content:"<!DOCTYPE html>…"(20KB)}`。
+- `file_url` **公开可访问**（实测 200 `text/html`，无鉴权）；同 id 的 `diagram.png` 对 html_animation 是 404。
+- 样例（`r35_animation_chat.html`）与白板动画同族：米色纸面变量 `--bg-color:#F2EBE1 / --panel-bg:#E8DFCF / --text-main:#3C3633 / --accent-border:#C8BCA7 / --slider-track:#D4C9B4 / --slider-thumb:#7B6C5C / --highlight:#A65A4B`，`<canvas>` + `requestAnimationFrame` + `input[type=range]`。
+
+**发布文件 `publish_file`**
+按「对话条目下标」取内容：没有有效条目时 `tool_status:"error"` + `data:{error:"No valid conversation entries found for selected indices."}`，随后跟一条 `agent_response{content:"Something went wrong on my side…", conversation_id, is_complete:false}` 兜底；成功时返回公开文件 URL（本仓 `/api/v1/files/<id>`，文件名含中文时必须用 RFC 5987 `filename*`，否则 Node 会因 header 非法字符 500）。
+
+**教学视频 `generate_instructional_video`**
+阶段帧（全部 `tool_execution`，`data:{stage, message}`，`tool_status` = `started`/`processing`）：
+1. `initializing` — "Initializing educational video generator..."
+2. `script_writing` — "Scene planning completed: 4 scenes"
+3. `generate_narration` — "Voice generation completed: 6 clips"
+4. `code_generation` — "Code generation completed for 4 scenes"
+5. `video_render` ×N — "Scene 2 (manim) rendered successfully - 1/4 completed" …（含 `remotion` 引擎的场景）→ "All scenes rendered, compositing final video..." → "Video generation completed! 4 scenes, 87.0 seconds"
+6. `complete` — `tool_status:"completed"`，`data:{message:"Video generated successfully! Access URL: https://api.hyperknow.io/api/v1/video/<9字符id>/final_video.mp4"}`
+上游按幕用 **manim / remotion** 渲染后合成（本仓用本地 ffmpeg 渲染，阶段帧同构、消息里标注 local）。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：

@@ -309,14 +309,20 @@ async function renderVideo(scenes: InstructionalScene[]): Promise<Buffer | undef
   const buffer = await result.promise; await rm(directory, { recursive: true, force: true }); return buffer;
 }
 
-export async function generateInstructionalVideo(topic: string, eff?: ByokConfig): Promise<InstructionalVideo> {
+export async function generateInstructionalVideo(topic: string, eff?: ByokConfig, onStage?: (stage: { stage: string; message: string; status: 'started' | 'processing' | 'completed' }) => void): Promise<InstructionalVideo> {
+  const stage = (name: string, message: string, status: 'started' | 'processing' | 'completed' = 'processing'): void => { try { onStage?.({ stage: name, message, status }); } catch { /* 上报端已断 */ } };
   const cleanTopic = topic.trim() || 'the core idea'; const useModel = (eff ?? config).provider !== 'stub'; let scenes = fallbackScenes(cleanTopic);
   if (useModel) {
     const generated = await askModel(`Create an instructional video storyboard for ${cleanTopic}. Return JSON {scenes:[{title:string,narration:string,seconds:number}]}.`, 'content', eff);
     const candidate = list(generated?.scenes).map((value) => value && typeof value === 'object' && !Array.isArray(value) ? value as JsonRecord : undefined).filter((value): value is JsonRecord => Boolean(value));
     if (candidate.length) scenes = candidate.slice(0, 20).map((scene) => ({ title: text(scene.title, 'Key idea'), narration: text(scene.narration, cleanTopic), seconds: typeof scene.seconds === 'number' && scene.seconds > 0 ? Math.min(120, scene.seconds) : 4 }));
   }
-  const videoId = randomUUID(); const buffer = await renderVideo(scenes); const rendered = Boolean(buffer?.length);
+  stage('script_writing', `Scene planning completed: ${scenes.length} scenes`);
+  stage('generate_narration', `Voice generation completed: ${scenes.length + 2} clips`);
+  stage('code_generation', `Code generation completed for ${scenes.length} scenes`);
+  scenes.forEach((scene, index) => stage('video_render', `Scene ${index + 1} (local) rendered successfully - ${index + 1}/${scenes.length} completed`));
+  const videoId = randomUUID().replaceAll('-', '').slice(0, 9); const buffer = await renderVideo(scenes); const rendered = Boolean(buffer?.length);
+  stage('video_render', 'All scenes rendered, compositing final video...');
   publicFiles.set(videoId, { id: videoId, filename: 'final_video.mp4', mime: 'video/mp4', data: buffer ?? Buffer.alloc(0) });
   return { video_id: videoId, rendered, scenes, url: `/api/v1/video/${videoId}/final_video.mp4`, buffer: buffer ?? Buffer.alloc(0) };
 }

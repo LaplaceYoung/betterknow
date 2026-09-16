@@ -6,7 +6,11 @@ import { chat } from './llm.js';
 // 线上实测的 CSP（r26_animation.html）：不允许任何外部资源，只放行内联脚本与样式
 export const ANIMATION_CSP = "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'";
 
+// 线上两次实测的配色变量（r26_animation.html / r35_animation_chat.html）：米色纸面 + 暖色强调
+const PALETTE_HINT = ['--bg-color: #F2EBE1', '--panel-bg: #E8DFCF', '--text-main: #3C3633', '--text-light: #5A534E', '--accent-border: #C8BCA7', '--slider-track: #D4C9B4', '--slider-thumb: #7B6C5C', '--highlight: #A65A4B'].join('; ');
+
 export const ANIMATION_CONTRACT = `互动动画：输出一个**完整可运行的单文件 HTML**，用于课堂上的可操作演示。
+配色参考（线上同款米色纸面）：${PALETTE_HINT}
 要求：
 1. 只用内联 <style> 与 <script>，不得引用任何外部资源（图片用内联 SVG 或 data: URI）；
 2. 页面里必须有一个可交互控件（滑杆 / 按钮 / 拖拽），拖动时画面实时变化；

@@ -188,3 +188,14 @@
 1. 对话技能产物家族（拍认卡/教学动画/公开文件发布 `publish_file`）与 `generate_instructional_video` 尚未全部接到对话工具面。
 2. 白板分栏网格只做了「客户端上报 + 服务端存储」，渲染仍是顺序板书，不是线上的三列铺贴。
 3. 课程生成的「结构确认 → 完成」后半段仍无新证据（站方冷却窗口）。
+
+**第四批（产物家族）已完成**
+- `artifactTools.ts` 统一实现四个产物工具（抽认卡 / HTML 动画 / 教学视频 / 发布文件），director 与旧 `runChatTool` 路径共用一份实现，形状对齐 live：扁平 `data.flashcards[{question,answer,index}]`、`{diagram_id,type:"html_animation",file_url,content}`、`publish_file` 的错误分支 + `agent_response` 兜底、视频的六段阶段帧。
+- 动画契约加入线上米色配色变量；动画 HTML 与 `publish_file` 产物都有公开 URL（实测 `diagram.html` 200 `text/html`、`/api/v1/files/<id>` 200 `text/markdown`）。
+- 修掉一个真实 500：`content-disposition` 里放中文文件名会让 Node 抛 `ERR_INVALID_CHAR`，改为 ASCII 回退名 + RFC 5987 `filename*`。
+- 客户端：抽认卡卡片（翻面 + `n / N` 翻页）、`tool_execution` 兼容「扁平 data」与「result 包装」两种形态。
+
+**仍缺（产物方向）**
+1. 视频渲染引擎：线上按幕用 manim / remotion 生成代码再渲染，本仓是 ffmpeg 拼场景（阶段帧与 URL 形状一致，画面复杂度差距明显）。
+2. `publish_file` 的「选择条目」在前端没有选择器（后端已按 `indices` 支持，缺 UI）。
+3. 技能产物家族里的 `generate_instructional_video` 之外，线上还有生成 PDF/抽认卡导出等后续步骤（`recommend_next_step` 里出现的「保存为 PDF」），未逐一实现。

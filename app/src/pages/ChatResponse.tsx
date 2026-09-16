@@ -12,7 +12,7 @@ import { HkBoardSessionIcon } from '@/components/HkIcons'
 
 interface Frame { type: string; [k: string]: unknown }
 interface ChatItem {
-  kind: 'user' | 'thinking' | 'tool' | 'content' | 'question' | 'diagram' | 'complete' | 'board' | 'quiz' | 'deep_learn' | 'cheatsheet' | 'recommend'
+  kind: 'user' | 'thinking' | 'tool' | 'content' | 'question' | 'diagram' | 'complete' | 'board' | 'quiz' | 'flashcards' | 'deep_learn' | 'cheatsheet' | 'recommend'
   text?: string
   attachments?: Array<{ name?: string; type?: string; data?: string; url?: string }>
   tool?: string
@@ -94,6 +94,32 @@ interface QuizQuestion {
   answer_options: QuizOption[]
   correct_answer: number
   explanation?: string
+}
+
+// [S20] 抽认卡：与线上一致的前后翻页 + 翻面看答案（服务端 data.flashcards[{question,answer,index}]）
+function FlashcardsCard({ data }: { data: { flashcards?: { question: string; answer: string; index?: number }[]; title?: string; total_count?: number } }) {
+  const cards = data?.flashcards ?? []
+  const [at, setAt] = useState(0)
+  const [flipped, setFlipped] = useState(false)
+  if (!cards.length) return null
+  const card = cards[Math.min(at, cards.length - 1)]
+  const go = (delta: number) => { setFlipped(false); setAt((i) => Math.min(Math.max(i + delta, 0), cards.length - 1)) }
+  return (
+    <div className="hk-card p-5 my-3" data-testid="flashcards-card">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-[13px] font-medium">{data.title ?? '抽认卡'}</span>
+        <span className="text-[11px] text-[#8a8a90]">{at + 1} / {cards.length}</span>
+      </div>
+      <button onClick={() => setFlipped((f) => !f)} className="w-full text-left rounded-xl border border-[#e4e4e7] bg-[#fafafa] px-4 py-6 min-h-[120px] hover:border-[#a1a1aa] transition-colors">
+        <div className="text-[11px] text-[#8a8a90] mb-2">{flipped ? '答案' : '问题'} · 点击翻面</div>
+        <div className="text-[14px] leading-6"><ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeRaw, rehypeKatex]}>{flipped ? card.answer : card.question}</ReactMarkdown></div>
+      </button>
+      <div className="flex items-center justify-end gap-2 mt-3">
+        <button onClick={() => go(-1)} disabled={at === 0} className="hk-pill h-8 px-3 text-[12px] disabled:opacity-40">上一张</button>
+        <button onClick={() => go(1)} disabled={at >= cards.length - 1} className="hk-pill h-8 px-3 text-[12px] disabled:opacity-40">下一张</button>
+      </div>
+    </div>
+  )
 }
 
 function InteractiveQuiz({ data }: { data: { questions?: QuizQuestion[]; total_count?: number } }) {
@@ -388,8 +414,12 @@ export default function ChatResponse() {
       else if (f.type === 'tool_execution') {
         const toolName = String(f.tool_name ?? '')
         const status = String(f.tool_status ?? '')
-        const data = (f.data as Record<string, unknown> | undefined)?.result as Record<string, unknown> | undefined
-        if (status === 'completed' && toolName === 'create_board_session' && data?.board_sessions) {
+        // 线上工具帧有两种形态：包一层 result 的（技能工具）与扁平 data 的（产物工具，如 generate_flashcards）
+        const rawData = (f.data as Record<string, unknown> | undefined) ?? {}
+        const data = ((rawData.result as Record<string, unknown> | undefined) ?? rawData) as Record<string, unknown> | undefined
+        if (status === 'completed' && toolName === 'generate_flashcards' && Array.isArray(data?.flashcards)) {
+          push({ kind: 'flashcards', data })
+        } else if (status === 'completed' && toolName === 'create_board_session' && data?.board_sessions) {
           push({ kind: 'board', data })
         } else if (status === 'completed' && toolName === 'generate_quiz' && data?.questions) {
           push({ kind: 'quiz', data })
@@ -438,7 +468,8 @@ export default function ChatResponse() {
           if (h.role === 'tool') {
             const toolName = String(h.tool_name ?? parsed?.tool_name ?? '')
             const res = (h.result as Record<string, unknown> | undefined)?.result as Record<string, unknown> | undefined
-            if (toolName === 'create_board_session' && res?.board_sessions) out.push({ kind: 'board', data: res })
+            if (toolName === 'generate_flashcards' && Array.isArray(res?.flashcards)) out.push({ kind: 'flashcards', data: res })
+          else if (toolName === 'create_board_session' && res?.board_sessions) out.push({ kind: 'board', data: res })
             else if (toolName === 'generate_quiz' && res?.questions) out.push({ kind: 'quiz', data: res })
             else if (toolName === 'create_deep_learn_session' && res) out.push({ kind: 'deep_learn', data: res })
             else if (toolName === 'generate_cheatsheet' && res) out.push({ kind: 'cheatsheet', data: res })
@@ -525,6 +556,7 @@ export default function ChatResponse() {
           if (it.kind === 'diagram') return <pre key={i} className="hk-prose"><pre className="text-[12px]">{it.diag}</pre></pre>
           if (it.kind === 'board' && it.data) return <BoardSessionCard key={i} data={it.data as { board_sessions?: Array<{ url?: string; title?: string; description?: string; session_id?: string }> }} />
           if (it.kind === 'quiz' && it.data) return <InteractiveQuiz key={i} data={it.data as { questions?: QuizQuestion[]; total_count?: number }} />
+          if (it.kind === 'flashcards' && it.data) return <FlashcardsCard key={i} data={it.data as { flashcards?: { question: string; answer: string; index?: number }[]; title?: string }} />
           if (it.kind === 'deep_learn' && it.data) return <DeepLearnSessionCard key={i} data={it.data as { task_plan?: { title?: string; description?: string }; deep_learn_session_url?: string; deep_learn_session_id?: string }} />
           if (it.kind === 'cheatsheet' && it.data) return <CheatsheetCard key={i} data={it.data as { filename?: string; pages?: number; url?: string }} />
           if (it.kind === 'recommend' && it.data) return <RecommendStepsBlock key={i} data={it.data as { next_steps?: Array<{ display_step: string; step_prompt: string }> }} onSelect={(p) => sendFollowup(p)} />

@@ -216,7 +216,16 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/diagram/:id/diagram.md', async (request, reply) => { const id = (request.params as { id: string }).id; const data = diagrams.get(id)?.md; return data === undefined ? reply.code(404).send({ detail: 'Not found' }) : reply.type('text/markdown; charset=utf-8').send(data); });
   app.get('/api/v1/diagram/:id/diagram.html', async (request, reply) => { const id = (request.params as { id: string }).id; const data = diagrams.get(id)?.html; return data === undefined ? reply.code(404).send({ detail: 'Not found' }) : reply.type('text/html; charset=utf-8').send(data); });
   app.get('/api/v1/diagram/:id/diagram.png', async (request, reply) => { const id = (request.params as { id: string }).id; const record = diagrams.get(id); return !record ? reply.code(404).send({ detail: 'Not found' }) : reply.type('image/png').send(record.png ?? placeholderPng); });
-  app.route({ method: ['GET', 'POST'], url: '/api/v1/files/:id', handler: async (request, reply) => { const file = publicFiles.get((request.params as { id: string }).id); return !file ? reply.code(404).send({ detail: 'Not found' }) : reply.header('content-disposition', `inline; filename="${file.filename}"`).type(file.mime).send(file.data); } });
+  app.route({ method: ['GET', 'POST'], url: '/api/v1/files/:id', handler: async (request, reply) => {
+    const file = publicFiles.get((request.params as { id: string }).id);
+    if (!file) return reply.code(404).send({ detail: 'Not found' });
+    // 文件名可能是中文：content-disposition 只放 ASCII 回退名，真名走 RFC 5987 的 filename*
+    const ascii = file.filename.replace(/[^\x20-\x7e]/g, '_').replace(/["\\]/g, '_');
+    return reply
+      .header('content-disposition', `inline; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(file.filename)}`)
+      .type(file.mime)
+      .send(file.data);
+  } });
 
   app.post('/api/v1/drive/upload_file_to_drive', protectedRoute, async (request, reply) => {
     const part = await request.file(); if (!part) return reply.code(400).send({ detail: 'file is required' });

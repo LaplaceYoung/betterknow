@@ -4,7 +4,8 @@ import { resolve } from 'node:path';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import type { WebSocket } from 'ws';
 import { OPEN_USER_ID, ensureOpenUser, verifyJwt } from './auth.js';
-import { generateInstructionalVideo, publishFilePdf } from './pipelines.js';
+import { publishFilePdf } from './pipelines.js';
+import { AGENT_FALLBACK, htmlAnimationTool, instructionalVideoTool, publishFileTool } from './artifactTools.js';
 import { runSandboxed } from './sandbox.js';
 import { diagrams, placeholderPng, placeholderWebm, publicFiles } from './artifacts.js';
 import { runDshTask } from './agent/dsh-adapter.js';
@@ -88,7 +89,7 @@ For this local clone, choose exactly one available tool: ${Object.keys(chatTools
   } catch { return { thought: 'The director response was not structured, so I will answer directly.', tool: chooseHeuristic(message), args: {} }; }
 }
 
-async function runChatTool(socket: WebSocket, tool: ChatTool, message: string, userId: string, conversationId: string, roundIndex: number, eff?: ReturnType<typeof resolveByok>): Promise<{ produced: boolean; data: Record<string, unknown>; content?: string }> {
+async function runChatTool(socket: WebSocket, tool: ChatTool, message: string, userId: string, conversationId: string, roundIndex: number, eff?: ReturnType<typeof resolveByok>, args: Record<string, unknown> = {}): Promise<{ produced: boolean; data: Record<string, unknown>; content?: string }> {
   chatSend(socket, { type: 'tool_selection', tool_name: tool, tool_status: 'started', round_index: roundIndex, display: 'display', index: 0 });
   if (tool === 'generate_content') {
     chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'streaming', round_index: roundIndex, message: 'Starting content generation with streaming...' });
@@ -100,32 +101,44 @@ async function runChatTool(socket: WebSocket, tool: ChatTool, message: string, u
   if (tool === 'generate_quiz' || tool === 'generate_flashcards') {
     const key = tool === 'generate_quiz' ? 'quiz' : 'flashcards'; let result: unknown;
     if (eff?.provider === 'stub') result = await stubValue(key); else { const prompt = tool === 'generate_quiz' ? `Create a concise quiz about: ${message}. Return only JSON with title and questions.` : `Create concise flashcards about: ${message}. Return only JSON with title and cards.`; const raw = await chat([{ role: 'user', content: prompt }], 'quiz', eff); try { result = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? ''); } catch { result = { content: raw }; } }
-    const flat = (typeof result === 'object' && result !== null ? result as Record<string, unknown> : { content: result }) as Record<string, unknown>; const questions = Array.isArray(flat.questions) ? flat.questions : undefined; const cards = Array.isArray(flat.cards) ? flat.cards : undefined; const data: Record<string, unknown> = tool === 'generate_quiz' ? { ...(questions ? { questions } : { questions: flat.questions ?? [] }), total_count: Array.isArray(questions) ? questions.length : 0, model_used: config.models.quiz, ...(flat.title ? { title: flat.title } : {}) } : { flashcards: cards ?? [], total_count: Array.isArray(cards) ? cards.length : 0, model_used: config.models.content, ...(flat.title ? { title: flat.title } : {}) }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
+    const flat = (typeof result === 'object' && result !== null ? result as Record<string, unknown> : { content: result }) as Record<string, unknown>; const questions = Array.isArray(flat.questions) ? flat.questions : undefined; const cards = Array.isArray(flat.cards) ? flat.cards : undefined; const data: Record<string, unknown> = tool === 'generate_quiz' ? { ...(questions ? { questions } : { questions: flat.questions ?? [] }), total_count: Array.isArray(questions) ? questions.length : 0, model_used: config.models.quiz, ...(flat.title ? { title: flat.title } : {}) } : { flashcards: (cards ?? []).map((card, index) => ({ ...(card as Record<string, unknown>), index: index + 1 })), total_count: Array.isArray(cards) ? cards.length : 0, model_used: config.models.content, ...(flat.title ? { title: flat.title } : {}) }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
   }
   if (tool === 'generate_html_animation') {
-    const id = randomUUID(); const html = eff?.provider === 'stub' ? await stubValue<string>('html_animation') : await chat([{ role: 'user', content: `Create a standalone educational HTML animation about: ${message}. Return HTML only.` }], 'content', eff);
-    diagrams.set(id, { html, md: `# Animation\n\n${message}`, png: placeholderPng }); const data = { diagram_id: id, url: `/api/v1/diagram/${id}/diagram.html`, html_url: `/api/v1/diagram/${id}/diagram.html` };
-    chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); chatSend(socket, { type: 'inline_diagram', tool_name: tool, tool_status: 'completed', round_index: roundIndex, placeholder_id: id, data: { tag: `<diagram id="${id}">`, source_tag: message, type: 'html', status: 'completed' } }); return { produced: true, data };
-  }
-  if (tool === 'create_deep_learn_session') {
-    const id = randomUUID(); const plan = await stubValue<Record<string, unknown>>('course_plan'); const session = { deep_learn_session_id: id, user_id: userId, title: String(plan.title ?? 'Deep learning session'), conversation_data: { title: plan.title, history: [], user_id: userId, progress: {} }, session_task_plan: [{ unit_name: 'Foundations', unit_description: 'Build a reliable base.', tasks: [{ task_id: randomUUID(), task_title: 'Learn the core idea', task_description: message }] }], created_at: now() };
-    await updateState((state) => { state.deep_learn[id] = session; }); const data = { deep_learn_session_id: id, url: `/deep-learn/${id}`, task_plan: session }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
-  }
-  if (tool === 'create_board_session') {
-    const id = randomUUID(); const boardContent = eff?.provider === 'stub' ? await stubValue<string>('board_brief') : await chat([{ role: 'user', content: `Create a compact markdown whiteboard lesson about: ${message}` }], 'content', eff); const board = { session_id: id, user_id: userId, status: 'ready', session_title: message.slice(0, 80), conversation_id: conversationId, whiteboard_state: { board_content: boardContent }, messages: [], tts_config: { voice_id: 'calm', speed: 1 }, created_at: now() };
-    await updateState((state) => { state.whiteboards[id] = board; const conversation = state.conversations[conversationId]; if (conversation) conversation.board_session_types.push('whiteboard'); }); const data = { session_id: id, board_session_id: id, url: `/whiteboard/${id}` }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
+    // 形状与实现在 artifactTools（线上 r35 实证），这里只做 socket 侧转发
+    const result = await htmlAnimationTool(message, eff);
+    chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data: result.data });
+    const id = String((result.data as { diagram_id?: string }).diagram_id ?? '');
+    const fileUrl = String((result.data as { file_url?: string }).file_url ?? '');
+    const placeholderId = `dg_${id}`;
+    chatSend(socket, {
+      type: 'inline_diagram', tool_name: tool, tool_status: 'ready', round_index: roundIndex, placeholder_id: placeholderId,
+      data: {
+        placeholder_id: placeholderId, type: 'html_animation', layout: 'right', status: 'ready', diagram_id: id,
+        tag: `<diagram data-placeholder-id="${placeholderId}" data-subtype="html_animation" data-layout="right" data-status="ready" data-diagram-id="${id}" data-file-url="${fileUrl}"></diagram>`,
+        source_tag: `<content-type: diagram; diagram-subtype: html-animation; content-prompt: {${message.slice(0, 200)}}>`,
+      },
+    });
+    return { produced: true, data: result.data };
   }
   if (tool === 'publish_file') {
-    const id = randomUUID(); const content = eff?.provider === 'stub' ? await stubValue<string>('content') : await chat([{ role: 'user', content: `Create a concise markdown document about: ${message}` }], 'content', eff); publicFiles.set(id, { id, filename: 'betterknow-note.md', mime: 'text/markdown; charset=utf-8', data: Buffer.from(content) }); const data = { file_id: id, filename: 'betterknow-note.md', url: `/api/v1/files/${id}` }; chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data, content };
+    const result = await publishFileTool({ message, conversationId, indices: Array.isArray((args as { indices?: unknown[] })?.indices) ? (args as { indices: number[] }).indices : undefined });
+    if (!result.produced) {
+      chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'error', round_index: roundIndex, display: 'display', data: result.data });
+      chatSend(socket, { type: 'agent_response', content: AGENT_FALLBACK, conversation_id: conversationId, is_complete: false });
+      return { produced: false, data: result.data };
+    }
+    chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data: result.data });
+    return { produced: true, data: result.data, content: result.content };
   }
   if (tool === 'ask_questions') {
     const data = { questions: [{ question: `What outcome matters most for “${message.slice(0, 80)}”?`, options: [{ title: 'Understand', description: 'Build intuition first.' }, { title: 'Practice', description: 'Work through examples.' }, { title: 'Apply', description: 'Build something useful.' }], is_multiple: false }] }; chatSend(socket, { type: 'user_question', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', question_data: data }); return { produced: true, data };
   }
   if (tool === 'generate_instructional_video') {
-    const video = await generateInstructionalVideo(message, eff);
-    publicFiles.set(video.video_id, { id: video.video_id, filename: 'final_video.mp4', mime: 'video/mp4', data: video.buffer });
-    const data = { video_id: video.video_id, url: video.url, final_url: video.url, rendered: video.rendered, scenes: video.scenes };
-    chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data }); return { produced: true, data };
+    const result = await instructionalVideoTool(message, eff, (progress) => {
+      chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: progress.status, round_index: roundIndex, display: 'display', data: { stage: progress.stage, message: progress.message } });
+    });
+    chatSend(socket, { type: 'tool_execution', tool_name: tool, tool_status: 'completed', round_index: roundIndex, display: 'display', data: result.data });
+    return { produced: true, data: result.data };
   }
   if (tool === 'code_generator') {
     const codeRaw = eff?.provider === 'stub' ? 'console.log("Hello from the betterknow sandbox")' : await chat([{ role: 'user', content: `Write a short runnable JavaScript snippet demonstrating: ${message}. Respond with code only, no fences.` }], 'content', eff);
@@ -172,7 +185,7 @@ async function chatRound(socket: WebSocket, input: Incoming, userId: string, con
     return;
   }
   const eff = await effFor(userId); const decision = await direct(message, conversation.history, eff); chatSend(socket, { type: 'thinking', tool_name: 'directorAgent', tool_status: 'started', round_index: 1, display: 'display' }); for (const chunk of decision.thought.match(/.{1,80}(?:\s|$)|.{1,80}/g) ?? [decision.thought]) chatSend(socket, { type: 'thinking_chunk', tool_name: 'directorAgent', tool_status: 'streaming', round_index: 1, chunk }); chatSend(socket, { type: 'tool_execution', tool_name: 'directorAgent', tool_status: 'completed', round_index: 1, display: 'display', data: { phase: 'thinking', thought_chunk_count: 1 } });
-  let outcome = await runChatTool(socket, decision.tool, message, userId, conversationId, 2, eff); if (!outcome.produced) outcome = await runChatTool(socket, 'generate_content', message, userId, conversationId, 3, eff); if (!outcome.produced) { chatSend(socket, { type: 'error', message: 'The agent could not produce a response after validation.', is_complete: true }); return; }
+  let outcome = await runChatTool(socket, decision.tool, message, userId, conversationId, 2, eff, decision.args); if (!outcome.produced) outcome = await runChatTool(socket, 'generate_content', message, userId, conversationId, 3, eff); if (!outcome.produced) { chatSend(socket, { type: 'error', message: 'The agent could not produce a response after validation.', is_complete: true }); return; }
   chatSend(socket, { type: 'tool_selection', tool_name: 'mark_response_complete', tool_status: 'started', round_index: 3, display: 'display' }); if (decision.tool !== 'ask_questions') await runChatTool(socket, 'recommend_next_step', message, userId, conversationId, 4, eff);
   await updateState((next) => { const value = next.conversations[conversationId]!; const stamp = () => { value.history_index += 1; return value.history_index; }; if (decision.tool === 'generate_content' && outcome.content) { value.history.push({ index: stamp(), role: 'assistant', content: outcome.content, timestamp: now() }); } const isWrapped = decision.tool === 'generate_quiz' || decision.tool === 'generate_flashcards'; value.history.push({ index: stamp(), role: 'tool', content: `Executed ${decision.tool}`, timestamp: now(), tool_name: decision.tool, args: decision.args, result: isWrapped ? { result: outcome.data } : outcome.data }); value.updated_at = now(); }); chatSend(socket, { type: 'complete', message: 'Response complete', is_complete: true });
 }
