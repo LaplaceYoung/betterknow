@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Check, Clock, CalendarPlus } from 'lucide-react'
+import { Clock, CalendarPlus } from 'lucide-react'
 import { apiGet, apiPost } from '@/lib/api'
 import { useNavigate } from 'react-router'
 
@@ -152,33 +152,80 @@ export default function LearningFeed() {
       {toast && <div className="proactive-toast" data-testid="task-toast">{toast}</div>}
       <div className="proactive-content">
       <div className="proactive-layout">
+      {/* 线上左栏三块：.calendar-sidebar-summary（日历摘要）+ .todo-section（今日待办）+ .completed-section（已完成），
+          「确认/拒绝」这类动作线上放在任务详情弹层里，本仓额外在待处理条目上留了两个 pill */}
       <aside className="proactive-left">
-        <div className="hk-card p-4">
-          <div className="text-[12px] text-[#8a8a90]">{sameDay(selectedDate, today) ? '今日' : '已选日期'}</div>
-          <div className="text-[40px] font-semibold leading-none mt-1">{selectedDate.getDate()}</div>
-          <div className="text-[12px] text-[#6b6b70] mt-1">{selectedDate.getMonth() + 1} 月 · {WEEK_LONG[selectedDate.getDay()]}</div>
-          <div className="text-[12px] text-[#6b6b70] mt-1">{(tasks ?? []).filter((t) => sameDay(new Date(t.scheduled_for), selectedDate)).length} 个任务</div>
+        <div className="calendar-sidebar-summary" data-testid="calendar-sidebar-summary">
+          <div className="calendar-sidebar-header">
+            <div className="calendar-icon-container" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M8 2V6M16 2V6M3.5 9.5H20.5M5 4H19C20.1046 4 21 4.89543 21 6V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <h2 className="calendar-sidebar-title">日历</h2>
+          </div>
+          <div className="calendar-sidebar-date-row">
+            <div>
+              <div className="calendar-sidebar-day">{selectedDate.getDate()}</div>
+              <div className="calendar-sidebar-date">{WEEK_LONG[selectedDate.getDay()]}, {selectedDate.getMonth() + 1}月 {selectedDate.getDate()}</div>
+            </div>
+            {sameDay(selectedDate, today) && <span className="calendar-sidebar-today">今天</span>}
+          </div>
+          <div className="calendar-sidebar-stats">
+            <span>{dayTasks.length} 项截止</span>
+            <span>{(tasks ?? []).length} 个任务</span>
+          </div>
         </div>
-        <div>
-          <h3 className="hk-section-title mb-2">{sameDay(selectedDate, today) ? '今日待办' : '当日待办'}</h3>
+
+        <div className="todo-section" data-testid="todo-section">
+          <div className="todo-header">
+            <div className="todo-header-left">
+              <h2 className="todo-header-title">{sameDay(selectedDate, today) ? '今日待办' : '当日待办'}</h2>
+            </div>
+            <div className="todo-header-right">
+              <div className="todo-date-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ marginRight: 6 }} aria-hidden="true">
+                  <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="#666" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M16 2V6" stroke="#666" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8 2V6" stroke="#666" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 10H21" stroke="#666" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {WEEK_LONG[selectedDate.getDay()]}, {selectedDate.getMonth() + 1}月 {selectedDate.getDate()}
+              </div>
+            </div>
+          </div>
           {tasks === null && <div className="hk-skeleton h-16 rounded-xl" />}
-          {tasks && dayTasks.length === 0 && <div className="text-[12px] text-[#8a8a90] hk-card p-3">这一天没有安排，去课程里加一个学习计划吧</div>}
-          <ul className="space-y-2">{dayTasks.map((t) => (
-            <li key={t.id} className="hk-card p-3"><div className="text-[13px] font-medium leading-5">{t.title}</div><div className="text-[11px] text-[#8a8a90] mt-0.5 inline-flex items-center gap-1"><Clock size={10} />{t.duration_min ?? 30} 分钟 · {t.course_title ?? '学习任务'}</div>
-              <div className="flex gap-1.5 mt-2">{t.status === 'pending' && <button onClick={() => act(t, 'confirm')} className="hk-pill h-7 text-[11px] px-2">确认</button>}<button onClick={() => act(t, 'done')} className="hk-pill h-7 text-[11px] px-2"><Check size={11} />完成</button></div></li>
-          ))}</ul>
+          {tasks !== null && dayTasks.length === 0 && <div className="todo-empty">这一天没有安排，去课程里加入日历。</div>}
+          <div className="todo-list">
+            {dayTasks.map((t) => (
+              <div key={t.id} className="todo-item" data-testid="todo-item">
+                <div className="todo-content">
+                  <div className="todo-title">{t.title}</div>
+                  {t.description && <div className="todo-subtitle">{t.description}</div>}
+                  <button type="button" className="todo-view-details-btn" onClick={() => setOpenTask(t)}>查看详情</button>
+                  {t.status === 'pending' && (
+                    <div className="flex gap-1.5 mt-2">
+                      <button onClick={() => void act(t, 'confirm')} className="hk-pill h-7 text-[11px]">确认</button>
+                      <button onClick={() => void act(t, 'done')} className="hk-pill h-7 text-[11px]">完成</button>
+                    </div>
+                  )}
+                </div>
+                <button type="button" className="todo-delete-button" title="删除" aria-label="删除"
+                  onClick={() => setConfirmDelete(t)}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
-        <div>
-          <h3 className="hk-section-title mb-2">已确认任务</h3>
-          {(() => { const list = (tasks ?? []).filter((t) => t.status === 'confirmed'); return list.length === 0 ? <div className="text-[12px] text-[#8a8a90]">还没有确认的任务</div> : <ul className="space-y-1.5">{list.slice(0, 5).map((t) => <li key={t.id} className="hk-card p-2.5 text-[12px]" data-testid="confirmed-task"><div className="truncate font-medium">{t.title}</div><div className="text-[11px] text-[#8a8a90] mt-0.5">{new Date(t.scheduled_for).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' })} · {t.duration_min ?? 30} 分钟</div></li>)}</ul> })()}
-        </div>
-        <div>
-          <h3 className="hk-section-title mb-2">待处理任务</h3>
-          {(() => { const list = (tasks ?? []).filter((t) => t.status === 'pending'); return list.length === 0 ? <div className="text-[12px] text-[#8a8a90]">没有待处理的任务</div> : <ul className="space-y-1.5">{list.slice(0, 5).map((t) => <li key={t.id} className="hk-card p-2.5 text-[12px]" data-testid="pending-task"><div className="truncate font-medium">{t.title}</div><button onClick={() => void act(t, 'confirm')} className="hk-pill h-6 text-[11px] px-2 mt-1">确认</button></li>)}</ul> })()}
-        </div>
-        <div>
-          <h3 className="hk-section-title mb-2">已完成</h3>
-          {dones.length === 0 ? <div className="text-[12px] text-[#8a8a90]">完成的任务会显示在这里</div> : <ul className="space-y-1 text-[12px] text-[#6b6b70]">{dones.slice(0, 6).map((t) => <li key={t.id} className="line-through truncate">{t.title}</li>)}</ul>}
+
+        <div className="completed-section" data-testid="completed-section">
+          <div className="completed-header"><h2 className="completed-header-title">已完成</h2></div>
+          {dones.length === 0
+            ? <div className="completed-list"><div style={{ padding: 20, textAlign: 'center', color: '#999' }}>完成的任务会显示在这里</div></div>
+            : <div className="completed-list">{dones.map((t) => <div key={t.id} className="completed-item" onClick={() => setOpenTask(t)}>{t.title}</div>)}</div>}
         </div>
       </aside>
 

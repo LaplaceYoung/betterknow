@@ -1007,3 +1007,19 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 `.course-cal-overlay--fullscreen{padding:0}` + `.course-cal-modal--fullscreen{display:flex;flex-direction:column;width:100%;height:100%;max-height:none;border-radius:0;padding:26px 36px 20px;background:#fafafa}`，配套 `.course-cal-head{margin-bottom:14px}`、`.ccal-preview{flex:1;min-height:0}`、`.ccal-preview-days-grid{flex:1;grid-auto-rows:1fr;min-height:0;overflow-y:auto}`、`.ccal-preview-day{min-height:96px}`、`.course-cal-footer{margin-top:14px}`。
 
 本仓：CSS 早已照抄，本轮补上开关（关闭按钮左侧，`aria-label` 全屏/退出全屏）与「全屏下 ESC 先退回窗口态」；触发按钮的位置线上没抓到，属本仓排布。
+
+### 学习动态左栏三块（第五十四批，r157 + r172 + r173）
+
+线上 `.proactive-left` 从上到下三张卡：
+
+| 结构 | 内容 |
+|---|---|
+| `.calendar-sidebar-summary` | `.calendar-sidebar-header`（`.calendar-icon-container` + `.calendar-sidebar-title`「日历」）→ `.calendar-sidebar-date-row`（`.calendar-sidebar-day` 42px 日号 + `.calendar-sidebar-date`「周三, 9月 16」+ `.calendar-sidebar-today`「今天」胶囊）→ `.calendar-sidebar-stats`（胶囊组：`0 项截止`、`2 个任务`） |
+| `.todo-section` | `.todo-header`（左：`.todo-header-title`「今日待办」+ `.todo-menu-container` 的 `⋯` 菜单；右：`.todo-date-badge` 带日历图标 + 同一日期文案）→ `.todo-list` → `.todo-item`（`.todo-content`：`.todo-title` / `.todo-subtitle` / `.todo-view-details-btn`「查看详情」；右侧 `.todo-delete-button` 删除） |
+| `.completed-section` | `.completed-header` 的 `.completed-header-title`「已完成」+ `.completed-list`（空态「完成的任务会显示在这里」） |
+
+CSS 88 条（`.todo-*` 75 + `.completed-*` 12 + `.calendar-icon-*` 2）已照抄进 `index.css`。
+
+`.proactive-left` 线上是分档的（`0 0 27%` → `0 0 262px` → `0 0 238px` → `clamp(192px,22%,244px)` → 窄屏 `flex-direction: column` + `width:100%`），抓包没带 `@media` 条件；本仓按实测宽度取三档：≥1200px 用 262px、1200px 以下 `clamp(192px,22%,244px)`、900px 以下竖排（实测 1400→262 / 1150→192 / 860→竖排）。
+
+本仓差异：条目的「确认 / 完成」两个 pill 是我们额外留的（线上这两步在任务详情弹层里）；`⋯` 菜单按钮未做。
