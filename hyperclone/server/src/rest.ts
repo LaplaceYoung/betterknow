@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { basename, extname, resolve } from 'node:path';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
-import type { ChatMessage } from './llm.js';
+import { chatStream, type ChatMessage } from './llm.js';
 import { authenticate } from './auth.js';
 import { diagrams, placeholderPng, placeholderWebm, publicFiles, readPersistedPublicFile } from './artifacts.js';
 import { mimeFor, readTtsAudio, readWhiteboardImage, ttsCounts } from './media.js';
@@ -1068,15 +1068,76 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     return { ...payload, projects, stages: normalized };
   });
 
+  // 线上实测（ProjectStagePage 原文）：POST /project/assistant 也是 multipart：
+  //   stage_id、step_index、messages(JSON)、images(多文件)，响应是**流式纯文本**（客户端逐块 append）。
   app.post('/api/v1/course-generation/courses/:course_uuid/project/assistant', protectedRoute, async (request, reply) => {
-    if (!(await ownedCourse(request))) return reply.code(404).send({ detail: 'Course not found' });
-    const body = (request.body ?? {}) as { message?: string; stageTitle?: string; draft?: string };
-    const q = String(body.message ?? '').trim();
-    return {
-      success: true,
-      message: `🛠️ **项目实战指导建议**：\n\n针对「${body.stageTitle ?? '当前阶段'}」的实施目标：\n1. **明确输入输出契约**：明确初始数据源与最终交付形式，切忌一上来堆砌未经验证的复杂架构。\n2. **阶段自测基准**：在提交前至少设计 2 组基准用例（常规用例与极限边界用例）。\n3. **增量交付**：优先跑通端到端主流程（Happy Path），再完善异常处理。\n\n你可以随时把代码片段或设计思路发送给我，我来帮你做代码走查与推演审查。`,
-      citations: [],
-    };
+    const course = await ownedCourse(request);
+    if (!course) return reply.code(404).send({ detail: 'Course not found' });
+    const isMultipart = String(request.headers['content-type'] ?? '').includes('multipart/form-data');
+    let stageId = '';
+    let stepIndex = '';
+    let messages: Array<{ role?: string; content?: string }> = [];
+    const images: Array<{ mime: string; data: string }> = [];
+    if (isMultipart) {
+      for await (const part of request.parts()) {
+        if (part.type === 'file') {
+          if (part.fieldname !== 'images') continue;
+          const buffer = await part.toBuffer();
+          if (buffer.length && images.length < 4) images.push({ mime: part.mimetype || 'image/png', data: buffer.toString('base64') });
+          continue;
+        }
+        const value = String(part.value ?? '');
+        if (part.fieldname === 'stage_id') stageId = value;
+        else if (part.fieldname === 'step_index') stepIndex = value;
+        else if (part.fieldname === 'messages') {
+          try { const parsed = JSON.parse(value) as unknown; if (Array.isArray(parsed)) messages = parsed as Array<{ role?: string; content?: string }>; } catch { /* 忽略坏 JSON */ }
+        }
+      }
+    } else {
+      const body = (request.body ?? {}) as { stage_id?: string; stageId?: string; messages?: Array<{ role?: string; content?: string }>; message?: string; stageTitle?: string };
+      stageId = String(body.stage_id ?? body.stageId ?? '');
+      messages = Array.isArray(body.messages) ? body.messages : body.message ? [{ role: 'user', content: body.message }] : [];
+    }
+    if (!stageId) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'stage_id'], msg: 'Field required' }] });
+    if (!messages.length) return reply.code(422).send({ detail: [{ type: 'missing', loc: ['body', 'messages'], msg: 'Field required' }] });
+    // 阶段信息来自 resolveProject（种子优先），课程记录里的 stages 可能没有这一项
+    const project = await resolveProject(course, courseId(request));
+    const stage = ((project.stages as Array<Record<string, unknown>> | undefined) ?? []).find((item) => String(item.stage_id ?? '') === stageId);
+    const state = await readState();
+    const eff = resolveByok((state.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+    const system = [
+      '你是一名项目实战导师，围绕当前阶段给出可执行的建议：先明确输入输出契约，再给阶段自测基准，最后按增量交付推进。',
+      `阶段：${String(stage?.stage_title ?? stageId)}`,
+      stage?.deliverable_increment ? `交付要求：${String(stage.deliverable_increment)}` : '',
+      stepIndex ? `当前步骤序号：${stepIndex}` : '',
+      images.length ? `学生附了 ${images.length} 张截图，请结合截图内容回答。` : '',
+    ].filter(Boolean).join('\n');
+    const history: ChatMessage[] = messages.map((m) => ({ role: m.role === 'assistant' ? 'assistant' as const : 'user' as const, content: String(m.content ?? '') }));
+    if (images.length) {
+      const last = history[history.length - 1];
+      const lastText = typeof last?.content === 'string' ? last.content : '请看截图';
+      history[history.length - 1] = {
+        role: 'user',
+        content: [
+          { type: 'text', text: lastText },
+          ...images.map((img) => ({ type: 'image_url' as const, image_url: { url: `data:${img.mime};base64,${img.data}` } })),
+        ],
+      };
+    }
+    // 响应形状与线上一致：流式纯文本（不是 SSE），客户端逐块追加
+    reply.raw.writeHead(200, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store', 'x-accel-buffering': 'no' });
+    try {
+      if (eff.provider === 'stub') {
+        const fallback = `🛠️ 针对「${String(stage?.stage_title ?? stageId)}」的实施目标：\n1. 明确输入输出契约；\n2. 先设计 2 组基准用例（常规 + 边界）；\n3. 优先跑通端到端主流程，再补异常处理。\n\n（未配置语言模型，这是本地兜底建议。）`;
+        for (const chunk of fallback.match(/[\s\S]{1,24}/g) ?? []) { reply.raw.write(chunk); await new Promise((r) => setTimeout(r, 8)); }
+      } else {
+        for await (const chunk of chatStream([{ role: 'system', content: system }, ...history], 'content', eff)) reply.raw.write(chunk);
+      }
+    } catch (error) {
+      reply.raw.write(`\n[助手暂时不可用：${error instanceof Error ? error.message : '未知错误'}]`);
+    }
+    reply.raw.end();
+    return reply;
   });
 
   // 线上实测：GET 只读，返回 {submissions:{}, drafts:{}}；提交走步骤端点，评分由模型给出（本仓不再本地编造分数）

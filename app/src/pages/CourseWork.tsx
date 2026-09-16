@@ -95,10 +95,34 @@ function AssistantDrawer({
       const history = messages.filter((row) => row.role === 'user').map((row) => ({ role: 'user', content: row.text }))
       const nextMessages = [...history, { role: 'user', content: text }]
       if (isProject) {
-        const res = await apiPost<{ message?: string; stub?: boolean }>(`/course-generation/courses/${courseId}/project/assistant`, {
-          stage_id: stageTitle || 'stage_1', messages: nextMessages, message: text, stageTitle,
-        })
-        setMessages((prev) => [...prev, { role: 'assistant', text: res.message ?? '' }])
+        // 线上（ProjectStagePage 原文）：项目助手同样 multipart（stage_id / step_index / messages / images），
+        // 响应是流式纯文本，客户端逐块追加到最后一条 assistant 消息
+        const form = new FormData()
+        form.append('stage_id', stageTitle || 'stage_1')
+        form.append('messages', JSON.stringify(nextMessages))
+        await Promise.all(images.map(async (url) => {
+          const blob = await (await fetch(url)).blob()
+          form.append('images', blob, `screenshot-${Date.now()}.png`)
+        }))
+        setMessages((prev) => [...prev, { role: 'assistant', text: '' }])
+        const streamed = await api<Response>(`/course-generation/courses/${courseId}/project/assistant`, { method: 'POST', body: form, raw: true })
+        const reader = streamed.body?.getReader()
+        if (!reader) throw new Error('no stream')
+        const decoder = new TextDecoder()
+        let accumulated = ''
+        for (;;) {
+          const { done, value } = await reader.read()
+          if (done) break
+          const chunk = decoder.decode(value, { stream: true })
+          if (!chunk) continue
+          accumulated += chunk
+          setMessages((prev) => {
+            const rows = [...prev]
+            rows[rows.length - 1] = { role: 'assistant', text: accumulated }
+            return rows
+          })
+        }
+        return
       } else {
         const form = new FormData()
         form.append('session_id', sessionId)
@@ -115,6 +139,14 @@ function AssistantDrawer({
         setMessages((prev) => [...prev, { role: 'assistant', text: res.message ?? '' }])
       }
     } catch {
+      if (isProject) {
+        setMessages((prev) => {
+          const rows = [...prev]
+          const last = rows[rows.length - 1]
+          if (last && last.role === 'assistant' && !last.text) rows.pop()
+          return rows
+        })
+      }
       setFailed(true)
     } finally {
       setLoading(false)

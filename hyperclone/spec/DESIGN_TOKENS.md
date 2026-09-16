@@ -789,3 +789,21 @@ fetch(`/api/v1/course-generation/courses/${courseId}/practice/assistant`, { meth
 
 实测（假网关记录请求体）：最后一条消息的 `content` 是数组，含 text 与 image_url 两段；界面侧附上截图后用户气泡显示缩略图、助手回复走模型（`stub:false`）。
 
+### 项目助手的 multipart + 流式契约（第三十九批，ProjectStagePage）
+
+线上（`ProjectStagePage-C1jt3v6O.js` 原文）：
+
+```js
+const form = new FormData()
+form.append('stage_id', stageId)
+if (stepIndex != null) form.append('step_index', String(stepIndex))
+form.append('messages', JSON.stringify(messages.map(({ role, content }) => ({ role, content }))))
+for (const img of images ?? []) form.append('images', img)
+POST /api/v1/course-generation/courses/{courseId}/project/assistant
+// 响应：**流式纯文本**（不是 SSE）——客户端 getReader() 逐块 decode 并 onToken(chunk, accumulated)
+```
+
+本仓同形：multipart 收 `stage_id / step_index / messages / images`（旧的 JSON 形状兼容），响应 `content-type: text/plain; charset=utf-8` + `Transfer-Encoding: chunked`；有模型时把 `chatStream` 的增量直接转发，无模型时把本地兜底建议按 24 字符切片流式吐出。截图同样进多模态 `content`。阶段标题/交付物来自 `resolveProject`（种子优先），系统提示要求「先明确输入输出契约 → 阶段自测基准 → 增量交付」。
+
+实测：stub 流 → `🛠️ 针对「Research Question and Methodology Design」的实施目标：…`（阶段名解析正确）；配流式假网关 → 拼接结果「先明确输入输出契约，再设计两组基准用例。」；浏览器里项目页助手面板发问后，助手气泡就是这段模型文本。
+

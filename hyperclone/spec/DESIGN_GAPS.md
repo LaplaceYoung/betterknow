@@ -471,3 +471,8 @@
 - 上一批记的「截图只是随消息发出去、服务端暂不使用」已补齐：请求改成线上原样的 **multipart/form-data**（`session_id` / `question_id` / `messages` JSON / `images` 多文件），服务端用 `request.parts()` 收，并把截图作为 OpenAI 兼容的多模态 `content`（`text` + `image_url` data URL）发给模型；没有截图时仍走纯文本。旧的 JSON 形状保留兼容。
 - `ChatMessage.content` 放宽为 `string | ChatContentPart[]`，其余调用点不受影响。
 - 实测：curl 传 1×1 PNG → 响应 `stub:false`、`received_images:1`、`question_id:q1`，假网关收到的最后一条消息 content 是数组且 image_url 前缀正确；浏览器里用 file input 附图 → 缩略图出现、用户气泡带图、助手返回模型文本「OK-看图提示：注意截图里的第二行。」、附件区清空。
+
+**第五十二批（项目助手对齐：multipart + 流式）**
+- 上一批留的「项目助手仍是 JSON 路径，线上是否有对应 multipart 形态未验证」已查清并补齐：线上项目助手是 **multipart**（`stage_id` / `step_index` / `messages` / `images`）且响应是**流式纯文本**（客户端逐块 append），不是 JSON。本仓按同形重写，流式转发 `chatStream`；无模型时把兜底建议切片流式吐出，并去掉失败时的空 assistant 占位。
+- 顺手修掉一个真错：阶段信息原来从 `course.stages` 里找，种子课程的阶段其实在 `resolveProject` 的结果里，导致系统提示里印的是 UUID；改用 `resolveProject` 后实测显示「Research Question and Methodology Design」。
+- 实测：stub 流内容与响应头（`text/plain` + chunked）正确；流式假网关下拼接结果正确；浏览器项目页发问得到同样的模型文本。
