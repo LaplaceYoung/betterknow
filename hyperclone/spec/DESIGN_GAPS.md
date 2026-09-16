@@ -172,7 +172,7 @@
 | REST 校正 | `orbie` 带 `count`；`deep_learn/list_*` 裸数组；连接器状态看 `/connectors/google_calendar/status` | 一致 |
 
 **仍缺（有证据但未实现）**
-1. 白板**分栏网格状态**：线上客户端把 `{version,revision,activePageId,pages[].columnLayout}` 全量同步给服务端，本仓客户端仍是简单页列表。
+1. ~~白板**分栏网格状态**~~：已实现（客户端 `sync_whiteboard_state{whiteboard_state:{version,revision,activePageId,pages[].columnLayout}}`，服务端落库并回 `board` 帧）。以下保留原始记录：线上客户端把 `{version,revision,activePageId,pages[].columnLayout}` 全量同步给服务端，本仓客户端仍是简单页列表。
 2. 技能链（`get_skills` → `ask_questions` → 产物）与产物工具家族（拍认卡/速查表/教学动画/公开文件发布）在对话通道尚未落地。
 3. 生成冷却语义：线上同一用户存在在跑任务时问卷「继续」被禁用并给出解禁时间；本仓是「attach 到既有任务」，语义不同（更宽松）。
 4. 课程生成的「结构确认」后半段（`course_structure_confirm` → `complete`）本轮被站方冷却挡住，未取得新证据；既有证据仍来自上一轮的 `course_generation_structure`。
@@ -558,3 +558,10 @@
 - 客户端：语音模式卡片（线上 23 条 CSS + 全部中文文案 + `localStorage["hk.session.voiceMode"]`）、麦克风按钮（两个入口）真实可用、`<400ms`/`<512B` 丢弃碎音、状态文案同线上。
 - **仍与线上不同**：不做客户端 VAD（自托管 `/vad/silero_vad_v5.onnx` + worklet 预滚）与真·实时打断，流式转写只有一条全量 delta，TTS 未做 PCM 实时流（按句 `interject_pcm`）；没有「N 秒后发送 / 延迟发送」倒计时；`/audio-probe` 只有 ok 态（无 429 冷却、无 503 draining）。
 - 实测：假网关（`/audio/transcriptions` 回「请用一个具体例子解释刚才的公式」）下，浏览器两条链都跑通——讲解中说话走 `interject_start`+`interject_question`，安静时走 `user_message`，气泡都由「🎤 …」替换成转写文本；原始 WS 用例覆盖 `interject_audio_chunk`×3→`interject_audio_end`、`voice_stream_start/chunk/end`、`user_message` 三条路径，服务端分别回 `interject_user_text`、`voice_stream_text`+`voice_transcript`、`voice_transcript`。
+
+**第六十七批（BYOK 全链路复检，2026-09-16 晚）**
+- **五槽探针全绿**（面板按钮逐个点过）：LLM `chat 探针 · 200 · 11ms`、TTS `speech 探针 · 200 · 7ms`、STT `models 探针 · 200 · 14ms`（深度探针 `transcription 探针 · 200 · 10ms`）、Search `search 探针 · 200 · 5ms`、Image `models 探针 · 200 · 14ms`（深度探针 `generate 探针 · 200 · 3ms`）。假网关侧计数：`/v1/chat/completions`、`/v1/audio/speech`、`/v1/search`、`/v1/models`、`/v1/audio/transcriptions`、`/v1/images/generations` 都被真实打到。
+- **课程生成全链路复测**（此前一节标着「本轮未复测」）：首页输入 → 「课程大纲与学习规划」弹层 → 确认并开始构建 → `/response/course-generation/<uuid>`；帧序 `正在搜索网络资料 ｜ 第 1 步，共 4 步` → `构思初步思路与大纲 ｜ 第 2 步` → 问卷（4 题，含单选/自定义）→ `course_generation_answers` → `设计进阶课程结构 ｜ 第 3 步` → `没问题，继续生成课程细节`（结构确认）→ `生成课时讲义与互动练习 ｜ 第 4 步` → `查看课程`。期间 BYOK LLM 被真实调用。
+- **run 落盘与回放**：`var/data/generation_runs/<run_id>.json` 记满 38 条事件（`start_course_generation`/`credits_charged{amount:0,byok:true}`/19×`course_generation_step`/9×`course_generation_progress`/`course_generation_questions`/`course_generation_answers`/`course_generation_structure`/`course_generation_complete`），`GET /course-generation/generation-log/<run_id>` 原样回放同一批事件。
+- **路由巡检**：首页 / 课程 / 课程页 / 练习 / 考试 / 学习动态 / 历史 / 知识库 / 收件箱 / 课程集市 十个入口逐个打开，无 console 报错、无错误态文案。
+- 复检中发现的唯一缺陷是 `PUT /auth/byok` 的单槽写法会静默串槽（已修，见第六十六批）。
