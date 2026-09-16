@@ -169,3 +169,16 @@
 | 活动/历史行 | `.activity-type-icon{width:0;opacity:0}` → `.activity-item:hover .activity-type-icon{width:14px;opacity:.6;margin-right:6px}`；`-running-spinner` 12px `#4c6696` 顶边转；`.activity-board-badge{13px;opacity:.55}` | 记为下一批 |
 | 考试页 | `.exam-page{height:100dvh;background:#fff}`；`.exam-close-btn{top:26px;left:31px;width:16px;height:16px;color:#4c4c4c}`；`.exam-progress-dots{top:26px;left:50%;gap:10px}`；`.exam-progress-dot{17×10 radius999 #d4d4d4}`，active `25×18` 描边 2px `#D4D4D4` + 内条 `17×10 #aeaeae`；`.exam-timer{padding:7px 14px;radius999;background:#f1f4f9;color:#385da0;font-size:14px;tabular-nums}`，低时间 `#fbeded`/`#c34747`；`.exam-stage{top:52px;right:36px;bottom:30px;left:36px;border:1.5px solid #E5E5E5;border-radius:14px}` | 记为下一批 |
 
+## 第八批对照：课程页骨架、练习/考试全屏（r72-r74）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 课程页容器 | `.course-journey-page{display:flex;justify-content:center;height:100dvh;background:#fafafa;padding-left:max(48px,calc((100% - 1100px)/2));overflow:hidden}`；`.course-journey-inner{width:100%;height:100%;gap:36px}` | 同（实测 padLeft 62px / gap 36 / bg `#fafafa`） |
+| 课程页左栏 | `.course-journey-left{width:310px;padding:28px 20px 32px 40px;overflow-y:auto}`，滚动条隐藏；返回键 `padding:7px 12px;background:#fff;border-radius:10px;color:#4a5568` | 同 |
+| 课程封面 | `.cj-sidebar-cover-frame{margin-top:20px}`；`.cj-sidebar-cover{aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#dce6ec}`；操作键 `.cj-sidebar-cover-actions{top:10px;left:10px;right:10px;align-items:flex-end;gap:6px}`，`.cj-sidebar-cover-btn{32×32;border-radius:50%;background:#ffffffeb;box-shadow:0 2px 8px #0f172a2e}`，提示气泡 `#2b3648` | 同（实测 1/1 / radius 14 / `rgb(220,230,236)` / 键 32 圆） |
+| 课程左栏信息 | `.cj-sidebar-info{padding:16px 0 0}`；创作者行 gap8 mb12、头像 28×28 radius8 `#e8f0f8`+`#D6E4F0`、类型 10px `#9ca3af`、名字 12.5px `#374151`；标题 14.5px w600 `#111827` mb8；描述 12px/1.55 `#6b7280` 3 行；更多 `#4c6696` | 同 |
+| 大纲标题/标签页 | `.cj-sidebar-section-title{font-size:11px;letter-spacing:.06em;uppercase;color:#9ca3af}` + `:after{height:.9px;background:#e5e7eb}`；`.cj-sidebar-tab{padding:6px 8px 6px 6px;border-radius:8px;color:#9ca3af}`，hover `#f3f4f6`/`#4b5563`，active `#f3f4f6`/`#111827` | 同 |
+| 课程页右栏 | `.course-journey-right{flex:1;padding:48px 48px 48px 6px;overflow-y:auto}`；`.course-journey-unit-overview{max-width:760px}`；单元眉标 `3px 10px` radius999 `#e8f0f8`/`#4c6696`；标题 22px `#111827` `letter-spacing:-.02em`；描述 15px/1.55 `#4b5563` max-width 700 | 同（实测右栏 padding / 眉标 `rgb(232,240,248)` / 标题 22px ls -0.44px / 760） |
+| 练习/考试页 | `.practice-page,.exam-page{width:100%;height:100dvh;overflow:hidden;background:#fff;position:relative}`；关闭键 `top:26px;left:31px;16×16;color:#4c4c4c`；进度点 `top:26px;left:50%;gap:10px;translate(-50%,-50%)`，点 `17×10` radius999 `#d4d4d4`，激活 `25×18` 描边 2px `#D4D4D4`（考试激活点内含 `17×10 #aeaeae` 条）；`.exam-stage{top:52px;right:36px;bottom:30px;left:36px;border:1.5px solid #E5E5E5;border-radius:14px}` | 同（练习与考试都换成全屏页 + 顶部点，点可点击跳题，答对答错改变颜色） |
+| 考试倒计时 | `.exam-timer{padding:7px 14px;radius999;background:#f1f4f9;color:#385da0;font-size:14px;tabular-nums}`，低时间 `#fbeded`/`#c34747` | **未做**：缺考试时长来源（接口未给），先留缺口 |
+

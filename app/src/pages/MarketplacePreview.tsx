@@ -98,27 +98,46 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
     }
   }
   return (
-    <div className="mx-auto max-w-[1180px] px-8 pb-16 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}>
-      <aside className="space-y-4">
-        <button onClick={() => (enrolled ? nav('/courses') : nav('/marketplace'))} className="inline-flex items-center gap-1 text-[12px] text-[#6b6b70] hover:text-black"><ArrowLeft size={13} />{enrolled ? '返回我的课程' : '返回课程集市'}</button>
-        <div className="rounded-2xl overflow-hidden" style={{ background: course.coverImage?.backgroundColor ?? '#e9ecf5', aspectRatio: '4/3' }}>
-          {course.coverImageUrl && <img src={course.coverImageUrl} alt="" className="w-full h-full object-contain p-6 mix-blend-multiply" />}
+    <div className="course-journey-page">
+      <div className="course-journey-inner">
+      <aside className="course-journey-left">
+        <button onClick={() => (enrolled ? nav('/courses') : nav('/marketplace'))} className="course-journey-back-btn"><ArrowLeft size={14} />{enrolled ? '返回我的课程' : '返回课程集市'}</button>
+        <div className="cj-sidebar-cover-frame">
+          <div className="cj-sidebar-cover">
+            {course.coverImageUrl && <img src={course.coverImageUrl} alt="" className="cj-sidebar-cover-img" />}
+          </div>
+          {enrolled && (
+            <div className="cj-sidebar-cover-actions">
+              <button className="cj-sidebar-cover-btn" data-tip="分享课程" aria-label="分享课程"><Share2 size={15} /></button>
+              <button className="cj-sidebar-cover-btn" data-tip="课程操作" aria-label="课程操作" onClick={() => setDropModal(true)}><MoreHorizontal size={15} /></button>
+            </div>
+          )}
         </div>
-        <div className="flex items-center gap-1.5 text-[12px] text-[#6b6b70]"><span className="inline-block h-4 w-4 rounded-full bg-[#0a0a0a]" />策划自 <span className="text-black">betterknow Official</span><BadgeCheck size={13} className="text-[#2563eb]" /></div>
-        <h1 className="hk-title-serif text-[20px] leading-snug">{course.courseTitle}</h1>
-        <p className={`text-[12px] text-[#6b6b70] leading-5 ${more ? '' : 'line-clamp-4'}`}>{course.courseDescription}</p>
-        <button onClick={() => setMore((m) => !m)} className="text-[12px] text-[#3d3d3f] underline-offset-2 hover:underline">{more ? '收起' : '显示更多'}</button>
+        <div className="cj-sidebar-info">
+        <div className="cj-sidebar-creator-row">
+          <span className="cj-sidebar-creator-avatar"><span className="cj-sidebar-creator-glyph">◆</span></span>
+          <span className="cj-sidebar-creator-info">
+            <span className="cj-sidebar-creator-type">课程创作者</span>
+            <span className="cj-sidebar-creator-name">betterknow Learning Lab</span>
+          </span>
+        </div>
+        <h1 className="cj-sidebar-title">{course.courseTitle}</h1>
+        <p className={`cj-sidebar-desc ${more ? '' : ''}`} style={more ? { WebkitLineClamp: 'unset' } : undefined}>{course.courseDescription}</p>
+        <button onClick={() => setMore((m) => !m)} className="cj-sidebar-show-more">{more ? '收起' : '显示更多'}</button>
         {course.tags?.length ? <div className="flex flex-wrap gap-1.5">{course.tags.slice(0, 6).map((t) => <span key={t} className="text-[11px] px-1.5 py-0.5 rounded bg-[#f1f2f4] text-[#6b6b70] inline-flex items-center gap-0.5"><Hash size={10} />{t}</span>)}</div> : null}
         {!enrolled ? (
           <button onClick={onJoin} className="w-full h-11 rounded-xl bg-[#0a0a0a] text-white font-medium hover:bg-black/85">加入课程</button>
         ) : (
           <div className="flex gap-2"><button className="hk-pill flex-1 justify-center"><Share2 size={13} />分享</button><button onClick={() => setDropModal(true)} className="hk-pill flex-1 justify-center text-[#dc2626]"><LogOut size={13} />退出课程</button></div>
         )}
-        <div role="tablist" className="flex gap-1 border-b text-[13px]">
-          {([['units', '单元'], ['materials', '资料'], ['practice', '练习']] as const).map(([k, l]) => (
-            <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className="relative px-2.5 h-9 text-[#6b6b70] data-[on=true]:text-black data-[on=true]:font-medium" data-on={tab === k}>{l}{tab === k && <span className="absolute left-2 right-2 -bottom-px h-0.5 bg-black" />}</button>
-          ))}
         </div>
+
+        <div className="cj-sidebar-section-header"><span className="cj-sidebar-section-title">课程大纲</span></div>
+        <nav className="cj-sidebar-tabs" role="tablist">
+          {([['units', '单元'], ['materials', '资料'], ['practice', '练习']] as const).map(([k, l]) => (
+            <button key={k} role="tab" aria-selected={tab === k} data-active={tab === k} onClick={() => setTab(k)} className={`cj-sidebar-tab ${tab === k ? 'cj-sidebar-tab--active' : ''}`}>{l}</button>
+          ))}
+        </nav>
         {tab === 'units' && (
           <ol className="space-y-1">
             {course.units.map((u, i) => (
@@ -141,11 +160,12 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
         </div>
       </aside>
 
-      <section>
+      <main className="course-journey-right">
+        <section className="course-journey-unit-overview">
         {unit && (
-          <div key={unit.unitId} className="hk-fade-in-up">
-            <div className="text-[11px] text-[#3b5bdb] font-medium mb-1 px-1.5 py-0.5 rounded bg-[#eef2ff] inline-block">第 {unitIdx + 1} 单元，共 {course.units.length} 单元</div>
-            <h2 className="text-[22px] font-semibold mt-2 flex items-center gap-2">
+          <div key={unit.unitId} className="hk-fade-in-up course-journey-unit-header">
+            <div className="course-journey-unit-eyebrow">第 {unitIdx + 1} 单元共 {course.units.length} 单元</div>
+            <h2 className="course-journey-unit-title flex items-center gap-2">
               单元 {unitIdx + 1}：{unit.title}
               {typeof progress?.examScores?.[unit.unitId] === 'number' && (
                 <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#eff6ff] text-[#1d4ed8]">考试 {progress.examScores[unit.unitId]} 分</span>
@@ -154,7 +174,7 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
                 <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#eff6ff] text-[#1d4ed8]">考试 {progress.examScores[`unit${unitIdx + 1}`]} 分</span>
               )}
             </h2>
-            <p className="text-[13px] text-[#6b6b70] mt-2 leading-6 max-w-[760px]">{unit.description}</p>
+            <p className="course-journey-unit-description">{unit.description}</p>
             <button onClick={() => setUploadModal(true)} className="mt-4 w-full hk-card p-4 flex items-center gap-3 text-left hover:shadow-md cursor-pointer"><span className="flex -space-x-2"><span className="h-8 w-8 rounded-lg bg-[#fde68a]" /><span className="h-8 w-8 rounded-lg bg-[#bfdbfe]" /><span className="h-8 w-8 rounded-lg bg-[#fecaca]" /></span><span><span className="block text-[13px] font-medium inline-flex items-center gap-1"><Upload size={13} />上传材料，扩展这门课程</span><span className="block text-[12px] text-[#8a8a90]">上传教材的 PDF，或直接描述你想添加、修改的内容</span></span></button>
             <div className="mt-4 flex flex-wrap items-center gap-3 text-[11px] text-[#6b6b70]">{LEGEND.map((l) => <span key={l.k} className="inline-flex items-center gap-1"><StatusDot status={l.k} />{l.label}</span>)}</div>
             <div className="mt-3 inline-flex items-center gap-2 text-[12px] px-3 h-8 rounded-full bg-[#f4f4f5]"><Play size={11} />{enrolled ? `下一步：单元 ${unitIdx + 1} · ${unit.lectures[0]?.title ?? ''}` : '这是新课程，请从这里开始：单元 1'}<ChevronRight size={12} /></div>
@@ -223,7 +243,8 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
             </div>
           </div>
         )}
-      </section>
+        </section>
+      </main>
 
       <UploadMaterialModal
         open={uploadModal}
@@ -247,6 +268,7 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
         onOpenChange={setBugModal}
         context={`Course: ${course.courseTitle}`}
       />
+      </div>
     </div>
   )
 }

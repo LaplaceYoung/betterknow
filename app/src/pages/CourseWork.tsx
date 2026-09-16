@@ -196,11 +196,13 @@ function QuizRunner({
   onFinish,
   subtitle,
   courseId,
+  mode = 'practice',
 }: {
   title: string
   questions: Question[]
   subtitle?: string
   courseId: string
+  mode?: 'practice' | 'exam'
   onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>) => void
 }) {
   const [i, setI] = useState(0)
@@ -296,7 +298,23 @@ function QuizRunner({
   }
 
   return (
-    <div className="mx-auto max-w-[672px] px-8 pb-24">
+    <div className={mode === 'exam' ? 'exam-page' : 'practice-page'}>
+      <button className={mode === 'exam' ? 'exam-close-btn' : 'practice-close-btn'} onClick={() => onFinish(score, questions.length, {})} aria-label="退出"><X size={16} /></button>
+      <div className={mode === 'exam' ? 'exam-progress-dots' : 'practice-progress-dots'}>
+        {questions.map((_, idx) => {
+          const isCurrent = idx === i
+          const wasCorrect = answersState[idx] === true
+          const answered = answersState[idx] !== undefined
+          return (
+            <button key={idx} onClick={() => { setI(idx); setPicked([]); setFill(''); setChecked(false) }}
+              aria-label={`第 ${idx + 1} 题`} title={`第 ${idx + 1} 题`}
+              className={`${mode === 'exam' ? 'exam-progress-dot' : 'practice-progress-dot'} ${isCurrent ? (mode === 'exam' ? 'exam-progress-dot--active' : 'practice-progress-dot--active') : ''}`}
+              data-tone={answered ? (wasCorrect ? 'ok' : 'bad') : 'idle'} />
+          )
+        })}
+      </div>
+      <div className={mode === 'exam' ? 'exam-stage' : ''}>
+      <div className="mx-auto max-w-[672px] px-8 pb-24">
       {readyOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: 'rgba(20,20,20,.28)', backdropFilter: 'blur(2px)' }} data-testid="practice-ready">
           <div className="hk-card flex items-center gap-4" style={{ width: 490, padding: '22px 24px', borderRadius: 20 }}>
@@ -334,22 +352,8 @@ function QuizRunner({
                     setChecked(false)
                   }
                 }}
-                className={`transition-all ${
-                  isCurrent
-                    ? 'bg-transparent'
-                    : hasAnswered
-                    ? wasCorrect
-                      ? 'bg-[#16a34a]'
-                      : 'bg-[#dc2626]'
-                    : 'bg-[#d4d4d4]'
-                }`}
-                style={{
-                  width: isCurrent ? 25 : 17,
-                  height: isCurrent ? 18 : 10,
-                  borderRadius: 999,
-                  boxSizing: 'border-box',
-                  border: isCurrent ? `2px solid ${wasCorrect ? '#16a34a' : hasAnswered ? '#dc2626' : '#D4D4D4'}` : undefined,
-                }}
+                className={`practice-progress-dot ${isCurrent ? 'practice-progress-dot--active' : ''}`}
+                data-tone={isCurrent ? (hasAnswered ? (wasCorrect ? 'ok' : 'bad') : 'idle') : hasAnswered ? (wasCorrect ? 'ok' : 'bad') : 'idle'}
                 title={`第 ${idx + 1} 题`}
               />
             )
@@ -524,6 +528,8 @@ function QuizRunner({
         currentQuestion={q}
       />
     </div>
+      </div>
+    </div>
   )
 }
 
@@ -653,6 +659,7 @@ export function Exam() {
     <>
       <BackBar onBack={() => nav(`/course/${courseId}`)} />
       <QuizRunner
+        mode="exam"
         title={exam.title}
         subtitle="单元综合考试"
         courseId={courseId}
