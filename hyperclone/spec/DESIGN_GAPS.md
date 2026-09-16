@@ -427,3 +427,9 @@
 - 音效按线上音量接通：奖励层 `reward.mp3` .6、单元完成 `session-complete.mp3` .6（这两支 mp3 之前抓下来一直没接线）。另查清其余触发点：闲置提示 reward .45、Pro 庆祝 reward .5。
 - 清理：删掉被奖励层取代的 `credits` 状态与渲染行、Whiteboard 里未使用的 `Pause/Play` 导入，修掉两处 `no-useless-escape`（正则字符类里的多余转义）。
 - 观察（未改）：白板页的讲稿面板在默认视口下不渲染（`script` 状态有更新，DOM 里没有对应面板），这与本次改动无关，记下来便于以后排查。
+
+**第四十五批（闲置提示层 + 角色视频组件收敛）**
+- **修正上一批的一处误判**：白板页「讲稿面板不渲染」不是 bug，而是白板默认进沉浸（zen）模式；点工具条的 zen 开关后侧栏出现，且奖励行「🏅 …」确实在讲稿里（实测）。
+- 补上**闲置提示层**（此前没有）：线上 `$h` hook（120s + 4 个活动事件重计时 + `sessionIdlePrompt.snoozedUntil` 7 天免打扰）+ `Af` 组件（随机角色视频 / 三行文案 / 继续对话 / 返回课程列表 / reward.mp3 .45）。实测 120s 后弹出、结构 570px/radius 30px/grid `190px 308px`、媒体随机取到 `char-stars.mp4` 且 poster 同名 `.webp`、勾选写入 7 天后时间戳、关掉后不再弹。
+- **收敛媒体组件**：线上所有角色动画都走同一个 `CharVideo`（内联 `mix-blend-mode:multiply` + `brightness(1.08)`，poster = 同名 `.webp`）与 `RandomCharVideo`（五个候选里随机）。本仓此前四处各写一份 `<video>`，现统一到 `app/src/components/CharVideo.tsx`；四张缺的 `.webp` poster 已补齐（stars/floating/petting/courses-reward）。
+- 保留差异：线上 idle hook 在 course session 页常开；本仓按 `status !== 'connecting'` 判定，未连接时不弹。

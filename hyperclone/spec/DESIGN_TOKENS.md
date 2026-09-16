@@ -626,3 +626,28 @@ hint「建议先完成这节课的练习，再进入下一节。」，动作「�
 **顺带查清 `reward.mp3`/`session-complete.mp3` 的其余触发点**（r132）：
 `WhiteboardPage` 奖励层（.6）、`courseSession` 单元完成（session-complete .6）、`session-idle-prompt` 闲置提示（reward .45）、`ProSuccessCelebration`（reward .5）。
 
+### 共享角色视频组件 + 闲置提示层（第三十二批，r143 + r140 + r141）
+
+**角色视频组件**（线上 index bundle 原文）：五个候选视频 + 固定内联样式，poster 约定是「同路径 `.webp`」：
+
+```js
+const CHAR_VIDEOS = ['/pages/mainPages/animations/char-stars.mp4', '…/char-floating.mp4', '…/char-petting.mp4',
+                     '/pages/mainPages/courses/reward.mp4', '/pages/mainPages/whiteboard/running-w-background.mp4']
+const CHAR_MEDIA_STYLE = { mixBlendMode: 'multiply', filter: 'brightness(1.08)', background: 'transparent' }
+const CharVideo = ({ src, className }) => <video className={className} style={CHAR_MEDIA_STYLE} poster={src.replace(/\.mp4$/, '.webp')} autoPlay loop muted playsInline><source src={src} type="video/mp4" /></video>
+const RandomCharVideo = ({ className }) => <CharVideo className={className} src={useState(() => CHAR_VIDEOS[Math.floor(Math.random() * CHAR_VIDEOS.length)])[0]} />
+```
+
+本仓落成 `app/src/components/CharVideo.tsx`，欢迎弹窗 / 奖励层 / 单元完成层 / 闲置提示层统一走它（四张 `.webp` poster 已从线上抓下：stars 25,916 B、floating 31,300 B、petting 27,160 B、courses/reward 22,704 B）。
+
+**闲置提示层**（线上 `$h` + `Af`）：
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 计时 | `delayMs = 12e4`（120s）；活动事件 `pointerdown / keydown / wheel / touchstart` 重新计时（passive） | 同，落成 `app/src/lib/useIdlePrompt.ts` |
+| 免打扰 | checkbox 写 `localStorage['sessionIdlePrompt.snoozedUntil'] = Date.now() + 6048e5`（7 天），到期自动清除 | 同。实测点击后写入 `1790158541795` ≈ 2026-09-23（今天 +7 天） |
+| 结构 | `.session-idle-prompt-overlay[role=dialog][aria-modal=true][aria-live=polite][aria-labelledby=session-idle-prompt-title][aria-describedby=session-idle-prompt-description]`；`row > media(RandomCharVideo) + body(title/desc/snooze/actions)` | 同。实测 570px / radius 30px / grid `190px 308px` |
+| 文案 | 「您还在吗？」/「您已有一段时间没有操作。如有疑问，可继续向模型提问。」/「7 天内不再提醒」/「继续对话」/「返回课程列表」（standalone 时「返回对话」） | 同 |
+| 音效 | `/sounds/reward.mp3` 音量 **0.45** | 同 |
+| 行为 | 「继续对话」= 关弹层 + 聚焦输入；「返回课程列表」= 关弹层 + 跳 `/courses` | 同 |
+

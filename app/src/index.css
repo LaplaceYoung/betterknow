@@ -870,3 +870,29 @@
   .whiteboard-unit-complete-recap-label { text-align: center; }
   .whiteboard-unit-complete-recap-chips { justify-content: center; margin-left: 0; }
 }
+
+/* 线上 .session-idle-prompt*（闲置提示层；r141 取自线上样式表原文） */
+.session-idle-prompt-overlay { position: fixed; top: 50%; left: 50%; z-index: 2200; width: 570px; max-width: calc(100vw - 48px); padding: 30px 30px 28px 28px; border: 1px solid rgba(17,24,39,.08); border-radius: 30px; background: #fbfbfb; box-shadow: 0 2px 6px #0000000a, 0 18px 56px #00000029; color: #171717; animation: session-idle-prompt-in .3s cubic-bezier(.34,1.2,.64,1); }
+@keyframes session-idle-prompt-in { 0% { opacity: 0; transform: translate(-50%,calc(-50% + 10px)) scale(.98); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+.session-idle-prompt-row { display: grid; grid-template-columns: 190px minmax(0,1fr); align-items: center; gap: 12px; }
+.session-idle-prompt-media { position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 24px; background: transparent; }
+.session-idle-prompt-video { display: block; width: 118%; height: 118%; margin: -9%; object-fit: contain; }
+.session-idle-prompt-body { display: flex; min-width: 0; flex-direction: column; justify-content: center; gap: 10px; }
+.session-idle-prompt-title { color: #171717; font-size: 24px; font-weight: 760; line-height: 1.12; letter-spacing: -.035em; }
+.session-idle-prompt-desc { color: #374151; font-size: 14.5px; line-height: 1.58; letter-spacing: -.01em; }
+.session-idle-prompt-snooze { display: flex; align-items: center; gap: 8px; margin-top: 2px; color: #6b7280; font-size: 13px; line-height: 1.3; letter-spacing: -.01em; cursor: pointer; user-select: none; }
+.session-idle-prompt-snooze:hover { color: #374151; }
+.session-idle-prompt-snooze-input { width: 15px; height: 15px; margin: 0; accent-color: #111827; cursor: pointer; }
+.session-idle-prompt-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+.session-idle-prompt-btn { padding: 10px 22px; border: none; border-radius: 999px; background: #111827; color: #fff; font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: background .15s ease, transform .12s ease; }
+.session-idle-prompt-btn:hover { background: #1f2937; transform: translateY(-1px); }
+.session-idle-prompt-btn--secondary { border: 1px solid #e5e7eb; background: #fff; color: #374151; }
+.session-idle-prompt-btn--secondary:hover { background: #f9fafb; }
+@media (max-width: 640px) {
+  .session-idle-prompt-overlay { padding: 24px 24px 22px; }
+  .session-idle-prompt-row { grid-template-columns: 1fr; gap: 4px; }
+  .session-idle-prompt-media { width: 210px; max-width: 72vw; margin: 0 auto; }
+  .session-idle-prompt-title, .session-idle-prompt-desc { text-align: center; }
+  .session-idle-prompt-snooze { justify-content: center; }
+  .session-idle-prompt-actions { flex-direction: column; }
+}

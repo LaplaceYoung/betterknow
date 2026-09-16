@@ -6,6 +6,9 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { apiGet, wsUrl } from '@/lib/api'
 import { playSfx } from '@/lib/sfx'
+import { CharVideo } from '@/components/CharVideo'
+import { IdlePrompt } from '@/components/IdlePrompt'
+import { useIdlePrompt } from '@/lib/useIdlePrompt'
 
 interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; options?: string[]; correct_index?: number; explanation?: string; task_preview?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
 interface BoardImage { url: string; caption: string; width: number; height: number; pending: boolean; failed?: boolean }
@@ -42,6 +45,9 @@ export default function Whiteboard() {
   // 线上白板的两个奖励层：reward_user 帧 → 概念奖励弹层；response_complete{session:true} → 单元完成弹层
   const [rewardPrompt, setRewardPrompt] = useState<{ masterConceptTitle: string; masterConceptDescription: string; stepId?: string | number } | null>(null)
   const [unitComplete, setUnitComplete] = useState<{ beatPercent: number } | null>(null)
+  // 线上：闲置 120s 弹「您还在吗？」（活动事件会重新计时；勾选 7 天内不再提醒）
+  const { isIdlePromptOpen, dismissIdlePrompt } = useIdlePrompt({ enabled: status !== 'connecting' })
+  const inputRef = useRef<HTMLInputElement | null>(null)
   const [ttsVoice, setTtsVoice] = useState(true)
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -406,7 +412,7 @@ export default function Whiteboard() {
             aria-labelledby="whiteboard-reward-title" aria-describedby="whiteboard-reward-description">
             <div className="whiteboard-reward-overlay-row">
               <div className="whiteboard-reward-overlay-media" aria-hidden="true">
-                <video className="whiteboard-reward-overlay-video" src="/assets/img/pages/mainPages/animations/char-reward-pop.mp4" autoPlay loop muted playsInline />
+                <CharVideo className="whiteboard-reward-overlay-video" src="/assets/img/pages/mainPages/animations/char-reward-pop.mp4" />
               </div>
               <div className="whiteboard-reward-overlay-body">
                 <span className="whiteboard-reward-overlay-eyebrow">你获得了奖励</span>
@@ -418,12 +424,23 @@ export default function Whiteboard() {
             </div>
           </div>
         )}
+        {isIdlePromptOpen && (
+          <IdlePrompt
+            title="您还在吗？"
+            message="您已有一段时间没有操作。如有疑问，可继续向模型提问。"
+            snoozeLabel="7 天内不再提醒"
+            keepInChatLabel="继续对话"
+            backToCoursesLabel={courseId ? '返回课程列表' : '返回对话'}
+            onKeepInChat={() => { dismissIdlePrompt(); inputRef.current?.focus() }}
+            onBackToCourses={() => { dismissIdlePrompt(); nav(courseId ? '/courses' : '/') }}
+          />
+        )}
         {unitComplete && (
           <div className="whiteboard-reward-overlay whiteboard-unit-complete-overlay" role="dialog" aria-modal="true" aria-live="polite"
             aria-labelledby="whiteboard-unit-complete-title" aria-describedby="whiteboard-unit-complete-description">
             <div className="whiteboard-reward-overlay-row">
               <div className="whiteboard-reward-overlay-media" aria-hidden="true">
-                <video className="whiteboard-reward-overlay-video" src="/assets/img/pages/mainPages/animations/char-complete-standing.mp4" autoPlay loop muted playsInline />
+                <CharVideo className="whiteboard-reward-overlay-video" src="/assets/img/pages/mainPages/animations/char-complete-standing.mp4" />
               </div>
               <div className="whiteboard-reward-overlay-body">
                 <span className="whiteboard-reward-overlay-eyebrow">单元完成</span>
@@ -478,7 +495,7 @@ export default function Whiteboard() {
         </div>
         <div className="p-3 border-t">
           <div className="hk-composer p-2 flex items-center gap-2">
-            <input value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && ask()} placeholder="向老师提问…" className="flex-1 bg-transparent outline-none text-[13px] px-1" aria-label="向老师提问" />
+            <input ref={inputRef} value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && ask()} placeholder="向老师提问…" className="flex-1 bg-transparent outline-none text-[13px] px-1" aria-label="向老师提问" />
             <button className="hk-icon-btn h-8 w-8" aria-label="语音提问"><Mic size={14} /></button>
             <button onClick={ask} disabled={!q.trim()} className="hk-send" aria-label="发送"><ArrowUp size={14} /></button>
           </div>

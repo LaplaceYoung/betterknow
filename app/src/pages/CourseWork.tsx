@@ -8,6 +8,7 @@ import { apiGet, apiPost } from '@/lib/api'
 import { SCORING, makeRivals, perfectScore, scoreQuiz, starsFor } from '@/lib/quizScoring'
 import { SlotNumber } from '@/components/SlotNumber'
 import { PracticeStars } from '@/components/PracticeStars'
+import { CharVideo } from '@/components/CharVideo'
 import { playSfx } from '@/lib/sfx'
 
 // 线上练习彩带的调色板（T 数组）与 reduced-motion 判断
@@ -653,11 +654,7 @@ function QuizRunner({
             role="dialog" aria-modal="true" aria-labelledby="practice-welcome-title" aria-describedby="practice-welcome-desc">
             <div className="practice-welcome-row">
               <div className="practice-welcome-media" aria-hidden="true">
-                <video className="practice-welcome-video" poster="/assets/img/pages/mainPages/whiteboard/running-w-background.webp"
-                  autoPlay loop playsInline
-                  style={{ mixBlendMode: 'multiply', filter: 'brightness(1.08)', background: 'transparent' }}>
-                  <source src="/assets/img/pages/mainPages/whiteboard/running-w-background.mp4" type="video/mp4" />
-                </video>
+                <CharVideo className="practice-welcome-video" src="/assets/img/pages/mainPages/whiteboard/running-w-background.mp4" />
               </div>
               <div className="practice-welcome-body">
                 <span id="practice-welcome-title" className="practice-welcome-title">{returning ? '欢迎回来' : '准备好练习'}</span>
