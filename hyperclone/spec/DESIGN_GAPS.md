@@ -339,3 +339,8 @@
 - **滚动渐隐**：滚动超过 8px 时挂 `.sh-scroll--scrolled`，遮罩从「只有底部渐隐」变为「上下都渐隐」。
 - **课程页空态**：`.courses-empty` 结构（200×200 插画 + 16/650 标题 + 13px 说明 max-width 320 + `32px 24px 40px` 内边距），并区分「搜索无结果」与「还没有课程」两套文案；加载态补 `.courses-loading`。插画用本仓自绘 SVG 占位，**没有复制原站图片资源**。
 - **收件箱行改成线上结构**：左侧 120px 日期栏（13px `#8b93a0` + 未读 6px 点）+ 主区（标题 16/700、正文 14/1.6），未读行左边框 3px `#4c6694`，末行去底边，hover `rgba(0,0,0,.02)`，并补 3 行骨架。
+
+**第三十批（深度学习课堂 + 学习动态补件）**
+- 线上实操打开一节 deep learn（`/deep-learn-session/<id>`）抓到 `learning-session-*` / `session-*` / `outline-*` 体系，本仓会话页整页换成同骨架：`#fafafa` 全屏 + `0 20px 20px 10px` 内边距、gap 70 / 1400 / `margin-top:50px` / `calc(100dvh - 70px)` 的两栏、310 白卡大纲面板（内容 `26px 22px 28px 15px`、条目 hover/current/locked 三态）、底部 `#f8f8f8` 翻页条（`#4c6696`、禁用 `#c8cdd6`、标签两行截断）、800 宽主区（绝对定位内容滚动）、渐变容器 + 24 圆角输入条、以及滚离底部才出现的 33px 回到底部圆钮。
+- 学习动态的周/月切换改成线上 `.proactive-tasks-mode-switcher`（`#f5f5f4` / pad 3 / radius 12 / gap 4，选中白底 + 1px 阴影）。
+- 仍未做：`.custom-scrollbar-*` 自定义滚动条（10px 悬停热区 + 5px 拖拽滑块）、`.session-input-bar.multiline` 的多行态（radius 16 + 底部 50px）、deep learn 大纲的锁定/解锁规则（线上带 `.locked` 与锁图标，规则来源未抓到）。

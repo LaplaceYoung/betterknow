@@ -324,3 +324,18 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 收件箱行内 | `.inbox-notification-aside{width:120px;margin-top:2px}` 内含日期行 `gap:6px` + 日期 13 `#8b93a0` + 未读点 6px `#4c6694`；`.inbox-notification-main{gap:8px}`；标题 16/700 `#1a1a1a`（已读降为 600 `#374151`）；正文 14 `#6b7280` lh 1.6 | 同（实测 120/2、main gap 8、标题 16/700、日期 `rgb(139,147,160)`） |
 | 收件箱骨架 | `.inbox-skeleton{border-radius:6px;background:#ededed}`；日期 72×13、标题 70%×16、正文 100%×14 | 同（3 行骨架） |
 
+### 深度学习课堂（第十七批，r99-r101）与学习动态补件
+
+线上会话页类名是 `learning-session-*` / `session-*` / `outline-*`：
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 页与布局 | `.learning-session-page{height:100dvh;background:#fafafa;display:flex;flex-direction:column;padding:0 20px 20px 10px;overflow:hidden}`；`.learning-session-layout{display:flex;gap:70px;height:calc(100dvh - 70px);max-width:1400px;margin:50px auto 0;justify-content:center;align-items:flex-start}` | 同（实测 pad `0 20px 20px 10px`、gap 70、1400、mt 50、高 685） |
+| 大纲面板 | `.session-outline{width:310px;min-width:300px;background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,.08)}`；`.outline-content{padding:26px 22px 28px 15px;min-height:200px}`；`.outline-unit{margin-bottom:16px}`；`.outline-item{gap:10px;padding:5px 10px;margin:0 -10px;border-radius:10px}` hover `#f8f8f8`、current `#fafafa` + 标题 500 `#1a1a1a`、locked 标题 `#c2c9d4` | 同（实测 310 / radius 12 / 边框 `rgba(0,0,0,.08)` / 内容 padding 一致） |
+| 大纲翻页 | `.outline-nav{background:#f8f8f8;border-top:1px solid rgba(0,0,0,.06);border-radius:0 0 12px 12px}`；`.outline-nav-btn{flex:1;gap:6px;padding:9px;color:#4c6696;font-size:13px}`，disabled `#c8cdd6`，hover `#eee`/`#2e4270`；标签两行截断；prev 有右分割线、next 右对齐 | 同（实测 bg `rgb(248,248,248)`、radius `0 0 12px 12px`、按钮 padding 9 / 13px / disabled `rgb(200,205,214)`） |
+| 主区 | `.session-main-content-wrapper{flex:1;max-width:800px;position:relative}`；`.session-main-content{position:absolute;inset:0;overflow-y:auto;padding:12px 8px 120px 0}` | 同（实测 800 / absolute / padding 一致） |
+| 输入条 | `.session-input-container{padding:2px 0 8px;background:linear-gradient(to bottom,transparent,#fafafa 40%);z-index:10}`；`.session-input-bar{background:#fff;border:1px solid #EFEFEF;border-radius:24px;padding:9px;min-height:52px;box-shadow:0 1px 3px #00000005}`，聚焦 `0 2px 12px #0000000a`；多行时 radius 16 且底部留 50px | 同（实测 radius 24 / padding 9 / minH 52 / 边框 `#EFEFEF`） |
+| 回到底部 | `.scroll-to-bottom-button{width:33px;height:33px;border-radius:50%;background:#fff;border:1px solid #E5E5E5;box-shadow:0 2px 8px #0000001a}`，hover 抬起 | 同（滚离底部 > 240px 出现） |
+| 自定义滚动条 | `.custom-scrollbar-hover-zone{position:fixed;top:50px;right:0;bottom:10px;width:10px;z-index:999}`；thumb 5px `#00000038`，hover `.35`、拖动 `.52` | **未做**：本仓主区用原生隐藏滚动条 |
+| 学习动态分段 | `.proactive-tasks-mode-switcher{gap:4px;padding:3px;border-radius:12px;background:#f5f5f4}` | 同（实测 `rgb(245,245,244)` / pad 3 / radius 12 / gap 4，选中白底 + 1px 阴影） |
+

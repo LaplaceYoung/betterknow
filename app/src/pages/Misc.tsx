@@ -3,6 +3,8 @@ import { useNavigate, useParams, useSearchParams } from 'react-router'
 import { Check, Sparkles, Copy, Key, ShieldCheck, Cpu, ArrowRight, ArrowLeft, ArrowUp } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
+import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
 import { apiGet, apiPost } from '@/lib/api'
 import { useUser } from '@/lib/user'
@@ -161,6 +163,20 @@ export function DeepLearnSession() {
   const [ws, setWs] = useState<WebSocket | null>(null)
   const [streaming, setStreaming] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement | null>(null)
+  // 线上 .scroll-to-bottom-button：内容滚上去后出现
+  const [showJump, setShowJump] = useState(false)
+  useEffect(() => {
+    const el = contentRef.current
+    if (!el) return
+    const onScroll = () => {
+      const distance = el.scrollHeight - el.scrollTop - el.clientHeight
+      setShowJump(distance > 240)
+    }
+    onScroll()
+    el.addEventListener('scroll', onScroll)
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [msgs.length])
 
   useEffect(() => {
     apiPost<{ title?: string; outline?: { title: string; detail?: string }[]; plan?: { title: string }[] }>('/deep_learn/get_session_data', { deep_learn_session_id: id })
@@ -227,89 +243,81 @@ export function DeepLearnSession() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-52px)]">
-      {/* Left: Outline Panel */}
-      <aside className="w-[280px] shrink-0 border-r bg-white flex flex-col">
-        <div className="p-4 border-b">
-          <button onClick={() => nav('/history')} className="inline-flex items-center gap-1 text-[12px] text-[#6b6b70] hover:text-black mb-2">
-            <ArrowLeft size={13} /> 返回
-          </button>
-          <h2 className="text-[15px] font-semibold truncate">{outline?.title ?? '深度学习'}</h2>
-          <div className="text-[11px] text-[#8a8a90] mt-0.5">系统深学 · 分阶段任务</div>
+    <div className="learning-session-page" data-testid="deep-learn-session">
+      <div className="learning-session-layout">
+        <div className="session-outline" data-testid="session-outline">
+          <div className="outline-content">
+            <button onClick={() => nav('/history')} className="outline-item" style={{ marginBottom: 12 }}>
+              <span className="item-radio" aria-hidden="true" />
+              <span className="item-title">‹ 返回历史</span>
+            </button>
+            <p className="outline-unit-name">{outline?.title ?? '深度学习'}</p>
+            {outline?.items?.length ? outline.items.map((item, i) => {
+              const state = i === currentStep ? 'current' : i < currentStep ? 'done' : 'pending'
+              return (
+                <div className="outline-unit" key={i}>
+                  <div className={`outline-item ${state === 'current' ? 'current' : ''} ${state === 'pending' ? 'locked' : ''}`} role="button" tabIndex={0}
+                    onClick={() => setCurrentStep(i)} onKeyDown={(e) => e.key === 'Enter' && setCurrentStep(i)}>
+                    <span className="item-radio" data-state={state} aria-hidden="true">{state === 'done' ? '✓' : ''}</span>
+                    <span className="item-title">{item.title}</span>
+                  </div>
+                </div>
+              )
+            }) : <div className="text-[12px] text-[#8a8a90] p-2">开始对话后将自动生成学习大纲</div>}
+          </div>
+          <div className="outline-nav">
+            <button className="outline-nav-btn outline-nav-btn--prev" disabled={currentStep <= 0} onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}>
+              ‹ <span className="outline-nav-label">{outline?.items?.[currentStep - 1]?.title ?? '上一步'}</span>
+            </button>
+            <button className="outline-nav-btn outline-nav-btn--next" disabled={!outline?.items?.length || currentStep >= (outline?.items?.length ?? 1) - 1}
+              onClick={() => setCurrentStep((s) => Math.min((outline?.items?.length ?? 1) - 1, s + 1))}>
+              <span className="outline-nav-label">{outline?.items?.[currentStep + 1]?.title ?? '下一步'}</span> ›
+            </button>
+          </div>
         </div>
-        <div className="flex-1 overflow-y-auto hk-scroll p-3 space-y-1">
-          {(outline?.items ?? []).map((item, i) => (
-            <div
-              key={i}
-              className={`flex items-start gap-2.5 p-2.5 rounded-lg text-[12px] transition-colors ${
-                i === currentStep ? 'bg-[#eef2ff] text-[#3b5bdb]' : i < currentStep ? 'text-[#16a34a]' : 'text-[#6b6b70]'
-              }`}
-            >
-              <span className={`mt-0.5 h-5 w-5 shrink-0 rounded-full flex items-center justify-center text-[10px] font-semibold ${
-                i < currentStep ? 'bg-[#16a34a] text-white' : i === currentStep ? 'bg-[#3b5bdb] text-white' : 'bg-[#f1f2f4] text-[#8a8a90]'
-              }`}>
-                {i < currentStep ? <Check size={10} /> : i + 1}
-              </span>
-              <div className="flex-1 min-w-0">
-                <div className="font-medium leading-4 truncate">{item.title}</div>
-                {item.detail && <div className="text-[11px] opacity-70 mt-0.5 line-clamp-2">{item.detail}</div>}
-              </div>
-            </div>
-          ))}
-          {(!outline?.items || outline.items.length === 0) && outline && (
-            <div className="text-[12px] text-[#8a8a90] p-2">开始对话后将自动生成学习大纲</div>
-          )}
-        </div>
-        <div className="p-3 border-t text-[11px] text-[#8a8a90] text-center">
-          进度：{currentStep} / {outline?.items?.length ?? '?'}
-        </div>
-      </aside>
 
-      {/* Right: Chat */}
-      <section className="flex-1 min-w-0 flex flex-col">
-        <div className="flex-1 overflow-y-auto hk-scroll p-6 space-y-4">
-          {msgs.length === 0 && (
-            <div className="flex flex-col items-center justify-center h-full text-center">
-              <span className="text-[36px] mb-3">📚</span>
-              <div className="text-[15px] font-semibold">准备好深度学习了</div>
-              <div className="text-[13px] text-[#8a8a90] mt-1 max-w-[400px]">告诉老师你想从哪里开始，或直接说「开始」让老师带你系统学习。</div>
-            </div>
-          )}
-          {msgs.map((m, i) =>
-            m.who === 'you' ? (
+        <div className="session-main-content-wrapper">
+          <div className="session-main-content hk-scroll" ref={(el) => { if (el) contentRef.current = el }}>
+            {msgs.length === 0 && (
+              <div className="flex flex-col items-center justify-center h-full text-center">
+                <span className="text-[36px] mb-3">📚</span>
+                <div className="text-[15px] font-semibold">准备好深度学习了</div>
+                <div className="text-[13px] text-[#8a8a90] mt-1 max-w-[400px]">告诉老师你想从哪里开始，或直接说「开始」按大纲推进。</div>
+              </div>
+            )}
+            {msgs.map((m, i) => m.who === 'you' ? (
               <div key={i} className="flex justify-end hk-fade-in-up">
                 <div className="max-w-[75%] rounded-2xl bg-[#f1f2f4] px-4 py-2.5 text-[14px] whitespace-pre-wrap">{m.text}</div>
               </div>
             ) : (
-              <div key={i} className="hk-prose hk-fade-in-up">
-                <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{m.text}</ReactMarkdown>
+              <div key={i} className="hk-prose hk-fade-in-up"><ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeRaw]}>{m.text}</ReactMarkdown></div>
+            ))}
+            {streaming && (
+              <div className="flex items-center gap-2 text-[12px] text-[#8a8a90]">
+                <span className="h-3.5 w-3.5 rounded-full border-2 border-[#d4d4d8] border-t-[#0a0a0a] animate-spin" />
+                智能体正在沉思
               </div>
-            )
+            )}
+            <div ref={bottomRef} />
+          </div>
+          {showJump && (
+            <button className="scroll-to-bottom-button" aria-label="回到底部" data-testid="scroll-to-bottom"
+              onClick={() => bottomRef.current?.scrollIntoView({ behavior: 'smooth' })}>↓</button>
           )}
-          {streaming && (
-            <div className="flex items-center gap-2 text-[12px] text-[#8a8a90]">
-              <span className="h-3.5 w-3.5 rounded-full border-2 border-[#d4d4d8] border-t-[#0a0a0a] animate-spin" />
-              正在思考…
+          <div className="session-input-container">
+            <div className="session-input-bar">
+              <input
+                className="session-input-field"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }}
+                placeholder="输入你的问题或回答…"
+                aria-label="输入你的问题或回答"
+              />
             </div>
-          )}
-          <div ref={bottomRef} />
-        </div>
-        <div className="p-4 border-t">
-          <div className="hk-composer p-3 flex items-center gap-2">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && send()}
-              placeholder="继续学习…"
-              className="flex-1 bg-transparent outline-none text-[14px] px-1"
-              aria-label="深度学习输入"
-            />
-            <button onClick={send} disabled={!input.trim() || streaming} className="hk-send" aria-label="发送">
-              <ArrowUp size={14} />
-            </button>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

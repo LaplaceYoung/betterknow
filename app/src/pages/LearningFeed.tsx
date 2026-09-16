@@ -99,8 +99,10 @@ export default function LearningFeed() {
           <button className="hk-pill h-8 text-[12px]"><CalendarPlus size={12} /> Google Calendar</button>
           <button onClick={() => setSelectMode((v) => !v)} className={`hk-pill h-8 text-[12px] ${selectMode ? 'bg-[#0a0a0a] text-white' : ''}`} data-testid="bulk-toggle">{selectMode ? '取消选择' : '批量删除日程'}</button>
           {selectMode && <button onClick={() => void bulkDelete()} disabled={!Object.values(selected).some(Boolean)} className="h-8 px-3 rounded-full bg-[#dc2626] text-white text-[12px] disabled:opacity-40" data-testid="bulk-delete">删除所选 {Object.values(selected).filter(Boolean).length}</button>}
-          <div className="ml-auto inline-flex rounded-full border p-0.5 text-[12px]">{(['week', 'month'] as const).map((v) => <button key={v} onClick={() => setView(v)} className="px-3 h-7 rounded-full data-[on=true]:bg-[#f1f2f4]" data-on={view === v}>{v === 'week' ? '周' : '月'}</button>)}</div>
-          <div className="inline-flex items-center gap-1 text-[14px] font-semibold ml-2"><button className="hk-icon-btn h-7 w-7" onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))} aria-label="上个月"><ChevronLeft size={14} /></button>{cursor.getMonth() + 1}月 {cursor.getFullYear()}<button className="hk-icon-btn h-7 w-7" onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))} aria-label="下个月"><ChevronRight size={14} /></button></div>
+          <div className="proactive-tasks-mode-switcher ml-auto" data-testid="view-switcher">{(['week', 'month'] as const).map((v) => (
+            <button key={v} onClick={() => setView(v)} data-active={view === v}
+              className="proactive-tasks-mode-btn">{v === 'week' ? '周' : '月'}</button>
+          ))}</div>
         </div>
         <div className="grid grid-cols-7 mt-4 text-[11px] text-[#8a8a90]">{WEEK.map((w) => <div key={w} className="px-2 py-1">周{w}</div>)}</div>
         <div className="grid grid-cols-7 border-t border-l">
