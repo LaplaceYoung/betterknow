@@ -503,7 +503,7 @@ export default function Whiteboard() {
               <div className="whiteboard-modal-actions">
                 <button className="whiteboard-modal-btn whiteboard-modal-btn--secondary" onClick={() => setExitOpen(false)}>继续学习</button>
                 <button className="whiteboard-modal-btn whiteboard-modal-btn--danger"
-                  onClick={() => { setExitOpen(false); nav(courseId ? `/course/${courseId}` : '/history') }}>
+                  onClick={() => { setExitOpen(false); nav(courseId ? `/course/${courseId}` : '/history', courseId ? { state: { fromSessionId: sessionId } } : undefined) }}>
                   <img className="whiteboard-modal-exit-icon" src="/assets/img/pages/coursePage/whiteboard/exit.svg" alt="" aria-hidden="true" />
                   退出 Session
                 </button>

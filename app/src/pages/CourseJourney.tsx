@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router'
 import { apiGet, apiPost } from '@/lib/api'
 import { CourseStructureView, type CourseFull, type CourseProgressView } from './MarketplacePreview'
-import { Sparkles, BookOpen, Trophy } from 'lucide-react'
+import { Sparkles, Trophy } from 'lucide-react'
+import { RandomCharVideo } from '@/components/CharVideo'
 
 // [S18] 课程主页：数据来自 /course-generation/courses/:uuid（已加入课程的完整结构）
 export default function CourseJourney() {
@@ -12,8 +13,12 @@ export default function CourseJourney() {
   const isWelcome = loc.pathname.endsWith('/welcome')
   const [course, setCourse] = useState<CourseFull | null>(null)
   const [err, setErr] = useState('')
-  const [dismissed, setDismissed] = useState(false)
+
   const [progress, setProgress] = useState<CourseProgressView>({})
+  // 线上：从课堂返回时 route state 带 fromSessionId/completedSessionId，若那节的练习还没做就弹提醒（弹完清 state）
+  // 两个独立的「关过一次」标记：欢迎弹窗与练习提醒互不影响
+  const [welcomeDismissed, setWelcomeDismissed] = useState(false)
+  const [reminderDismissed, setReminderDismissed] = useState(false)
   useEffect(() => { apiGet<CourseFull>(`/course-generation/courses/${courseId}`).then(setCourse).catch((e) => setErr(String(e))) }, [courseId])
   // 状态与进度分属两个端点（对齐线上契约）：练习可用性、答题统计与考试分数都取真值
   useEffect(() => {
@@ -24,6 +29,39 @@ export default function CourseJourney() {
       .then((stats) => setProgress((current) => ({ ...current, practiceStats: stats.practiceStats ?? {}, examScores: stats.examScores ?? {} })))
       .catch(() => {})
   }, [courseId])
+
+  // 从课堂返回时 route state 带 fromSessionId/completedSessionId：只在挂载时读一次，随后清掉 state（线上同语义）
+  const [arrivedFromSession] = useState(() => {
+    const state = (loc.state ?? null) as { fromSessionId?: string; completedSessionId?: string } | null
+    return state?.fromSessionId ?? state?.completedSessionId ?? ''
+  })
+  useEffect(() => {
+    if (!loc.state) return
+    nav(`${loc.pathname}${loc.search}${loc.hash}`, { replace: true, state: null })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  const reminder = useMemo(() => {
+    if (!course || !arrivedFromSession || reminderDismissed) return null
+    for (let unitIndex = 0; unitIndex < course.units.length; unitIndex += 1) {
+      const unit = course.units[unitIndex]
+      for (const lecture of unit.lectures) {
+        const session = lecture.sessions.find((s) => s.sessionId === arrivedFromSession)
+        if (!session) continue
+        const stats = progress.practiceStats?.[arrivedFromSession]
+        // 线上条件（u && !p）：这节**有练习**（结构里有 practice，或已出现过答题统计）且**尚未交卷**
+        const hasPractice = progress.practiceBySession?.[arrivedFromSession] === 'ready' || Boolean(stats)
+        if (hasPractice && stats?.finished !== true) {
+          return {
+            practicePath: `/course/${courseId}/practice/${arrivedFromSession}`,
+            unitLabel: `单元 ${unitIndex + 1}`,
+            sessionTitle: session.title || '这节课',
+          }
+        }
+        return null
+      }
+    }
+    return null
+  }, [course, progress, arrivedFromSession, reminderDismissed, courseId])
 
   if (err) return <div className="p-12 text-center text-[#8a8a90]">课程不存在或无权访问<div className="mt-2"><button onClick={() => nav('/courses')} className="hk-pill">返回我的课程</button></div></div>
   if (!course) return <div className="mx-auto max-w-[1180px] px-8 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}><div className="space-y-3"><div className="hk-skeleton rounded-2xl h-[220px]" /><div className="hk-skeleton h-6 rounded" /></div><div className="space-y-3"><div className="hk-skeleton h-8 rounded w-1/2" /><div className="hk-skeleton h-24 rounded" /><div className="hk-skeleton h-40 rounded-2xl" /></div></div>
@@ -45,7 +83,31 @@ export default function CourseJourney() {
 
   return (
     <>
-      {(isWelcome || (!dismissed && progressPct === 0)) && (
+      {reminder && (
+        <div className="cj-practice-reminder-overlay" data-testid="practice-reminder" onClick={() => setReminderDismissed(true)}>
+          <section className="cj-practice-reminder-modal" onClick={(e) => e.stopPropagation()}
+            role="dialog" aria-modal="true" aria-labelledby="cj-practice-reminder-title" aria-describedby="cj-practice-reminder-desc">
+            <div className="cj-practice-reminder-row">
+              <div className="cj-practice-reminder-media" aria-hidden="true">
+                <RandomCharVideo className="cj-practice-reminder-video" />
+              </div>
+              <div className="cj-practice-reminder-body">
+                <span className="cj-practice-reminder-eyebrow">本节课已完成</span>
+                <span id="cj-practice-reminder-title" className="cj-practice-reminder-title">去做练习吗？</span>
+                <span id="cj-practice-reminder-desc" className="cj-practice-reminder-desc">
+                  你已经上完这节课啦。趁热打铁，去完成 <strong className="cj-practice-reminder-target">{reminder.unitLabel} · {reminder.sessionTitle}</strong> 的练习吧。
+                </span>
+                <div className="cj-practice-reminder-actions">
+                  <button type="button" className="cj-practice-reminder-btn cj-practice-reminder-btn--ghost" onClick={() => setReminderDismissed(true)}>稍后</button>
+                  <button type="button" className="cj-practice-reminder-btn" data-testid="practice-reminder-start"
+                    onClick={() => { const target = reminder.practicePath; setReminderDismissed(true); nav(target) }}>现在去练习</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
+      {(isWelcome || (!welcomeDismissed && progressPct === 0)) && (
         <div className="cj-welcome-overlay" data-testid="course-welcome">
           <div className="cj-welcome-modal">
             <div className="cj-welcome-row">
@@ -69,7 +131,7 @@ export default function CourseJourney() {
                   <button className="cj-welcome-btn" onClick={() => { const u = course.units[0]; const l = u?.lectures?.[0]; const s = l?.sessions?.[0]; if (s && courseId) nav(`/course/${courseId}/sessions/whiteboard/${s.sessionId}`); else if (courseId) nav(`/course/${courseId}`) }}>
                     从第一讲开始
                   </button>
-                  <button className="cj-welcome-btn cj-welcome-btn--ghost" onClick={() => setDismissed(true)}>稍后再说</button>
+                  <button className="cj-welcome-btn cj-welcome-btn--ghost" onClick={() => setWelcomeDismissed(true)}>稍后再说</button>
                 </div>
               </div>
             </div>
@@ -87,7 +149,7 @@ export default function CourseJourney() {
         </div>
       )}
 
-      <CourseRatingBar courseUuid={courseId} courseTitle={course.courseTitle} />
+      <CourseRatingBar courseUuid={courseId} />
 
       <CourseStructureView course={course} enrolled courseUuid={courseId} progress={progress} onExit={() => nav('/courses')} />
     </>
@@ -95,7 +157,7 @@ export default function CourseJourney() {
 }
 
 // 线上 .course-rating-bar（固定底部居中的生成质量评分条）：1–5 星 + 展开评论 + 提交
-function CourseRatingBar({ courseUuid, courseTitle }: { courseUuid: string; courseTitle: string }) {
+function CourseRatingBar({ courseUuid }: { courseUuid: string }) {
   const [stars, setStars] = useState(0)
   const [hover, setHover] = useState(0)
   const [expanded, setExpanded] = useState(false)

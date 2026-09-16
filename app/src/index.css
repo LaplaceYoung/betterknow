@@ -1170,3 +1170,25 @@
 .date-picker-nav-btn{width:24px;height:24px;border-radius:6px;border:none;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#6b7280;transition:all .15s ease}
 .date-picker-nav-btn:hover{background:#f3f4f6;color:#1f2937}
 .date-picker-month-label{font-family:var(--font-satoshi-medium);font-size:13px;color:#1f2937;font-weight:500}
+
+/* 线上 .cj-practice-reminder-*（上完课回课程页的练习提醒；r161 原文） */
+.cj-practice-reminder-overlay{position:fixed;top:0;right:0;bottom:0;left:0;z-index:10010;display:flex;align-items:center;justify-content:center;padding:24px;background:#0f172a2e;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:course-journey-fade .18s ease-out}
+.cj-practice-reminder-modal{position:relative;width:min(480px,100%);box-sizing:border-box;padding:20px 22px 20px 12px;border-radius:22px;background:#fbfbfb;box-shadow:0 24px 60px #0f172a2e;animation:course-journey-modal-pop .22s cubic-bezier(.16,1,.3,1)}
+.cj-practice-reminder-row{display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:14px}
+.cj-practice-reminder-media{width:100%;aspect-ratio:1;overflow:hidden;border-radius:16px;background:transparent}
+.cj-practice-reminder-video{display:block;width:112%;height:112%;margin:-6%;-o-object-fit:contain;object-fit:contain}
+.cj-practice-reminder-body{display:flex;min-width:0;flex-direction:column;gap:8px}
+.cj-practice-reminder-eyebrow{color:#059669;font-family:var(--font-satoshi-semibold);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.cj-practice-reminder-title{color:#111827;font-family:var(--font-satoshi-semibold);font-size:18px;font-weight:600;line-height:1.2;letter-spacing:-.02em}
+.cj-practice-reminder-desc{color:#4b5563;font-family:var(--font-satoshi-regular);font-size:13.5px;line-height:1.55}
+.cj-practice-reminder-target{color:#111827;font-family:var(--font-satoshi-medium);font-weight:500}
+.cj-practice-reminder-actions{display:flex;gap:10px;margin-top:6px}
+.cj-practice-reminder-btn{padding:9px 20px;border-radius:999px;border:none;font-family:var(--font-satoshi-medium);font-size:13px;font-weight:500;cursor:pointer;transition:background .15s ease,transform .12s ease,border-color .15s ease}
+.cj-practice-reminder-btn--ghost{background:transparent;border:1px solid #D1D5DB;color:#4b5563}
+.cj-practice-reminder-btn--ghost:hover{background:#f3f4f6;border-color:#9ca3af}
+.cj-practice-reminder-btn--primary{background:#111827;color:#fff}
+.cj-practice-reminder-btn--primary:hover{background:#1f2937;transform:translateY(-1px)}
+.cj-practice-reminder-row{grid-template-columns:1fr}
+.cj-practice-reminder-media{width:160px;margin:0 auto}
+.cj-practice-reminder-eyebrow,.cj-practice-reminder-title,.cj-practice-reminder-desc{text-align:center}
+.cj-practice-reminder-actions{justify-content:center}

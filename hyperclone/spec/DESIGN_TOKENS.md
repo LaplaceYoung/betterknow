@@ -845,3 +845,22 @@ practice: !standalone && practiceSessionId ? {
 
 本仓实现：`response_complete{session:true}` 之后并发拉 `/practice` 与 `/progress-status`，若该单元的练习存在且 `practiceStats[id].finished` 不为真，就把主按钮换成「去做练习」并显示 hint；完成过则仍是「返回主页」。实测两条分支：练习未完成 → 按钮「去做练习」+ hint，点击跳到 `/course/:uuid/practice/:sessionId`；练习已完成 → 「返回主页」、无 hint。
 
+### 上完课回课程页的「去做练习」提醒（第四十二批，CourseJourneyPage + r160~r162）
+
+线上（`CourseJourneyPage` 原文）：从课堂返回时 route state 带 `fromSessionId | completedSessionId`，课程页据此找那节所属单元，**有条件**才弹提醒：
+
+```js
+u = 该节有练习（practice.tasks.length 或 stats.total）
+p = stats.finished
+return (u && !p) ? { practicePath, unitLabel: '单元 {{number}}', sessionTitle: title ?? '这节课' } : null
+```
+
+弹出后立刻 `navigate(pathname, { replace: true, state: null })` —— 只弹一次，刷新不再弹。
+
+结构（`.cj-practice-reminder-*`）：`overlay > section[role=dialog][aria-modal][aria-labelledby=cj-practice-reminder-title][aria-describedby=cj-practice-reminder-desc]` →
+`row > media(RandomCharVideo) + body(eyebrow/title/desc/actions)`；文案 zh：`本节课已完成` / `去做练习吗？` / `你已经上完这节课啦。趁热打铁，去完成 <target>{{target}}</target> 的练习吧。` / `稍后` / `现在去练习`；卡片 480px / radius 22px。
+
+本仓：白板「退出 Session」跳课程页时带 `{state:{fromSessionId}}`，课程页挂载时读一次并清 state，条件用 `practiceBySession[sessionId]==='ready' || stats` + `stats?.finished !== true`。
+
+实测：从 `/course/:id/sessions/whiteboard/ed43f6c4-…` 退出后课程页弹出提醒 —— `SECTION` / `role=dialog` / `aria-modal` / 两个 aria 关联 id / eyebrow「本节课已完成」/ `strong.cj-practice-reminder-target` = 「单元 1 · The Sociological Imagination」/ 按钮「稍后 · 现在去练习」/ 480px·22px；点「现在去练习」跳到 `/course/:id/practice/ed43f6c4-…`；刷新后不再弹（state 已清）。
+
