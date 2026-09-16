@@ -543,3 +543,19 @@ main.practice-stage.practice-result-stage[aria-label="Practice results"]
 
 **本轮排行是客户端模拟**：`makeRivals(seedKey, questionCount)`（quizScoring 导出的 `b`）用 FNV-1a 哈希 + mulberry32 伪随机，从 24 个昵称池（`pixelmoth`、`tofu_bandit`、`Nine_Volt` … `lowercase_liam`）按三档水平 profile（skill 0.78–0.92 / 0.55–0.72 / 0.38–0.56）逐题掷骰算分；`seedKey` 是练习 id，所以同一节练习的对手每次都一样。实测本仓：`driftwoodie 4,400`、`你 3,400`、`Kettle44 3,400`、`brb_kettle 1,500`，名次 `#2`。
 
+### 「上次尝试」复盘模式（第二十九批，r112 + r123 + r125 + r126）
+
+线上重开一节**已交卷**的练习时：不回到结果页，而是进「重做态」并多出一个「上次尝试」开关；点它切到复盘态。
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| attempt 载荷 | `GET …/practice` → `sessions[].attempt = {finished, updatedAt, items:{qid:{state:"correct"\|"wrong", answer, fast?, feedback?}}, score, perfect, stars}`（r123 实测：q1 `{state:"correct",answer:"理解个人传记与历史社会结构的交汇点",fast:true}`） | 服务端从已落盘的 `practiceProgress` 反出同形 `attempt`；实测返回 `{finished:true, updatedAt, items:5, score:2500, stars}` |
+| 开关 | `.practice-last-attempt-toggle{position:absolute;top:16px;left:16px;…}`，时钟 svg（`M6.5 3.25V6.5L8.7 7.8` + `<circle cx=6.5 cy=6.5 r=5.5>`）；文案「上次尝试」↔「返回当前」，复盘时加 `--active` | 同（含三个 hover/active 态与配色） |
+| 复盘徽标 | `.practice-review-badge{position:absolute;top:70px;right:54px;…}` `role="status"`，文案「正在查看上次尝试」 | 同 |
+| 进入复盘 | `HUD 隐藏`、计时器隐藏、选项 `--readonly` + 禁用、已选项 `--selected`，正确项 `--correct`、反馈区显示 attempt 的判定；底部动作只剩「下一题」 | 同：实测 HUD 消失、卡片 `readonly/selected/correct`、动作只剩「下一题」 |
+| 退出复盘 | 把进复盘前存下的当前进度灌回（`Ue.current` 快照 → `Pt(snap)`） | 同：快照存 `answersState/userAnswers/skippedQuestions/fastAnswers/i`，返回后恢复 |
+
+**进度点类名（r127 原文）**：`.practice-progress-dot--correct:not(--active){background:#385da0}`、`--incorrect:not(--active){background:#c34747}`、`--active:after`（当前题的胶囊）在同色下用 `#385da0`/`#c34747`。实测复盘点：`rgb(56,93,160)` / `rgb(195,71,71)`。
+
+本仓顺带清理：题目头里原来还有一排自绘进度点（线上只有顶栏一排），已删。
+

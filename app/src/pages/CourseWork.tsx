@@ -13,6 +13,10 @@ import { playSfx } from '@/lib/sfx'
 // 线上练习彩带的调色板（T 数组）与 reduced-motion 判断
 const CONFETTI_COLORS = ['#FFD95A', '#5BC878', '#5B9CF5', '#FF8F6B', '#C88AFF', '#FF6B9D', '#F0C84A']
 
+// 线上练习的「上次尝试」载荷（r123 实测）：{finished, updatedAt, items:{qid:{state,answer,fast?,feedback?}}, score, perfect, stars}
+export interface AttemptItem { state?: string; answer?: string | string[] | null; fast?: boolean; feedback?: string }
+export interface PracticeAttempt { finished?: boolean; updatedAt?: string; items?: Record<string, AttemptItem>; score?: number; perfect?: number; stars?: number }
+
 // 线上 practice.result.stars0..3（中文原文）
 const STAR_TITLES = ['再来一轮', '还需巩固', '不错', '优秀']
 
@@ -217,6 +221,7 @@ function QuizRunner({
   mode = 'practice',
   fastWindowMs = 10000,
   fastBonus = 200,
+  attempt = null,
 }: {
   title: string
   questions: Question[]
@@ -225,6 +230,7 @@ function QuizRunner({
   mode?: 'practice' | 'exam'
   fastWindowMs?: number
   fastBonus?: number
+  attempt?: PracticeAttempt | null
   onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>, meta?: { fastCount?: number; fastIds?: string[]; points?: number; perfect?: number; stars?: number; bestStreak?: number }) => void
 }) {
   const [i, setI] = useState(0)
@@ -238,6 +244,9 @@ function QuizRunner({
   const [readyOpen, setReadyOpen] = useState(true)
   const [answersState, setAnswersState] = useState<Record<number, boolean>>({})
   const [skippedQuestions, setSkippedQuestions] = useState<Record<string, boolean>>({})
+  // 线上「上次尝试」开关：De=复盘态；进复盘前把当前进度存进 Ue（ref），退出时灌回
+  const [reviewing, setReviewing] = useState(false)
+  const liveAttemptRef = useRef<{ answersState: Record<number, boolean>; userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>; skippedQuestions: Record<string, boolean>; fastAnswers: Record<string, boolean>; i: number } | null>(null)
   const [userAnswers, setUserAnswers] = useState<Record<number, { picked: string[]; fill: string; isRight: boolean }>>({})
   // 线上练习 HUD：每题 10s 倒计时 + 速答奖励（practice-hud-chip--bonus / practice-timer-fill）
   const QUESTION_SECONDS = 10
@@ -355,6 +364,38 @@ function QuizRunner({
       ? correct.some((c) => c.trim().toLowerCase() === fill.trim().toLowerCase())
       : picked.length === correct.length && picked.every((p) => correct.includes(p))
 
+
+  // 复盘模式下，当前题的作答/正误直接从 attempt 派生（线上 Pt(attempt) 灌状态的效果）
+  const reviewItem = reviewing ? attempt?.items?.[q?.id ?? ''] : undefined
+  const reviewPicked = reviewing
+    ? (Array.isArray(reviewItem?.answer) ? reviewItem.answer : q?.type === 'fill' ? [] : typeof reviewItem?.answer === 'string' ? [reviewItem.answer] : [])
+    : picked
+  const reviewFill = reviewing && q?.type === 'fill' && typeof reviewItem?.answer === 'string' ? reviewItem.answer : fill
+  const reviewChecked = reviewing ? Boolean(reviewItem) : checked
+  const reviewIsRight = reviewing ? reviewItem?.state === 'correct' : isRight
+
+  const toggleReview = () => {
+    if (!attempt?.finished) return
+    if (reviewing) {
+      const snapshot = liveAttemptRef.current
+      liveAttemptRef.current = null
+      if (snapshot) {
+        setAnswersState(snapshot.answersState)
+        setUserAnswers(snapshot.userAnswers)
+        setSkippedQuestions(snapshot.skippedQuestions)
+        setFastAnswers(snapshot.fastAnswers)
+        setI(snapshot.i)
+      }
+      setReviewing(false)
+      return
+    }
+    liveAttemptRef.current = { answersState, userAnswers, skippedQuestions, fastAnswers, i }
+    setI(0)
+    setPicked([])
+    setFill('')
+    setChecked(false)
+    setReviewing(true)
+  }
 
   const burst = (isFast: boolean, streakLevel: number) => {
     const anchor = scoreChipRef.current?.getBoundingClientRect()
@@ -487,6 +528,19 @@ function QuizRunner({
   return (
     <div className={mode === 'exam' ? 'exam-page' : 'practice-page'}>
       <button className={mode === 'exam' ? 'exam-close-btn' : 'practice-close-btn'} onClick={() => onFinish(score, questions.length, {})} aria-label="退出"><X size={16} /></button>
+      {attempt?.finished && (
+        <button type="button" data-testid="last-attempt-toggle"
+          className={`practice-last-attempt-toggle${reviewing ? ' practice-last-attempt-toggle--active' : ''}`}
+          onClick={toggleReview}
+          aria-label={reviewing ? '返回当前' : '上次尝试'}>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+            <path d="M6.5 3.25V6.5L8.7 7.8" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" strokeWidth="1.1" />
+          </svg>
+          <span>{reviewing ? '返回当前' : '上次尝试'}</span>
+        </button>
+      )}
+      {reviewing && <div className="practice-review-badge" role="status">正在查看上次尝试</div>}
       <div className="practice-topbar-actions">
         {mode === 'exam' && (
           <div className={`exam-timer ${examLeft <= 60 ? 'exam-timer--low' : ''}`} role="timer" aria-label={`剩余 ${fmtClock(examLeft)}`} data-testid="exam-timer">
@@ -506,7 +560,7 @@ function QuizRunner({
             速答奖励 <b>+{fastBonus}</b><b>{fastLeft}s</b>
           </span>
         )}
-        <div className="practice-hud" role="status" aria-live="off">
+        {!reviewing && <div className="practice-hud" role="status" aria-live="off">
           {points.streak >= 2 && <span className="practice-hud-chip practice-hud-chip--streak" data-testid="streak-chip">连对 <b>{points.streak}</b></span>}
           <span className="practice-hud-chip practice-hud-chip--bonus" data-testid="bonus-chip">
             <svg width="11" height="13" viewBox="0 0 11 13" fill="none" aria-hidden="true">
@@ -518,19 +572,22 @@ function QuizRunner({
             className={`practice-hud-chip practice-hud-chip--score${reward ? ' practice-hud-chip--score-reward' : ''}`}>
             得分 <b><SlotNumber value={frozenTotal ?? points.total} /><span className="practice-sr-only">{points.total.toLocaleString()}</span></b>
           </span>
-        </div>
+        </div>}
         <button className="practice-assistant-toggle" onClick={() => setAssistantOpen(true)}><Lightbulb size={13} /> 助手</button>
       </div>
       <div className={mode === 'exam' ? 'exam-progress-dots' : 'practice-progress-dots'}>
         {questions.map((_, idx) => {
           const isCurrent = idx === i
-          const wasCorrect = answersState[idx] === true
-          const answered = answersState[idx] !== undefined
+          const attemptItem = reviewing ? attempt?.items?.[questions[idx]?.id ?? ''] : undefined
+          const wasCorrect = reviewing ? attemptItem?.state === 'correct' : answersState[idx] === true
+          const answered = reviewing ? Boolean(attemptItem) : answersState[idx] !== undefined
           return (
             <button key={idx} onClick={() => { setI(idx); setPicked([]); setFill(''); setChecked(false) }}
               aria-label={`第 ${idx + 1} 题`} title={`第 ${idx + 1} 题`}
-              className={`${mode === 'exam' ? 'exam-progress-dot' : 'practice-progress-dot'} ${isCurrent ? (mode === 'exam' ? 'exam-progress-dot--active' : 'practice-progress-dot--active') : ''}`}
-              data-tone={answered ? (wasCorrect ? 'ok' : 'bad') : 'idle'} />
+              className={mode === 'exam'
+                ? `exam-progress-dot ${isCurrent ? 'exam-progress-dot--active' : ''}`
+                : `practice-progress-dot ${isCurrent ? 'practice-progress-dot--active' : ''} ${answered ? (wasCorrect ? 'practice-progress-dot--correct' : 'practice-progress-dot--incorrect') : ''}`}
+              data-tone={mode === 'exam' ? (answered ? (wasCorrect ? 'ok' : 'bad') : 'idle') : undefined} />
           )
         })}
       </div>
@@ -601,29 +658,6 @@ function QuizRunner({
       {/* 线上练习题目区 672px 宽（.practice-question-prompt 实测） */}
       <div className="flex items-center justify-between text-[12px] text-[#8a8a90] mt-2">
         <span className="font-medium text-[#3d3d3f]">{subtitle}</span>
-        <div className="flex items-center" style={{ gap: 10 }}>
-          {questions.map((_, idx) => {
-            const hasAnswered = answersState[idx] !== undefined
-            const wasCorrect = answersState[idx] === true
-            const isCurrent = idx === i
-            return (
-              <button
-                key={idx}
-                onClick={() => {
-                  if (checked || answersState[idx] !== undefined) {
-                    setI(idx)
-                    setPicked([])
-                    setFill('')
-                    setChecked(false)
-                  }
-                }}
-                className={`practice-progress-dot ${isCurrent ? 'practice-progress-dot--active' : ''}`}
-                data-tone={isCurrent ? (hasAnswered ? (wasCorrect ? 'ok' : 'bad') : 'idle') : hasAnswered ? (wasCorrect ? 'ok' : 'bad') : 'idle'}
-                title={`第 ${idx + 1} 题`}
-              />
-            )
-          })}
-        </div>
         <span>
           第 {i + 1} / {questions.length} 题
         </span>
@@ -674,9 +708,9 @@ function QuizRunner({
 
         {q.type === 'fill' ? (
           <input
-            value={fill}
+            value={reviewFill}
             onChange={(e) => setFill(e.target.value)}
-            disabled={checked}
+            disabled={reviewChecked || reviewing}
             placeholder="输入你的答案…"
             className="mt-5 w-full h-11 px-4 rounded-xl border bg-white outline-none focus:border-[#0a0a0a] text-[14px]"
           />
@@ -684,15 +718,16 @@ function QuizRunner({
           <div className="practice-options-panel mt-5">
           <div className={`practice-options-grid ${(q.options ?? []).length <= 2 ? 'practice-options-grid--stacked' : ''}`}>
             {(q.options ?? []).map((o, oi) => {
-              const on = picked.includes(o)
-              const right = checked && correct.includes(o)
-              const wrong = checked && on && !correct.includes(o)
+              const on = reviewPicked.includes(o)
+              const right = reviewChecked && correct.includes(o)
+              const wrong = reviewChecked && on && !correct.includes(o)
               return (
                 <button
                   key={oi}
-                  disabled={checked}
+                  disabled={reviewChecked || reviewing}
                   data-testid={`option-${oi + 1}`}
-                  onClick={() =>
+                  onClick={() => {
+                    if (reviewing) return
                     setPicked((p) =>
                       q.type === 'multiple'
                         ? on
@@ -700,8 +735,8 @@ function QuizRunner({
                           : [...p, o]
                         : [o]
                     )
-                  }
-                  className={`practice-option-card ${on ? 'practice-option-card--selected' : ''} ${right ? 'practice-option-card--correct' : ''} ${wrong ? 'practice-option-card--incorrect' : ''} ${checked ? 'practice-option-card--readonly' : ''}`}
+                  }}
+                  className={`practice-option-card ${on ? 'practice-option-card--selected' : ''} ${right ? 'practice-option-card--correct' : ''} ${wrong ? 'practice-option-card--incorrect' : ''} ${reviewChecked ? 'practice-option-card--readonly' : ''}`}
                 >
                   <span className="practice-option-key">{oi + 1}</span>
                   <span className="practice-option-shape" aria-hidden="true">{String.fromCharCode(65 + oi)}</span>
@@ -721,11 +756,11 @@ function QuizRunner({
 
       <div className="practice-verdict" data-testid="practice-verdict">
         <div className="practice-verdict-inner">
-          {checked && (
-          <div className={`practice-feedback ${isRight ? 'practice-feedback--correct' : 'practice-feedback--incorrect'} mt-5 hk-fade-in`} data-testid="practice-feedback">
+          {reviewChecked && (
+          <div className={`practice-feedback ${reviewIsRight ? 'practice-feedback--correct' : 'practice-feedback--incorrect'} mt-5 hk-fade-in`} data-testid="practice-feedback">
             <div className="practice-verdict-headline">
-              <span className="practice-verdict-mark">{isRight ? '✓' : '✗'}</span>
-              {isRight ? '回答正确' : '再想想'}
+              <span className="practice-verdict-mark">{reviewIsRight ? '✓' : '✗'}</span>
+              {reviewIsRight ? '回答正确' : '再想想'}
             </div>
             {q.explanation && <p className="practice-feedback-explanation mt-2">{q.explanation}</p>}
           </div>
@@ -746,7 +781,15 @@ function QuizRunner({
             <Lightbulb size={13} className="text-[#f59e0b]" /> 助手
           </button>
           <div className="ml-auto flex items-center" style={{ gap: 23 }}>
-            {!checked ? (
+            {reviewing ? (
+              <button
+                onClick={() => setI((idx) => Math.min(idx + 1, questions.length - 1))}
+                className="practice-check-btn practice-check-btn--next inline-flex items-center gap-1"
+                data-testid="review-next-btn"
+              >
+                下一题 <ChevronRight size={14} />
+              </button>
+            ) : !checked ? (
               <>
                 <button
                   onClick={() => { setChecked(true); setSkippedQuestions((s) => ({ ...s, [q.id]: true })) }}
@@ -806,7 +849,7 @@ export function Practice() {
   const { courseId = '', sessionId = '' } = useParams()
   const nav = useNavigate()
   const [data, setData] = useState<{
-    sessions: { title: string; sessionId: string; questions: Question[] }[]
+    sessions: { title: string; sessionId: string; questions: Question[]; attempt?: PracticeAttempt | null }[]
   } | null>(null)
   const [result, setResult] = useState<{
     score: number
@@ -821,7 +864,7 @@ export function Practice() {
   } | null>(null)
 
   useEffect(() => {
-    apiGet<{ sessions: { title: string; sessionId: string; questions: Question[] }[] }>(
+    apiGet<{ sessions: { title: string; sessionId: string; questions: Question[]; attempt?: PracticeAttempt | null }[] }>(
       `/course-generation/courses/${courseId}/practice`
     )
       .then((next) => {
@@ -874,6 +917,7 @@ export function Practice() {
         subtitle="随堂练习 · 巩固内化"
         courseId={courseId}
         questions={session.questions}
+        attempt={session.attempt ?? null}
         onFinish={async (score, total, userAnswers, meta) => {
           // 线上练习口径：{ sessionId, finished, items, score: 点数, perfect, stars }
           const items: Record<string, { state: string; answer: string | string[] | null; fast?: boolean }> = {}

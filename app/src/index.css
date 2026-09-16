@@ -323,10 +323,16 @@
 .practice-progress-dot, .exam-progress-dot { width: 17px; height: 10px; border-radius: 999px; background: #d4d4d4; border: none; padding: 0; cursor: pointer; transition: all .2s ease; }
 .practice-progress-dot--active, .exam-progress-dot--active { position: relative; width: 25px; height: 18px; border: 2px solid #D4D4D4; background: transparent; box-sizing: border-box; }
 .exam-progress-dot--active:after { content: ""; position: absolute; top: 50%; left: 50%; width: 17px; height: 10px; border-radius: 999px; background: #aeaeae; transform: translate(-50%, -50%); }
-.practice-progress-dot[data-tone="ok"], .exam-progress-dot[data-tone="ok"] { background: #16a34a; }
-.practice-progress-dot[data-tone="bad"], .exam-progress-dot[data-tone="bad"] { background: #dc2626; }
-.practice-progress-dot--active[data-tone="ok"] { border-color: #16a34a; background: transparent; }
-.practice-progress-dot--active[data-tone="bad"] { border-color: #dc2626; background: transparent; }
+/* 线上 .practice-progress-dot 的判定态（r127 原文）：正确 #385da0 / 错误 #c34747，当前题用 :after 的同色胶囊 */
+.practice-progress-dot--active:after { content: ""; position: absolute; top: 50%; left: 50%; width: 17px; height: 10px; border-radius: 999px; background: #aeaeae; transform: translate(-50%, -50%); }
+.practice-progress-dot--correct:not(.practice-progress-dot--active) { background: #385da0; }
+.practice-progress-dot--incorrect:not(.practice-progress-dot--active) { background: #c34747; }
+.practice-progress-dot--active.practice-progress-dot--correct:after { background: #385da0; }
+.practice-progress-dot--active.practice-progress-dot--incorrect:after { background: #c34747; }
+.exam-progress-dot[data-tone="ok"] { background: #16a34a; }
+.exam-progress-dot[data-tone="bad"] { background: #dc2626; }
+.exam-progress-dot--active[data-tone="ok"] { border-color: #16a34a; background: transparent; }
+.exam-progress-dot--active[data-tone="bad"] { border-color: #dc2626; background: transparent; }
 .practice-stage, .exam-stage { position: absolute; top: 52px; right: 36px; bottom: 30px; left: 36px; border: 1.5px solid #E5E5E5; border-radius: 14px; background: #fff; box-sizing: border-box; overflow-y: auto; }
 
 /* 线上 .proactive-page（学习动态页） */
@@ -811,3 +817,13 @@
 .practice-result-actions { position: relative; height: auto; justify-content: center; padding: 22px 0 40px; }
 @keyframes practice-result-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .practice-result-row, .practice-result-kicker, .practice-result-title { animation: none; opacity: 1; transform: none; } }
+
+/* 线上 .practice-last-attempt-toggle / .practice-review-badge（r126 取自线上样式表原文） */
+.practice-last-attempt-toggle { position: absolute; top: 16px; left: 16px; z-index: 4; display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 0 14px; border: 1.5px solid #E0E4EC; border-radius: 999px; background: #fff; color: #6b7280; font-size: 12.5px; font-weight: 500; box-shadow: inset 0 1px #fffffff2, 0 3px #eef1f6; cursor: pointer; }
+.practice-last-attempt-toggle:hover { border-color: #c9d2e3; background: #fafcff; color: #385da0; box-shadow: inset 0 1px #fffffff2, 0 4px #e2e7f0; transform: translateY(-1px); }
+.practice-last-attempt-toggle:active { box-shadow: inset 0 1px #ffffffb3, 0 1px #e2e7f0; transform: translateY(2px); }
+.practice-last-attempt-toggle--active { border-color: #bfcde3; background: #f7faff; color: #385da0; box-shadow: inset 0 1px #fffffff2, 0 3px #dce4f2; }
+.practice-review-badge { position: absolute; top: 70px; right: 54px; z-index: 2; padding: 6px 12px; border: 1px solid #E0E0E0; border-radius: 999px; background: transparent; color: #6b6b6b; font-size: 12px; }
+.practice-option-card--readonly { cursor: default; }
+.practice-option-card--readonly:not(.practice-option-card--correct):not(.practice-option-card--incorrect) .practice-option-shape { background: #f3f4f6; }
+.practice-option-card--readonly:not(.practice-option-card--correct):not(.practice-option-card--incorrect) .practice-option-shape svg { fill: #b6bcc7; }

@@ -773,7 +773,28 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/course-generation/courses/:course_uuid/practice', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    return (await resolvePractice(course, courseId(request))) ?? { courseUuid: courseId(request), sessions: [] };
+    const practice = (await resolvePractice(course, courseId(request))) ?? { courseUuid: courseId(request), sessions: [] };
+    // 线上实测（r123）：sessions[].attempt = {finished, updatedAt, items:{qid:{state,answer,fast?}}, score, perfect, stars}
+    // 有交卷记录才有 attempt；复盘模式与「上次尝试」开关都读它
+    const progress = ((course.practiceProgress ?? {}) as Record<string, Record<string, unknown>>);
+    const sessions = (practice.sessions as Array<Record<string, unknown>> | undefined) ?? [];
+    const withAttempts = sessions.map((session) => {
+      const sessionId = String(session.sessionId ?? session.session_id ?? '');
+      const record = progress[sessionId];
+      if (!record || !record.finished) return session;
+      return {
+        ...session,
+        attempt: {
+          finished: true,
+          updatedAt: String(record.updated_at ?? ''),
+          items: (record.items ?? {}) as Record<string, unknown>,
+          score: Number(record.score ?? 0),
+          perfect: Number(record.perfect ?? 0),
+          stars: Number(record.stars ?? 0),
+        },
+      };
+    });
+    return { ...practice, sessions: withAttempts };
   });
 
   // 线上实测：POST /practice/start {sessionId} → {started, charged}（练习运行生命周期）
