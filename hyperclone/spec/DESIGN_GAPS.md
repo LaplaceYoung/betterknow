@@ -623,3 +623,11 @@
 - **回归巡检**（本轮改了编辑器/动态/日历/白板多处，专门跑一遍）：首页→课程→学习动态→历史→课程集市的 SPA 导航（补丁在页面内打点）0 个 4xx、0 console 报错；课程页（开日历弹窗）/练习/考试/白板（退沉浸）/深度课堂四个深层路由各做一次交互，同样全绿。
 - 顺手清掉 `Courses.tsx` 里**既有的** lint 问题（未用的 `ChevronLeft/Right` 导入、未用的 `todayIdx`、渲染期 `Date.now()`），改后 `tsc` + `eslint` 干净。
 - 实测：课程页搜索一个不存在的关键词 → 空态渲染 `IMG naturalWidth 1254`、标题「没有找到匹配的课程。」、说明「试试其他关键词，或清空搜索。」。
+
+**第七十八批（端到端验收：上课 → 练习 → 考试 → 进度）**
+- 把「整条学习链」串起来跑一遍（BYOK 五槽全配到假网关）：
+  1. 白板会话：打开 `/course/<uuid>/sessions/whiteboard/<sid>` → 退沉浸模式 → 输入框提问 → 页面出现模型回答（假网关回 `BYOK OK`，说明 llm 槽在讲解答疑链路上真的被调到）。
+  2. 练习：进 `/practice/unit1` → 关欢迎层 → 点选项作答 → HUD 分数槽正常渲染（`.practice-slot-digit-strip` 30 字符竖排，可见位由 `1.05em` 裁切，无障碍文本走 `.practice-sr-only`）。
+  3. 考试：进 `/exam/unit1` → 「我准备好了」→ 倒计时 `29:59` 起走 → 15 题逐题作答（选项类名 `practice-option-card`，推进按钮 `exam-primary-btn`，最后一题变「提交」）→ 交卷 → 结果页出现「题正确」。
+  4. 服务端进度：交卷后 `GET /course-generation/courses/<uuid>/progress-status` 的 `examScores` 从 `{}` 变为 `{"unit1":0}`，`examStarted.unit1` 全程为 `true` —— 考试分数确实落到进度表上（分数 0 是因为假网关的模型输出与盲选，契约本身正确）。
+- 结论：本轮没有发现新缺陷；两条链（媒体/BYOK、进度/评分）各自的关键帧与落库都在。
