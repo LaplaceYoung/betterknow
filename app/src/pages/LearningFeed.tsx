@@ -51,6 +51,19 @@ export default function LearningFeed() {
   const act = async (t: Task, action: 'confirm' | 'done') => { await apiPost('/calendar/approve_tasks', { task_id: t.id, action }); await load() }
   // 任务详情（线上：描述 + 子任务 + 进度 + 开始课堂/删除任务）
   const [openTask, setOpenTask] = useState<Task | null>(null)
+  // 线上「相关截止日期」是服务端给的关联项；本仓没有这层关系数据，按时间邻近（±7 天）取，最多 5 条
+  const dueTime = (t: Task) => new Date(t.due_at ?? t.scheduled_for).getTime()
+  const relatedDues = useMemo(() => {
+    if (!openTask) return []
+    const anchor = dueTime(openTask)
+    if (!Number.isFinite(anchor)) return []
+    return (tasks ?? [])
+      .filter((t) => t.id !== openTask.id)
+      .map((t) => ({ task: t, at: dueTime(t) }))
+      .filter((row) => Number.isFinite(row.at) && Math.abs(row.at - anchor) <= 7 * 86400000)
+      .sort((a, b) => a.at - b.at)
+      .slice(0, 5)
+  }, [tasks, openTask])
   const [editingDate, setEditingDate] = useState<'start' | 'due' | null>(null)
   const [commentOpen, setCommentOpen] = useState(false)
   const [comment, setComment] = useState('')
@@ -368,6 +381,31 @@ export default function LearningFeed() {
                     <div className="task-detail-section">
                       <h3 className="task-detail-section-title">描述</h3>
                       <p className="task-detail-description">{openTask.description}</p>
+                    </div>
+                  )}
+                  {relatedDues.length > 0 && (
+                    <div className="task-detail-section" data-testid="related-dues">
+                      <h3 className="task-detail-section-title">相关截止日期</h3>
+                      <div className="task-detail-related-dues">
+                        {relatedDues.map(({ task: row, at }) => (
+                          <button key={row.id} type="button" className="task-detail-related-due-item" style={{ width: '100%', background: 'none', textAlign: 'left' }}
+                            onClick={() => setOpenTask(row)}>
+                            <span className="task-detail-related-due-bar" aria-hidden="true" />
+                            <span className="task-detail-related-due-icon" aria-hidden="true">
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="1.8" />
+                                <path d="M12 9V13L14.5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </span>
+                            <span className="task-detail-related-due-content">
+                              <span className="task-detail-related-due-name">{row.title}</span>
+                            </span>
+                            <span className="task-detail-related-due-time">
+                              {`${new Date(at).getMonth() + 1}月 ${new Date(at).getDate()} ${String(new Date(at).getHours()).padStart(2, '0')}:${String(new Date(at).getMinutes()).padStart(2, '0')}`}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   )}
                   {(openTask.subtasks ?? []).length > 0 && (
