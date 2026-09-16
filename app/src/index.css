@@ -756,3 +756,12 @@
 
 /* 线上 .exam-score-points-bonus（结果页速答徽标） */
 .exam-score-points-bonus { color: #c98a1e; font-weight: 500; }
+
+/* 线上 .course-rating-bar--generation：生成完成后就地评分（绝对定位在底部输入条上方） */
+.course-rating-bar--generation { position: absolute; bottom: calc(clamp(44px, 6vh, 76px) - 52px); left: 50%; transform: translateX(-50%); }
+
+/* 线上 .cj-welcome-next-kind 的四种变体 */
+.cj-welcome-next-kind--practice { background: #eef5f0; color: #3d7a56; border-color: rgba(61,122,86,.14); }
+.cj-welcome-next-kind--project { background: #f6f1e7; color: #8a6d3b; border-color: rgba(138,109,59,.16); }
+.cj-welcome-next-kind--exam { background: #f5edf0; color: #954c68; border-color: rgba(149,76,104,.14); }
+.cj-welcome-next-kind--learn { border-color: rgba(76,102,150,.16); }

@@ -416,3 +416,10 @@ fetch(`/api/v1/course-generation/courses/${uuid}/exam/score`, {
 | 服务端落库 | 线上未展示（服务端行为不可见） | `state.courses[uuid].examScores[unitId] = percent`、`examItems[unitId] = items`（实测 curl 提交后 state.json 里两层都在） |
 | 结果页点数行 | `exam-score-points` 显示 `r.total` / 满分 `n`，`r.fastCount > 0` 时追加 `exam-score-points-bonus` 徽标（文案 `exam.results.fastCount`） | 结果页在「共答对 x / y 题」后追加「· 其中速答 N 题」（`exam-score-points-bonus` 配色 `#c98a1e`）；**点数体系没做**——线上 `r.total` 的基准分未知，不编数值（实测答对 1 题且在窗口内 → 徽标显示「其中速答 1 题」） |
 
+### 生成后评分与欢迎卡变体（第二十三批，r103 续）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 生成页评分条 | `.course-rating-bar--generation{position:absolute;bottom:calc(clamp(44px,6vh,76px) - 52px);left:50%;transform:translate(-50%)}`（同一套 `.course-rating-bar` 内件，只换定位） | 同（`GenerationRating` 复用课程页那套内件，只有定位类不同；CSS 已在产物里） |
+| 欢迎卡下一步标识 | `.cj-welcome-next-kind` 默认 `#eef2f8`/`#4c6696`；`--practice{background:#eef5f0;color:#3d7a56;border-color:#3d7a5624}`；`--project{#f6f1e7/#8a6d3b/#8a6d3b29}`；`--exam{#f5edf0/#954c68/#954c6824}`；`--learn{border-color:#4c669629}` | 同（按首个节点的 `session_type` 选配色；实测讲座类型 → `--learn`，`rgb(238,242,248)`/`rgb(76,102,150)`/`rgba(76,102,150,.16)`） |
+

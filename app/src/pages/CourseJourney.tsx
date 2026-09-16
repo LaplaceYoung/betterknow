@@ -34,6 +34,14 @@ export default function CourseJourney() {
   const progressPct = totalSessions > 0 ? Math.round((masteredSessions / totalSessions) * 100) : 0
 
   const firstSession = course?.units?.[0]?.lectures?.[0]?.sessions?.[0]
+  // 线上 .cj-welcome-next-kind 的四种配色：默认（讲座/学习）、--practice、--project、--exam
+  const nextKind = (() => {
+    const type = String(firstSession?.session_type ?? '')
+    if (/quiz|practice/i.test(type)) return { label: '练习', cls: 'cj-welcome-next-kind--practice' }
+    if (/exam/i.test(type)) return { label: '考试', cls: 'cj-welcome-next-kind--exam' }
+    if (/project/i.test(type)) return { label: '项目', cls: 'cj-welcome-next-kind--project' }
+    return { label: '讲座', cls: 'cj-welcome-next-kind--learn' }
+  })()
 
   return (
     <>
@@ -53,7 +61,7 @@ export default function CourseJourney() {
                 </p>
                 {firstSession && (
                   <div className="cj-welcome-next">
-                    <span className="cj-welcome-next-kind">讲座</span>
+                    <span className={`cj-welcome-next-kind ${nextKind.cls}`}>{nextKind.label}</span>
                     <span className="cj-welcome-next-title">{firstSession.title ?? '第一讲'}</span>
                   </div>
                 )}
