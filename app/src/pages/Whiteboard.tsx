@@ -267,7 +267,11 @@ export default function Whiteboard() {
             >
               {playbackRate}x
             </button>
-            <button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.max(50, z - 10))} aria-label="缩小"><ZoomOut size={14} /></button><span className="w-10 text-center">{zoom}%</span><button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.min(200, z + 10))} aria-label="放大"><ZoomIn size={14} /></button>
+            <span className="hk-zoom-pill">
+              <button className="hk-zoom-btn" onClick={() => setZoom((z) => Math.max(50, z - 10))} aria-label="缩小"><ZoomOut size={14} /></button>
+              <span className="hk-zoom-readout inline-flex items-center justify-center">{zoom}%</span>
+              <button className="hk-zoom-btn" onClick={() => setZoom((z) => Math.min(200, z + 10))} aria-label="放大"><ZoomIn size={14} /></button>
+            </span>
             <div className="relative">
             <button className="hk-icon-btn h-8 w-8" onClick={() => setExportOpen((v) => !v)} aria-label="导出" title="导出" data-testid="export-menu"><Download size={14} /></button>
             {exportOpen && (
@@ -405,7 +409,7 @@ export default function Whiteboard() {
           <div className="hk-composer p-2 flex items-center gap-2">
             <input value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && ask()} placeholder="向老师提问…" className="flex-1 bg-transparent outline-none text-[13px] px-1" aria-label="向老师提问" />
             <button className="hk-icon-btn h-8 w-8" aria-label="语音提问"><Mic size={14} /></button>
-            <button onClick={ask} disabled={!q.trim()} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40" aria-label="发送"><ArrowUp size={14} /></button>
+            <button onClick={ask} disabled={!q.trim()} className="hk-send" aria-label="发送"><ArrowUp size={14} /></button>
           </div>
         </div>
       </aside>}

@@ -382,7 +382,7 @@ export default function Home() {
                       ))}
                     </PopoverContent>
                   </Popover>
-                  <button onClick={submitAssist} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center hover:bg-black/80 disabled:opacity-40" aria-label="发送" disabled={!assistText.trim() && assistFiles.length === 0}><ArrowUp size={16} /></button>
+                  <button onClick={submitAssist} className="hk-send" aria-label="发送" disabled={!assistText.trim() && assistFiles.length === 0}><ArrowUp size={16} /></button>
                 </div>
               </div>
             </div>

@@ -304,7 +304,7 @@ export function DeepLearnSession() {
               className="flex-1 bg-transparent outline-none text-[14px] px-1"
               aria-label="深度学习输入"
             />
-            <button onClick={send} disabled={!input.trim() || streaming} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40" aria-label="发送">
+            <button onClick={send} disabled={!input.trim() || streaming} className="hk-send" aria-label="发送">
               <ArrowUp size={14} />
             </button>
           </div>

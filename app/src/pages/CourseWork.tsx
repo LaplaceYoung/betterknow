@@ -318,7 +318,7 @@ function QuizRunner({
       {/* 线上练习题目区 672px 宽（.practice-question-prompt 实测） */}
       <div className="flex items-center justify-between text-[12px] text-[#8a8a90] mt-2">
         <span className="font-medium text-[#3d3d3f]">{subtitle}</span>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center" style={{ gap: 10 }}>
           {questions.map((_, idx) => {
             const hasAnswered = answersState[idx] !== undefined
             const wasCorrect = answersState[idx] === true
@@ -334,15 +334,22 @@ function QuizRunner({
                     setChecked(false)
                   }
                 }}
-                className={`h-2.5 rounded-full transition-all ${
+                className={`transition-all ${
                   isCurrent
-                    ? 'w-6 bg-[#0a0a0a]'
+                    ? 'bg-transparent'
                     : hasAnswered
                     ? wasCorrect
-                      ? 'w-2.5 bg-[#16a34a]'
-                      : 'w-2.5 bg-[#dc2626]'
-                    : 'w-2.5 bg-[#e4e4e7]'
+                      ? 'bg-[#16a34a]'
+                      : 'bg-[#dc2626]'
+                    : 'bg-[#d4d4d4]'
                 }`}
+                style={{
+                  width: isCurrent ? 25 : 17,
+                  height: isCurrent ? 18 : 10,
+                  borderRadius: 999,
+                  boxSizing: 'border-box',
+                  border: isCurrent ? `2px solid ${wasCorrect ? '#16a34a' : hasAnswered ? '#dc2626' : '#D4D4D4'}` : undefined,
+                }}
                 title={`第 ${idx + 1} 题`}
               />
             )

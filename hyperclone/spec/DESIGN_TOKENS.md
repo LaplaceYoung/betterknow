@@ -118,3 +118,21 @@
 | 板书骨架 | `.whiteboard-board-skeleton{position:absolute;inset:0;z-index:25;display:flex;padding:96px 72px 64px;background:#fff}`；列 `flex:0 1 340px`、gap 18；标题 `height:26px;border-radius:10px`、行 `height:13px;border-radius:999px` | 同（准备中骨架） |
 | 要点列表 | `.whiteboard-outline-keypoints{border-left:1.5px solid #ececec;padding-left:10px;gap:4px}`；条目 `padding:7px 10px;border-radius:10px;font-size:13px;line-height:1.4;color:#8a8a8a`；`.whiteboard-outline-keypoint-dot{width:5px;height:5px;background:#d4d4d4}`，**`[data-status=current]` 时圆点变 `#4c6696`**；`-live` 徽标 `gap:3px;margin-left:4px` | 同（含 current 圆点与「讲到这里」徽标） |
 
+## 第五批对照：侧栏收起态与控件微件（r60/r61）
+
+线上侧栏是「60px 图标栏 + 点开展成 240px 白卡」的双态模型，不是固定宽度列。变量与规则都在样式表里：
+
+| 部件 | 线上原文 | 本仓 |
+|---|---|---|
+| 侧栏变量 | `:root{--sidebar-width:240px;--sidebar-margin:12px;--sidebar-radius:16px;--sidebar-header-pad:16px;--sidebar-toggle-size:24px}` | 同值 |
+| 侧栏色板 | `--sidebar-bg:#FFFFFF;--sidebar-hover-bg:#EBF4FF66;--sidebar-active-bg:#E8F0F8;--sidebar-active-bg-hover:#d4e2f4;--sidebar-active-color:#4C6696;--sidebar-active-color-hover:#3D5477;--sidebar-transition:.3s cubic-bezier(.4,0,.2,1)` | hover 改 `rgba(235,244,255,.4)`，补 active-hover `#d4e2f4` + `#3d5477` |
+| 导航项 | `.nav-icons-group{--nav-padding-x:12px;--nav-gap:14px;--nav-icon-size:20px}`；`.nav-item{width:33px;height:33px;border-radius:8px}`；`.nav-item.expanded{width:calc(var(--sidebar-width) - 2*var(--nav-padding-x));padding:7px 12px;gap:var(--nav-gap)}` | 高 33 / radius 8 / gap 14 / 图标 20px / 组间距 4px |
+| 图标态 | `.nav-item img{opacity:.65}`，hover 与 active 变 1（active 再叠加蓝色 filter） | 图标 65% → hover/active 1 |
+| 收起态 | `.sidebar.compact{--sidebar-width:60px;--sidebar-radius:12px}`；`.sidebar.compact .nav-item{width:40px;height:40px;border-radius:10px}`；`.sidebar.compact .button-label,…{display:none}`；logo 26px、头部竖排 gap 17 padding `16px 0 3px`；wrapper 上下 8px、阴影 `0 2px 10px #0000000d,0 1px 2px #00000008` | 同（60px / radius 12 / 40×40 / 隐藏标签与下部区段） |
+| 收起态提示 | `.tooltip{left:calc(100% + 12px);background:#000000e6;color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:500}`，`.sidebar.expanded .tooltip{display:none}` | 同（`hk-tip`） |
+| 折叠钮 | `.collapse-icon{width:var(--sidebar-toggle-size);height:var(--sidebar-toggle-size);border-radius:8px}`（24px） | 同 |
+| 发送键 | `.send-button{width:33px;height:33px;border-radius:50%;border:1px solid #D1D1D1;background:#e7e7e7;box-shadow:0 2px 4px #00000026}`；hover `#d5d5d5` + `0 3px 6px #0003`；`.disabled{background:#f5f5f5;border-color:#e0e0e0;opacity:.6}` | 同（`.hk-send`，四处 composer 统一） |
+| 白板缩放 | `.whiteboard-zoom-pill{height:40px;border-radius:20px;box-shadow:0 2px 4px #00000026}`；`.whiteboard-zoom-btn{width:38px}`；`.whiteboard-zoom-readout{min-width:54px;font-size:13.5px;font-weight:500;letter-spacing:.2px;font-variant-numeric:tabular-nums;color:#171717}` | 同（实测 40/20/38/54/13.5 w500 ✓） |
+| 练习进度点 | `.practice-progress-dot{width:17px;height:10px;border-radius:999px;background:#d4d4d4}`；`.practice-progress-dot--active{width:25px;height:18px;border:2px solid #D4D4D4;background:transparent}` | 同（答对/答错沿用绿/红，形状按线上） |
+| 消息卡 | `.orbie-message-card{background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 2px 8px #0000000d;gap:12px;min-height:160px}`；`.message-content{font-size:15px;color:#333;line-height:1.5;gap:12px}`；`.message-header{font-size:12px;gap:6px}` | 记为后续对照（对话页正文排版） |
+

@@ -902,7 +902,7 @@ export default function ChatResponse() {
                 <div className="ml-auto flex items-center gap-2">
                   <button className="inline-flex items-center" style={{ height: 33, borderRadius: 999, border: '1px solid #e5e5e5', background: '#fff', padding: '0 10px 0 9px', gap: 6, fontSize: 14, color: '#444' }} onClick={async () => { const token = localStorage.getItem('access_token') ?? ''; const r = await fetch('/api/v1/share_record/share_records', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` }, body: JSON.stringify({ type: 'conversation', shared_object_id: convId, shared_with: { share_to_everyone: true } }) }).then((x) => x.json() as Promise<{ shared_url?: string }>).catch((): { shared_url?: string } => ({})); nav(r.shared_url ?? `/share/c/${convId}`) }}><Share2 size={11} /> 分享对话</button>
                   <button className="inline-flex items-center" style={{ height: 33, borderRadius: 999, border: '1px solid #e5e5e5', background: '#fff', padding: '0 10px 0 9px', gap: 6, fontSize: 14, color: '#444' }}><LifeBuoy size={11} /> 遇到问题？</button>
-                  <button onClick={() => sendFollowup()} disabled={streaming || (!input.trim() && followupFiles.length === 0)} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40" aria-label="发送"><ArrowUp size={15} /></button>
+                  <button onClick={() => sendFollowup()} disabled={streaming || (!input.trim() && followupFiles.length === 0)} className="hk-send" aria-label="发送"><ArrowUp size={15} /></button>
                 </div>
               </div>
             </div>
