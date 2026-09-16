@@ -18,6 +18,18 @@ export default function CourseJourney() {
   // 线上：从课堂返回时 route state 带 fromSessionId/completedSessionId，若那节的练习还没做就弹提醒（弹完清 state）
   // 两个独立的「关过一次」标记：欢迎弹窗与练习提醒互不影响
   const [welcomeDismissed, setWelcomeDismissed] = useState(false)
+  // 线上 sectionComplete：讲次/项目/测验完成后弹一次「{{title}} 完成！」；这里用 localStorage 记录已庆祝过的 section
+  const [celebration, setCelebration] = useState<{ key: string; kind: 'lecture' | 'project' | 'exam'; title: string; unitLabel: string } | null>(null)
+  const dismissCelebration = () => {
+    if (celebration) {
+      try {
+        const stored = new Set<string>(JSON.parse(localStorage.getItem('cj-celebrated-sections') ?? '[]') as string[])
+        stored.add(celebration.key)
+        localStorage.setItem('cj-celebrated-sections', JSON.stringify([...stored]))
+      } catch { /* 隐私模式忽略 */ }
+      setCelebration(null)
+    }
+  }
   const [reminderDismissed, setReminderDismissed] = useState(false)
   useEffect(() => { apiGet<CourseFull>(`/course-generation/courses/${courseId}`).then(setCourse).catch((e) => setErr(String(e))) }, [courseId])
   // 状态与进度分属两个端点（对齐线上契约）：练习可用性、答题统计与考试分数都取真值
@@ -63,6 +75,30 @@ export default function CourseJourney() {
     return null
   }, [course, progress, arrivedFromSession, reminderDismissed, courseId])
 
+  useEffect(() => {
+    if (!course || celebration) return
+    const celebrated = (() => { try { return new Set<string>(JSON.parse(localStorage.getItem('cj-celebrated-sections') ?? '[]') as string[]) } catch { return new Set<string>() } })()
+    for (let unitIndex = 0; unitIndex < course.units.length; unitIndex += 1) {
+      const unit = course.units[unitIndex]
+      const unitLabel = `单元 ${unitIndex + 1}`
+      // 讲次完成：该讲所有 session 都已掌握，且（若有）练习已交卷
+      for (const lecture of unit.lectures) {
+        const key = `lecture:${lecture.lectureId ?? lecture.title}`
+        if (celebrated.has(key) || lecture.sessions.length === 0) continue
+        const allMastered = lecture.sessions.every((s) => s.mastery === 'mastered' || s.mastery === 'proficient' || progress.practiceStats?.[s.sessionId]?.finished === true)
+        if (!allMastered) continue
+        setCelebration({ key, kind: 'lecture', title: lecture.title ?? '本节课', unitLabel })
+        return
+      }
+      // 测验完成：该单元已有成绩
+      const examKey = `exam:${unit.unitId}`
+      if (!celebrated.has(examKey) && progress.examScores?.[unit.unitId] !== undefined) {
+        setCelebration({ key: examKey, kind: 'exam', title: unit.title ?? unitLabel, unitLabel })
+        return
+      }
+    }
+  }, [course, progress, celebration])
+
   if (err) return <div className="p-12 text-center text-[#8a8a90]">课程不存在或无权访问<div className="mt-2"><button onClick={() => nav('/courses')} className="hk-pill">返回我的课程</button></div></div>
   if (!course) return <div className="mx-auto max-w-[1180px] px-8 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}><div className="space-y-3"><div className="hk-skeleton rounded-2xl h-[220px]" /><div className="hk-skeleton h-6 rounded" /></div><div className="space-y-3"><div className="hk-skeleton h-8 rounded w-1/2" /><div className="hk-skeleton h-24 rounded" /><div className="hk-skeleton h-40 rounded-2xl" /></div></div>
 
@@ -83,6 +119,34 @@ export default function CourseJourney() {
 
   return (
     <>
+      {celebration && (
+        <div className="cj-section-complete-overlay" data-testid="section-complete" onClick={dismissCelebration}>
+          <section className="cj-section-complete-modal" onClick={(e) => e.stopPropagation()}
+            role="dialog" aria-modal="true" aria-labelledby="cj-section-complete-title" aria-describedby="cj-section-complete-desc">
+            <div className="cj-section-complete-row">
+              <div className="cj-section-complete-media" aria-hidden="true">
+                <RandomCharVideo className="cj-section-complete-video" />
+              </div>
+              <div className="cj-section-complete-body">
+                <span className="cj-section-complete-eyebrow">
+                  {celebration.kind === 'lecture' ? '讲次完成' : celebration.kind === 'project' ? '项目完成' : '测验完成'}
+                </span>
+                <span id="cj-section-complete-title" className="cj-section-complete-title">{celebration.title} 完成！</span>
+                <span id="cj-section-complete-desc" className="cj-section-complete-desc">
+                  {celebration.kind === 'lecture'
+                    ? `这一讲的每个课时都学完了，练习也都做完了。${celebration.unitLabel} 继续推进。`
+                    : celebration.kind === 'project'
+                      ? `这个项目的每一步都已提交并通过。这是 ${celebration.unitLabel} 里最硬的一块。`
+                      : `${celebration.unitLabel} 的测验你已经考完了，成绩随时可以在卡片上查看。`}
+                </span>
+                <div className="cj-section-complete-actions">
+                  <button type="button" className="cj-section-complete-btn" data-testid="section-complete-dismiss" onClick={dismissCelebration}>继续学习</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
       {reminder && (
         <div className="cj-practice-reminder-overlay" data-testid="practice-reminder" onClick={() => setReminderDismissed(true)}>
           <section className="cj-practice-reminder-modal" onClick={(e) => e.stopPropagation()}

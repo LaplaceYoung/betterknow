@@ -494,3 +494,9 @@
 - 实测：结构/ARIA/文案/尺寸全对，点「现在去练习」跳到该节练习页，刷新不再弹。
 - 踩坑记录：第一次验证用的是 `/sessions/whiteboard/new`，白板会话跟课程结构里的 session 没有任何关联字段，提醒条件永远不成立；改用结构里的真实 `sessionId` 打开才复现 —— 线上靠 `conversationId/sessionId` 匹配，本仓同形。
 - 仍未做：`sectionComplete` 那套（讲次/项目/测验完成卡片：`{{title}} 完成！` + 三种描述 + 「继续学习」）；任务详情弹窗仍是自绘。
+
+**第五十六批（讲次/项目/测验完成卡）**
+- 补上 `sectionComplete` 那套（此前记为未做）：课程页在讲次全部学完、或单元测验出分、或项目全步提交后弹一次完成卡，结构与文案对齐线上 `.cj-section-complete-*`，「继续学习」关闭。
+- 完成态从已有数据推导（讲次：该讲所有 session 已掌握或练习已交卷；测验：`examScores[unitId]`），**「只弹一次」用 localStorage `cj-celebrated-sections`** —— 线上具体持久化位置没能从 bundle 确认，这是本地等价实现，已在文档标注为推断。
+- 自测时踩到一个自己写的 bug 并修掉：判定用的 key 是 `exam:unitId` / `lecture:lectureId`，而关闭时记录的是 `kind:title`，导致关掉后立刻又弹、刷新也弹；现已统一为同一个 key，实测关闭后写入 `["exam:unit1"]`、刷新不再弹。
+- 仍未做：项目分支（`kind:"project"` 需要「每一步都已提交并通过」的判定，本仓 projectStages 有 touched/completed，但「通过」标准未对齐）；任务详情弹窗（`task-detail-*`）；白板侧栏「大纲/资料」分栏；回放视图。

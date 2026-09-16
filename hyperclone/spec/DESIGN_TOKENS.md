@@ -864,3 +864,23 @@ return (u && !p) ? { practicePath, unitLabel: '单元 {{number}}', sessionTitle:
 
 实测：从 `/course/:id/sessions/whiteboard/ed43f6c4-…` 退出后课程页弹出提醒 —— `SECTION` / `role=dialog` / `aria-modal` / 两个 aria 关联 id / eyebrow「本节课已完成」/ `strong.cj-practice-reminder-target` = 「单元 1 · The Sociological Imagination」/ 按钮「稍后 · 现在去练习」/ 480px·22px；点「现在去练习」跳到 `/course/:id/practice/ed43f6c4-…`；刷新后不再弹（state 已清）。
 
+### 讲次/项目/测验完成卡（第四十三批，CourseJourneyPage + r163）
+
+线上 `$e` 组件（`.cj-section-complete-*`）：`overlay > section[role=dialog][aria-modal][aria-labelledby=cj-section-complete-title][aria-describedby=cj-section-complete-desc]` →
+`row > media(RandomCharVideo) + body(eyebrow/title/desc/actions)`；Esc 也能关。文案 zh：
+
+| 字段 | 内容 |
+|---|---|
+| eyebrow | 讲次完成 / 项目完成 / 测验完成（`sectionComplete.eyebrow.{kind}`） |
+| title | `{{title}} 完成！` |
+| description.lecture | 这一讲的每个课时都学完了，练习也都做完了。{{unit}} 继续推进。 |
+| description.project | 这个项目的每一步都已提交并通过。这是 {{unit}} 里最硬的一块。 |
+| description.exam | {{unit}} 的测验你已经考完了，成绩随时可以在卡片上查看。 |
+| 按钮 | 继续学习（`sectionComplete.dismiss`） |
+
+样式：卡片 480px / radius 22px / padding `20px 22px 20px 12px`，媒体格 140px，eyebrow 用琥珀色 `#b45309`，黄色渐变高亮（r163 原文）。
+
+本仓：完成态从已有数据推导（讲次＝该讲所有 session 已掌握或练习已交卷；测验＝`examScores[unitId]` 有值），「只弹一次」用 localStorage `cj-celebrated-sections` 记录（**推断**：线上具体持久化位置未能从 bundle 里确认，自部署下用本地记录等价）。
+
+实测：种入 `examScores.unit1` 后课程页弹出「测验完成 / The Sociological Perspective 完成！/ 单元 1 的测验你已经考完了…/ 继续学习」，`SECTION`+`role=dialog`+`aria-modal`+两个 aria id、480px·22px、随机角色视频；点「继续学习」写入 `["exam:unit1"]`，刷新不再弹。
+
