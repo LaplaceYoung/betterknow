@@ -1,13 +1,12 @@
 import { useCallback, useEffect, useState, useRef } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router'
-import { Check, Sparkles, Copy, Key, ShieldCheck, Cpu, ArrowRight, ArrowLeft, ArrowUp } from 'lucide-react'
+import { Check, Sparkles, Copy, Key, ArrowRight, ArrowUp } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
 import { apiGet, apiPost } from '@/lib/api'
-import { useUser } from '@/lib/user'
 import { SettingsDialog } from '@/components/SettingsDialog'
 
 // [S28] 订阅 / 定价：已全面转为纯 BYOK 架构，不涉及任何商业付费，所有外部模型均自由配置
@@ -176,7 +175,8 @@ function CustomScrollbar({ target }: { target: React.RefObject<HTMLDivElement | 
     const ro = new ResizeObserver(sync)
     ro.observe(el)
     return () => { el.removeEventListener('scroll', sync); ro.disconnect() }
-  }, [sync, target.current])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- target 是 ref，监听的是它当前指向的元素
+  }, [sync])
 
   const dragTo = (clientY: number) => {
     const el = target.current
@@ -185,6 +185,7 @@ function CustomScrollbar({ target }: { target: React.RefObject<HTMLDivElement | 
     const rect = rail.getBoundingClientRect()
     const maxTop = el.clientHeight - thumb.height
     const top = Math.min(maxTop, Math.max(0, clientY - rect.top - thumb.height / 2))
+    // 直接写 DOM 的滚动位置
     el.scrollTop = (top / Math.max(1, maxTop)) * (el.scrollHeight - el.clientHeight)
   }
 
@@ -317,6 +318,8 @@ export function DeepLearnSession() {
       }
       if (f.type === 'complete' || f.type === 'done') setStreaming(false)
     }
+    // 建立 socket 后同步交给 state（此处 setWs 一次是必要的：订阅方要用同一个实例）
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setWs(sock)
     return () => sock.close()
   }, [id])

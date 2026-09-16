@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import { Upload, FileText, Sparkles, Check, ChevronDown, Layers, BookOpen, Send } from 'lucide-react'
+import { Upload, FileText, Sparkles, Check, Send } from 'lucide-react'
 import { apiPost } from '@/lib/api'
 
 export interface UnitBrief {

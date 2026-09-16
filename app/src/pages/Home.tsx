@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Plus, ArrowUp, Sparkles, ChevronRight, ChevronDown, Mic, HardDrive, Wrench, PenLine, CalendarCheck, TrendingUp, RefreshCw, Check, X, FileText, Image as ImageIcon } from 'lucide-react'
+import { Plus, ArrowUp, Sparkles, ChevronRight, ChevronDown, Mic, HardDrive, Wrench, PenLine, CalendarCheck, TrendingUp, RefreshCw, Check, X, FileText } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { DotField } from '@/components/DotField'
 import { CourseCard } from '@/components/CourseCard'

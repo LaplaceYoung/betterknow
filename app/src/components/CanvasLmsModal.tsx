@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import { GraduationCap, Upload, FileText, CheckCircle2, ArrowRight, Link as LinkIcon, Sparkles } from 'lucide-react'
+import { GraduationCap, Upload, FileText, ArrowRight, Link as LinkIcon, Sparkles } from 'lucide-react'
 
 interface CanvasLmsModalProps {
   open: boolean

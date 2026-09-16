@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import { Sparkles, BookOpen, Clock, Target, Layers, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { Sparkles, Clock, Target, ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router'
-import { apiPost } from '@/lib/api'
 
 interface CoursePlanModalProps {
   open: boolean

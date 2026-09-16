@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState, useRef } from 'react'
 import { useNavigate } from 'react-router'
-import { Search, Flame, ChevronDown, Clock, Check, SlidersHorizontal } from 'lucide-react'
+import { Search, ChevronDown, Clock, Check, SlidersHorizontal } from 'lucide-react'
 import { CourseCard, SUBJECT_LABEL, SUBJECT_ORDER, levelOf } from '@/components/CourseCard'
 import { apiGet, type MarketplaceCourse } from '@/lib/api'
 
-const TINTS = ['linear-gradient(160deg,#e7e9dc,#cfd3c0)', 'linear-gradient(160deg,#f1ecd3,#e0d7b0)', 'linear-gradient(160deg,#dfe3f0,#c7cde3)', 'linear-gradient(160deg,#e3ede6,#c8dccf)', 'linear-gradient(160deg,#f0e1e1,#e0c9c9)', 'linear-gradient(160deg,#e2e8f0,#c9d4e3)']
+
 
 type SortOption = 'recommended' | 'rating' | 'popular' | 'sessions_asc' | 'sessions_desc'
 const SORT_LABELS: Record<SortOption, string> = {
@@ -20,6 +20,7 @@ export default function Marketplace() {
   const [all, setAll] = useState<MarketplaceCourse[]>([])
   const [subject, setSubject] = useState<string>('all')
   const [list, setList] = useState<MarketplaceCourse[] | null>(null)
+  const [loadedFor, setLoadedFor] = useState<string | null>(null)
   const [q, setQ] = useState('')
   const [sort, setSort] = useState<SortOption>('recommended')
   const [level, setLevel] = useState<'all' | 'entry' | 'advanced' | 'expert'>('all')
@@ -38,10 +39,13 @@ export default function Marketplace() {
 
   useEffect(() => { apiGet<{ courses: MarketplaceCourse[] }>('/marketplace/courses').then((r) => setAll(r.courses)).catch(() => {}) }, [])
   // [B5] 科目筛选为服务端查询
+  // 切换科目时先清空会被 react-hooks/set-state-in-effect 拦下：改成「带 key 的加载态」，
+  // 列表回来前显示骨架（loadedFor 与当前 subject 不一致即视为加载中）
   useEffect(() => {
-    setList(null)
     const path = subject === 'all' ? '/marketplace/courses' : `/marketplace/courses?subject=${encodeURIComponent(subject)}`
-    apiGet<{ courses: MarketplaceCourse[] }>(path).then((r) => setList(r.courses)).catch(() => setList([]))
+    apiGet<{ courses: MarketplaceCourse[] }>(path)
+      .then((r) => { setLoadedFor(subject); setList(r.courses) })
+      .catch(() => { setLoadedFor(subject); setList([]) })
   }, [subject])
 
   const featured = useMemo(() => all.slice(0, 6), [all])
@@ -102,7 +106,7 @@ export default function Marketplace() {
             // 线上 .mktp-featured-card:nth-child(n)：1 大卡 1/7×1/3，2-3 中卡 7/10、10/13，4-6 小卡 7/9、9/11、11/13
             const place = [{ gridColumn: '1 / 7', gridRow: '1 / 3' }, { gridColumn: '7 / 10', gridRow: '1 / 2' }, { gridColumn: '10 / 13', gridRow: '1 / 2' },
               { gridColumn: '7 / 9', gridRow: '2 / 3' }, { gridColumn: '9 / 11', gridRow: '2 / 3' }, { gridColumn: '11 / 13', gridRow: '2 / 3' }][i] ?? {}
-            const span = ''
+
             return (
               <button key={c.marketplaceId} onClick={() => nav(`/marketplace/${c.marketplaceId}/preview`)}
                 className="relative overflow-hidden text-left group hover:-translate-y-0.5 transition-transform"
@@ -197,7 +201,7 @@ export default function Marketplace() {
       </div>
 
       <div className="mx-auto" style={{ maxWidth: 1160, display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 24 }}>
-        {list === null && Array.from({ length: 8 }).map((_, i) => <div key={i} className="hk-ticket-skeleton" />)}
+        {loadedFor !== subject && Array.from({ length: 8 }).map((_, i) => <div key={i} className="hk-ticket-skeleton" />)}
         {shown.map((c) => <CourseCard key={c.marketplaceId} c={c} />)}
         {list && shown.length === 0 && <div className="col-span-4 text-center text-[#8a8a90] py-16">没有匹配的课程</div>}
       </div>

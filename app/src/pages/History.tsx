@@ -23,7 +23,7 @@ export default function History() {
   const nav = useNavigate()
   const [tab, setTab] = useState<'chat' | 'deep'>('chat')
   const [convs, setConvs] = useState<Conversation[] | null>(null)
-  const [deep, setDeep] = useState<DeepSession[]>([])
+  const [deep] = useState<DeepSession[]>([])
   const [q, setQ] = useState('')
   const [onlyStarred, setOnlyStarred] = useState(false)
   const [menuFor, setMenuFor] = useState<string | null>(null)

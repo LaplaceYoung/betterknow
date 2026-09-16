@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -606,10 +607,8 @@ function SidebarMenuSkeleton({
 }: React.ComponentProps<"div"> & {
   showIcon?: boolean
 }) {
-  // Random width between 50 to 90%.
-  const width = React.useMemo(() => {
-    return `${Math.floor(Math.random() * 40) + 50}%`
-  }, [])
+  // 骨架条宽度：渲染期不能调 Math.random（react-hooks/purity），用固定值即可
+  const width = '70%'
 
   return (
     <div

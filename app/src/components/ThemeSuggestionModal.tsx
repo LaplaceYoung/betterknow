@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import { Sparkles, GraduationCap, Compass, BookOpen, Layers } from 'lucide-react'
+import { Sparkles, Compass } from 'lucide-react'
 
 interface ThemeSuggestionModalProps {
   open: boolean

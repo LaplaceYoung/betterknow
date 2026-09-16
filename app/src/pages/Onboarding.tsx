@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Check, ChevronRight, Globe, Sparkles, Video, BookOpen, Layers, PenTool, MessageSquare, ArrowLeft, Gift } from 'lucide-react'
+import { Check, Sparkles, BookOpen, Layers, PenTool, MessageSquare, Gift } from 'lucide-react'
 import { apiPost } from '@/lib/api'
 
 interface OnboardingAnswers {

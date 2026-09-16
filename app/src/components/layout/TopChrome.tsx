@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import { Languages, Gift, Check } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -13,12 +13,11 @@ const LANGS = [
 ]
 
 export function TopChrome() {
-  const { tier, credits, language, setLanguage, username } = useUser()
+  const { language, setLanguage, username } = useUser()
   const nav = useNavigate()
-  const loc = useLocation()
   const [settings, setSettings] = useState(false)
   const [settingsTab, setSettingsTab] = useState<'account' | 'byok' | 'subscription' | 'preferences' | 'memory' | 'general'>('byok')
-  const isHome = loc.pathname === '/'
+
 
   const openSettings = (tab: 'account' | 'byok' | 'subscription' | 'preferences' | 'memory' | 'general' = 'account') => {
     setSettingsTab(tab)

@@ -23,7 +23,6 @@ interface ByokState {
   enabled?: boolean
   seams?: { seam: SeamId; configured: boolean; enabled: boolean; mode: 'real' | 'stub'; source: 'user' | 'env' | 'none'; base_url: string; model: string; api_key_masked: string }[]
 }
-interface MemoryMgmtAlt { success?: boolean }
 
 const emptySeams = (): Record<SeamId, SeamDraft> => ({
   llm: { baseUrl: '', apiKey: '', masked: '', model: '', enabled: true, source: 'none' },
@@ -66,7 +65,7 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
   useEffect(() => {
     if (open) setTab(initialTab)
   }, [open, initialTab])
-  const { username, tier, credits, maxCredits, language, setLanguage, refresh } = useUser()
+  const { username, language, setLanguage } = useUser()
   const [memory, setMemory] = useState<MemoryMgmt | null>(null)
   const [voice, setVoice] = useState(true)
   const [email, setEmail] = useState('')

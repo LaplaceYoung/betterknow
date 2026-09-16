@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router'
-import { ArrowUp, Check, ChevronRight, ExternalLink, Languages, LifeBuoy, Share2, Sparkles, ArrowRight, Download, FileText, Plus, X, Image as ImageIcon } from 'lucide-react'
+import { ArrowUp, Check, ChevronRight, ExternalLink, Languages, LifeBuoy, Share2, Sparkles, ArrowRight, Download, FileText, Plus, X } from 'lucide-react'
 import { Copy, ThumbsUp, ThumbsDown, BookOpen } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
@@ -468,7 +468,7 @@ export default function ChatResponse() {
       const f = JSON.parse(ev.data) as Frame
       if (f.type === 'conversation_created') { const d = f.data as { conversation_id: string }; setConvId(String(d.conversation_id)); window.history.replaceState({}, '', `/response/${String(d.conversation_id)}`) }
       else if (f.type === 'conversation_resumed') { const d = f.data as { title?: string }; setTitle(String(d.title ?? '')) }
-      else if (f.type === 'user_message') { push({ kind: 'user', text: String(f.message ?? ''), attachments: Array.isArray(f.attachments) ? f.attachments as any : undefined }); setStreaming(true) }
+      else if (f.type === 'user_message') { push({ kind: 'user', text: String(f.message ?? ''), attachments: Array.isArray(f.attachments) ? (f.attachments as Array<{ name?: string; url?: string }>) : undefined }); setStreaming(true) }
       else if (f.type === 'thinking') { push({ kind: 'thinking', tool: String(f.tool_name ?? 'directorAgent'), status: String(f.tool_status ?? '') }) }
       else if (f.type === 'thinking_chunk') { setItems((xs) => [...xs, { kind: 'content', text: String(f.chunk ?? ''), whisper: true } as ChatItem]) }
       else if (f.type === 'tool_execution') {
@@ -509,7 +509,7 @@ export default function ChatResponse() {
       else if (f.type === 'error') { push({ kind: 'content', text: `⚠️ ${String(f.message ?? '出错了')}` }); setStreaming(false) }
     }
     ws.onopen = () => {
-      const initialAttachments = (loc.state as any)?.attachments
+      const initialAttachments = (loc.state as { attachments?: Array<{ name?: string; url?: string }> } | undefined)?.attachments
       if (pending && loc.state?.message) { push({ kind: 'user', text: loc.state.message, attachments: initialAttachments }); setStreaming(true) }
       if (pending && loc.state?.message) ws.send(JSON.stringify({ type: 'user_message', message: loc.state.message, ui_language: language, speed_mode: loc.state.speed_mode ?? 'standard', tts_enabled: Boolean(loc.state.tts_enabled), attachments: initialAttachments, ...(loc.state.mode ? { mode: loc.state.mode } : {}) }))
     }

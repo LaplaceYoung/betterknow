@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { ArrowLeft, BadgeCheck, Upload, Play, PenLine, ChevronRight, Hash, Share2, LogOut, MoreHorizontal, CalendarPlus, Copy, Sparkles, CheckCircle2, Check, X } from 'lucide-react'
+import { ArrowLeft, Upload, Play, PenLine, ChevronRight, Hash, Share2, LogOut, MoreHorizontal, CalendarPlus, Copy, Sparkles, CheckCircle2, Check, X } from 'lucide-react'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { apiGet, apiPost, type MarketplaceCourse } from '@/lib/api'
