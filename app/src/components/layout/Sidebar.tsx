@@ -40,7 +40,7 @@ export function Sidebar() {
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[#0a0a0a] text-white shadow-sm"><HkLogo size={18} /></span>
           <span className="font-semibold text-[16px] tracking-tight">betterknow</span>
         </div>
-        <button onClick={() => setWhatsNew(true)} className="hk-icon-btn h-7 w-7 text-[#8a8a90] hover:text-[#0a0a0a]" title="最新动态" aria-label="最新动态">
+        <button onClick={() => setWhatsNew(true)} className="inline-flex items-center hover:opacity-80" style={{ gap: 4, fontSize: 11, lineHeight: "16.5px", fontWeight: 500, color: "#aaaaaa" }} title="最新动态" aria-label="最新动态">
           <Bell size={14} />
         </button>
       </div>
@@ -82,7 +82,7 @@ export function Sidebar() {
         <button
           onClick={() => recentCourse && nav(`/course/${recentCourse.uuid}`)}
           className="w-full text-left flex flex-col hover:shadow-sm transition-shadow"
-          style={{ borderRadius: 10, border: '1px solid #e8ecf3', background: '#fff', padding: '10px 11px', gap: 5 }}
+          style={{ borderRadius: 10, border: '1px solid #e8ecf3', background: '#fff', padding: '10px 11px', gap: 5, boxShadow: '0 1px 2px rgba(15,23,42,.04)' }}
         >
           <div className="flex items-center" style={{ gap: 7 }}>
             <span style={{ fontSize: 10, lineHeight: '14px', color: '#4c6696', background: '#eef2f8', border: '1px solid rgba(76,102,150,.16)', borderRadius: 999, padding: '1px 7px' }}>讲座</span>

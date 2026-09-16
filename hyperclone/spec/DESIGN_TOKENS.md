@@ -86,3 +86,19 @@
 2. 设置弹窗各 tab（账户/订阅/偏好/记忆）的控件尺寸。
 3. 历史页的**时间分组标题**与星标/重命名交互样式。
 4. 白板画布本身（板面排版、讲稿气泡、插图画框）与 zen 模式下的留白。
+
+## 第三批对照（r55–r57）
+
+| 部件 | 线上 | 本仓 |
+|---|---|---|
+| 侧栏**外层** | `.sidebar` 264px（容器），内部 `.sidebar-content-wrapper` 240px 白卡 | 布局列 240px（视觉一致；外层留白由 `--sidebar-margin` 提供） |
+| 导航项 | `.nav-item` **padding 7px 12px、gap 14px、radius 8px**；`.button-label` **13px/19.5 w500 #333**；激活时底色 `#E8F0F8` **且文字变 #4C6696** | `.hk-rail-item` 同（激活蓝字是这轮补的） |
+| 继续学习卡 | `.sidebar-resume-card` 白底 / radius 10 / border `#E8ECF3` / padding `10px 11px` / gap 5 / **阴影 `rgba(15,23,42,.04) 0 1px`** | 同 |
+| 版本入口 | `.version-tag` 11px/16.5 **w500 #AAAAAA**、gap 4 | 侧栏「最新动态」入口同 |
+| 首页主体 | `.home-scroll-body` padding **70px 20px 28px**、宽度 1228 | `Home.tsx` 同 |
+| 首页装饰说明 | `.home-canvas-label`：标题 13px `rgba(17,24,39,.52)`、meta 11.5px `rgba(17,24,39,.4)`、tooltip 12px w500 白 / bg rgba(0,0,0,.9) / radius 6 / padding 6px 10px | 本仓 DotField 无对应文案（不补造） |
+| 顶部控件 | `.avatar-frame` radius 20 padding 4 + `.avatar-image` 32px radius 16；`.language-icon-box` radius 8 + border 1px `rgba(0,0,0,.14)`、31px | 沿用现有按钮尺寸 |
+
+**本轮未取到样**（下一批继续）：
+1. **设置弹窗**：从侧栏头像点开没有弹出在 DOM 里（可能走 portal + 需要 hover/二次点击），三轮尝试都没拿到 `.settings-*` 类名。
+2. **白板画布内部**（板面 tile 布局、讲稿气泡、插图框）：板面绘制在 canvas/iframe 内，外部只有 `whiteboard-canvas-shell` 一层，尺子量不到内部元素；要拿到得读 canvas 尺寸或从客户端 bundle 反推。

@@ -162,7 +162,7 @@ export default function Home() {
   return (
     <div className="relative min-h-full">
       <DotField />
-      <div className="relative mx-auto w-full max-w-[880px] px-6 pb-16">
+      <div className="relative mx-auto w-full" style={{ maxWidth: 1228, padding: "70px 20px 28px" }}>
         {/* 模式 tab */}
         <div className="flex justify-center mt-1 mb-8">
           <div role="tablist" aria-label="Home mode" className="inline-flex rounded-full bg-[#f1f2f4] p-1 text-[13px]">
