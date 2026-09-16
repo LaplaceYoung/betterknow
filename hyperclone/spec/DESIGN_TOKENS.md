@@ -102,3 +102,19 @@
 **本轮未取到样**（下一批继续）：
 1. **设置弹窗**：从侧栏头像点开没有弹出在 DOM 里（可能走 portal + 需要 hover/二次点击），三轮尝试都没拿到 `.settings-*` 类名。
 2. **白板画布内部**（板面 tile 布局、讲稿气泡、插图框）：板面绘制在 canvas/iframe 内，外部只有 `whiteboard-canvas-shell` 一层，尺子量不到内部元素；要拿到得读 canvas 尺寸或从客户端 bundle 反推。
+
+## 第四批对照：改读线上样式表（r58）
+
+设置弹窗点不开、画布内部量不到，于是直接抓取 https://agent.hyperknow.io 的 55 张样式表（2.09 MB CSS）并按规则名抽取——这条路径比点 UI 更可靠，后续都可复用。
+
+| 部件 | 线上 CSS 原文 | 本仓 |
+|---|---|---|
+| 设置弹窗容器 | `.settings-container{background:#fff;border-radius:20px;box-shadow:0 24px 48px #0000001f,0 0 1px #0000000d;max-width:950px;width:90%;height:600px;max-height:90vh;overflow:hidden;display:flex;flex-direction:row}` | `SettingsDialog` 同参数 |
+| 设置遮罩 | `.settings-overlay{background:#0000001a;backdrop-filter:blur(2px);z-index:2000;animation:fadeIn .3s ease-out}` | 同（portal 遮罩） |
+| 设置侧栏 | `.settings-sidebar{width:210px;background:#f4f4f4;border-right:1px solid #e9e9e9}` | 同 |
+| 设置标题/关闭 | `.settings-title{font-size:18px;font-weight:600;color:#1a1a1a;padding-left:4px}`；`.settings-close{top:12px;right:12px;width:28px;height:28px;border-radius:50%;color:#666}` | 标题同；关闭钮沿用 Radix 默认 |
+| 设置分组 | `.settings-group{margin-bottom:16px}`；`.settings-logout-group{margin-top:8px;padding-top:16px;border-top:1px solid #E5E5E5}`；`.settings-header{padding:16px 20px}` | 内容区间距沿用 16px 节奏 |
+| 翻页控件 | `.whiteboard-page-nav{display:inline-flex;align-items:stretch;height:40px;background:#fff;border-radius:20px;box-shadow:0 2px 4px #00000026}`；箭头 `.whiteboard-page-nav-arrow{width:38px}`；计数 `font-size:13.5px;font-weight:500;letter-spacing:.2px;color:#8a8a8a`，当前 `#171717`、分隔 `#c4c4c4` | 同（高 40 / radius 20 / 38px 箭头 / 13.5 w500 ls .2） |
+| 板书骨架 | `.whiteboard-board-skeleton{position:absolute;inset:0;z-index:25;display:flex;padding:96px 72px 64px;background:#fff}`；列 `flex:0 1 340px`、gap 18；标题 `height:26px;border-radius:10px`、行 `height:13px;border-radius:999px` | 同（准备中骨架） |
+| 要点列表 | `.whiteboard-outline-keypoints{border-left:1.5px solid #ececec;padding-left:10px;gap:4px}`；条目 `padding:7px 10px;border-radius:10px;font-size:13px;line-height:1.4;color:#8a8a8a`；`.whiteboard-outline-keypoint-dot{width:5px;height:5px;background:#d4d4d4}`，**`[data-status=current]` 时圆点变 `#4c6696`**；`-live` 徽标 `gap:3px;margin-left:4px` | 同（含 current 圆点与「讲到这里」徽标） |
+

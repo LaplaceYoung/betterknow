@@ -21,6 +21,8 @@ export default function Whiteboard() {
   const whiteboardRevision = useRef(0)
   const [title, setTitle] = useState('白板课堂')
   const [keyPoints, setKeyPoints] = useState<string[]>([])
+  // 线上要点带 data-status=current：讲解推进时高亮当前条目
+  const [activeKeyPoint, setActiveKeyPoint] = useState(0)
   const [animation, setAnimation] = useState<{ pending: boolean; html: string; task: string } | null>(null)
   // 线上白板默认就是 zen（沉浸）模式，工具条上有「Exit zen mode」；这里同样默认沉浸
   const [zen, setZen] = useState(true)
@@ -85,7 +87,7 @@ export default function Whiteboard() {
     wsRef.current = ws
     const apply = (a: Action) => {
       if (a.type === 'new_page') setPages((ps) => [...ps, { id: a.page_id ?? String(ps.length), title: a.title ?? `Page ${ps.length + 1}`, boards: [], annotations: [], images: [] }])
-      else if (a.type === 'board') { setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [], images: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next }); syncState() }
+      else if (a.type === 'board') { setActiveKeyPoint((k) => k + 1); setPages((ps) => { const next = ps.length ? [...ps] : [{ id: 'p', title: a.title ?? 'Board', boards: [], annotations: [], images: [] }]; next[next.length - 1] = { ...next[next.length - 1], boards: [...next[next.length - 1].boards, a.board_content ?? ''] }; return next }); syncState() }
       else if (a.type === 'speak') { const t = a.spoken_text ?? a.say ?? ''; if (t) { setScript((s) => [...s, { who: 'teacher', text: t }]); speakText(t) } }
       else if (a.type === 'annotation') { setPages((ps) => { if (!ps.length) return ps; const next = [...ps]; const last = next[next.length - 1]; next[next.length - 1] = { ...last, annotations: [...last.annotations, { text: a.text ?? '', say: a.say }] }; return next }); if (a.say) { setScript((s) => [...s, { who: 'teacher', text: a.say! }]); speakText(a.say) } }
       else if (a.type === 'animation') setAnimation({ pending: true, html: '', task: String(a.task_preview ?? '') })
@@ -266,19 +268,26 @@ export default function Whiteboard() {
               {playbackRate}x
             </button>
             <button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.max(50, z - 10))} aria-label="缩小"><ZoomOut size={14} /></button><span className="w-10 text-center">{zoom}%</span><button className="hk-icon-btn h-8 w-8" onClick={() => setZoom((z) => Math.min(200, z + 10))} aria-label="放大"><ZoomIn size={14} /></button>
-            <span className="mx-2 text-[#8a8a90]">{Math.min(pageIdx + 1, Math.max(pages.length, 1))} / {Math.max(pages.length, 1)}</span>
-            <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.max(0, i - 1))} aria-label="上一页" title="上一页 (←)"><SkipBack size={14} /></button>
-            <button className="hk-icon-btn h-8 w-8" onClick={() => (paused ? resume() : setPaused(true))} aria-label={paused ? '继续' : '暂停'} title={paused ? '继续 (Space)' : '暂停 (Space)'}>{paused ? <Play size={14} /> : <Pause size={14} />}</button>
-            <button className="hk-icon-btn h-8 w-8" onClick={() => setPageIdx((i) => Math.min(pages.length - 1, i + 1))} aria-label="下一页" title="下一页 (→)"><SkipForward size={14} /></button>
             <div className="relative">
-              <button className="hk-icon-btn h-8 w-8" onClick={() => setExportOpen((v) => !v)} aria-label="导出" title="导出" data-testid="export-menu"><Download size={14} /></button>
-              {exportOpen && (
-                <div className="absolute right-0 top-9 z-40 hk-card w-[200px] p-1.5" data-testid="export-popover">
-                  <button onClick={() => { exportNotes(); setExportOpen(false) }} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px]">导出 Markdown 笔记</button>
-                  <button onClick={() => { exportNotes(); setExportOpen(false); window.print() }} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px]">导出 PDF（打印）</button>
-                </div>
-              )}
+            <button className="hk-icon-btn h-8 w-8" onClick={() => setExportOpen((v) => !v)} aria-label="导出" title="导出" data-testid="export-menu"><Download size={14} /></button>
+            {exportOpen && (
+              <div className="absolute right-0 top-9 z-40 hk-card w-[200px] p-1.5" data-testid="export-popover">
+                <button onClick={() => { exportNotes(); setExportOpen(false) }} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px]">导出 Markdown 笔记</button>
+                <button onClick={() => { exportNotes(); setExportOpen(false); window.print() }} className="w-full text-left px-2.5 py-1.5 rounded-md hover:bg-[#f4f4f5] text-[12px]">导出 PDF（打印）</button>
+              </div>
+            )}
             </div>
+            <span className="inline-flex items-stretch" style={{ height: 40, background: '#fff', borderRadius: 20, boxShadow: '0 2px 4px rgba(0,0,0,.15)' }}>
+              <button onClick={() => setPageIdx((i) => Math.max(0, i - 1))} aria-label="上一页" title="上一页 (←)"
+                style={{ width: 38, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'transparent', color: '#8a8a8a', borderRadius: '20px 0 0 20px' }}><SkipBack size={14} /></button>
+              <span className="inline-flex items-center justify-center" style={{ minWidth: 28, padding: '0 2px', gap: 3, fontSize: 13.5, fontWeight: 500, letterSpacing: '.2px', color: '#8a8a8a' }}>
+                <span style={{ color: '#171717' }}>{Math.min(pageIdx + 1, Math.max(pages.length, 1))}</span>
+                <span style={{ color: '#c4c4c4', fontWeight: 400 }}>/</span>
+                <span>{Math.max(pages.length, 1)}</span>
+              </span>
+              <button onClick={() => setPageIdx((i) => Math.min(pages.length - 1, i + 1))} aria-label="下一页" title="下一页 (→)"
+                style={{ width: 38, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'transparent', color: '#8a8a8a', borderRadius: '0 20px 20px 0' }}><SkipForward size={14} /></button>
+            </span>
             <button className="hk-icon-btn h-8 w-8" onClick={() => setZen((v) => !v)} aria-label={zen ? 'Exit zen mode' : '进入沉浸模式'} title={zen ? 'Exit zen mode' : '进入沉浸模式'} data-testid="zen-toggle">{zen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
             <button className="hk-icon-btn h-8 w-8" aria-label="检查我的网络" title="检查我的网络" data-testid="net-check" onClick={() => { void apiGet<{ ok?: boolean; state?: string }>('/net-check').then((r) => setNetCheck(r?.ok ? '网络正常' : '网络异常')).catch(() => setNetCheck('检查失败')); setTimeout(() => setNetCheck(''), 3000) }}><Activity size={14} /></button>
             <button className="hk-icon-btn h-8 w-8" onClick={toggleFullscreen} aria-label={isFullscreen ? '退出全屏' : '全屏沉浸模式'} title={isFullscreen ? '退出全屏 (F)' : '全屏沉浸模式 (F)'}>{isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}</button>
@@ -288,12 +297,15 @@ export default function Whiteboard() {
         </header>
         {keyPoints.length > 0 && (
           <div className="mx-4 mb-3" style={{ background: 'rgba(255,255,255,.78)', border: '1px solid #e5e5e5', borderRadius: 10, padding: '9px 10px' }} data-testid="session-key-points">
-            <p style={{ fontSize: 10, lineHeight: '15px', fontWeight: 700, color: '#a3a3a3', marginBottom: 6 }}>学习节大纲</p>
-            <div className="text-[11px] text-[#8a8a90] mb-1.5">本节要点 · {keyPoints.length} 条</div>
-            <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
-              {keyPoints.map((point) => (
-                <li key={point} className="inline-flex items-start gap-1.5 max-w-[420px]" style={{ fontSize: 12, lineHeight: '18px', fontWeight: 600, color: '#262626' }}>
-                  <span className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-[#3b5bdb]" />{point}
+            <p style={{ fontSize: 10, lineHeight: '15px', fontWeight: 700, color: '#a3a3a3', marginBottom: 6 }}>学习节大纲 · 本节要点 {keyPoints.length} 条</p>
+            {/* 线上 .whiteboard-outline-keypoints：左边框 + 圆点，讲到的条目（current）圆点变蓝 */}
+            <ul style={{ listStyle: 'none', margin: 0, padding: '0 0 0 10px', borderLeft: '1.5px solid #ececec', display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {keyPoints.map((point, index) => (
+                <li key={point} data-status={index === activeKeyPoint ? 'current' : 'todo'}
+                  style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 10px', borderRadius: 10, fontSize: 13, lineHeight: 1.4, color: index === activeKeyPoint ? '#262626' : '#8a8a8a' }}>
+                  <span style={{ width: 5, height: 5, borderRadius: '50%', background: index === activeKeyPoint ? '#4c6696' : '#d4d4d4', flexShrink: 0 }} />
+                  <span style={{ minWidth: 0, flex: 1 }}>{point}</span>
+                  {index === activeKeyPoint && <span style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center', gap: 3, marginLeft: 4, fontSize: 11, color: '#4c6696' }}>讲到这里</span>}
                 </li>
               ))}
             </ul>
@@ -313,7 +325,17 @@ export default function Whiteboard() {
         )}
         <div className="flex-1 relative overflow-auto hk-scroll p-6" style={{ backgroundImage: 'radial-gradient(#e4e4e7 1px, transparent 1px)', backgroundSize: '18px 18px' }}>
           <div className="mx-auto bg-white rounded-xl shadow-sm border p-8 origin-top transition-transform" style={{ width: 760, minHeight: 520, transform: `scale(${zoom / 100})` }}>
-            {status === 'connecting' && <div className="hk-skeleton h-6 w-1/2 rounded" />}
+            {/* 线上 .whiteboard-board-skeleton：96px 72px 64px 内边距、340px 列、标题 26px / 行 13px */}
+            {status === 'connecting' && (
+              <div style={{ display: 'flex', padding: '96px 72px 64px', gap: 18 }} aria-label="板书准备中">
+                {[0, 1].map((col) => (
+                  <div key={col} style={{ flex: '0 1 340px', display: 'flex', flexDirection: 'column', gap: 18 }}>
+                    <div className="hk-skeleton" style={{ height: 26, width: '60%', borderRadius: 10 }} />
+                    {[0, 1, 2, 3].map((line) => <div key={line} className="hk-skeleton" style={{ height: 13, width: '100%', borderRadius: 999 }} />)}
+                  </div>
+                ))}
+              </div>
+            )}
             {page && <>
               <h2 className="hk-title-serif text-[22px] mb-4">{page.title}</h2>
               {page.boards.slice(0, revealed).map((b, i) => (

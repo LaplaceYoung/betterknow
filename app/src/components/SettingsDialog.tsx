@@ -169,11 +169,13 @@ export function SettingsDialog({ open, onOpenChange, initialTab = 'account' }: {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[820px] p-0 overflow-hidden rounded-2xl">
+      {/* 线上 .settings-container：max-width 950 / width 90% / height 600 / radius 20 / 0 24px 48px rgba(0,0,0,.12) */}
+      <DialogContent className="p-0 overflow-hidden" style={{ maxWidth: 950, width: '90%', height: 600, maxHeight: '90vh', borderRadius: 20, boxShadow: '0 24px 48px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.05)' }}>
         <DialogTitle className="sr-only">设置</DialogTitle>
-        <div className="flex" style={{ minHeight: 480 }}>
-          <aside className="w-[180px] shrink-0 border-r bg-[#fafafa] p-3">
-            <div className="text-[15px] font-semibold px-2 py-2 mb-1">设置</div>
+        <div className="flex" style={{ height: '100%' }}>
+          {/* 线上 .settings-sidebar：210px / bg #f4f4f4 / border-right 1px #e9e9e9 */}
+          <aside className="shrink-0 p-3" style={{ width: 210, background: '#f4f4f4', borderRight: '1px solid #e9e9e9' }}>
+            <div className="px-2 py-2 mb-1" style={{ fontSize: 18, fontWeight: 600, color: '#1a1a1a', paddingLeft: 4 }}>设置</div>
             {TABS.map((t) => (
               <button key={t.id} onClick={() => setTab(t.id)} data-active={tab === t.id} className="hk-rail-item w-full text-[13px]" style={{ height: 34 }}>{t.label}</button>
             ))}
