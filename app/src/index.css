@@ -749,3 +749,7 @@
 .exam-intro-note { margin: 18px 0 0; max-width: 360px; color: #5b5b5b; font-size: 14.5px; line-height: 1.55; }
 .exam-intro-start-btn { margin-top: 24px; padding: 14px 42px; border: none; border-radius: 999px; background: #385da0; color: #fff; cursor: pointer; font-size: 15px; line-height: 1; transition: background .15s ease, transform .15s ease; }
 .exam-intro-start-btn:hover { background: #31558f; transform: translateY(-1px); }
+
+/* 线上 .outline-item.locked / .item-lock-icon（待解锁条目） */
+.item-lock-icon { flex-shrink: 0; margin-left: auto; display: inline-flex; align-items: center; justify-content: center; color: #c8cdd6; opacity: .55; transition: opacity .18s ease, color .18s ease; }
+.outline-item.locked:hover .item-lock-icon { opacity: 1; color: #9aa6b8; }

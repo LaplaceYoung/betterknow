@@ -350,6 +350,14 @@ export function DeepLearnSession() {
                     onClick={() => setCurrentStep(i)} onKeyDown={(e) => e.key === 'Enter' && setCurrentStep(i)}>
                     <span className="item-radio" data-state={state} aria-hidden="true">{state === 'done' ? '✓' : ''}</span>
                     <span className="item-title">{item.title}</span>
+                    {state === 'pending' && (
+                      <span className="item-lock-icon" aria-label="待解锁" title="待解锁">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <rect x="5" y="10.5" width="14" height="9.5" rx="2" stroke="currentColor" strokeWidth="1.6" />
+                          <path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                        </svg>
+                      </span>
+                    )}
                   </div>
                 </div>
               )

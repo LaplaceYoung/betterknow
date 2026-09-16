@@ -360,3 +360,8 @@
 - **课程评分真正落库**：新增 `POST/GET /api/v1/course-generation/courses/:uuid/rating`（写 `state.courses[uuid].rating = {rating, comment, at}`，1–5 校验），前端提交改调这个端点，进页面时若已有评分直接显示「已收到你的反馈」。实测提交 5 星 + 评论后服务端读到 `{rating: 5, comment: …, at: …}`，刷新后不再重复询问。
 - **顺手修掉 lint 暴露的真问题**：`QuizRunner` 里 `useEffect/useState` 出现在 `if (!q) return null` 之后（hook 顺序可变），已把所有 hook 上移到早退之前；练习秒数改成「开始时间戳 + interval 计算」，去掉了 effect 内同步 setState 与重复的 `remaining`/`timerKey` 状态；清掉两个未使用导入。现在 `npx eslint src/pages/CourseWork.tsx` 干净。
 - 仍未做：考试速答奖励芯片（需要数据里的 `fastWindowMs`；practice 那份实测是 10s，考试这份没有证据，不编）、`.exam-bonus-bar` 的实际启用、评分历史（目前只存最近一次）。
+
+**第三十四批（考试速答奖励 + 大纲锁定图标）**
+- **考试速答奖励补齐**：服务端考试负载统一补 `fastWindowMs` / `fastBonus`（种子与合成两条路径都覆盖），前端按线上结构渲染 `.exam-bonus-chip`（11×13 闪电 + 「速答奖励 +200」+ 剩余秒）与 `.exam-bonus-bar/fill`（3px、`#e8b54b → #c98a1e`、`exam-bonus-drain` 按窗口时长排空），窗口过期后芯片与条一起消失。**取值说明**：线上考试数据里的具体窗口没抓到，这里沿用练习实测的 10s / +200，注释和文档都写清楚了，不是把推断当事实。
+- **深度课堂大纲补锁定图标**：待解锁条目按线上 `.outline-item.locked` 语义渲染 13px 线框锁（静止 0.55 透明度、hover 提亮），图标用本仓内联 SVG。
+- 仍未做：`fastWindowMs` 的线上真实取值（要等能打开在线考试或抓到考试数据）、奖励分值真正计分（当前只显示，未并入成绩）。

@@ -202,12 +202,16 @@ function QuizRunner({
   subtitle,
   courseId,
   mode = 'practice',
+  fastWindowMs = 10000,
+  fastBonus = 200,
 }: {
   title: string
   questions: Question[]
   subtitle?: string
   courseId: string
   mode?: 'practice' | 'exam'
+  fastWindowMs?: number
+  fastBonus?: number
   onFinish: (score: number, total: number, userAnswers: Record<number, { picked: string[]; fill: string; isRight: boolean }>) => void
 }) {
   const [i, setI] = useState(0)
@@ -242,6 +246,18 @@ function QuizRunner({
   const [examStarted, setExamStarted] = useState(mode !== 'exam')
   const [examLeft, setExamLeft] = useState(EXAM_SECONDS)
   const examDeadline = useRef(0)
+  // 线上 .exam-bonus-chip：每题的速答窗口（窗口长度与奖励来自考试数据）
+  const [fastLeft, setFastLeft] = useState(0)
+  const fastDeadline = useRef(0)
+  useEffect(() => {
+    if (mode !== 'exam' || !examStarted) return
+    fastDeadline.current = Date.now() + fastWindowMs
+    setFastLeft(Math.ceil(fastWindowMs / 1000))
+    const id = window.setInterval(() => {
+      setFastLeft(Math.max(0, Math.ceil((fastDeadline.current - Date.now()) / 1000)))
+    }, 200)
+    return () => window.clearInterval(id)
+  }, [mode, examStarted, i, fastWindowMs])
   const submitRef = useRef<() => void>(() => {})
   const latest = useRef({ score: 0, i: 0, picked: [] as string[], fill: '', questions: [] as Question[], userAnswers: {} as Record<number, { picked: string[]; fill: string; isRight: boolean }>, onFinish })
   useEffect(() => {
@@ -389,6 +405,14 @@ function QuizRunner({
             {fmtClock(examLeft)}
           </div>
         )}
+        {mode === 'exam' && fastLeft > 0 && (
+          <span className="exam-bonus-chip" data-testid="exam-bonus-chip">
+            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" aria-hidden="true">
+              <path d="M6.2 0.6L0.8 7.2h3.4l-.9 5.2 5.9-7h-3.5z" fill="currentColor" />
+            </svg>
+            速答奖励 <b>+{fastBonus}</b><b>{fastLeft}s</b>
+          </span>
+        )}
         <div className="practice-hud">
           <span className="practice-hud-chip practice-hud-chip--bonus">速答奖励 <b>+{SPEED_BONUS}</b>{!checked && <span>{left}s</span>}</span>
           <span className="practice-hud-chip practice-hud-chip--score">得分 <b><PracticeScore value={score} /></b>{bonus ? <span className="text-[11px] text-[#8f7620]">+{bonus}</span> : null}</span>
@@ -443,6 +467,11 @@ function QuizRunner({
         </div>
       )}
       <div className={mode === 'exam' ? 'exam-stage' : 'practice-stage'}>
+      {mode === 'exam' && fastLeft > 0 && (
+        <div className="exam-bonus-bar" aria-hidden="true" data-testid="exam-bonus-bar">
+          <span key={`${i}-${examStarted}`} className="exam-bonus-fill" style={{ animationDuration: `${fastWindowMs}ms` }} />
+        </div>
+      )}
       <div className={`practice-split ${checked ? 'practice-split--revealed' : ''}`}>
       <section className="practice-question-shell">
       <div className="mx-auto max-w-[672px] px-8 pb-24">
@@ -749,7 +778,7 @@ export function Exam() {
   const { courseId = '', unitId = '' } = useParams()
   const nav = useNavigate()
   const [data, setData] = useState<{
-    exams: { title: string; unitId: string; questions: Question[] }[]
+    exams: { title: string; unitId: string; questions: Question[]; fastWindowMs?: number; fastBonus?: number }[]
   } | null>(null)
   const [result, setResult] = useState<{
     score: number
@@ -758,7 +787,7 @@ export function Exam() {
   } | null>(null)
 
   useEffect(() => {
-    apiGet<{ exams: { title: string; unitId: string; questions: Question[] }[] }>(
+    apiGet<{ exams: { title: string; unitId: string; questions: Question[]; fastWindowMs?: number; fastBonus?: number }[] }>(
       `/course-generation/courses/${courseId}/exam`
     )
       .then(setData)
@@ -800,6 +829,8 @@ export function Exam() {
         title={exam.title}
         subtitle="单元综合考试"
         courseId={courseId}
+        fastWindowMs={exam.fastWindowMs ?? 10000}
+        fastBonus={exam.fastBonus ?? 200}
         questions={exam.questions}
         onFinish={async (score, total, userAnswers) => {
           await apiPost(`/course-generation/courses/${courseId}/exam/score`, {

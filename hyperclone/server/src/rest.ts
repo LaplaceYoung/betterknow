@@ -647,6 +647,10 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       exams.push({
         title: `${uTitle} · 单元综合考试`,
         unitId: uId,
+        // 线上考场从数据里读 fastWindowMs / fastBonus（.exam-bonus-chip 与 .exam-bonus-fill 都依赖它）；
+        // 考试那份的具体取值没抓到，这里沿用练习实测的 10s / +200
+        fastWindowMs: 10000,
+        fastBonus: 200,
         questions: [
           {
             id: `${uId}-eq1`,
@@ -885,7 +889,13 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/course-generation/courses/:course_uuid/exam', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    return (await resolveExam(course, courseId(request))) ?? { courseUuid: courseId(request), exams: [] };
+    const data = (await resolveExam(course, courseId(request))) ?? { courseUuid: courseId(request), exams: [] };
+    // 速答窗口：线上考场从考试数据读 fastWindowMs / fastBonus（种子数据里没有，这里统一补齐默认值）
+    const exams = Array.isArray(data.exams) ? (data.exams as Array<Record<string, unknown>>) : [];
+    return {
+      ...data,
+      exams: exams.map((exam) => ({ fastWindowMs: 10000, fastBonus: 200, ...exam })),
+    };
   });
 
   app.post('/api/v1/course-generation/courses/:course_uuid/exam/score', protectedRoute, async (request, reply) => {

@@ -385,3 +385,12 @@ useEffect(() => { if (!U || D) return; const tick = () => {
 | 速答奖励 | `.exam-bonus-bar{absolute;top:0;height:3px;border-radius:14px 14px 0 0;background:#f3f4f6}`；`.exam-bonus-fill{background:linear-gradient(90deg,#e8b54b,#c98a1e);animation:exam-bonus-drain linear}`；`.exam-bonus-chip{padding:5px 12px;border:1px solid rgba(201,138,30,.4);border-radius:999px;background:#fdf6e9;color:#8c6210}`，窗口由数据里的 `fastWindowMs` 决定 | 规则已落 CSS；**未接**：本仓考试数据还没有 `fastWindowMs`，所以暂不显示奖励芯片（不编时长） |
 | 开场页 | `.exam-intro-shell{absolute;top:52px;right:36px;bottom:30px;left:36px;display:flex;align-items:center;justify-content:center;padding:28px}`；`.exam-intro-card{grid-template-columns:minmax(200px,240px) minmax(0,1fr);gap:26px;width:min(90vw,680px);padding:24px 30px 26px 22px;border:1px solid #E7ECF5;border-radius:24px}`；eyebrow 12px `letter-spacing:.12em` 大写 `#8c9bbc`；标题 `clamp(24px,2.6vw,32px)` w600 `#1f1f1f` `letter-spacing:-.03em`；统计胶囊 `#f8fafd`/`#385da0` + 分隔线 `#dce3f0`；说明 14.5 `#5b5b5b` max-width 360；开始键 `14px 42px` radius 999 `#385da0`（hover `#31558f`） | 同（实测 card `240px 360px` / gap 26 / padding `24px 30px 26px 22px` / radius 24 / 边框 `rgb(231,236,245)`；统计胶囊 `rgb(248,250,253)`；开始键 `14px 42px`） |
 
+### 考试速答奖励与大纲锁定态（第二十一批）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 奖励芯片 | `.exam-bonus-chip{display:inline-flex;gap:6px;padding:5px 12px;border:1px solid rgba(201,138,30,.4);border-radius:999px;background:#fdf6e9;color:#8c6210}`；`b{min-width:26px;tabular-nums;text-align:right}`；图标是 11×13 闪电（`M6.2 0.6L0.8 7.2h3.4l-.9 5.2 5.9-7h-3.5z`），未过期才渲染 | 同（实测 `5px 12px` / 999 / `rgb(253,246,233)` / `rgb(140,98,16)` / 边框 `rgba(201,138,30,.4)`；10s 后自动消失） |
+| 奖励时长条 | `.exam-bonus-bar{position:absolute;top:0;left:0;right:0;z-index:3;height:3px;border-radius:14px 14px 0 0;background:#f3f4f6}`；`.exam-bonus-fill{background:linear-gradient(90deg,#e8b54b,#c98a1e);animation-name:exam-bonus-drain;animation-timing-function:linear}`，`animationDuration` 取 `fastWindowMs` | 同（实测 3px / `#f3f4f6` / radius `14px 14px 0 0` / `exam-bonus-drain 10s` / 渐变一致） |
+| 窗口来源 | 线上从考试数据取 `fastWindowMs` 与 `fastBonus`（`.exam-bonus-fill` 的时长、芯片文案都用它） | 服务端考试负载统一补 `fastWindowMs: 10000` / `fastBonus: 200`（**取值沿用练习实测的 10s / +200；考试那份没抓到**，已在代码注释与缺口文档里标明） |
+| 大纲锁定态 | `.outline-item.locked .item-title{color:#c2c9d4}`；`.outline-item.locked .item-radio{border-color:#d8dde5}`；`.outline-item.locked:hover .item-lock-icon img{filter:none}` | 同（本仓待解锁条目渲染 `.item-lock-icon`，13px 线框锁，静止 `#c8cdd6`/0.55、hover 提到 1/`#9aa6b8`；图标用内联 SVG，不复制原站图片资源） |
+
