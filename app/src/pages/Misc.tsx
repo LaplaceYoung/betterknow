@@ -145,13 +145,42 @@ export function CourseGenerationLog() {
 }
 
 // [S30] 深度学习：大纲页 + 会话页（/deep_learn REST + WS）
+// 大纲页复用会话页的 .session-outline 面板样式（线上大纲就在会话页左栏，本仓给了一个独立入口）
 export function DeepLearnOutline() {
   const { subtaskId = '' } = useParams(); const nav = useNavigate()
   const [s, setS] = useState<{ title?: string; outline?: { title: string; detail?: string }[]; plan?: { title: string }[] } | null>(null)
   useEffect(() => { apiPost<typeof s>('/deep_learn/get_session_data', { deep_learn_session_id: subtaskId }).then(setS).catch(() => setS({})) }, [subtaskId])
   const items = s?.outline ?? s?.plan ?? []
-  return <div className="mx-auto max-w-[760px] px-8 pb-16"><div className="text-[12px] text-[#8a8a90]">深度学习会话 · 大纲</div><h1 className="text-[22px] font-semibold mt-1">{s?.title ?? '深度学习'}</h1><ol className="mt-5 space-y-2">{items.map((o, i) => <li key={i} className="hk-card p-4 flex gap-3"><span className="h-6 w-6 rounded-full bg-[#f1f2f4] text-[12px] flex items-center justify-center">{i + 1}</span><div><div className="text-[14px] font-medium">{o.title}</div>{(o as { detail?: string }).detail && <div className="text-[12px] text-[#6b6b70] mt-0.5">{(o as { detail?: string }).detail}</div>}</div></li>)}{items.length === 0 && s && <div className="text-[13px] text-[#8a8a90]">这次会话还没有大纲</div>}</ol><button onClick={() => nav(`/deep-learn-session/${subtaskId}`)} className="mt-6 h-10 px-5 rounded-full bg-[#0a0a0a] text-white">进入会话</button></div>
+  return (
+    <div className="learning-session-page" data-testid="deep-learn-outline">
+      <div className="learning-session-layout" style={{ justifyContent: 'center' }}>
+        <div className="session-outline">
+          <div className="outline-content">
+            <p className="outline-unit-name">深度学习会话 · 大纲</p>
+            <p className="text-[12px] text-[#8a8a90] mb-3">{String(s?.title ?? '加载中…')}</p>
+            {items.length === 0 && <div className="text-[12px] text-[#8a8a90] p-2">还没有大纲</div>}
+            {items.map((item, i) => (
+              <div className="outline-unit" key={i}>
+                <div className="outline-item">
+                  <span className="item-radio" data-state={i === 0 ? 'current' : 'pending'} aria-hidden="true" />
+                  <span className="item-title">{String(item.title ?? '')}</span>
+                </div>
+                {'detail' in item && item.detail ? <p className="text-[11px] text-[#8a8a90] mt-1 pl-[26px]">{String(item.detail)}</p> : null}
+              </div>
+            ))}
+          </div>
+          <div className="outline-nav">
+            <button className="outline-nav-btn outline-nav-btn--prev" onClick={() => nav(-1)}>‹ <span className="outline-nav-label">返回</span></button>
+            <button className="outline-nav-btn outline-nav-btn--next" onClick={() => nav(`/deep-learn-session/${subtaskId}`)}>
+              <span className="outline-nav-label">进入课堂</span> ›
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
+
 export function DeepLearnSession() {
   const { sessionId = '', subtaskId } = useParams()
   const id = subtaskId ?? sessionId
