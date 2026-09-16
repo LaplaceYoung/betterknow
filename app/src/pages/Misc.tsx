@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router'
 import { Check, Sparkles, Copy, Key, ShieldCheck, Cpu, ArrowRight, ArrowLeft, ArrowUp } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
@@ -146,6 +146,67 @@ export function CourseGenerationLog() {
 
 // [S30] 深度学习：大纲页 + 会话页（/deep_learn REST + WS）
 // 大纲页复用会话页的 .session-outline 面板样式（线上大纲就在会话页左栏，本仓给了一个独立入口）
+// 线上 .custom-scrollbar-*：右侧 10px 悬停热区、5px 轨道与滑块，滑块可拖拽滚动目标容器
+function CustomScrollbar({ target }: { target: React.RefObject<HTMLDivElement | null> }) {
+  const [thumb, setThumb] = useState<{ top: number; height: number } | null>(null)
+  const [hovering, setHovering] = useState(false)
+  const [dragging, setDragging] = useState(false)
+  const railRef = useRef<HTMLDivElement>(null)
+
+  // 只在几何真的变了才 setState，否则每次 render 都会写新对象 → 无限重渲染（会把 opacity 过渡一直打断）
+  const sync = useCallback(() => {
+    const el = target.current
+    if (!el) return
+    const ratio = el.clientHeight / Math.max(1, el.scrollHeight)
+    if (ratio >= 0.999) {
+      setThumb((t) => (t === null ? t : null))
+      return
+    }
+    const height = Math.max(24, ratio * el.clientHeight)
+    const maxTop = el.clientHeight - height
+    const top = (el.scrollTop / Math.max(1, el.scrollHeight - el.clientHeight)) * maxTop
+    setThumb((t) => (t && Math.abs(t.top - top) < 0.5 && Math.abs(t.height - height) < 0.5 ? t : { top, height }))
+  }, [target])
+
+  useEffect(() => {
+    const el = target.current
+    if (!el) return
+    sync()
+    el.addEventListener('scroll', sync)
+    const ro = new ResizeObserver(sync)
+    ro.observe(el)
+    return () => { el.removeEventListener('scroll', sync); ro.disconnect() }
+  }, [sync, target.current])
+
+  const dragTo = (clientY: number) => {
+    const el = target.current
+    const rail = railRef.current
+    if (!el || !rail || !thumb) return
+    const rect = rail.getBoundingClientRect()
+    const maxTop = el.clientHeight - thumb.height
+    const top = Math.min(maxTop, Math.max(0, clientY - rect.top - thumb.height / 2))
+    el.scrollTop = (top / Math.max(1, maxTop)) * (el.scrollHeight - el.clientHeight)
+  }
+
+  return (
+    <div className="custom-scrollbar-hover-zone" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+      <div ref={railRef} className={`custom-scrollbar ${thumb && (hovering || dragging) ? 'visible' : ''}`} style={{ height: '100%' }}>
+        <div className={`custom-scrollbar-track ${dragging ? 'dragging' : ''}`} style={{ height: '100%' }} />
+        {thumb && (
+          <div
+            className={`custom-scrollbar-thumb ${dragging ? 'dragging' : ''}`}
+            style={{ top: thumb.top, height: thumb.height }}
+            onPointerDown={(e) => { setDragging(true); dragTo(e.clientY) }}
+            onPointerMove={(e) => { if (dragging) dragTo(e.clientY) }}
+            onPointerUp={() => setDragging(false)}
+            onPointerCancel={() => setDragging(false)}
+          />
+        )}
+      </div>
+    </div>
+  )
+}
+
 export function DeepLearnOutline() {
   const { subtaskId = '' } = useParams(); const nav = useNavigate()
   const [s, setS] = useState<{ title?: string; outline?: { title: string; detail?: string }[]; plan?: { title: string }[] } | null>(null)
@@ -306,6 +367,7 @@ export function DeepLearnSession() {
         </div>
 
         <div className="session-main-content-wrapper">
+          <CustomScrollbar target={contentRef} />
           <div className="session-main-content hk-scroll" ref={(el) => { if (el) contentRef.current = el }}>
             {msgs.length === 0 && (
               <div className="flex flex-col items-center justify-center h-full text-center">
@@ -334,15 +396,30 @@ export function DeepLearnSession() {
               onClick={() => bottomRef.current?.scrollIntoView({ behavior: 'smooth' })}>↓</button>
           )}
           <div className="session-input-container">
-            <div className="session-input-bar">
-              <input
-                className="session-input-field"
+            <div className={`session-input-bar ${input.includes('\n') || input.length > 48 ? 'multiline' : ''}`}>
+              <textarea
+                className="session-input-field hk-scroll"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                rows={1}
+                onChange={(e) => {
+                  setInput(e.target.value)
+                  const el = e.currentTarget
+                  el.style.height = 'auto'
+                  el.style.height = `${Math.min(200, Math.max(32, el.scrollHeight))}px`
+                }}
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }}
                 placeholder="输入你的问题或回答…"
                 aria-label="输入你的问题或回答"
               />
+              <button
+                className={`input-send-button ${streaming ? 'stop-state' : input.trim() ? 'enabled' : 'disabled'}`}
+                disabled={!streaming && !input.trim()}
+                aria-label={streaming ? '停止' : '发送'}
+                data-testid="session-send"
+                onClick={() => send()}
+              >
+                {streaming ? <span className="loading-spinner" /> : <ArrowUp size={15} />}
+              </button>
             </div>
           </div>
         </div>

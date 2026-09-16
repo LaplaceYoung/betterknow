@@ -339,3 +339,15 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 自定义滚动条 | `.custom-scrollbar-hover-zone{position:fixed;top:50px;right:0;bottom:10px;width:10px;z-index:999}`；thumb 5px `#00000038`，hover `.35`、拖动 `.52` | **未做**：本仓主区用原生隐藏滚动条 |
 | 学习动态分段 | `.proactive-tasks-mode-switcher{gap:4px;padding:3px;border-radius:12px;background:#f5f5f4}` | 同（实测 `rgb(245,245,244)` / pad 3 / radius 12 / gap 4，选中白底 + 1px 阴影） |
 
+### 自定义滚动条与输入条（第十八批，r102）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 滚动热区 | `.custom-scrollbar-hover-zone{position:fixed;top:50px;right:0;bottom:10px;width:10px;z-index:999;pointer-events:auto}` | 会话主区用 `position:absolute` 版（贴主区右缘 `right:-6px`、10px 宽、z 999） |
+| 轨道 | `.custom-scrollbar{width:5px;border-radius:2.5px;pointer-events:none;opacity:0;transition:opacity .2s}`；`.visible{opacity:1}` | 同（实测 hover 时 class 加 `visible`、opacity 1，移开回到 0） |
+| 轨道底 | `.custom-scrollbar-track{background:#0000000f;opacity:0}`，热区 hover 或拖动时 opacity 1 | 同（`rgba(0,0,0,.06)`） |
+| 滑块 | `.custom-scrollbar-thumb{width:100%;background:#00000038;border-radius:2.5px;pointer-events:auto;cursor:grab}`，hover `#0006`、active/dragging `#00000085` | 同（`rgba(0,0,0,.22)` → hover `.35` → 拖动 `.52`；实测拇指高 234px = 685/2008×685） |
+| 输入条 | `.session-input-container{position:absolute;bottom:0;left:0;right:0;padding-top:2px;background:linear-gradient(to bottom,#fafafa00,#fafafa 40%);z-index:10}`；`.session-input-bar{background:#fff;border:1px solid #EFEFEF;border-radius:24px;padding:9px;min-height:52px;display:flex;flex-direction:column}`；`.multiline{border-radius:16px;padding-bottom:50px}` | 同（实测 multiline 时 radius 16 / padding-bottom 50） |
+| 输入域 | `.session-input-field{width:100%;font-size:15px;color:#333;resize:none;min-height:32px;max-height:200px;padding:4px 44px;line-height:24px;overflow:auto}` | 同（textarea 自动增高，实测 15px / minH 32 / padding `4px 44px` / lh 24） |
+| 发送键 | `.input-send-button{position:absolute;right:12px;bottom:10px;32×32;border-radius:50%;background:#e7e7e7;border:1px solid #D1D1D1;box-shadow:0 2px 4px #00000026}`；hover `#d5d5d5`；`.disabled{background:#f5f5f5;border-color:#e0e0e0;opacity:.6}`；`.stop-state` 用于流式中；加载圈 16px `#4C6694` 顶边 | 同（实测 32×32 圆、禁用 `#f5f5f5`/`#e0e0e0`、可用 `#e7e7e7`、流式时换转圈） |
+

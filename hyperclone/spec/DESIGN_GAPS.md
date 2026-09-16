@@ -344,3 +344,8 @@
 - 线上实操打开一节 deep learn（`/deep-learn-session/<id>`）抓到 `learning-session-*` / `session-*` / `outline-*` 体系，本仓会话页整页换成同骨架：`#fafafa` 全屏 + `0 20px 20px 10px` 内边距、gap 70 / 1400 / `margin-top:50px` / `calc(100dvh - 70px)` 的两栏、310 白卡大纲面板（内容 `26px 22px 28px 15px`、条目 hover/current/locked 三态）、底部 `#f8f8f8` 翻页条（`#4c6696`、禁用 `#c8cdd6`、标签两行截断）、800 宽主区（绝对定位内容滚动）、渐变容器 + 24 圆角输入条、以及滚离底部才出现的 33px 回到底部圆钮。
 - 学习动态的周/月切换改成线上 `.proactive-tasks-mode-switcher`（`#f5f5f4` / pad 3 / radius 12 / gap 4，选中白底 + 1px 阴影）。
 - 仍未做：`.custom-scrollbar-*` 自定义滚动条（10px 悬停热区 + 5px 拖拽滑块）、`.session-input-bar.multiline` 的多行态（radius 16 + 底部 50px）、deep learn 大纲的锁定/解锁规则（线上带 `.locked` 与锁图标，规则来源未抓到）。
+
+**第三十一批（自定义滚动条 + 输入条多行态）**
+- 补上会话页缺的两件：**自定义滚动条**（10px 悬停热区、5px 轨道与滑块、`rgba(0,0,0,.22)`→hover `.35`→拖动 `.52`、指针拖拽直接滚动目标容器）与**输入条多行态**（textarea 自动增高 32–200px、多行时 `radius 16 + padding-bottom 50px`、右下 32px 圆形发送键，禁用/可用/流式停止三态 + 16px `#4C6694` 加载圈）。
+- 实现中踩的坑记一笔：滚动条的 `sync()` 最初每次 render 都写新对象，触发「渲染 → 测量 → setState → 渲染」死循环，把 opacity 过渡一直打断（表现为 class 已是 `visible`、计算值却是 0）；改成「几何值变化超过 0.5px 才 setState」后稳定。另外验证时用「往内容区注入 DOM」制造溢出是错的——React 下一次渲染就会把这些节点冲掉，必须用真实操作（连发几条长消息）制造溢出。
+- 仍未做：`.session-input-container.drag-over` 的拖拽高亮、附件按钮、`.session-input-bar` 的附件预览行。
