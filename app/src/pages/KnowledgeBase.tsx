@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { CalendarPlus, ChevronLeft, FileText, Folder, Plus, Search, Trash2, Upload } from 'lucide-react'
+import { CalendarPlus, ChevronLeft, FileText, Folder, MoreHorizontal, Plus, Search, Trash2, Upload } from 'lucide-react'
 import { apiGet, apiPost } from '@/lib/api'
 
 interface DriveItem { id: string; name: string; type: 'folder' | 'file'; parent_id: string | null; size?: number; mime?: string; created_at?: string; file_url?: string }
@@ -13,6 +13,13 @@ export default function KnowledgeBase() {
   const [busy, setBusy] = useState(false)
   const [toast, setToast] = useState('')
   const [quota, setQuota] = useState<{ file_upload?: { remaining: number; limit: number }; calendar_add?: { remaining: number; limit: number }; storage_limit_bytes?: number } | null>(null)
+  // 拖拽上传：线上 .knowledge-base-drag-overlay（拖入时盖住整页，松手上传）
+  const [dragging, setDragging] = useState(false)
+  const [menuFor, setMenuFor] = useState<string | null>(null)
+  const dragDepth = useRef(0)
+  const dropFiles = async (files: FileList | File[]) => {
+    for (const f of Array.from(files)) await upload(f as File)
+  }
   useEffect(() => { void apiGet<typeof quota>('/auth/other_function_usage_limits').then(setQuota).catch(() => setQuota(null)) }, [])
   const fileRef = useRef<HTMLInputElement>(null)
   const load = () => apiGet<{ file_data: Record<string, DriveItem>; metadata: { drive_used_source_bytes: number } }>('/drive/get_drive_data').then((r) => { setItems(Object.values(r.file_data ?? {})); setUsed(r.metadata.drive_used_source_bytes) }).catch(() => setItems([]))
@@ -32,7 +39,21 @@ export default function KnowledgeBase() {
   }
 
   return (
-    <div className="knowledge-base-page">
+    <div className="knowledge-base-page"
+      onDragEnter={(e) => { if (e.dataTransfer?.types.includes('Files')) { dragDepth.current += 1; setDragging(true) } }}
+      onDragOver={(e) => { if (e.dataTransfer?.types.includes('Files')) { e.preventDefault(); setDragging(true) } }}
+      onDragLeave={() => { dragDepth.current = Math.max(0, dragDepth.current - 1); if (dragDepth.current === 0) setDragging(false) }}
+      onDrop={async (e) => { dragDepth.current = 0; setDragging(false); if (e.dataTransfer?.files?.length) { e.preventDefault(); await dropFiles(e.dataTransfer.files) } }}
+      data-testid="kb-page">
+      {dragging && (
+        <div className="knowledge-base-drag-overlay" data-testid="kb-drag-overlay">
+          <div className="knowledge-base-drag-overlay-card">
+            <div className="knowledge-base-drag-overlay-icon"><Upload size={34} /></div>
+            <p className="knowledge-base-drag-overlay-title">松手即可上传</p>
+            <p className="knowledge-base-drag-overlay-sub">支持 PDF、Word、Markdown、纯文本；上传后可被即时协助引用</p>
+          </div>
+        </div>
+      )}
       <div className="knowledge-base-container">
       <div className="knowledge-base-header flex items-center gap-3"><h1 className="knowledge-base-title">个人知识库</h1><span className="text-[11px] px-1.5 py-0.5 rounded-full border">专业版 ◔</span></div>
       <div className="knowledge-base-controls flex items-center gap-3">
@@ -67,7 +88,23 @@ export default function KnowledgeBase() {
       <div className="folders-grid">
         {items === null && Array.from({ length: 4 }).map((_, i) => <div key={i} className="hk-skeleton rounded-xl h-[180px]" />)}
         {shown.filter((x) => x.type === 'folder').map((f) => (
-          <button key={f.id} onClick={() => setFolder(f.id)} className="folder-card"><span style={{ width: 26, height: 26, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: '#4c6696' }}><Folder size={22} /></span><div className="mt-3 text-[13px] font-medium truncate">{f.name}</div><div className="text-[11px] text-[#8a8a90]">文件夹</div></button>
+          <div key={f.id} className="folder-card" role="button" tabIndex={0} onClick={() => setFolder(f.id)} onKeyDown={(e) => e.key === 'Enter' && setFolder(f.id)}>
+            <span style={{ width: 26, height: 26, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: '#4c6696' }}><Folder size={22} /></span>
+            <span className="folder-card-name mt-3 text-[13px] font-medium truncate">{f.name}</span>
+            <span className={`folder-card-menu-container ${menuFor === f.id ? 'menu-open' : ''}`}>
+              <button className="folder-card-menu" aria-label={`${f.name} 的更多操作`} data-testid={`folder-menu-${f.id}`}
+                onClick={(e) => { e.stopPropagation(); setMenuFor(menuFor === f.id ? null : f.id) }}>
+                <MoreHorizontal size={15} />
+              </button>
+              {menuFor === f.id && (
+                <span className="folder-menu-dropdown" role="menu">
+                  <button className="folder-menu-item" role="menuitem" onClick={(e) => { e.stopPropagation(); setMenuFor(null); void del(f.id) }}>
+                    <Trash2 size={15} className="folder-menu-icon" style={{ color: '#e71414' }} /><span className="folder-menu-text">删除</span>
+                  </button>
+                </span>
+              )}
+            </span>
+          </div>
         ))}
         {shown.filter((x) => x.type !== 'folder').map((f) => (
           <div key={f.id} className="hk-card overflow-hidden group">

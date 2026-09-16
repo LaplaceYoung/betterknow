@@ -507,3 +507,20 @@
 .courses-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 24px 40px; text-align: center; }
 .courses-empty-title { margin: 0 0 8px; font-size: 16px; font-weight: 650; color: #1a1a1a; line-height: 1.3; }
 .courses-empty-text { margin: 0; font-size: 13px; color: #9ca3af; line-height: 1.55; max-width: 320px; }
+
+/* 线上 .knowledge-base-drag-overlay（拖拽上传遮罩） */
+.knowledge-base-drag-overlay { position: absolute; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(250,250,250,.35); backdrop-filter: blur(3px); animation: kbDragFade .18s ease-out; }
+@keyframes kbDragFade { from { opacity: 0 } to { opacity: 1 } }
+.knowledge-base-drag-overlay-card { background: rgba(241,246,254,.78); border: 1.5px dashed rgba(76,102,148,.28); border-radius: 25px; padding: 42px 66px; text-align: center; max-width: 90%; min-width: 280px; transition: border-color .2s ease, background .2s ease; }
+.knowledge-base-drag-overlay-card:hover { border-color: rgba(76,102,148,.42); background: rgba(248,250,254,.99); }
+.knowledge-base-drag-overlay-icon { color: rgba(40,71,125,.58); margin-bottom: 18px; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-left: auto; margin-right: auto; }
+.knowledge-base-drag-overlay-title { font-size: 17px; font-weight: 600; color: #2d3748; margin: 0 0 6px; line-height: 1.35; letter-spacing: -.01em; }
+.knowledge-base-drag-overlay-sub { font-size: 13px; color: #5a6578; margin: 0; line-height: 1.45; }
+/* 线上 .folder-card-menu / .folder-menu-* */
+.folder-card-menu-container { position: relative; flex-shrink: 0; }
+.folder-card-menu { width: 20px; height: 20px; display: none; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; opacity: 0; transition: opacity .2s ease; border: none; background: transparent; color: #6b7280; }
+.folder-card:hover .folder-card-menu, .folder-card-menu-container.menu-open .folder-card-menu { display: flex; opacity: 1; }
+.folder-menu-dropdown { position: absolute; top: calc(100% + 8px); right: 0; background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,.15); padding: 4px 0; z-index: 100; min-width: 132px; }
+.folder-menu-item { display: flex; align-items: center; gap: 8px; padding: 4px 12px; cursor: pointer; transition: background-color .15s ease; font-size: 14px; background: transparent; border: none; width: 100%; }
+.folder-menu-item:hover { background-color: #f5f5f5; }
+.folder-menu-text { color: #e71414; font-weight: 500; white-space: nowrap; }

@@ -268,3 +268,14 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 右栏 | `.courses-aside{width:320px;margin-top:56px;gap:28px;overflow-y:auto}`；`.courses-side-card{border-radius:18px;background:#fff;box-shadow:0 2px 6px #0f172a06;padding:13px}`；学习卡 `padding:14px;gap:12px`，眉标 11.5/650 大写 `#8a8c93` | 同 |
 | 空态 | `.courses-empty{flex column;align-items:center;padding:32px 24px 40px}`；标题 16/650；说明 13 `#9ca3af` max-width 320 | 记为后续 |
 
+### 知识库拖拽与文件夹菜单（第十三批）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 拖拽遮罩 | `.knowledge-base-drag-overlay{position:absolute;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:#fafafa59;backdrop-filter:blur(3px)}` | 同（实测 `rgba(250,250,250,.35)`、`blur(3px)`、z 100） |
+| 遮罩卡片 | `.knowledge-base-drag-overlay-card{background:#f1f6fec7;border:1.5px dashed rgba(76,102,148,.28);border-radius:25px;padding:42px 66px;text-align:center;max-width:90%;min-width:280px}`，hover `border-color:#4c66946b;background:#f8fafefc` | 同（实测 `rgba(241,246,254,.78)`、1.5px dashed、radius 25、`42px 66px`） |
+| 遮罩文案 | 图标 44×44 `#28477d94` + `margin-bottom:18px`；标题 17/600 `#2d3748` mb 6；说明 13 `#5a6578` lh 1.45 | 同 |
+| 文件夹菜单按钮 | `.folder-card-menu{width:20px;height:20px;display:none;opacity:0}`，`.folder-card:hover` 或 `.menu-open` 时 `display:flex;opacity:1` | 同（实测 20×20、hover 时 opacity 1） |
+| 菜单下拉 | `.folder-menu-dropdown{top:calc(100% + 8px);right:0;background:#fff;border-radius:10px;box-shadow:0 4px 12px #00000026;padding:4px 0;z-index:100}` | 同（实测 radius 10 / `0 4px 12px rgba(0,0,0,.15)` / `4px 0` / top 28） |
+| 菜单项 | `.folder-menu-item{padding:4px 12px;gap:8px;font-size:14px}`，hover `#f5f5f5`；`.folder-menu-text{color:#e71414;font-weight:500}` | 同（实测 `4px 12px` / gap 8 / 14px / `rgb(231,20,20)`） |
+

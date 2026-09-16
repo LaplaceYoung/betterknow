@@ -319,3 +319,8 @@
 - 复核「不做鉴权服务 / 不做云空间与计费 / 不接第三方埋点」三条决策在代码里的落地：`app/src` 与 `hyperclone/server/src` 内**没有** `aplo-evnt`、`clarity.ms`、`add_error_log` 的调用；计费只剩 `GET /api/v1/stripe/plans` 的兼容返回（`plan_id: 'byok'`、`can_change_plan: false`），没有真实支付通道。
 - BYOK 端到端复核：设备免登取 token → `PUT /api/v1/auth/byok`（形状是 `{enabled, providers:{llm:{baseUrl,apiKey,model,enabled}}}`）→ `GET` 回报 `llm real user` → 在 UI 里提问，回复正文出现假网关的 `GATEWAY_OK`，证明运行时确实走用户配置的模型；随后 `DELETE` 清空，seam 回到 `stub/none`。
 - 踩坑记录：`PUT /auth/byok` 只认 `providers.{seam}` 这种嵌套形状，顶层传 `{seam:'llm', …}` 会静默写进旧字段（`baseUrl/apiKey`）而 seam 仍是 `stub`——UI 用的形状是对的，命令行验证时要照 UI 的形状来。
+
+**第二十六批（知识库拖拽 + 文件夹菜单）**
+- 补上确定缺的能力：**拖拽上传**（整页 `#fafafa59` + `blur(3px)` 遮罩、虚线圆角卡 `#f1f6fec7` + `rgba(76,102,148,.28)`、44px 图标、17/600 标题、13px 说明），拖入即显示、松手逐个上传。
+- **文件夹卡片悬停菜单**：20×20 的 `⋯`（hover 才出现，`opacity .2s`）、下拉 `radius 10` + `0 4px 12px rgba(0,0,0,.15)` + `4px 0`、菜单项 `4px 12px` gap 8 与红字 `#e71414` 删除。
+- 构建注意：`backdrop-filter` 只写标准属性让构建补前缀；早前同时写 `-webkit-` 与标准属性时，产物只留了 `-webkit-`，Chrome 里 `getComputedStyle().backdropFilter` 会是 `none`（本次已改正并实测 `blur(3px)`）。
