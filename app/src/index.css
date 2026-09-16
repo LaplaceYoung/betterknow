@@ -1485,6 +1485,11 @@
 .ccal-preview-existing-title{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:var(--font-satoshi-medium);font-size:10px;line-height:1.35}
 .ccal-preview-existing-more{margin-left:2px;color:#9ca3af;font-family:var(--font-satoshi-medium);font-size:9.5px}
 
+/* 本仓侧栏有三个 tab（线上两个），260px 放不下线上的 3px 20px 内边距 → 收窄并允许横滚 */
+.whiteboard-tabs { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.whiteboard-tabs::-webkit-scrollbar { display: none; }
+.whiteboard-tab { padding: 3px 12px; white-space: nowrap; }
+
 /* 线上 .whiteboard-tabs / -sidebar / -outline-*（白板侧栏；r168 原文） */
 .whiteboard-tabs{display:flex;align-items:center;background:#f0f0f0;border-radius:7px;padding:2px;margin:0 auto 12px;width:-moz-fit-content;width:fit-content;gap:1px}
 .whiteboard-tab{padding:3px 20px;font-size:11px;font-weight:500;border-radius:5px;border:none;color:#909090;background:transparent;cursor:pointer;text-align:center;transition:color .15s,background .15s,box-shadow .15s}

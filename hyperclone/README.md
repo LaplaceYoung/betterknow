@@ -107,6 +107,52 @@ npm run dev --prefix app        # Vite :5173
 | 本地化 | 界面文案取线上中文原文；语言偏好（设置里那项）影响**生成内容语言**与 `ui_language` 参数，界面 chrome 未做多语 |
 | 明显缺席（有意） | 第三方埋点（intent pixel / Clarity）、错误上报到原站、Stripe/优惠券/积分、Google·Canvas OAuth、邮件与计费后台 |
 
+## 界面截图（本仓实机）
+
+下列截图都在本仓跑起来之后直接截的（stub 模式，未接外部模型），路径 `hyperclone/docs/screenshots/`。
+
+### 首页与课程
+
+| 首页 | 课程列表 |
+|---|---|
+| ![首页](docs/screenshots/01-home.png) | ![课程](docs/screenshots/02-courses.png) |
+
+| 课程页（单元 / 讲次 / 练习 / 考试 / 项目） | 课程加入日历（三步问卷 + 预览，可拖拽/全屏） |
+|---|---|
+| ![课程页](docs/screenshots/03-course-journey.png) | ![加入日历](docs/screenshots/12-course-calendar.png) |
+
+### 白板课堂
+
+| 板书推演 + 右侧三 tab（课程大纲 / 学习记录 / 讲稿） | 语音设置（音色 + 语速 + 试听） |
+|---|---|
+| ![白板](docs/screenshots/04-whiteboard.png) | ![语音设置](docs/screenshots/05-voice-settings.png) |
+
+| 网络自检（状态 / 指标 / 原因 / 进阶检查） | 速查表编辑器（三模式 + 工具栏 + 自动保存） |
+|---|---|
+| ![网络自检](docs/screenshots/06-net-check.png) | ![速查表](docs/screenshots/13-cheatsheet-editor.png) |
+
+### 练习、考试与学习动态
+
+| 练习（HUD 分数 + 速答奖励） | 考试（30 分钟倒计时 + 逐题） |
+|---|---|
+| ![练习](docs/screenshots/07-practice.png) | ![考试](docs/screenshots/08-exam.png) |
+
+| 学习动态「待处理」按来源分列 + 批量确认/拒绝 | 历史会话 |
+|---|---|
+| ![学习动态](docs/screenshots/09-learning-feed-pending.png) | ![历史](docs/screenshots/10-history.png) |
+
+### 知识库与设置
+
+| 个人知识库（上传 / 加日历） | 模型与 BYOK（五槽 + 探针） |
+|---|---|
+| ![知识库](docs/screenshots/11-knowledge-base.png) | ![BYOK](docs/screenshots/14-settings-byok.png) |
+
+| 课程生成（4 步进度 + 问卷） | 深度课堂（大纲 + 任务计划） |
+|---|---|
+| ![课程生成](docs/screenshots/15-course-generation.png) | ![深度课堂](docs/screenshots/16-deep-learn.png) |
+
+> 重新生成这些截图的步骤：`npm run build --prefix app && npm run build --prefix hyperclone/server && PORT=8787 npm run start --prefix hyperclone/server`，然后按「运行须知」里的访问方式逐个页面截。截图脚本不入库（在本地 `reference/` 下）。
+
 ## 运行须知（自部署实践）
 
 **启动**：`npm run build --prefix web && npm run build --prefix server && PORT=8787 npm run start --prefix server`，访问 `http://localhost:8787`（server 直接托管 web 的 `dist`）。开发模式是 `npm run dev --prefix server`（:8787）+ `npm run dev --prefix web`（:5173，代理 API/WS）。
