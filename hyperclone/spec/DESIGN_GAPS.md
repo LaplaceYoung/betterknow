@@ -389,3 +389,8 @@
 **第三十八批（星级回显 + 速答标记）**
 - **星级回显打通**：服务端 `progress-status.practiceStats` 的已完成条目补 `score/perfect/stars`（并在练习进度里显式落 `correct` 计数，不再用点数比例倒推），课程页练习行据此渲染线上 `.practice-stars`（3 星、实心 `#f5a524`/空心描边 `#d1d5db`、`practice-stars-stamp` 盖章动画、`prefers-reduced-motion` 保护）。实测：`{correct: 2, total: 5, score: 1600, perfect: 5000, stars: 1}` → 页面 `aria-label="1 星"`、点亮 1 颗。
 - **items 的 `fast` 字段补上**：之前那个 spread 是个空操作（`...(cond ? {} : {})`），现在按 `fastAnswers` 逐题标 `fast: true`；结果页答题解析里对应题目标「速答」chip。实测提交体 `q1/q4` 带 `fast: true`，解析页正好这两个 chip。
+
+**第三十九批（PracticeStars 组件化 + 掌握态机）**
+- 找到线上星星组件本体 `PracticeStars-DY5xk-t2.js`（731B）并逐字搬运为 `app/src/components/PracticeStars.tsx`：默认 12px、实心 `#E8B54B`/描边 `#C98A1E`、空心描边 `#D4D4D4`、`strokeWidth 1.4`、带动画时每颗延迟 `140 + 200*i`、`role="img"` 与 `${n} of 3 stars` 的默认标签。课程页原来那版自绘星星（14px / `#f5a524` / 无延迟）已替换——之前只是"看着像"，现在与线上逐字一致。实测 width 12 / fill `#E8B54B` / stroke `#C98A1E` / 三段延迟 140/340/540ms。
+- 掌握态机按线上 `Fe()` 落地为 `practiceState()`：`notStarted → inProgress → done → rated（≥1 星）/ retry（0 星）`；课程页行状态点从「正确率 ≥0.8 → mastered」改为该状态机，图例补 `rated/retry/done/inProgress/notStarted`。实测状态点 aria-label 变为「已掌握」。
+- **学习动态/课程卡不接星级**：这两处没有 per-session 的练习统计（学习动态是任务、课程卡是课程级），线上也没有对应渲染位置，不做。

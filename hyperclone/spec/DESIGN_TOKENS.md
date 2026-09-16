@@ -468,3 +468,21 @@ stars = (score, perfect) => ratio >= .8 ? 3 : ratio >= .55 ? 2 : ratio >= .25 ? 
 | 星级数据来源 | 线上 `progress-status.practiceStats[sessionId]` 的已完成条目带 `stars`（CourseJourneyPage 里 `Math.max(0, Math.min(3, e.stars))`），未完成条目只有 `{started, finished, correct, total}` | 同（本仓 progress-status 现在返回 `{started, finished, correct, total, score, perfect, stars}`；实测 `{correct: 2, total: 5, score: 1600, perfect: 5000, stars: 1}`） |
 | items 的 fast 字段 | 线上练习 items 为 `{qid: {state, answer, fast?}}`，`correct` 且 `fastAnswers[id]` 时 `fast: true` | 同（实测 items 里 `q1`/`q4` 带 `"fast": true`） |
 
+### PracticeStars 组件与掌握态（第二十六批，r115）
+
+线上星星是独立组件 `PracticeStars-DY5xk-t2.js`（731 字节），逐字搬运：
+
+```jsx
+<PracticeStars stars={n} size={12} animate className label />
+// n = clamp(round(stars), 0, 3)；span.practice-stars（animate 时加 --animate），role="img"，aria-label 默认 `${n} of 3 stars`
+// 每颗 12×12，viewBox 0 0 24 24，路径 M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z
+//   实心 fill #E8B54B / stroke #C98A1E；空心 fill none / stroke #D4D4D4；strokeWidth 1.4
+// animate 时每颗 animationDelay = 140 + 200*i ms
+```
+
+| 部件 | 线上 | 本仓 |
+|---|---|---|
+| 星星组件 | 如上（默认 12px、`#E8B54B`/`#C98A1E`、空 `#D4D4D4`、`strokeWidth 1.4`、延迟 140/340/540ms、`role="img"`） | 新增 `app/src/components/PracticeStars.tsx` 同参数同取值（实测 width 12 / fill `#E8B54B` / stroke `#C98A1E` / delay 140、340、540） |
+| 掌握态机 | CourseJourneyPage 里的 `Fe()`：`notStarted → inProgress → done → rated(≥1 星)/retry(0 星)`，finished 且无 stars 时为 `done`，返回时带 `{stars, score, perfect}` | 同，落成 `practiceState()`（与组件同文件）；课程页行状态点改用该状态机取值 |
+| 状态点图例 | — | 课程页 `LEGEND` 增加 `rated 已掌握`、`retry 待重练`、`done 已完成`、`inProgress 进行中`、`notStarted 未开始`（旧键保留兼容） |
+

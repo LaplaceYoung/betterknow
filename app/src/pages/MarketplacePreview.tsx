@@ -4,6 +4,7 @@ import { ArrowLeft, BadgeCheck, Upload, Play, PenLine, ChevronRight, Hash, Share
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { apiGet, apiPost, type MarketplaceCourse } from '@/lib/api'
+import { PracticeStars, practiceState } from '@/components/PracticeStars'
 import { UploadMaterialModal } from '@/components/UploadMaterialModal'
 import { DropCourseModal } from '@/components/DropCourseModal'
 import { BugReportModal } from '@/components/BugReportModal'
@@ -18,9 +19,12 @@ export interface CourseFull extends Partial<MarketplaceCourse> {
   coverImageUrl?: string; coverImage?: { backgroundColor?: string }; marketplaceId?: string; enrolled?: boolean; enrolledCourseUuid?: string | null; outputLanguage?: string; languages?: string[];
 }
 
+// 线上练习状态机（practiceState）的取值 → 图例：rated 用星级表达掌握度，retry 表示要重练
 export const LEGEND = [
-  { k: 'mastered', label: '已掌握', color: '#16a34a', fill: true }, { k: 'proficient', label: '熟练', color: '#2563eb', fill: true }, { k: 'familiar', label: '熟悉', color: '#2563eb', fill: false },
-  { k: 'attempted', label: '已尝试', color: '#f59e0b', fill: false }, { k: 'todo', label: '未开始', color: '#a1a1aa', fill: false }, { k: 'project', label: '项目', color: '#0a0a0a', fill: false, sq: true }, { k: 'exam', label: '测验', color: '#0a0a0a', fill: false, sq: true },
+  { k: 'rated', label: '已掌握', color: '#16a34a', fill: true }, { k: 'proficient', label: '熟练', color: '#2563eb', fill: true }, { k: 'familiar', label: '熟悉', color: '#2563eb', fill: false },
+  { k: 'retry', label: '待重练', color: '#dc2626', fill: false }, { k: 'done', label: '已完成', color: '#16a34a', fill: false },
+  { k: 'inProgress', label: '进行中', color: '#f59e0b', fill: false },
+  { k: 'mastered', label: '已掌握', color: '#16a34a', fill: true }, { k: 'attempted', label: '已尝试', color: '#f59e0b', fill: false }, { k: 'notStarted', label: '未开始', color: '#a1a1aa', fill: false }, { k: 'todo', label: '未开始', color: '#a1a1aa', fill: false }, { k: 'project', label: '项目', color: '#0a0a0a', fill: false, sq: true }, { k: 'exam', label: '测验', color: '#0a0a0a', fill: false, sq: true },
 ]
 export function StatusDot({ status }: { status?: string }) {
   const l = LEGEND.find((x) => x.k === status) ?? LEGEND[4]
@@ -187,20 +191,12 @@ export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUu
                     {lec.sessions.map((s) => {
                       const stat = progress?.practiceStats?.[s.sessionId]
                       const availability = progress?.practiceBySession?.[s.sessionId]
-                      const liveStatus = stat?.finished ? (stat.total > 0 && stat.correct / stat.total >= 0.8 ? 'mastered' : 'familiar') : stat?.started ? 'attempted' : undefined
+                      const liveStatus = practiceState(stat).state
                       return (
                       <li key={s.sessionId} className="flex items-center gap-3 py-2 text-[13px] group">
                         <span className="flex-1 truncate">{s.title ?? `${lec.title} · 第 ${s.sessionIndex} 节`}</span>
                         {stat?.finished && (stat.stars ?? 0) > 0 && (
-                          <span className="practice-stars practice-stars--animate" data-testid={`session-stars-${s.sessionId}`} aria-label={`${stat.stars} 星`}>
-                            {[1, 2, 3].map((n) => (
-                              <svg key={n} className="practice-stars-star" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 3.6l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"
-                                  style={{ fill: n <= (stat.stars ?? 0) ? '#f5a524' : 'transparent', stroke: n <= (stat.stars ?? 0) ? '#f5a524' : '#d1d5db', strokeWidth: 1.6 }}
-                                />
-                              </svg>
-                            ))}
-                          </span>
+                          <PracticeStars stars={stat.stars ?? 0} animate label={`${stat.stars} 星`} />
                         )}
                         {actionToast?.id === s.sessionId && (
                           <span className="text-[11px] text-[#16a34a] font-medium inline-flex items-center gap-1 bg-[#f0fdf4] px-2 py-0.5 rounded-full border border-[#bbf7d0] hk-fade-in">
