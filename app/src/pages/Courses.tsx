@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Search, Share2, MoreHorizontal, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
+import { Search, Share2, MoreHorizontal, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from 'lucide-react'
 import { apiGet, type MarketplaceCourse } from '@/lib/api'
 
 interface MyCourse { courseUuid: string; courseTitle: string; courseDescription: string; tags?: string[]; unitCount: number; sessionCount: number; coverImageUrl: string; createdAt: string; source?: string; progress?: number; nextItem?: { title?: string; unitTitle?: string; type?: string } | null }
@@ -51,9 +51,25 @@ export default function Courses() {
 
         <div className="courses-list-scroll">
         <div className="courses-list">
-          {courses === null && <div className="hk-skeleton rounded-2xl h-[140px]" />}
+                    {courses === null && (
+            <div className="courses-loading">
+              <div className="courses-loading-media" aria-hidden="true"><Sparkles size={40} className="text-[#4c6696]" /></div>
+              <p className="courses-loading-text">正在加载课程…</p>
+            </div>
+          )}
           {courses && shown.length === 0 && (
-            <div className="hk-card p-12 text-center text-[#8a8a90]"><div className="text-[40px] mb-2">🧑‍🎓</div>正在加载你的课程…<div className="text-[12px] mt-1">还没有课程？去 <button onClick={() => nav('/marketplace')} className="underline">课程集市</button> 挑一门，或在首页打造一门</div></div>
+            <div className="courses-empty" data-testid="courses-empty">
+              <svg className="courses-empty-illustration" viewBox="0 0 120 120" aria-hidden="true">
+                <rect x="14" y="24" width="92" height="66" rx="12" fill="#eef2f8" />
+                <rect x="26" y="38" width="40" height="7" rx="3.5" fill="#c9d6e6" />
+                <rect x="26" y="52" width="60" height="6" rx="3" fill="#dde5ef" />
+                <rect x="26" y="64" width="52" height="6" rx="3" fill="#dde5ef" />
+                <circle cx="88" cy="80" r="14" fill="#4c6696" />
+                <path d="M82 80h12" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+              <p className="courses-empty-title">{q ? '没有找到匹配的课程' : '还没有课程'}</p>
+              <p className="courses-empty-text">{q ? '换个关键词试试，或者去课程集市挑一门。' : '去课程集市挑一门，或回到首页让 betterknow 为你生成一门课。'}</p>
+            </div>
           )}
           {shown.map((c) => {
             const isNew = Date.now() - new Date(c.createdAt).getTime() < 12 * 3600e3

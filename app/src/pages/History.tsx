@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { MessageSquare, PenLine, Plus, Search, Star, Trash2 } from 'lucide-react'
 import { apiGet, apiPost, type Conversation } from '@/lib/api'
@@ -27,6 +27,15 @@ export default function History() {
   const [q, setQ] = useState('')
   const [onlyStarred, setOnlyStarred] = useState(false)
   const [menuFor, setMenuFor] = useState<string | null>(null)
+  const [filterOpen, setFilterOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const filterRef = useRef<HTMLDivElement>(null)
+  // 线上 .sh-scroll--scrolled：滚动后顶部也加渐隐
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => { if (filterRef.current && !filterRef.current.contains(e.target as Node)) { setFilterOpen(false); setMenuFor(null) } }
+    window.addEventListener('mousedown', onDown)
+    return () => window.removeEventListener('mousedown', onDown)
+  }, [])
   const load = () => { apiGet<{ conversations: Conversation[] }>('/conversations/list_past_conversations').then((r) => setConvs(r.conversations)).catch(() => setConvs([])) }
   useEffect(() => { load() }, [])
   const shown = useMemo(
@@ -65,16 +74,28 @@ export default function History() {
             ))}
           </div>
           {tab === 'chat' && (
-            <div className="sh-filter-wrap">
-              <button className={`sh-filter-btn ${onlyStarred ? 'active' : ''}`} aria-label="只看星标" onClick={() => setOnlyStarred((v) => !v)}>
-                <Star size={15} className={onlyStarred ? 'text-[#f59e0b]' : ''} />
-                {onlyStarred && <span className="text-[13px]">只看星标</span>}
+            <div className="sh-filter-wrap" ref={filterRef}>
+              <button className={`sh-filter-btn ${onlyStarred ? 'active' : ''} ${filterOpen ? 'open' : ''}`} aria-label="筛选" aria-expanded={filterOpen}
+                data-testid="history-filter" onClick={() => setFilterOpen((v) => !v)}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M2 4h12M4 8h8M6 12h4" stroke={onlyStarred ? '#374151' : '#6B7280'} strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+                {onlyStarred && <span className="sh-filter-badge" />}
               </button>
+              {filterOpen && (
+                <div className="sh-filter-dropdown" role="menu" data-testid="history-filter-menu">
+                  <button className={`sh-filter-option ${onlyStarred ? 'selected' : ''}`} role="menuitemcheckbox" aria-checked={onlyStarred}
+                    onClick={() => { setOnlyStarred((v) => !v); setFilterOpen(false) }}>
+                    <Star size={16} style={onlyStarred ? { color: '#f59e0b', fill: '#f59e0b' } : undefined} />仅收藏
+                    {onlyStarred && <span className="sh-option-check" aria-hidden="true">✓</span>}
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
 
-        <div className="sh-scroll hk-scroll">
+        <div className={`sh-scroll hk-scroll ${scrolled ? 'sh-scroll--scrolled' : ''}`} onScroll={(e) => setScrolled(e.currentTarget.scrollTop > 8)}>
           {tab === 'chat' ? (
             <>
               {convs === null && <div className="sh-list"><div className="p-4"><div className="hk-skeleton h-5 rounded w-1/2" /></div></div>}

@@ -311,3 +311,16 @@ transform: `translateX(-${page * stride}px) scale(0.25)`;
 | 分组 | `.sh-group+.sh-group{margin-top:22px}`；`.sh-group-label{margin:0 0 8px 4px;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--sh-ink-faint)}` | 同（今天/本周/更早） |
 | 列表与行 | `.sh-list{padding:4px;background:var(--sh-surface);border:1px solid var(--sh-hairline);border-radius:14px;box-shadow:var(--sh-lift)}`；`.sh-row{height:44px;border-radius:10px}` hover `#241f180d`；分隔线 `:after{left:36px;right:8px;background:var(--sh-divider)}`；`.sh-row-icon{width:36px}`（图标 16、`opacity:.45`）；`.sh-row-title` 14px 省略号 | 同（实测 44/10/14） |
 
+### 历史筛选、空态与收件箱行（第十六批，r96-r98）
+
+| 部件 | 线上原文 / 实测 | 本仓 |
+|---|---|---|
+| 筛选按钮 | `.sh-filter-btn{width:30px;height:30px;border-radius:50%;border:1px solid transparent}`；图标是 16×16 漏斗线（`M2 4h12M4 8h8M6 12h4`，stroke `#6B7280`）；`.active{width:auto;padding:0 10px;border-radius:999px;background:var(--sh-surface);box-shadow:0 2px 7px #0f172a0b}`，选中后 stroke 变 `#374151` 并出现 `.sh-filter-badge{6px;背景 #f59e0b}` | 同（实测路径一致、选中 stroke `#374151`、badge 6px `rgb(245,158,11)`） |
+| 筛选下拉 | `.sh-filter-dropdown{min-width:160px;border-radius:12px;box-shadow:0 8px 24px #0f172a1a;padding:4px 0;top:calc(100% + 6px)}`；`.sh-filter-option{padding:4px 12px;gap:8px;font-size:14px}` 带 16px 图标；`.sh-option-check{margin-left:auto}` | 同（实测 minW 160 / radius 12 / `0 8px 24px rgba(15,23,42,.1)` / top 36 / 选项「仅收藏」） |
+| 滚动渐隐 | `.sh-scroll{mask-image:linear-gradient(to bottom,#000 calc(100% - 44px),transparent 100%)}`；`.sh-scroll--scrolled{mask-image:linear-gradient(to bottom,transparent 0,#000 28px,#000 calc(100% - 44px),transparent 100%)}` | 同（滚动 > 8px 时挂类，遮罩随之变化） |
+| 课程页空态 | `.courses-empty{flex column;align-items:center;padding:32px 24px 40px;text-align:center}`；`.courses-empty-illustration{width:200px;height:200px;object-fit:contain;margin-bottom:4px;opacity:.92}`（线上图是 `/pages/coursePage/CourseJourney/no-search-result.png`）；标题 16/650 `#1a1a1a`；说明 13 `#9ca3af` max-width 320 | 同结构，插画用本仓内联 SVG 占位（不复制原站图片资源） |
+| 课程页加载态 | 线上是 `.courses-loading`（循环视频 + `courses-loading-text`） | 本仓用图标卡 + 13px 文案替代视频 |
+| 收件箱行 | `.inbox-notification-item{display:flex;gap:48px;border-bottom:1px solid #EBEBEB;border-left:3px solid transparent;padding:32px 0 32px 4px;margin-left:-4px}`；`--unread{border-left-color:#4c6694}`；`:last-child{border-bottom:none}`；hover `#00000005` | 同（实测 gap 48 / padding `32px 0 32px 4px` / 未读左边框 3px `rgb(76,102,148)`） |
+| 收件箱行内 | `.inbox-notification-aside{width:120px;margin-top:2px}` 内含日期行 `gap:6px` + 日期 13 `#8b93a0` + 未读点 6px `#4c6694`；`.inbox-notification-main{gap:8px}`；标题 16/700 `#1a1a1a`（已读降为 600 `#374151`）；正文 14 `#6b7280` lh 1.6 | 同（实测 120/2、main gap 8、标题 16/700、日期 `rgb(139,147,160)`） |
+| 收件箱骨架 | `.inbox-skeleton{border-radius:6px;background:#ededed}`；日期 72×13、标题 70%×16、正文 100%×14 | 同（3 行骨架） |
+

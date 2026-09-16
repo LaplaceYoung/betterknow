@@ -27,21 +27,42 @@ export function Inbox() {
       <div className="inbox-scroll">
         {tab === 'messages' ? (
           <>
-            {msgs === null && <div className="p-4"><div className="hk-skeleton h-5 rounded w-1/2" /></div>}
-            {msgs && msgs.length === 0 && <div className="inbox-updates-placeholder">暂无消息</div>}
-            {msgs && msgs.length > 0 && (
-              <ul className="inbox-notification-list">
-                {msgs.map((m) => (
-                  <li key={m.id}>
-                    <div role="button" tabIndex={0} onClick={() => open(m)} onKeyDown={(e) => e.key === 'Enter' && open(m)} className="inbox-notification-item">
-                      <div className="flex-1 min-w-0">
-                        <div style={{ fontSize: 15, fontWeight: 600, color: '#1a1a1a' }}>{m.title ?? '消息'}</div>
-                        <div style={{ marginTop: 6, fontSize: 13.5, lineHeight: 1.6, color: '#6b7280' }} className="line-clamp-2">{m.body ?? m.snippet ?? ''}</div>
-                      </div>
-                      <span style={{ fontSize: 12, color: '#9ca3af', flexShrink: 0 }}>{(m.created_at ?? '').slice(0, 10)}</span>
+            {msgs === null && (
+              <ul className="inbox-notification-list" aria-hidden="true">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <li key={i} className="inbox-notification-item inbox-skeleton-item">
+                    <div className="inbox-notification-aside"><span className="inbox-skeleton inbox-skeleton-date" /></div>
+                    <div className="inbox-notification-main">
+                      <span className="inbox-skeleton inbox-skeleton-title" />
+                      <span className="inbox-skeleton inbox-skeleton-body" />
                     </div>
                   </li>
                 ))}
+              </ul>
+            )}
+            {msgs && msgs.length === 0 && <div className="inbox-updates-placeholder">暂无消息</div>}
+            {msgs && msgs.length > 0 && (
+              <ul className="inbox-notification-list">
+                {msgs.map((m) => {
+                  const unread = m.read === false
+                  return (
+                    <li key={m.id}>
+                      <div role="button" tabIndex={0} onClick={() => open(m)} onKeyDown={(e) => e.key === 'Enter' && open(m)}
+                        className={`inbox-notification-item ${unread ? 'inbox-notification-item--unread' : ''}`} data-testid="inbox-item">
+                        <div className="inbox-notification-aside">
+                          <div className="inbox-notification-date-row">
+                            {unread && <span className="inbox-unread-dot" />}
+                            <span className="inbox-notification-date">{(m.created_at ?? '').slice(0, 10)}</span>
+                          </div>
+                        </div>
+                        <div className="inbox-notification-main">
+                          <p className="inbox-notification-title">{m.title ?? '消息'}</p>
+                          <p className="inbox-notification-body line-clamp-3">{m.body ?? m.snippet ?? ''}</p>
+                        </div>
+                      </div>
+                    </li>
+                  )
+                })}
               </ul>
             )}
           </>
