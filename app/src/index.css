@@ -896,3 +896,20 @@
   .session-idle-prompt-snooze { justify-content: center; }
   .session-idle-prompt-actions { flex-direction: column; }
 }
+
+/* 线上 .whiteboard-modal-*（退出确认等白板弹窗；r144 取自线上样式表原文） */
+.whiteboard-modal-overlay { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; background: rgba(23,23,23,.22); backdrop-filter: blur(2px); animation: whiteboard-modal-overlay-in .15s ease; }
+@keyframes whiteboard-modal-overlay-in { 0% { opacity: 0; } to { opacity: 1; } }
+.whiteboard-modal-card { width: 360px; max-width: calc(100vw - 48px); padding: 22px 22px 18px; border-radius: 16px; background: #fff; box-shadow: 0 18px 48px #00000038; animation: whiteboard-modal-card-in .18s cubic-bezier(.4,0,.2,1); }
+@keyframes whiteboard-modal-card-in { 0% { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.whiteboard-modal-illustration { display: flex; justify-content: center; margin-bottom: 14px; }
+.whiteboard-modal-illustration-img { width: 90px; height: 90px; object-fit: contain; display: block; }
+.whiteboard-modal-title { margin: 0; font-size: 16px; font-weight: 600; color: #171717; line-height: 1.4; }
+.whiteboard-modal-desc { margin: 8px 0 0; font-size: 13.5px; color: #737373; line-height: 1.55; }
+.whiteboard-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.whiteboard-modal-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 8px 16px; border-radius: 10px; font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: background .15s ease, border-color .15s ease; }
+.whiteboard-modal-btn--secondary { border: 1px solid #e5e5e5; background: #fff; color: #404040; }
+.whiteboard-modal-btn--secondary:hover { background: #f5f5f5; }
+.whiteboard-modal-btn--danger { border: 1px solid transparent; background: #e5484d; color: #fff; }
+.whiteboard-modal-btn--danger:hover { background: #cf3a3f; }
+.whiteboard-modal-exit-icon { width: 15px; height: 15px; display: block; flex-shrink: 0; filter: brightness(0) invert(1); }

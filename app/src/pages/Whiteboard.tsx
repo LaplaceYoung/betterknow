@@ -9,6 +9,7 @@ import { playSfx } from '@/lib/sfx'
 import { CharVideo } from '@/components/CharVideo'
 import { IdlePrompt } from '@/components/IdlePrompt'
 import { useIdlePrompt } from '@/lib/useIdlePrompt'
+import { boardNodeToJpeg } from '@/lib/boardExport'
 
 interface Action { type: string; page_id?: string; title?: string; board_content?: string; spoken_text?: string; say?: string; text?: string; question?: string; options?: string[]; correct_index?: number; explanation?: string; task_preview?: string; step_id?: number; annotation_type?: string; caption?: string; image_url?: string; width?: number; height?: number; stub?: boolean }
 interface BoardImage { url: string; caption: string; width: number; height: number; pending: boolean; failed?: boolean }
@@ -45,9 +46,14 @@ export default function Whiteboard() {
   // 线上白板的两个奖励层：reward_user 帧 → 概念奖励弹层；response_complete{session:true} → 单元完成弹层
   const [rewardPrompt, setRewardPrompt] = useState<{ masterConceptTitle: string; masterConceptDescription: string; stepId?: string | number } | null>(null)
   const [unitComplete, setUnitComplete] = useState<{ beatPercent: number } | null>(null)
+  // 线上「退出 Session」确认弹窗（.whiteboard-modal-*）
+  const [exitOpen, setExitOpen] = useState(false)
+  const [savingBoards, setSavingBoards] = useState(false)
+  const [exportNote, setExportNote] = useState('')
   // 线上：闲置 120s 弹「您还在吗？」（活动事件会重新计时；勾选 7 天内不再提醒）
   const { isIdlePromptOpen, dismissIdlePrompt } = useIdlePrompt({ enabled: status !== 'connecting' })
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const boardRef = useRef<HTMLDivElement | null>(null)
   const [ttsVoice, setTtsVoice] = useState(true)
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -221,6 +227,52 @@ export default function Whiteboard() {
     URL.revokeObjectURL(url)
   }
 
+  // 线上 onExportTranscript：`# 标题` + `_导出于 {时间}_` + 老师/我/板书等分段
+  const exportTranscript = () => {
+    const parts: string[] = [`# ${title}`, `_导出于 ${new Date().toLocaleString('zh-CN')}_`]
+    pages.forEach((p, idx) => {
+      if (!p.boards.length) return
+      parts.push(`**板书 · 第 ${idx + 1} 页 ${p.title}**\n\n${p.boards.join('\n\n')}`)
+    })
+    script.forEach((s) => parts.push(`**${s.who === 'teacher' ? '老师' : '我'}**\n\n${s.text}`))
+    const blob = new Blob([parts.join('\n\n')], { type: 'text/markdown;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${title.replace(/[/\\?%*:|"<>]/g, '_')}-transcript.md`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    window.setTimeout(() => URL.revokeObjectURL(url), 0)
+  }
+
+  // 线上 ys('jpg')：逐页导出 `${title}-page{N}.jpg`（toBlob 质量 .92）；这里同样逐页切换后截图
+  const saveBoardImages = async () => {
+    const node = boardRef.current
+    if (!node || savingBoards) return
+    setSavingBoards(true)
+    setExportNote('')
+    const original = pageIdx
+    const failures: string[] = []
+    try {
+      for (let idx = 0; idx < pages.length; idx += 1) {
+        if (idx !== pageIdx) {
+          setPageIdx(idx)
+          await new Promise((resolve) => window.setTimeout(resolve, 600))
+        }
+        const target = boardRef.current
+        if (!target) { failures.push(`第 ${idx + 1} 页`); continue }
+        const safe = title.replace(/[/\\?%*:|"<>]/g, '_')
+        const result = await boardNodeToJpeg(target, `${safe}-page${idx + 1}.jpg`)
+        if (!result.ok) failures.push(`第 ${idx + 1} 页（${result.reason}）`)
+      }
+    } finally {
+      setPageIdx(original)
+      setSavingBoards(false)
+      setExportNote(failures.length ? `有 ${failures.length} 页没截出来：${failures.join('、')}` : '白板图片已导出')
+    }
+  }
+
   // [D10] 板面逐段绘出
   const page = pages[pageIdx] ?? pages[pages.length - 1]
   useEffect(() => { setRevealed(0) }, [pageIdx])
@@ -265,7 +317,7 @@ export default function Whiteboard() {
     <div ref={containerRef} className="flex h-full" style={{ background: 'var(--app-bg)' }}>
       <section className="flex-1 min-w-0 flex flex-col">
         <header className="flex items-center gap-3 px-4" style={{ height: 52 }}>
-          <button onClick={() => nav(courseId ? `/course/${courseId}` : '/history')} className="hk-icon-btn h-8 w-8" aria-label="返回"><ArrowLeft size={15} /></button>
+          <button onClick={() => setExitOpen(true)} data-testid="exit-session-btn" className="hk-icon-btn h-8 w-8" aria-label="返回"><ArrowLeft size={15} /></button>
           <h1 className="text-[14px] font-semibold truncate">{title}：知识讲解</h1>
           <div className="ml-auto flex items-center gap-1.5 text-[12px]">
             <button
@@ -349,7 +401,7 @@ export default function Whiteboard() {
           </div>
         )}
         <div className="flex-1 relative overflow-auto hk-scroll p-6" style={{ backgroundImage: 'radial-gradient(#e4e4e7 1px, transparent 1px)', backgroundSize: '18px 18px' }}>
-          <div className="mx-auto bg-white rounded-xl shadow-sm border p-8 origin-top transition-transform" style={{ width: 760, minHeight: 520, transform: `scale(${zoom / 100})` }}>
+          <div ref={boardRef} data-testid="board-page" className="mx-auto bg-white rounded-xl shadow-sm border p-8 origin-top transition-transform" style={{ width: 760, minHeight: 520, transform: `scale(${zoom / 100})` }}>
             {/* 线上 .whiteboard-board-skeleton：96px 72px 64px 内边距、340px 列、标题 26px / 行 13px */}
             {status === 'connecting' && (
               <div style={{ display: 'flex', padding: '96px 72px 64px', gap: 18 }} aria-label="板书准备中">
@@ -424,6 +476,26 @@ export default function Whiteboard() {
             </div>
           </div>
         )}
+        {exitOpen && (
+          <div className="whiteboard-modal-overlay" data-testid="exit-confirm" onClick={() => setExitOpen(false)}>
+            <div className="whiteboard-modal-card" role="dialog" aria-modal="true" aria-label="确定要退出当前 Session 吗？"
+              onClick={(e) => e.stopPropagation()}>
+              <div className="whiteboard-modal-illustration">
+                <img src="/assets/img/pages/mainPages/courses/question.png" alt="" aria-hidden="true" className="whiteboard-modal-illustration-img" />
+              </div>
+              <h3 className="whiteboard-modal-title">确定要退出当前 Session 吗？</h3>
+              <p className="whiteboard-modal-desc">{courseId ? '退出后你可以随时回到课程页面继续学习。' : '退出后你可以随时回到对话继续学习。'}</p>
+              <div className="whiteboard-modal-actions">
+                <button className="whiteboard-modal-btn whiteboard-modal-btn--secondary" onClick={() => setExitOpen(false)}>继续学习</button>
+                <button className="whiteboard-modal-btn whiteboard-modal-btn--danger"
+                  onClick={() => { setExitOpen(false); nav(courseId ? `/course/${courseId}` : '/history') }}>
+                  <img className="whiteboard-modal-exit-icon" src="/assets/img/pages/coursePage/whiteboard/exit.svg" alt="" aria-hidden="true" />
+                  退出 Session
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         {isIdlePromptOpen && (
           <IdlePrompt
             title="您还在吗？"
@@ -459,22 +531,20 @@ export default function Whiteboard() {
             <div className="whiteboard-unit-complete-recap" role="group" aria-label="回顾">
               <span className="whiteboard-unit-complete-recap-label">回顾</span>
               <div className="whiteboard-unit-complete-recap-chips">
-                <button type="button" className="whiteboard-unit-complete-chip" onClick={() => setUnitComplete(null)}>
+                <button type="button" className="whiteboard-unit-complete-chip" data-testid="recap-save-boards"
+                  onClick={saveBoardImages} disabled={savingBoards || pages.length === 0} aria-busy={savingBoards}>
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v10H4z" stroke="currentColor" strokeWidth="1.6" /><path d="M8 19h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
-                  保存白板图片
+                  {savingBoards ? '正在导出白板…' : '保存白板图片'}
                 </button>
-                <button type="button" className="whiteboard-unit-complete-chip" onClick={() => setUnitComplete(null)}>
+                <button type="button" className="whiteboard-unit-complete-chip" data-testid="recap-export-transcript" onClick={exportTranscript}>
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   导出对话记录
-                </button>
-                <button type="button" className="whiteboard-unit-complete-chip" onClick={() => setUnitComplete(null)}>
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5a7 7 0 1 1-6.5 4.5M5 4v5h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  回放<span className="whiteboard-beta-badge">BETA</span>
                 </button>
               </div>
             </div>
           </div>
         )}
+        {exportNote && <div className="px-4 py-1.5 text-[12px] text-[#6b7280]" data-testid="export-note">{exportNote}</div>}
         {netCheck && <div className="px-4 py-1.5 text-[12px] text-[#3b5bdb]" data-testid="net-check-result">{netCheck}</div>}
       </section>
 

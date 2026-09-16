@@ -651,3 +651,33 @@ const RandomCharVideo = ({ className }) => <CharVideo className={className} src=
 | 音效 | `/sounds/reward.mp3` 音量 **0.45** | 同 |
 | 行为 | 「继续对话」= 关弹层 + 聚焦输入；「返回课程列表」= 关弹层 + 跳 `/courses` | 同 |
 
+### 退出确认弹窗与回顾三连（第三十三批，r133 + r144 + r145）
+
+**退出确认**（`.whiteboard-exit-course-btn` → `Qn` 状态）：
+
+```jsx
+<div className="whiteboard-modal-overlay" onClick={close}>
+  <div className="whiteboard-modal-card" role="dialog" aria-modal="true" aria-label={t('courseSession.exitConfirmTitle')} onClick={stop}>
+    <div className="whiteboard-modal-illustration"><img src="/pages/mainPages/courses/question.png" className="whiteboard-modal-illustration-img" /></div>
+    <h3 className="whiteboard-modal-title">确定要退出当前 Session 吗？</h3>
+    <p className="whiteboard-modal-desc">退出后你可以随时回到课程页面继续学习。</p>   // standalone 用「退出后你可以随时回到对话继续学习。」
+    <div className="whiteboard-modal-actions">
+      <button className="whiteboard-modal-btn whiteboard-modal-btn--secondary">继续学习</button>
+      <button className="whiteboard-modal-btn whiteboard-modal-btn--danger">
+        <img className="whiteboard-modal-exit-icon" src="/pages/coursePage/whiteboard/exit.svg" />退出 Session
+      </button>
+    </div>
+  </div>
+</div>
+```
+
+样式原文（r144）：卡片 360px / radius 16px / padding 22px 22px 18px、插画 90px、遮罩 `#17171738` + blur(2px)、危险按钮 `#e5484d`（hover `#cf3a3f`）、退出图标 `filter:brightness(0) invert(1)`。实测本仓 360px / radius 16px / aria-label 与按钮图标齐备，取消与点遮罩均可关闭。
+
+**回顾三连**（单元完成层底部）：
+
+| chip | 线上实现 | 本仓 |
+|---|---|---|
+| 保存白板图片 | `ys('jpg')`：逐页切换 → 板面 DOM 渲染到 canvas → `toBlob('image/jpeg', .92)` → `${title}-page{N}.jpg`，`canSaveBoards = pages.length > 0`、`savingBoards` 时禁用+`aria-busy` | 同契约：`app/src/lib/boardExport.ts` 用 `foreignObject` 路径（逐节点内联计算样式、同源图片转 data URL、iframe/video 换占位），文件名与压缩质量一致；实测产出 `Whiteboard learning session-page1.jpg`，1520×1116、45,592 B、头部 `ff d8 ff e0`、非空白（20,321 个暗像素 / 5,336 个彩色像素） |
+| 导出对话记录 | `onExportTranscript`：`# 标题` + `_导出于 {时间}_` + 逐条 我/老师/板书/图示/小测… → markdown blob 下载 `${title}-transcript.md` | 同：`# 标题` + `_导出于 …_` + `**板书 · 第 N 页**` + `**老师**/**我**`，文件名 `${title}-transcript.md`；实测导出内容正确 |
+| 回放（BETA） | `onReplay` 进入回放视图（独立组件 + 页面/可见集合） | **未实现，已移除该按钮**（不摆空按钮） |
+

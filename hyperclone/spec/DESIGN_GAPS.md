@@ -433,3 +433,11 @@
 - 补上**闲置提示层**（此前没有）：线上 `$h` hook（120s + 4 个活动事件重计时 + `sessionIdlePrompt.snoozedUntil` 7 天免打扰）+ `Af` 组件（随机角色视频 / 三行文案 / 继续对话 / 返回课程列表 / reward.mp3 .45）。实测 120s 后弹出、结构 570px/radius 30px/grid `190px 308px`、媒体随机取到 `char-stars.mp4` 且 poster 同名 `.webp`、勾选写入 7 天后时间戳、关掉后不再弹。
 - **收敛媒体组件**：线上所有角色动画都走同一个 `CharVideo`（内联 `mix-blend-mode:multiply` + `brightness(1.08)`，poster = 同名 `.webp`）与 `RandomCharVideo`（五个候选里随机）。本仓此前四处各写一份 `<video>`，现统一到 `app/src/components/CharVideo.tsx`；四张缺的 `.webp` poster 已补齐（stars/floating/petting/courses-reward）。
 - 保留差异：线上 idle hook 在 course session 页常开；本仓按 `status !== 'connecting'` 判定，未连接时不弹。
+
+**第四十六批（把上一批的空按钮做成真的 + 退出确认）**
+- **修掉自己上一批的缺陷**：单元完成层底部三个 chip 当时只是「点一下关掉弹层」的空按钮。现在：
+  - 保存白板图片 → 真导出 `${title}-page{N}.jpg`（JPEG q0.92，与线上同名同质量）：`app/src/lib/boardExport.ts` 走 `foreignObject` 路径（逐节点内联计算样式、同源图片转 data URL、iframe/video 换占位文案），逐页切换后截图，失败时如实提示「有 N 页没截出来」而不是静默失败。实测产出 `Whiteboard learning session-page1.jpg`，1520×1116 / 45,592 B / 头部 `ff d8 ff e0`，像素分析有 20,321 个暗像素与 5,336 个彩色像素（不是空白图）。
+  - 导出对话记录 → 真下载 `${title}-transcript.md`，内容按线上结构（`# 标题` / `_导出于 …_` / `**板书 · 第 N 页**` / `**老师**` `**我**`）。
+  - 回放 → 线上是独立回放视图，本轮没有等同实现，**直接删掉按钮**，不摆空壳。
+- 新增**退出确认弹窗**（此前「返回」直接跳走）：线上 `.whiteboard-modal-*` 结构 + 文案（确定要退出当前 Session 吗？/ 退出后你可以随时回到课程页面继续学习。/ 继续学习 / 退出 Session）+ 插画 `question.png` + 退出图标 `exit.svg`（已抓）；实测 360px/radius 16px/role=dialog/aria-modal，取消与点遮罩都能关。
+- 顺手补的两张线上资源：`exit.svg`（544 B）与四张角色动画 poster（上一批）。
