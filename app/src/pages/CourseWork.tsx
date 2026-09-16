@@ -637,6 +637,18 @@ export function Project() {
   const [assistantOpen, setAssistantOpen] = useState(false)
 
   useEffect(() => {
+    if (!activeStageId) return
+    void apiGet<{ drafts?: Record<string, string>; submissions?: Record<string, unknown>; status?: string | null; score?: number | null; feedback?: string | null }>(`/course-generation/courses/${courseId}/project/stages/${activeStageId}/state`)
+      .then((state) => {
+        const saved = Object.values(state.drafts ?? {}).at(-1)
+        if (typeof saved === 'string' && saved.trim()) setDraft(saved)
+        if (typeof state.score === 'number') setScore(state.score)
+        if (state.feedback) setFeedback(state.feedback)
+      })
+      .catch(() => undefined)
+  }, [courseId, activeStageId])
+
+  useEffect(() => {
     apiGet<typeof data>(`/course-generation/courses/${courseId}/project`)
       .then((r) => {
         setData(r)
@@ -664,14 +676,15 @@ export function Project() {
   const submit = async () => {
     setSubmitting(true)
     try {
-      const res = await apiPost<{ feedback?: string; score?: number }>(
+      // 服务端有模型才评分；没有模型时只记录提交（不编造分数与成功文案）
+      const res = await apiPost<{ feedback?: string; score?: number | null; evaluated?: boolean }>(
         `/course-generation/courses/${courseId}/project/stages/${stage.stage_id}/state`,
         { submission: draft, status: 'submitted' }
       )
-      setFeedback(res.feedback ?? '评审已完成')
-      if (res.score) setScore(res.score)
-    } catch {
-      setFeedback('已成功保存草稿并提交阶段审查。')
+      setFeedback(res.feedback ?? (res.evaluated === false ? '已记录本次提交（未配置模型时不评分）' : '评审已完成'))
+      setScore(typeof res.score === 'number' ? res.score : null)
+    } catch (error) {
+      setFeedback(`提交失败：${error instanceof Error ? error.message : '请稍后重试'}`)
     } finally {
       setSubmitting(false)
     }

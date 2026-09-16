@@ -183,6 +183,17 @@ voice_id ∈ warm|calm|bright|gentle|firm|lively；speed 0.5–2
 - 选项按 **1..4 编号**（不是 A/B/C）；有「检查答案 / 跳过 / 下一题」与「AI 随堂助教」（提示式，不直接给答案，支持截图）。
 - 文案：「全部答对，这次练习就会被标记为『已掌握』，为这门课完成对应环节。」——全对才记 mastery。
 
+## 2.11 项目实战（阶段 / 步骤 / 状态）（2026-09-16 实测）
+
+- `GET /project` → `{courseUuid, projects:[{project_id, project_name, project_description, final_deliverable}], stages[]}`；
+  `stages[]` 的键实测为 **`stage_id, parent_project_id, unit_id, stage_title, stage_description, deliverable_increment, steps[]`**（每个阶段带 `steps`）。
+- `GET /project/stages/{stage_id}/state` → **`{submissions:{}, drafts:{}}`**：稿件与提交按阶段存，`drafts` 以步骤为键。
+  同路径 `POST`/`PUT` 实测 405（线上只读）。
+- 线上没有独立的「提交阶段」端点：试过的 `submit` / `submission` / `draft` / `grade` / `feedback` / `evaluate` / `steps` 全是 404——阶段交付与评审走**对话/智能体**，服务端只暴露只读状态。
+- `POST /project/assistant {stage_id, messages[]}` 是阶段级导师（提示式）。
+- 本仓扩展（明确标注，不是线上行为）：`POST /project/stages/{stage_id}/state {submission?, drafts?}` 落盘提交与草稿。
+  **评审不做本地编造**：配置了语言模型（BYOK）就调模型按 `{"score":0-100,"feedback":string}` 评分；没有 key 时返回 `evaluated:false`、`score:null`，并写明「未配置模型时不评分」。
+
 ## 3. REST 精选（补全 api_endpoints.md + addendum）
 
 补充（2026-09-15 第二轮）：

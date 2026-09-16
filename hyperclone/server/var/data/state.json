@@ -751,6 +751,14 @@
     "em3RWQ40jpN3aIVFdK2CCttJcllBRwZHTNPOjQZUgYQ": {
       "user_id": "local-open-user",
       "expires_at": 1792126804814
+    },
+    "ZWR5vFrfiyYDkEsrR7KBJMoRJgzgavwax-cDhW9pKGM": {
+      "user_id": "local-open-user",
+      "expires_at": 1792127346280
+    },
+    "wmDUnst_TRISVXerJz5a5MK8Qfb0TUetARsnQR1R9gE": {
+      "user_id": "local-open-user",
+      "expires_at": 1792127353281
     }
   },
   "conversations": {
@@ -9166,6 +9174,31 @@
       },
       "examStarted": {
         "unit1": true
+      },
+      "projectStageStates": {
+        "dee055da-d859-4eee-a9e8-a942f07519f3": {
+          "submissions": {
+            "stage": {
+              "text": "阶段交付：作用域=整数分解；假设=模幂可逆；交付=周期提取笔记 + 复现脚本",
+              "at": "2026-09-16T05:09:13.347Z"
+            }
+          },
+          "drafts": {
+            "step1": "草稿：先写出模幂函数"
+          },
+          "status": "submitted",
+          "score": 88,
+          "feedback": "交付结构清楚：作用域与假设写得具体。建议补上边界条件的反例与复现步骤。",
+          "evaluated": true,
+          "updated_at": "2026-09-16T05:09:13.368Z"
+        }
+      },
+      "projectProgress": {
+        "dee055da-d859-4eee-a9e8-a942f07519f3": {
+          "submitted": true,
+          "evaluated": true,
+          "updated_at": "2026-09-16T05:09:13.374Z"
+        }
       }
     },
     "375db11c-e769-4fba-9b9f-8b7f7d92cb04": {

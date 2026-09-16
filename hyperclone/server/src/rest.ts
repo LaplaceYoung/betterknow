@@ -9,6 +9,7 @@ import { now, readState, updateState, type UserRecord } from './store.js';
 import { decorateMarketplace } from './extras.js';
 import { probeSeam, seamStatus, type Seam } from './providers/index.js';
 import { resolveByok, type ByokConfig, type UserByok } from './config.js';
+import { chat } from './llm.js';
 import { activeRuns, generatingTargets, listRuns, readRun, sweepStaleRuns } from './runs.js';
 import { enumerateCourseSessions } from './courseModel.js';
 import { listVoices, readTtsFile, synthesize, ttsFileCount, ttsStats } from './tts.js';
@@ -828,7 +829,21 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/v1/course-generation/courses/:course_uuid/project', protectedRoute, async (request, reply) => {
     const course = await ownedCourse(request);
     if (!course) return reply.code(404).send({ detail: 'Course not found' });
-    return (await resolveProject(course, courseId(request))) ?? { courseUuid: courseId(request), projects: [], stages: [] };
+    const payload = (await resolveProject(course, courseId(request))) ?? { courseUuid: courseId(request), projects: [], stages: [] };
+    // 线上形状：stages[].{stage_id,parent_project_id,unit_id,stage_title,stage_description,deliverable_increment,steps[]}
+    const stages = Array.isArray(payload.stages) ? (payload.stages as Array<Record<string, unknown>>) : [];
+    const projects = Array.isArray(payload.projects) ? (payload.projects as Array<Record<string, unknown>>) : [];
+    const normalized = stages.map((stage, index) => {
+      const steps = Array.isArray(stage.steps) ? (stage.steps as Array<Record<string, unknown>>) : [];
+      return {
+        ...stage,
+        parent_project_id: stage.parent_project_id ?? projects[0]?.project_id ?? null,
+        unit_id: stage.unit_id ?? `unit${index + 1}`,
+        deliverable_increment: stage.deliverable_increment ?? `阶段 ${index + 1} 的交付物`,
+        steps: steps.length ? steps : [{ step_id: `${stage.stage_id ?? index}-s1`, title: '完成本阶段交付', instruction: String(stage.stage_description ?? '') }],
+      };
+    });
+    return { ...payload, projects, stages: normalized };
   });
 
   app.post('/api/v1/course-generation/courses/:course_uuid/project/assistant', protectedRoute, async (request, reply) => {
@@ -842,6 +857,7 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
     };
   });
 
+  // 线上实测：GET 只读，返回 {submissions:{}, drafts:{}}；提交走步骤端点，评分由模型给出（本仓不再本地编造分数）
   app.route({
     method: ['GET', 'POST'],
     url: '/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/state',
@@ -850,17 +866,47 @@ export async function registerRestRoutes(app: FastifyInstance): Promise<void> {
       const course = await ownedCourse(request);
       if (!course) return reply.code(404).send({ detail: 'Course not found' });
       const stageIdParam = (request.params as { stage_id: string }).stage_id;
-      if (request.method === 'POST') {
-        const body = (request.body ?? {}) as { submission?: string; status?: string };
-        const text = String(body.submission ?? '').trim();
-        const score = Math.min(100, Math.max(78, 80 + Math.floor(Math.min(text.length, 500) / 25)));
-        const feedback = `🎉 **阶段评审通过 · 综合评分：${score} / 100**\n\n• **建模完整度 (优秀)**：清晰界定了系统边界与关键状态量。\n• **推导严谨性 (良好)**：逻辑论证扎实，核心算法满足预期契约。\n• **进阶优化建议**：下一阶段可尝试引入异常边界断言以进一步增强工程健壮性。`;
-        const updatedState = { ...body, status: 'completed', score, feedback, updated_at: now() };
-        return { success: true, stage_id: stageIdParam, state: updatedState, score, feedback };
+      const stored = ((course.projectStageStates ?? {}) as Record<string, Record<string, unknown>>)[stageIdParam] ?? {};
+      if (request.method === 'GET') {
+        return { submissions: (stored.submissions as Record<string, unknown>) ?? {}, drafts: (stored.drafts as Record<string, unknown>) ?? {}, status: stored.status ?? null, score: stored.score ?? null, feedback: stored.feedback ?? null };
       }
-      return { success: true, stage_id: stageIdParam, state: {}, updated_at: now() };
+      const body = (request.body ?? {}) as { submission?: string; drafts?: Record<string, unknown>; step_id?: string };
+      const submission = String(body.submission ?? '').trim();
+      const stage = ((course.stages as Array<Record<string, unknown>> | undefined) ?? []).find((item) => item.stage_id === stageIdParam);
+      const drafts = { ...((stored.drafts as Record<string, unknown>) ?? {}), ...(body.drafts ?? {}), ...(body.step_id ? { [body.step_id]: submission } : {}) };
+      const submissions = { ...((stored.submissions as Record<string, unknown>) ?? {}) };
+      if (submission) submissions[body.step_id ?? 'stage'] = { text: submission, at: now() };
+      // 真实评审：有模型就让模型评，没有就只记录，绝不本地编分数
+      const stateNow = await readState();
+      const eff = resolveByok((stateNow.users[request.userId!] as unknown as { byok?: UserByok } | undefined)?.byok);
+      let score: number | null = null; let feedback = '';
+      let evaluated = false;
+      if (submission && eff.provider !== 'stub') {
+        try {
+          const raw = await chat([
+            { role: 'system', content: '你是一名严格但友善的项目导师。按 0-100 打分并给出可执行的改进建议。只输出 JSON：{"score":number,"feedback":string}' },
+            { role: 'user', content: `阶段：${String(stage?.stage_title ?? stageIdParam)}\n交付要求：${String(stage?.deliverable_increment ?? '')}\n学生提交：\n${submission.slice(0, 4000)}` },
+          ], 'content', eff);
+          const parsed = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] ?? '') as { score?: number; feedback?: string };
+          if (typeof parsed.score === 'number') { score = Math.max(0, Math.min(100, Math.round(parsed.score))); feedback = String(parsed.feedback ?? ''); evaluated = true; }
+        } catch { /* 评审失败：按未评分处理 */ }
+      }
+      if (!evaluated && submission) feedback = '已记录本次提交。未配置语言模型（BYOK）时不给出分数与评审意见。';
+      const state = { submissions, drafts, status: submission ? 'submitted' : 'in_progress', score, feedback, evaluated, updated_at: now() };
+      await updateState((next) => {
+        const target = next.courses[courseId(request)];
+        if (!target) return;
+        const states = (target.projectStageStates ?? {}) as Record<string, Record<string, unknown>>;
+        states[stageIdParam] = state;
+        target.projectStageStates = states;
+        const progress = (target.projectProgress ?? {}) as Record<string, Record<string, unknown>>;
+        progress[stageIdParam] = { submitted: Boolean(submission), evaluated, updated_at: now() };
+        target.projectProgress = progress;
+      });
+      return { success: true, stage_id: stageIdParam, state, score, feedback, evaluated };
     },
   });
+
   for (const action of ['draft', 'submission', 'submission/text']) app.post(`/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/steps/:step_id/${action}`, protectedRoute, async (request, reply) => (await ownedCourse(request)) ? { success: true, action, stage_id: (request.params as { stage_id: string }).stage_id, step_id: (request.params as { step_id: string }).step_id, submission: request.body ?? {}, updated_at: now() } : reply.code(404).send({ detail: 'Course not found' }));
   app.get('/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/steps/:step_id/tts', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? reply.type('audio/webm').send(placeholderWebm) : reply.code(404).send({ detail: 'Course not found' }));
   app.get('/api/v1/course-generation/courses/:course_uuid/project/stages/:stage_id/steps/_first/tts', protectedRoute, async (request, reply) => (await ownedCourse(request)) ? reply.type('audio/webm').send(placeholderWebm) : reply.code(404).send({ detail: 'Course not found' }));

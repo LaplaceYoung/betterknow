@@ -125,3 +125,5 @@
 | 练习界面机制 | 每题 10s 倒计时 + 速答奖励 +200 + 得分滚轮 + 进度点 + 选项 1..4 编号 + 检查答案/跳过 + AI 随堂助教（提示不给答案）；全对记「已掌握」 | ✅ | r40（DOM/类名） |
 | 考试状态机 | `exam/start{unitId}`→`{status:"in_progress"}`；`GET exam/status`→`{status:"none"\|"in_progress"\|"completed"}` | ✅ | r42/r44 |
 | 项目导师 | `project/assistant{stage_id,messages[]}`；`GET project` 返回 projects+stages | ✅ | r42/r43 |
+| 项目阶段结构 | `GET /project` 的 `stages[]` 带 `parent_project_id/unit_id/deliverable_increment/steps[]` | ✅ | r46 |
+| 项目阶段状态 | `GET /project/stages/{id}/state` → `{submissions:{}, drafts:{}}`；写入端点线上不存在（阶段交付走对话），POST/PUT 均 405 | ✅ | r46/r47 |

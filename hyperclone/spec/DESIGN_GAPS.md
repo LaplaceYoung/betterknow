@@ -210,3 +210,9 @@
 - 服务端按线上实测补齐：`practice/start`、`practice/progress`（`sessionId + finished + items{}` 字典）、`practice/assistant`（`session_id + messages[]`）、`exam/start`、`exam/status`、`project/assistant`（`stage_id + messages[]`）；缺字段回 FastAPI 形状的 422，请求体校验与线上一致。
 - 前端练习器补齐线上 HUD：每题 10s 倒计时 + 速答奖励 +200（未超时答对才给）+ 得分显示 + 进度点 + **选项 1..4 编号**（原来是 A/B/C）+ 检查答案/跳过/下一题 + AI 随堂助教（提示式）+「全对记已掌握」提示。
 - 仍缺：练习的 `practice-split` 题干配图（线上题目可带图，左图右题）、得分数字滚轮动效、`exam` 完整作答界面（本仓复用练习器）。
+
+**第七批（项目实战）**
+- 结构对齐线上：`GET /project` 的每个阶段补齐 `parent_project_id / unit_id / deliverable_increment / steps[]`（无步骤时给一条默认步骤）。
+- 状态对齐线上：`GET /project/stages/{id}/state` 返回 `{submissions:{}, drafts:{}, status, score, feedback}`；本仓额外提供 `POST` 落盘提交与按步骤草稿（线上只读、交付走对话，这一点已在协议里标注为本仓扩展）。
+- **去掉了一处不诚实实现**：原 `POST .../state` 会在本地编一个 78–100 的分数和「阶段评审通过」文案。现在配置了 BYOK 语言模型才评分（模型给 `{score, feedback}`），没有 key 时明确返回 `evaluated:false / score:null`，前端也不再在失败时谎报「已成功提交」。
+- 前端项目页：进入阶段会回读已存草稿/提交，提交后展示真实评审或「已记录（未评分）」。
