@@ -36,6 +36,8 @@ export interface CourseProgressView {
   practiceBySession?: Record<string, string>
   practiceStats?: Record<string, { started: boolean; finished: boolean; correct: number; total: number; score?: number; perfect?: number; stars?: number }>
   examScores?: Record<string, number>
+  // 线上 projectStages[stageId] = {touched, completed}：项目完成卡的判定沿用同一份数据
+  projectStages?: Record<string, { touched?: boolean; completed?: boolean; started?: boolean }>
 }
 
 export function CourseStructureView({ course, enrolled, onJoin, onExit, courseUuid, progress }: { course: CourseFull; enrolled: boolean; onJoin?: () => void; onExit?: () => void; courseUuid?: string; progress?: CourseProgressView }) {

@@ -1095,13 +1095,13 @@ export function Exam() {
         points={result.points ?? 0}
         perfect={result.perfect ?? 0}
         fastCount={result.fastCount ?? 0}
-        onClose={() => nav(`/course/${courseId}`)}
+        onClose={() => nav(`/course/${courseId}`, { state: { fromUnitId: unitId } })}
       />
     )
 
   return (
     <>
-      <BackBar onBack={() => nav(`/course/${courseId}`)} />
+      <BackBar onBack={() => nav(`/course/${courseId}`, { state: { fromUnitId: unitId } })} />
       <QuizRunner
         mode="exam"
         title={exam.title}
@@ -1219,7 +1219,7 @@ export function Project() {
 
   return (
     <div className="mx-auto max-w-[860px] px-8 pb-24">
-      <BackBar onBack={() => nav(`/course/${courseId}`)} />
+      <BackBar onBack={() => nav(`/course/${courseId}`, { state: { fromStageId: stage.stage_id } })} />
 
       {/* Project Header */}
       <div className="flex items-center justify-between mt-3">

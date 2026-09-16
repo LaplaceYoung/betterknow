@@ -38,14 +38,18 @@ export default function CourseJourney() {
       .then((status) => setProgress((current) => ({ ...current, practiceBySession: status.practiceBySession ?? {} })))
       .catch(() => {})
     apiGet<CourseProgressView>(`/course-generation/courses/${courseId}/progress-status`)
-      .then((stats) => setProgress((current) => ({ ...current, practiceStats: stats.practiceStats ?? {}, examScores: stats.examScores ?? {} })))
+      .then((stats) => setProgress((current) => ({ ...current, practiceStats: stats.practiceStats ?? {}, examScores: stats.examScores ?? {}, projectStages: stats.projectStages ?? {} })))
       .catch(() => {})
   }, [courseId])
 
   // 从课堂返回时 route state 带 fromSessionId/completedSessionId：只在挂载时读一次，随后清掉 state（线上同语义）
-  const [arrivedFromSession] = useState(() => {
-    const state = (loc.state ?? null) as { fromSessionId?: string; completedSessionId?: string } | null
-    return state?.fromSessionId ?? state?.completedSessionId ?? ''
+  const [arrivedFrom] = useState(() => {
+    const state = (loc.state ?? null) as { fromSessionId?: string; completedSessionId?: string; fromStageId?: string; fromUnitId?: string } | null
+    return {
+      sessionId: state?.fromSessionId ?? state?.completedSessionId ?? '',
+      stageId: state?.fromStageId ?? '',
+      unitId: state?.fromUnitId ?? '',
+    }
   })
   useEffect(() => {
     if (!loc.state) return
@@ -53,18 +57,18 @@ export default function CourseJourney() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const reminder = useMemo(() => {
-    if (!course || !arrivedFromSession || reminderDismissed) return null
+    if (!course || !arrivedFrom.sessionId || reminderDismissed) return null
     for (let unitIndex = 0; unitIndex < course.units.length; unitIndex += 1) {
       const unit = course.units[unitIndex]
       for (const lecture of unit.lectures) {
-        const session = lecture.sessions.find((s) => s.sessionId === arrivedFromSession)
+        const session = lecture.sessions.find((s) => s.sessionId === arrivedFrom.sessionId)
         if (!session) continue
-        const stats = progress.practiceStats?.[arrivedFromSession]
+        const stats = progress.practiceStats?.[arrivedFrom.sessionId]
         // 线上条件（u && !p）：这节**有练习**（结构里有 practice，或已出现过答题统计）且**尚未交卷**
-        const hasPractice = progress.practiceBySession?.[arrivedFromSession] === 'ready' || Boolean(stats)
+        const hasPractice = progress.practiceBySession?.[arrivedFrom.sessionId] === 'ready' || Boolean(stats)
         if (hasPractice && stats?.finished !== true) {
           return {
-            practicePath: `/course/${courseId}/practice/${arrivedFromSession}`,
+            practicePath: `/course/${courseId}/practice/${arrivedFrom.sessionId}`,
             unitLabel: `单元 ${unitIndex + 1}`,
             sessionTitle: session.title || '这节课',
           }
@@ -73,31 +77,50 @@ export default function CourseJourney() {
       }
     }
     return null
-  }, [course, progress, arrivedFromSession, reminderDismissed, courseId])
+  }, [course, progress, arrivedFrom, reminderDismissed, courseId])
 
   useEffect(() => {
     if (!course || celebration) return
+    // 线上只在「刚回来且该节已完成」时庆祝：来源取自 route state（讲次 = 从白板回来，项目 = 从阶段页回来，测验 = 从考试页回来）
+    const cameFrom = { ...arrivedFrom }
+    if (!cameFrom.sessionId && !cameFrom.stageId && !cameFrom.unitId) return
     const celebrated = (() => { try { return new Set<string>(JSON.parse(localStorage.getItem('cj-celebrated-sections') ?? '[]') as string[]) } catch { return new Set<string>() } })()
     for (let unitIndex = 0; unitIndex < course.units.length; unitIndex += 1) {
       const unit = course.units[unitIndex]
       const unitLabel = `单元 ${unitIndex + 1}`
-      // 讲次完成：该讲所有 session 都已掌握，且（若有）练习已交卷
-      for (const lecture of unit.lectures) {
-        const key = `lecture:${lecture.lectureId ?? lecture.title}`
-        if (celebrated.has(key) || lecture.sessions.length === 0) continue
-        const allMastered = lecture.sessions.every((s) => s.mastery === 'mastered' || s.mastery === 'proficient' || progress.practiceStats?.[s.sessionId]?.finished === true)
-        if (!allMastered) continue
-        setCelebration({ key, kind: 'lecture', title: lecture.title ?? '本节课', unitLabel })
+      if (cameFrom.sessionId) {
+        for (const lecture of unit.lectures) {
+          if (!lecture.sessions.some((s) => s.sessionId === cameFrom.sessionId)) continue
+          const key = `lecture:${lecture.lectureId ?? lecture.title}`
+          if (celebrated.has(key)) return
+          // 该讲的每个课时都要「学完」：session 已掌握，或（有练习时）练习已交卷
+          const done = lecture.sessions.every((s) => {
+            const stats = progress.practiceStats?.[s.sessionId]
+            const practiceExists = progress.practiceBySession?.[s.sessionId] === 'ready' || Boolean(stats)
+            return practiceExists ? stats?.finished === true : s.mastery === 'mastered' || s.mastery === 'proficient'
+          })
+          if (done && lecture.sessions.length > 0) setCelebration({ key, kind: 'lecture', title: lecture.title ?? '本节课', unitLabel })
+          return
+        }
+      }
+      if (cameFrom.stageId) {
+        // 项目：线上按 projectStages[stageId].completed（本项目全部步骤提交并通过）
+        const stage = progress.projectStages?.[cameFrom.stageId]
+        const key = `project:${cameFrom.stageId}`
+        if (stage?.completed === true && !celebrated.has(key)) {
+          setCelebration({ key, kind: 'project', title: unit.title ?? unitLabel, unitLabel })
+        }
         return
       }
-      // 测验完成：该单元已有成绩
-      const examKey = `exam:${unit.unitId}`
-      if (!celebrated.has(examKey) && progress.examScores?.[unit.unitId] !== undefined) {
-        setCelebration({ key: examKey, kind: 'exam', title: unit.title ?? unitLabel, unitLabel })
+      if (cameFrom.unitId === unit.unitId) {
+        const key = `exam:${unit.unitId}`
+        if (progress.examScores?.[unit.unitId] !== undefined && !celebrated.has(key)) {
+          setCelebration({ key, kind: 'exam', title: unit.title ?? unitLabel, unitLabel })
+        }
         return
       }
     }
-  }, [course, progress, celebration])
+  }, [course, progress, celebration, arrivedFrom])
 
   if (err) return <div className="p-12 text-center text-[#8a8a90]">课程不存在或无权访问<div className="mt-2"><button onClick={() => nav('/courses')} className="hk-pill">返回我的课程</button></div></div>
   if (!course) return <div className="mx-auto max-w-[1180px] px-8 grid gap-8" style={{ gridTemplateColumns: '300px 1fr' }}><div className="space-y-3"><div className="hk-skeleton rounded-2xl h-[220px]" /><div className="hk-skeleton h-6 rounded" /></div><div className="space-y-3"><div className="hk-skeleton h-8 rounded w-1/2" /><div className="hk-skeleton h-24 rounded" /><div className="hk-skeleton h-40 rounded-2xl" /></div></div>

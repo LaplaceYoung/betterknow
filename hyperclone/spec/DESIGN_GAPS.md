@@ -500,3 +500,8 @@
 - 完成态从已有数据推导（讲次：该讲所有 session 已掌握或练习已交卷；测验：`examScores[unitId]`），**「只弹一次」用 localStorage `cj-celebrated-sections`** —— 线上具体持久化位置没能从 bundle 确认，这是本地等价实现，已在文档标注为推断。
 - 自测时踩到一个自己写的 bug 并修掉：判定用的 key 是 `exam:unitId` / `lecture:lectureId`，而关闭时记录的是 `kind:title`，导致关掉后立刻又弹、刷新也弹；现已统一为同一个 key，实测关闭后写入 `["exam:unit1"]`、刷新不再弹。
 - 仍未做：项目分支（`kind:"project"` 需要「每一步都已提交并通过」的判定，本仓 projectStages 有 touched/completed，但「通过」标准未对齐）；任务详情弹窗（`task-detail-*`）；白板侧栏「大纲/资料」分栏；回放视图。
+
+**第五十七批（完成卡触发口径对齐 + 项目分支）**
+- 修正上一批的偏差：完成卡不再是「扫全站已完成项」，而是与线上一致 —— 只有**从那一节回来**（`fromSessionId` / `fromStageId` / `fromUnitId`）且该节现在已完成时才弹一次。配套把考试页与项目页的返回都带上来源参数。
+- 项目分支落地：判定用 `projectStages[stageId].completed`（服务端在阶段提交后置真）；测验分支用 `examScores[unitId]`；讲次分支用「该讲每个课时都学完（有练习则要求练习交卷，否则要求已掌握）」。
+- 实测：考试结果页返回 → 测验完成卡；项目阶段提交后从项目页返回 → `completed:true` 且弹项目完成卡；直接打开课程页不弹（与线上的「只在回来的那一节庆祝」一致）。

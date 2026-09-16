@@ -884,3 +884,18 @@ return (u && !p) ? { practicePath, unitLabel: '单元 {{number}}', sessionTitle:
 
 实测：种入 `examScores.unit1` 后课程页弹出「测验完成 / The Sociological Perspective 完成！/ 单元 1 的测验你已经考完了…/ 继续学习」，`SECTION`+`role=dialog`+`aria-modal`+两个 aria id、480px·22px、随机角色视频；点「继续学习」写入 `["exam:unit1"]`，刷新不再弹。
 
+### 完成卡的触发口径修正（第四十四批）
+
+上一版实现是「扫描所有已完成但没庆祝过的 section」，与线上不符。线上（CourseJourneyPage 原文）：
+
+```js
+if (m && l) Is({ sectionId: m.id, kind: m.type, title: m.title, unitLabel: '单元 N' })   // m = 当前选中的那一节
+useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])                        // 只有「刚回来的那一节已完成」才庆祝
+```
+
+也就是**必须是从那一节回来**（route state 的 `fromSessionId` / `fromStageId` / `fromUnitId`），且它现在完成了，才弹——不是浏览课程页时把所有完成项都庆祝一遍。三种 section 的完成口径：讲次＝该讲每个课时都学完（有练习就要求练习已交卷，否则要求已掌握）；项目＝`projectStages[stageId].completed`；测验＝`examScores[unitId]` 有值。本地记录仍用 `cj-celebrated-sections`（推断，线上持久化位置未确认）。
+
+配套：白板退出带 `fromSessionId`（沿用练习提醒那处），考试结果页关闭 / 考试返回条带 `fromUnitId`，项目页返回条带 `fromStageId`。
+
+实测：从考试结果页返回 → 「测验完成」；项目阶段提交后从项目页返回 → `projectStages[stageId].completed=true` 且弹「项目完成 / The Sociological Perspective 完成！/ 这个项目的每一步都已提交并通过。这是 单元 1 里最硬的一块。」；**直接打开课程页（无来源）不弹**。
+
