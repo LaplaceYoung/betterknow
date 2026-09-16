@@ -899,3 +899,18 @@ useEffect(() => { … if (!Xs[Ss.sectionId]) return; Es(rest) }, […])         
 
 实测：从考试结果页返回 → 「测验完成」；项目阶段提交后从项目页返回 → `projectStages[stageId].completed=true` 且弹「项目完成 / The Sociological Perspective 完成！/ 这个项目的每一步都已提交并通过。这是 单元 1 里最硬的一块。」；**直接打开课程页（无来源）不弹**。
 
+### 任务详情弹窗（第四十五批，proactive bundle + r160）
+
+线上 `task-detail-*`（149 条样式原文已并入 `index.css`）：`overlay > container(72vw / max 1100 / 85vh, radius 14) > content > left-col > scrollable`，
+内含 `header(title + meta)` / `section(描述)` / `section(子任务 + 进度)` / `bottom-actions`，坐标为绝对定位的圆形按钮（`.task-detail-bottom-action-btn`）。
+
+| 部件 | 线上 | 本仓 |
+|---|---|---|
+| 骨架 | `.task-detail-overlay` + `.task-detail-container` + `.task-detail-close`（24×24 叉）+ `.task-detail-content.single-column` | 同（实测 1067×642 / radius 14） |
+| meta | `.task-detail-meta > .task-detail-meta-item`（日历图标 + `taskDetail.start`「开始：」/ `taskDetail.due`「截止：」+ `.modal-date-field` + `.date-edit-btn`） | 同结构；**日期编辑用原生 `datetime-local`**（贴在 `modal-date-field` 里），线上是自绘 `.date-picker-*` 弹层 —— 这是本仓的简化，已记档 |
+| 描述 | `section-title` + `task-detail-description` | 同（`taskDetail.description`「描述」） |
+| 子任务 | `section-title` + `section-title-desc`（`子任务 - 提前为你准备好的学习材料，帮助你完成任务`）+ 每条 `.task-detail-subtask` + `.task-detail-progress-bar/fill/text`（`已完成 N%`）+ `.task-detail-action-container` | 同（进度文案 `已完成 {percent}%` / `已完成 100%！`） |
+| 底部动作 | `.task-detail-bottom-action-btn`（删除 / 确认 / 拒绝 / 评论，均带 tooltip） | 删除 + （待处理时）确认；**评论调整未实现** |
+
+保存走 `/calendar/update_tasks`（服务端 `Object.assign(task, body)`，可改 `scheduled_for` / `due_at`）。实测：打开某任务 → 改开始时间 → 服务端该任务从 `2026-09-18T11:00Z` 变为 `2026-09-25T02:05Z`（本地 09-25 10:05），输入框收起；期间一次「看起来没保存」是我的校验读错了记录（日历首个 chip 并不等于任务列表第一条），换成就地比对后确认写入正确。
+

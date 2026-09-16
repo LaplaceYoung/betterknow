@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router'
 
 interface Task {
   id: string; task_id?: string; title: string; course_uuid?: string; course_title?: string
-  scheduled_for: string; status: 'pending' | 'confirmed' | 'done' | string; type?: string; duration_min?: number
+  scheduled_for: string; due_at?: string; status: 'pending' | 'confirmed' | 'done' | string; type?: string; duration_min?: number
   description?: string
   progress?: number
   subtasks?: { subtask_id?: string; task_id?: string; title?: string; status?: string }[]
@@ -51,6 +51,21 @@ export default function LearningFeed() {
   const act = async (t: Task, action: 'confirm' | 'done') => { await apiPost('/calendar/approve_tasks', { task_id: t.id, action }); await load() }
   // 任务详情（线上：描述 + 子任务 + 进度 + 开始课堂/删除任务）
   const [openTask, setOpenTask] = useState<Task | null>(null)
+  const [editingDate, setEditingDate] = useState<'start' | 'due' | null>(null)
+  // datetime-local 需要本地时间的 YYYY-MM-DDTHH:mm
+  const toLocalInput = (iso: string) => {
+    const d = new Date(iso)
+    const pad = (n: number) => String(n).padStart(2, '0')
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`
+  }
+  const saveTaskDate = async (field: 'scheduled_for' | 'due_at', value: string) => {
+    if (!openTask || !value) { setEditingDate(null); return }
+    const iso = new Date(value).toISOString()
+    await apiPost('/calendar/update_tasks', { task_id: openTask.id, [field]: iso }).catch(() => undefined)
+    setEditingDate(null)
+    setOpenTask((t) => (t ? { ...t, [field]: iso } : t))
+    await load()
+  }
   const [confirmDelete, setConfirmDelete] = useState<Task | null>(null)
   const [quota, setQuota] = useState<{ file_generation?: { remaining: number; limit: number }; deep_learn_session?: { remaining: number; limit: number } } | null>(null)
   useEffect(() => {
@@ -178,28 +193,98 @@ export default function LearningFeed() {
       </section>
 
       {openTask && (
-        <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50" onClick={() => setOpenTask(null)}>
-          <div className="hk-card w-[520px] max-h-[70vh] overflow-auto p-5" role="dialog" onClick={(e) => e.stopPropagation()} data-testid="task-detail">
-            <div className="text-[12px] text-[#8a8a90]">{new Date(openTask.scheduled_for).toLocaleString('zh-CN', { month: 'long', day: 'numeric', weekday: 'short', hour: '2-digit', minute: '2-digit' })}</div>
-            <h3 className="text-[17px] font-semibold mt-1">{openTask.title}</h3>
-            {openTask.description && <p className="text-[13px] text-[#6b6b70] mt-2 leading-6">{openTask.description}</p>}
-            {(openTask.subtasks ?? []).length > 0 && (
-              <div className="mt-3">
-                <div className="text-[12px] text-[#8a8a90] mb-1.5">子任务 · 提前准备好的学习材料</div>
-                <ul className="space-y-1.5">
-                  {(openTask.subtasks ?? []).map((sub, index) => (
-                    <li key={sub.subtask_id ?? index} className="flex items-center gap-2 text-[13px]">
-                      <span className={`h-4 w-4 rounded-full flex items-center justify-center text-[10px] ${sub.status === 'done' ? 'bg-[#16a34a] text-white' : 'bg-[#f1f2f4]'}`}>{sub.status === 'done' ? '✓' : index + 1}</span>
-                      <span className="flex-1 truncate">{sub.title ?? '学习材料'}</span>
-                      {typeof openTask.progress === 'number' && <span className="text-[11px] text-[#8a8a90]">已完成 {openTask.progress}%</span>}
-                    </li>
-                  ))}
-                </ul>
+        <div className="task-detail-overlay" data-testid="task-detail" onClick={() => setOpenTask(null)}>
+          <div className="task-detail-container" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="task-detail-title">
+            <button type="button" className="task-detail-close" onClick={() => setOpenTask(null)} aria-label="关闭">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
+            <div className="task-detail-content single-column">
+              <div className="task-detail-left-col">
+                <div className="task-detail-left-scrollable-content">
+                  <div className="task-detail-header">
+                    <h2 className="task-detail-title" id="task-detail-title">{openTask.title}</h2>
+                    <div className="task-detail-meta">
+                      <div className="task-detail-meta-item">
+                        <svg className="task-detail-meta-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span className="task-detail-meta-label">开始：</span>
+                        {editingDate === 'start' ? (
+                          <span className="modal-date-field editing">
+                            <input type="datetime-local" autoFocus className="task-detail-date-input" data-testid="task-start-input"
+                              defaultValue={toLocalInput(openTask.scheduled_for)}
+                              onBlur={(e) => void saveTaskDate('scheduled_for', e.target.value)}
+                              onChange={(e) => { const value = e.target.value; window.setTimeout(() => void saveTaskDate('scheduled_for', value), 400) }}
+                              onKeyDown={(e) => { if (e.key === 'Enter') void saveTaskDate('scheduled_for', (e.target as HTMLInputElement).value) }} />
+                          </span>
+                        ) : (
+                          <div className="modal-date-field" onClick={() => setEditingDate('start')} data-testid="task-start-field">
+                            {new Date(openTask.scheduled_for).toLocaleString('zh-CN', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                            <button type="button" className="date-edit-btn modal-date-edit-btn" title="编辑开始日期" onClick={(e) => { e.stopPropagation(); setEditingDate('start') }}>✎</button>
+                          </div>
+                        )}
+                      </div>
+                      <div className="task-detail-meta-item">
+                        <svg className="task-detail-meta-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span className="task-detail-meta-label">截止：</span>
+                        {editingDate === 'due' ? (
+                          <span className="modal-date-field editing">
+                            <input type="datetime-local" autoFocus className="task-detail-date-input" data-testid="task-due-input"
+                              defaultValue={toLocalInput(openTask.due_at ?? openTask.scheduled_for)}
+                              onBlur={(e) => void saveTaskDate('due_at', e.target.value)}
+                              onChange={(e) => { const value = e.target.value; window.setTimeout(() => void saveTaskDate('due_at', value), 400) }}
+                              onKeyDown={(e) => { if (e.key === 'Enter') void saveTaskDate('due_at', (e.target as HTMLInputElement).value) }} />
+                          </span>
+                        ) : (
+                          <div className="modal-date-field" onClick={() => setEditingDate('due')} data-testid="task-due-field">
+                            {new Date(openTask.due_at ?? openTask.scheduled_for).toLocaleString('zh-CN', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                            <button type="button" className="date-edit-btn modal-date-edit-btn" title="编辑截止日期" onClick={(e) => { e.stopPropagation(); setEditingDate('due') }}>✎</button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  {openTask.description && (
+                    <div className="task-detail-section">
+                      <h3 className="task-detail-section-title">描述</h3>
+                      <p className="task-detail-description">{openTask.description}</p>
+                    </div>
+                  )}
+                  {(openTask.subtasks ?? []).length > 0 && (
+                    <div className="task-detail-section">
+                      <h3 className="task-detail-section-title">
+                        子任务 <span className="task-detail-section-title-desc">- 提前为你准备好的学习材料，帮助你完成任务</span>
+                      </h3>
+                      <div className="task-detail-subtasks">
+                        {(openTask.subtasks ?? []).map((sub, index) => (
+                          <div key={sub.subtask_id ?? index} className="task-detail-subtask">
+                            <span className={`task-detail-subtask-status ${sub.status === 'done' ? 'done' : ''}`}>{sub.status === 'done' ? '✓' : index + 1}</span>
+                            <span className="task-detail-subtask-title">{sub.title ?? '学习材料'}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="task-detail-subtask-footer">
+                        <div className="task-detail-progress-container">
+                          <div className="task-detail-progress-bar"><div className="task-detail-progress-fill" style={{ width: `${openTask.progress ?? 0}%` }} /></div>
+                          <span className="task-detail-progress-text">{openTask.progress === 100 ? `已完成 100%！` : `已完成 ${openTask.progress ?? 0}%`}</span>
+                        </div>
+                        <div className="task-detail-action-container">
+                          <button type="button" className="task-detail-action-btn" data-testid="start-class" onClick={() => void startClass(openTask)}>开始 →</button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="task-detail-bottom-actions">
+                  <button type="button" className="task-detail-bottom-action-btn" data-testid="delete-task" title="删除任务" onClick={() => setConfirmDelete(openTask)}>🗑</button>
+                  {openTask.status === 'pending' && (
+                    <button type="button" className="task-detail-bottom-action-btn confirm" data-testid="confirm-task" title="确认任务"
+                      onClick={() => { void act(openTask, 'confirm'); setOpenTask(null) }}>✓</button>
+                  )}
+                </div>
               </div>
-            )}
-            <div className="flex items-center justify-end gap-2 mt-5">
-              <button onClick={() => setConfirmDelete(openTask)} className="hk-pill h-9 px-4 text-[13px]" data-testid="delete-task">删除任务</button>
-              <button onClick={() => void startClass(openTask)} className="h-9 px-5 rounded-full bg-[#0a0a0a] text-white text-[13px]" data-testid="start-class">开始课堂</button>
             </div>
           </div>
         </div>

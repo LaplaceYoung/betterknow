@@ -505,3 +505,8 @@
 - 修正上一批的偏差：完成卡不再是「扫全站已完成项」，而是与线上一致 —— 只有**从那一节回来**（`fromSessionId` / `fromStageId` / `fromUnitId`）且该节现在已完成时才弹一次。配套把考试页与项目页的返回都带上来源参数。
 - 项目分支落地：判定用 `projectStages[stageId].completed`（服务端在阶段提交后置真）；测验分支用 `examScores[unitId]`；讲次分支用「该讲每个课时都学完（有练习则要求练习交卷，否则要求已掌握）」。
 - 实测：考试结果页返回 → 测验完成卡；项目阶段提交后从项目页返回 → `completed:true` 且弹项目完成卡；直接打开课程页不弹（与线上的「只在回来的那一节庆祝」一致）。
+
+**第五十八批（任务详情弹窗改造）**
+- 学习动态的任务详情从自绘 Tailwind 弹窗改为线上 `.task-detail-*` 结构（149 条样式原文并入 CSS）：overlay/container/close、header 与两行 meta（开始：/ 截止：）、描述、子任务（含「提前为你准备好的学习材料」说明与进度条）、底部圆形动作按钮；标题文案取自线上 zh。
+- 日期现在**可编辑**：点 `modal-date-field` 里的编辑按钮弹出输入（本仓用原生 `datetime-local`，线上是自绘 `.date-picker-*` 弹层——简化已记档），改完 400ms 去抖即存，走 `/calendar/update_tasks`。实测某任务从 `2026-09-18T11:00Z` 改到 `2026-09-25T02:05Z` 并落库。
+- 仍未做（线上有、本仓无）：评论调整（`taskDetail.commentToAdjust` + 评论面板）、生成文件卡（`task-detail-generated-file-*`）、相关截止项（`task-detail-related-due-*`）、拒绝任务、子任务级的文件生成动作；底部按钮目前用字形而非线上 SVG 图标。
