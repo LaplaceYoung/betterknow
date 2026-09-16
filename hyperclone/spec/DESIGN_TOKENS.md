@@ -52,3 +52,37 @@
 2. 课程集市与课程预览页的卡片网格、封面比例、筛选条。
 3. 历史页与会话列表项（时间分组、星标、重命名交互）的样式。
 4. 白板内部元素（讲稿面板、要点面板 `-live` 标记、工具条按钮尺寸）。
+
+## 对话响应页（`response-*`，r53）
+
+| 部件 | 线上 | 本仓 |
+|---|---|---|
+| 容器 | `.chat-response-container` padding 20px、bg #fafafa | 同底色与内边距 |
+| 回答列 | `.response-renderer` **774px** | `ChatResponse` 正文列 `max-w-[774px]` |
+| 底部动作 | `.response-action-buttons` gap 4px；`.response-add-button` **33px 圆**、border 1px #e5e5e5；`.response-tools-button` 白 pill radius 999、border #e5e5e5、padding 0 10px 0 9px、gap 6、文字 14px #444 | 同（上传圆钮 33px + 工具 pill） |
+| 语音指示 | `.response-voice-bars` gap 2px、`.response-voice-bar` 2px 宽 radius 2 #555 | 沿用现有朗读指示 |
+| 侧栏 | `.sidebar-content-wrapper`：**240px 白卡、radius 16、border 1px rgba(0,0,0,.06)**；`.sidebar-resume-card` radius 10、border #e8ecf3、padding 10px 11px；`.sidebar-resume-kind` 10px #4C6696 / bg #EEF2F8 / radius 999；`.sidebar-resume-title` 12.5/16.875 w600 #1F2937；`.sidebar-resume-course` 11/14.3 #8A8C93；`.conversation-item` radius 6、padding 8px 12px、标题 13/16.9 w500 #333 | 全部落到 `Sidebar.tsx` + `.conversation-item` |
+
+## 课程集市（`mktp-*` / `course-ticket-*`，r54）
+
+| 部件 | 线上 | 本仓 |
+|---|---|---|
+| 特色卡 | `.mktp-featured-card` radius **18**、bg **#EDEBE8**；标题 24/30 w700 白；描述 13.5/19.575 rgba(255,255,255,.88) | 同 |
+| 科目 tabs | `.mktp-tab` 14px **w700** #1a1a1a、padding `7px 2px 14px` | 同 |
+| 课程票根 | `.course-ticket` 272px；作者名 12.6/15.12 w600 #0F1F33；标题 **17.3/22.144 w600 #0F1F33**；描述 12.75/17.2125 **w500 #6F7485**；信息标签 10.8 w500 #0F1F33 / bg #F3F3F2 / radius 999 / padding 3.5px 11px；人数数字 12.75 w700 **#4C6696**；评分 12.75 w700 #1F2A3A；科目小标 10px w600 #9AA1B0；科目标签 12 w600 #4C6696 / bg #EEF2F8 / radius 6 / padding 3px 8px；**报名圆钮 32px bg #4C6696**；已报名 10.5 w700 白 / bg #2F7A5C / radius 8 | `CourseCard.tsx` 全量对齐 |
+
+## 白板内部（`whiteboard-*`，r54）
+
+| 部件 | 线上 | 本仓 |
+|---|---|---|
+| 侧栏 | `.whiteboard-sidebar-inner` **260px**、padding `12px 0 0`；`.whiteboard-sidebar-content` padding `0 16px`；bg #fbfbfb | 同 |
+| 大纲卡 | `.whiteboard-outline-panel` gap 8；`.whiteboard-outline-section-title` **10/15 w700 #A3A3A3**；`.whiteboard-outline-readonly-card` bg rgba(255,255,255,.78)、radius 10、border 1px #E5E5E5、padding 9px 10px；条目标题 12/18 w600 #262626；meta 11/14.3 #737373；正文 12/17.4 #525252 | 要点面板同款 |
+| 缩放/翻页 | `.whiteboard-zoom-pill` / `.whiteboard-page-nav`：白底 radius 20、按钮 38px、读数 13.5 w500 #171717 | 同读数样式 |
+| 提示 toast | `.whiteboard-session-prompt-toast-*`：grid 130px/248px、文案 15/24 #374151、按钮 13.5 w500 白 / bg #111827 / radius 999 / padding 9px 22px | 沿用现有 toast |
+
+## 尚未对照
+
+1. 课程集市**预览页**（`/marketplace/<id>/preview`）与加入课程弹窗。
+2. 设置弹窗各 tab（账户/订阅/偏好/记忆）的控件尺寸。
+3. 历史页的**时间分组标题**与星标/重命名交互样式。
+4. 白板画布本身（板面排版、讲稿气泡、插图画框）与 zen 模式下的留白。

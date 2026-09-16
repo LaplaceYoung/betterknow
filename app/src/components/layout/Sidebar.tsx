@@ -33,7 +33,7 @@ export function Sidebar() {
   return (
     <aside
       className="flex flex-col shrink-0 hk-scroll"
-      style={{ width: 'var(--sidebar-width)', margin: 'var(--sidebar-margin)', marginRight: 0, borderRadius: 'var(--sidebar-radius)', background: 'transparent', height: 'calc(100vh - 24px)', overflowY: 'auto' }}
+      style={{ width: 'var(--sidebar-width)', margin: 'var(--sidebar-margin)', marginRight: 0, borderRadius: 'var(--sidebar-radius)', background: 'var(--sidebar-bg)', border: '1px solid var(--sidebar-border)', height: 'calc(100vh - 24px)', overflowY: 'auto' }}
     >
       <div className="flex items-center justify-between px-4" style={{ height: 56 }}>
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => nav('/')}>
@@ -76,17 +76,19 @@ export function Sidebar() {
       <SettingsDialog open={settings} onOpenChange={setSettings} initialTab={settingsTab} />
       <WhatsNewDialog open={whatsNew} onOpenChange={setWhatsNew} />
 
-      <section className="px-4 mt-5">
-        <h3 className="text-[12px] text-[#6b6b70] mb-2">继续学习</h3>
+      {/* 线上 .sidebar-resume-section（padding 0 12px 0 24px）+ .sidebar-resume-card */}
+      <section className="mt-5" style={{ padding: '0 12px 0 24px' }}>
+        <h3 className="hk-section-title mb-2">继续学习</h3>
         <button
           onClick={() => recentCourse && nav(`/course/${recentCourse.uuid}`)}
-          className="w-full text-left rounded-xl border border-[#e4e4e7] bg-white px-3 py-2.5 hover:shadow-sm transition-shadow"
+          className="w-full text-left flex flex-col hover:shadow-sm transition-shadow"
+          style={{ borderRadius: 10, border: '1px solid #e8ecf3', background: '#fff', padding: '10px 11px', gap: 5 }}
         >
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#f1f2f4] text-[#6b6b70]">讲座</span>
-            <span className="text-[13px] font-semibold truncate">{recentCourse ? (recentCourse.next_lecture ?? recentCourse.title) : '开始第一门课'}</span>
+          <div className="flex items-center" style={{ gap: 7 }}>
+            <span style={{ fontSize: 10, lineHeight: '14px', color: '#4c6696', background: '#eef2f8', border: '1px solid rgba(76,102,150,.16)', borderRadius: 999, padding: '1px 7px' }}>讲座</span>
+            <span className="truncate" style={{ fontSize: 12.5, lineHeight: '16.875px', fontWeight: 600, color: '#1f2937' }}>{recentCourse ? (recentCourse.next_lecture ?? recentCourse.title) : '开始第一门课'}</span>
           </div>
-          <div className="text-[12px] text-[#6b6b70] mt-1 truncate">{recentCourse?.title ?? '从课程集市挑一门'}</div>
+          <div className="truncate" style={{ fontSize: 11, lineHeight: '14.3px', color: '#8a8c93' }}>{recentCourse?.title ?? '从课程集市挑一门'}</div>
         </button>
       </section>
 
@@ -104,7 +106,7 @@ export function Sidebar() {
             )}
             {recent.map((c) => (
               <li key={c.conversation_id}>
-                <button onClick={() => nav(`/response/${c.conversation_id}`)} className="w-full flex items-center justify-between text-left text-[13px] text-[#3d3d3f] hover:text-black py-1.5 rounded-md">
+                <button onClick={() => nav(`/response/${c.conversation_id}`)} className="w-full flex items-center justify-between text-left conversation-item text-[#3d3d3f] hover:text-black py-1.5 rounded-md">
                   <span className="truncate">{c.title}</span>
                   {c.board_session_types?.length ? <HkBoardSessionIcon size={14} className="text-[#8a8a90] shrink-0" /> : null}
                 </button>

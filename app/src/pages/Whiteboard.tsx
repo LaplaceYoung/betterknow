@@ -287,11 +287,12 @@ export default function Whiteboard() {
           </div>
         </header>
         {keyPoints.length > 0 && (
-          <div className="mx-4 mb-3 hk-card px-3.5 py-2.5" data-testid="session-key-points">
+          <div className="mx-4 mb-3" style={{ background: 'rgba(255,255,255,.78)', border: '1px solid #e5e5e5', borderRadius: 10, padding: '9px 10px' }} data-testid="session-key-points">
+            <p style={{ fontSize: 10, lineHeight: '15px', fontWeight: 700, color: '#a3a3a3', marginBottom: 6 }}>学习节大纲</p>
             <div className="text-[11px] text-[#8a8a90] mb-1.5">本节要点 · {keyPoints.length} 条</div>
             <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
               {keyPoints.map((point) => (
-                <li key={point} className="inline-flex items-start gap-1.5 text-[12px] text-[#3d3d3f] max-w-[420px]">
+                <li key={point} className="inline-flex items-start gap-1.5 max-w-[420px]" style={{ fontSize: 12, lineHeight: '18px', fontWeight: 600, color: '#262626' }}>
                   <span className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-[#3b5bdb]" />{point}
                 </li>
               ))}
@@ -363,7 +364,8 @@ export default function Whiteboard() {
         {netCheck && <div className="px-4 py-1.5 text-[12px] text-[#3b5bdb]" data-testid="net-check-result">{netCheck}</div>}
       </section>
 
-      {!zen && <aside className="w-[340px] shrink-0 border-l bg-white flex flex-col">
+      {/* 线上 .whiteboard-sidebar-inner 260px（padding 12px 0 0）+ .whiteboard-sidebar-content padding 0 16px */}
+      {!zen && <aside className="shrink-0 flex flex-col" style={{ width: 260, background: '#fbfbfb', padding: '12px 16px 0' }}>
         <div role="tablist" className="flex text-[13px] border-b">
           <button role="tab" aria-selected className="flex-1 h-10 font-medium relative flex items-center justify-center gap-1.5">
             讲稿

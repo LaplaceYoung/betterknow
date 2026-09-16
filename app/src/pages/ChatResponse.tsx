@@ -577,7 +577,7 @@ export default function ChatResponse() {
   const grouped = useMemo(() => items, [items])
 
   return (
-    <div className="mx-auto max-w-[860px] px-6 pb-40 pt-2">
+    <div className="mx-auto max-w-[774px] px-6 pb-40 pt-2">
       {title && <div className="text-[12px] text-[#8a8a90] mb-4">{title}</div>}
       <div className="space-y-4">
         {grouped.map((it, i) => {
@@ -861,7 +861,7 @@ export default function ChatResponse() {
       {/* 底部输入条 */}
       {!isGen && (
         <div className="fixed bottom-0 inset-x-0 pointer-events-none">
-          <div className="max-w-[860px] mx-auto px-6 pb-6 pointer-events-auto">
+          <div className="max-w-[774px] mx-auto px-6 pb-6 pointer-events-auto">
             <div className="hk-composer p-3.5">
               <input
                 type="file"
@@ -900,8 +900,8 @@ export default function ChatResponse() {
                 <button type="button" onClick={() => followupFileRef.current?.click()} className="hk-icon-btn h-7 w-7" aria-label="上传附件" title="上传图片或文件"><Plus size={14} /></button>
                 <span className="hk-pill h-7 text-[12px]"><Languages size={11} /> {language === 'zh' ? '中文' : language === 'en' ? 'English' : '한국어'}</span>
                 <div className="ml-auto flex items-center gap-2">
-                  <button className="hk-pill h-7 text-[12px]" onClick={async () => { const token = localStorage.getItem('access_token') ?? ''; const r = await fetch('/api/v1/share_record/share_records', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` }, body: JSON.stringify({ type: 'conversation', shared_object_id: convId, shared_with: { share_to_everyone: true } }) }).then((x) => x.json() as Promise<{ shared_url?: string }>).catch((): { shared_url?: string } => ({})); nav(r.shared_url ?? `/share/c/${convId}`) }}><Share2 size={11} /> 分享对话</button>
-                  <button className="hk-pill h-7 text-[12px]"><LifeBuoy size={11} /> 遇到问题？</button>
+                  <button className="inline-flex items-center" style={{ height: 33, borderRadius: 999, border: '1px solid #e5e5e5', background: '#fff', padding: '0 10px 0 9px', gap: 6, fontSize: 14, color: '#444' }} onClick={async () => { const token = localStorage.getItem('access_token') ?? ''; const r = await fetch('/api/v1/share_record/share_records', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` }, body: JSON.stringify({ type: 'conversation', shared_object_id: convId, shared_with: { share_to_everyone: true } }) }).then((x) => x.json() as Promise<{ shared_url?: string }>).catch((): { shared_url?: string } => ({})); nav(r.shared_url ?? `/share/c/${convId}`) }}><Share2 size={11} /> 分享对话</button>
+                  <button className="inline-flex items-center" style={{ height: 33, borderRadius: 999, border: '1px solid #e5e5e5', background: '#fff', padding: '0 10px 0 9px', gap: 6, fontSize: 14, color: '#444' }}><LifeBuoy size={11} /> 遇到问题？</button>
                   <button onClick={() => sendFollowup()} disabled={streaming || (!input.trim() && followupFiles.length === 0)} className="h-8 w-8 rounded-full bg-[#0a0a0a] text-white flex items-center justify-center disabled:opacity-40" aria-label="发送"><ArrowUp size={15} /></button>
                 </div>
               </div>

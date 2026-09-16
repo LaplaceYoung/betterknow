@@ -96,13 +96,13 @@ export default function Marketplace() {
             const span = big ? 'col-span-6 row-span-2' : i <= 2 ? 'col-span-3' : 'col-span-2'
             return (
               <button key={c.marketplaceId} onClick={() => nav(`/marketplace/${c.marketplaceId}/preview`)}
-                className={`relative overflow-hidden rounded-2xl text-left group hover:-translate-y-0.5 transition-transform ${span}`}
-                style={{ background: TINTS[i % TINTS.length] }}>
+                className={`relative overflow-hidden text-left group hover:-translate-y-0.5 transition-transform ${span}`}
+                style={{ background: '#edebe8', borderRadius: 18 }}>
                 <img src={c.coverImageUrl} alt="" className="absolute inset-0 w-full h-full object-contain p-6 mix-blend-multiply opacity-90" loading="lazy" />
                 <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/60 to-transparent text-white">
                   <div className="flex items-center gap-1.5 text-[10px] mb-1"><span className="px-1.5 py-0.5 rounded bg-white/20 backdrop-blur">{levelOf(c)}</span><span className="px-1.5 py-0.5 rounded bg-white/20 backdrop-blur inline-flex items-center gap-1"><Clock size={9} />{c.sessionCount} 课时</span></div>
-                  <div className={`hk-title-serif ${big ? 'text-[20px]' : 'text-[13px]'} leading-tight`}>{c.courseTitle}</div>
-                  {big && <p className="text-[12px] text-white/80 line-clamp-2 mt-1">{c.courseDescription}</p>}
+                  <div className={big ? '' : 'text-[13px] leading-tight'} style={big ? { fontSize: 24, lineHeight: '30px', fontWeight: 700, color: '#fff' } : { color: '#fff' }}>{c.courseTitle}</div>
+                  {big && <p className="line-clamp-2 mt-1" style={{ fontSize: 13.5, lineHeight: '19.575px', color: 'rgba(255,255,255,.88)' }}>{c.courseDescription}</p>}
                 </div>
               </button>
             )
@@ -114,9 +114,9 @@ export default function Marketplace() {
       <div role="tablist" className="flex items-center gap-1 mt-8 border-b overflow-x-auto hk-scroll">
         {['all', ...subjects].map((s) => (
           <button key={s} role="tab" aria-selected={subject === s} onClick={() => setSubject(s)}
-            className="relative px-3 h-10 text-[13px] whitespace-nowrap text-[#6b6b70] data-[on=true]:text-black data-[on=true]:font-medium" data-on={subject === s}>
+            className="relative whitespace-nowrap text-[#6b6b70] data-[on=true]:text-[#1a1a1a] data-[on=true]:font-bold" style={{ fontSize: 14, lineHeight: '21px', fontWeight: 700, padding: '7px 2px 14px' }} data-on={subject === s}>
             {s === 'all' ? '全部' : SUBJECT_LABEL[s]}
-            {subject === s && <span className="absolute left-3 right-3 -bottom-px h-0.5 bg-black rounded-full" />}
+            {subject === s && <span className="absolute left-1 right-1 -bottom-px h-[2px] bg-black rounded-full" />}
           </button>
         ))}
       </div>

@@ -15,33 +15,42 @@ const TINTS = ['#eef0e6', '#f5f1de', '#e9ecf5', '#e7efe9', '#f3e8e8', '#e8eef4']
 export function levelOf(c: MarketplaceCourse): string { return LEVEL_LABEL[c.level ?? ''] ?? (c.sessionCount <= 45 ? '入门' : c.sessionCount <= 70 ? '进阶' : '高阶') }
 export function ratingOf(c: MarketplaceCourse): string { return (c.rating ?? 4.5).toFixed(1) }
 
+// [S24] 课程票根：数值对齐线上 .course-ticket（标题 17.3/22.144 w600 #0F1F33、描述 12.75 w500 #6F7485、
+// 信息标签 10.8 w500 bg#F3F3F2 radius999 padding 3.5px 11px、科目标签 12 w600 #4C6696 bg#EEF2F8 radius6）
 export function CourseCard({ c, compact = false }: { c: MarketplaceCourse; compact?: boolean }) {
   const nav = useNavigate()
   const tint = TINTS[c.ticketVariant % TINTS.length]
   const go = () => nav(c.enrolled && c.enrolledCourseUuid ? `/course/${c.enrolledCourseUuid}` : `/marketplace/${c.marketplaceId}/preview`)
   return (
-    <button onClick={go} className="hk-card text-left overflow-hidden flex flex-col group hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,.08)] transition-all" aria-label={c.courseTitle}>
+    <button onClick={go} className="hk-card text-left overflow-hidden flex flex-col group hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,.06)] transition-all">
       <div className="relative" style={{ background: tint, aspectRatio: compact ? '16 / 9' : '4 / 3' }}>
         <img src={c.coverImageUrl} alt="" className="absolute inset-0 w-full h-full object-contain p-4 mix-blend-multiply" loading="lazy" />
-        {c.enrolled && <span className="absolute left-3 top-3 text-[11px] px-2 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] font-medium">已报名</span>}
+        {c.enrolled && <span className="absolute left-3 top-3" style={{ fontSize: 10.5, fontWeight: 700, color: '#fff', background: '#2f7a5c', borderRadius: 8, padding: '4px 9px' }}>已报名</span>}
       </div>
-      <div className="p-4 flex flex-col gap-2 flex-1">
-        <div className="flex items-center gap-1.5 text-[12px] text-[#6b6b70]">
-          <span className="inline-block h-4 w-4 rounded-full bg-[#0a0a0a]" />
-          <span>betterknow Learning Lab</span>
-          <BadgeCheck size={13} className="text-[#2563eb]" />
+      <div className="flex flex-col flex-1" style={{ padding: 14, gap: 8 }}>
+        <div className="flex items-center" style={{ gap: 6 }}>
+          <span className="inline-block" style={{ width: 18, height: 18, borderRadius: 4, background: '#0f1f33' }} />
+          <span style={{ fontSize: 12.6, lineHeight: '15.12px', fontWeight: 600, color: '#0f1f33' }}>betterknow Learning Lab</span>
+          <BadgeCheck size={13} style={{ color: '#4c6696' }} />
         </div>
-        <h3 className="hk-title-serif text-[17px] leading-snug">{c.courseTitle}</h3>
-        {!compact && <p className="text-[12px] text-[#6b6b70] line-clamp-2 leading-5">{c.courseDescription}</p>}
-        <div className="flex items-center gap-1.5 text-[11px] text-[#3d3d3f] mt-auto pt-1 whitespace-nowrap">
-          <span className="px-1.5 py-0.5 rounded-md bg-[#f1f2f4]">{levelOf(c)}</span>
-          <span className="px-1.5 py-0.5 rounded-md bg-[#f1f2f4] inline-flex items-center gap-1"><Clock size={11} />{c.sessionCount} 课时</span>
-          <span className="inline-flex items-center gap-1 text-[#6b6b70] truncate"><Users size={11} />{c.joinCount.toLocaleString()} 人已加入</span>
-          <span className="ml-auto inline-flex items-center gap-1"><Star size={12} className="fill-[#f59e0b] text-[#f59e0b]" />{ratingOf(c)}</span>
+        <h3 className="line-clamp-2" style={{ fontSize: 17.3, lineHeight: '22.144px', fontWeight: 600, color: '#0f1f33' }}>{c.courseTitle}</h3>
+        {!compact && <p className="line-clamp-2" style={{ fontSize: 12.75, lineHeight: '17.2125px', fontWeight: 500, color: '#6f7485' }}>{c.courseDescription}</p>}
+        <div className="flex items-center flex-wrap" style={{ gap: 8, marginTop: 'auto', paddingTop: 4 }}>
+          <span style={{ fontSize: 10.8, lineHeight: '12.96px', fontWeight: 500, color: '#0f1f33', background: '#f3f3f2', borderRadius: 999, padding: '3.5px 11px' }}>{levelOf(c)}</span>
+          <span className="inline-flex items-center" style={{ gap: 4, fontSize: 12.75, fontWeight: 500, color: '#878787' }}><Clock size={12} />{c.sessionCount} 课时</span>
+          <span className="inline-flex items-center" style={{ gap: 4, fontSize: 12.75, fontWeight: 500, color: '#878787' }}>
+            <Users size={12} /><b style={{ fontWeight: 700, color: '#4c6696' }}>{c.joinCount.toLocaleString()}</b> 人已加入
+          </span>
+          <span className="inline-flex items-center ml-auto" style={{ gap: 4 }}><Star size={13} style={{ color: '#f59e0b', fill: '#f59e0b' }} /><b style={{ fontSize: 12.75, fontWeight: 700, color: '#1f2a3a' }}>{ratingOf(c)}</b></span>
         </div>
         <div className="flex items-center justify-between pt-2 border-t mt-1">
-          <div className="text-[11px] text-[#8a8a90]">科目 <span className="ml-1 px-1.5 py-0.5 rounded-md bg-[#eef2ff] text-[#3b5bdb] text-[11px]">{SUBJECT_LABEL[c.subject] ?? c.subject}</span></div>
-          <span className="h-7 w-7 rounded-full border flex items-center justify-center group-hover:bg-[#0a0a0a] group-hover:text-white group-hover:border-[#0a0a0a] transition-colors"><ArrowRight size={14} /></span>
+          <span className="inline-flex flex-col" style={{ gap: 2 }}>
+            <span style={{ fontSize: 10, lineHeight: '10px', fontWeight: 600, color: '#9aa1b0' }}>科目</span>
+            <span style={{ fontSize: 12, lineHeight: '15px', fontWeight: 600, color: '#4c6696', background: '#eef2f8', border: '0.6px solid #e0e6ef', borderRadius: 6, padding: '3px 8px' }}>{SUBJECT_LABEL[c.subject] ?? '通识'}</span>
+          </span>
+          <span className="flex items-center justify-center" style={{ width: 32, height: 32, borderRadius: '50%', background: '#4c6696', color: '#fff' }}>
+            <ArrowRight size={13} />
+          </span>
         </div>
       </div>
     </button>

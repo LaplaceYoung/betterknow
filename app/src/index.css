@@ -47,7 +47,9 @@
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
 
-  --sidebar-width: 264px; /* 线上实测：.sidebar 264px */
+  --sidebar-width: 240px; /* 线上实测：.sidebar-content-wrapper 240px 白卡 */
+  --sidebar-bg: #ffffff;
+  --sidebar-border: rgba(0, 0, 0, .06);
   --sidebar-margin: 12px;
   --sidebar-radius: 16px;
   --sidebar-header-pad: 16px;
@@ -149,6 +151,8 @@
 .hk-chip:hover { background: var(--panel); }
 .hk-badge-new { font-size: 10px; padding: 1px 6px; border-radius: 6px; background: #eef2ff; color: #3b5bdb; font-weight: 600; }
 .hk-badge-up { font-size: 10px; padding: 1px 6px; border-radius: 6px; background: #ecfdf5; color: #059669; font-weight: 600; }
+.conversation-item { border-radius: 6px; padding: 8px 12px; gap: 6px; font-size: 13px; line-height: 16.9px; font-weight: 500; color: #333; }
+.conversation-item:hover { background: rgba(0,0,0,.03); }
 .hk-rail-item { display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 12px; border-radius: 8px; color: #3d3d3f; font-size: 14px; }
 .hk-rail-item:hover { background: rgba(0,0,0,.04); }
 .hk-rail-item[data-active="true"] { background: #e8f0f8; color: var(--text); font-weight: 500; } /* 线上激活底色 */
